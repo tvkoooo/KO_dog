@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:fcff8c13bbcbe97bb1f25d66192c06de:7c74d42cc464a3f025369632fb4d5b0e:a59c975118ee373160fe569481731ab6$ -->
+<Imageset Name="imageset_battlefield" Imagefile="imageset_battlefield.png" NativeHorzRes="512" NativeVertRes="512" AutoScaled="false">
+    <Image Name="anchor" XPos="1" YPos="1" Width="256" Height="256"/>
+</Imageset>

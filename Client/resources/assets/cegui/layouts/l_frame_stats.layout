@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_frame_stats" >
+        <Property name="Area" value="{{0,2},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Label" name="Label_key_0" >
+            <Property name="Area" value="{{0.00469239,0},{0.00740741,0},{0.0875912,0},{0.037037,0}}" />
+            <Property name="Text" value="average fps:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_val_0" >
+            <Property name="Area" value="{{0.0917623,0},{0.00740741,0},{0.180396,0},{0.037037,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_key_1" >
+            <Property name="Area" value="{{0.00469239,0},{0.037963,0},{0.0875912,0},{0.0675926,0}}" />
+            <Property name="Text" value="best fps:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_val_2" >
+            <Property name="Area" value="{{0.0917623,0},{0.0685185,0},{0.180396,0},{0.0981482,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_key_2" >
+            <Property name="Area" value="{{0.00469239,0},{0.0685185,0},{0.0875912,0},{0.0981482,0}}" />
+            <Property name="Text" value="worst fps:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_val_3" >
+            <Property name="Area" value="{{0.0917623,0},{0.0990741,0},{0.180396,0},{0.128704,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_key_3" >
+            <Property name="Area" value="{{0.00469239,0},{0.0990741,0},{0.0875912,0},{0.128704,0}}" />
+            <Property name="Text" value="triangles:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_val_4" >
+            <Property name="Area" value="{{0.0917623,0},{0.12963,0},{0.180396,0},{0.159259,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_key_4" >
+            <Property name="Area" value="{{0.00469239,0},{0.12963,0},{0.0875912,0},{0.159259,0}}" />
+            <Property name="Text" value="batches:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_val_1" >
+            <Property name="Area" value="{{0.0917623,0},{0.037963,0},{0.180396,0},{0.0675926,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_ctrl" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Button" name="Button_left" >
+            <Property name="Area" value="{{0.0270833,2},{0.8875,18},{0.15625,17},{0.93875,29}}" />
+            <Property name="Text" value="left" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_down" >
+            <Property name="Area" value="{{0.0270833,93},{0.8875,17},{0.15625,107},{0.93875,30}}" />
+            <Property name="Text" value="down" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_right" >
+            <Property name="Area" value="{{0.0270833,188},{0.8875,18},{0.15625,203},{0.93875,31}}" />
+            <Property name="Text" value="right" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_up" >
+            <Property name="Area" value="{{0.0270833,89},{0.8875,-60},{0.15625,106},{0.93875,-48}}" />
+            <Property name="Text" value="up" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_attack" >
+            <Property name="Area" value="{{0.0270833,307},{0.8875,-58},{0.15625,349},{0.93875,-43}}" />
+            <Property name="Text" value="attack" />
+            <Property name="AutoRenderingSurface" value="true" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_defense" >
+            <Property name="Area" value="{{0.0270833,308},{0.8875,18},{0.15625,351},{0.93875,29}}" />
+            <Property name="Text" value="defense" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_exit" >
+            <Property name="Area" value="{{0,341},{0,12},{0,437},{0,44}}" />
+            <Property name="Text" value="exit" />
+        </Window>
+    </Window>
+</GUILayout>

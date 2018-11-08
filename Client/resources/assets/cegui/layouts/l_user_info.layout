@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_user_info" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/GroupBox" name="GroupBox" >
+            <Property name="Area" value="{{0.104167,0},{0,0},{0.895834,0},{0.625,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/StaticImage" name="StaticImage" >
+                <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/Button" name="Button_hide" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{0.105932,0}}" />
+                    <Property name="Text" value="=====^^^=====" />
+                </Window>
+                <Window type="TaharezLook/Label" name="Label_uid" >
+                    <Property name="Area" value="{{0.0549451,0},{0.504237,0},{0.945055,0},{0.610169,0}}" />
+                    <Property name="Text" value="1000000" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+                <Window type="TaharezLook/Label" name="Label_username" >
+                    <Property name="Area" value="{{0.0549451,0},{0.627119,0},{0.945055,0},{0.733051,0}}" />
+                    <Property name="Text" value="username" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+                <Window type="TaharezLook/StaticImage" name="StaticImage_icon" >
+                    <Property name="Area" value="{{0.326923,0},{0.224576,0},{0.678571,0},{0.495763,0}}" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+                <Window type="TaharezLook/Button" name="Button_rmv" >
+                    <Property name="Area" value="{{0.0549451,0},{0.868644,0},{0.945055,0},{0.974576,0}}" />
+                    <Property name="Text" value="rmv" />
+                </Window>
+                <Window type="TaharezLook/Button" name="Button_add" >
+                    <Property name="Area" value="{{0.0549451,0},{0.747881,0},{0.945055,0},{0.853813,0}}" />
+                    <Property name="Text" value="add" />
+                </Window>
+                <Window type="TaharezLook/Label" name="Label_title" >
+                    <Property name="Area" value="{{0.0549451,0},{0.112288,0},{0.945055,0},{0.21822,0}}" />
+                    <Property name="Text" value="title" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

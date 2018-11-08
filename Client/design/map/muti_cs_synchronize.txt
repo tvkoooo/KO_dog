@@ -1,0 +1,24 @@
+message simulation_command
+{
+	required uint32 mid	                                        = 1[default = 0 ];// 包号
+	required uint64 timecode                                    = 2[default = 0 ];// 事件点
+	required bytes buffer	                                    = 3              ;// 命令数据
+}
+message simulation_variable
+{
+	required uint64 uid	                                        = 1[default = 0 ];// 用户号
+	repeated simulation_command commands                        = 2              ;// 命令集
+}
+message simulation_frame
+{
+	required uint64 frame_number	                            = 1[default = 0 ];// 帧序号
+	repeated simulation_variable variables                      = 2              ;// 变量集
+}
+
+用户连接
+用户入场
+令牌校验
+用户准备
+如果所有用户都准备完成,通知用户可以入场,将通知初始种子,
+定时推送打了时间戳的操作集
+接收用户操作集,将操作加入下次操作集

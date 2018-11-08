@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_page_login" >
+        <Property name="Area" value="{{0,0},{0.0625,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Editbox" name="Editbox_username" >
+            <Property name="Area" value="{{0.189584,0},{0.233333,0},{0.814584,0},{0.3,0}}" />
+            <Property name="Text" value="name" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_password" >
+            <Property name="Area" value="{{0.189584,0},{0.389333,0},{0.814584,0},{0.456,0}}" />
+            <Property name="Text" value="pwd" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_uid" >
+            <Property name="Area" value="{{0.1875,0},{0.0893333,0},{0.8125,0},{0.156,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_enter" >
+            <Property name="Area" value="{{0.189584,0},{0.533334,0},{0.814584,0},{0.6,0}}" />
+            <Property name="Text" value="enter" />
+        </Window>
+    </Window>
+</GUILayout>

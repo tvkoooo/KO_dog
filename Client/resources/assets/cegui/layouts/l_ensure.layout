@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_ensure" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/FrameWindow" name="FrameWindow" >
+            <Property name="Area" value="{{0.0875,-4},{0.35375,-85},{0.916667,-4},{0.60875,112}}" />
+            <Property name="Text" value="测试中文(使用默认字库)abc混编" />
+            <Property name="CloseButtonEnabled" value="false" />
+            <Window type="TaharezLook/Button" name="Button_exit" >
+                <Property name="Area" value="{{0.607409,0},{0.53523,56},{0.917576,0},{0.826116,0}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="exit" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_login" >
+                <Property name="Area" value="{{0.0749569,0},{0.541047,52},{0.385123,0},{0.831933,0}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="login" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label_table" >
+                <Property name="Area" value="{{0.064618,0},{0.0698125,-9},{0.943423,0},{0.360698,-68}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="Welcome SB Club" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label_desc_username" >
+                <Property name="Area" value="{{0.064618,-2},{0.0698125,49},{1.03647,-206},{0.360698,-32}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="user name" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label_desc_password" >
+                <Property name="Area" value="{{0.064618,-4},{0.0698125,122},{1.04164,-208},{0.360698,41}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="password" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="Editbox_username" >
+                <Property name="Area" value="{{0.0516944,0},{0.283104,0},{0.790925,0},{0.369383,0}}" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="Editbox_password" >
+                <Property name="Area" value="{{0.0516944,0},{0.512283,0},{0.504021,0},{0.598562,0}}" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_apply" >
+                <Property name="Area" value="{{0.60741,0},{0.372079,52},{0.917575,0},{0.606344,0}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="Apply" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,5 @@
+蓝叠虚拟机调试android
+
+cmd
+cd E:\android\android-sdk-windows\platform-tools
+adb connect 127.0.0.1:5555

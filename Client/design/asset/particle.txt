@@ -1,0 +1,44 @@
+ParticleUniverse
+
+png的格式支持,和默认导出格式
+```
+gles2       png PF_A8B8G8R8
+photoshop   png PF_A8R8G8B8
+
+texturepack png PF_A8R8G8B8 BGRA8888
+texturepack png PF_A8R8G8B8 RGBA8888
+
+windows     png PF_A8R8G8B8
+```
+
+
+GLES2 的渲染系统需要将 .material
+加上
+```
+			diffuse vertexcolour
+```
+贴图如果格式不是 PF_A8B8G8R8, 则需要将其显式解码成PF_A8B8G8R8
+```
+                texture pump_flare_04.png PF_A8B8G8R8
+```
+
+material PUMediaPack/Flare_04
+{
+    technique
+    {
+        pass
+        {
+            lighting off
+            scene_blend add
+            depth_write off
+
+			diffuse vertexcolour
+
+            texture_unit
+            {
+                texture pump_flare_04.png PF_A8B8G8R8
+                tex_address_mode clamp
+            }
+        }
+    }
+}

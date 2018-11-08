@@ -1,0 +1,17 @@
+material material_cube
+{
+        technique
+        {
+                pass
+                {
+                        ambient 1.000000 1.000000 1.000000
+                        diffuse 0.800000 0.800000 0.800000
+                        specular 1.000000 1.000000 1.000000 0
+                        emissive 0.000000 0.000000 0.000000
+                        texture_unit
+                        {
+                                texture cube.png
+                        }
+                }
+        }
+}

@@ -1,0 +1,14 @@
+<Animations>
+    <AnimationDefinition autoStart="false" duration="0.3" name="user_info_o" replayMode="once">
+        <Affector applicationMethod="absolute" interpolator="UVector2" property="Position">
+            <KeyFrame position="0" value="{{0, 0}, {0, 0}}" />
+            <KeyFrame position="0.3" progression="quadratic decelerating" value="{{0, 0}, {-0.625, 0}}" />
+        </Affector>
+    </AnimationDefinition>
+    <AnimationDefinition autoStart="false" duration="0.3" name="user_info_i" replayMode="once">
+        <Affector applicationMethod="absolute" interpolator="UVector2" property="Position">
+            <KeyFrame position="0" value="{{0, 0}, {-0.625, 0}}" />
+            <KeyFrame position="0.3" progression="quadratic decelerating" value="{{0, 0}, {0, 0}}" />
+        </Affector>
+    </AnimationDefinition>
+</Animations>

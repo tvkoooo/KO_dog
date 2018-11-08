@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_network" >
+        <Property name="Area" value="{{0,2},{0,0},{1,0},{1,0}}" />
+        <Property name="Text" value="7778" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Editbox" name="Editbox_message1" >
+            <Property name="Area" value="{{0.319082,0},{0.727778,0},{0.420751,0},{0.768519,0}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_send1" >
+            <Property name="Area" value="{{0.444213,0},{0.728704,0},{0.516684,0},{0.777778,0}}" />
+            <Property name="Text" value="send" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_name1" >
+            <Property name="Area" value="{{0.318561,0},{0.671296,0},{0.418665,0},{0.711111,0}}" />
+            <Property name="Text" value="mm_1" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label1" >
+            <Property name="Area" value="{{0.444734,0},{0.672222,0},{0.51147,0},{0.701852,0}}" />
+            <Property name="Text" value="name" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Listbox" name="Listbox_logger1" >
+            <Property name="Area" value="{{0.0172054,0},{0.651852,0},{0.191345,0},{0.938889,0}}" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_name2" >
+            <Property name="Area" value="{{0.319604,0},{0.504629,0},{0.419708,0},{0.544444,0}}" />
+            <Property name="Text" value="mm_2" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_message2" >
+            <Property name="Area" value="{{0.320125,0},{0.561111,0},{0.421793,0},{0.601852,0}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_send2" >
+            <Property name="Area" value="{{0.445256,0},{0.562037,0},{0.517727,0},{0.611111,0}}" />
+            <Property name="Text" value="send" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label2" >
+            <Property name="Area" value="{{0.445777,0},{0.505555,0},{0.512513,0},{0.535185,0}}" />
+            <Property name="Text" value="name" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Listbox" name="Listbox_logger2" >
+            <Property name="Area" value="{{0.0177268,0},{0.35,0},{0.191866,0},{0.637037,0}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_clear" >
+            <Property name="Area" value="{{0.0630865,0},{0.278704,0},{0.138165,0},{0.324074,0}}" />
+            <Property name="Text" value="clear" />
+        </Window>
+    </Window>
+</GUILayout>

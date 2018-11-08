@@ -1,0 +1,15 @@
+<Animations>
+    <AnimationDefinition autoStart="false" duration="1.3" name="commond_o" replayMode="once">
+        <Affector applicationMethod="absolute" interpolator="float" property="Alpha">
+            <KeyFrame position="0" value="1" />
+            <KeyFrame position="1" progression="linear" value="1" />
+            <KeyFrame position="1.3" progression="quadratic decelerating" value="0" />
+        </Affector>
+    </AnimationDefinition>
+    <AnimationDefinition autoStart="false" duration="0.1" name="commond_i" replayMode="once">
+        <Affector applicationMethod="absolute" interpolator="float" property="Alpha">
+            <KeyFrame position="0" value="0" />
+            <KeyFrame position="0.1" progression="quadratic decelerating" value="1" />
+        </Affector>
+    </AnimationDefinition>
+</Animations>

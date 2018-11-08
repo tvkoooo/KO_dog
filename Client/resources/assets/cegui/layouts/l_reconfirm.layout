@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_reconfirm" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/FrameWindow" name="reconfirmWindow" >
+            <Property name="Area" value="{{0.0875,-3},{0.35375,12},{0.916667,-3},{0.60875,16}}" />
+            <Property name="Text" value="测试中文(使用默认字库)abc混编" />
+            <Property name="CloseButtonEnabled" value="false" />
+            <Window type="TaharezLook/Button" name="Button_back" >
+                <Property name="Area" value="{{0.607409,0},{0.53523,1},{0.917576,0},{0.826116,0}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="back" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_yes" >
+                <Property name="Area" value="{{0.0749569,0},{0.541047,-5},{0.385123,0},{0.831933,0}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="yes" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label_reconfirm" >
+                <Property name="Area" value="{{0.064618,0},{0.0698125,-3},{0.943423,0},{0.360698,10}}" />
+                <Property name="Font" value="DejaVuSans-12" />
+                <Property name="Text" value="Are you sure" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

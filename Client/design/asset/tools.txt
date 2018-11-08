@@ -1,0 +1,9 @@
+TexturePacker-ogre/cegui 4.6.1 图集打包
+ceed/cegui CEED-0.8.0 界面排版
+OgreMeshy 1.6 模型查看
+blender 2.7.x 场景部署,模型创建和编辑,骨骼动画创建和编辑,材质创建和编辑
+blender2ogre 0.6.2 blender 导出资源插件
+Particle Universe 粒子特效
+ParticleFX 粒子特效
+
+音效和音乐暂时没有,ogg格式.

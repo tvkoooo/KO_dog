@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_layer" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage" >
+            <Property name="Area" value="{{0.0744792,0},{0.626852,0},{0.141146,0},{0.74537,0}}" />
+            <Property name="Image" value="imageset_battlefield/anchor" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Rotation" value="w:0.965926 x:0 y:0 z:0.258819" />
+            <Property name="AutoRenderingSurface" value="true" />
+        </Window>
+        <Window type="TaharezLook/StaticImage" name="StaticImage2" >
+            <Property name="Area" value="{{0.192708,0},{0.532407,0},{0.259375,0},{0.650926,0}}" />
+            <Property name="Image" value="imageset_battlefield/anchor" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,3 @@
+<Imageset autoScaled="false" imagefile="imageset_battlefield.png" name="imageset_battlefield" nativeHorzRes="512" nativeVertRes="512" version="2">
+    <Image height="256" name="anchor" width="256" xPos="1" yPos="1" />
+</Imageset>

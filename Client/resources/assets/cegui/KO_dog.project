@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project CEGUIDefaultResolution="1920x1080" CEGUIVersion="0.8" baseDirectory="." fontsPath="fonts" imagesetsPath="imagesets" layoutsPath="layouts" looknfeelsPath="looknfeel" schemesPath="schemes" version="CEED Project 1" xmlSchemasPath="xml_schemas">
+    <Items>
+        <Item name="animations" type="folder">
+            <Item path="animations/a_anchor_fade.anims" type="file" />
+            <Item path="animations/a_commond.anims" type="file" />
+            <Item path="animations/a_home_trolley.anims" type="file" />
+            <Item path="animations/a_interpersonal.anims" type="file" />
+            <Item path="animations/a_user_info.anims" type="file" />
+        </Item>
+        <Item name="fonts" type="folder">
+            <Item path="fonts/DejaVuSans-10-NoScale.font" type="file" />
+            <Item path="fonts/DejaVuSans-10.font" type="file" />
+            <Item path="fonts/DejaVuSans-12-NoScale.font" type="file" />
+            <Item path="fonts/DejaVuSans-12.font" type="file" />
+            <Item path="fonts/DejaVuSans-14-NoScale.font" type="file" />
+            <Item path="fonts/DejaVuSans-14.font" type="file" />
+            <Item path="fonts/DejaVuSans.ttf" type="file" />
+        </Item>
+        <Item name="imagesets" type="folder">
+            <Item path="imagesets/TaharezLook.imageset" type="file" />
+            <Item path="imagesets/TaharezLook.png" type="file" />
+            <Item path="imagesets/imageset_battlefield.imageset" type="file" />
+            <Item path="imagesets/imageset_battlefield.png" type="file" />
+            <Item path="imagesets/login_lj.imageset" type="file" />
+            <Item path="imagesets/login_lj.png" type="file" />
+        </Item>
+        <Item name="layouts" type="folder">
+            <Item path="layouts/l_battlefield.layout" type="file" />
+            <Item path="layouts/l_commond.layout" type="file" />
+            <Item path="layouts/l_ctrl.layout" type="file" />
+            <Item path="layouts/l_ensure.layout" type="file" />
+            <Item path="layouts/l_frame_stats.layout" type="file" />
+            <Item path="layouts/l_home_main.layout" type="file" />
+            <Item path="layouts/l_home_page_about.layout" type="file" />
+            <Item path="layouts/l_home_page_account.layout" type="file" />
+            <Item path="layouts/l_home_page_login.layout" type="file" />
+            <Item path="layouts/l_home_page_main.layout" type="file" />
+            <Item path="layouts/l_home_page_register.layout" type="file" />
+            <Item path="layouts/l_interpersonal_main.layout" type="file" />
+            <Item path="layouts/l_interpersonal_talk.layout" type="file" />
+            <Item path="layouts/l_layer.layout" type="file" />
+            <Item path="layouts/l_layer_dog_a1.layout" type="file" />
+            <Item path="layouts/l_reconfirm.layout" type="file" />
+            <Item path="layouts/l_synchronize.layout" type="file" />
+            <Item path="layouts/l_title.layout" type="file" />
+            <Item path="layouts/l_user_info.layout" type="file" />
+            <Item path="layouts/l_home_lj_login.layout" type="file" />
+        </Item>
+        <Item name="looknfeel" type="folder">
+            <Item path="looknfeel/TaharezLook.looknfeel" type="file" />
+        </Item>
+        <Item name="materials" type="folder">
+            <Item name="scripts" type="folder">
+                <Item path="materials/scripts/CEGUI_Layout.material" type="file" />
+            </Item>
+        </Item>
+        <Item name="schemes" type="folder">
+            <Item path="schemes/TaharezLook.scheme" type="file" />
+        </Item>
+        <Item name="xml_schemas" type="folder">
+            <Item path="xml_schemas/Animation.xsd" type="file" />
+            <Item path="xml_schemas/CEGUIConfig.xsd" type="file" />
+            <Item path="xml_schemas/Falagard.xsd" type="file" />
+            <Item path="xml_schemas/Font.xsd" type="file" />
+            <Item path="xml_schemas/GUILayout.xsd" type="file" />
+            <Item path="xml_schemas/GUIScheme.xsd" type="file" />
+            <Item path="xml_schemas/Imageset.xsd" type="file" />
+            <Item path="xml_schemas/Samples.xsd" type="file" />
+        </Item>
+    </Items>
+</Project>

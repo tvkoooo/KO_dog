@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_page_main" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="Text" value="=" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="DefaultWindow" name="MenuWindow" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/Button" name="Button_register" >
+                <Property name="Area" value="{{0.403081,-1},{0.608161,2},{0.653081,-1},{0.670661,2}}" />
+                <Property name="Text" value="register" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_login" >
+                <Property name="Area" value="{{0.400948,-1},{0.519606,2},{0.650948,-1},{0.582106,2}}" />
+                <Property name="Text" value="login" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_exit" >
+                <Property name="Area" value="{{0.400948,0},{0.791781,0},{0.650948,0},{0.854281,0}}" />
+                <Property name="Text" value="exit" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_about" >
+                <Property name="Area" value="{{0.400948,0},{0.69932,0},{0.650948,0},{0.76182,0}}" />
+                <Property name="Text" value="about" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

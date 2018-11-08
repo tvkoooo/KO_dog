@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_page_about" >
+        <Property name="Area" value="{{0,0},{0.0625,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Button" name="Button_addr_0" >
+            <Property name="Area" value="{{0.216666,0},{0.102667,0},{0.793749,0},{0.18,0}}" />
+            <Property name="Text" value="longer&apos;s home" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_addr_1" >
+            <Property name="Area" value="{{0.21875,0},{0.222666,0},{0.795833,0},{0.3,0}}" />
+            <Property name="Text" value="华北(北京)" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_tips" >
+            <Property name="Area" value="{{0.0854166,0},{0.00800024,0},{0.91875,0},{0.0746669,0}}" />
+            <Property name="Text" value="select entry" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_youself" >
+            <Property name="Area" value="{{0.216666,0},{0.329333,0},{0.795833,0},{0.397333,0}}" />
+            <Property name="Text" value="youself&apos;s home" />
+            <Property name="TextFormatting" value="CentreAligned" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_lobby_addr" >
+            <Property name="Area" value="{{0.0937499,0},{0.502667,0},{0.927083,0},{0.569334,0}}" />
+            <Property name="Text" value="(52001):127.0.0.1" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_entry_addr" >
+            <Property name="Area" value="{{0.0937499,0},{0.422666,0},{0.927083,0},{0.489333,0}}" />
+            <Property name="Text" value="(52001):127.0.0.1" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,29 @@
+添加骨架后
+按tab进入编辑模式
+e可以长出子骨架
+勾选x轴镜像后按shift+e可以长出镜像骨架
+选需要骨架绑定的物件，添加modifier->骨架
+在目标物件里填上绑定的目标骨架，勾选bind to中的vertex grous 和bone envelopes
+alt+r poss 模式归位
+alt+s 可以缩放封套端大小
+选子关节shift+i 加ik
+到骨骼约束中设置ik影响范围
+ctrl+p建立亲属关系
+ctrl+shift+c加约束
+shift+d复制
+alt+d复制连接
+You can use "File -> Link" (Ctrl+Alt+O) or "File -> Append" (Shift+F1).
+选没有绑定的物件，再选已经绑定的物件按ctrl+j进行合并
+选骨骼按i，添加关键帧
+到NLA编辑模式，新建动作线轨shift+a
+ctrl+a使位置缩放旋转apply，注意同时也把骨骼做一次同等操作
+
+切换到dope sheet窗口模式，选把中间的模式从dope sheet改成action editor模式，点“+”符号新加action，改帧范围
+再到NLA editor加线轨
+右键选中线轨按tab可以进入编辑模式
+ctrl+g群组化
+
+ctrl+alt+p 建立代理
+shift+s对准准心
+
+ctrl移动会移动固定单位

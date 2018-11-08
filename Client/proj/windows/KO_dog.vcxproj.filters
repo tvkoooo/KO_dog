@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog">
+      <UniqueIdentifier>{bd1e596c-e139-49c2-beb8-529821859410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\application">
+      <UniqueIdentifier>{ecdb9d88-fd82-40f6-a252-c928593e1db3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{3d152ec3-e749-4296-b92b-6044677f468d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\toolkit">
+      <UniqueIdentifier>{7ea1c936-892a-47bf-b992-485a96beecf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\physical">
+      <UniqueIdentifier>{921e9506-5d75-49f8-a0b8-c2c777134b0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\unit">
+      <UniqueIdentifier>{16e73ce8-4b3b-4044-a55d-76d74b6421bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\dotsceneloader">
+      <UniqueIdentifier>{17e34fac-dae1-4857-a1c8-5d4657dfc9c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\type">
+      <UniqueIdentifier>{916bc699-58a8-4d35-ab6b-6019cc8a0eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\layer">
+      <UniqueIdentifier>{65b4c7ad-b1d3-466b-a8ca-0d26a63d4c1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\math">
+      <UniqueIdentifier>{3667760e-8800-4714-893b-91710e69fe6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\raptorq">
+      <UniqueIdentifier>{4c5187e8-ce35-4bf9-ae1a-27db343885ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="windows\main.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_animation.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_vector3.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_quaternion.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_vector4.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_vector2.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_matrix4x4.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_linear.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_matrix3x3.cpp">
+      <Filter>src\KO_dog\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_animation.cpp">
+      <Filter>src\KO_dog\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_audio.cpp">
+      <Filter>src\KO_dog\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_util_mesh.cpp">
+      <Filter>src\KO_dog\toolkit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_animation.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_quaternion.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_vector3.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_vector4.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_vector2.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_matrix4x4.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_linear.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_matrix3x3.h">
+      <Filter>src\KO_dog\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_audio.h">
+      <Filter>src\KO_dog\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_animation.h">
+      <Filter>src\KO_dog\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_util_mesh.h">
+      <Filter>src\KO_dog\toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

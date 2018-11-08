@@ -1,0 +1,55 @@
+在以太网中，多播地址是一个48位的标示符，命名了一组应该在这个网络中应用接收到一个分组的站点。
+
+多播地址范围:224.0.0.0到239.255.255.255
+
+// 注意多播socket绑定地址应该为Any,这样将变得简单 ipv4 = "0.0.0.0" ipv6 = "::" 这是因为多播地址和节点地址并不一致,而将地址设为0 将监听所有域
+// 注意多播socket绑定端口为不冲突端口
+// 注意多播socket想客户端服务端绑定同一端口,需要SO_REUSEADDR, 即40000 40001可以合并为一个端口40000
+// 注意多播socket客户端服务端如果ip和端口都为一样(0.0.0.0-40000),且都在一台机器上启动,部分平台实现会出现udp客户端将数据发给自己的错误
+// 特别的,udp不加入多播组,仍然可以向多播组地址发送数据.
+// 特别的,udp加入了多播组,仍然可以向任何udp地址发送数据.
+
+// 以下例子为双端交互的地址例子
+// multi_a 0.0.0.0:40000 -> 224.92.1.26:40001
+// multi_b 0.0.0.0:40001 -> 224.92.1.26:40000
+
+multi_a_native.ip   = "0.0.0.0"
+multi_a_native.port = 40000
+multi_a_remote.ip   = "224.92.1.26"
+multi_a_remote.port = 40001
+
+multi_b_native.ip   = "0.0.0.0"
+multi_b_native.port = 40001
+multi_b_remote.ip   = "224.92.1.26"
+multi_b_remote.port = 40000
+
+socket_a.fopensocket()
+socket_a.bind(multi_a_native)
+socket_a.set_socket_option(Net.IP,Net.AddMembership,multi_a_remote)
+thread
+{
+	// 发送到 224.92.1.26:40001
+	socket_a.send(buffer,multi_a_remote);
+}
+thread
+{
+	// 从0.0.0.0:40000接收数据(即将收到socket_b发到224.92.1.26:40000的数据)
+	socket_a.recv(buffer);
+}
+socket_a.set_socket_option(Net.IP,Net.DropMembership,multi_a_remote)
+
+
+socket_b.fopensocket()
+socket_b.bind(multi_b_native)
+socket_b.set_socket_option(Net.IP,Net.AddMembership,multi_b_remote)
+thread
+{
+	// 发送到 224.92.1.26:40000
+	socket_b.send(buffer,multi_b_remote);
+}
+thread
+{
+	// 从0.0.0.0:40001接收数据(即将收到socket_a发到224.92.1.26:40001的数据)
+	socket_b.recv(buffer);
+}
+socket_b.set_socket_option(Net.IP,Net.DropMembership,multi_b_remote)

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:a73f922db99e3e4fcafc740bbbcdeb27:816657ac8a0cc6a361cfb906fc0fcb01:eb80ff9bf36dd6bccb4284e7254ae20e$ -->
+<Imageset Name="login_lj" Imagefile="login_lj.png" NativeHorzRes="512" NativeVertRes="512" AutoScaled="false">
+    <Image Name="dise" XPos="439" YPos="1" Width="25" Height="20"/>
+    <Image Name="login" XPos="222" YPos="1" Width="215" Height="215"/>
+    <Image Name="login_0" XPos="1" YPos="265" Width="185" Height="63"/>
+    <Image Name="login_a" XPos="1" YPos="330" Width="185" Height="63"/>
+    <Image Name="login_an" XPos="1" YPos="395" Width="185" Height="63"/>
+    <Image Name="out" XPos="1" YPos="1" Width="219" Height="218"/>
+    <Image Name="quit_0" XPos="188" YPos="306" Width="185" Height="63"/>
+    <Image Name="quit_a" XPos="188" YPos="371" Width="185" Height="63"/>
+    <Image Name="quit_an" XPos="188" YPos="436" Width="185" Height="63"/>
+    <Image Name="register_0" XPos="222" YPos="218" Width="195" Height="42"/>
+    <Image Name="register_a" XPos="1" YPos="221" Width="195" Height="42"/>
+    <Image Name="register_an" XPos="198" YPos="262" Width="195" Height="42"/>
+    <Image Name="registor" XPos="1" YPos="460" Width="126" Height="47"/>
+</Imageset>

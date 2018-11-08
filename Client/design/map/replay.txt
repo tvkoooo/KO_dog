@@ -1,0 +1,27 @@
+http://w3g.deepnode.de/files/w3g_format.txt
+http://w3g.deepnode.de/files/w3g_actions.txt
+
+head
+//
+chapter_seek
+{
+}
+//
+chapter = 
+{
+	frame = 
+	[0] = 
+	{
+		player
+		{
+			command ...
+		}
+	}
+	[1] = 
+	{
+	}
+}
+chapter = 
+{
+}
+...

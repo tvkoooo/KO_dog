@@ -1,0 +1,116 @@
+单位的资源
+
+模型
+动画
+	1.在资源管理器中定位模型文件，主骨骼动画文件,
+	2.在骨骼管理器中定义动作骨骼动画文件
+	3.创建实体,将谷歌动画的动作添加到实体中
+	4.在渲染帧更新骨骼动画
+声音
+	1.在资源管理器中定位声音文件
+	2.将声音添加到单位中
+物理
+	1.在资源管理器中定位物理文件
+	2.将物理添加到单位中
+	3.将物理添加到物理世界中
+
+	
+dog
+Mesh
+	dog.mesh
+	dog.skeleton
+
+AnimationTrack
+	idle idle.skeleton
+	run run.skeleton
+	walk walk.skeleton
+	
+AudioTrack
+	idle idle.ogg
+	run run.ogg
+	walk walk.ogg
+	
+RigidBody
+	idle idle.bullet
+	run run.bullet
+	walk walk.bullet
+	
+```
+
+// 资源包含了类型的可用资源
+asset =
+{
+	resource =
+	{
+		{ group = "type/animal/dog", directory = "type/animal/dog", },
+	},
+	-- name -> preprocessor at preprocessor manager.
+	preprocessor = 
+	{
+		resource_group = "type/animal/dog",
+		entity = 
+		{
+			mesh = "dog.mesh",
+			skeleton = "dog.skeleton",
+			animation_asset = 
+			{
+				"idle.skeleton",
+				"run.skeleton",
+				"walk.skeleton",
+			},
+		},
+	}
+	animation =
+	{
+		resource_group = "type/animal/dog",
+		entity_asset = "dog.mesh",
+		track = 
+		{
+			-- track name -> track asset.
+			["idle"] = "idle",
+			["run"] = "run",
+			["walk"] = "walk",
+		},
+	},
+	audio =
+	{
+		resource_group = "type/animal/dog",
+		track = 
+		{
+			-- track name -> track asset.
+			["idle"] = "idle.ogg",
+			["run"] = "run.ogg",
+			["walk"] = "walk.ogg",
+		},
+	},
+	rigidbody =
+	{
+		mass = 1.0,
+		local_inertia = "{1.0, 1.0, 1.0,}",
+		collision_shape = 
+		{
+			-- type = "cylinder_y", 
+			-- parameter = "{1.0, 1.0, 1.0,}",
+			type = "bullet_file", 
+			parameter = "{dog.bullet,type/animal/dog}",
+		},
+	},
+},
+
+type = 
+{
+	asset = "script/type/animal/dog/dog.lua",
+},
+
+// 实体定义了运行时状态
+entity = 
+{
+},
+```
+
+	BOX_SHAPE_PROXYTYPE,
+	SPHERE_SHAPE_PROXYTYPE,
+	CAPSULE_SHAPE_PROXYTYPE,
+	CONE_SHAPE_PROXYTYPE,
+	CYLINDER_SHAPE_PROXYTYPE,
+	STATIC_PLANE_PROXYTYPE,

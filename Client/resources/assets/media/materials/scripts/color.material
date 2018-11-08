@@ -1,0 +1,49 @@
+abstract material base_color
+{
+	receive_shadows off
+	technique
+	{
+		pass
+		{
+			ambient		0 0 0 0
+			diffuse		0.2 0.2 0.2 0.5
+			specular	0 0 0 0 1
+			emissive	$emissive_colour
+
+			depth_check off
+			depth_write off
+			
+			scene_blend one one_minus_src_alpha
+		}
+	}
+}
+
+material color/fx_red : base_color
+{
+	set $emissive_colour " 0.800000 0.143781 0.123933 0.500000 "
+}
+material color/fx_green : base_color
+{
+	set $emissive_colour " 0.123933 0.800000 0.123933 0.500000 "
+}
+material color/fx_blue : base_color
+{
+	set $emissive_colour " 0.124000 0.124000 0.800000 0.500000 "
+}
+
+material color/axis_x : base_color
+{
+	set $emissive_colour " 0.700000 0.000000 0.000000 1.000000 "
+}
+material color/axis_y : base_color
+{
+	set $emissive_colour " 0.000000 0.700000 0.000000 1.000000 "
+}
+material color/axis_z : base_color
+{
+	set $emissive_colour " 0.000000 0.000000 0.700000 1.000000 "
+}
+material color/comm_draw : base_color
+{
+	set $emissive_colour " 1.000000 1.000000 0.000000 1.000000 "
+}

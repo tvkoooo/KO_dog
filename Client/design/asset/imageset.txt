@@ -1,0 +1,16 @@
+特效图片的素材
+模型贴图的素材
+cegui的贴图集合
+
+如果没有特殊需求,一律使用格式:TexturePacker png-32 rgba8888(potoshop png-24) (POT)Power of 2
+
+cegui的贴图集合我们使用TexturePacker来打包.
+
+1.TexturePacker导出的格式使用RGBA8888, ogre/cegui 格式.
+2.TexturePacker导出的文件格式是老版cegui的图集格式,所以需要在ceed中打开,并另存为高版本的图集格式.
+3.为了兼容性,打包都用(POT)Power of 2
+
+
+windows调试环境推荐:
+Imagination\PowerVR_Graphics\PowerVR_SDK\SDK_2017_R1
+PowerVR_SDK低版本的png格式不支持 GL_RGBA_EXT 但是大多数设备是支持的,所以推荐高版本的PowerVR_SDK.

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_interpersonal_main" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="DefaultWindow" name="l_interpersonal_relation_bar" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="DefaultWindow" name="l_interpersonal_relation" >
+                <Property name="Area" value="{{0,0},{0.5,0},{1,0},{1,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/StaticImage" name="StaticImage" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                    <Property name="ZOrderingEnabled" value="false" />
+                </Window>
+                <Window type="TaharezLook/Tree" name="Tree_circle" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="Sort" value="true" />
+                    <Property name="ZOrderingEnabled" value="false" />
+                </Window>
+            </Window>
+            <Window type="DefaultWindow" name="l_interpersonal_search" >
+                <Property name="Area" value="{{0,0},{0.0625,0},{1,0},{0.5,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="DefaultWindow" name="l_container" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                    <Window type="TaharezLook/Listbox" name="Listbox_result" >
+                        <Property name="Area" value="{{0,0},{0,0},{1,0},{0.857143,0}}" />
+                    </Window>
+                    <Window type="DefaultWindow" name="l_search_bar" >
+                        <Property name="Area" value="{{0,0},{0.857143,0},{1,0},{1,0}}" />
+                        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                        <Window type="TaharezLook/Editbox" name="Editbox_condition" >
+                            <Property name="Area" value="{{0,0},{0,0},{0.75,0},{1,0}}" />
+                            <Property name="Text" value="[1000001][name]" />
+                        </Window>
+                        <Window type="TaharezLook/Button" name="Button_search" >
+                            <Property name="Area" value="{{0.75,0},{0,0},{1,0},{1,0}}" />
+                            <Property name="Text" value="search" />
+                        </Window>
+                    </Window>
+                </Window>
+            </Window>
+            <Window type="DefaultWindow" name="l_trolley" >
+                <Property name="Area" value="{{0,0},{0,0},{1,0},{0.0625,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/Button" name="Button_cancel" >
+                    <Property name="Area" value="{{0,0},{0,0},{0.25,0},{1,0}}" />
+                    <Property name="Text" value="cancel" />
+                </Window>
+                <Window type="TaharezLook/Button" name="Button_trolley" >
+                    <Property name="Area" value="{{0.25,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="Text" value="=====^^^=====" />
+                </Window>
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="l_interpersonal_talk_main" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Visible" value="false" />
+            <Window type="TaharezLook/Button" name="Button_cancel" >
+                <Property name="Area" value="{{0,0},{0,0},{0.25,0},{0.0625,0}}" />
+                <Property name="Text" value="cancel" />
+                <Property name="AlwaysOnTop" value="true" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

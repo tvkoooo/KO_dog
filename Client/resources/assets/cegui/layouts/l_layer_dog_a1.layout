@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_layer_dog_a1" >
+        <Property name="Area" value="{{0,-4},{0,0},{1,-4},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage" >
+            <Property name="Area" value="{{0.0744792,0},{0.626852,0},{0.141146,0},{0.74537,0}}" />
+            <Property name="Image" value="imageset_battlefield/anchor" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Rotation" value="w:0.965926 x:0 y:0 z:0.258819" />
+            <Property name="AutoRenderingSurface" value="true" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_jiaodu" >
+            <Property name="Area" value="{{0.811458,0},{0.0648148,0},{0.957292,0},{0.0944444,0}}" />
+            <Property name="Text" value="46464" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF210CFF" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_zongchang" >
+            <Property name="Area" value="{{0.810417,0},{0.112963,0},{0.959375,0},{0.142593,0}}" />
+            <Property name="Text" value="46464" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF210CFF" />
+        </Window>
+    </Window>
+</GUILayout>

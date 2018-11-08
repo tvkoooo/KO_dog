@@ -1,0 +1,61 @@
+vertex_program Examples/GrassWaverVpGLSLES glsles
+{
+	source GrassVp.glsles
+	profiles glsles
+
+    default_params
+    {
+        param_named_auto worldViewProj worldviewproj_matrix
+        param_named_auto camObjPos camera_position_object_space
+        param_named_auto ambient ambient_light_colour
+        param_named_auto objSpaceLight light_position_object_space 0
+        param_named_auto lightColour light_diffuse_colour 0
+
+        param_named_auto offset custom 999
+    }
+}
+
+fragment_program Examples/GrassWaverFpGLSLES glsles
+{
+	source GrassFp.glsles
+	profiles glsles
+    default_params
+    {
+        param_named diffuseMap int 0
+    }
+}
+
+fragment_program Examples/GrassWaverFp unified
+{
+	delegate Examples/GrassWaverFpGLSL
+	delegate Examples/GrassWaverFpGLSLES
+}
+
+vertex_program Examples/GrassWaverVp unified
+{
+	delegate Examples/GrassWaverVpGLSL
+	delegate Examples/GrassWaverVpGLSLES
+}
+
+material sphere/smooth
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.7 0.7 0.6
+
+			vertex_program_ref Examples/GrassWaverVp
+			{
+			}
+			fragment_program_ref Examples/GrassWaverFp
+			{
+			}
+			texture_unit
+			{
+				texture tusk.jpg
+				scale 0.2 0.2
+			}
+		}
+	}
+}

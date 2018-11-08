@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_page_account" >
+        <Property name="Area" value="{{0,0},{0.0625,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Label" name="Label_username_k" >
+            <Property name="Area" value="{{0.189583,0},{0.149333,0},{0.45625,0},{0.192,0}}" />
+            <Property name="Text" value="username" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_old_password_k" >
+            <Property name="Area" value="{{0.191667,0},{0.205333,0},{0.458334,0},{0.248,0}}" />
+            <Property name="Text" value="old_password" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_new_password_k" >
+            <Property name="Area" value="{{0.19375,0},{0.272,0},{0.460417,0},{0.314667,0}}" />
+            <Property name="Text" value="new_password" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_uid_k" >
+            <Property name="Area" value="{{0.191667,0},{0.0946671,0},{0.458334,0},{0.137334,0}}" />
+            <Property name="Text" value="uid" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_uid_v" >
+            <Property name="Area" value="{{0.54375,0},{0.0946671,0},{0.810417,0},{0.137334,0}}" />
+            <Property name="Text" value="uid" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_username_v" >
+            <Property name="Area" value="{{0.541667,0},{0.150667,0},{0.816667,0},{0.196,0}}" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_old_password_v" >
+            <Property name="Area" value="{{0.541667,0},{0.208,0},{0.814584,0},{0.253333,0}}" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_new_password_v" >
+            <Property name="Area" value="{{0.54375,0},{0.268,0},{0.814583,0},{0.313333,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_email_k" >
+            <Property name="Area" value="{{0.191667,0},{0.338667,0},{0.458334,0},{0.381333,0}}" />
+            <Property name="Text" value="email" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_email_v" >
+            <Property name="Area" value="{{0.541667,0},{0.334666,0},{0.8125,0},{0.38,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_sex_k" >
+            <Property name="Area" value="{{0.191667,0},{0.401333,0},{0.458334,0},{0.444,0}}" />
+            <Property name="Text" value="sex" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_sex_v" >
+            <Property name="Area" value="{{0.541667,0},{0.397333,0},{0.8125,0},{0.442666,0}}" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_birthday_v" >
+            <Property name="Area" value="{{0.541667,0},{0.458667,0},{0.8125,0},{0.504,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_birthday_k" >
+            <Property name="Area" value="{{0.191667,0},{0.462666,0},{0.458334,0},{0.505333,0}}" />
+            <Property name="Text" value="birthday" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Editbox_born_v" >
+            <Property name="Area" value="{{0.54375,0},{0.52,0},{0.814583,0},{0.565333,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_born_k" >
+            <Property name="Area" value="{{0.19375,0},{0.524,0},{0.460417,0},{0.566667,0}}" />
+            <Property name="Text" value="born" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF00FF00" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_login" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="Text" value="=" />
+            <Property name="Image" value="login_lj/dise" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="FrameColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
+            <Property name="ImageColours" value="tl:FFFFFF38 tr:FFFF2CFF bl:FFFF04FF br:FFFFFA00" />
+            <Property name="BackgroundColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
+            <Property name="BackgroundEnabled" value="false" />
+        </Window>
+        <Window type="DefaultWindow" name="MenuWindow" >
+            <Property name="Area" value="{{0,0},{0,-2},{1,0},{1,-2}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/ImageButton" name="l_s_button_login" >
+                <Property name="Area" value="{{0.341667,0},{0.511111,0},{0.500521,0},{0.746296,0}}" />
+                <Property name="HoverImage" value="login_lj/login_a" />
+                <Property name="NormalImage" value="login_lj/login_0" />
+                <Property name="PushedImage" value="login_lj/login_an" />
+            </Window>
+            <Window type="TaharezLook/ImageButton" name="l_s_button_out" >
+                <Property name="Area" value="{{0.505729,0},{0.530555,0},{0.625,0},{0.672222,0}}" />
+                <Property name="HoverImage" value="login_lj/quit_a" />
+                <Property name="NormalImage" value="login_lj/quit_0" />
+                <Property name="PushedImage" value="login_lj/quit_an" />
+            </Window>
+            <Window type="TaharezLook/ImageButton" name="l_s_button_register" >
+                <Property name="Area" value="{{0.504167,0},{0.671297,0},{0.629688,0},{0.740741,0}}" />
+                <Property name="HoverImage" value="login_lj/register_a" />
+                <Property name="NormalImage" value="login_lj/register_0" />
+                <Property name="PushedImage" value="login_lj/register_an" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="l_edit_text_id" >
+                <Property name="Area" value="{{0.34375,0},{0.322222,0},{0.629167,0},{0.383333,0}}" />
+                <Property name="NormalTextColour" value="tl:FF00FFFF tr:FF00FFFF bl:FF00FFFF br:FF00FFFF" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="l_edit_text_pwd" >
+                <Property name="Area" value="{{0.342708,0},{0.448148,0},{0.628125,0},{0.509259,0}}" />
+                <Property name="MaskText" value="true" />
+            </Window>
+            <Window type="TaharezLook/Label" name="l_text_id" >
+                <Property name="Area" value="{{0.345833,0},{0.287037,0},{0.4125,0},{0.316667,0}}" />
+                <Property name="Text" value="your ID" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="NormalTextColour" value="FF0201C7" />
+            </Window>
+            <Window type="TaharezLook/Label" name="l_text_pwd" >
+                <Property name="Area" value="{{0.344791,0},{0.407407,0},{0.458333,0},{0.437037,0}}" />
+                <Property name="Text" value="your passwoord" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="NormalTextColour" value="FF0201C7" />
+            </Window>
+            <Window type="TaharezLook/Label" name="l_text_notice" >
+                <Property name="Area" value="{{0.344791,0},{0.807407,0},{0.634375,0},{0.894444,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="NormalTextColour" value="FF0201C7" />
+            </Window>
+            <Window type="TaharezLook/Label" name="l_text_notice2" >
+                <Property name="Area" value="{{0.178124,0},{0.92037,0},{0.840624,0},{0.97037,0}}" />
+                <Property name="Text" value="https://github.com/tvkoooo/KO_dog" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="NormalTextColour" value="FF0201C7" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

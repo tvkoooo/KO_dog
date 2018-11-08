@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_title" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Button" name="Button_cancel" >
+            <Property name="Area" value="{{0,0},{0,0},{0.25,0},{0.0625,0}}" />
+            <Property name="Text" value="cancel" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_ensure" >
+            <Property name="Area" value="{{0.75,0},{0,0},{1,0},{0.0625,0}}" />
+            <Property name="Text" value="ensure" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_title" >
+            <Property name="Area" value="{{0.25,0},{0,0},{0.75,0},{0.0625,0}}" />
+            <Property name="Text" value="title" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,160 @@
+// -------------------------------
+// hlsl shader section
+// -------------------------------
+// vs_2_0
+vertex_program CEGUI/GeometryBufferVPhlsl_vs_2_0 hlsl
+{
+	source CEGUI_GeometryBufferVP_vs_2_0.hlsl
+	entry_point main
+	target vs_2_0
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program CEGUI/GeometryBufferFPhlsl_ps_2_0 hlsl
+{
+	source CEGUI_GeometryBufferFP_ps_2_0.hlsl
+	entry_point main
+	target ps_2_0
+}
+// vs_4_0
+vertex_program CEGUI/GeometryBufferVPhlsl_vs_4_0 hlsl
+{
+	source CEGUI_GeometryBufferVP_vs_4_0.hlsl
+	entry_point main
+	target vs_4_0 vs_4_0_level_9_1 vs_4_0_level_9_3
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program CEGUI/GeometryBufferFPhlsl_ps_4_0 hlsl
+{
+	source CEGUI_GeometryBufferFP_ps_4_0.hlsl
+	entry_point main
+	target ps_4_0 ps_4_0_level_9_1 ps_4_0_level_9_3
+}
+// -------------------------------
+// glsles shader section
+// -------------------------------
+vertex_program CEGUI/GeometryBufferVPGLSLES glsles
+{
+	source CEGUI_GeometryBufferVP.glsles
+	profiles glsles
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program CEGUI/GeometryBufferFPGLSLES glsles
+{
+	source CEGUI_GeometryBufferFP.glsles
+	profiles glsles
+}
+// -------------------------------
+// glsl shader section
+// -------------------------------
+vertex_program CEGUI/GeometryBufferVPGLSL glsl
+{
+	source CEGUI_GeometryBufferVp.glsl
+	syntax glsl150
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program CEGUI/GeometryBufferFPGLSL glsl
+{
+	source CEGUI_GeometryBufferFp.glsl
+	syntax glsl150
+}
+// -------------------------------
+// delegate shader section
+// -------------------------------
+vertex_program CEGUI/GeometryBufferVP unified
+{
+	delegate CEGUI/GeometryBufferVPhlsl_vs_4_0
+	delegate CEGUI/GeometryBufferVPhlsl_vs_2_0
+	delegate CEGUI/GeometryBufferVPGLSL
+	delegate CEGUI/GeometryBufferVPGLSLES
+}
+fragment_program CEGUI/GeometryBufferFP unified
+{
+	delegate CEGUI/GeometryBufferFPhlsl_ps_4_0
+	delegate CEGUI/GeometryBufferFPhlsl_ps_2_0
+	delegate CEGUI/GeometryBufferFPGLSL
+	delegate CEGUI/GeometryBufferFPGLSLES
+}
+// -------------------------------
+// material section
+// -------------------------------
+material CEGUI/GeometryBuffer
+{
+	technique
+	{
+		pass
+		{
+			separate_scene_blend src_alpha one_minus_src_alpha one_minus_dest_colour one
+			
+			lighting off
+			polygon_mode solid
+			cull_hardware none
+			cull_software none
+			shading gouraud
+			
+			depth_check off
+			depth_write off
+			depth_func less_equal
+			depth_bias 0 0
+
+			// Vertex program reference
+			vertex_program_ref CEGUI/GeometryBufferVP
+			{
+				param_named_auto worldViewProj worldviewproj_matrix
+			}
+
+			// Fragment program
+			fragment_program_ref CEGUI/GeometryBufferFP
+			{
+
+			}
+			
+			texture_unit
+			{
+				tex_coord_set 0
+				tex_address_mode clamp
+				
+				colour_op_ex modulate src_texture src_diffuse 0 0 0
+				colour_op_multipass_fallback one one				
+				alpha_op_ex modulate src_texture src_diffuse 0 0 0
+
+				// cegui renderer set_texture_alias CEGUIOgreGeometryBuffer::AliasTextureName("CEGUI/GeometryBuffer") texture->getTextureNameAlias()
+				texture_alias CEGUI/GeometryBuffer
+			}
+		}
+	}	
+}
+material CEGUI/TextureTarget
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 1.0 1.0
+			diffuse 1.0 1.0 1.0
+			specular 0.0 0.0 0.0 0.0
+			emissive 0.0 0.0 0.0
+						
+			texture_unit
+			{
+				// cegui renderer set_texture_alias CEGUIOgreTextureTarget::AliasTextureName("CEGUI/TextureTarget") texture->getTextureNameAlias()
+				texture_alias CEGUI/TextureTarget
+			}
+		}
+	}
+}

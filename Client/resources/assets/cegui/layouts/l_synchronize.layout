@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_battlefield" >
+        <Property name="Area" value="{{0,2},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage_anchor" >
+            <Property name="Area" value="{{0,0},{0.62963,0},{0.208551,0},{1,0}}" />
+            <Property name="Alpha" value="0" />
+            <Property name="Image" value="imageset_battlefield/anchor" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="FrameEnabled" value="false" />
+            <Property name="ImageColours" value="tl:FF646464 tr:FF646464 bl:FFFFFFFF br:FFFFFFFF" />
+            <Property name="BackgroundEnabled" value="false" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_record" >
+            <Property name="Area" value="{{0.224713,0},{0.869444,0},{0.293535,0},{0.917593,0}}" />
+            <Property name="Text" value="record" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_stop" >
+            <Property name="Area" value="{{0.309176,0},{0.869444,0},{0.377998,0},{0.917593,0}}" />
+            <Property name="Text" value="stop" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_play" >
+            <Property name="Area" value="{{0.394682,0},{0.869444,0},{0.463504,0},{0.917593,0}}" />
+            <Property name="Text" value="play" />
+        </Window>
+        <Window type="TaharezLook/ProgressBar" name="ProgressBar" >
+            <Property name="Area" value="{{0.224713,0},{0.939815,0},{0.387904,0},{0.969444,0}}" />
+            <Property name="StepSize" value="0.01" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_record_time" >
+            <Property name="Area" value="{{0.468196,0},{0.940741,0},{0.534932,0},{0.970371,0}}" />
+            <Property name="Text" value="00:00" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_played_time" >
+            <Property name="Area" value="{{0.396246,0},{0.939815,0},{0.462982,0},{0.969445,0}}" />
+            <Property name="Text" value="00:00" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Checkbox" name="Checkbox_actual" >
+            <Property name="Area" value="{{0.224713,0},{0.767593,0},{0.291449,0},{0.797222,0}}" />
+            <Property name="Text" value="actual" />
+            <Property name="Selected" value="true" />
+        </Window>
+        <Window type="TaharezLook/Checkbox" name="Checkbox_shadow" >
+            <Property name="Area" value="{{0.224192,0},{0.812963,0},{0.290928,0},{0.842593,0}}" />
+            <Property name="Text" value="shadow" />
+            <Property name="Selected" value="true" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Button_exit" >
+            <Property name="Area" value="{{0.93952,0},{0.00833333,0},{0.995308,0},{0.0490741,0}}" />
+            <Property name="Text" value="exit" />
+        </Window>
+    </Window>
+</GUILayout>

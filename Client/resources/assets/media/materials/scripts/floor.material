@@ -1,0 +1,16 @@
+material floor/grass
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.3 0.8 0.3
+
+			texture_unit
+			{
+				texture GreenSkin.jpg
+				tex_address_mode mirror
+			}
+		}
+	}
+}

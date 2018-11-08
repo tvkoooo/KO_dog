@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3beb0957720202764bf045caeaf69e9a:7387b102268433e11bf5aeecb5ddb3db:ccc0d9212ea4ffd008c25069981b1395$ -->
+<Imageset Name="pump_flare_04_BGRA8888" Imagefile="pump_flare_04_BGRA8888.png" NativeHorzRes="258" NativeVertRes="258" AutoScaled="false">
+    <Image Name="pump_flare_04" XPos="1" YPos="1" Width="256" Height="256"/>
+</Imageset>
