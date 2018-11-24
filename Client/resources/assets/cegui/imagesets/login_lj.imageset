@@ -1,15 +1,16 @@
 <Imageset autoScaled="false" imagefile="login_lj.png" name="login_lj" nativeHorzRes="512" nativeVertRes="512" version="2">
     <Image height="20" name="dise" width="25" xPos="439" yPos="1" />
+    <Image height="42" name="kong" width="195" xPos="222" yPos="218" />
     <Image height="215" name="login" width="215" xPos="222" yPos="1" />
-    <Image height="63" name="login_0" width="185" xPos="1" yPos="265" />
-    <Image height="63" name="login_a" width="185" xPos="1" yPos="330" />
-    <Image height="63" name="login_an" width="185" xPos="1" yPos="395" />
+    <Image height="63" name="login_0" width="185" xPos="198" yPos="306" />
+    <Image height="63" name="login_a" width="185" xPos="1" yPos="309" />
+    <Image height="63" name="login_an" width="185" xPos="1" yPos="374" />
     <Image height="218" name="out" width="219" xPos="1" yPos="1" />
-    <Image height="63" name="quit_0" width="185" xPos="188" yPos="306" />
+    <Image height="63" name="quit_0" width="185" xPos="1" yPos="439" />
     <Image height="63" name="quit_a" width="185" xPos="188" yPos="371" />
     <Image height="63" name="quit_an" width="185" xPos="188" yPos="436" />
-    <Image height="42" name="register_0" width="195" xPos="222" yPos="218" />
-    <Image height="42" name="register_a" width="195" xPos="1" yPos="221" />
-    <Image height="42" name="register_an" width="195" xPos="198" yPos="262" />
-    <Image height="47" name="registor" width="126" xPos="1" yPos="460" />
+    <Image height="42" name="register_0" width="195" xPos="1" yPos="221" />
+    <Image height="42" name="register_a" width="195" xPos="198" yPos="262" />
+    <Image height="42" name="register_an" width="195" xPos="1" yPos="265" />
+    <Image height="47" name="registor" width="126" xPos="385" yPos="306" />
 </Imageset>

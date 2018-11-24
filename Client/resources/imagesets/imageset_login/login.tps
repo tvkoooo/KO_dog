@@ -212,6 +212,22 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">texture/kong.png</key>
+            <key type="filename">texture/register_0.png</key>
+            <key type="filename">texture/register_a.png</key>
+            <key type="filename">texture/register_an.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>49,11,97,21</rect>
+                <key>scale9Paddings</key>
+                <rect>49,11,97,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">texture/login.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -253,21 +269,6 @@
                 <rect>55,55,109,109</rect>
                 <key>scale9Paddings</key>
                 <rect>55,55,109,109</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">texture/register_0.png</key>
-            <key type="filename">texture/register_a.png</key>
-            <key type="filename">texture/register_an.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>49,11,97,21</rect>
-                <key>scale9Paddings</key>
-                <rect>49,11,97,21</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

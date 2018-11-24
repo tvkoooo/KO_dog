@@ -26,11 +26,11 @@
             <Item path="imagesets/login_lj.png" type="file" />
         </Item>
         <Item name="layouts" type="folder">
-            <Item path="layouts/l_battlefield.layout" type="file" />
             <Item path="layouts/l_commond.layout" type="file" />
             <Item path="layouts/l_ctrl.layout" type="file" />
             <Item path="layouts/l_ensure.layout" type="file" />
             <Item path="layouts/l_frame_stats.layout" type="file" />
+            <Item path="layouts/l_home_lj_login.layout" type="file" />
             <Item path="layouts/l_home_main.layout" type="file" />
             <Item path="layouts/l_home_page_about.layout" type="file" />
             <Item path="layouts/l_home_page_account.layout" type="file" />
@@ -45,7 +45,6 @@
             <Item path="layouts/l_synchronize.layout" type="file" />
             <Item path="layouts/l_title.layout" type="file" />
             <Item path="layouts/l_user_info.layout" type="file" />
-            <Item path="layouts/l_home_lj_login.layout" type="file" />
         </Item>
         <Item name="looknfeel" type="folder">
             <Item path="looknfeel/TaharezLook.looknfeel" type="file" />

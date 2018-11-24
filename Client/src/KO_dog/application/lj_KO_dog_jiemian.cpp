@@ -34,7 +34,7 @@ namespace mm
 		CEGUI::GUIContext* _gui_context = this->d_surface->d_gui_context;
 		//////////////////////////////////////////////////////////////////////////
 		int index = 0;
-		char index_string[64] = { 0 };
+		char index_string[64] = { 5 };
 		mm_sprintf(index_string, "_%d", index);
 
 		std::string system_font_18_name = "system_font_18";

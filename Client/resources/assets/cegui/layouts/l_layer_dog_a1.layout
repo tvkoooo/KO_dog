@@ -4,21 +4,40 @@
     <Window type="DefaultWindow" name="l_layer_dog_a1" >
         <Property name="Area" value="{{0,-4},{0,0},{1,-4},{1,0}}" />
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
-        <Window type="TaharezLook/StaticImage" name="StaticImage" >
-            <Property name="Area" value="{{0.0744792,0},{0.626852,0},{0.141146,0},{0.74537,0}}" />
-            <Property name="Image" value="imageset_battlefield/anchor" />
-            <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="Rotation" value="w:0.965926 x:0 y:0 z:0.258819" />
-            <Property name="AutoRenderingSurface" value="true" />
-        </Window>
         <Window type="TaharezLook/Label" name="Label_jiaodu" >
-            <Property name="Area" value="{{0.811458,0},{0.0648148,0},{0.957292,0},{0.0944444,0}}" />
+            <Property name="Area" value="{{0.0291663,0},{0.0851852,0},{0.175,0},{0.114815,0}}" />
             <Property name="Text" value="46464" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="NormalTextColour" value="FF210CFF" />
         </Window>
         <Window type="TaharezLook/Label" name="Label_zongchang" >
-            <Property name="Area" value="{{0.810417,0},{0.112963,0},{0.959375,0},{0.142593,0}}" />
+            <Property name="Area" value="{{0.029167,0},{0.142593,0},{0.178125,0},{0.172222,0}}" />
+            <Property name="Text" value="46464" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF210CFF" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_sudu_v" >
+            <Property name="Area" value="{{0.029167,0},{0.468518,0},{0.178125,0},{0.498148,0}}" />
+            <Property name="Text" value="46464" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="NormalTextColour" value="FF210CFF" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="l_s_button_out" >
+            <Property name="Area" value="{{0.897396,0},{0.0138883,0},{0.99375,0},{0.0907402,0}}" />
+            <Property name="HoverImage" value="login_lj/quit_a" />
+            <Property name="NormalImage" value="login_lj/quit_0" />
+            <Property name="PushedImage" value="login_lj/quit_an" />
+        </Window>
+        <Window type="TaharezLook/StaticImage" name="StaticImage" >
+            <Property name="Area" value="{{0.0270833,0},{0.587037,0},{0.235417,0},{0.957407,0}}" />
+            <Property name="Image" value="imageset_battlefield/anchor" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Visible" value="false" />
+            <Property name="FrameEnabled" value="false" />
+            <Property name="BackgroundEnabled" value="false" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label_quyu" >
+            <Property name="Area" value="{{0.029167,0},{0.52037,0},{0.178125,0},{0.55,0}}" />
             <Property name="Text" value="46464" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="NormalTextColour" value="FF210CFF" />

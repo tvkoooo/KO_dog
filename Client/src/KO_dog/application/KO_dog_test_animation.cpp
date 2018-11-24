@@ -16,6 +16,7 @@
 #include "toolkit/mm_util_mesh.h"
 
 #include "flake/mm_system_event_surface.h"
+#include "math/mm_math_const.h"
 
 
 namespace mm
@@ -54,34 +55,40 @@ namespace mm
 
 		, d_is_touch_began(false)
 
-		, dog_running(false)
+		, dog_running(0)
 		, now_camra_node(NULL)
 
 		, d_window(NULL)
 		, l_layer_dog_a1(NULL)
 		, Label_jiaodu(NULL)
 		, Label_zongchang(NULL)
+		, Label_sudu_v(NULL)
+		, Label_quyu(NULL)
+		, l_s_button_out(NULL)
 		, StaticImage(NULL)
 		//, dog_m_x(0)
 		//, d_fix_v3()
 		//, d_fix_s3()
 		, dog_v_4(0)
-		//, dog_hudu_4(0)
+		, dog_hudu_4_Dhudu(0)
 		, dog_ds_all(0)
 		, dog_ago()
 		, dog_tag()
 		, dog_now()
 		, dog_mid()
-
-
+		, d_sync_frequency(0)
+		, d_sync_interval(0)
+		, d_is_anchor_touch_began(false)
+		, d_rotation(0)
 	{
 		mm_bitset_init(&this->keyb_s);
+		mm_vector2_init(&this->d_anchor_center);
 		mm_bitset_resize(&this->keyb_s, mm::mm_key::MediaSelect + 1);
 	}
 	KO_dog_test_animation::~KO_dog_test_animation()
 	{
 		mm_bitset_destroy(&this->keyb_s);
-
+		mm_vector2_destroy(&this->d_anchor_center);
 	}
 	void KO_dog_test_animation::assign_flake_context(mm_flake_context* flake_context)
 	{
@@ -356,8 +363,13 @@ namespace mm
 
 		this->Label_jiaodu = this->l_layer_dog_a1->getChild("Label_jiaodu");
 		this->Label_zongchang = this->l_layer_dog_a1->getChild("Label_zongchang");
+		this->Label_sudu_v = this->l_layer_dog_a1->getChild("Label_sudu_v");
+		this->Label_quyu = this->l_layer_dog_a1->getChild("Label_quyu");
+		this->l_s_button_out = this->l_layer_dog_a1->getChild("l_s_button_out");
+
 		this->StaticImage = this->l_layer_dog_a1->getChild("StaticImage");
 		this->StaticImage->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_test_animation::on_handle_StaticImage, this));
+		this->l_s_button_out->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_test_animation::on_handle_l_s_button_out, this));
 
 		this->Label_jiaodu->setText("0 (du)");
 		this->Label_zongchang->setText("0");
@@ -366,6 +378,27 @@ namespace mm
 		_gui_context->setRootWindow(this->d_window);
 
 		_gui_context->getMouseCursor().setVisible(false);
+
+
+		/////////////////////////////////////////////////////////////////////////
+		// d_anchor_center.
+		double _window_size_x = this->d_surface->d_window_size.x;
+		double _window_size_y = this->d_surface->d_window_size.y;
+
+		const CEGUI::URect& area = this->StaticImage->getArea();
+
+		const CEGUI::UVector2& _r_min = area.d_min;
+		const CEGUI::UVector2& _r_max = area.d_max;
+
+		CEGUI::UVector2 _r_size = CEGUI::UVector2(_r_max.d_x - _r_min.d_x, _r_max.d_y - _r_min.d_y);
+		CEGUI::UVector2 _r_center = _r_min + _r_size / CEGUI::UDim(2.0f, 0);
+
+		this->d_anchor_center.x = (_r_center.d_x.d_scale * _window_size_x) + _r_center.d_x.d_offset;
+		this->d_anchor_center.y = (_r_center.d_y.d_scale * _window_size_y) + _r_center.d_y.d_offset;
+
+		/////////////////////////////////////////////////////////////////////////
+
+
 		//////////////////////////////////////////////////////////////////////////
 		//Ogre::ResourceGroupManager& _resource_group_mgr = Ogre::ResourceGroupManager::getSingleton();
 
@@ -409,6 +442,48 @@ namespace mm
 		this->dog_mid.D_weizhi +=(this->dog_tag.D_weizhi - this->dog_ago.D_weizhi) * (evt.interval / this->d_sync_interval);
 		__static_logic_data_to_view(&this->dog_mid, this->d_ogrehead_node_0);
 
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
+		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
+		if (this->dog_v_4 != 0 && this->dog_running == 0)
+		{
+			this->d_unit_animation_n.stop("idle");
+			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
+
+			if (this->dog_v_4 > 0)
+			{
+				t->set_speed(1);
+				this->dog_running = 1;
+			}
+			else
+			{
+				t->set_speed(-1);
+				this->dog_running = -1;
+			}
+			
+		}
+		if(this->dog_v_4 > 0 && this->dog_running == -1)
+		{
+			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
+			t->set_speed(1);
+			this->dog_running = 1;
+		}
+		if (this->dog_v_4 < 0 && this->dog_running == 1)
+		{
+			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
+			t->set_speed(-1);
+			this->dog_running = -1;
+		}
+
+
+		if (this->dog_v_4 == 0 && this->dog_running != 0)
+		{
+			this->d_unit_animation_n.stop("run");
+			this->d_unit_animation_n.play("idle", true);
+			this->dog_running = false;
+		}
+		/////////////////////////////////////////////////////////////////////////////////////////////////
+		this->Label_sudu_v->setText("v:" + this->dog_v_4.to_string());
 		return false;
 	}
 
@@ -434,7 +509,11 @@ namespace mm
 				this->now_camra_node->pitch(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_y)));
 			}
 			this->now_camra_node->roll(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_z)));
-		}
+		}		
+
+		printf("is in area:%d \n", this->d_is_anchor_touch_began);
+		//¿ØÖÆÆ÷/////////////////////////////////////////////////////////////////
+		this->update_anchor_quaternion(evt.content.abs_x, evt.content.abs_y);
 
 		return false;
 	}
@@ -445,12 +524,46 @@ namespace mm
 		this->d_camera_moved_pos.t = evt.content.abs_y;
 		this->d_camera_moved_pos.z = evt.content.abs_z;
 		this->d_is_touch_began = true;
+		/////////////////////////////////////////////////////////////////////////
+		double _window_size_x = this->d_surface->d_window_size.x;
+		double _window_size_y = this->d_surface->d_window_size.y;
+
+		const CEGUI::URect& area = this->StaticImage->getArea();
+
+		const CEGUI::UVector2& _r_min = area.d_min;
+		const CEGUI::UVector2& _r_max = area.d_max;
+
+		struct mm_vector2 _r_min_f;
+		struct mm_vector2 _r_max_f;
+
+		_r_min_f.x = (_r_min.d_x.d_scale * _window_size_x) + _r_min.d_x.d_offset;
+		_r_min_f.y = (_r_min.d_y.d_scale * _window_size_y) + _r_min.d_y.d_offset;
+
+		_r_max_f.x = (_r_max.d_x.d_scale * _window_size_x) + _r_max.d_x.d_offset;
+		_r_max_f.y = (_r_max.d_y.d_scale * _window_size_y) + _r_max.d_y.d_offset;
+
+		if ((_r_min_f.x <= evt.content.abs_x) &&
+			(_r_max_f.x > evt.content.abs_x) &&
+			(_r_min_f.y <= evt.content.abs_y) &&
+			(_r_max_f.y > evt.content.abs_y))
+		{
+			// touch position at area.
+			this->d_is_anchor_touch_began = true;
+			//
+			this->update_anchor_quaternion(evt.content.abs_x, evt.content.abs_y);
+		}
+
+		/////////////////////////////////////////////////////////////////////////
 		return false;
 	}
 	bool KO_dog_test_animation::on_event_mouse_ended(const mm_event_args& args)
 	{
 		const mm_event_mouse& evt = (const mm_event_mouse&)(args);
 		this->d_is_touch_began = false;
+		if (true == this->d_is_anchor_touch_began)
+		{
+			this->d_is_anchor_touch_began = false;
+		}
 		return false;
 	}
 	bool KO_dog_test_animation::on_event_key_pressed(const mm_event_args& args)
@@ -460,28 +573,19 @@ namespace mm
 		if (evt.content.key == mm::mm_key::ArrowUp && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp))
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowUp, 1);
-			//this->d_fix_v3.r = 1;
-			this->dog_v_4 = 3;
 		}
 		if (evt.content.key == mm::mm_key::ArrowDown && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown))
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowDown, 1);
-			//this->d_fix_v3.r = -0.5;
-			this->dog_v_4 = -1;
 		}
 		if (evt.content.key == mm::mm_key::ArrowLeft && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft))
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowLeft, 1);
-			//this->dog_m_x += -30;	
-			//this->dog_hudu_4 += 5 * mm_fix32::MM_PI_DIV_180;
-			this->dog_hudu_4_Dhudu = 1;
 
 		}
 		if (evt.content.key == mm::mm_key::ArrowRight && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight))
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowRight, 1);
-			//this->dog_hudu_4 -= 5 * mm_fix32::MM_PI_DIV_180;
-			this->dog_hudu_4_Dhudu = -1;
 		}
 
 		if (evt.content.key == mm::mm_key::C && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::C))
@@ -501,30 +605,10 @@ namespace mm
 			}
 
 		}
-		
-		//printf("key in dog_running= %d \n", this->dog_running);
-		if (this->dog_v_4 != 0  && this->dog_running == false)
-		{
-			this->d_unit_animation_n.stop("idle");
-			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
-			if (this->dog_v_4 > 0)
-			{
-				t->set_speed(1);
-				//printf("t->set_speed(1) \n");
-			}
-			else
-			{
-				t->set_speed(-1);
-				//printf("t->set_speed(1) \n");
-			}
-			this->dog_running = true;
-		}
-		if (this->dog_v_4 == 0 && this->dog_running == true)
-		{
-			this->d_unit_animation_n.stop("run");
-			this->d_unit_animation_n.play("idle", true);
-			this->dog_running = false;
-		}
+
+		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
+		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
+
 
 		return false;
 	}
@@ -534,45 +618,28 @@ namespace mm
 		if (evt.content.key == mm::mm_key::ArrowUp)
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowUp, 0);
-			//this->d_fix_v3.z = 0;
-			this->dog_v_4 = 0;
 		}
 		if (evt.content.key == mm::mm_key::ArrowDown)
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowDown, 0);
-			//this->d_fix_v3.z = 0;
-			this->dog_v_4 = 0;
 		}
 		if (evt.content.key == mm::mm_key::ArrowLeft)
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowLeft, 0);
-			//this->d_fix_v3.x = 0;
-			this->dog_hudu_4_Dhudu = 0;
 		}
 		if (evt.content.key == mm::mm_key::ArrowRight)
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::ArrowRight, 0);
-			//this->d_fix_v3.x = 0;
-			this->dog_hudu_4_Dhudu = 0;
 		}
 
 		if (evt.content.key == mm::mm_key::C)
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::C, 0);
 		}
-		//printf("key out \n");
-		if (this->dog_v_4 != 0 && this->dog_running == false)
-		{
-			this->d_unit_animation_n.stop("idle");
-			this->d_unit_animation_n.play("run", true);
-			this->dog_running = true;
-		}
-		if (this->dog_v_4 == 0 && this->dog_running == true)
-		{
-			this->d_unit_animation_n.stop("run");
-			this->d_unit_animation_n.play("idle", true);
-			this->dog_running = false;
-		}
+
+		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
+		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
+
 
 		return false;
 	}
@@ -634,11 +701,37 @@ namespace mm
 
 	bool KO_dog_test_animation::on_handle_StaticImage(const CEGUI::EventArgs& args)
 	{
+		//mm_event_args evt_ags;
+		////mm_event_animation_close evt_closd("args");
+		//this->d_event_set.fire_event(KO_dog_test_animation::event_close, evt_ags);
+		return false;
+	}
+	bool KO_dog_test_animation::on_handle_l_s_button_out(const CEGUI::EventArgs& args)
+	{
 		mm_event_args evt_ags;
 		//mm_event_animation_close evt_closd("args");
 		this->d_event_set.fire_event(KO_dog_test_animation::event_close, evt_ags);
 		return false;
 	}
+	void KO_dog_test_animation::update_anchor_quaternion(double abs_x, double abs_y)
+	{
+		if (true == this->d_is_anchor_touch_began)
+		{
+			double dx = abs_x - this->d_anchor_center.x;
+			double dy = abs_y - this->d_anchor_center.y;
 
+			this->d_rotation = atan2(dy, dx) - MM_PI_2;
+
+			// the original quaternion is -pi / 2.
+			CEGUI::Quaternion ce_quaternion = CEGUI::Quaternion::axisAngleRadians(CEGUI::Vector3f(0, 0, 1), (float)(this->d_rotation));
+			this->StaticImage->setRotation(ce_quaternion);
+
+			this->StaticImage->setVisible(true);
+		}
+		else
+		{
+			this->StaticImage->setVisible(false);
+		}
+	}
 }
 

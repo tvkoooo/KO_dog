@@ -95,7 +95,7 @@ namespace mm
 	public:
 		struct mm_bitset keyb_s;
 
-		bool dog_running;
+		int dog_running;
 		Ogre::SceneNode* now_camra_node;
 
 	public:
@@ -103,6 +103,9 @@ namespace mm
 		CEGUI::Window* l_layer_dog_a1;
 		CEGUI::Window* Label_jiaodu;
 		CEGUI::Window* Label_zongchang;
+		CEGUI::Window* Label_sudu_v;
+		CEGUI::Window* Label_quyu;
+		CEGUI::Window* l_s_button_out;
 		CEGUI::Window* StaticImage;
 
 	public:
@@ -124,6 +127,11 @@ namespace mm
 	public:
 		mm_fix32 d_sync_frequency;
 		mm_fix32 d_sync_interval;
+
+	public:
+		bool d_is_anchor_touch_began;
+		struct mm_vector2 d_anchor_center;
+		double d_rotation;
 
 	public:
 		static const std::string event_close;
@@ -161,8 +169,10 @@ namespace mm
 
 	public:
 		bool on_handle_StaticImage(const CEGUI::EventArgs& args);
+		bool on_handle_l_s_button_out(const CEGUI::EventArgs& args);
 
-
+	public:
+		void update_anchor_quaternion(double abs_x, double abs_y);
 	};
 }
 
