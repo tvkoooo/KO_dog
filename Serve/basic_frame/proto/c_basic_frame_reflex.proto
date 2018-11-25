@@ -1,0 +1,78 @@
+syntax = "proto2";
+package c_basic_frame_reflex;
+
+option java_package = "protodef";
+option java_outer_classname = "c_basic_frame_reflex";
+option objc_class_prefix = "C_basic_frame_reflex_";
+option go_package = "protodef/c_basic_frame_reflex";
+option csharp_namespace = "c_basic_frame_reflex";
+
+import "b_error.proto";
+//////////////////////////////////////////////////////////////////
+// msg area.
+enum msg
+{ 
+	min_id=0x02001100;
+	max_id=0x020011FF;
+}
+//////////////////////////////////////////////////////////////////
+// struct
+message simulation_variable
+{
+	required uint64 uid	                                        = 1[default = 0 ];// 用户号
+	repeated bytes commands                                     = 2              ;// 命令集
+}
+message simulation_frame
+{
+	required uint64 frame_number	                            = 1[default = 0 ];// 帧序号
+	repeated simulation_variable variables                      = 2              ;// 变量集
+}
+//////////////////////////////////////////////////////////////////
+// rq rs
+// 分配.
+message alloc_channel_rq
+{
+	enum msg{ id=0x01000100;}
+}
+message alloc_channel_rs
+{
+	enum msg{ id=0x01000101;}
+	required b_error.info error        = 1; // error info
+}
+// 释放.
+message relax_channel_rq
+{
+	enum msg{ id=0x01000100;}
+}
+message relax_channel_rs
+{
+	enum msg{ id=0x01000101;}
+	required b_error.info error        = 1; // error info
+}
+// 入场.
+message enter_channel_rq
+{
+	enum msg{ id=0x01000100;}
+}
+message enter_channel_rs
+{
+	enum msg{ id=0x01000101;}
+	required b_error.info error        = 1; // error info
+}
+// 出场.
+message leave_channel_rq
+{
+	enum msg{ id=0x01000100;}
+}
+message leave_channel_rs
+{
+	enum msg{ id=0x01000101;}
+	required b_error.info error        = 1; // error info
+}
+//////////////////////////////////////////////////////////////////
+message simulation_frame_nt
+{
+	enum msg{ id=0x01000103;}
+	required uint64 frame_number	                            = 1[default = 0 ];// 帧序号
+	repeated simulation_variable variables                      = 2              ;// 变量集
+}

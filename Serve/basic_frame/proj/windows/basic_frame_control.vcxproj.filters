@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{739ea227-6a4a-4132-9e79-92990f9e1940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\basic_frame_control">
+      <UniqueIdentifier>{dbc2a1f5-053e-49af-a5d0-30cf77234a89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="windows\main.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_control\mm_basic_frame_control_s_control_rq.cpp">
+      <Filter>src\basic_frame_control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_control\mm_basic_frame_control_s_control_rs.cpp">
+      <Filter>src\basic_frame_control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_control\mm_application.cpp">
+      <Filter>src\basic_frame_control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_control\mm_basic_frame_control.cpp">
+      <Filter>src\basic_frame_control</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\basic_frame_control\mm_basic_frame_control.h">
+      <Filter>src\basic_frame_control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_control\mm_basic_frame_control_s_control_rq.h">
+      <Filter>src\basic_frame_control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_control\mm_basic_frame_control_s_control_rs.h">
+      <Filter>src\basic_frame_control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_control\mm_application.h">
+      <Filter>src\basic_frame_control</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

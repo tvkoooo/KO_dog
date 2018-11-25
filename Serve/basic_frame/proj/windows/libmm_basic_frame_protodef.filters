@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protodef">
+      <UniqueIdentifier>{7f28256a-94eb-4e8b-8bbe-ba9869144401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protodef\cxx">
+      <UniqueIdentifier>{96072b25-6d7c-4919-86af-7dfcac0ae759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protodef\cxx\protodef">
+      <UniqueIdentifier>{35681d5a-baec-4628-ac52-cf39790fbf4a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_enum.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_error.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_math.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_network.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_entry.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_shuttle_entry.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_shuttle_reflex.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\s_basis.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\s_control.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\s_proxy_curl.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_enum.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_error.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_math.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_network.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_entry.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_shuttle_entry.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_shuttle_reflex.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\s_basis.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\s_control.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\s_proxy_curl.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

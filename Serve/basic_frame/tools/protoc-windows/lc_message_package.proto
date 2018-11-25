@@ -1,0 +1,18 @@
+syntax = "proto2";
+package lc_message_package;
+
+option java_package = "protodef";
+option java_outer_classname = "lc_message_package";
+option objc_class_prefix = "Lc_message_package_";
+option go_package = "protodef/lc_message_package";
+option csharp_namespace = "lc_message_package";
+
+// 登录
+message message_package_stream
+{
+	optional uint32 system_state     =1; //状态
+	optional uint64 user_id          =2; //用户id
+	optional string user_nick        =3; //用户昵称
+	optional string user_password    =4; //用户密码
+	optional string meassage         =6; //普通信息	
+}

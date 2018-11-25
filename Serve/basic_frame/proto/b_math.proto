@@ -1,0 +1,50 @@
+syntax = "proto2";
+package b_math;
+
+option java_package = "protodef";
+option java_outer_classname = "b_math";
+option objc_class_prefix = "B_math_";
+option go_package = "protodef/b_math";
+option csharp_namespace = "b_math";
+
+// 球坐标
+message coord
+{
+	required double j	= 1[default =  0 ];// 经度
+	required double w	= 2[default =  0 ];// 纬度
+}
+
+// vec2 坐标
+message vec2
+{
+	required double x	= 1[default =  0 ];// x 轴
+	required double y	= 2[default =  0 ];// y 轴
+}
+
+// vec3 坐标
+message vec3
+{
+	required double x	= 1[default =  0 ];// x 轴
+	required double y	= 2[default =  0 ];// y 轴
+	required double z	= 3[default =  0 ];// z 轴
+}
+
+// vec4 坐标 也用于 quaternion
+message vec4
+{
+	required double x	= 1[default =  0 ];// x 轴
+	required double y	= 2[default =  0 ];// y 轴
+	required double z	= 3[default =  0 ];// z 轴
+	required double w	= 4[default =  0 ];// w 轴(转轴)
+}
+
+// mat3 矩阵 m[3][3]
+message mat3
+{
+	repeated double m	    = 1;// m 矩阵[0,8]
+}
+// mat4 矩阵 m[4][4]
+message mat4
+{
+	repeated double m	    = 1;// m 矩阵[0,15]
+}

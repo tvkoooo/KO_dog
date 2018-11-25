@@ -109,18 +109,19 @@ namespace mm
 	{
 		//mm_flake_context* flake_context = this->get_context();
 		//flake_context->d_cegui_system.set_rendering_enabled(false);
+		this->lj_timer_test.start();
 	}
 	void KO_dog::on_interrupt()
 	{
-
+		this->lj_timer_test.interrupt();
 	}
 	void KO_dog::on_shutdown()
 	{
-
+		this->lj_timer_test.shutdown();
 	}
 	void KO_dog::on_join()
 	{
-
+		this->lj_timer_test.join();
 	}
 
 	void KO_dog::test_s_launching( mm_flake_surface* surface )

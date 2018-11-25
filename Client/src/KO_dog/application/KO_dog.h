@@ -10,6 +10,7 @@
 
 //#include "KO_dog_test_animation.h"
 #include "lj_KO_dog_jiemian.h"
+#include "lj_KO_dog_test.h"
 
 namespace mm
 {
@@ -18,6 +19,10 @@ namespace mm
 
 	class KO_dog : public mm_flake_activity
 	{
+	//test
+	public:
+		lj_struct_timer_test lj_timer_test;
+
 
 	public:
 		lj_KO_dog_jiemian jiemian;

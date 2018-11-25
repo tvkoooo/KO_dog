@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_application.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cache.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cback.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_contact_tcp_hd.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_external_mailbox_tcp_hd.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_internal_mailbox_tcp_hd.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_launch.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_runtime.cpp" />
+    <ClCompile Include="windows\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_application.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cache.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cback.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_contact_tcp_hd.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_external_mailbox_tcp_hd.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_internal_mailbox_tcp_hd.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_launch.h" />
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_runtime.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{7D0E5BDE-A33E-4F18-A02C-D148ECC607BD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>basic_frame_lobby</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>MM_STATIC_MAKE;_DEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/basic_frame_lobby;../../src/protodef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread_d.lib;libcrypto_d.lib;libinih_d.lib;libprotobuf_d.lib;libhiredis_d.lib;libzookeeper_d.lib;libmm_data_mysql_d.lib;libmm_data_zookeeper_d.lib;libmm_data_protobuf_d.lib;libmm_data_redis_d.lib;libmm_net_d.lib;libmm_core_d.lib;libmm_dish_d.lib;libmm_shuttle_querydef_d.lib;libmm_basic_frame_protodef_d.lib;libmm_shuttle_common_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>MM_STATIC_MAKE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/basic_frame_lobby;../../src/protodef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread_d.lib;libcrypto_d.lib;libinih_d.lib;libprotobuf_d.lib;libhiredis_d.lib;libzookeeper_d.lib;libmm_data_mysql_d.lib;libmm_data_zookeeper_d.lib;libmm_data_protobuf_d.lib;libmm_data_redis_d.lib;libmm_net_d.lib;libmm_core_d.lib;libmm_dish_d.lib;libmm_shuttle_querydef_d.lib;libmm_basic_frame_protodef_d.lib;libmm_shuttle_common_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>MM_STATIC_MAKE;NDEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/basic_frame_lobby;../../src/protodef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread.lib;libcrypto.lib;libinih.lib;libprotobuf.lib;libhiredis.lib;libzookeeper.lib;libmm_data_mysql.lib;libmm_data_zookeeper.lib;libmm_data_protobuf.lib;libmm_data_redis.lib;libmm_net.lib;libmm_core.lib;libmm_dish.lib;libmm_shuttle_querydef.lib;libmm_basic_frame_protodef.lib;libmm_shuttle_common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>MM_STATIC_MAKE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/basic_frame_lobby;../../src/protodef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread.lib;libcrypto.lib;libinih.lib;libprotobuf.lib;libhiredis.lib;libzookeeper.lib;libmm_data_mysql.lib;libmm_data_zookeeper.lib;libmm_data_protobuf.lib;libmm_data_redis.lib;libmm_net.lib;libmm_core.lib;libmm_dish.lib;libmm_shuttle_querydef.lib;libmm_basic_frame_protodef.lib;libmm_shuttle_common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.targets" />
+  </ImportGroup>
+</Project>

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp" />
@@ -38,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test.h" />
     <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.h" />
     <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h" />

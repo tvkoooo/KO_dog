@@ -1,0 +1,44 @@
+syntax = "proto2";
+package s_control;
+
+option java_package = "protodef";
+option java_outer_classname = "s_control";
+option objc_class_prefix = "S_control_";
+option go_package = "protodef/s_control";
+option csharp_namespace = "s_control";
+
+import "b_error.proto";
+//////////////////////////////////////////////////////////////////
+// msg area.
+enum msg
+{ 
+	min_id=0x01000100;
+	max_id=0x010001FF;
+}
+//////////////////////////////////////////////////////////////////
+// struct
+//////////////////////////////////////////////////////////////////
+// rq rs
+// set logger.
+message set_logger_rq
+{
+	enum msg{ id=0x01000100;}
+	required uint32 level              = 1[default =  0 ]; // set target logger.
+}
+message set_logger_rs
+{
+	enum msg{ id=0x01000101;}
+	required b_error.info error        = 1; // error info
+	required uint32 level              = 2[default =  0 ]; // current logger level.
+}
+// get logger.
+message get_logger_rq
+{
+	enum msg{ id=0x01000102;}
+}
+message get_logger_rs
+{
+	enum msg{ id=0x01000103;}
+	required b_error.info error        = 1; // error info
+	required uint32 level              = 2[default =  0 ]; // current logger level.
+}

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{739ea227-6a4a-4132-9e79-92990f9e1940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\basic_frame_entry">
+      <UniqueIdentifier>{dbc2a1f5-053e-49af-a5d0-30cf77234a89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="windows\main.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_application.cpp">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry.cpp">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_error_code.c">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_launch.cpp">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_runtime.cpp">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_udp_hd.cpp">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_application.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_error_code.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_launch.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_runtime.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_udp_hd.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -87,6 +87,9 @@
     <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.cpp">
       <Filter>src\KO_dog\application</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -132,6 +135,9 @@
       <Filter>src\KO_dog\application</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test.h">
       <Filter>src\KO_dog\application</Filter>
     </ClInclude>
   </ItemGroup>

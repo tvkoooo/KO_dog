@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{739ea227-6a4a-4132-9e79-92990f9e1940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\basic_frame_lobby">
+      <UniqueIdentifier>{dbc2a1f5-053e-49af-a5d0-30cf77234a89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="windows\main.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cache.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cback.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_contact_tcp_hd.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_external_mailbox_tcp_hd.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_internal_mailbox_tcp_hd.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_launch.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_runtime.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_application.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby.cpp">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cache.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_cback.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_contact_tcp_hd.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_external_mailbox_tcp_hd.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_internal_mailbox_tcp_hd.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_launch.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby_runtime.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_application.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_lobby\mm_basic_frame_lobby.h">
+      <Filter>src\basic_frame_lobby</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
