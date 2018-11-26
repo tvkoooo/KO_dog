@@ -20,3 +20,5 @@ protobuf/src/protodef/
 Client/proj/android/assets/
 
 Client/proj/windows/shader_cache/*.glsles
+
+Serve/basic_frame/tools/*/*.exe

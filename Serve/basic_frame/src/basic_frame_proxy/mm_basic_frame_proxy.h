@@ -49,7 +49,7 @@ extern void mm_basic_frame_proxy_init(struct mm_basic_frame_proxy* p);
 extern void mm_basic_frame_proxy_destroy(struct mm_basic_frame_proxy* p);
 //////////////////////////////////////////////////////////////////////////
 extern void mm_basic_frame_proxy_assign_unique_id(struct mm_basic_frame_proxy* p,mm_uint32_t unique_id);
-extern void mm_basic_frame_proxy_assign_server_id(struct mm_basic_frame_proxy* p,mm_uint32_t server_id);
+//extern void mm_basic_frame_proxy_assign_server_id(struct mm_basic_frame_proxy* p,mm_uint32_t server_id);
 extern void mm_basic_frame_proxy_assign_internal_mailbox_parameters(struct mm_basic_frame_proxy* p,const char* parameters);
 extern void mm_basic_frame_proxy_assign_zookeeper_import_parameters(struct mm_basic_frame_proxy* p,const char* parameters);
 extern void mm_basic_frame_proxy_assign_zookeeper_export_parameters(struct mm_basic_frame_proxy* p,const char* parameters);

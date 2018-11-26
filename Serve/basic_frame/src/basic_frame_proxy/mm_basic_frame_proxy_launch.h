@@ -8,7 +8,7 @@
 struct mm_basic_frame_proxy_launch
 {
 	mm_uint32_t unique_id;
-	mm_uint32_t server_id;
+	//mm_uint32_t server_id;
 	struct mm_string internal_mailbox_parameters;
 	struct mm_string zookeeper_import_parameters;
 	struct mm_string zookeeper_export_parameters;

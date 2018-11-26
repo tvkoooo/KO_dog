@@ -15,13 +15,7 @@
     <ClCompile Include="windows\main.cpp">
       <Filter>windows</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\basic_frame_entry\mm_application.cpp">
-      <Filter>src\basic_frame_entry</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry.cpp">
-      <Filter>src\basic_frame_entry</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_error_code.c">
       <Filter>src\basic_frame_entry</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_launch.cpp">
@@ -33,15 +27,18 @@
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_udp_hd.cpp">
       <Filter>src\basic_frame_entry</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_error_code_basic_frame_entry.c">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_application.cpp">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\basic_frame_entry\mm_application.h">
       <Filter>src\basic_frame_entry</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry.h">
-      <Filter>src\basic_frame_entry</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_error_code.h">
       <Filter>src\basic_frame_entry</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_launch.h">
@@ -51,6 +48,9 @@
       <Filter>src\basic_frame_entry</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_udp_hd.h">
+      <Filter>src\basic_frame_entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_error_code_basic_frame_entry.h">
       <Filter>src\basic_frame_entry</Filter>
     </ClInclude>
   </ItemGroup>

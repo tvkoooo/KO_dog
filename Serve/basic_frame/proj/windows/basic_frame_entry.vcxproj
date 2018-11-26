@@ -21,19 +21,19 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\basic_frame_entry\mm_application.cpp" />
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry.cpp" />
-    <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_error_code.c" />
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_launch.cpp" />
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_runtime.cpp" />
     <ClCompile Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_udp_hd.cpp" />
+    <ClCompile Include="..\..\src\basic_frame_entry\mm_error_code_basic_frame_entry.c" />
     <ClCompile Include="windows\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\basic_frame_entry\mm_application.h" />
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry.h" />
-    <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_error_code.h" />
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_launch.h" />
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_runtime.h" />
     <ClInclude Include="..\..\src\basic_frame_entry\mm_basic_frame_entry_udp_hd.h" />
+    <ClInclude Include="..\..\src\basic_frame_entry\mm_error_code_basic_frame_entry.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -216,7 +216,7 @@ xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_redis.dll        
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_zookeeper.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_mysql.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_protobuf.dll                           bin\\Release\* /s /e /h /d /y 
-xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common_d.dll                             bin\\Release\* /s /e /h /d /y </Command>
+xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common.dll                             bin\\Release\* /s /e /h /d /y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -255,7 +255,7 @@ xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_redis.dll        
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_zookeeper.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_mysql.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_protobuf.dll                           bin\\Release\* /s /e /h /d /y 
-xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common_d.dll                             bin\\Release\* /s /e /h /d /y </Command>
+xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common.dll                             bin\\Release\* /s /e /h /d /y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

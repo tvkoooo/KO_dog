@@ -103,30 +103,31 @@ void mm_basic_frame_proxy_assign_unique_id(struct mm_basic_frame_proxy* p,mm_uin
 	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
 	launch_info->unique_id = unique_id;
 }
-void mm_basic_frame_proxy_assign_server_id(struct mm_basic_frame_proxy* p,mm_uint32_t server_id)
-{
-	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
-	launch_info->server_id = server_id;
-}
+//void mm_basic_frame_proxy_assign_server_id(struct mm_basic_frame_proxy* p,mm_uint32_t server_id)
+//{
+//	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
+//	launch_info->server_id = server_id;
+//}
 void mm_basic_frame_proxy_assign_internal_mailbox_parameters(struct mm_basic_frame_proxy* p,const char* parameters)
 {
 	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
 	mm_string_assigns(&launch_info->internal_mailbox_parameters, parameters);
 }
+
 void mm_basic_frame_proxy_assign_zookeeper_import_parameters(struct mm_basic_frame_proxy* p,const char* parameters)
 {
 	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
 	mm_string_assigns(&launch_info->zookeeper_import_parameters, parameters);
 }
-void mm_basic_frame_proxy_assign_module(struct mm_basic_frame_proxy* p,mm_uint32_t module)
-{
-	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
-	launch_info->module = module;
-}
 void mm_basic_frame_proxy_assign_zookeeper_export_parameters(struct mm_basic_frame_proxy* p,const char* parameters)
 {
 	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
 	mm_string_assigns(&launch_info->zookeeper_export_parameters, parameters);
+}
+void mm_basic_frame_proxy_assign_module(struct mm_basic_frame_proxy* p,mm_uint32_t module)
+{
+	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
+	launch_info->module = module;
 }
 void mm_basic_frame_proxy_assign_message_interval(struct mm_basic_frame_proxy* p,const char* mid_l_string,const char* mid_r_string)
 {
@@ -146,8 +147,8 @@ void mm_basic_frame_proxy_start(struct mm_basic_frame_proxy* p)
 	char module_path[64] = {0};
 	struct mm_basic_frame_proxy_launch* launch_info = &p->launch_info;
 	// pull launcher config.
-	mm_sprintf(config_path, "../../config/vnc/%d/vnc_proxy", launch_info->server_id);
-	mm_basic_frame_proxy_launch_load_config(&p->launch_info, config_path);
+	//mm_sprintf(config_path, "../../config/vnc/%d/vnc_proxy", launch_info->server_id);
+	//mm_basic_frame_proxy_launch_load_config(&p->launch_info, config_path);
 	//////////////////////////////////////////////////////////////////////////
 	mm_basic_frame_proxy_launch_printf_information(&p->launch_info);
 	//////////////////////////////////////////////////////////////////////////

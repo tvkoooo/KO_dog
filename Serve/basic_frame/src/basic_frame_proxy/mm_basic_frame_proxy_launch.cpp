@@ -8,7 +8,7 @@
 void mm_basic_frame_proxy_launch_init(struct mm_basic_frame_proxy_launch* p)
 {
 	p->unique_id = 0;
-	p->server_id = 0;
+	//p->server_id = 0;
 	mm_string_init(&p->internal_mailbox_parameters);
 	mm_string_init(&p->zookeeper_import_parameters);
 	mm_string_init(&p->zookeeper_export_parameters);
@@ -21,7 +21,7 @@ void mm_basic_frame_proxy_launch_init(struct mm_basic_frame_proxy_launch* p)
 void mm_basic_frame_proxy_launch_destroy(struct mm_basic_frame_proxy_launch* p)
 {
 	p->unique_id = 0;
-	p->server_id = 0;
+	//p->server_id = 0;
 	mm_string_destroy(&p->internal_mailbox_parameters);
 	mm_string_destroy(&p->zookeeper_import_parameters);
 	mm_string_destroy(&p->zookeeper_export_parameters);
@@ -55,11 +55,12 @@ void mm_basic_frame_proxy_launch_printf_information(struct mm_basic_frame_proxy_
 	// ; static void __static_print_help()
 	// ; {
 	// ; 	mm_printf("%s\n", "help:");
-	// ; 	mm_printf("%s\n", "程序名             日志目录 日志等级 实例编号  服        内地址启动参数   模块号 包号区间左 包号区间右 分片规模(0用负载)");
-	// ; 	mm_printf("%s\n", "program_name       log_dir  log_lvl  unique_id server_id internal_mailbox module mid_l      mid_r      shard_size       ");
-	// ; 	mm_printf("%s\n", "./mm_basic_frame_proxy ./log    7        1         1         ::-65535[2]      100    0x01000100 0x010001FF 2                ");
+	// ; 	mm_printf("%s\n", "程序名             日志目录 日志等级 实例编号   内地址启动参数   读取监控集群号     写入监控集群号     模块号 包号区间左 包号区间右 分片规模(0用负载)");
+	// ; 	mm_printf("%s\n", "program_name       log_dir  log_lvl  unique_id  internal_mailbox zookeeper_import   zookeeper_export   module mid_l      mid_r      shard_size       ");
+	// ; 	mm_printf("%s\n", "./mm_basic_frame_proxy ./log    7        1      ::-65535[2]      10.26.50.101:2181, 10.26.50.101:2181, 100    0x01000100 0x010001FF 2                ");
 	// ; }
 
+	//not use add export config
 	// [common]
 	// zookeeper_import  = 10.26.50.101:2181,              ; 读取监控集群号
 	// zookeeper_export  = 10.26.50.101:2181,              ; 写入监控集群号
@@ -71,7 +72,7 @@ void mm_basic_frame_proxy_launch_printf_information(struct mm_basic_frame_proxy_
 	mm_logger_log_I(g_logger,"日志文件夹路径     %s",g_logger_manager->logger_path.s);
 	mm_logger_log_I(g_logger,"日志等级           %u",g_logger_manager->logger_level);
 	mm_logger_log_I(g_logger,"实例编号           %u",p->unique_id);
-	mm_logger_log_I(g_logger,"服                 %u",p->server_id);
+	//mm_logger_log_I(g_logger,"服                 %u",p->server_id);
 	mm_logger_log_I(g_logger,"内地址启动参数     %s",p->internal_mailbox_parameters.s);
 	mm_logger_log_I(g_logger,"读取监控集群号     %s",p->zookeeper_import_parameters.s);
 	mm_logger_log_I(g_logger,"写入监控集群号     %s",p->zookeeper_export_parameters.s);

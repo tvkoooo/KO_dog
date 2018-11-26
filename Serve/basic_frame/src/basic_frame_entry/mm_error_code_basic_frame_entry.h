@@ -1,5 +1,5 @@
-﻿#ifndef __mm_basic_frame_entry_error_code_h__
-#define __mm_basic_frame_entry_error_code_h__
+﻿#ifndef __mm_error_code_basic_frame_entry_h__
+#define __mm_error_code_basic_frame_entry_h__
 
 #include "core/mm_core.h"
 
@@ -16,4 +16,4 @@ extern void mm_error_desc_assign_basic_frame_entry(struct mm_error_desc* p);
 //////////////////////////////////////////////////////////////////////////
 #include "core/mm_suffix.h"
 
-#endif//__mm_basic_frame_entry_error_code_h__
+#endif//__mm_error_code_basic_frame_entry_h__
