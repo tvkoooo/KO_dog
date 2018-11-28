@@ -1,0 +1,27 @@
+syntax = "proto2";
+package s_basis;
+
+option java_package = "protodef";
+option java_outer_classname = "s_basis";
+option objc_class_prefix = "S_basis";
+option go_package = "protodef/s_basis";
+option csharp_namespace = "s_basis";
+
+import "b_math.proto";
+//////////////////////////////////////////////////////////////////
+// msg area.
+enum msg
+{
+	min_id=0x01001000;
+	max_id=0x010010FF;
+}
+//////////////////////////////////////////////////////////////////
+// heartbeat
+message heartbeat_ev
+{
+	enum msg{ id=0x01001000;}
+    required uint64 event_time                = 1 [default =  0 ];// 事件发生时间戳(毫秒)
+    required uint64 uid                       = 2 [default =  0 ]; //用户ID
+    required uint64 timecode_native           = 3 [default =  0 ]; //发出的时间点(ms毫秒)
+	required b_math.coord coord_info          = 4                ; // Earth(j,w).
+}

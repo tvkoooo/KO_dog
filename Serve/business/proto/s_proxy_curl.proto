@@ -1,0 +1,34 @@
+syntax = "proto2";
+package s_proxy_curl;
+
+option java_package = "protodef";
+option java_outer_classname = "s_proxy_curl";
+option objc_class_prefix = "S_proxy_curl_";
+option go_package = "protodef/s_proxy_curl";
+option csharp_namespace = "s_proxy_curl";
+
+import "b_error.proto";
+//////////////////////////////////////////////////////////////////
+// msg area.
+enum msg
+{
+	min_id=0x01000100;
+	max_id=0x010001FF;
+}
+//////////////////////////////////////////////////////////////////
+// struct
+//////////////////////////////////////////////////////////////////
+// rq rs
+// set logger.
+message json_data_rq
+{
+	enum msg{ id=0x01000100;}
+	required bytes buffer              = 1               ; // json buffer rq.
+}
+message json_data_rs
+{
+	enum msg{ id=0x01000101;}
+	required b_error.info error        = 1               ; // error info
+	required uint32 curl_code          = 2[default =  0 ]; // curl code.
+	required bytes buffer              = 3               ; // json buffer rs.
+}

@@ -1,7 +1,7 @@
 #ifndef __mm_application_h__
 #define __mm_application_h__
 
-#include "mm_basic_frame_entry.h"
+#include "mm_business_account.h"
 
 #include "core/mm_core.h"
 #include "core/mm_argument.h"
@@ -15,7 +15,7 @@ struct mm_application
 {
 	struct mm_argument argument;
 	mm_sint8_t state;// run state.1 is run 0 is stop.
-	struct mm_basic_frame_entry impl;
+	struct mm_business_account impl;
 };
 //////////////////////////////////////////////////////////////////////////
 extern struct mm_application* mm_application_instance();

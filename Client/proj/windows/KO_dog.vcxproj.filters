@@ -37,6 +37,21 @@
     <Filter Include="src\KO_dog\raptorq">
       <UniqueIdentifier>{4c5187e8-ce35-4bf9-ae1a-27db343885ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\KO_dog\network">
+      <UniqueIdentifier>{666b78b4-ecbe-403b-b5f7-46131b385563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\KO_dog\model_data">
+      <UniqueIdentifier>{707f2bda-643e-40f1-a037-0254ee9f6a85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protodef">
+      <UniqueIdentifier>{899f0743-c719-447b-b0db-7e80538b9405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protodef\cxx">
+      <UniqueIdentifier>{03353f5d-39ca-4656-a129-50d5e479281a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\protodef\cxx\protodef">
+      <UniqueIdentifier>{cac5a3db-d9f1-45f1-8704-94ecfaffc42d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp">
@@ -90,6 +105,39 @@
     <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test.cpp">
       <Filter>src\KO_dog\application</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\network_handle.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\KO_dog_network.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\model_data\KO_dog_data_net.cpp">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\model_data\KO_dog_data.cpp">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_network.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_basic_frame_entry.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_enum.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_error.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_math.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\network_entry.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -139,6 +187,39 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test.h">
       <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\network_handle.h">
+      <Filter>src\KO_dog\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\KO_dog_network.h">
+      <Filter>src\KO_dog\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\model_data\KO_dog_data.h">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\model_data\KO_dog_data_net.h">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_network.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_basic_frame_entry.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_enum.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_error.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_math.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\network_entry.h">
+      <Filter>src\KO_dog\network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

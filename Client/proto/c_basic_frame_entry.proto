@@ -1,0 +1,52 @@
+syntax = "proto2";
+package c_basic_frame_entry;
+
+option java_package = "protodef";
+option java_outer_classname = "c_basic_frame_entry";
+option objc_class_prefix = "C_basic_frame_entry_";
+option go_package = "protodef/c_basic_frame_entry";
+option csharp_namespace = "c_basic_frame_entry";
+
+import "b_error.proto";
+import "b_math.proto";
+import "b_network.proto";
+
+enum msg
+{ 
+	min_id=0x02001000;
+	max_id=0x020010FF;
+}
+// (udp)获取总线地址请求
+message knock_rq
+{
+	enum msg{ id=0x02001000;}
+	required string native_client_version     = 1 [default = "" ]; // 本地client version.
+	required string native_source_version     = 2 [default = "" ]; // 本地source version.
+	required b_math.coord coord_info          = 3                ; // Earth(j,w).
+}
+// (udp)获取总线地址返回
+message knock_rs
+{
+	enum msg{ id=0x02001001;}
+	required b_error.info error               = 1                ; // error info
+	required b_network.address addr           = 2                ; // 网络地址
+	required string remote_client_version     = 3 [default = "" ]; // 远端client version.
+	required string remote_source_version     = 4 [default = "" ]; // 远端source version.
+	required string remote_server_version     = 5 [default = "" ]; // 远端server version.
+}
+
+// (tcp)交换秘钥请求
+message exchange_key_rq
+{
+	enum msg{ id=0x02001010;}
+	required bytes	n 					      = 1				 ; // n
+	required bytes	e 					      = 2				 ; // e
+	required uint32 version					  = 3 [default =  0 ]; // 密钥交换协议版本号，初始为0
+}
+// (tcp)交换秘钥返回
+message exchange_key_rs
+{
+	enum msg{ id=0x02001011;}
+	required b_error.info error               = 1                ; // error info
+	required bytes	key 					  = 2				 ; // 对称密钥
+}

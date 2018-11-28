@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="windows">
+      <UniqueIdentifier>{739ea227-6a4a-4132-9e79-92990f9e1940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\business_account">
+      <UniqueIdentifier>{dbc2a1f5-053e-49af-a5d0-30cf77234a89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="windows\main.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_error_code_business_account.c">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_application.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_business_account.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_business_account_launch.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_business_account_runtime.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_register_rq.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_signed_in_rq.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\business_account\mm_business_account_runtime.h">
+      <Filter>src\business_account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\business_account\mm_error_code_business_account.h">
+      <Filter>src\business_account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\business_account\mm_application.h">
+      <Filter>src\business_account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\business_account\mm_business_account.h">
+      <Filter>src\business_account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\business_account\mm_business_account_launch.h">
+      <Filter>src\business_account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\business_account\mm_business_account_tcp_hd.h">
+      <Filter>src\business_account</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

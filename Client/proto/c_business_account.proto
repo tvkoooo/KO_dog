@@ -1,0 +1,50 @@
+syntax = "proto2";
+package c_business_account;
+
+option java_package = "protodef";
+option java_outer_classname = "c_business_account";
+option objc_class_prefix = "C_business_account_";
+option go_package = "protodef/c_business_account";
+option csharp_namespace = "c_business_account";
+
+import "b_error.proto";
+
+enum msg
+{ 
+	min_id=0x02002000;
+	max_id=0x020020FF;
+}
+
+// (tcp)登陆
+message signed_in_rq
+{
+	enum msg{ id=0x02002010;}
+	required string	user_name 					      = 1				 ; // 用户名
+	required string	password 					      = 2				 ; // 密码（md5）
+}
+// (tcp)登陆
+message signed_in_rs
+{
+	enum msg{ id=0x02001011;}
+	required b_error.info error                       = 1                ; // error info
+	required string	user_name 					      = 2				 ; // 用户名
+	required uint64	user_id 					      = 3				 ; // 用户id
+	required string	token                             = 4				 ; // 用户令牌
+}
+
+// (tcp)注册
+message register_rq
+{
+	enum msg{ id=0x02002020;}
+	required string	user_name 					      = 1				 ; // 用户名
+	required string	password 					      = 2				 ; // 密码（md5）
+}
+// (tcp)注册
+message register_rs
+{
+	enum msg{ id=0x02001021;}
+	required b_error.info error                       = 1                ; // error info
+	required string	user_name 					      = 2				 ; // 用户名
+	required uint64	user_id 					      = 3				 ; // 用户id
+	required string	token                             = 4				 ; // 用户令牌
+}

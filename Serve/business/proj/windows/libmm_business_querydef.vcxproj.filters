@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8240b1fa-49c1-461b-b709-089335412bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\querydef">
+      <UniqueIdentifier>{4bea158a-3d0a-493a-bbb2-9584844684c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\querydef\mm_m_db_ko_dog_t_user_basic.h">
+      <Filter>src\querydef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\querydef\mm_q_db_ko_dog_t_user_basic.h">
+      <Filter>src\querydef</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\querydef\mm_q_db_ko_dog_t_user_basic.cpp">
+      <Filter>src\querydef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\querydef\mm_m_db_ko_dog_t_user_basic.cpp">
+      <Filter>src\querydef</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

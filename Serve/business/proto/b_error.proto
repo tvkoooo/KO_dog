@@ -1,0 +1,15 @@
+syntax = "proto2";
+package b_error;
+
+option java_package = "protodef";
+option java_outer_classname = "b_error";
+option objc_class_prefix = "B_error_";
+option go_package = "protodef/b_error";
+option csharp_namespace = "b_error";
+
+// 错误信息
+message info
+{
+	required uint32 code	= 1[default = 0 ];// 0 为成功
+	required string desc	= 2[default = ""];// 错误描述
+}

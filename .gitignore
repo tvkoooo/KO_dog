@@ -22,3 +22,5 @@ Client/proj/android/assets/
 Client/proj/windows/shader_cache/*.glsles
 
 Serve/basic_frame/tools/*/*.exe
+Serve/business/tools/*/*.exe
+Client/tools/*/*.exe

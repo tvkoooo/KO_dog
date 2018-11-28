@@ -34,6 +34,7 @@
 #include "lj_KO_dog_test_setup.h"
 
 //////////////////////////////////////////////////////////////////////////
+static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval);
 
 namespace mm
 {
@@ -50,34 +51,30 @@ namespace mm
 	//////////////////////////////////////////////////////////////////////////
 	KO_dog::KO_dog()
 	{
-
+		KO_dog_network_init(&this->network);
+		KO_dog_network_assign_context(&this->network, this);
 	}
 
 	KO_dog::~KO_dog()
 	{
-
+		KO_dog_network_destroy(&this->network);
 	}
 
 	void KO_dog::on_acquire_feature() 
 	{
-		//mm_flake_context* flake_context = this->get_context();
-		//flake_context->acquire_plugin_feature("Plugin_ParticleFX");
-		//flake_context->acquire_plugin_feature("Plugin_ParticleUniverse");
-		//flake_context->acquire_plugin_feature("Plugin_OctreeSceneManager");
+		mm_flake_context* flake_context = this->get_context();
+		flake_context->acquire_plugin_feature("Plugin_ParticleFX");
+		flake_context->acquire_plugin_feature("Plugin_ParticleUniverse");
+		flake_context->acquire_plugin_feature("Plugin_OctreeSceneManager");
 	}
 
 	void KO_dog::on_release_feature()
 	{
-		//mm_flake_context* flake_context = this->get_context();
+		mm_flake_context* flake_context = this->get_context();
 
-		//flake_context->release_plugin_feature("Plugin_OctreeSceneManager");
-		//flake_context->release_plugin_feature("Plugin_ParticleUniverse");
-		//flake_context->release_plugin_feature("Plugin_ParticleFX");
-	}
-
-	void KO_dog::test_s_fuzhi( mm_flake_surface* surface )
-	{
-
+		flake_context->release_plugin_feature("Plugin_OctreeSceneManager");
+		flake_context->release_plugin_feature("Plugin_ParticleUniverse");
+		flake_context->release_plugin_feature("Plugin_ParticleFX");
 	}
 
 	void KO_dog::on_finish_launching()
@@ -92,7 +89,13 @@ namespace mm
 		//ogre::renderwindow* render_window = flake_surface->get_render_window();
 		////启动  入口//////////////////////////////////////////////////////
 		this->test_s_launching(flake_surface);
-
+		//////////////////////////////////////////////////////////////////////////
+		//添加一个网络模块数据线程队列的弹出模块处理过程
+		mm_adaptive_timer_schedule(&flake_context->d_adaptive_timer, "network", 5, 1, &__static_flake_context_adaptive_timer_unit_update_synchronize, this);
+		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 1);
+		//////////////////////////////////////////////////////////////////////////
+		//设置udp入口地址和端口
+		KO_dog_network_client_udp_assign_remote_target(&this->network, "127.0.0.1", 65534);
 	}
 
 	void KO_dog::on_before_terminate()
@@ -100,6 +103,8 @@ namespace mm
 		//////////////////////////////////////////////////////////////////////
 		mm_flake_context* flake_context = this->get_context();
 		mm_flake_surface* flake_surface = flake_context->get_main_flake_surface();
+		//////////////////////////////////////////////////////////////////////
+		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 0);
 		/////结束  出口//////////////////////////////////////////////////////////////
 		this->test_s_terminate(flake_surface);
 
@@ -110,18 +115,22 @@ namespace mm
 		//mm_flake_context* flake_context = this->get_context();
 		//flake_context->d_cegui_system.set_rendering_enabled(false);
 		this->lj_timer_test.start();
+		KO_dog_network_start(&this->network);
 	}
 	void KO_dog::on_interrupt()
 	{
 		this->lj_timer_test.interrupt();
+		KO_dog_network_interrupt(&this->network);
 	}
 	void KO_dog::on_shutdown()
 	{
 		this->lj_timer_test.shutdown();
+		KO_dog_network_shutdown(&this->network);
 	}
 	void KO_dog::on_join()
 	{
 		this->lj_timer_test.join();
+		KO_dog_network_join(&this->network);
 	}
 
 	void KO_dog::test_s_launching( mm_flake_surface* surface )
@@ -151,4 +160,12 @@ namespace mm
 
 		//////////////////////////////////////////////////////////////////////////
 	}
+
+}
+
+static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval)
+{
+	struct mm_adaptive_timer_unit* unit = (struct mm_adaptive_timer_unit*)(obj);
+	mm::KO_dog* p = (mm::KO_dog*)(unit->callback.obj);
+	KO_dog_network_thread_handle_recv( &p->network);
 }

@@ -11,6 +11,8 @@
 //#include "KO_dog_test_animation.h"
 #include "lj_KO_dog_jiemian.h"
 #include "lj_KO_dog_test.h"
+#include "model_data/KO_dog_data.h"
+#include "network/KO_dog_network.h"
 
 namespace mm
 {
@@ -22,16 +24,14 @@ namespace mm
 	//test
 	public:
 		lj_struct_timer_test lj_timer_test;
-
-
+		KO_dog_data data;
+		struct KO_dog_network network;
 	public:
 		lj_KO_dog_jiemian jiemian;
 		//KO_dog_test_animation d_test_animation;
-
 	public:
 		void test_s_terminate( mm_flake_surface* surface );
 		void test_s_launching( mm_flake_surface* surface );
-		void test_s_fuzhi( mm_flake_surface* surface );
 	public:
 		KO_dog();
 		virtual ~KO_dog();

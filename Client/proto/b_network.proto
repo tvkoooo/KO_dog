@@ -1,0 +1,15 @@
+syntax = "proto2";
+package b_network;
+
+option java_package = "protodef";
+option java_outer_classname = "b_network";
+option objc_class_prefix = "B_network_";
+option go_package = "protodef/b_network";
+option csharp_namespace = "b_network";
+
+// 网络地址
+message address
+{
+	required string host	    = 1[default = "" ]; // ip 地址
+	required uint32 port	    = 2[default =  0 ]; // 端口
+}

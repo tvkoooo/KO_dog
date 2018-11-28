@@ -1,0 +1,29 @@
+syntax = "proto2";
+package b_enum;
+
+option java_package = "protodef";
+option java_outer_classname = "b_enum";
+option objc_class_prefix = "B_enum_";
+option go_package = "protodef/b_enum";
+option csharp_namespace = "b_enum";
+
+enum reply_t
+{ 
+	accept = 0; // 接受
+	refuse = 1; // 拒绝
+}
+
+enum operate_t
+{ 
+	ensure = 0; // 确定
+	cancel = 1; // 取消
+}
+// 数据表操作码
+enum opcode_t
+{
+	assign    =0;// 替换本地所有
+	update    =1;// 更新本地指定
+	insert    =2;// 直接插入新值
+	remove    =3;// 清除本地指定
+	delete    =4;// 清除本地所有
+}
