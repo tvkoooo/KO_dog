@@ -4,11 +4,14 @@
 #include "shuttle_common/mm_runtime_calculate.h"
 #include "shuttle_common/mm_j_runtime_state.h"
 #include "mm_business_account_launch.h"
+mm_uint32_t unique_id;
+mm_uint32_t shard;// slot for shard.
+mm_uint32_t depth;// slot for depth.
 
 void mm_business_account_runtime_init(struct mm_business_account_runtime* p)
 {
 	mm_runtime_stat_init(&p->runtime);
-	mm_zkwb_path_init(&p->zkwb_path);
+	mm_zkwp_path_init(&p->zkwp_path);
 	p->launch_info = NULL;
 	p->internal_mailbox = NULL;
 	p->external_mailbox = NULL;
@@ -18,7 +21,7 @@ void mm_business_account_runtime_init(struct mm_business_account_runtime* p)
 void mm_business_account_runtime_destroy(struct mm_business_account_runtime* p)
 {
 	mm_runtime_stat_destroy(&p->runtime);
-	mm_zkwb_path_destroy(&p->zkwb_path);
+	mm_zkwp_path_destroy(&p->zkwp_path);
 	p->launch_info = NULL;
 	p->internal_mailbox = NULL;
 	p->external_mailbox = NULL;
@@ -26,24 +29,25 @@ void mm_business_account_runtime_destroy(struct mm_business_account_runtime* p)
 //////////////////////////////////////////////////////////////////////////
 void mm_business_account_runtime_start(struct mm_business_account_runtime* p)
 {
-	mm_zkwb_path_start(&p->zkwb_path);
+	mm_zkwp_path_start(&p->zkwp_path);
 }
 void mm_business_account_runtime_interrupt(struct mm_business_account_runtime* p)
 {
-	mm_zkwb_path_interrupt(&p->zkwb_path);
+	mm_zkwp_path_interrupt(&p->zkwp_path);
 }
 void mm_business_account_runtime_shutdown(struct mm_business_account_runtime* p)
 {
-	mm_zkwb_path_shutdown(&p->zkwb_path);
+	mm_zkwp_path_shutdown(&p->zkwp_path);
 }
 void mm_business_account_runtime_join(struct mm_business_account_runtime* p)
 {
-	mm_zkwb_path_join(&p->zkwb_path);
+	mm_zkwp_path_join(&p->zkwp_path);
 }
 //////////////////////////////////////////////////////////////////////////
-void mm_business_account_runtime_assign_unique_id(struct mm_business_account_runtime* p,mm_uint32_t unique_id)
+void mm_business_account_runtime_assign_parameters(struct mm_business_account_runtime* p,mm_uint32_t unique_id, mm_uint32_t shard, mm_uint32_t depth)
 {
-	mm_zkwb_path_assign_unique_id(&p->zkwb_path,unique_id);
+	mm_zkwp_path_assign_unique_id(&p->zkwp_path,unique_id);
+	mm_zkwp_path_assign_slot(&p->zkwp_path, shard, depth);
 	p->runtime_state.unique_id = unique_id;
 }
 void mm_business_account_runtime_assign_launch_info(struct mm_business_account_runtime* p,struct mm_business_account_launch* launch_info)
@@ -60,11 +64,11 @@ void mm_business_account_runtime_assign_external_mailbox(struct mm_business_acco
 }
 void mm_business_account_runtime_assign_zkwb_path(struct mm_business_account_runtime* p,const char* path)
 {
-	mm_zkwb_path_assign_path(&p->zkwb_path,path);
+	mm_zkwp_path_assign_path(&p->zkwp_path,path);
 }
 void mm_business_account_runtime_assign_zkwb_host(struct mm_business_account_runtime* p,const char* host)
 {
-	mm_zkwb_path_assign_host(&p->zkwb_path,host);
+	mm_zkwp_path_assign_host(&p->zkwp_path,host);
 }
 // update runtime value.
 void mm_business_account_runtime_update_runtime(struct mm_business_account_runtime* p)
@@ -112,7 +116,7 @@ void mm_business_account_runtime_update_runtime(struct mm_business_account_runti
 		string_buffer.Clear();
 		_writer.Reset(string_buffer);
 		_jc.Accept(_writer);
-		mm_string_assigns(&p->zkwb_path.value_buffer,string_buffer.GetString());
+		mm_string_assigns(&p->zkwp_path.value_buffer,string_buffer.GetString());
 	}
 }
 // commit db.
@@ -123,5 +127,5 @@ void mm_business_account_runtime_commit_db(struct mm_business_account_runtime* p
 // commit zk.
 void mm_business_account_runtime_commit_zk(struct mm_business_account_runtime* p)
 {
-	mm_zkwb_path_commit(&p->zkwb_path);
+	mm_zkwp_path_commit(&p->zkwp_path);
 }

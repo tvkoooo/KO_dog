@@ -10,6 +10,7 @@
 #include "shuttle_common/mm_error_code_common.h"
 #include "shuttle_common/mm_error_code_core.h"
 #include "shuttle_common/mm_runtime_calculate.h"
+#include "shuttle_common/mm_modules_runtime.h"
 
 #include "protobuf/mm_protobuff_cxx.h"
 #include "protodef/cxx/protodef/s_control.pb.h"
@@ -119,21 +120,42 @@ void mm_business_account_assign_external_mailbox_parameters(struct mm_business_a
 	struct mm_business_account_launch* launch_info = &p->launch_info;
 	mm_string_assigns(&launch_info->external_mailbox_parameters, parameters);
 }
-
 void mm_business_account_assign_zookeeper_export_parameters(struct mm_business_account* p,const char* parameters)
 {
 	struct mm_business_account_launch* launch_info = &p->launch_info;
 	mm_string_assigns(&launch_info->zookeeper_export_parameters, parameters);
 }
+void mm_business_account_assign_module_number(struct mm_business_account* p, mm_uint32_t module_number)
+{
+	struct mm_business_account_launch* launch_info = &p->launch_info;
+	launch_info->module_number = module_number;
+}
+void mm_business_account_assign_area_shard(struct mm_business_account* p, mm_uint32_t area_shard)
+{
+	struct mm_business_account_launch* launch_info = &p->launch_info;
+	launch_info->area_shard = area_shard;
+}
+void mm_business_account_assign_area_depth(struct mm_business_account* p, mm_uint32_t area_depth)
+{
+	struct mm_business_account_launch* launch_info = &p->launch_info;
+	launch_info->area_depth = area_depth;
+}
+void mm_business_account_assign_JWT_token_parameters(struct mm_business_account* p, const char* JWT_token_parameters)
+{
+	struct mm_business_account_launch* launch_info = &p->launch_info;
+	mm_string_assigns(&launch_info->JWT_token_parameters, JWT_token_parameters);
+}
 //////////////////////////////////////////////////////////////////////////
 void mm_business_account_start(struct mm_business_account* p)
 {
+	char module_path[64] = { 0 };
 	struct mm_business_account_launch* launch_info = &p->launch_info;
 	// pull launcher config.
 	//////////////////////////////////////////////////////////////////////////
 	mm_business_account_launch_printf_information(&p->launch_info);
 	//////////////////////////////////////////////////////////////////////////
-	mm_business_account_runtime_assign_unique_id(&p->runtime_info,launch_info->unique_id);
+	mm_modules_runtime_module_path(launch_info->module_number, module_path);
+	mm_business_account_runtime_assign_parameters(&p->runtime_info,launch_info->unique_id, launch_info->area_shard, launch_info->area_depth);
 	mm_mailbox_assign_parameters(&p->internal_mailbox, launch_info->internal_mailbox_parameters.s);
 	mm_mailbox_assign_parameters(&p->external_mailbox, launch_info->external_mailbox_parameters.s);
 	mm_business_account_runtime_assign_zkwb_host(&p->runtime_info, launch_info->zookeeper_export_parameters.s);
@@ -145,7 +167,7 @@ void mm_business_account_start(struct mm_business_account* p)
 	mm_mailbox_assign_callback(&p->external_mailbox, c_business_account::signed_in_rq_msg_id, &mm_business_account_tcp_hd_c_business_account_signed_in_rq);
 	mm_mailbox_assign_callback(&p->external_mailbox, c_business_account::register_rq_msg_id, &mm_business_account_tcp_hd_c_business_account_register_rq);
 	//////////////////////////////////////////////////////////////////////////
-	mm_business_account_runtime_assign_zkwb_path(&p->runtime_info,MM_BUSINESS_ACCOUNT_ZK_EXPORT);
+	mm_business_account_runtime_assign_zkwb_path(&p->runtime_info, module_path);
 	//
 
 	//////////////////////////////////////////////////////////////////////////

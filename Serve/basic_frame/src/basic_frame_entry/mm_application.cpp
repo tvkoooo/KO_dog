@@ -12,8 +12,8 @@ static const char* g_arg_impl[] =
 	"./log",
 	"7",
 	"1",
-	"::-65535[2]",
-	"::-65534[2]",
+	"::-10001[2]",
+	"::-20001[2]",
 	"127.0.0.1:10300,",
 	"127.0.0.1:10300,",
 };
@@ -24,7 +24,7 @@ static void __static_print_help()
 	mm_printf("%s\n", "help:");
 	mm_printf("%s\n", "程序名             日志目录 日志等级 实例编号  内地址启动参数   外地址启动参数   读取监控集群号   写入监控集群号  ");
 	mm_printf("%s\n", "program_name       log_dir  log_lvl  unique_id internal_mailbox external_headset zookeeper_import zookeeper_export");
-	mm_printf("%s\n", "./mm_basic_frame_entry ./log    7        1         ::-65535[2]      ::-65534[2]      127.0.0.1:10300, 127.0.0.1:10300,");
+	mm_printf("%s\n", "./mm_basic_frame_entry ./log    7        1         ::-10001[2]      ::-20001[2]      127.0.0.1:10300, 127.0.0.1:10300,");
 }
 /////////////////////////////////////////////////////////////////
 static struct mm_application g_application;

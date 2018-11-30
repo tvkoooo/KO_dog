@@ -12,18 +12,22 @@ static const char* g_arg_impl[] =
 	"./log",
 	"7",
 	"1",
-	"::-65535[2]",
-	"::-65534[2]",
+	"::1-10010[2]",
+	"::1-20010[2]",
 	"127.0.0.1:10300,",
+	"100",
+	"0",
+	"0",
+	"123456",
 };
 const struct mm_argument g_argument = { MM_ARRAY_SIZE(g_arg_impl),(const char**)g_arg_impl, };
 /////////////////////////////////////////////////////////////////
 static void __static_print_help()
 {
 	mm_printf("%s\n", "help:");
-	mm_printf("%s\n", "程序名             日志目录 日志等级 实例编号  内地址启动参数   外地址启动参数   写入监控集群号  ");
-	mm_printf("%s\n", "program_name       log_dir  log_lvl  unique_id internal_mailbox external_headset zookeeper_export");
-	mm_printf("%s\n", "./mm_business_account ./log    7        1         ::-65535[2]      ::-65534[2]   127.0.0.1:10300,");
+	mm_printf("%s\n", "程序名             日志目录 日志等级 实例编号  内地址启动参数   外地址启动参数   写入监控集群号   模块号   分片行 分片列 令牌种子");
+	mm_printf("%s\n", "program_name       log_dir  log_lvl  unique_id internal_mailbox external_headset zookeeper_export Module.n shard  depth  JWT     ");
+	mm_printf("%s\n", "./mm_business_account ./log    7        1      ::1-10010[2]     ::1-20010[2]     127.0.0.1:10300, 100      0      0      123456  ");
 }
 /////////////////////////////////////////////////////////////////
 static struct mm_application g_application;
@@ -90,7 +94,11 @@ void mm_application_initialize(struct mm_application* p,int argc,const char **ar
 		mm_business_account_assign_unique_id(&p->impl,mm_atoi32(p->argument.argv[3]));
 		mm_business_account_assign_internal_mailbox_parameters(&p->impl,p->argument.argv[4]);
 		mm_business_account_assign_external_mailbox_parameters(&p->impl,p->argument.argv[5]);
-		mm_business_account_assign_zookeeper_export_parameters(&p->impl,p->argument.argv[6]);
+		mm_business_account_assign_zookeeper_export_parameters(&p->impl, p->argument.argv[6]);
+		mm_business_account_assign_module_number(&p->impl, mm_atoi32(p->argument.argv[7]));
+		mm_business_account_assign_area_shard(&p->impl, mm_atoi32(p->argument.argv[8]));
+		mm_business_account_assign_area_depth(&p->impl, mm_atoi32(p->argument.argv[9]));
+		mm_business_account_assign_JWT_token_parameters(&p->impl, p->argument.argv[10]);
 		////////////////////////////////////////////////////////
 		p->state = 1;
 	}

@@ -5,31 +5,39 @@
 #include "protobuf/mm_protobuff_cxx.h"
 #include "protobuf/mm_protobuff_cxx_net.h"
 
+#include "protodef/cxx/protodef/c_basic_frame_entry.pb.h"
+
+
 void network_entry_callback_function_registration(struct KO_dog_network* p)
 {
 	mm_client_udp_assign_n_callback(&p->udp, c_basic_frame_entry::knock_rs_msg_id, &hd_n_c_basic_frame_entry_knock_rs);
 }
 
-
-void mm_client_udp_send_message(struct mm_client_udp* p, struct mm_packet_head* packet_head, mm_uint32_t hlength, ::google::protobuf::Message* message, struct mm_sockaddr* remote)
-{
-
-}
+//udp/////////////////////////////////////////////////////////////////////////////////
 void mm_client_udp_flush_send_knock_rq_msg_id(struct mm_client_udp* p)
 {
+	struct mm_logger* g_logger = mm_logger_instance();
+	struct mm_string proto_desc;
 	c_basic_frame_entry::knock_rq knock_rq;
-	struct mm_packet_head packet_head;
-	mm_packet_head_init(&packet_head);
+	struct mm_packet rq_pack;
+	mm_packet_init(&rq_pack);
+	mm_string_init(&proto_desc);
 
-	packet_head.mid = c_basic_frame_entry::knock_rq_msg_id;
-	packet_head.pid = 0;
-	packet_head.sid = 0;
-	packet_head.uid = 0;
+	b_math::coord* coord_info = knock_rq.mutable_coord_info();
+	coord_info->set_j(0);
+	coord_info->set_w(0);
+	knock_rq.set_native_client_version("");
+	knock_rq.set_native_source_version("");
 
-	mm_client_udp_send_message(p, &packet_head, MM_MSG_COMM_HEAD_SIZE, &knock_rq, &p->ss_remote);
-	mm_client_udp_flush_signal(p);
+	mm_protobuf_cxx_q_client_udp_flush_message_append(p, 0, c_basic_frame_entry::knock_rq_msg_id, &knock_rq, MM_MSG_COMM_HEAD_SIZE, &rq_pack, &p->ss_remote);
+	mm_protobuf_cxx_q_client_udp_flush_signal(p);
 
-	mm_packet_head_destroy(&packet_head);
+	mm_protobuf_cxx_logger_append_packet_message(&proto_desc, &rq_pack, &knock_rq);
+
+	mm_logger_log_I(g_logger, "%s %d %s", __FUNCTION__, __LINE__, proto_desc.s);
+	mm_packet_destroy(&rq_pack);
+	mm_string_destroy(&proto_desc);
+
 }
 
 void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote)
@@ -45,15 +53,22 @@ void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pac
 	mm_string_init(&proto_desc);
 	do
 	{
+		// 解包错误
 		if (0 != mm_protobuf_cxx_decode_message(pack, &rs_msg))
 		{
-			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());
+			mm_logger_log_E(g_logger, "%s %d mid:0x%08X message decode failure.", __FUNCTION__, __LINE__, pack->phead.mid);
 			break;
 		}
 		// logger rq.
 		mm_protobuf_cxx_logger_append_packet_message(&proto_desc, pack, &rs_msg);
 		mm_logger_log_I(g_logger, "%s %d %s", __FUNCTION__, __LINE__, proto_desc.s);
 		//////////////////////////////////////////////////////////////////////////
+		// 回包逻辑错误
+		if (0 != error_info->code())
+		{
+			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());
+			break;
+		}
 		//
 		const b_network::address& g = rs_msg.addr();
 		mm::KO_dog_data_net* data_net = &impl->data.data_net;
@@ -69,3 +84,4 @@ void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pac
 		KO_dog_network_client_tcp_assign_remote_target(&impl->network, g.host().c_str(), g.port());
 	} while (0);
 }
+

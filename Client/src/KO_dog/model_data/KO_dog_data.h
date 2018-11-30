@@ -2,6 +2,7 @@
 #define __KO_dog_data_h__
 
 #include "KO_dog_data_net.h"
+#include "KO_dog_data_user_basic.h"
 
 namespace mm
 {
@@ -16,6 +17,9 @@ namespace mm
 
 	public:
 		KO_dog_data_net data_net;
+		KO_dog_data_user_basic data_user_basic;
+	public:
+
 
 	public:
 		void set_entry_cofig(std::string entry_ip, mm_ushort_t entry_port);

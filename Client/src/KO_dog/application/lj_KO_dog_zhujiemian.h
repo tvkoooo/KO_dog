@@ -6,6 +6,7 @@
 #include "flake/mm_flake_surface.h"
 
 #include "dish/mm_event.h"
+#include "dish/mm_md5.h"
 
 #include "math/mm_vector3.h"
 
@@ -51,10 +52,13 @@ namespace mm
 
 	public:
 		mm_event_handler d_event_l_animation_closed_conn;
+		mm_event_handler d_event_userdata_update_conn;
+
 
 	public:
 		typedef std::map<std::string, std::string> lj_type_map_string_string;
 		lj_type_map_string_string user_info;
+		struct mm_md5_context md5_context;
 
 	public:
 		KO_dog_test_animation test_animation;
@@ -89,6 +93,7 @@ namespace mm
 
 	public:		
 		bool on_handle_l_animation_closed(const mm_event_args& args);
+		bool on_handle_event_userdata_update(const mm_event_args& args);
 
 
 	};

@@ -31,4 +31,7 @@ extern void KO_dog_network_shutdown(struct KO_dog_network* p);
 // join wait thread.
 extern void KO_dog_network_join(struct KO_dog_network* p);
 //////////////////////////////////////////////////////////////////////////
+
+
+
 #endif//__KO_dog_network_h__

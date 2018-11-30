@@ -132,7 +132,6 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Debug\libpthread_d.dll                     bin\\Debug\* /s /e /h /d /y 
-xcopy $(MM_LIB)\\build\\protobuf\\proj_windows\\bin\\Debug\libprotobuf_d.dll                  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zookeeper\\proj_windows\\bin\\Debug\libzookeeper_d.dll                  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zziplib\\proj_windows\\bin\\Debug\libzzip_d.dll                  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zlib\\proj_windows\\bin\\Debug\libz_d.dll                  bin\\Debug\* /s /e /h /d /y 
@@ -166,7 +165,6 @@ xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Debug\libmm_shuttle_common_d.d
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Debug\libpthread_d.dll                     bin\\Debug\* /s /e /h /d /y 
-xcopy $(MM_LIB)\\build\\protobuf\\proj_windows\\bin\\Debug\libprotobuf_d.dll                  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zookeeper\\proj_windows\\bin\\Debug\libzookeeper_d.dll                  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zziplib\\proj_windows\\bin\\Debug\libzzip_d.dll                  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zlib\\proj_windows\\bin\\Debug\libz_d.dll                  bin\\Debug\* /s /e /h /d /y 
@@ -205,7 +203,6 @@ xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Debug\libmm_shuttle_common_d.d
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Release\libpthread.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zookeeper\\proj_windows\\bin\\Release\libzookeeper.dll                  bin\\Release\* /s /e /h /d /y 
-xcopy $(MM_LIB)\\build\\protobuf\\proj_windows\\bin\\Release\libprotobuf.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zziplib\\proj_windows\\bin\\Release\libzzip.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zlib\\proj_windows\\bin\\Release\libz.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\openssl\\proj_windows\\bin\\Release\libcrypto.dll                  bin\\Release\* /s /e /h /d /y 
@@ -243,7 +240,6 @@ xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common.d
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Release\libpthread.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zookeeper\\proj_windows\\bin\\Release\libzookeeper.dll                  bin\\Release\* /s /e /h /d /y 
-xcopy $(MM_LIB)\\build\\protobuf\\proj_windows\\bin\\Release\libprotobuf.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zziplib\\proj_windows\\bin\\Release\libzzip.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\zlib\\proj_windows\\bin\\Release\libz.dll                  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\build\\openssl\\proj_windows\\bin\\Release\libcrypto.dll                  bin\\Release\* /s /e /h /d /y 

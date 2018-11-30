@@ -27,8 +27,6 @@
 #define MM_BUSINESS_ACCOUNT_MSEC_COMMIT_ZK 60000
 
 
-#define MM_BUSINESS_ACCOUNT_ZK_EXPORT "/mm_business_account"
-
 struct mm_business_account
 {
 	struct mm_mailbox external_mailbox; // tcp Processing client account logic
@@ -52,7 +50,11 @@ extern void mm_business_account_destroy(struct mm_business_account* p);
 extern void mm_business_account_assign_unique_id(struct mm_business_account* p,mm_uint32_t unique_id);
 extern void mm_business_account_assign_internal_mailbox_parameters(struct mm_business_account* p,const char* parameters);
 extern void mm_business_account_assign_external_mailbox_parameters(struct mm_business_account* p,const char* parameters);
-extern void mm_business_account_assign_zookeeper_export_parameters(struct mm_business_account* p,const char* parameters);
+extern void mm_business_account_assign_zookeeper_export_parameters(struct mm_business_account* p, const char* parameters);
+extern void mm_business_account_assign_module_number(struct mm_business_account* p, mm_uint32_t module_number);
+extern void mm_business_account_assign_area_shard(struct mm_business_account* p, mm_uint32_t area_shard);
+extern void mm_business_account_assign_area_depth(struct mm_business_account* p, mm_uint32_t area_depth);
+extern void mm_business_account_assign_JWT_token_parameters(struct mm_business_account* p, const char* JWT_token_parameters);
 //////////////////////////////////////////////////////////////////////////
 extern void mm_business_account_start(struct mm_business_account* p);
 extern void mm_business_account_interrupt(struct mm_business_account* p);

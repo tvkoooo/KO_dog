@@ -26,12 +26,17 @@ namespace mm
 		lj_struct_timer_test lj_timer_test;
 		KO_dog_data data;
 		struct KO_dog_network network;
+
+	public:
+		mm_event_handler d_event_udp_rs_conn;
+
 	public:
 		lj_KO_dog_jiemian jiemian;
 		//KO_dog_test_animation d_test_animation;
 	public:
 		void test_s_terminate( mm_flake_surface* surface );
 		void test_s_launching( mm_flake_surface* surface );
+
 	public:
 		KO_dog();
 		virtual ~KO_dog();
@@ -46,6 +51,9 @@ namespace mm
 		virtual void on_interrupt();
 		virtual void on_shutdown();
 		virtual void on_join();
+
+	public:
+		bool on_handle_udp_rs_conn(const mm_event_args& args);
 	};
 }
 

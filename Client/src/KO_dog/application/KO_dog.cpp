@@ -32,6 +32,7 @@
 #include "core/mm_file_system.h"
 
 #include "lj_KO_dog_test_setup.h"
+#include "network/network_entry.h"
 
 //////////////////////////////////////////////////////////////////////////
 static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval);
@@ -95,7 +96,9 @@ namespace mm
 		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 1);
 		//////////////////////////////////////////////////////////////////////////
 		//设置udp入口地址和端口
-		KO_dog_network_client_udp_assign_remote_target(&this->network, "127.0.0.1", 65534);
+		KO_dog_network_client_udp_assign_remote_target(&this->network, "::1", 20001);
+		//udp rs回报事件挂载注册
+		this->d_event_udp_rs_conn = this->data.data_net.d_event_set.subscribe_event(KO_dog_data_net::event_lobby_update, &KO_dog::on_handle_udp_rs_conn, this);
 	}
 
 	void KO_dog::on_before_terminate()
@@ -159,6 +162,12 @@ namespace mm
 		//this->d_test_animation.on_before_terminate(surface);
 
 		//////////////////////////////////////////////////////////////////////////
+	}
+
+	bool KO_dog::on_handle_udp_rs_conn(const mm_event_args& args)
+	{
+
+		return false;
 	}
 
 }

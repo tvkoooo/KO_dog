@@ -138,6 +138,12 @@
     <ClCompile Include="..\..\src\KO_dog\network\network_entry.cpp">
       <Filter>src\KO_dog\network</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\model_data\KO_dog_data_user_basic.cpp">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\network_account.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -219,6 +225,12 @@
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\network\network_entry.h">
+      <Filter>src\KO_dog\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\model_data\KO_dog_data_user_basic.h">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\network_account.h">
       <Filter>src\KO_dog\network</Filter>
     </ClInclude>
   </ItemGroup>
