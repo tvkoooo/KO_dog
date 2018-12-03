@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "business_account", "business_account.vcxproj", "{3D76595D-0AE6-487F-9678-61A30ED0B79B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E8260C92-A4FA-40CD-B47F-97157A93623F} = {E8260C92-A4FA-40CD-B47F-97157A93623F}
+		{2D2010C4-8537-4A14-9F52-C6E8B1957CF7} = {2D2010C4-8537-4A14-9F52-C6E8B1957CF7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmm_business_protodef", "libmm_business_protodef.vcxproj", "{2D2010C4-8537-4A14-9F52-C6E8B1957CF7}"
 EndProject

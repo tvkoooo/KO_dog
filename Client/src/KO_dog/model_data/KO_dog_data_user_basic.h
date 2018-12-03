@@ -14,9 +14,9 @@ namespace mm
 		mm_uint64_t id;// 用户id.
 		std::string token;// 用户名.
 
-		static const std::string d_event_userdata_update;
+		static const std::string event_userdata_update;
 		// this member is event drive.
-		mm::mm_event_set d_event_userdata;
+		mm::mm_event_set d_event_set;
 
 	public:
 

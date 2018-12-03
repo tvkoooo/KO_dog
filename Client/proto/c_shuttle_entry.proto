@@ -1,11 +1,11 @@
 syntax = "proto2";
-package c_basic_frame_entry;
+package c_shuttle_entry;
 
 option java_package = "protodef";
-option java_outer_classname = "c_basic_frame_entry";
-option objc_class_prefix = "C_basic_frame_entry_";
-option go_package = "protodef/c_basic_frame_entry";
-option csharp_namespace = "c_basic_frame_entry";
+option java_outer_classname = "c_shuttle_entry";
+option objc_class_prefix = "C_shuttle_entry_";
+option go_package = "protodef/c_shuttle_entry";
+option csharp_namespace = "c_shuttle_entry";
 
 import "b_error.proto";
 import "b_math.proto";

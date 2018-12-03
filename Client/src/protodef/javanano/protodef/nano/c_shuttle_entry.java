@@ -3,7 +3,7 @@
 package protodef.nano;
 
 @SuppressWarnings("hiding")
-public interface c_basic_frame_entry {
+public interface c_shuttle_entry {
 
   // enum msg
   public static final int min_id = 33558528;

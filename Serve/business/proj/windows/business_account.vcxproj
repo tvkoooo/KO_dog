@@ -119,14 +119,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MM_STATIC_MAKE;_DEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_LIB)/src/cJSON;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4819</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread_d.lib;libcrypto_d.lib;libinih_d.lib;libprotobuf_d.lib;libhiredis_d.lib;libzookeeper_d.lib;libmm_data_mysql_d.lib;libmm_data_zookeeper_d.lib;libmm_data_protobuf_d.lib;libmm_data_redis_d.lib;libmm_net_d.lib;libmm_core_d.lib;libmm_dish_d.lib;libmm_business_querydef_d.lib;libmm_business_protodef_d.lib;libmm_shuttle_common_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cJSON/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread_d.lib;libcrypto_d.lib;libinih_d.lib;libprotobuf_d.lib;libhiredis_d.lib;libzookeeper_d.lib;libmm_data_mysql_d.lib;libmm_data_zookeeper_d.lib;libmm_data_protobuf_d.lib;libmm_data_redis_d.lib;libmm_net_d.lib;libmm_core_d.lib;libmm_dish_d.lib;libmm_jwt_d.lib;libmm_business_querydef_d.lib;libmm_business_protodef_d.lib;libmm_shuttle_common_d.lib;libcJSON_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Debug\libpthread_d.dll                     bin\\Debug\* /s /e /h /d /y 
@@ -141,13 +141,15 @@ xcopy $(MM_LIB)\\build\\rabbitmq-c\\proj_windows\\bin\\Debug\librabbitmq-c_d.dll
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Debug\libmm_core_d.dll                            bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Debug\libmm_net_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Debug\libmm_dish_d.dll                             bin\\Debug\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Debug\libmm_jwt_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_redis_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_zookeeper_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_mysql_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_protobuf_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_rabbitmq_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Debug\libmm_shuttle_common_d.dll                             bin\\Debug\* /s /e /h /d /y 
-xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\* /s /e /h /d /y </Command>
+xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\* /s /e /h /d /y 
+xcopy $(MM_LIB)\\build\\cJSON\\proj_windows\\bin\\Debug\libcJSON_d.dll                  bin\\Debug\* /s /e /h /d /y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -158,14 +160,14 @@ xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\*
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MM_STATIC_MAKE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_LIB)/src/cJSON;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4819</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread_d.lib;libcrypto_d.lib;libinih_d.lib;libprotobuf_d.lib;libhiredis_d.lib;libzookeeper_d.lib;libmm_data_mysql_d.lib;libmm_data_zookeeper_d.lib;libmm_data_protobuf_d.lib;libmm_data_redis_d.lib;libmm_net_d.lib;libmm_core_d.lib;libmm_dish_d.lib;libmm_business_querydef_d.lib;libmm_business_protodef_d.lib;libmm_shuttle_common_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cJSON/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread_d.lib;libcrypto_d.lib;libinih_d.lib;libprotobuf_d.lib;libhiredis_d.lib;libzookeeper_d.lib;libmm_data_mysql_d.lib;libmm_data_zookeeper_d.lib;libmm_data_protobuf_d.lib;libmm_data_redis_d.lib;libmm_net_d.lib;libmm_core_d.lib;libmm_dish_d.lib;libmm_jwt_d.lib;libmm_business_querydef_d.lib;libmm_business_protodef_d.lib;libmm_shuttle_common_d.lib;libcJSON_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Debug\libpthread_d.dll                     bin\\Debug\* /s /e /h /d /y 
@@ -180,13 +182,15 @@ xcopy $(MM_LIB)\\build\\rabbitmq-c\\proj_windows\\bin\\Debug\librabbitmq-c_d.dll
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Debug\libmm_core_d.dll                            bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Debug\libmm_net_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Debug\libmm_dish_d.dll                             bin\\Debug\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Debug\libmm_jwt_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_redis_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_zookeeper_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_mysql_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_protobuf_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_rabbitmq_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Debug\libmm_shuttle_common_d.dll                             bin\\Debug\* /s /e /h /d /y 
-xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\* /s /e /h /d /y </Command>
+xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\* /s /e /h /d /y 
+xcopy $(MM_LIB)\\build\\cJSON\\proj_windows\\bin\\Debug\libcJSON_d.dll                  bin\\Debug\* /s /e /h /d /y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -199,7 +203,7 @@ xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\*
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MM_STATIC_MAKE;NDEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_LIB)/src/cJSON;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4819</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -207,8 +211,8 @@ xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Debug\*
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread.lib;libcrypto.lib;libinih.lib;libprotobuf.lib;libhiredis.lib;libzookeeper.lib;libmm_data_mysql.lib;libmm_data_zookeeper.lib;libmm_data_protobuf.lib;libmm_data_redis.lib;libmm_net.lib;libmm_core.lib;libmm_dish.lib;libmm_business_querydef.lib;libmm_business_protodef.lib;libmm_shuttle_common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cJSON/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread.lib;libcrypto.lib;libinih.lib;libprotobuf.lib;libhiredis.lib;libzookeeper.lib;libmm_data_mysql.lib;libmm_data_zookeeper.lib;libmm_data_protobuf.lib;libmm_data_redis.lib;libmm_net.lib;libmm_core.lib;libmm_dish.lib;libmm_jwt.lib;libmm_business_querydef.lib;libmm_business_protodef.lib;libmm_shuttle_common.lib;libcJSON.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Release\libpthread.dll                  bin\\Release\* /s /e /h /d /y 
@@ -223,13 +227,15 @@ xcopy $(MM_LIB)\\build\\rabbitmq-c\\proj_windows\\bin\\Release\librabbitmq-c.dll
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Release\libmm_core.dll                          bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Release\libmm_net.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Release\libmm_dish.dll                           bin\\Release\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Release\libmm_jwt.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_redis.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_zookeeper.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_mysql.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_protobuf.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_rabbitmq.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common.dll                             bin\\Release\* /s /e /h /d /y 
-xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Release\* /s /e /h /d /y</Command>
+xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Release\* /s /e /h /d /y
+xcopy $(MM_LIB)\\build\\cJSON\\proj_windows\\bin\\Release\libcJSON.dll                  bin\\Release\* /s /e /h /d /y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -242,7 +248,7 @@ xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Release
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>MM_STATIC_MAKE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VLD_HOME)/include;$(MM_LIB)/src/pthread;$(MM_LIB)/src/zookeeper/src/c/include;$(MM_LIB)/src/zookeeper/src/c/generated;$(MM_LIB)/src/rapidjson/include;$(MM_LIB)/src/protobuf/src;$(MM_LIB)/build/protobuf/include/windows;$(MM_LIB)/src/openssl/include;$(MM_LIB)/build/openssl/include/windows;$(MM_LIB)/src/inih;$(MM_LIB)/src/cJSON;$(MM_CORE)/data/src;$(MM_CORE)/dish/src;$(MM_CORE)/mm/src;$(MM_CORE)/mm/src/os/windows;../../src;../../src/business_account;../../src/protodef;../../src/querydef;$(MYSQL_HOME)/include;$(MM_SHUTTLE)/shuttle/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4819</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -250,8 +256,8 @@ xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Release
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread.lib;libcrypto.lib;libinih.lib;libprotobuf.lib;libhiredis.lib;libzookeeper.lib;libmm_data_mysql.lib;libmm_data_zookeeper.lib;libmm_data_protobuf.lib;libmm_data_redis.lib;libmm_net.lib;libmm_core.lib;libmm_dish.lib;libmm_business_querydef.lib;libmm_business_protodef.lib;libmm_shuttle_common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(MM_LIB)/build/hiredis/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zookeeper/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/inih/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cJSON/proj_windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_SHUTTLE)/shuttle/proj/windows/bin/$(Configuration);$(MYSQL_HOME)/lib;$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;mysqlclient.lib;libmysql.lib;libpthread.lib;libcrypto.lib;libinih.lib;libprotobuf.lib;libhiredis.lib;libzookeeper.lib;libmm_data_mysql.lib;libmm_data_zookeeper.lib;libmm_data_protobuf.lib;libmm_data_redis.lib;libmm_net.lib;libmm_core.lib;libmm_dish.lib;libmm_jwt.lib;libmm_business_querydef.lib;libmm_business_protodef.lib;libmm_shuttle_common.lib;libcJSON.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Release\libpthread.dll                  bin\\Release\* /s /e /h /d /y 
@@ -266,13 +272,15 @@ xcopy $(MM_LIB)\\build\\rabbitmq-c\\proj_windows\\bin\\Release\librabbitmq-c.dll
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Release\libmm_core.dll                          bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\mm\\proj\\windows\\bin\\Release\libmm_net.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Release\libmm_dish.dll                           bin\\Release\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\dish\\proj\\windows\\bin\\Release\libmm_jwt.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_redis.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_zookeeper.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_mysql.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_protobuf.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_rabbitmq.dll                           bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_SHUTTLE)\\shuttle\\proj\\windows\\bin\\Release\libmm_shuttle_common.dll                             bin\\Release\* /s /e /h /d /y 
-xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Release\* /s /e /h /d /y</Command>
+xcopy "$(MYSQL_HOME)\\lib\libmysql.dll"                             bin\\Release\* /s /e /h /d /y
+xcopy $(MM_LIB)\\build\\cJSON\\proj_windows\\bin\\Release\libcJSON.dll                  bin\\Release\* /s /e /h /d /y </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

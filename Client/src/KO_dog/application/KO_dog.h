@@ -14,6 +14,8 @@
 #include "model_data/KO_dog_data.h"
 #include "network/KO_dog_network.h"
 
+#include "lua/mm_lua_context.h"
+
 namespace mm
 {
 	extern mm_flake_activity* mm_flake_activity_native_alloc();
@@ -23,12 +25,12 @@ namespace mm
 	{
 	//test
 	public:
-		lj_struct_timer_test lj_timer_test;
-		KO_dog_data data;
-		struct KO_dog_network network;
+		struct mm_lua_context lua_context;
 
 	public:
-		mm_event_handler d_event_udp_rs_conn;
+		//lj_struct_timer_test lj_timer_test;
+		KO_dog_data data;
+		struct KO_dog_network network;
 
 	public:
 		lj_KO_dog_jiemian jiemian;
@@ -52,8 +54,7 @@ namespace mm
 		virtual void on_shutdown();
 		virtual void on_join();
 
-	public:
-		bool on_handle_udp_rs_conn(const mm_event_args& args);
+
 	};
 }
 

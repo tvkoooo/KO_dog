@@ -29,6 +29,8 @@ struct mm_windows_target
 	std::string d_name;// strong ref.name pattern for rtt resource.default is "mm".
 	CEGUI::Window* d_image_window;// weak ref.
 	//
+	CEGUI::TextureTarget* d_cegui_texture_target;
+	//
 	CEGUI::Texture* d_cegui_texture;// strong ref.
 	CEGUI::BasicImage* d_image;// strong ref.
 

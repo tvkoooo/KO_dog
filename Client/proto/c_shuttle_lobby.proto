@@ -1,0 +1,75 @@
+syntax = "proto2";
+package c_shuttle_lobby;
+
+option java_package = "protodef";
+option java_outer_classname = "c_shuttle_lobby";
+option objc_class_prefix = "C_shuttle_lobby_";
+option go_package = "protodef/c_shuttle_lobby";
+option csharp_namespace = "c_shuttle_lobby";
+
+import "b_error.proto";
+import "b_math.proto";
+
+enum msg
+{ 
+	min_id=0x02001100;
+	max_id=0x020011FF;
+}
+
+// 注意: 如果需要加密连接, 那么
+// 1. 在tcp连接成功后的第一个包应该是交换秘钥
+// 2. 在tcp收到交换秘钥回包之前不能往tcp发任何内容
+// 3. 服务端在收到交换秘钥并在发完就按回包之后将对称加密秘钥设置到服务端的tcp上下文
+// 4. 客户端在收到交换秘钥回包之后立即设置对称加密秘钥到客户端的tcp上下文
+// 5. 服务端和客户端在设置好对称加密秘钥tcp上下文后, 即可任意发包, 加密连接完成
+// (tcp)交换秘钥请求
+message exchange_key_rq
+{
+	enum msg{ id=0x02001100;}
+	required bytes	n 					      = 1				 ; // n
+	required bytes	e 					      = 2				 ; // e
+	required uint32 version					  = 3 [default =  0 ]; // 密钥交换协议版本号，初始为0
+}
+// (tcp)交换秘钥返回
+message exchange_key_rs
+{
+	enum msg{ id=0x02001101;}
+	required b_error.info error               = 1                ; // error info
+	required bytes	key 					  = 2				 ; // 对称密钥
+}
+
+// (tcp)令牌校验请求
+message token_verify_rq
+{
+	enum msg{ id=0x02001102;}
+	required uint64	uid 					  = 1 [default =  0 ]; // 用户编号
+	required string	token 					  = 2 [default = "" ]; // 用户令牌
+}
+// (tcp)令牌校验返回
+message token_verify_rs
+{
+	enum msg{ id=0x02001103;}
+	required b_error.info error               = 1                ; // error info
+	required uint64	uid 					  = 2 [default =  0 ]; // 用户编号
+	required string	token 					  = 3 [default = "" ]; // 用户令牌
+}
+
+// (tcp)大厅心跳请求
+message heartbeat_rq
+{
+	enum msg{ id=0x02001104;}
+    required uint64 uid                       = 1 [default =  0 ]; //用户ID
+	required string	token 					  = 2 [default = "" ]; // 用户令牌
+    required uint64 timecode_native           = 3 [default =  0 ]; //发出的时间点(ms毫秒)
+	required b_math.coord coord_info          = 4                ; // Earth(j,w).
+}
+// (tcp)大厅心跳返回
+message heartbeat_rs
+{
+	enum msg{ id=0x02001105;}
+	required b_error.info error               = 1                ; // error info
+    required uint64 uid                       = 2 [default =  0 ]; //用户ID
+	required string	token 					  = 3 [default = "" ]; // 用户令牌
+    required uint64 timecode_native           = 4 [default =  0 ]; //发出的时间点(ms毫秒)
+	required b_math.coord coord_info          = 5                ; // Earth(j,w).
+}

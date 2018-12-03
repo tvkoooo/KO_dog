@@ -28,6 +28,9 @@ function initialize()
 		-- version >= 5.2
 		table.insert(package.searchers, 1, loader_function)
 	end
+	--
+	require("model/model_error")
+	--
 	logger.log_I("lua main initialize success.")
 end
 ----------------------------------------------

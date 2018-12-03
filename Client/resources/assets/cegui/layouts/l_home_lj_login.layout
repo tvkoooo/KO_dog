@@ -10,6 +10,7 @@
             <Property name="Image" value="login_lj/dise" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="FrameColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
+            <Property name="FrameEnabled" value="false" />
             <Property name="ImageColours" value="tl:FFFFFF38 tr:FFFF2CFF bl:FFFF04FF br:FFFFFA00" />
             <Property name="BackgroundColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
             <Property name="BackgroundEnabled" value="false" />
@@ -65,6 +66,72 @@
                 <Property name="Text" value="https://github.com/tvkoooo/KO_dog" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
                 <Property name="NormalTextColour" value="FF0201C7" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold1" >
+                <Property name="Area" value="{{0.108333,0},{0.540741,0},{0.292708,0},{0.890741,0}}" />
+                <Property name="Image" value="gif_gold/j1" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="AutoRenderingSurface" value="true" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold2" >
+                <Property name="Area" value="{{0.108333,0},{0.540741,0},{0.292708,0},{0.890741,0}}" />
+                <Property name="Image" value="gif_gold/j2" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold3" >
+                <Property name="Area" value="{{0.108333,0},{0.540741,0},{0.292708,0},{0.890741,0}}" />
+                <Property name="Image" value="gif_gold/j3" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold4" >
+                <Property name="Area" value="{{0.108333,0},{0.540741,0},{0.292708,0},{0.890741,0}}" />
+                <Property name="Image" value="gif_gold/j4" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold5" >
+                <Property name="Area" value="{{0.108333,0},{0.540741,0},{0.292708,0},{0.890741,0}}" />
+                <Property name="Image" value="gif_gold/j5" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold_y1" >
+                <Property name="Area" value="{{0.669791,0},{0.537037,0},{0.854166,0},{0.887037,0}}" />
+                <Property name="Image" value="gif_gold/j1" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="AutoRenderingSurface" value="true" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold_y2" >
+                <Property name="Area" value="{{0.669791,0},{0.537037,0},{0.854166,0},{0.887037,0}}" />
+                <Property name="Image" value="gif_gold/j5" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="AutoRenderingSurface" value="true" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="l_image_gold_mov" >
+                <Property name="Area" value="{{0.109375,0},{0.105556,0},{0.29375,0},{0.455556,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Visible" value="false" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="AutoRenderingSurface" value="true" />
             </Window>
         </Window>
     </Window>

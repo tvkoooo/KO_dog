@@ -15,12 +15,20 @@ error code
 	/////////////////
 	0 = 普通,
 	{
-		20000001(1)插入数据失败
-		20000002(2)获取数据失败
-		20000003(3)数据更新失败
-		20000004(4)删除数据失败
-		20000005(5)传入参数错误
+		200000001(1)插入数据失败
+		200000002(2)获取数据失败
+		200000003(3)数据更新失败
+		200000004(4)删除数据失败
+		200000005(5)传入参数错误
+        
 	}
+    100 = 账号
+    {
+		400100011,           	 //(100011)登陆账号不存在
+		400100012,   			 //(100012)账号与密码不匹配
+		400100013,            	 //(100013)注册账号已经存在
+		400100014,               //(100014)注册账号或者密码非法
+    }
 */
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -61,17 +69,25 @@ BEGIN
 				 0( 0)成功 
 				用户编号( id)
 		*/
-	INSERT INTO db_ko_dog.t_user_basic(`name`,`password`,`nick`) 
-	VALUES                                   (_name ,PASSWORD(_password) ,_nick);
-	if 0 = row_count() then
-		/*20000001(1)插入数据失败 */
-		set _code = 20000001;
-		select 0;		
-	else
-		/*成功*/ 
-		set _code = 0;
-		select LAST_INSERT_ID();
-	end if;
+	
+    IF(SELECT COUNT(*) FROM db_ko_dog.t_user_basic WHERE (`name` = _name) = 0) THEN
+    
+		INSERT INTO db_ko_dog.t_user_basic(`name`,`password`,`nick`) 
+		VALUES                                   (_name ,PASSWORD(_password) ,_nick);
+		if 0 = row_count() then
+			/*200000001(1)插入数据失败 */
+			set _code = 200000001;
+			select 0;		
+		else
+			/*成功*/ 
+			set _code = 0;
+			select LAST_INSERT_ID();
+		end if;
+	ELSE
+		/*(400100013)注册账号已经存在 */
+		set _code = 400100013;
+		select 0;
+	END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -102,14 +118,14 @@ BEGIN
 		*/
 	/* 返回
 		错误码 
-				 0( 0)成功 
+			0( 0)成功 
 		*/
     declare _id bigint(20) default 0;    
 	select id into _id from db_ko_dog.t_user_basic where `name`=_name and `password`=PASSWORD(_password);
 
 	if 0 = row_count() then
-		/*20000002(2)获取数据失败*/
-		set _code = 20000002;
+		/*(400100012)账号与密码不匹配*/
+		set _code = 400100012;
 		select _id;
 	else
 		/*成功*/ 

@@ -12,8 +12,15 @@
 #include "shuttle_common/mm_control_tcp_hd.h"
 #include "shuttle_common/mm_error_desc.h"
 
+#include "random/mm_xoshiro.h"
+
+#include "jwt/mm_jwt.h"
+
+
 #include "mm_business_account_launch.h"
 #include "mm_business_account_runtime.h"
+
+
 
 #include "core/mm_prefix.h"
 
@@ -25,6 +32,8 @@
 #define MM_BUSINESS_ACCOUNT_MSEC_COMMIT_DB 10000
 // commit milliseconds.default is 60 second(60000 ms).
 #define MM_BUSINESS_ACCOUNT_MSEC_COMMIT_ZK 60000
+//
+#define MM_BUSINESS_ACCOUNT_JWT_SECRET_LENGTH 16
 
 
 struct mm_business_account
@@ -36,7 +45,13 @@ struct mm_business_account
 	struct mm_business_account_runtime runtime_info;
 	struct mm_db_mysql_config db_sql_config;
 	struct mm_db_mysql_section db_sql_section;
-	struct mm_error_desc error_desc;
+	struct mm_error_desc error_desc;               //错误码管理器
+	//token 令牌
+	struct mm_xoshiro256starstar token_random;     //tokey 随机生成器
+	struct mm_string jwt_secret;                   //HS256 算法密码
+	struct mm_jwt_algorithm_hmacsha jwt_algorithm; //HS256 算法
+	struct mm_jwt jwt;                             //json Web token 生成器
+	mm_atomic_t locker;
 
 	mm_msec_t msec_update_dt;// launch milliseconds.default is MM_BUSINESS_ACCOUNT_MSEC_UPDATE_DT.
 	mm_msec_t msec_launch_db;// launch milliseconds.default is MM_BUSINESS_ACCOUNT_MSEC_LAUNCH_DB.
@@ -54,7 +69,7 @@ extern void mm_business_account_assign_zookeeper_export_parameters(struct mm_bus
 extern void mm_business_account_assign_module_number(struct mm_business_account* p, mm_uint32_t module_number);
 extern void mm_business_account_assign_area_shard(struct mm_business_account* p, mm_uint32_t area_shard);
 extern void mm_business_account_assign_area_depth(struct mm_business_account* p, mm_uint32_t area_depth);
-extern void mm_business_account_assign_JWT_token_parameters(struct mm_business_account* p, const char* JWT_token_parameters);
+extern void mm_business_account_assign_token_seed(struct mm_business_account* p, mm_uint32_t token_seed);
 //////////////////////////////////////////////////////////////////////////
 extern void mm_business_account_start(struct mm_business_account* p);
 extern void mm_business_account_interrupt(struct mm_business_account* p);

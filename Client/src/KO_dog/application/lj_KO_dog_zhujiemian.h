@@ -25,7 +25,7 @@
 #include "container/mm_bitset.h"
 #include "KO_dog_test_animation.h"
 
-
+#include "toolkit/mm_windows_target.h"
 
 //////////////////////////////////////////////////////////////////////////
 namespace mm
@@ -49,10 +49,41 @@ namespace mm
 		CEGUI::Window* l_text_pwd;
 		CEGUI::Window* l_text_notice;
 		CEGUI::Window* StaticImage;
+		CEGUI::Window* l_image_gold1;
+		CEGUI::Window* l_image_gold2;
+		CEGUI::Window* l_image_gold3;
+		CEGUI::Window* l_image_gold4;
+		CEGUI::Window* l_image_gold5;
+		CEGUI::Window* l_image_gold_y1;
+		CEGUI::Window* l_image_gold_y2;
+		CEGUI::Window* l_image_gold_mov;
+
+	public:
+		struct mm_windows_target d_windows_target;
+		mm_event_handler d_event_enter_background;
+		mm_event_handler d_event_enter_foreground;
+
+		Ogre::SceneManager* d_scene_manager;
+		Ogre::SceneNode* d_root_node;
+
+		Ogre::SceneNode* d_node_camera;
+		Ogre::Camera* d_camera;
+		Ogre::Viewport* d_viewport;
+
+		Ogre::SceneNode* d_light_node;
+		Ogre::Light* d_dir_light;
+		//
+		Ogre::SceneNode* d_coin_node;
+		Ogre::Entity* d_coin_mesh;
+		float d_coin_rotation;
+	public:
+		int image_gold_gif_n;
+		float d_rotation;
 
 	public:
 		mm_event_handler d_event_l_animation_closed_conn;
 		mm_event_handler d_event_userdata_update_conn;
+		mm_event_handler d_event_log_view_conn;
 
 
 	public:
@@ -91,11 +122,15 @@ namespace mm
 		bool on_handle_l_s_button_out(const CEGUI::EventArgs& args);
 		bool on_handle_l_s_button_register(const CEGUI::EventArgs& args);
 
+		bool on_handle_MenuWindow_updated(const CEGUI::EventArgs& args);
+
 	public:		
 		bool on_handle_l_animation_closed(const mm_event_args& args);
 		bool on_handle_event_userdata_update(const mm_event_args& args);
-
-
+		bool on_handle_event_log_view(const mm_event_args& args);
+	public:		
+		bool on_event_enter_background(const mm_event_args& args);
+		bool on_event_enter_foreground(const mm_event_args& args);
 	};
 }
 //////////////////////////////////////////////////////////////////////////

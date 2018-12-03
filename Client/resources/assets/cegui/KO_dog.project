@@ -20,6 +20,8 @@
         <Item name="imagesets" type="folder">
             <Item path="imagesets/TaharezLook.imageset" type="file" />
             <Item path="imagesets/TaharezLook.png" type="file" />
+            <Item path="imagesets/gif_gold.imageset" type="file" />
+            <Item path="imagesets/gif_gold.png" type="file" />
             <Item path="imagesets/imageset_battlefield.imageset" type="file" />
             <Item path="imagesets/imageset_battlefield.png" type="file" />
             <Item path="imagesets/login_lj.imageset" type="file" />

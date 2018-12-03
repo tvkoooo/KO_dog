@@ -1,0 +1,7 @@
+SciTE设置默认编码格式为UTF-8
+Options->Open User Options File->添加下面两行
+
+1 code.page=65001
+2 output.code.page=65001
+保存文件，再打开对应的Lua文件，即可正常显示汉字
+

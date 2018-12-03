@@ -3,6 +3,7 @@
 	<Imageset filename="TaharezLook.imageset" />
 	<Imageset filename="imageset_battlefield.imageset" />
 	<Imageset filename="login_lj.imageset" />
+	<Imageset filename="gif_gold.imageset" />
 	<Font filename="DejaVuSans-12.font" />
 	<Font filename="DejaVuSans-14.font" />
 	<LookNFeel filename="TaharezLook.looknfeel" />

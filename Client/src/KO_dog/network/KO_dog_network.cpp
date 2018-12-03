@@ -17,9 +17,9 @@ static void __static_net_tcp_handle_tcp_mid_broken_n(void* obj, void* u, struct 
 static void __static_net_tcp_handle_tcp_mid_nready_n(void* obj, void* u, struct mm_packet* pack);
 static void __static_net_tcp_handle_tcp_mid_finish_n(void* obj, void* u, struct mm_packet* pack);
 
-static void __static_net_tcp_handle_tcp_mid_broken_q(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
-static void __static_net_tcp_handle_tcp_mid_nready_q(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
-static void __static_net_tcp_handle_tcp_mid_finish_q(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
+static void __static_net_tcp_handle_tcp_mid_broken_q(void* obj, void* u, struct mm_packet* pack);
+static void __static_net_tcp_handle_tcp_mid_nready_q(void* obj, void* u, struct mm_packet* pack);
+static void __static_net_tcp_handle_tcp_mid_finish_q(void* obj, void* u, struct mm_packet* pack);
 
 static void __static_net_udp_event_entry_socket_change_publishing(void* obj, void* u);
 
@@ -27,13 +27,10 @@ void KO_dog_network_init(struct KO_dog_network* p)
 {
 	mm_client_tcp_init(&p->tcp);
 	mm_client_udp_init(&p->udp);
-	struct mm_packet_queue_callback packet_queue_callback;
 	struct mm_client_udp_callback client_udp_callback;
-	packet_queue_callback.handle = &mm_packet_queue_handle_default;
-	packet_queue_callback.obj = p;
 	client_udp_callback.handle = &mm_client_udp_handle_default;
 	client_udp_callback.obj = p;
-	mm_client_udp_assign_q_default_callback(&p->udp, &packet_queue_callback);
+	mm_client_udp_assign_q_default_callback(&p->udp, &client_udp_callback);
 	mm_client_udp_assign_n_default_callback(&p->udp, &client_udp_callback);
 
 
@@ -45,6 +42,12 @@ void KO_dog_network_init(struct KO_dog_network* p)
 	mm_client_udp_assign_q_callback(&p->udp, udp_mid_nready, &__static_net_udp_handle_udp_mid_nready_q);
 	mm_client_udp_assign_q_callback(&p->udp, udp_mid_finish, &__static_net_udp_handle_udp_mid_finish_q);
 
+
+	struct mm_client_tcp_callback client_tcp_callback;
+	client_tcp_callback.handle = &mm_client_tcp_handle_default;
+	client_tcp_callback.obj = p;
+	mm_client_tcp_assign_q_default_callback(&p->tcp, &client_tcp_callback);
+	mm_client_tcp_assign_n_default_callback(&p->tcp, &client_tcp_callback);
 	mm_client_tcp_assign_n_callback(&p->tcp, tcp_mid_broken, &__static_net_tcp_handle_tcp_mid_broken_n);
 	mm_client_tcp_assign_n_callback(&p->tcp, tcp_mid_nready, &__static_net_tcp_handle_tcp_mid_nready_n);
 	mm_client_tcp_assign_n_callback(&p->tcp, tcp_mid_finish, &__static_net_tcp_handle_tcp_mid_finish_n);
@@ -209,18 +212,18 @@ static void __static_net_tcp_handle_tcp_mid_finish_n(void* obj, void* u, struct 
 	__static_net_tcp_event_lobby_socket_change_publishing(obj, u);
 }
 
-static void __static_net_tcp_handle_tcp_mid_broken_q(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote)
+static void __static_net_tcp_handle_tcp_mid_broken_q(void* obj, void* u, struct mm_packet* pack)
 {
 	// tcp 队列线程触发
 	__static_net_tcp_event_lobby_socket_change_publishing(obj, u);
 }
-static void __static_net_tcp_handle_tcp_mid_nready_q(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote)
+static void __static_net_tcp_handle_tcp_mid_nready_q(void* obj, void* u, struct mm_packet* pack)
 {
 	// tcp 队列线程触发
 
 	__static_net_tcp_event_lobby_socket_change_publishing(obj, u);
 }
-static void __static_net_tcp_handle_tcp_mid_finish_q(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote)
+static void __static_net_tcp_handle_tcp_mid_finish_q(void* obj, void* u, struct mm_packet* pack)
 {
 	// tcp 队列线程触发
 	__static_net_tcp_event_lobby_socket_change_publishing(obj, u);

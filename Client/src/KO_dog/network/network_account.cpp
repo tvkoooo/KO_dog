@@ -9,14 +9,24 @@
 
 void network_account_callback_function_registration(struct KO_dog_network* p)
 {
-	mm_client_udp_assign_n_callback(&p->udp, c_business_account::signed_in_rs_msg_id, &hd_n_c_business_account_signed_in_rs);
-	mm_client_udp_assign_n_callback(&p->udp, c_business_account::register_rs_msg_id, &hd_n_c_business_account_register_rs);
+	mm_client_tcp_assign_n_callback(&p->tcp, c_business_account::signed_in_rs_msg_id, &hd_n_c_business_account_signed_in_rs);
+	mm_client_tcp_assign_n_callback(&p->tcp, c_business_account::register_rs_msg_id, &hd_n_c_business_account_register_rs);
+	mm_client_tcp_assign_q_callback(&p->tcp, c_business_account::signed_in_rs_msg_id, &hd_q_c_business_account_signed_in_rs);
+	mm_client_tcp_assign_q_callback(&p->tcp, c_business_account::register_rs_msg_id, &hd_q_c_business_account_register_rs);
 }
 
+void hd_n_c_business_account_signed_in_rs(void* obj, void* u, struct mm_packet* pack)
+{
+
+}
+void hd_n_c_business_account_register_rs(void* obj, void* u, struct mm_packet* pack)
+{
+
+}
 
 //tcp/////////////////////////////////////////////////////////////////////////////////
 
-void hd_n_c_business_account_signed_in_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote)
+void hd_q_c_business_account_signed_in_rs(void* obj, void* u, struct mm_packet* pack)
 {
 	c_business_account::signed_in_rs rs_msg;
 	struct mm_string proto_desc;
@@ -46,25 +56,32 @@ void hd_n_c_business_account_signed_in_rs(void* obj, void* u, struct mm_packet* 
 		// 回包逻辑错误
 		if (0 != error_info->code())
 		{
-			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());
-			break;
+			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());	
+			//发布到界面输出错误日志    发布内容  evt_ags
+			mm::KO_dog_data_log_view* data_log_view = &impl->data.data_log_view;
+			mm::mm_event_data_log_view evt_ags;
+			evt_ags.code = error_info->code();
+			evt_ags.desc = error_info->desc();
+			evt_ags.view = data_log_view->code_map.get(evt_ags.code);
+			data_log_view->d_event_set.fire_event(mm::KO_dog_data_log_view::event_log_view, evt_ags);
 		}
+		else
+		{		
+			//数据更新
+			data_user_basic->name = rs_msg.user_name();
+			data_user_basic->id = rs_msg.user_id();
+			data_user_basic->token = rs_msg.token();
+			//////////////////////////////////////////////////////////////////////////
 
-		//////////////////////////////////////////////////////////////////////////
-
-		//数据更新
-		data_user_basic->name = rs_msg.user_name();
-		data_user_basic->id = rs_msg.user_id();
-		data_user_basic->token = rs_msg.token();
-
-		//数据更新以后的事件发布    发布内容  evt_ags
-		mm_event_args evt_ags;
-		data_user_basic->d_event_userdata.fire_event(mm::KO_dog_data_user_basic::d_event_userdata_update, evt_ags);
+			//数据更新以后的事件发布    发布内容  evt_ags
+			mm_event_args evt_ags;
+			data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_userdata_update, evt_ags);
+		}
 		//////////////////////////////////////////////////////////////////////////
 	} while (0);
-
+	
 }
-void hd_n_c_business_account_register_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote)
+void hd_q_c_business_account_register_rs(void* obj, void* u, struct mm_packet* pack)
 {
 	c_business_account::register_rs rs_msg;
 	struct mm_string proto_desc;
@@ -88,25 +105,33 @@ void hd_n_c_business_account_register_rs(void* obj, void* u, struct mm_packet* p
 		mm_logger_log_I(g_logger, "%s %d %s", __FUNCTION__, __LINE__, proto_desc.s);
 		//////////////////////////////////////////////////////////////////////////
 		// 回包逻辑错误
+		mm::KO_dog_data* data = &impl->data;
+		mm::KO_dog_data_user_basic* data_user_basic = &impl->data.data_user_basic;
 		if (0 != error_info->code())
 		{
 			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());
-			break;
+
+			//发布到界面输出错误日志    发布内容  evt_ags
+			mm::KO_dog_data_log_view* data_log_view = &impl->data.data_log_view;
+			mm::mm_event_data_log_view evt_ags;
+			evt_ags.code = error_info->code();
+			evt_ags.desc = error_info->desc();
+			evt_ags.view = data_log_view->code_map.get(evt_ags.code);
+			data_log_view->d_event_set.fire_event(mm::KO_dog_data_log_view::event_log_view, evt_ags);
 		}
-		//////////////////////////////////////////////////////////////////////////
-		//
-		mm::KO_dog_data* data = &impl->data;
-		mm::KO_dog_data_user_basic* data_user_basic = &impl->data.data_user_basic;
-
-		//数据更新
-		data_user_basic->name = rs_msg.user_name();
-		data_user_basic->id = rs_msg.user_id();
-		data_user_basic->token = rs_msg.token();
-
-		//数据更新以后的事件发布    发布内容  evt_ags
-		mm_event_args evt_ags;
-		data_user_basic->d_event_userdata.fire_event(mm::KO_dog_data_user_basic::d_event_userdata_update, evt_ags);
-		//////////////////////////////////////////////////////////////////////////
+		else
+		{
+			//数据更新
+			data_user_basic->name = rs_msg.user_name();
+			data_user_basic->id = rs_msg.user_id();
+			data_user_basic->token = rs_msg.token();
+			//////////////////////////////////////////////////////////////////////////
+			//
+			//数据更新以后的事件发布    发布内容  evt_ags
+			mm_event_args evt_ags;
+			data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_userdata_update, evt_ags);
+			//////////////////////////////////////////////////////////////////////////
+		}
 	} while (0);
 
 }

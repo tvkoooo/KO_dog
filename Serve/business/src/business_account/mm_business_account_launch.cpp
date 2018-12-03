@@ -11,7 +11,7 @@ void mm_business_account_launch_init(struct mm_business_account_launch* p)
 	p->module_number = 0;
 	p->area_shard = 0;
 	p->area_depth = 0;
-	mm_string_init(&p->JWT_token_parameters);
+	p->token_seed = 0;
 
 }
 void mm_business_account_launch_destroy(struct mm_business_account_launch* p)
@@ -23,7 +23,7 @@ void mm_business_account_launch_destroy(struct mm_business_account_launch* p)
 	p->module_number = 0;
 	p->area_shard = 0;
 	p->area_depth = 0;
-	mm_string_destroy(&p->JWT_token_parameters);
+	p->token_seed = 0;
 }
 //////////////////////////////////////////////////////////////////////////
 void mm_business_account_launch_printf_information(struct mm_business_account_launch* p)
@@ -55,6 +55,6 @@ void mm_business_account_launch_printf_information(struct mm_business_account_la
 	mm_logger_log_I(g_logger,"模块号             %u",p->module_number);
 	mm_logger_log_I(g_logger,"分片行(shard)      %u",p->area_shard);
 	mm_logger_log_I(g_logger,"分片列(depth)      %u",p->area_depth);
-	mm_logger_log_I(g_logger,"JWT令牌种子        %s",p->JWT_token_parameters.s);
+	mm_logger_log_I(g_logger,"JWT令牌种子        %u",p->token_seed);
 	mm_logger_log_I(g_logger,"##############################################################################################");
 }

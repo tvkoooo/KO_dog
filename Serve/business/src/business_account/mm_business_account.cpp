@@ -11,6 +11,7 @@
 #include "shuttle_common/mm_error_code_core.h"
 #include "shuttle_common/mm_runtime_calculate.h"
 #include "shuttle_common/mm_modules_runtime.h"
+#include "shuttle_common/mm_shuttle_random.h"
 
 #include "protobuf/mm_protobuff_cxx.h"
 #include "protodef/cxx/protodef/s_control.pb.h"
@@ -38,6 +39,11 @@ void mm_business_account_init(struct mm_business_account* p)
 	mm_db_mysql_config_init(&p->db_sql_config);
 	mm_db_mysql_section_init(&p->db_sql_section);
 	mm_error_desc_init(&p->error_desc);
+	mm_xoshiro256starstar_init(&p->token_random);
+	mm_string_init(&p->jwt_secret);
+	mm_jwt_algorithm_hmacsha_init(&p->jwt_algorithm);
+	mm_jwt_init(&p->jwt);
+	mm_spinlock_init(&p->locker, NULL);
 
 	p->msec_update_dt = MM_BUSINESS_ACCOUNT_MSEC_UPDATE_DT;
 	p->msec_launch_db = MM_BUSINESS_ACCOUNT_MSEC_LAUNCH_DB;
@@ -98,6 +104,11 @@ void mm_business_account_destroy(struct mm_business_account* p)
 	mm_db_mysql_config_destroy(&p->db_sql_config);
 	mm_db_mysql_section_destroy(&p->db_sql_section);
 	mm_error_desc_destroy(&p->error_desc);
+	mm_xoshiro256starstar_destroy(&p->token_random);
+	mm_string_destroy(&p->jwt_secret);
+	mm_jwt_algorithm_hmacsha_destroy(&p->jwt_algorithm);
+	mm_jwt_destroy(&p->jwt);
+	mm_spinlock_destroy(&p->locker);
 
 	p->msec_update_dt = MM_BUSINESS_ACCOUNT_MSEC_UPDATE_DT;
 	p->msec_launch_db = MM_BUSINESS_ACCOUNT_MSEC_LAUNCH_DB;
@@ -140,10 +151,10 @@ void mm_business_account_assign_area_depth(struct mm_business_account* p, mm_uin
 	struct mm_business_account_launch* launch_info = &p->launch_info;
 	launch_info->area_depth = area_depth;
 }
-void mm_business_account_assign_JWT_token_parameters(struct mm_business_account* p, const char* JWT_token_parameters)
+void mm_business_account_assign_token_seed(struct mm_business_account* p, mm_uint32_t token_seed)
 {
 	struct mm_business_account_launch* launch_info = &p->launch_info;
-	mm_string_assigns(&launch_info->JWT_token_parameters, JWT_token_parameters);
+	launch_info->token_seed = token_seed;
 }
 //////////////////////////////////////////////////////////////////////////
 void mm_business_account_start(struct mm_business_account* p)
@@ -168,8 +179,16 @@ void mm_business_account_start(struct mm_business_account* p)
 	mm_mailbox_assign_callback(&p->external_mailbox, c_business_account::register_rq_msg_id, &mm_business_account_tcp_hd_c_business_account_register_rq);
 	//////////////////////////////////////////////////////////////////////////
 	mm_business_account_runtime_assign_zkwb_path(&p->runtime_info, module_path);
-	//
+	// random token buffer.
+	mm_string_resize(&p->jwt_secret, MM_BUSINESS_ACCOUNT_JWT_SECRET_LENGTH + 1);
+	p->jwt_secret.s[MM_BUSINESS_ACCOUNT_JWT_SECRET_LENGTH] = '\0';
+	mm_xoshiro256starstar_srand(&p->token_random, launch_info->token_seed);
+	mm_shuttle_random_buffer(&p->token_random, (unsigned char*)p->jwt_secret.s, 0, (unsigned int)MM_BUSINESS_ACCOUNT_JWT_SECRET_LENGTH);
+	// jwt
+	mm_jwt_algorithm_hmacsha_assign_secret(&p->jwt_algorithm, &p->jwt_secret);
+	mm_jwt_algorithm_base_assign_type(&p->jwt_algorithm.base, JWT_AT_HS256);
 
+	mm_jwt_assign_algorithm(&p->jwt, &p->jwt_algorithm.base);
 	//////////////////////////////////////////////////////////////////////////
 	// start headset.
 	mm_mailbox_fopen_socket(&p->external_mailbox);

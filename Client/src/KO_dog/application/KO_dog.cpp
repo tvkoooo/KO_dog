@@ -4,6 +4,7 @@
 
 #include "dish/mm_file_context.h"
 
+#include "lua/mm_lua.h"
 
 #include "CEGUI/System.h"
 #include "CEGUI/GUIContext.h"
@@ -52,6 +53,7 @@ namespace mm
 	//////////////////////////////////////////////////////////////////////////
 	KO_dog::KO_dog()
 	{
+		mm_lua_context_init(&this->lua_context);
 		KO_dog_network_init(&this->network);
 		KO_dog_network_assign_context(&this->network, this);
 	}
@@ -59,6 +61,7 @@ namespace mm
 	KO_dog::~KO_dog()
 	{
 		KO_dog_network_destroy(&this->network);
+		mm_lua_context_destroy(&this->lua_context);
 	}
 
 	void KO_dog::on_acquire_feature() 
@@ -97,8 +100,13 @@ namespace mm
 		//////////////////////////////////////////////////////////////////////////
 		//设置udp入口地址和端口
 		KO_dog_network_client_udp_assign_remote_target(&this->network, "::1", 20001);
-		//udp rs回报事件挂载注册
-		this->d_event_udp_rs_conn = this->data.data_net.d_event_set.subscribe_event(KO_dog_data_net::event_lobby_update, &KO_dog::on_handle_udp_rs_conn, this);
+
+		//lua 脚本初始化
+		struct lua_State* L = this->lua_context.state;
+		mm_lua_state_set_global_file_context(L, &flake_context->d_file_context);
+		mm_lua_state_load_file_and_pcall(L, "script/main.lua");
+
+
 	}
 
 	void KO_dog::on_before_terminate()
@@ -117,22 +125,22 @@ namespace mm
 	{
 		//mm_flake_context* flake_context = this->get_context();
 		//flake_context->d_cegui_system.set_rendering_enabled(false);
-		this->lj_timer_test.start();
+		//this->lj_timer_test.start();
 		KO_dog_network_start(&this->network);
 	}
 	void KO_dog::on_interrupt()
 	{
-		this->lj_timer_test.interrupt();
+		//this->lj_timer_test.interrupt();
 		KO_dog_network_interrupt(&this->network);
 	}
 	void KO_dog::on_shutdown()
 	{
-		this->lj_timer_test.shutdown();
+		//this->lj_timer_test.shutdown();
 		KO_dog_network_shutdown(&this->network);
 	}
 	void KO_dog::on_join()
 	{
-		this->lj_timer_test.join();
+		//this->lj_timer_test.join();
 		KO_dog_network_join(&this->network);
 	}
 
@@ -162,12 +170,6 @@ namespace mm
 		//this->d_test_animation.on_before_terminate(surface);
 
 		//////////////////////////////////////////////////////////////////////////
-	}
-
-	bool KO_dog::on_handle_udp_rs_conn(const mm_event_args& args)
-	{
-
-		return false;
 	}
 
 }

@@ -57,12 +57,18 @@ void mm_business_account_tcp_hd_c_business_account_register_rq(void* obj, void* 
 			query.password = password;
 			if (db_mysql_state_success != query.query(db_mysql, MM_LOG_INFO))
 			{
+				error_info->set_code(err_common_exec_procedure_failure);
+				error_info->set_desc(mm_error_desc_string(error_desc, error_info->code()));
+				break;
+			}
+			if (0 != query.code)
+			{
 				error_info->set_code(query.code);
 				error_info->set_desc(mm_error_desc_string(error_desc, error_info->code()));
 				break;
 			}
 			rs_msg.set_user_id(query.id);
-			rs_msg.set_token("");
+			rs_msg.set_token("register");
 		}
 		
 		//////////////////////////////////////////////////////////////////////////

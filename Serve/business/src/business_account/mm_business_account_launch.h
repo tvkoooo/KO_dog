@@ -26,7 +26,7 @@ struct mm_business_account_launch
 	mm_uint32_t module_number;
 	mm_uint32_t area_shard;
 	mm_uint32_t area_depth;
-	struct mm_string JWT_token_parameters;
+	mm_uint32_t token_seed;
 };
 //////////////////////////////////////////////////////////////////////////
 extern void mm_business_account_launch_init(struct mm_business_account_launch* p);

@@ -25,7 +25,8 @@ CREATE TABLE `t_user_basic` (
     `password` char(50) NOT NULL  comment '用户密码',
     `nick` char(50) NOT NULL DEFAULT '0' comment '昵称',
 	`create_time` timestamp NOT NULL DEFAULT current_timestamp comment '创建时间',	
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    UNIQUE KEY(`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1112220000 DEFAULT CHARSET=utf8 comment='用户配置数据表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
