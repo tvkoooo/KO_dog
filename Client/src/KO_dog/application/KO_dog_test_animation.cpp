@@ -22,7 +22,7 @@
 namespace mm
 {
 	static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval);
-	static void __static_logic_data_to_view(struct zhen_dog_luoji_data *d, Ogre::SceneNode* n);
+	static void __static_logic_data_to_view(KO_dog_zhujiemian_dog_data *d, Ogre::SceneNode* n);
 
 	const std::string KO_dog_test_animation::event_close("event_close");
 
@@ -30,28 +30,28 @@ namespace mm
 		: d_flake_context(NULL)
 		, d_surface(NULL)
 
-		, d_scene_manager(NULL)
-		, d_root_node(NULL)
+		//, d_scene_manager(NULL)
+		//, d_root_node(NULL)
 
-		, d_node_camera(NULL)
-		, d_camera(NULL)
-		, d_viewport(NULL)
+		//, d_node_camera(NULL)
+		//, d_camera(NULL)
+		//, d_viewport(NULL)
 
-		, d_light_node(NULL)
-		, d_dir_light(NULL)
+		//, d_light_node(NULL)
+		//, d_dir_light(NULL)
 
-		, d_ogrehead_node_0(NULL)
-		, d_ogrehead_node_1(NULL)
-		, d_ogrehead_mesh_0(NULL)
+		//, d_ogrehead_node_0(NULL)
+		//, d_ogrehead_node_1(NULL)
+		//, d_ogrehead_mesh_0(NULL)
 
-		, d_skeleton_resource_ptr()
-		, d_cube_skeleton(NULL)
+		//, d_skeleton_resource_ptr()
+		//, d_cube_skeleton(NULL)
 
-		, d_floor_node(NULL)
-		, d_floor_mash(NULL)
+		//, d_floor_node(NULL)
+		//, d_floor_mash(NULL)
 
-		, d_dog_resource_ptr()
-		, d_floor_resource_ptr()
+		//, d_dog_resource_ptr()
+		//, d_floor_resource_ptr()
 
 		, d_is_touch_began(false)
 
@@ -72,10 +72,10 @@ namespace mm
 		, dog_v_4(0)
 		, dog_hudu_4_Dhudu(0)
 		, dog_ds_all(0)
-		, dog_ago()
-		, dog_tag()
-		, dog_now()
-		, dog_mid()
+		//, dog_ago()
+		//, dog_tag()
+		//, dog_now()
+		//, dog_mid()
 		, d_sync_frequency(0)
 		, d_sync_interval(0)
 		, d_is_anchor_touch_began(false)
@@ -92,12 +92,14 @@ namespace mm
 	}
 	void KO_dog_test_animation::assign_flake_context(mm_flake_context* flake_context)
 	{
-		this->d_flake_context = flake_context;
+		this->d_flake_context = flake_context;		
 	}
 
 	void KO_dog_test_animation::on_finish_launching(mm_flake_surface* surface)
 	{
 		this->d_surface = surface;
+		this->dog.set_flake_context(this->d_flake_context, this->d_surface);
+
 		/////////////////////////////////////////////////////////////////////
 		this->d_event_updated_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_updated, &KO_dog_test_animation::on_event_updated, this);
 
@@ -107,39 +109,38 @@ namespace mm
 		this->d_event_key_pressed_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_key_pressed, &KO_dog_test_animation::on_event_key_pressed, this);
 		this->d_event_key_release_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_key_release, &KO_dog_test_animation::on_event_key_release, this);
 		/////////////////////////////////////////////////////////////////////
-		Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
+		//Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
+		//// Create the scene manager
+		//this->d_scene_manager = _ogre_root->createSceneManager();
+		//Ogre::RTShader::ShaderGenerator::getSingletonPtr()->addSceneManager(this->d_scene_manager);
+		//// Create and initialise the camera
+		//this->d_root_node = this->d_scene_manager->getRootSceneNode();
+		///////////////////////////////////////////////////////////////////////
+		//this->d_camera = d_scene_manager->createCamera("main_camera");
+		////this->d_camera->setPosition(Ogre::Vector3(0, 0, 0));
+		////this->d_camera->lookAt(Ogre::Vector3(0, 0, 0));
+		//this->d_camera->setNearClipDistance(1.0f);
+		//this->d_camera->setFarClipDistance(100000.0f);
+		//this->d_camera->setAutoAspectRatio(true);
 
-		// Create the scene manager
-		this->d_scene_manager = _ogre_root->createSceneManager();
-		Ogre::RTShader::ShaderGenerator::getSingletonPtr()->addSceneManager(this->d_scene_manager);
-		// Create and initialise the camera
-		this->d_root_node = this->d_scene_manager->getRootSceneNode();
-		/////////////////////////////////////////////////////////////////////
-		this->d_camera = d_scene_manager->createCamera("main_camera");
-		//this->d_camera->setPosition(Ogre::Vector3(0, 0, 0));
-		//this->d_camera->lookAt(Ogre::Vector3(0, 0, 0));
-		this->d_camera->setNearClipDistance(1.0f);
-		this->d_camera->setFarClipDistance(100000.0f);
-		this->d_camera->setAutoAspectRatio(true);
+		//this->d_node_camera = this->d_root_node->createChildSceneNode();
+		//this->d_node_camera->attachObject(this->d_camera);
+		//this->now_camra_node = this->d_node_camera;
 
-		this->d_node_camera = this->d_root_node->createChildSceneNode();
-		this->d_node_camera->attachObject(this->d_camera);
-		this->now_camra_node = this->d_node_camera;
+		//this->d_viewport = surface->d_render_window->addViewport(this->d_camera);
+		//this->d_camera->setAspectRatio(Ogre::Real(this->d_viewport->getActualWidth()) / Ogre::Real(this->d_viewport->getActualHeight()));
 
-		this->d_viewport = surface->d_render_window->addViewport(this->d_camera);
-		this->d_camera->setAspectRatio(Ogre::Real(this->d_viewport->getActualWidth()) / Ogre::Real(this->d_viewport->getActualHeight()));
+		//Ogre::Vector3 lightdir(0.55f, -0.3f, -0.75f);
+		//lightdir.normalise();
+		//this->d_light_node = this->d_root_node->createChildSceneNode();
+		//this->d_dir_light = this->d_scene_manager->createLight();
+		//this->d_dir_light->setType(Ogre::Light::LT_DIRECTIONAL);
+		//this->d_dir_light->setDirection(lightdir);
+		//this->d_dir_light->setDiffuseColour(Ogre::ColourValue::White);
+		//this->d_dir_light->setSpecularColour(Ogre::ColourValue(0.4f, 0.4f, 0.4f));
+		//this->d_light_node->attachObject(this->d_dir_light);
 
-		Ogre::Vector3 lightdir(0.55f, -0.3f, -0.75f);
-		lightdir.normalise();
-		this->d_light_node = this->d_root_node->createChildSceneNode();
-		this->d_dir_light = this->d_scene_manager->createLight();
-		this->d_dir_light->setType(Ogre::Light::LT_DIRECTIONAL);
-		this->d_dir_light->setDirection(lightdir);
-		this->d_dir_light->setDiffuseColour(Ogre::ColourValue::White);
-		this->d_dir_light->setSpecularColour(Ogre::ColourValue(0.4f, 0.4f, 0.4f));
-		this->d_light_node->attachObject(this->d_dir_light);
-
-		this->d_scene_manager->setAmbientLight(Ogre::ColourValue(1.0f, 1.0f, 1.0f));
+		//this->d_scene_manager->setAmbientLight(Ogre::ColourValue(1.0f, 1.0f, 1.0f));
 		/////////////////////////////////////////////////////////////////////
 		this->on_scene_launching();
 		this->on_scene_layer_launching();
@@ -147,24 +148,24 @@ namespace mm
 	}
 	void KO_dog_test_animation::on_before_terminate(mm_flake_surface* surface)
 	{
-		struct mm_logger* g_logger = mm_logger_instance();
-		mm_flake_context* flake_context = this->d_flake_context;
-		Ogre::Root* _ogre_root = flake_context->d_ogre_system.get_ogre_root();
-		//////////////////////////////////////////////////////////////////////////
-		surface->d_render_window->removeViewport(this->d_viewport->getZOrder());
+		//struct mm_logger* g_logger = mm_logger_instance();
+		//mm_flake_context* flake_context = this->d_flake_context;
+		//Ogre::Root* _ogre_root = flake_context->d_ogre_system.get_ogre_root();
+		////////////////////////////////////////////////////////////////////////////
+		//surface->d_render_window->removeViewport(this->d_viewport->getZOrder());
 		//////////////////////////////////////////////////////////////////////////
 		this->on_synchronize_terminate();
 		this->on_scene_layer_terminate();
 		this->on_scene_terminate();
 		//////////////////////////////////////////////////////////////////////////
-		this->d_scene_manager->destroyLight(this->d_dir_light);
-		this->d_scene_manager->destroySceneNode(this->d_light_node);
-		this->d_scene_manager->destroyCamera(this->d_camera);
-		this->d_scene_manager->destroySceneNode(this->d_node_camera);
-		//////////////////////////////////////////////////////////////////////////
-		Ogre::RTShader::ShaderGenerator::getSingletonPtr()->removeSceneManager(this->d_scene_manager);
-		_ogre_root->destroySceneManager(this->d_scene_manager);
-		mm_logger_log_I(g_logger, "KO_dog::%s %d success.", __FUNCTION__, __LINE__);
+		//this->d_scene_manager->destroyLight(this->d_dir_light);
+		//this->d_scene_manager->destroySceneNode(this->d_light_node);
+		//this->d_scene_manager->destroyCamera(this->d_camera);
+		//this->d_scene_manager->destroySceneNode(this->d_node_camera);
+		////////////////////////////////////////////////////////////////////////////
+		//Ogre::RTShader::ShaderGenerator::getSingletonPtr()->removeSceneManager(this->d_scene_manager);
+		//_ogre_root->destroySceneManager(this->d_scene_manager);
+		//mm_logger_log_I(g_logger, "KO_dog::%s %d success.", __FUNCTION__, __LINE__);
 		//////////////////////////////////////////////////////////////////////////
 		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_updated, this->d_event_updated_conn);
 
@@ -176,32 +177,33 @@ namespace mm
 	}
 	void KO_dog_test_animation::on_scene_launching()
 	{
-		Ogre::ResourceGroupManager* _resource_group_manager = Ogre::ResourceGroupManager::getSingletonPtr();
+		this->dog.on_finish_launching();
+		//Ogre::ResourceGroupManager* _resource_group_manager = Ogre::ResourceGroupManager::getSingletonPtr();
 
-		_resource_group_manager->addResourceLocation("media/models/dog", "mm_file_system", "media/models/dog");
+		//_resource_group_manager->addResourceLocation("media/models/dog", "mm_file_system", "media/models/dog");
 
-		_resource_group_manager->initialiseResourceGroup(Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+		//_resource_group_manager->initialiseResourceGroup(Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 
-		_resource_group_manager->initialiseResourceGroup("media/models/dog");
+		//_resource_group_manager->initialiseResourceGroup("media/models/dog");
 
-		Ogre::SkeletonManager* _skeleton_manager = Ogre::SkeletonManager::getSingletonPtr();
+		//Ogre::SkeletonManager* _skeleton_manager = Ogre::SkeletonManager::getSingletonPtr();
 
-		//Ogre::ResourcePtr _resource_ptr = _skeleton_mgr.load("Cube.skeleton", "media/scene/level_0/model/Cube");
-		//this->d_cube_skeleton = (Ogre::Skeleton*)_resource_ptr.get();
-		//mm_attach_skeleton(this->d_cube_skeleton, "bend_l.skeleton", "media/scene/level_0/model/Cube");
-		//mm_attach_skeleton(this->d_cube_skeleton, "bend_r.skeleton", "media/scene/level_0/model/Cube");
-		this->d_skeleton_resource_ptr = _skeleton_manager->load("dog.SKELETON", "media/models/dog");
-		this->d_cube_skeleton = (Ogre::Skeleton*)this->d_skeleton_resource_ptr.get();
-		mm_attach_skeleton(this->d_cube_skeleton, "run.SKELETON", "media/models/dog");
-		mm_attach_skeleton(this->d_cube_skeleton, "walk.SKELETON", "media/models/dog");
-		mm_attach_skeleton(this->d_cube_skeleton, "idle.SKELETON", "media/models/dog");
+		////Ogre::ResourcePtr _resource_ptr = _skeleton_mgr.load("Cube.skeleton", "media/scene/level_0/model/Cube");
+		////this->d_cube_skeleton = (Ogre::Skeleton*)_resource_ptr.get();
+		////mm_attach_skeleton(this->d_cube_skeleton, "bend_l.skeleton", "media/scene/level_0/model/Cube");
+		////mm_attach_skeleton(this->d_cube_skeleton, "bend_r.skeleton", "media/scene/level_0/model/Cube");
+		//this->d_skeleton_resource_ptr = _skeleton_manager->load("dog.SKELETON", "media/models/dog");
+		//this->d_cube_skeleton = (Ogre::Skeleton*)this->d_skeleton_resource_ptr.get();
+		//mm_attach_skeleton(this->d_cube_skeleton, "run.SKELETON", "media/models/dog");
+		//mm_attach_skeleton(this->d_cube_skeleton, "walk.SKELETON", "media/models/dog");
+		//mm_attach_skeleton(this->d_cube_skeleton, "idle.SKELETON", "media/models/dog");
 
-		this->d_ogrehead_node_0 = this->d_root_node->createChildSceneNode();
-		this->d_ogrehead_node_1 = this->d_ogrehead_node_0->createChildSceneNode();
-		this->d_ogrehead_node_1->setPosition(0,2,0);
-		this->d_ogrehead_node_1->yaw(Ogre::Radian(Ogre::Degree((Ogre::Real) - 180)));
-		this->d_node_camera->setPosition(0, 10, 10);
-		this->d_node_camera->pitch(Ogre::Radian(Ogre::Degree((Ogre::Real) - 30)));
+		//this->d_ogrehead_node_0 = this->d_root_node->createChildSceneNode();
+		//this->d_ogrehead_node_1 = this->d_ogrehead_node_0->createChildSceneNode();
+		//this->d_ogrehead_node_1->setPosition(0,2,0);
+		//this->d_ogrehead_node_1->yaw(Ogre::Radian(Ogre::Degree((Ogre::Real) - 180)));
+		//this->d_node_camera->setPosition(0, 10, 10);
+		//this->d_node_camera->pitch(Ogre::Radian(Ogre::Degree((Ogre::Real) - 30)));
 
 		//this->d_ogrehead_mesh_0 = this->d_scene_manager->createEntity("Cube_0", "Cube.mesh", "media/scene/level_0/model/Cube");
 		//this->d_ogrehead_node_0->scale(Ogre::Vector3(0.05, 0.05, 0.05));
@@ -211,110 +213,112 @@ namespace mm
 		//this->d_unit_animation.addAnimationTrack("bend_l");
 		//this->d_unit_animation.addAnimationTrack("bend_r");
 		//this->d_unit_animation.play("bend_l", true);
-		Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
 
-		this->d_audio_factory = OGRE_NEW_T(OgreOggSound::OgreOggSoundFactory, Ogre::MEMCATEGORY_GENERAL)();
-		_ogre_root->addMovableObjectFactory(this->d_audio_factory, true);
+		//Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
 
-		this->d_audio_manager = OGRE_NEW_T(OgreOggSound::OgreOggSoundManager, Ogre::MEMCATEGORY_GENERAL)();
+		//this->d_audio_factory = OGRE_NEW_T(OgreOggSound::OgreOggSoundFactory, Ogre::MEMCATEGORY_GENERAL)();
+		//_ogre_root->addMovableObjectFactory(this->d_audio_factory, true);
 
-		this->d_audio_manager->init();
+		//this->d_audio_manager = OGRE_NEW_T(OgreOggSound::OgreOggSoundManager, Ogre::MEMCATEGORY_GENERAL)();
+
+		//this->d_audio_manager->init();
+
+		////this->d_unit_animation_n.set_scene_manager(this->d_scene_manager);
+		////this->d_unit_animation_n.set_scene_node(this->d_ogrehead_node_0);
+		////this->d_unit_animation_n.set_resource_group("media/scene/level_0/model/Cube");
+		////this->d_unit_animation_n.set_entity_asset("Cube.mesh");
+		////this->d_unit_animation_n.add_animation_track("bend_l", "bend_l");
+		////this->d_unit_animation_n.add_animation_track("bend_r", "bend_r");
+		//////this->d_unit_animation_n.play("bend_l", true);
+		////this->d_unit_animation_n.play("bend_r", true);
+
+		////this->d_unit_audio_n.set_audio_manager(this->d_audio_manager);
+		////this->d_unit_audio_n.set_scene_node(this->d_ogrehead_node_0);
+		////this->d_unit_audio_n.set_resource_group("media/audio");
+		////this->d_unit_audio_n.add_audio_track("shake", "dog_tic_shake.ogg");
+		////// this->d_unit_audio_n.play("shake", false);
+
+		//Ogre::MeshManager* _mesh_manager = Ogre::MeshManager::getSingletonPtr();
+		//this->d_dog_resource_ptr = _mesh_manager->load("dog.MESH", "media/models/dog");
 
 		//this->d_unit_animation_n.set_scene_manager(this->d_scene_manager);
 		//this->d_unit_animation_n.set_scene_node(this->d_ogrehead_node_0);
-		//this->d_unit_animation_n.set_resource_group("media/scene/level_0/model/Cube");
-		//this->d_unit_animation_n.set_entity_asset("Cube.mesh");
-		//this->d_unit_animation_n.add_animation_track("bend_l", "bend_l");
-		//this->d_unit_animation_n.add_animation_track("bend_r", "bend_r");
-		////this->d_unit_animation_n.play("bend_l", true);
-		//this->d_unit_animation_n.play("bend_r", true);
+		//this->d_unit_animation_n.set_resource_group("media/models/dog");
+		//this->d_unit_animation_n.set_entity_asset("dog.MESH");
+		//this->d_unit_animation_n.entity_produce();
+		//this->d_unit_animation_n.add_animation_track("run", "run");
+		//this->d_unit_animation_n.add_animation_track("walk", "walk");
+		//this->d_unit_animation_n.add_animation_track("idle", "idle");
+		//this->d_unit_animation_n.play("idle", true);
+		////this->d_unit_animation_n.play("run", true);
 
-		//this->d_unit_audio_n.set_audio_manager(this->d_audio_manager);
-		//this->d_unit_audio_n.set_scene_node(this->d_ogrehead_node_0);
-		//this->d_unit_audio_n.set_resource_group("media/audio");
-		//this->d_unit_audio_n.add_audio_track("shake", "dog_tic_shake.ogg");
+		////this->d_unit_audio_n.set_audio_manager(this->d_audio_manager);
+		////this->d_unit_audio_n.set_scene_node(this->d_ogrehead_node_0);
+		////this->d_unit_audio_n.set_resource_group("media/audio");
+		////this->d_unit_audio_n.add_audio_track("shake", "dog_tic_shake.ogg");
 		//// this->d_unit_audio_n.play("shake", false);
 
-		Ogre::MeshManager* _mesh_manager = Ogre::MeshManager::getSingletonPtr();
-		this->d_dog_resource_ptr = _mesh_manager->load("dog.MESH", "media/models/dog");
+		//// create a floor mesh resource
+		//this->d_floor_resource_ptr = _mesh_manager->createPlane("floor", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+		//	Ogre::Plane(Ogre::Vector3::UNIT_Y, 0), 100, 100, 10, 10, true, 1, 10, 10, Ogre::Vector3::UNIT_Z);
 
-		this->d_unit_animation_n.set_scene_manager(this->d_scene_manager);
-		this->d_unit_animation_n.set_scene_node(this->d_ogrehead_node_0);
-		this->d_unit_animation_n.set_resource_group("media/models/dog");
-		this->d_unit_animation_n.set_entity_asset("dog.MESH");
-		this->d_unit_animation_n.entity_produce();
-		this->d_unit_animation_n.add_animation_track("run", "run");
-		this->d_unit_animation_n.add_animation_track("walk", "walk");
-		this->d_unit_animation_n.add_animation_track("idle", "idle");
-		this->d_unit_animation_n.play("idle", true);
-		//this->d_unit_animation_n.play("run", true);
-
-		//this->d_unit_audio_n.set_audio_manager(this->d_audio_manager);
-		//this->d_unit_audio_n.set_scene_node(this->d_ogrehead_node_0);
-		//this->d_unit_audio_n.set_resource_group("media/audio");
-		//this->d_unit_audio_n.add_audio_track("shake", "dog_tic_shake.ogg");
-		// this->d_unit_audio_n.play("shake", false);
-
-
-		// create a floor mesh resource
-		this->d_floor_resource_ptr = _mesh_manager->createPlane("floor", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-			Ogre::Plane(Ogre::Vector3::UNIT_Y, 0), 100, 100, 10, 10, true, 1, 10, 10, Ogre::Vector3::UNIT_Z);
-
-		// create a floor entity, give it a material, and place it at the origin
-		this->d_floor_mash = this->d_scene_manager->createEntity("Floor", "floor");
-		this->d_floor_mash->setMaterialName("floor/grass");
-		this->d_floor_mash->setCastShadows(false);
-		//this->d_scene_manager->getRootSceneNode()->attachObject(floor);
-		this->d_floor_node = this->d_root_node->createChildSceneNode();
-		this->d_floor_node->attachObject(this->d_floor_mash);
+		//// create a floor entity, give it a material, and place it at the origin
+		//this->d_floor_mash = this->d_scene_manager->createEntity("Floor", "floor");
+		//this->d_floor_mash->setMaterialName("floor/grass");
+		//this->d_floor_mash->setCastShadows(false);
+		////this->d_scene_manager->getRootSceneNode()->attachObject(floor);
+		//this->d_floor_node = this->d_root_node->createChildSceneNode();
+		//this->d_floor_node->attachObject(this->d_floor_mash);
 	}
 	void KO_dog_test_animation::on_scene_terminate()
 	{
-		Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
+		//dog terminate()
+		this->dog.on_before_terminate();
 
-		this->d_floor_node->detachObject(this->d_floor_mash);
-		this->d_scene_manager->destroyEntity(this->d_floor_mash);
-		this->d_scene_manager->destroySceneNode(this->d_floor_node);
+		//Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
 
-		this->d_unit_animation_n.entity_recycle();
-		this->d_unit_animation_n.clear_animation_track();
-		this->d_unit_audio_n.clear_audio_track();
+		//this->d_floor_node->detachObject(this->d_floor_mash);
+		//this->d_scene_manager->destroyEntity(this->d_floor_mash);
+		//this->d_scene_manager->destroySceneNode(this->d_floor_node);
 
-		OGRE_DELETE_T(this->d_audio_manager, OgreOggSoundManager, Ogre::MEMCATEGORY_GENERAL);
+		////this->d_unit_animation_n.entity_recycle();
+		////this->d_unit_animation_n.clear_animation_track();
+		//this->d_unit_audio_n.clear_audio_track();
 
-		_ogre_root->removeMovableObjectFactory(this->d_audio_factory);
-		OGRE_DELETE_T(this->d_audio_factory, OgreOggSoundFactory, Ogre::MEMCATEGORY_GENERAL);
+		//OGRE_DELETE_T(this->d_audio_manager, OgreOggSoundManager, Ogre::MEMCATEGORY_GENERAL);
 
-		Ogre::MeshManager* _mesh_manager = Ogre::MeshManager::getSingletonPtr();
+		//_ogre_root->removeMovableObjectFactory(this->d_audio_factory);
+		//OGRE_DELETE_T(this->d_audio_factory, OgreOggSoundFactory, Ogre::MEMCATEGORY_GENERAL);
 
-		_mesh_manager->unload(this->d_floor_resource_ptr->getName(), Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-		_mesh_manager->remove(this->d_floor_resource_ptr->getName(), Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-		this->d_floor_resource_ptr.reset();
+		//Ogre::MeshManager* _mesh_manager = Ogre::MeshManager::getSingletonPtr();
 
-		_mesh_manager->unload(this->d_dog_resource_ptr->getName(), "media/models/dog");
-		_mesh_manager->remove(this->d_dog_resource_ptr->getName(), "media/models/dog");
-		this->d_dog_resource_ptr.reset();
+		//_mesh_manager->unload(this->d_floor_resource_ptr->getName(), Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+		//_mesh_manager->remove(this->d_floor_resource_ptr->getName(), Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+		//this->d_floor_resource_ptr.reset();
 
-		Ogre::SkeletonManager* _skeleton_manager = Ogre::SkeletonManager::getSingletonPtr();
+		//_mesh_manager->unload(this->d_dog_resource_ptr->getName(), "media/models/dog");
+		//_mesh_manager->remove(this->d_dog_resource_ptr->getName(), "media/models/dog");
+		//this->d_dog_resource_ptr.reset();
+
+		//Ogre::SkeletonManager* _skeleton_manager = Ogre::SkeletonManager::getSingletonPtr();
 
 		//mm_detach_skeleton(this->d_cube_skeleton, "bend_l");
 		//mm_detach_skeleton(this->d_cube_skeleton, "bend_r");
 
-		mm_detach_skeleton(this->d_cube_skeleton, "walk");
-		mm_detach_skeleton(this->d_cube_skeleton, "run");
-		mm_detach_skeleton(this->d_cube_skeleton, "idle");
+		//mm_detach_skeleton(this->d_cube_skeleton, "walk");
+		//mm_detach_skeleton(this->d_cube_skeleton, "run");
+		//mm_detach_skeleton(this->d_cube_skeleton, "idle");
 
-		_skeleton_manager->unload(this->d_skeleton_resource_ptr->getName(), "media/models/dog");
-		_skeleton_manager->remove(this->d_skeleton_resource_ptr->getName(), "media/models/dog");
-		this->d_skeleton_resource_ptr.reset();
-		this->d_cube_skeleton = NULL;
+		//_skeleton_manager->unload(this->d_skeleton_resource_ptr->getName(), "media/models/dog");
+		//_skeleton_manager->remove(this->d_skeleton_resource_ptr->getName(), "media/models/dog");
+		//this->d_skeleton_resource_ptr.reset();
+		//this->d_cube_skeleton = NULL;
 
 		//this->d_scene_manager->destroyEntity(this->d_ogrehead_mesh_0);
-		this->d_scene_manager->destroySceneNode(this->d_ogrehead_node_0);
+		//this->d_scene_manager->destroySceneNode(this->d_ogrehead_node_0);
 
-		Ogre::ResourceGroupManager* _resource_group_manager = Ogre::ResourceGroupManager::getSingletonPtr();
-
-		_resource_group_manager->removeResourceLocation("media/models/dog", "media/models/dog");
+		//Ogre::ResourceGroupManager* _resource_group_manager = Ogre::ResourceGroupManager::getSingletonPtr();
+		//_resource_group_manager->removeResourceLocation("media/models/dog", "media/models/dog");
 	}
 	void KO_dog_test_animation::on_scene_layer_launching()
 	{
@@ -435,20 +439,21 @@ namespace mm
 	{
 		const mm_event_surface_updated& evt = (const mm_event_surface_updated&)(args);
 		//this->d_unit_animation.update((float)evt.interval);
-		this->d_unit_animation_n.update((float)evt.interval);
-		this->d_unit_audio_n.update((float)evt.interval);
 
-		this->dog_mid.D_jiaodu +=(this->dog_tag.D_jiaodu - this->dog_ago.D_jiaodu) * (evt.interval / this->d_sync_interval);
-		this->dog_mid.D_weizhi +=(this->dog_tag.D_weizhi - this->dog_ago.D_weizhi) * (evt.interval / this->d_sync_interval);
-		__static_logic_data_to_view(&this->dog_mid, this->d_ogrehead_node_0);
+		this->dog.am_unit_animation.update((float)evt.interval);
+		this->dog.d_unit_audio_n.update((float)evt.interval);
+
+		this->dog.dog_mid.d_vector4.jiaodu +=(this->dog.dog_tag.d_vector4.jiaodu - this->dog.dog_ago.d_vector4.jiaodu) * (evt.interval / this->d_sync_interval);
+		this->dog.dog_mid.d_vector4.weizhi +=(this->dog.dog_tag.d_vector4.weizhi - this->dog.dog_ago.d_vector4.weizhi) * (evt.interval / this->d_sync_interval);
+		__static_logic_data_to_view(&this->dog.dog_mid, this->dog.a_node_horizon);
 
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
 		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
 		if (this->dog_v_4 != 0 && this->dog_running == 0)
 		{
-			this->d_unit_animation_n.stop("idle");
-			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
+			this->dog.am_unit_animation.stop("idle");
+			mm_unit_animation_track* t = this->dog.am_unit_animation.play("run", true);
 
 			if (this->dog_v_4 > 0)
 			{
@@ -464,13 +469,13 @@ namespace mm
 		}
 		if(this->dog_v_4 > 0 && this->dog_running == -1)
 		{
-			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
+			mm_unit_animation_track* t = this->dog.am_unit_animation.play("run", true);
 			t->set_speed(1);
 			this->dog_running = 1;
 		}
 		if (this->dog_v_4 < 0 && this->dog_running == 1)
 		{
-			mm_unit_animation_track* t = this->d_unit_animation_n.play("run", true);
+			mm_unit_animation_track* t = this->dog.am_unit_animation.play("run", true);
 			t->set_speed(-1);
 			this->dog_running = -1;
 		}
@@ -478,8 +483,8 @@ namespace mm
 
 		if (this->dog_v_4 == 0 && this->dog_running != 0)
 		{
-			this->d_unit_animation_n.stop("run");
-			this->d_unit_animation_n.play("idle", true);
+			this->dog.am_unit_animation.stop("run");
+			this->dog.am_unit_animation.play("idle", true);
 			this->dog_running = false;
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////
@@ -591,17 +596,17 @@ namespace mm
 		if (evt.content.key == mm::mm_key::C && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::C))
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::C, 1);
-			if (this->now_camra_node == this->d_ogrehead_node_1)
+			if (this->now_camra_node == this->dog.a_node_head)
 			{
-				this->now_camra_node->detachObject(this->d_camera);
-				this->d_node_camera->attachObject(this->d_camera);
-				this->now_camra_node = this->d_node_camera;
+				this->now_camra_node->detachObject(this->dog.d_camera);
+				this->dog.d_node_camera->attachObject(this->dog.d_camera);
+				this->now_camra_node = this->dog.d_node_camera;
 			}
 			else
 			{
-				this->now_camra_node->detachObject(this->d_camera);
-				this->d_ogrehead_node_1->attachObject(this->d_camera);
-				this->now_camra_node = this->d_ogrehead_node_1;
+				this->now_camra_node->detachObject(this->dog.d_camera);
+				this->dog.a_node_head->attachObject(this->dog.d_camera);
+				this->now_camra_node = this->dog.a_node_head;
 			}
 
 		}
@@ -662,24 +667,24 @@ namespace mm
 	void KO_dog_test_animation::on_update_synchronize(double interval)
 	{
 		///////////////////////////////////////////////////////////////////////////////////////
-		__static_logic_data_to_view(&this->dog_tag, this->d_ogrehead_node_0);
+		__static_logic_data_to_view(&this->dog.dog_tag, this->dog.a_node_horizon);
 		///////////////////////////////////////////////////////////////////////////////////////////////
-		this->dog_ago = this->dog_tag;
-		this->dog_tag = this->dog_now;
-		this->dog_mid = this->dog_ago;
+		this->dog.dog_ago = this->dog.dog_tag;
+		this->dog.dog_tag = this->dog.dog_now;
+		this->dog.dog_mid = this->dog.dog_ago;
 		///////////////////////////////////////////////////////////////////////////////////////
 		mm_fix32 ctrl_list_now = this->dog_hudu_4_Dhudu;//从命令队列中弹出的当前帧命令
 
 		mm_fix32 drv = ctrl_list_now * 60 * this->d_sync_interval;
-		this->dog_now.D_jiaodu += drv * mm_fix32::MM_PI_DIV_180;
+		this->dog.dog_now.d_vector4.jiaodu += drv * mm_fix32::MM_PI_DIV_180;
 
 		mm_fix32_quaternion dog_4_data;
-		dog_4_data.from_angle_axis(this->dog_now.D_jiaodu, mm_fix32_vector3::UNIT_Y);
+		dog_4_data.from_angle_axis(this->dog.dog_now.d_vector4.jiaodu, mm_fix32_vector3::UNIT_Y);
 		mm_fix32_vector3 dog_ds = mm_fix32_vector3::UNIT_Z * this->dog_v_4 * this->d_sync_interval;
-		this->dog_now.D_weizhi += dog_4_data * dog_ds;
+		this->dog.dog_now.d_vector4.weizhi += dog_4_data * dog_ds;
 		///////////////////////////////////////////////////////////////////////////////////////
 		this->dog_ds_all = dog_ds.length() + this->dog_ds_all;
-		this->Label_jiaodu->setText(this->dog_now.D_jiaodu.to_string() + " (du)");
+		this->Label_jiaodu->setText(this->dog.dog_now.d_vector4.jiaodu.to_string() + " (du)");
 		this->Label_zongchang->setText(this->dog_ds_all.to_string());
 		///////////////////////////////////////////////////////////////////////////////////////
 	}
@@ -689,14 +694,14 @@ namespace mm
 		KO_dog_test_animation* p = (KO_dog_test_animation*)(unit->callback.obj);
 		p->on_update_synchronize(interval);
 	}
-	static void __static_logic_data_to_view(struct zhen_dog_luoji_data *d, Ogre::SceneNode* n)
+	static void __static_logic_data_to_view(KO_dog_zhujiemian_dog_data *d, Ogre::SceneNode* n)
 	{
 		mm_fix32_quaternion dog_4_data;
-		dog_4_data.from_angle_axis(d->D_jiaodu, mm_fix32_vector3::UNIT_Y);
+		dog_4_data.from_angle_axis(d->d_vector4.jiaodu, mm_fix32_vector3::UNIT_Y);
 
 		Ogre::Quaternion dog_4_xunruanqi(dog_4_data.w, dog_4_data.x, dog_4_data.y, dog_4_data.z);
 		n->setOrientation(dog_4_xunruanqi);
-		n->setPosition(d->D_weizhi.x, d->D_weizhi.y, d->D_weizhi.z);
+		n->setPosition(d->d_vector4.weizhi.x, d->d_vector4.weizhi.y, d->d_vector4.weizhi.z);
 	}
 
 	bool KO_dog_test_animation::on_handle_StaticImage(const CEGUI::EventArgs& args)

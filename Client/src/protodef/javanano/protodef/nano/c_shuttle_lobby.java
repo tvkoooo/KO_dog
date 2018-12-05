@@ -29,11 +29,11 @@ public interface c_shuttle_lobby {
       return _emptyArray;
     }
 
-    // required bytes n = 1;
-    public byte[] n;
+    // required bytes public_key = 1;
+    public byte[] publicKey;
 
-    // required bytes e = 2;
-    public byte[] e;
+    // required bytes encrypt_key_l = 2;
+    public byte[] encryptKeyL;
 
     // required uint32 version = 3 [default = 0];
     public int version;
@@ -43,8 +43,8 @@ public interface c_shuttle_lobby {
     }
 
     public exchange_key_rq clear() {
-      n = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
-      e = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
+      publicKey = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
+      encryptKeyL = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
       version = 0;
       cachedSize = -1;
       return this;
@@ -53,8 +53,8 @@ public interface c_shuttle_lobby {
     @Override
     public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
         throws java.io.IOException {
-      output.writeBytes(1, this.n);
-      output.writeBytes(2, this.e);
+      output.writeBytes(1, this.publicKey);
+      output.writeBytes(2, this.encryptKeyL);
       output.writeUInt32(3, this.version);
       super.writeTo(output);
     }
@@ -63,9 +63,9 @@ public interface c_shuttle_lobby {
     protected int computeSerializedSize() {
       int size = super.computeSerializedSize();
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeBytesSize(1, this.n);
+          .computeBytesSize(1, this.publicKey);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeBytesSize(2, this.e);
+          .computeBytesSize(2, this.encryptKeyL);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt32Size(3, this.version);
       return size;
@@ -87,11 +87,11 @@ public interface c_shuttle_lobby {
             break;
           }
           case 10: {
-            this.n = input.readBytes();
+            this.publicKey = input.readBytes();
             break;
           }
           case 18: {
-            this.e = input.readBytes();
+            this.encryptKeyL = input.readBytes();
             break;
           }
           case 24: {
@@ -137,8 +137,8 @@ public interface c_shuttle_lobby {
     // required .b_error.info error = 1;
     public protodef.nano.b_error.info error;
 
-    // required bytes key = 2;
-    public byte[] key;
+    // required bytes encrypt_key_r = 2;
+    public byte[] encryptKeyR;
 
     public exchange_key_rs() {
       clear();
@@ -146,7 +146,7 @@ public interface c_shuttle_lobby {
 
     public exchange_key_rs clear() {
       error = null;
-      key = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
+      encryptKeyR = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
       cachedSize = -1;
       return this;
     }
@@ -157,7 +157,7 @@ public interface c_shuttle_lobby {
       if (this.error != null) {
         output.writeMessage(1, this.error);
       }
-      output.writeBytes(2, this.key);
+      output.writeBytes(2, this.encryptKeyR);
       super.writeTo(output);
     }
 
@@ -169,7 +169,7 @@ public interface c_shuttle_lobby {
           .computeMessageSize(1, this.error);
       }
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeBytesSize(2, this.key);
+          .computeBytesSize(2, this.encryptKeyR);
       return size;
     }
 
@@ -196,7 +196,7 @@ public interface c_shuttle_lobby {
             break;
           }
           case 18: {
-            this.key = input.readBytes();
+            this.encryptKeyR = input.readBytes();
             break;
           }
         }
@@ -444,13 +444,10 @@ public interface c_shuttle_lobby {
     // required uint64 uid = 1 [default = 0];
     public long uid;
 
-    // required string token = 2 [default = ""];
-    public java.lang.String token;
-
-    // required uint64 timecode_native = 3 [default = 0];
+    // required uint64 timecode_native = 2 [default = 0];
     public long timecodeNative;
 
-    // required .b_math.coord coord_info = 4;
+    // required .b_math.coord coord_info = 3;
     public protodef.nano.b_math.coord coordInfo;
 
     public heartbeat_rq() {
@@ -459,7 +456,6 @@ public interface c_shuttle_lobby {
 
     public heartbeat_rq clear() {
       uid = 0L;
-      token = "";
       timecodeNative = 0L;
       coordInfo = null;
       cachedSize = -1;
@@ -470,10 +466,9 @@ public interface c_shuttle_lobby {
     public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
         throws java.io.IOException {
       output.writeUInt64(1, this.uid);
-      output.writeString(2, this.token);
-      output.writeUInt64(3, this.timecodeNative);
+      output.writeUInt64(2, this.timecodeNative);
       if (this.coordInfo != null) {
-        output.writeMessage(4, this.coordInfo);
+        output.writeMessage(3, this.coordInfo);
       }
       super.writeTo(output);
     }
@@ -484,12 +479,10 @@ public interface c_shuttle_lobby {
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt64Size(1, this.uid);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(2, this.token);
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt64Size(3, this.timecodeNative);
+          .computeUInt64Size(2, this.timecodeNative);
       if (this.coordInfo != null) {
         size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeMessageSize(4, this.coordInfo);
+          .computeMessageSize(3, this.coordInfo);
       }
       return size;
     }
@@ -513,15 +506,11 @@ public interface c_shuttle_lobby {
             this.uid = input.readUInt64();
             break;
           }
-          case 18: {
-            this.token = input.readString();
-            break;
-          }
-          case 24: {
+          case 16: {
             this.timecodeNative = input.readUInt64();
             break;
           }
-          case 34: {
+          case 26: {
             if (this.coordInfo == null) {
               this.coordInfo = new protodef.nano.b_math.coord();
             }
@@ -570,13 +559,10 @@ public interface c_shuttle_lobby {
     // required uint64 uid = 2 [default = 0];
     public long uid;
 
-    // required string token = 3 [default = ""];
-    public java.lang.String token;
-
-    // required uint64 timecode_native = 4 [default = 0];
+    // required uint64 timecode_native = 3 [default = 0];
     public long timecodeNative;
 
-    // required .b_math.coord coord_info = 5;
+    // required .b_math.coord coord_info = 4;
     public protodef.nano.b_math.coord coordInfo;
 
     public heartbeat_rs() {
@@ -586,7 +572,6 @@ public interface c_shuttle_lobby {
     public heartbeat_rs clear() {
       error = null;
       uid = 0L;
-      token = "";
       timecodeNative = 0L;
       coordInfo = null;
       cachedSize = -1;
@@ -600,10 +585,9 @@ public interface c_shuttle_lobby {
         output.writeMessage(1, this.error);
       }
       output.writeUInt64(2, this.uid);
-      output.writeString(3, this.token);
-      output.writeUInt64(4, this.timecodeNative);
+      output.writeUInt64(3, this.timecodeNative);
       if (this.coordInfo != null) {
-        output.writeMessage(5, this.coordInfo);
+        output.writeMessage(4, this.coordInfo);
       }
       super.writeTo(output);
     }
@@ -618,12 +602,10 @@ public interface c_shuttle_lobby {
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt64Size(2, this.uid);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(3, this.token);
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt64Size(4, this.timecodeNative);
+          .computeUInt64Size(3, this.timecodeNative);
       if (this.coordInfo != null) {
         size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeMessageSize(5, this.coordInfo);
+          .computeMessageSize(4, this.coordInfo);
       }
       return size;
     }
@@ -654,15 +636,11 @@ public interface c_shuttle_lobby {
             this.uid = input.readUInt64();
             break;
           }
-          case 26: {
-            this.token = input.readString();
-            break;
-          }
-          case 32: {
+          case 24: {
             this.timecodeNative = input.readUInt64();
             break;
           }
-          case 42: {
+          case 34: {
             if (this.coordInfo == null) {
               this.coordInfo = new protodef.nano.b_math.coord();
             }

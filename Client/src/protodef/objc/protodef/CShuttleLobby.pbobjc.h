@@ -149,8 +149,8 @@ BOOL C_shuttle_lobby_heartbeat_rs_msg_IsValidValue(int32_t value);
 #pragma mark - C_shuttle_lobby_exchange_key_rq
 
 typedef GPB_ENUM(C_shuttle_lobby_exchange_key_rq_FieldNumber) {
-  C_shuttle_lobby_exchange_key_rq_FieldNumber_N = 1,
-  C_shuttle_lobby_exchange_key_rq_FieldNumber_E = 2,
+  C_shuttle_lobby_exchange_key_rq_FieldNumber_PublicKey = 1,
+  C_shuttle_lobby_exchange_key_rq_FieldNumber_EncryptKeyL = 2,
   C_shuttle_lobby_exchange_key_rq_FieldNumber_Version = 3,
 };
 
@@ -165,15 +165,15 @@ typedef GPB_ENUM(C_shuttle_lobby_exchange_key_rq_FieldNumber) {
  **/
 @interface C_shuttle_lobby_exchange_key_rq : GPBMessage
 
-/** n */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *n;
-/** Test to see if @c n has been set. */
-@property(nonatomic, readwrite) BOOL hasN;
+/** 客户端密钥对的公钥. */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *publicKey;
+/** Test to see if @c publicKey has been set. */
+@property(nonatomic, readwrite) BOOL hasPublicKey;
 
-/** e */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *e;
-/** Test to see if @c e has been set. */
-@property(nonatomic, readwrite) BOOL hasE;
+/** 服务端公钥加密的对称密钥左边. */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *encryptKeyL;
+/** Test to see if @c encryptKeyL has been set. */
+@property(nonatomic, readwrite) BOOL hasEncryptKeyL;
 
 /** 密钥交换协议版本号，初始为0 */
 @property(nonatomic, readwrite) uint32_t version;
@@ -185,7 +185,7 @@ typedef GPB_ENUM(C_shuttle_lobby_exchange_key_rq_FieldNumber) {
 
 typedef GPB_ENUM(C_shuttle_lobby_exchange_key_rs_FieldNumber) {
   C_shuttle_lobby_exchange_key_rs_FieldNumber_Error = 1,
-  C_shuttle_lobby_exchange_key_rs_FieldNumber_Key = 2,
+  C_shuttle_lobby_exchange_key_rs_FieldNumber_EncryptKeyR = 2,
 };
 
 /**
@@ -198,10 +198,10 @@ typedef GPB_ENUM(C_shuttle_lobby_exchange_key_rs_FieldNumber) {
 /** Test to see if @c error has been set. */
 @property(nonatomic, readwrite) BOOL hasError;
 
-/** 对称密钥 */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
-/** Test to see if @c key has been set. */
-@property(nonatomic, readwrite) BOOL hasKey;
+/** 客户端公钥加密的对称密钥右边边 */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *encryptKeyR;
+/** Test to see if @c encryptKeyR has been set. */
+@property(nonatomic, readwrite) BOOL hasEncryptKeyR;
 
 @end
 
@@ -261,9 +261,8 @@ typedef GPB_ENUM(C_shuttle_lobby_token_verify_rs_FieldNumber) {
 
 typedef GPB_ENUM(C_shuttle_lobby_heartbeat_rq_FieldNumber) {
   C_shuttle_lobby_heartbeat_rq_FieldNumber_Uid = 1,
-  C_shuttle_lobby_heartbeat_rq_FieldNumber_Token = 2,
-  C_shuttle_lobby_heartbeat_rq_FieldNumber_TimecodeNative = 3,
-  C_shuttle_lobby_heartbeat_rq_FieldNumber_CoordInfo = 4,
+  C_shuttle_lobby_heartbeat_rq_FieldNumber_TimecodeNative = 2,
+  C_shuttle_lobby_heartbeat_rq_FieldNumber_CoordInfo = 3,
 };
 
 /**
@@ -275,11 +274,6 @@ typedef GPB_ENUM(C_shuttle_lobby_heartbeat_rq_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t uid;
 
 @property(nonatomic, readwrite) BOOL hasUid;
-/** 用户令牌 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
-/** Test to see if @c token has been set. */
-@property(nonatomic, readwrite) BOOL hasToken;
-
 /** 发出的时间点(ms毫秒) */
 @property(nonatomic, readwrite) uint64_t timecodeNative;
 
@@ -296,9 +290,8 @@ typedef GPB_ENUM(C_shuttle_lobby_heartbeat_rq_FieldNumber) {
 typedef GPB_ENUM(C_shuttle_lobby_heartbeat_rs_FieldNumber) {
   C_shuttle_lobby_heartbeat_rs_FieldNumber_Error = 1,
   C_shuttle_lobby_heartbeat_rs_FieldNumber_Uid = 2,
-  C_shuttle_lobby_heartbeat_rs_FieldNumber_Token = 3,
-  C_shuttle_lobby_heartbeat_rs_FieldNumber_TimecodeNative = 4,
-  C_shuttle_lobby_heartbeat_rs_FieldNumber_CoordInfo = 5,
+  C_shuttle_lobby_heartbeat_rs_FieldNumber_TimecodeNative = 3,
+  C_shuttle_lobby_heartbeat_rs_FieldNumber_CoordInfo = 4,
 };
 
 /**
@@ -315,11 +308,6 @@ typedef GPB_ENUM(C_shuttle_lobby_heartbeat_rs_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t uid;
 
 @property(nonatomic, readwrite) BOOL hasUid;
-/** 用户令牌 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *token;
-/** Test to see if @c token has been set. */
-@property(nonatomic, readwrite) BOOL hasToken;
-
 /** 发出的时间点(ms毫秒) */
 @property(nonatomic, readwrite) uint64_t timecodeNative;
 

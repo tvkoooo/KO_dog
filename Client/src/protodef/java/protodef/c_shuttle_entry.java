@@ -1327,7 +1327,7 @@ public final class c_shuttle_entry {
 
     /**
      * <pre>
-     * 网络地址
+     * 大厅网络地址
      * </pre>
      *
      * <code>required .b_network.address addr = 2;</code>
@@ -1335,7 +1335,7 @@ public final class c_shuttle_entry {
     boolean hasAddr();
     /**
      * <pre>
-     * 网络地址
+     * 大厅网络地址
      * </pre>
      *
      * <code>required .b_network.address addr = 2;</code>
@@ -1343,7 +1343,7 @@ public final class c_shuttle_entry {
     protodef.b_network.address getAddr();
     /**
      * <pre>
-     * 网络地址
+     * 大厅网络地址
      * </pre>
      *
      * <code>required .b_network.address addr = 2;</code>
@@ -1352,10 +1352,27 @@ public final class c_shuttle_entry {
 
     /**
      * <pre>
+     * 大厅服务端密钥对的公钥.
+     * </pre>
+     *
+     * <code>required bytes public_key = 3;</code>
+     */
+    boolean hasPublicKey();
+    /**
+     * <pre>
+     * 大厅服务端密钥对的公钥.
+     * </pre>
+     *
+     * <code>required bytes public_key = 3;</code>
+     */
+    com.google.protobuf.ByteString getPublicKey();
+
+    /**
+     * <pre>
      * 远端client version.
      * </pre>
      *
-     * <code>required string remote_client_version = 3 [default = ""];</code>
+     * <code>required string remote_client_version = 4 [default = ""];</code>
      */
     boolean hasRemoteClientVersion();
     /**
@@ -1363,7 +1380,7 @@ public final class c_shuttle_entry {
      * 远端client version.
      * </pre>
      *
-     * <code>required string remote_client_version = 3 [default = ""];</code>
+     * <code>required string remote_client_version = 4 [default = ""];</code>
      */
     java.lang.String getRemoteClientVersion();
     /**
@@ -1371,7 +1388,7 @@ public final class c_shuttle_entry {
      * 远端client version.
      * </pre>
      *
-     * <code>required string remote_client_version = 3 [default = ""];</code>
+     * <code>required string remote_client_version = 4 [default = ""];</code>
      */
     com.google.protobuf.ByteString
         getRemoteClientVersionBytes();
@@ -1381,7 +1398,7 @@ public final class c_shuttle_entry {
      * 远端source version.
      * </pre>
      *
-     * <code>required string remote_source_version = 4 [default = ""];</code>
+     * <code>required string remote_source_version = 5 [default = ""];</code>
      */
     boolean hasRemoteSourceVersion();
     /**
@@ -1389,7 +1406,7 @@ public final class c_shuttle_entry {
      * 远端source version.
      * </pre>
      *
-     * <code>required string remote_source_version = 4 [default = ""];</code>
+     * <code>required string remote_source_version = 5 [default = ""];</code>
      */
     java.lang.String getRemoteSourceVersion();
     /**
@@ -1397,7 +1414,7 @@ public final class c_shuttle_entry {
      * 远端source version.
      * </pre>
      *
-     * <code>required string remote_source_version = 4 [default = ""];</code>
+     * <code>required string remote_source_version = 5 [default = ""];</code>
      */
     com.google.protobuf.ByteString
         getRemoteSourceVersionBytes();
@@ -1407,7 +1424,7 @@ public final class c_shuttle_entry {
      * 远端server version.
      * </pre>
      *
-     * <code>required string remote_server_version = 5 [default = ""];</code>
+     * <code>required string remote_server_version = 6 [default = ""];</code>
      */
     boolean hasRemoteServerVersion();
     /**
@@ -1415,7 +1432,7 @@ public final class c_shuttle_entry {
      * 远端server version.
      * </pre>
      *
-     * <code>required string remote_server_version = 5 [default = ""];</code>
+     * <code>required string remote_server_version = 6 [default = ""];</code>
      */
     java.lang.String getRemoteServerVersion();
     /**
@@ -1423,7 +1440,7 @@ public final class c_shuttle_entry {
      * 远端server version.
      * </pre>
      *
-     * <code>required string remote_server_version = 5 [default = ""];</code>
+     * <code>required string remote_server_version = 6 [default = ""];</code>
      */
     com.google.protobuf.ByteString
         getRemoteServerVersionBytes();
@@ -1444,6 +1461,7 @@ public final class c_shuttle_entry {
       super(builder);
     }
     private knock_rs() {
+      publicKey_ = com.google.protobuf.ByteString.EMPTY;
       remoteClientVersion_ = "";
       remoteSourceVersion_ = "";
       remoteServerVersion_ = "";
@@ -1504,20 +1522,25 @@ public final class c_shuttle_entry {
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              remoteClientVersion_ = bs;
+              publicKey_ = input.readBytes();
               break;
             }
             case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              remoteSourceVersion_ = bs;
+              remoteClientVersion_ = bs;
               break;
             }
             case 42: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
+              remoteSourceVersion_ = bs;
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
               remoteServerVersion_ = bs;
               break;
             }
@@ -1664,7 +1687,7 @@ public final class c_shuttle_entry {
     private protodef.b_network.address addr_;
     /**
      * <pre>
-     * 网络地址
+     * 大厅网络地址
      * </pre>
      *
      * <code>required .b_network.address addr = 2;</code>
@@ -1674,7 +1697,7 @@ public final class c_shuttle_entry {
     }
     /**
      * <pre>
-     * 网络地址
+     * 大厅网络地址
      * </pre>
      *
      * <code>required .b_network.address addr = 2;</code>
@@ -1684,7 +1707,7 @@ public final class c_shuttle_entry {
     }
     /**
      * <pre>
-     * 网络地址
+     * 大厅网络地址
      * </pre>
      *
      * <code>required .b_network.address addr = 2;</code>
@@ -1693,24 +1716,47 @@ public final class c_shuttle_entry {
       return addr_ == null ? protodef.b_network.address.getDefaultInstance() : addr_;
     }
 
-    public static final int REMOTE_CLIENT_VERSION_FIELD_NUMBER = 3;
+    public static final int PUBLIC_KEY_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString publicKey_;
+    /**
+     * <pre>
+     * 大厅服务端密钥对的公钥.
+     * </pre>
+     *
+     * <code>required bytes public_key = 3;</code>
+     */
+    public boolean hasPublicKey() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 大厅服务端密钥对的公钥.
+     * </pre>
+     *
+     * <code>required bytes public_key = 3;</code>
+     */
+    public com.google.protobuf.ByteString getPublicKey() {
+      return publicKey_;
+    }
+
+    public static final int REMOTE_CLIENT_VERSION_FIELD_NUMBER = 4;
     private volatile java.lang.Object remoteClientVersion_;
     /**
      * <pre>
      * 远端client version.
      * </pre>
      *
-     * <code>required string remote_client_version = 3 [default = ""];</code>
+     * <code>required string remote_client_version = 4 [default = ""];</code>
      */
     public boolean hasRemoteClientVersion() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <pre>
      * 远端client version.
      * </pre>
      *
-     * <code>required string remote_client_version = 3 [default = ""];</code>
+     * <code>required string remote_client_version = 4 [default = ""];</code>
      */
     public java.lang.String getRemoteClientVersion() {
       java.lang.Object ref = remoteClientVersion_;
@@ -1731,7 +1777,7 @@ public final class c_shuttle_entry {
      * 远端client version.
      * </pre>
      *
-     * <code>required string remote_client_version = 3 [default = ""];</code>
+     * <code>required string remote_client_version = 4 [default = ""];</code>
      */
     public com.google.protobuf.ByteString
         getRemoteClientVersionBytes() {
@@ -1747,24 +1793,24 @@ public final class c_shuttle_entry {
       }
     }
 
-    public static final int REMOTE_SOURCE_VERSION_FIELD_NUMBER = 4;
+    public static final int REMOTE_SOURCE_VERSION_FIELD_NUMBER = 5;
     private volatile java.lang.Object remoteSourceVersion_;
     /**
      * <pre>
      * 远端source version.
      * </pre>
      *
-     * <code>required string remote_source_version = 4 [default = ""];</code>
+     * <code>required string remote_source_version = 5 [default = ""];</code>
      */
     public boolean hasRemoteSourceVersion() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <pre>
      * 远端source version.
      * </pre>
      *
-     * <code>required string remote_source_version = 4 [default = ""];</code>
+     * <code>required string remote_source_version = 5 [default = ""];</code>
      */
     public java.lang.String getRemoteSourceVersion() {
       java.lang.Object ref = remoteSourceVersion_;
@@ -1785,7 +1831,7 @@ public final class c_shuttle_entry {
      * 远端source version.
      * </pre>
      *
-     * <code>required string remote_source_version = 4 [default = ""];</code>
+     * <code>required string remote_source_version = 5 [default = ""];</code>
      */
     public com.google.protobuf.ByteString
         getRemoteSourceVersionBytes() {
@@ -1801,24 +1847,24 @@ public final class c_shuttle_entry {
       }
     }
 
-    public static final int REMOTE_SERVER_VERSION_FIELD_NUMBER = 5;
+    public static final int REMOTE_SERVER_VERSION_FIELD_NUMBER = 6;
     private volatile java.lang.Object remoteServerVersion_;
     /**
      * <pre>
      * 远端server version.
      * </pre>
      *
-     * <code>required string remote_server_version = 5 [default = ""];</code>
+     * <code>required string remote_server_version = 6 [default = ""];</code>
      */
     public boolean hasRemoteServerVersion() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <pre>
      * 远端server version.
      * </pre>
      *
-     * <code>required string remote_server_version = 5 [default = ""];</code>
+     * <code>required string remote_server_version = 6 [default = ""];</code>
      */
     public java.lang.String getRemoteServerVersion() {
       java.lang.Object ref = remoteServerVersion_;
@@ -1839,7 +1885,7 @@ public final class c_shuttle_entry {
      * 远端server version.
      * </pre>
      *
-     * <code>required string remote_server_version = 5 [default = ""];</code>
+     * <code>required string remote_server_version = 6 [default = ""];</code>
      */
     public com.google.protobuf.ByteString
         getRemoteServerVersionBytes() {
@@ -1866,6 +1912,10 @@ public final class c_shuttle_entry {
         return false;
       }
       if (!hasAddr()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPublicKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1902,13 +1952,16 @@ public final class c_shuttle_entry {
         output.writeMessage(2, getAddr());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, remoteClientVersion_);
+        output.writeBytes(3, publicKey_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, remoteSourceVersion_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, remoteClientVersion_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, remoteServerVersion_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, remoteSourceVersion_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, remoteServerVersion_);
       }
       unknownFields.writeTo(output);
     }
@@ -1927,13 +1980,17 @@ public final class c_shuttle_entry {
           .computeMessageSize(2, getAddr());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, remoteClientVersion_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, publicKey_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, remoteSourceVersion_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, remoteClientVersion_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, remoteServerVersion_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, remoteSourceVersion_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, remoteServerVersion_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1961,6 +2018,11 @@ public final class c_shuttle_entry {
       if (hasAddr()) {
         result = result && getAddr()
             .equals(other.getAddr());
+      }
+      result = result && (hasPublicKey() == other.hasPublicKey());
+      if (hasPublicKey()) {
+        result = result && getPublicKey()
+            .equals(other.getPublicKey());
       }
       result = result && (hasRemoteClientVersion() == other.hasRemoteClientVersion());
       if (hasRemoteClientVersion()) {
@@ -1995,6 +2057,10 @@ public final class c_shuttle_entry {
       if (hasAddr()) {
         hash = (37 * hash) + ADDR_FIELD_NUMBER;
         hash = (53 * hash) + getAddr().hashCode();
+      }
+      if (hasPublicKey()) {
+        hash = (37 * hash) + PUBLIC_KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getPublicKey().hashCode();
       }
       if (hasRemoteClientVersion()) {
         hash = (37 * hash) + REMOTE_CLIENT_VERSION_FIELD_NUMBER;
@@ -2155,12 +2221,14 @@ public final class c_shuttle_entry {
           addrBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        remoteClientVersion_ = "";
+        publicKey_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
-        remoteSourceVersion_ = "";
+        remoteClientVersion_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        remoteServerVersion_ = "";
+        remoteSourceVersion_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        remoteServerVersion_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -2204,13 +2272,17 @@ public final class c_shuttle_entry {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.remoteClientVersion_ = remoteClientVersion_;
+        result.publicKey_ = publicKey_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.remoteSourceVersion_ = remoteSourceVersion_;
+        result.remoteClientVersion_ = remoteClientVersion_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.remoteSourceVersion_ = remoteSourceVersion_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         result.remoteServerVersion_ = remoteServerVersion_;
         result.bitField0_ = to_bitField0_;
@@ -2261,18 +2333,21 @@ public final class c_shuttle_entry {
         if (other.hasAddr()) {
           mergeAddr(other.getAddr());
         }
+        if (other.hasPublicKey()) {
+          setPublicKey(other.getPublicKey());
+        }
         if (other.hasRemoteClientVersion()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           remoteClientVersion_ = other.remoteClientVersion_;
           onChanged();
         }
         if (other.hasRemoteSourceVersion()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           remoteSourceVersion_ = other.remoteSourceVersion_;
           onChanged();
         }
         if (other.hasRemoteServerVersion()) {
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
           remoteServerVersion_ = other.remoteServerVersion_;
           onChanged();
         }
@@ -2286,6 +2361,9 @@ public final class c_shuttle_entry {
           return false;
         }
         if (!hasAddr()) {
+          return false;
+        }
+        if (!hasPublicKey()) {
           return false;
         }
         if (!hasRemoteClientVersion()) {
@@ -2484,7 +2562,7 @@ public final class c_shuttle_entry {
           protodef.b_network.address, protodef.b_network.address.Builder, protodef.b_network.addressOrBuilder> addrBuilder_;
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2494,7 +2572,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2508,7 +2586,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2528,7 +2606,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2546,7 +2624,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2570,7 +2648,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2587,7 +2665,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2599,7 +2677,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2614,7 +2692,7 @@ public final class c_shuttle_entry {
       }
       /**
        * <pre>
-       * 网络地址
+       * 大厅网络地址
        * </pre>
        *
        * <code>required .b_network.address addr = 2;</code>
@@ -2633,23 +2711,74 @@ public final class c_shuttle_entry {
         return addrBuilder_;
       }
 
+      private com.google.protobuf.ByteString publicKey_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * 大厅服务端密钥对的公钥.
+       * </pre>
+       *
+       * <code>required bytes public_key = 3;</code>
+       */
+      public boolean hasPublicKey() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 大厅服务端密钥对的公钥.
+       * </pre>
+       *
+       * <code>required bytes public_key = 3;</code>
+       */
+      public com.google.protobuf.ByteString getPublicKey() {
+        return publicKey_;
+      }
+      /**
+       * <pre>
+       * 大厅服务端密钥对的公钥.
+       * </pre>
+       *
+       * <code>required bytes public_key = 3;</code>
+       */
+      public Builder setPublicKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        publicKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 大厅服务端密钥对的公钥.
+       * </pre>
+       *
+       * <code>required bytes public_key = 3;</code>
+       */
+      public Builder clearPublicKey() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        publicKey_ = getDefaultInstance().getPublicKey();
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object remoteClientVersion_ = "";
       /**
        * <pre>
        * 远端client version.
        * </pre>
        *
-       * <code>required string remote_client_version = 3 [default = ""];</code>
+       * <code>required string remote_client_version = 4 [default = ""];</code>
        */
       public boolean hasRemoteClientVersion() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
        * 远端client version.
        * </pre>
        *
-       * <code>required string remote_client_version = 3 [default = ""];</code>
+       * <code>required string remote_client_version = 4 [default = ""];</code>
        */
       public java.lang.String getRemoteClientVersion() {
         java.lang.Object ref = remoteClientVersion_;
@@ -2670,7 +2799,7 @@ public final class c_shuttle_entry {
        * 远端client version.
        * </pre>
        *
-       * <code>required string remote_client_version = 3 [default = ""];</code>
+       * <code>required string remote_client_version = 4 [default = ""];</code>
        */
       public com.google.protobuf.ByteString
           getRemoteClientVersionBytes() {
@@ -2690,14 +2819,14 @@ public final class c_shuttle_entry {
        * 远端client version.
        * </pre>
        *
-       * <code>required string remote_client_version = 3 [default = ""];</code>
+       * <code>required string remote_client_version = 4 [default = ""];</code>
        */
       public Builder setRemoteClientVersion(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         remoteClientVersion_ = value;
         onChanged();
         return this;
@@ -2707,10 +2836,10 @@ public final class c_shuttle_entry {
        * 远端client version.
        * </pre>
        *
-       * <code>required string remote_client_version = 3 [default = ""];</code>
+       * <code>required string remote_client_version = 4 [default = ""];</code>
        */
       public Builder clearRemoteClientVersion() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         remoteClientVersion_ = getDefaultInstance().getRemoteClientVersion();
         onChanged();
         return this;
@@ -2720,14 +2849,14 @@ public final class c_shuttle_entry {
        * 远端client version.
        * </pre>
        *
-       * <code>required string remote_client_version = 3 [default = ""];</code>
+       * <code>required string remote_client_version = 4 [default = ""];</code>
        */
       public Builder setRemoteClientVersionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         remoteClientVersion_ = value;
         onChanged();
         return this;
@@ -2739,17 +2868,17 @@ public final class c_shuttle_entry {
        * 远端source version.
        * </pre>
        *
-       * <code>required string remote_source_version = 4 [default = ""];</code>
+       * <code>required string remote_source_version = 5 [default = ""];</code>
        */
       public boolean hasRemoteSourceVersion() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <pre>
        * 远端source version.
        * </pre>
        *
-       * <code>required string remote_source_version = 4 [default = ""];</code>
+       * <code>required string remote_source_version = 5 [default = ""];</code>
        */
       public java.lang.String getRemoteSourceVersion() {
         java.lang.Object ref = remoteSourceVersion_;
@@ -2770,7 +2899,7 @@ public final class c_shuttle_entry {
        * 远端source version.
        * </pre>
        *
-       * <code>required string remote_source_version = 4 [default = ""];</code>
+       * <code>required string remote_source_version = 5 [default = ""];</code>
        */
       public com.google.protobuf.ByteString
           getRemoteSourceVersionBytes() {
@@ -2790,14 +2919,14 @@ public final class c_shuttle_entry {
        * 远端source version.
        * </pre>
        *
-       * <code>required string remote_source_version = 4 [default = ""];</code>
+       * <code>required string remote_source_version = 5 [default = ""];</code>
        */
       public Builder setRemoteSourceVersion(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         remoteSourceVersion_ = value;
         onChanged();
         return this;
@@ -2807,10 +2936,10 @@ public final class c_shuttle_entry {
        * 远端source version.
        * </pre>
        *
-       * <code>required string remote_source_version = 4 [default = ""];</code>
+       * <code>required string remote_source_version = 5 [default = ""];</code>
        */
       public Builder clearRemoteSourceVersion() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         remoteSourceVersion_ = getDefaultInstance().getRemoteSourceVersion();
         onChanged();
         return this;
@@ -2820,14 +2949,14 @@ public final class c_shuttle_entry {
        * 远端source version.
        * </pre>
        *
-       * <code>required string remote_source_version = 4 [default = ""];</code>
+       * <code>required string remote_source_version = 5 [default = ""];</code>
        */
       public Builder setRemoteSourceVersionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         remoteSourceVersion_ = value;
         onChanged();
         return this;
@@ -2839,17 +2968,17 @@ public final class c_shuttle_entry {
        * 远端server version.
        * </pre>
        *
-       * <code>required string remote_server_version = 5 [default = ""];</code>
+       * <code>required string remote_server_version = 6 [default = ""];</code>
        */
       public boolean hasRemoteServerVersion() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <pre>
        * 远端server version.
        * </pre>
        *
-       * <code>required string remote_server_version = 5 [default = ""];</code>
+       * <code>required string remote_server_version = 6 [default = ""];</code>
        */
       public java.lang.String getRemoteServerVersion() {
         java.lang.Object ref = remoteServerVersion_;
@@ -2870,7 +2999,7 @@ public final class c_shuttle_entry {
        * 远端server version.
        * </pre>
        *
-       * <code>required string remote_server_version = 5 [default = ""];</code>
+       * <code>required string remote_server_version = 6 [default = ""];</code>
        */
       public com.google.protobuf.ByteString
           getRemoteServerVersionBytes() {
@@ -2890,14 +3019,14 @@ public final class c_shuttle_entry {
        * 远端server version.
        * </pre>
        *
-       * <code>required string remote_server_version = 5 [default = ""];</code>
+       * <code>required string remote_server_version = 6 [default = ""];</code>
        */
       public Builder setRemoteServerVersion(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         remoteServerVersion_ = value;
         onChanged();
         return this;
@@ -2907,10 +3036,10 @@ public final class c_shuttle_entry {
        * 远端server version.
        * </pre>
        *
-       * <code>required string remote_server_version = 5 [default = ""];</code>
+       * <code>required string remote_server_version = 6 [default = ""];</code>
        */
       public Builder clearRemoteServerVersion() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         remoteServerVersion_ = getDefaultInstance().getRemoteServerVersion();
         onChanged();
         return this;
@@ -2920,14 +3049,14 @@ public final class c_shuttle_entry {
        * 远端server version.
        * </pre>
        *
-       * <code>required string remote_server_version = 5 [default = ""];</code>
+       * <code>required string remote_server_version = 6 [default = ""];</code>
        */
       public Builder setRemoteServerVersionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         remoteServerVersion_ = value;
         onChanged();
         return this;
@@ -2981,1750 +3110,6 @@ public final class c_shuttle_entry {
 
   }
 
-  public interface exchange_key_rqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:c_shuttle_entry.exchange_key_rq)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * n
-     * </pre>
-     *
-     * <code>required bytes n = 1;</code>
-     */
-    boolean hasN();
-    /**
-     * <pre>
-     * n
-     * </pre>
-     *
-     * <code>required bytes n = 1;</code>
-     */
-    com.google.protobuf.ByteString getN();
-
-    /**
-     * <pre>
-     * e
-     * </pre>
-     *
-     * <code>required bytes e = 2;</code>
-     */
-    boolean hasE();
-    /**
-     * <pre>
-     * e
-     * </pre>
-     *
-     * <code>required bytes e = 2;</code>
-     */
-    com.google.protobuf.ByteString getE();
-
-    /**
-     * <pre>
-     * 密钥交换协议版本号，初始为0
-     * </pre>
-     *
-     * <code>required uint32 version = 3 [default = 0];</code>
-     */
-    boolean hasVersion();
-    /**
-     * <pre>
-     * 密钥交换协议版本号，初始为0
-     * </pre>
-     *
-     * <code>required uint32 version = 3 [default = 0];</code>
-     */
-    int getVersion();
-  }
-  /**
-   * <pre>
-   * (tcp)交换秘钥请求
-   * </pre>
-   *
-   * Protobuf type {@code c_shuttle_entry.exchange_key_rq}
-   */
-  public  static final class exchange_key_rq extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:c_shuttle_entry.exchange_key_rq)
-      exchange_key_rqOrBuilder {
-    // Use exchange_key_rq.newBuilder() to construct.
-    private exchange_key_rq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private exchange_key_rq() {
-      n_ = com.google.protobuf.ByteString.EMPTY;
-      e_ = com.google.protobuf.ByteString.EMPTY;
-      version_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private exchange_key_rq(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              n_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              e_ = input.readBytes();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              version_ = input.readUInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rq_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rq_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              protodef.c_shuttle_entry.exchange_key_rq.class, protodef.c_shuttle_entry.exchange_key_rq.Builder.class);
-    }
-
-    /**
-     * Protobuf enum {@code c_shuttle_entry.exchange_key_rq.msg}
-     */
-    public enum msg
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>id = 33558544;</code>
-       */
-      id(33558544),
-      ;
-
-      /**
-       * <code>id = 33558544;</code>
-       */
-      public static final int id_VALUE = 33558544;
-
-
-      public final int getNumber() {
-        return value;
-      }
-
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static msg valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static msg forNumber(int value) {
-        switch (value) {
-          case 33558544: return id;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<msg>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          msg> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
-              public msg findValueByNumber(int number) {
-                return msg.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return protodef.c_shuttle_entry.exchange_key_rq.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final msg[] VALUES = values();
-
-      public static msg valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private msg(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:c_shuttle_entry.exchange_key_rq.msg)
-    }
-
-    private int bitField0_;
-    public static final int N_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString n_;
-    /**
-     * <pre>
-     * n
-     * </pre>
-     *
-     * <code>required bytes n = 1;</code>
-     */
-    public boolean hasN() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <pre>
-     * n
-     * </pre>
-     *
-     * <code>required bytes n = 1;</code>
-     */
-    public com.google.protobuf.ByteString getN() {
-      return n_;
-    }
-
-    public static final int E_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString e_;
-    /**
-     * <pre>
-     * e
-     * </pre>
-     *
-     * <code>required bytes e = 2;</code>
-     */
-    public boolean hasE() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     * e
-     * </pre>
-     *
-     * <code>required bytes e = 2;</code>
-     */
-    public com.google.protobuf.ByteString getE() {
-      return e_;
-    }
-
-    public static final int VERSION_FIELD_NUMBER = 3;
-    private int version_;
-    /**
-     * <pre>
-     * 密钥交换协议版本号，初始为0
-     * </pre>
-     *
-     * <code>required uint32 version = 3 [default = 0];</code>
-     */
-    public boolean hasVersion() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <pre>
-     * 密钥交换协议版本号，初始为0
-     * </pre>
-     *
-     * <code>required uint32 version = 3 [default = 0];</code>
-     */
-    public int getVersion() {
-      return version_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      if (!hasN()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasE()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasVersion()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, n_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, e_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt32(3, version_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, n_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, e_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, version_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof protodef.c_shuttle_entry.exchange_key_rq)) {
-        return super.equals(obj);
-      }
-      protodef.c_shuttle_entry.exchange_key_rq other = (protodef.c_shuttle_entry.exchange_key_rq) obj;
-
-      boolean result = true;
-      result = result && (hasN() == other.hasN());
-      if (hasN()) {
-        result = result && getN()
-            .equals(other.getN());
-      }
-      result = result && (hasE() == other.hasE());
-      if (hasE()) {
-        result = result && getE()
-            .equals(other.getE());
-      }
-      result = result && (hasVersion() == other.hasVersion());
-      if (hasVersion()) {
-        result = result && (getVersion()
-            == other.getVersion());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasN()) {
-        hash = (37 * hash) + N_FIELD_NUMBER;
-        hash = (53 * hash) + getN().hashCode();
-      }
-      if (hasE()) {
-        hash = (37 * hash) + E_FIELD_NUMBER;
-        hash = (53 * hash) + getE().hashCode();
-      }
-      if (hasVersion()) {
-        hash = (37 * hash) + VERSION_FIELD_NUMBER;
-        hash = (53 * hash) + getVersion();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rq parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(protodef.c_shuttle_entry.exchange_key_rq prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * (tcp)交换秘钥请求
-     * </pre>
-     *
-     * Protobuf type {@code c_shuttle_entry.exchange_key_rq}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:c_shuttle_entry.exchange_key_rq)
-        protodef.c_shuttle_entry.exchange_key_rqOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rq_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rq_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                protodef.c_shuttle_entry.exchange_key_rq.class, protodef.c_shuttle_entry.exchange_key_rq.Builder.class);
-      }
-
-      // Construct using protodef.c_shuttle_entry.exchange_key_rq.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        n_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        e_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        version_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rq_descriptor;
-      }
-
-      public protodef.c_shuttle_entry.exchange_key_rq getDefaultInstanceForType() {
-        return protodef.c_shuttle_entry.exchange_key_rq.getDefaultInstance();
-      }
-
-      public protodef.c_shuttle_entry.exchange_key_rq build() {
-        protodef.c_shuttle_entry.exchange_key_rq result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public protodef.c_shuttle_entry.exchange_key_rq buildPartial() {
-        protodef.c_shuttle_entry.exchange_key_rq result = new protodef.c_shuttle_entry.exchange_key_rq(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.n_ = n_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.e_ = e_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.version_ = version_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protodef.c_shuttle_entry.exchange_key_rq) {
-          return mergeFrom((protodef.c_shuttle_entry.exchange_key_rq)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(protodef.c_shuttle_entry.exchange_key_rq other) {
-        if (other == protodef.c_shuttle_entry.exchange_key_rq.getDefaultInstance()) return this;
-        if (other.hasN()) {
-          setN(other.getN());
-        }
-        if (other.hasE()) {
-          setE(other.getE());
-        }
-        if (other.hasVersion()) {
-          setVersion(other.getVersion());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasN()) {
-          return false;
-        }
-        if (!hasE()) {
-          return false;
-        }
-        if (!hasVersion()) {
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        protodef.c_shuttle_entry.exchange_key_rq parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protodef.c_shuttle_entry.exchange_key_rq) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.ByteString n_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <pre>
-       * n
-       * </pre>
-       *
-       * <code>required bytes n = 1;</code>
-       */
-      public boolean hasN() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <pre>
-       * n
-       * </pre>
-       *
-       * <code>required bytes n = 1;</code>
-       */
-      public com.google.protobuf.ByteString getN() {
-        return n_;
-      }
-      /**
-       * <pre>
-       * n
-       * </pre>
-       *
-       * <code>required bytes n = 1;</code>
-       */
-      public Builder setN(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        n_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * n
-       * </pre>
-       *
-       * <code>required bytes n = 1;</code>
-       */
-      public Builder clearN() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        n_ = getDefaultInstance().getN();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString e_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <pre>
-       * e
-       * </pre>
-       *
-       * <code>required bytes e = 2;</code>
-       */
-      public boolean hasE() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       * e
-       * </pre>
-       *
-       * <code>required bytes e = 2;</code>
-       */
-      public com.google.protobuf.ByteString getE() {
-        return e_;
-      }
-      /**
-       * <pre>
-       * e
-       * </pre>
-       *
-       * <code>required bytes e = 2;</code>
-       */
-      public Builder setE(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        e_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * e
-       * </pre>
-       *
-       * <code>required bytes e = 2;</code>
-       */
-      public Builder clearE() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        e_ = getDefaultInstance().getE();
-        onChanged();
-        return this;
-      }
-
-      private int version_ ;
-      /**
-       * <pre>
-       * 密钥交换协议版本号，初始为0
-       * </pre>
-       *
-       * <code>required uint32 version = 3 [default = 0];</code>
-       */
-      public boolean hasVersion() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <pre>
-       * 密钥交换协议版本号，初始为0
-       * </pre>
-       *
-       * <code>required uint32 version = 3 [default = 0];</code>
-       */
-      public int getVersion() {
-        return version_;
-      }
-      /**
-       * <pre>
-       * 密钥交换协议版本号，初始为0
-       * </pre>
-       *
-       * <code>required uint32 version = 3 [default = 0];</code>
-       */
-      public Builder setVersion(int value) {
-        bitField0_ |= 0x00000004;
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 密钥交换协议版本号，初始为0
-       * </pre>
-       *
-       * <code>required uint32 version = 3 [default = 0];</code>
-       */
-      public Builder clearVersion() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        version_ = 0;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:c_shuttle_entry.exchange_key_rq)
-    }
-
-    // @@protoc_insertion_point(class_scope:c_shuttle_entry.exchange_key_rq)
-    private static final protodef.c_shuttle_entry.exchange_key_rq DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new protodef.c_shuttle_entry.exchange_key_rq();
-    }
-
-    public static protodef.c_shuttle_entry.exchange_key_rq getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<exchange_key_rq>
-        PARSER = new com.google.protobuf.AbstractParser<exchange_key_rq>() {
-      public exchange_key_rq parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new exchange_key_rq(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<exchange_key_rq> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<exchange_key_rq> getParserForType() {
-      return PARSER;
-    }
-
-    public protodef.c_shuttle_entry.exchange_key_rq getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface exchange_key_rsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:c_shuttle_entry.exchange_key_rs)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * error info
-     * </pre>
-     *
-     * <code>required .b_error.info error = 1;</code>
-     */
-    boolean hasError();
-    /**
-     * <pre>
-     * error info
-     * </pre>
-     *
-     * <code>required .b_error.info error = 1;</code>
-     */
-    protodef.b_error.info getError();
-    /**
-     * <pre>
-     * error info
-     * </pre>
-     *
-     * <code>required .b_error.info error = 1;</code>
-     */
-    protodef.b_error.infoOrBuilder getErrorOrBuilder();
-
-    /**
-     * <pre>
-     * 对称密钥
-     * </pre>
-     *
-     * <code>required bytes key = 2;</code>
-     */
-    boolean hasKey();
-    /**
-     * <pre>
-     * 对称密钥
-     * </pre>
-     *
-     * <code>required bytes key = 2;</code>
-     */
-    com.google.protobuf.ByteString getKey();
-  }
-  /**
-   * <pre>
-   * (tcp)交换秘钥返回
-   * </pre>
-   *
-   * Protobuf type {@code c_shuttle_entry.exchange_key_rs}
-   */
-  public  static final class exchange_key_rs extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:c_shuttle_entry.exchange_key_rs)
-      exchange_key_rsOrBuilder {
-    // Use exchange_key_rs.newBuilder() to construct.
-    private exchange_key_rs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private exchange_key_rs() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private exchange_key_rs(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              protodef.b_error.info.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = error_.toBuilder();
-              }
-              error_ = input.readMessage(protodef.b_error.info.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(error_);
-                error_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              key_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rs_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rs_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              protodef.c_shuttle_entry.exchange_key_rs.class, protodef.c_shuttle_entry.exchange_key_rs.Builder.class);
-    }
-
-    /**
-     * Protobuf enum {@code c_shuttle_entry.exchange_key_rs.msg}
-     */
-    public enum msg
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>id = 33558545;</code>
-       */
-      id(33558545),
-      ;
-
-      /**
-       * <code>id = 33558545;</code>
-       */
-      public static final int id_VALUE = 33558545;
-
-
-      public final int getNumber() {
-        return value;
-      }
-
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static msg valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static msg forNumber(int value) {
-        switch (value) {
-          case 33558545: return id;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<msg>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          msg> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
-              public msg findValueByNumber(int number) {
-                return msg.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return protodef.c_shuttle_entry.exchange_key_rs.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final msg[] VALUES = values();
-
-      public static msg valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private msg(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:c_shuttle_entry.exchange_key_rs.msg)
-    }
-
-    private int bitField0_;
-    public static final int ERROR_FIELD_NUMBER = 1;
-    private protodef.b_error.info error_;
-    /**
-     * <pre>
-     * error info
-     * </pre>
-     *
-     * <code>required .b_error.info error = 1;</code>
-     */
-    public boolean hasError() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <pre>
-     * error info
-     * </pre>
-     *
-     * <code>required .b_error.info error = 1;</code>
-     */
-    public protodef.b_error.info getError() {
-      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
-    }
-    /**
-     * <pre>
-     * error info
-     * </pre>
-     *
-     * <code>required .b_error.info error = 1;</code>
-     */
-    public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
-      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
-    }
-
-    public static final int KEY_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString key_;
-    /**
-     * <pre>
-     * 对称密钥
-     * </pre>
-     *
-     * <code>required bytes key = 2;</code>
-     */
-    public boolean hasKey() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     * 对称密钥
-     * </pre>
-     *
-     * <code>required bytes key = 2;</code>
-     */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      if (!hasError()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasKey()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getError().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, getError());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, key_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getError());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, key_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof protodef.c_shuttle_entry.exchange_key_rs)) {
-        return super.equals(obj);
-      }
-      protodef.c_shuttle_entry.exchange_key_rs other = (protodef.c_shuttle_entry.exchange_key_rs) obj;
-
-      boolean result = true;
-      result = result && (hasError() == other.hasError());
-      if (hasError()) {
-        result = result && getError()
-            .equals(other.getError());
-      }
-      result = result && (hasKey() == other.hasKey());
-      if (hasKey()) {
-        result = result && getKey()
-            .equals(other.getKey());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasError()) {
-        hash = (37 * hash) + ERROR_FIELD_NUMBER;
-        hash = (53 * hash) + getError().hashCode();
-      }
-      if (hasKey()) {
-        hash = (37 * hash) + KEY_FIELD_NUMBER;
-        hash = (53 * hash) + getKey().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protodef.c_shuttle_entry.exchange_key_rs parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(protodef.c_shuttle_entry.exchange_key_rs prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * (tcp)交换秘钥返回
-     * </pre>
-     *
-     * Protobuf type {@code c_shuttle_entry.exchange_key_rs}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:c_shuttle_entry.exchange_key_rs)
-        protodef.c_shuttle_entry.exchange_key_rsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rs_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rs_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                protodef.c_shuttle_entry.exchange_key_rs.class, protodef.c_shuttle_entry.exchange_key_rs.Builder.class);
-      }
-
-      // Construct using protodef.c_shuttle_entry.exchange_key_rs.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getErrorFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        if (errorBuilder_ == null) {
-          error_ = null;
-        } else {
-          errorBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        key_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return protodef.c_shuttle_entry.internal_static_c_shuttle_entry_exchange_key_rs_descriptor;
-      }
-
-      public protodef.c_shuttle_entry.exchange_key_rs getDefaultInstanceForType() {
-        return protodef.c_shuttle_entry.exchange_key_rs.getDefaultInstance();
-      }
-
-      public protodef.c_shuttle_entry.exchange_key_rs build() {
-        protodef.c_shuttle_entry.exchange_key_rs result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public protodef.c_shuttle_entry.exchange_key_rs buildPartial() {
-        protodef.c_shuttle_entry.exchange_key_rs result = new protodef.c_shuttle_entry.exchange_key_rs(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        if (errorBuilder_ == null) {
-          result.error_ = error_;
-        } else {
-          result.error_ = errorBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.key_ = key_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protodef.c_shuttle_entry.exchange_key_rs) {
-          return mergeFrom((protodef.c_shuttle_entry.exchange_key_rs)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(protodef.c_shuttle_entry.exchange_key_rs other) {
-        if (other == protodef.c_shuttle_entry.exchange_key_rs.getDefaultInstance()) return this;
-        if (other.hasError()) {
-          mergeError(other.getError());
-        }
-        if (other.hasKey()) {
-          setKey(other.getKey());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasError()) {
-          return false;
-        }
-        if (!hasKey()) {
-          return false;
-        }
-        if (!getError().isInitialized()) {
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        protodef.c_shuttle_entry.exchange_key_rs parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protodef.c_shuttle_entry.exchange_key_rs) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private protodef.b_error.info error_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> errorBuilder_;
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public boolean hasError() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public protodef.b_error.info getError() {
-        if (errorBuilder_ == null) {
-          return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
-        } else {
-          return errorBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public Builder setError(protodef.b_error.info value) {
-        if (errorBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          error_ = value;
-          onChanged();
-        } else {
-          errorBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public Builder setError(
-          protodef.b_error.info.Builder builderForValue) {
-        if (errorBuilder_ == null) {
-          error_ = builderForValue.build();
-          onChanged();
-        } else {
-          errorBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public Builder mergeError(protodef.b_error.info value) {
-        if (errorBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              error_ != null &&
-              error_ != protodef.b_error.info.getDefaultInstance()) {
-            error_ =
-              protodef.b_error.info.newBuilder(error_).mergeFrom(value).buildPartial();
-          } else {
-            error_ = value;
-          }
-          onChanged();
-        } else {
-          errorBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public Builder clearError() {
-        if (errorBuilder_ == null) {
-          error_ = null;
-          onChanged();
-        } else {
-          errorBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public protodef.b_error.info.Builder getErrorBuilder() {
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return getErrorFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
-        if (errorBuilder_ != null) {
-          return errorBuilder_.getMessageOrBuilder();
-        } else {
-          return error_ == null ?
-              protodef.b_error.info.getDefaultInstance() : error_;
-        }
-      }
-      /**
-       * <pre>
-       * error info
-       * </pre>
-       *
-       * <code>required .b_error.info error = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> 
-          getErrorFieldBuilder() {
-        if (errorBuilder_ == null) {
-          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder>(
-                  getError(),
-                  getParentForChildren(),
-                  isClean());
-          error_ = null;
-        }
-        return errorBuilder_;
-      }
-
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <pre>
-       * 对称密钥
-       * </pre>
-       *
-       * <code>required bytes key = 2;</code>
-       */
-      public boolean hasKey() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       * 对称密钥
-       * </pre>
-       *
-       * <code>required bytes key = 2;</code>
-       */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
-      }
-      /**
-       * <pre>
-       * 对称密钥
-       * </pre>
-       *
-       * <code>required bytes key = 2;</code>
-       */
-      public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        key_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 对称密钥
-       * </pre>
-       *
-       * <code>required bytes key = 2;</code>
-       */
-      public Builder clearKey() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        key_ = getDefaultInstance().getKey();
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:c_shuttle_entry.exchange_key_rs)
-    }
-
-    // @@protoc_insertion_point(class_scope:c_shuttle_entry.exchange_key_rs)
-    private static final protodef.c_shuttle_entry.exchange_key_rs DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new protodef.c_shuttle_entry.exchange_key_rs();
-    }
-
-    public static protodef.c_shuttle_entry.exchange_key_rs getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<exchange_key_rs>
-        PARSER = new com.google.protobuf.AbstractParser<exchange_key_rs>() {
-      public exchange_key_rs parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new exchange_key_rs(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<exchange_key_rs> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<exchange_key_rs> getParserForType() {
-      return PARSER;
-    }
-
-    public protodef.c_shuttle_entry.exchange_key_rs getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_c_shuttle_entry_knock_rq_descriptor;
   private static final 
@@ -4735,16 +3120,6 @@ public final class c_shuttle_entry {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_c_shuttle_entry_knock_rs_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_c_shuttle_entry_exchange_key_rq_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_c_shuttle_entry_exchange_key_rq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_c_shuttle_entry_exchange_key_rs_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_c_shuttle_entry_exchange_key_rs_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4759,19 +3134,16 @@ public final class c_shuttle_entry {
       ".proto\"\201\001\n\010knock_rq\022\037\n\025native_client_ver" +
       "sion\030\001 \002(\t:\000\022\037\n\025native_source_version\030\002 " +
       "\002(\t:\000\022!\n\ncoord_info\030\003 \002(\0132\r.b_math.coord" +
-      "\"\020\n\003msg\022\t\n\002id\020\200\240\200\020\"\277\001\n\010knock_rs\022\034\n\005error" +
+      "\"\020\n\003msg\022\t\n\002id\020\200\240\200\020\"\323\001\n\010knock_rs\022\034\n\005error" +
       "\030\001 \002(\0132\r.b_error.info\022 \n\004addr\030\002 \002(\0132\022.b_" +
-      "network.address\022\037\n\025remote_client_version" +
-      "\030\003 \002(\t:\000\022\037\n\025remote_source_version\030\004 \002(\t:" +
-      "\000\022\037\n\025remote_server_version\030\005 \002(\t:\000\"\020\n\003ms",
-      "g\022\t\n\002id\020\201\240\200\020\"M\n\017exchange_key_rq\022\t\n\001n\030\001 \002" +
-      "(\014\022\t\n\001e\030\002 \002(\014\022\022\n\007version\030\003 \002(\r:\0010\"\020\n\003msg" +
-      "\022\t\n\002id\020\220\240\200\020\"N\n\017exchange_key_rs\022\034\n\005error\030" +
-      "\001 \002(\0132\r.b_error.info\022\013\n\003key\030\002 \002(\014\"\020\n\003msg" +
-      "\022\t\n\002id\020\221\240\200\020*#\n\003msg\022\r\n\006min_id\020\200\240\200\020\022\r\n\006max" +
-      "_id\020\377\241\200\020BZ\n\010protodefB\017c_shuttle_entryZ\030p" +
-      "rotodef/c_shuttle_entry\242\002\020C_shuttle_entr" +
-      "y_\252\002\017c_shuttle_entry"
+      "network.address\022\022\n\npublic_key\030\003 \002(\014\022\037\n\025r" +
+      "emote_client_version\030\004 \002(\t:\000\022\037\n\025remote_s" +
+      "ource_version\030\005 \002(\t:\000\022\037\n\025remote_server_v",
+      "ersion\030\006 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\201\240\200\020*#\n\003msg\022" +
+      "\r\n\006min_id\020\200\240\200\020\022\r\n\006max_id\020\377\241\200\020BZ\n\010protode" +
+      "fB\017c_shuttle_entryZ\030protodef/c_shuttle_e" +
+      "ntry\242\002\020C_shuttle_entry_\252\002\017c_shuttle_entr" +
+      "y"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4799,19 +3171,7 @@ public final class c_shuttle_entry {
     internal_static_c_shuttle_entry_knock_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_entry_knock_rs_descriptor,
-        new java.lang.String[] { "Error", "Addr", "RemoteClientVersion", "RemoteSourceVersion", "RemoteServerVersion", });
-    internal_static_c_shuttle_entry_exchange_key_rq_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_c_shuttle_entry_exchange_key_rq_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_c_shuttle_entry_exchange_key_rq_descriptor,
-        new java.lang.String[] { "N", "E", "Version", });
-    internal_static_c_shuttle_entry_exchange_key_rs_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_c_shuttle_entry_exchange_key_rs_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_c_shuttle_entry_exchange_key_rs_descriptor,
-        new java.lang.String[] { "Error", "Key", });
+        new java.lang.String[] { "Error", "Addr", "PublicKey", "RemoteClientVersion", "RemoteSourceVersion", "RemoteServerVersion", });
     protodef.b_error.getDescriptor();
     protodef.b_math.getDescriptor();
     protodef.b_network.getDescriptor();

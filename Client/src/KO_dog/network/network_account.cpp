@@ -39,8 +39,7 @@ void hd_q_c_business_account_signed_in_rs(void* obj, void* u, struct mm_packet* 
 	mm_string_init(&proto_desc);
 
 	//
-	mm::KO_dog_data_user_basic* data_user_basic = &impl->data.data_user_basic;
-	data_user_basic->token = "";
+	mm::KO_dog_data_user_basic* p_data_user_basic = &impl->data.data_user_basic;	
 	do
 	{
 		// 解包错误
@@ -68,14 +67,15 @@ void hd_q_c_business_account_signed_in_rs(void* obj, void* u, struct mm_packet* 
 		else
 		{		
 			//数据更新
-			data_user_basic->name = rs_msg.user_name();
-			data_user_basic->id = rs_msg.user_id();
-			data_user_basic->token = rs_msg.token();
+			p_data_user_basic->basic.name = rs_msg.user_name();
+			p_data_user_basic->basic.id = rs_msg.user_id();
+			p_data_user_basic->token.token = rs_msg.token();
+			p_data_user_basic->token.state = mm::data_user_token::user_token_finish;
 			//////////////////////////////////////////////////////////////////////////
 
 			//数据更新以后的事件发布    发布内容  evt_ags
 			mm_event_args evt_ags;
-			data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_userdata_update, evt_ags);
+			p_data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_userdata_update, evt_ags);
 		}
 		//////////////////////////////////////////////////////////////////////////
 	} while (0);
@@ -106,7 +106,7 @@ void hd_q_c_business_account_register_rs(void* obj, void* u, struct mm_packet* p
 		//////////////////////////////////////////////////////////////////////////
 		// 回包逻辑错误
 		mm::KO_dog_data* data = &impl->data;
-		mm::KO_dog_data_user_basic* data_user_basic = &impl->data.data_user_basic;
+		mm::KO_dog_data_user_basic* p_data_user_basic = &impl->data.data_user_basic;
 		if (0 != error_info->code())
 		{
 			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());
@@ -122,14 +122,15 @@ void hd_q_c_business_account_register_rs(void* obj, void* u, struct mm_packet* p
 		else
 		{
 			//数据更新
-			data_user_basic->name = rs_msg.user_name();
-			data_user_basic->id = rs_msg.user_id();
-			data_user_basic->token = rs_msg.token();
+			p_data_user_basic->basic.name = rs_msg.user_name();
+			p_data_user_basic->basic.id = rs_msg.user_id();
+			p_data_user_basic->token.token = rs_msg.token();
+			p_data_user_basic->token.state = mm::data_user_token::user_token_finish;
 			//////////////////////////////////////////////////////////////////////////
-			//
+
 			//数据更新以后的事件发布    发布内容  evt_ags
 			mm_event_args evt_ags;
-			data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_userdata_update, evt_ags);
+			p_data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_userdata_update, evt_ags);
 			//////////////////////////////////////////////////////////////////////////
 		}
 	} while (0);

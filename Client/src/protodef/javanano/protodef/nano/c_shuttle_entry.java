@@ -147,13 +147,16 @@ public interface c_shuttle_entry {
     // required .b_network.address addr = 2;
     public protodef.nano.b_network.address addr;
 
-    // required string remote_client_version = 3 [default = ""];
+    // required bytes public_key = 3;
+    public byte[] publicKey;
+
+    // required string remote_client_version = 4 [default = ""];
     public java.lang.String remoteClientVersion;
 
-    // required string remote_source_version = 4 [default = ""];
+    // required string remote_source_version = 5 [default = ""];
     public java.lang.String remoteSourceVersion;
 
-    // required string remote_server_version = 5 [default = ""];
+    // required string remote_server_version = 6 [default = ""];
     public java.lang.String remoteServerVersion;
 
     public knock_rs() {
@@ -163,6 +166,7 @@ public interface c_shuttle_entry {
     public knock_rs clear() {
       error = null;
       addr = null;
+      publicKey = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
       remoteClientVersion = "";
       remoteSourceVersion = "";
       remoteServerVersion = "";
@@ -179,9 +183,10 @@ public interface c_shuttle_entry {
       if (this.addr != null) {
         output.writeMessage(2, this.addr);
       }
-      output.writeString(3, this.remoteClientVersion);
-      output.writeString(4, this.remoteSourceVersion);
-      output.writeString(5, this.remoteServerVersion);
+      output.writeBytes(3, this.publicKey);
+      output.writeString(4, this.remoteClientVersion);
+      output.writeString(5, this.remoteSourceVersion);
+      output.writeString(6, this.remoteServerVersion);
       super.writeTo(output);
     }
 
@@ -197,11 +202,13 @@ public interface c_shuttle_entry {
           .computeMessageSize(2, this.addr);
       }
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(3, this.remoteClientVersion);
+          .computeBytesSize(3, this.publicKey);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(4, this.remoteSourceVersion);
+          .computeStringSize(4, this.remoteClientVersion);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(5, this.remoteServerVersion);
+          .computeStringSize(5, this.remoteSourceVersion);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(6, this.remoteServerVersion);
       return size;
     }
 
@@ -235,14 +242,18 @@ public interface c_shuttle_entry {
             break;
           }
           case 26: {
-            this.remoteClientVersion = input.readString();
+            this.publicKey = input.readBytes();
             break;
           }
           case 34: {
-            this.remoteSourceVersion = input.readString();
+            this.remoteClientVersion = input.readString();
             break;
           }
           case 42: {
+            this.remoteSourceVersion = input.readString();
+            break;
+          }
+          case 50: {
             this.remoteServerVersion = input.readString();
             break;
           }
@@ -259,212 +270,6 @@ public interface c_shuttle_entry {
             com.google.protobuf.nano.CodedInputByteBufferNano input)
         throws java.io.IOException {
       return new knock_rs().mergeFrom(input);
-    }
-  }
-
-  public static final class exchange_key_rq extends
-      com.google.protobuf.nano.MessageNano {
-
-    // enum msg
-    public static final int id = 33558544;
-
-    private static volatile exchange_key_rq[] _emptyArray;
-    public static exchange_key_rq[] emptyArray() {
-      // Lazily initializes the empty array
-      if (_emptyArray == null) {
-        synchronized (
-            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
-          if (_emptyArray == null) {
-            _emptyArray = new exchange_key_rq[0];
-          }
-        }
-      }
-      return _emptyArray;
-    }
-
-    // required bytes n = 1;
-    public byte[] n;
-
-    // required bytes e = 2;
-    public byte[] e;
-
-    // required uint32 version = 3 [default = 0];
-    public int version;
-
-    public exchange_key_rq() {
-      clear();
-    }
-
-    public exchange_key_rq clear() {
-      n = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
-      e = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
-      version = 0;
-      cachedSize = -1;
-      return this;
-    }
-
-    @Override
-    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
-        throws java.io.IOException {
-      output.writeBytes(1, this.n);
-      output.writeBytes(2, this.e);
-      output.writeUInt32(3, this.version);
-      super.writeTo(output);
-    }
-
-    @Override
-    protected int computeSerializedSize() {
-      int size = super.computeSerializedSize();
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeBytesSize(1, this.n);
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeBytesSize(2, this.e);
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt32Size(3, this.version);
-      return size;
-    }
-
-    @Override
-    public exchange_key_rq mergeFrom(
-            com.google.protobuf.nano.CodedInputByteBufferNano input)
-        throws java.io.IOException {
-      while (true) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            return this;
-          default: {
-            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
-              return this;
-            }
-            break;
-          }
-          case 10: {
-            this.n = input.readBytes();
-            break;
-          }
-          case 18: {
-            this.e = input.readBytes();
-            break;
-          }
-          case 24: {
-            this.version = input.readUInt32();
-            break;
-          }
-        }
-      }
-    }
-
-    public static exchange_key_rq parseFrom(byte[] data)
-        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
-      return com.google.protobuf.nano.MessageNano.mergeFrom(new exchange_key_rq(), data);
-    }
-
-    public static exchange_key_rq parseFrom(
-            com.google.protobuf.nano.CodedInputByteBufferNano input)
-        throws java.io.IOException {
-      return new exchange_key_rq().mergeFrom(input);
-    }
-  }
-
-  public static final class exchange_key_rs extends
-      com.google.protobuf.nano.MessageNano {
-
-    // enum msg
-    public static final int id = 33558545;
-
-    private static volatile exchange_key_rs[] _emptyArray;
-    public static exchange_key_rs[] emptyArray() {
-      // Lazily initializes the empty array
-      if (_emptyArray == null) {
-        synchronized (
-            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
-          if (_emptyArray == null) {
-            _emptyArray = new exchange_key_rs[0];
-          }
-        }
-      }
-      return _emptyArray;
-    }
-
-    // required .b_error.info error = 1;
-    public protodef.nano.b_error.info error;
-
-    // required bytes key = 2;
-    public byte[] key;
-
-    public exchange_key_rs() {
-      clear();
-    }
-
-    public exchange_key_rs clear() {
-      error = null;
-      key = com.google.protobuf.nano.WireFormatNano.EMPTY_BYTES;
-      cachedSize = -1;
-      return this;
-    }
-
-    @Override
-    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
-        throws java.io.IOException {
-      if (this.error != null) {
-        output.writeMessage(1, this.error);
-      }
-      output.writeBytes(2, this.key);
-      super.writeTo(output);
-    }
-
-    @Override
-    protected int computeSerializedSize() {
-      int size = super.computeSerializedSize();
-      if (this.error != null) {
-        size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeMessageSize(1, this.error);
-      }
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeBytesSize(2, this.key);
-      return size;
-    }
-
-    @Override
-    public exchange_key_rs mergeFrom(
-            com.google.protobuf.nano.CodedInputByteBufferNano input)
-        throws java.io.IOException {
-      while (true) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            return this;
-          default: {
-            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
-              return this;
-            }
-            break;
-          }
-          case 10: {
-            if (this.error == null) {
-              this.error = new protodef.nano.b_error.info();
-            }
-            input.readMessage(this.error);
-            break;
-          }
-          case 18: {
-            this.key = input.readBytes();
-            break;
-          }
-        }
-      }
-    }
-
-    public static exchange_key_rs parseFrom(byte[] data)
-        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
-      return com.google.protobuf.nano.MessageNano.mergeFrom(new exchange_key_rs(), data);
-    }
-
-    public static exchange_key_rs parseFrom(
-            com.google.protobuf.nano.CodedInputByteBufferNano input)
-        throws java.io.IOException {
-      return new exchange_key_rs().mergeFrom(input);
     }
   }
 }

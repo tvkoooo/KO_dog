@@ -9,7 +9,7 @@
 
 #include "dish/mm_m_runtime_state.h"
 
-#include "zookeeper/mm_zkwp_path.h"
+#include "zookeeper/mm_zookeeper_zkwp_path.h"
 
 //////////////////////////////////////////////////////////////////////////
 struct mm_business_account_runtime

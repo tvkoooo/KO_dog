@@ -1,5 +1,5 @@
-#ifndef __lj_KO_dog_zhujiemian_h__
-#define __lj_KO_dog_zhujiemian_h__
+#ifndef __KO_dog_zhujiemian_h__
+#define __KO_dog_zhujiemian_h__
 
 #include "core/mm_core.h"
 
@@ -10,10 +10,10 @@
 
 #include "math/mm_vector3.h"
 
-#include "OgreSceneNode.h"
-#include "OgreCamera.h"
-#include "OgreViewport.h"
-#include "OgreEntity.h"
+//#include "OgreSceneNode.h"
+//#include "OgreCamera.h"
+//#include "OgreViewport.h"
+//#include "OgreEntity.h"
 
 #include "dotsceneloader/DotSceneLoader.h"
 
@@ -25,12 +25,13 @@
 #include "container/mm_bitset.h"
 #include "KO_dog_test_animation.h"
 
-#include "toolkit/mm_windows_target.h"
+//#include "toolkit/mm_windows_target.h"
+#include "KO_dog_zhujiemian_rtt_coin.h"
 
 //////////////////////////////////////////////////////////////////////////
 namespace mm
 {
-	class lj_KO_dog_zhujiemian
+	class KO_dog_zhujiemian
 	{
 	public:
 		mm_flake_context* d_flake_context;
@@ -56,26 +57,29 @@ namespace mm
 		CEGUI::Window* l_image_gold5;
 		CEGUI::Window* l_image_gold_y1;
 		CEGUI::Window* l_image_gold_y2;
-		CEGUI::Window* l_image_gold_mov;
+		//CEGUI::Window* l_image_gold_mov;
 
+	//public:
+	//	struct mm_windows_target d_windows_target;
+	//	mm_event_handler d_event_enter_background;
+	//	mm_event_handler d_event_enter_foreground;
+
+	//	Ogre::SceneManager* d_scene_manager;
+	//	Ogre::SceneNode* d_root_node;
+
+	//	Ogre::SceneNode* d_node_camera;
+	//	Ogre::Camera* d_camera;
+	//	Ogre::Viewport* d_viewport;
+
+	//	Ogre::SceneNode* d_light_node;
+	//	Ogre::Light* d_dir_light;
+	//	//
+	//	Ogre::SceneNode* d_coin_node;
+	//	Ogre::Entity* d_coin_mesh;
+	//	float d_coin_rotation;
 	public:
-		struct mm_windows_target d_windows_target;
-		mm_event_handler d_event_enter_background;
-		mm_event_handler d_event_enter_foreground;
+		KO_dog_zhujiemian_rtt_coin rtt_coin;
 
-		Ogre::SceneManager* d_scene_manager;
-		Ogre::SceneNode* d_root_node;
-
-		Ogre::SceneNode* d_node_camera;
-		Ogre::Camera* d_camera;
-		Ogre::Viewport* d_viewport;
-
-		Ogre::SceneNode* d_light_node;
-		Ogre::Light* d_dir_light;
-		//
-		Ogre::SceneNode* d_coin_node;
-		Ogre::Entity* d_coin_mesh;
-		float d_coin_rotation;
 	public:
 		int image_gold_gif_n;
 		float d_rotation;
@@ -105,8 +109,8 @@ namespace mm
 		mm_event_handler d_event_key_release_conn;
 
 	public:
-		lj_KO_dog_zhujiemian();
-		virtual ~lj_KO_dog_zhujiemian();
+		KO_dog_zhujiemian();
+		virtual ~KO_dog_zhujiemian();
 
 	public:
 		void set_data(mm_flake_context* d_flake_context, mm_flake_surface* d_surface);
@@ -136,4 +140,4 @@ namespace mm
 //////////////////////////////////////////////////////////////////////////
 
 
-#endif//__lj_KO_dog_zhujiemian_h__
+#endif//__KO_dog_zhujiemian_h__

@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.cpp" />
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test.cpp" />
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.cpp" />
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_jiemian.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_setup.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_animation.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt_coin.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_dog.cpp" />
     <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_linear.cpp" />
     <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_matrix3x3.cpp" />
     <ClCompile Include="..\..\src\KO_dog\math\mm_fix32_matrix4x4.cpp" />
@@ -41,6 +44,7 @@
     <ClCompile Include="..\..\src\KO_dog\network\network_account.cpp" />
     <ClCompile Include="..\..\src\KO_dog\network\network_entry.cpp" />
     <ClCompile Include="..\..\src\KO_dog\network\network_handle.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\network\network_lobby.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_util_mesh.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_windows_target.cpp" />
     <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_animation.cpp" />
@@ -55,12 +59,15 @@
     <ClCompile Include="windows\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.h" />
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test.h" />
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.h" />
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_jiemian.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_setup.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_animation.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt_coin.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_dog.h" />
     <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_linear.h" />
     <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_matrix3x3.h" />
     <ClInclude Include="..\..\src\KO_dog\math\mm_fix32_matrix4x4.h" />
@@ -77,6 +84,7 @@
     <ClInclude Include="..\..\src\KO_dog\network\network_account.h" />
     <ClInclude Include="..\..\src\KO_dog\network\network_entry.h" />
     <ClInclude Include="..\..\src\KO_dog\network\network_handle.h" />
+    <ClInclude Include="..\..\src\KO_dog\network\network_lobby.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_util_mesh.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_windows_target.h" />
     <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_animation.h" />
@@ -179,7 +187,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir);$(MM_CORE)/flake/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zlib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zziplib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/libiconv/proj_windows/bin/$(Configuration);$(MM_LIB)/build/lua/proj_windows/bin/$(Configuration);$(MM_LIB)/build/Ogre/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cegui/proj_windows/bin/$(Configuration);$(MM_LIB)/build/freetype/proj_windows/bin/$(Configuration);$(MM_LIB)/build/FreeImage/proj_windows/bin/$(Configuration);$(MM_LIB)/build/tinyxml/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/bullet3/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OpenAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OgreAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ogre-oggsound/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ParticleUniverse/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread_d.lib;libz_d.lib;libzzip_d.lib;liblua_d.lib;libiconv_d.lib;libfreetype_d.lib;libFreeImage_d.lib;libtinyxml_d.lib;libOgreMain_d.lib;libOgreRTShaderSystem_d.lib;libOgreTerrain_d.lib;libCEGUIBase_d.lib;libCEGUICommonDialogs_d.lib;libCEGUITinyXMLParser_d.lib;libcrypto_d.lib;libLinearMath_d.lib;libBulletCollision_d.lib;libBulletDynamics_d.lib;libConvexDecomposition_d.lib;libBulletWorldImporter_d.lib;libBulletFileLoader_d.lib;libOgreAL_d.lib;libogre-oggsound_d.lib;libPlugin_ParticleUniverse_d.lib;libCEGUIOgreRenderer_d.lib;libprotobuf_d.lib;libmm_core_d.lib;libmm_net_d.lib;libmm_dish_d.lib;libmm_flake_d.lib;libmm_data_protobuf_d.lib;libmm_data_lua_d.lib;libmm_ieee754_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread_d.lib;libz_d.lib;libzzip_d.lib;liblua_d.lib;libiconv_d.lib;libfreetype_d.lib;libFreeImage_d.lib;libtinyxml_d.lib;libOgreMain_d.lib;libOgreRTShaderSystem_d.lib;libOgreTerrain_d.lib;libCEGUIBase_d.lib;libCEGUICommonDialogs_d.lib;libCEGUITinyXMLParser_d.lib;libcrypto_d.lib;libLinearMath_d.lib;libBulletCollision_d.lib;libBulletDynamics_d.lib;libConvexDecomposition_d.lib;libBulletWorldImporter_d.lib;libBulletFileLoader_d.lib;libOgreAL_d.lib;libogre-oggsound_d.lib;libPlugin_ParticleUniverse_d.lib;libCEGUIOgreRenderer_d.lib;libprotobuf_d.lib;libmm_core_d.lib;libmm_net_d.lib;libmm_dish_d.lib;libmm_flake_d.lib;libmm_data_protobuf_d.lib;libmm_data_lua_d.lib;libmm_data_openssl_d.lib;libmm_ieee754_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Debug\libpthread_d.dll                     bin\\Debug\* /s /e /h /d /y 
@@ -217,6 +225,7 @@ xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Debug\libmm_flake_d.dll            
 xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Debug\libCEGUIOgreRenderer_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_protobuf_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_lua_d.dll                             bin\\Debug\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_openssl_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(POWERVR_SDK_HOME)\\Builds\\Windows\\x86_32\\Lib\*.dll  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\sdk\\Cg\\bin\\windows\\x86\cg.dll  bin\\Debug\* /s /e /h /d /y 
 echo f | xcopy launch_binary.config                                                        bin\\Debug\launch.config /h /d /y </Command>
@@ -237,7 +246,7 @@ echo f | xcopy launch_binary.config                                             
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir);$(MM_CORE)/flake/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zlib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zziplib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/libiconv/proj_windows/bin/$(Configuration);$(MM_LIB)/build/lua/proj_windows/bin/$(Configuration);$(MM_LIB)/build/Ogre/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cegui/proj_windows/bin/$(Configuration);$(MM_LIB)/build/freetype/proj_windows/bin/$(Configuration);$(MM_LIB)/build/FreeImage/proj_windows/bin/$(Configuration);$(MM_LIB)/build/tinyxml/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/bullet3/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OpenAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OgreAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ogre-oggsound/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ParticleUniverse/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread_d.lib;libz_d.lib;libzzip_d.lib;liblua_d.lib;libiconv_d.lib;libfreetype_d.lib;libFreeImage_d.lib;libtinyxml_d.lib;libOgreMain_d.lib;libOgreRTShaderSystem_d.lib;libOgreTerrain_d.lib;libCEGUIBase_d.lib;libCEGUICommonDialogs_d.lib;libCEGUITinyXMLParser_d.lib;libcrypto_d.lib;libLinearMath_d.lib;libBulletCollision_d.lib;libBulletDynamics_d.lib;libConvexDecomposition_d.lib;libBulletWorldImporter_d.lib;libBulletFileLoader_d.lib;libOgreAL_d.lib;libogre-oggsound_d.lib;libPlugin_ParticleUniverse_d.lib;libCEGUIOgreRenderer_d.lib;libprotobuf_d.lib;libmm_core_d.lib;libmm_net_d.lib;libmm_dish_d.lib;libmm_flake_d.lib;libmm_data_protobuf_d.lib;libmm_data_lua_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread_d.lib;libz_d.lib;libzzip_d.lib;liblua_d.lib;libiconv_d.lib;libfreetype_d.lib;libFreeImage_d.lib;libtinyxml_d.lib;libOgreMain_d.lib;libOgreRTShaderSystem_d.lib;libOgreTerrain_d.lib;libCEGUIBase_d.lib;libCEGUICommonDialogs_d.lib;libCEGUITinyXMLParser_d.lib;libcrypto_d.lib;libLinearMath_d.lib;libBulletCollision_d.lib;libBulletDynamics_d.lib;libConvexDecomposition_d.lib;libBulletWorldImporter_d.lib;libBulletFileLoader_d.lib;libOgreAL_d.lib;libogre-oggsound_d.lib;libPlugin_ParticleUniverse_d.lib;libCEGUIOgreRenderer_d.lib;libprotobuf_d.lib;libmm_core_d.lib;libmm_net_d.lib;libmm_dish_d.lib;libmm_flake_d.lib;libmm_data_protobuf_d.lib;libmm_data_lua_d.lib;libmm_data_openssl_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Debug\libpthread_d.dll                     bin\\Debug\* /s /e /h /d /y 
@@ -275,6 +284,7 @@ xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Debug\libmm_flake_d.dll            
 xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Debug\libCEGUIOgreRenderer_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_protobuf_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_lua_d.dll                             bin\\Debug\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Debug\libmm_data_openssl_d.dll                             bin\\Debug\* /s /e /h /d /y 
 xcopy $(POWERVR_SDK_HOME)\\Builds\\Windows\\x86_64\\Lib\*.dll  bin\\Debug\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\sdk\\Cg\\bin\\windows\\x64\cg.dll  bin\\Debug\* /s /e /h /d /y 
 echo f | xcopy launch_binary.config                                                        bin\\Debug\launch.config /h /d /y </Command>
@@ -299,7 +309,7 @@ echo f | xcopy launch_binary.config                                             
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir);$(MM_CORE)/flake/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zlib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zziplib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/libiconv/proj_windows/bin/$(Configuration);$(MM_LIB)/build/lua/proj_windows/bin/$(Configuration);$(MM_LIB)/build/Ogre/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cegui/proj_windows/bin/$(Configuration);$(MM_LIB)/build/freetype/proj_windows/bin/$(Configuration);$(MM_LIB)/build/FreeImage/proj_windows/bin/$(Configuration);$(MM_LIB)/build/tinyxml/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/bullet3/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OpenAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OgreAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ogre-oggsound/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ParticleUniverse/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(VLD_HOME)/lib/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread.lib;libz.lib;libzzip.lib;liblua.lib;libiconv.lib;libfreetype.lib;libFreeImage.lib;libtinyxml.lib;libOgreMain.lib;libOgreRTShaderSystem.lib;libOgreTerrain.lib;libCEGUIBase.lib;libCEGUICommonDialogs.lib;libCEGUITinyXMLParser.lib;libcrypto.lib;libLinearMath.lib;libBulletCollision.lib;libBulletDynamics.lib;libConvexDecomposition.lib;libBulletWorldImporter.lib;libBulletFileLoader.lib;libOgreAL.lib;libogre-oggsound.lib;libPlugin_ParticleUniverse.lib;libCEGUIOgreRenderer.lib;libprotobuf.lib;libmm_core.lib;libmm_net.lib;libmm_dish.lib;libmm_flake.lib;libmm_data_protobuf.lib;libmm_data_lua.lib;libmm_ieee754.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread.lib;libz.lib;libzzip.lib;liblua.lib;libiconv.lib;libfreetype.lib;libFreeImage.lib;libtinyxml.lib;libOgreMain.lib;libOgreRTShaderSystem.lib;libOgreTerrain.lib;libCEGUIBase.lib;libCEGUICommonDialogs.lib;libCEGUITinyXMLParser.lib;libcrypto.lib;libLinearMath.lib;libBulletCollision.lib;libBulletDynamics.lib;libConvexDecomposition.lib;libBulletWorldImporter.lib;libBulletFileLoader.lib;libOgreAL.lib;libogre-oggsound.lib;libPlugin_ParticleUniverse.lib;libCEGUIOgreRenderer.lib;libprotobuf.lib;libmm_core.lib;libmm_net.lib;libmm_dish.lib;libmm_flake.lib;libmm_data_protobuf.lib;libmm_data_lua.lib;libmm_data_openssl.lib;libmm_ieee754.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Release\libpthread.dll                     bin\\Release\* /s /e /h /d /y 
@@ -337,6 +347,7 @@ xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Release\libmm_flake.dll            
 xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Release\libCEGUIOgreRenderer.dll                             bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_protobuf.dll                             bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_lua.dll                             bin\\Release\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_openssl.dll                             bin\\Release\* /s /e /h /d /y 
 xcopy $(POWERVR_SDK_HOME)\\Builds\\Windows\\x86_32\\Lib\*.dll  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\sdk\\Cg\\bin\\windows\\x86\cg.dll  bin\\Release\* /s /e /h /d /y 
 echo f | xcopy launch_binary.config                                                        bin\\Release\launch.config /h /d /y </Command>
@@ -361,7 +372,7 @@ echo f | xcopy launch_binary.config                                             
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir);$(MM_CORE)/flake/proj/windows/bin/$(Configuration);$(MM_CORE)/dish/proj/windows/bin/$(Configuration);$(MM_CORE)/mm/proj/windows/bin/$(Configuration);$(MM_CORE)/data/proj/windows/bin/$(Configuration);$(MM_LIB)/build/pthread/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zlib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/zziplib/proj_windows/bin/$(Configuration);$(MM_LIB)/build/libiconv/proj_windows/bin/$(Configuration);$(MM_LIB)/build/lua/proj_windows/bin/$(Configuration);$(MM_LIB)/build/Ogre/proj_windows/bin/$(Configuration);$(MM_LIB)/build/cegui/proj_windows/bin/$(Configuration);$(MM_LIB)/build/freetype/proj_windows/bin/$(Configuration);$(MM_LIB)/build/FreeImage/proj_windows/bin/$(Configuration);$(MM_LIB)/build/tinyxml/proj_windows/bin/$(Configuration);$(MM_LIB)/build/openssl/proj_windows/bin/$(Configuration);$(MM_LIB)/build/bullet3/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OpenAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/OgreAL/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ogre-oggsound/proj_windows/bin/$(Configuration);$(MM_LIB)/build/ParticleUniverse/proj_windows/bin/$(Configuration);$(MM_LIB)/build/protobuf/proj_windows/bin/$(Configuration);$(VLD_HOME)/lib/Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread.lib;libz.lib;libzzip.lib;liblua.lib;libiconv.lib;libfreetype.lib;libFreeImage.lib;libtinyxml.lib;libOgreMain.lib;libOgreRTShaderSystem.lib;libOgreTerrain.lib;libCEGUIBase.lib;libCEGUICommonDialogs.lib;libCEGUITinyXMLParser.lib;libcrypto.lib;libLinearMath.lib;libBulletCollision.lib;libBulletDynamics.lib;libConvexDecomposition.lib;libBulletWorldImporter.lib;libBulletFileLoader.lib;libOgreAL.lib;libogre-oggsound.lib;libPlugin_ParticleUniverse.lib;libCEGUIOgreRenderer.lib;libprotobuf.lib;libmm_core.lib;libmm_net.lib;libmm_dish.lib;libmm_flake.lib;libmm_data_protobuf.lib;libmm_data_lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;vld.lib;libpthread.lib;libz.lib;libzzip.lib;liblua.lib;libiconv.lib;libfreetype.lib;libFreeImage.lib;libtinyxml.lib;libOgreMain.lib;libOgreRTShaderSystem.lib;libOgreTerrain.lib;libCEGUIBase.lib;libCEGUICommonDialogs.lib;libCEGUITinyXMLParser.lib;libcrypto.lib;libLinearMath.lib;libBulletCollision.lib;libBulletDynamics.lib;libConvexDecomposition.lib;libBulletWorldImporter.lib;libBulletFileLoader.lib;libOgreAL.lib;libogre-oggsound.lib;libPlugin_ParticleUniverse.lib;libCEGUIOgreRenderer.lib;libprotobuf.lib;libmm_core.lib;libmm_net.lib;libmm_dish.lib;libmm_flake.lib;libmm_data_protobuf.lib;libmm_data_lua.lib;libmm_data_openssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy $(MM_LIB)\\build\\pthread\\proj_windows\\bin\\Release\libpthread.dll                     bin\\Release\* /s /e /h /d /y 
@@ -399,6 +410,7 @@ xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Release\libmm_flake.dll            
 xcopy $(MM_CORE)\\flake\\proj\\windows\\bin\\Release\libCEGUIOgreRenderer.dll                             bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_protobuf.dll                             bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_lua.dll                             bin\\Release\* /s /e /h /d /y 
+xcopy $(MM_CORE)\\data\\proj\\windows\\bin\\Release\libmm_data_openssl.dll                             bin\\Release\* /s /e /h /d /y 
 xcopy $(POWERVR_SDK_HOME)\\Builds\\Windows\\x86_64\\Lib\*.dll  bin\\Release\* /s /e /h /d /y 
 xcopy $(MM_LIB)\\sdk\\Cg\\bin\\windows\\x64\cg.dll  bin\\Release\* /s /e /h /d /y 
 echo f | xcopy launch_binary.config                                                        bin\\Release\launch.config /h /d /y </Command>

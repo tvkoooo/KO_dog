@@ -9,8 +9,8 @@
 #include "dish/mm_event.h"
 
 //#include "KO_dog_test_animation.h"
-#include "lj_KO_dog_jiemian.h"
-#include "lj_KO_dog_test.h"
+#include "KO_dog_jiemian.h"
+#include "KO_dog_test.h"
 #include "model_data/KO_dog_data.h"
 #include "network/KO_dog_network.h"
 
@@ -28,12 +28,12 @@ namespace mm
 		struct mm_lua_context lua_context;
 
 	public:
-		//lj_struct_timer_test lj_timer_test;
+		//struct_timer_test lj_timer_test;
 		KO_dog_data data;
 		struct KO_dog_network network;
 
 	public:
-		lj_KO_dog_jiemian jiemian;
+		KO_dog_jiemian jiemian;
 		//KO_dog_test_animation d_test_animation;
 	public:
 		void test_s_terminate( mm_flake_surface* surface );

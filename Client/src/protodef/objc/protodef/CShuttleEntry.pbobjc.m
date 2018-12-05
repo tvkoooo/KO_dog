@@ -187,6 +187,7 @@ BOOL C_shuttle_entry_knock_rq_msg_IsValidValue(int32_t value__) {
 
 @dynamic hasError, error;
 @dynamic hasAddr, addr;
+@dynamic hasPublicKey, publicKey;
 @dynamic hasRemoteClientVersion, remoteClientVersion;
 @dynamic hasRemoteSourceVersion, remoteSourceVersion;
 @dynamic hasRemoteServerVersion, remoteServerVersion;
@@ -195,6 +196,7 @@ typedef struct C_shuttle_entry_knock_rs__storage_ {
   uint32_t _has_storage_[1];
   B_error_info *error;
   B_network_address *addr;
+  NSData *publicKey;
   NSString *remoteClientVersion;
   NSString *remoteSourceVersion;
   NSString *remoteServerVersion;
@@ -225,10 +227,19 @@ typedef struct C_shuttle_entry_knock_rs__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
+        .name = "publicKey",
+        .dataTypeSpecific.className = NULL,
+        .number = C_shuttle_entry_knock_rs_FieldNumber_PublicKey,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_shuttle_entry_knock_rs__storage_, publicKey),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
         .name = "remoteClientVersion",
         .dataTypeSpecific.className = NULL,
         .number = C_shuttle_entry_knock_rs_FieldNumber_RemoteClientVersion,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(C_shuttle_entry_knock_rs__storage_, remoteClientVersion),
         .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
         .dataType = GPBDataTypeString,
@@ -237,7 +248,7 @@ typedef struct C_shuttle_entry_knock_rs__storage_ {
         .name = "remoteSourceVersion",
         .dataTypeSpecific.className = NULL,
         .number = C_shuttle_entry_knock_rs_FieldNumber_RemoteSourceVersion,
-        .hasIndex = 3,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(C_shuttle_entry_knock_rs__storage_, remoteSourceVersion),
         .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
         .dataType = GPBDataTypeString,
@@ -246,7 +257,7 @@ typedef struct C_shuttle_entry_knock_rs__storage_ {
         .name = "remoteServerVersion",
         .dataTypeSpecific.className = NULL,
         .number = C_shuttle_entry_knock_rs_FieldNumber_RemoteServerVersion,
-        .hasIndex = 4,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(C_shuttle_entry_knock_rs__storage_, remoteServerVersion),
         .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
         .dataType = GPBDataTypeString,
@@ -296,193 +307,6 @@ GPBEnumDescriptor *C_shuttle_entry_knock_rs_msg_EnumDescriptor(void) {
 BOOL C_shuttle_entry_knock_rs_msg_IsValidValue(int32_t value__) {
   switch (value__) {
     case C_shuttle_entry_knock_rs_msg_Id:
-      return YES;
-    default:
-      return NO;
-  }
-}
-
-#pragma mark - C_shuttle_entry_exchange_key_rq
-
-@implementation C_shuttle_entry_exchange_key_rq
-
-@dynamic hasN, n;
-@dynamic hasE, e;
-@dynamic hasVersion, version;
-
-typedef struct C_shuttle_entry_exchange_key_rq__storage_ {
-  uint32_t _has_storage_[1];
-  uint32_t version;
-  NSData *n;
-  NSData *e;
-} C_shuttle_entry_exchange_key_rq__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "n",
-        .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_entry_exchange_key_rq_FieldNumber_N,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(C_shuttle_entry_exchange_key_rq__storage_, n),
-        .flags = GPBFieldRequired,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "e",
-        .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_entry_exchange_key_rq_FieldNumber_E,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_shuttle_entry_exchange_key_rq__storage_, e),
-        .flags = GPBFieldRequired,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "version",
-        .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_entry_exchange_key_rq_FieldNumber_Version,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(C_shuttle_entry_exchange_key_rq__storage_, version),
-        .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
-        .dataType = GPBDataTypeUInt32,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[C_shuttle_entry_exchange_key_rq class]
-                                     rootClass:[C_shuttle_entry_CShuttleEntryRoot class]
-                                          file:C_shuttle_entry_CShuttleEntryRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(C_shuttle_entry_exchange_key_rq__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - Enum C_shuttle_entry_exchange_key_rq_msg
-
-GPBEnumDescriptor *C_shuttle_entry_exchange_key_rq_msg_EnumDescriptor(void) {
-  static GPBEnumDescriptor *descriptor = NULL;
-  if (!descriptor) {
-    static const char *valueNames =
-        "Id\000";
-    static const int32_t values[] = {
-        C_shuttle_entry_exchange_key_rq_msg_Id,
-    };
-    static const char *extraTextFormatInfo = "\001\000\"\000";
-    GPBEnumDescriptor *worker =
-        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_shuttle_entry_exchange_key_rq_msg)
-                                       valueNames:valueNames
-                                           values:values
-                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:C_shuttle_entry_exchange_key_rq_msg_IsValidValue
-                              extraTextFormatInfo:extraTextFormatInfo];
-    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
-      [worker release];
-    }
-  }
-  return descriptor;
-}
-
-BOOL C_shuttle_entry_exchange_key_rq_msg_IsValidValue(int32_t value__) {
-  switch (value__) {
-    case C_shuttle_entry_exchange_key_rq_msg_Id:
-      return YES;
-    default:
-      return NO;
-  }
-}
-
-#pragma mark - C_shuttle_entry_exchange_key_rs
-
-@implementation C_shuttle_entry_exchange_key_rs
-
-@dynamic hasError, error;
-@dynamic hasKey, key;
-
-typedef struct C_shuttle_entry_exchange_key_rs__storage_ {
-  uint32_t _has_storage_[1];
-  B_error_info *error;
-  NSData *key;
-} C_shuttle_entry_exchange_key_rs__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "error",
-        .dataTypeSpecific.className = GPBStringifySymbol(B_error_info),
-        .number = C_shuttle_entry_exchange_key_rs_FieldNumber_Error,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(C_shuttle_entry_exchange_key_rs__storage_, error),
-        .flags = GPBFieldRequired,
-        .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "key",
-        .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_entry_exchange_key_rs_FieldNumber_Key,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_shuttle_entry_exchange_key_rs__storage_, key),
-        .flags = GPBFieldRequired,
-        .dataType = GPBDataTypeBytes,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[C_shuttle_entry_exchange_key_rs class]
-                                     rootClass:[C_shuttle_entry_CShuttleEntryRoot class]
-                                          file:C_shuttle_entry_CShuttleEntryRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(C_shuttle_entry_exchange_key_rs__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - Enum C_shuttle_entry_exchange_key_rs_msg
-
-GPBEnumDescriptor *C_shuttle_entry_exchange_key_rs_msg_EnumDescriptor(void) {
-  static GPBEnumDescriptor *descriptor = NULL;
-  if (!descriptor) {
-    static const char *valueNames =
-        "Id\000";
-    static const int32_t values[] = {
-        C_shuttle_entry_exchange_key_rs_msg_Id,
-    };
-    static const char *extraTextFormatInfo = "\001\000\"\000";
-    GPBEnumDescriptor *worker =
-        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_shuttle_entry_exchange_key_rs_msg)
-                                       valueNames:valueNames
-                                           values:values
-                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:C_shuttle_entry_exchange_key_rs_msg_IsValidValue
-                              extraTextFormatInfo:extraTextFormatInfo];
-    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
-      [worker release];
-    }
-  }
-  return descriptor;
-}
-
-BOOL C_shuttle_entry_exchange_key_rs_msg_IsValidValue(int32_t value__) {
-  switch (value__) {
-    case C_shuttle_entry_exchange_key_rs_msg_Id:
       return YES;
     default:
       return NO;

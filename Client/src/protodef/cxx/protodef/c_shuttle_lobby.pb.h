@@ -320,35 +320,35 @@ class exchange_key_rq : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // required bytes n = 1;
-  bool has_n() const;
-  void clear_n();
-  static const int kNFieldNumber = 1;
-  const ::std::string& n() const;
-  void set_n(const ::std::string& value);
+  // required bytes public_key = 1;
+  bool has_public_key() const;
+  void clear_public_key();
+  static const int kPublicKeyFieldNumber = 1;
+  const ::std::string& public_key() const;
+  void set_public_key(const ::std::string& value);
   #if LANG_CXX11
-  void set_n(::std::string&& value);
+  void set_public_key(::std::string&& value);
   #endif
-  void set_n(const char* value);
-  void set_n(const void* value, size_t size);
-  ::std::string* mutable_n();
-  ::std::string* release_n();
-  void set_allocated_n(::std::string* n);
+  void set_public_key(const char* value);
+  void set_public_key(const void* value, size_t size);
+  ::std::string* mutable_public_key();
+  ::std::string* release_public_key();
+  void set_allocated_public_key(::std::string* public_key);
 
-  // required bytes e = 2;
-  bool has_e() const;
-  void clear_e();
-  static const int kEFieldNumber = 2;
-  const ::std::string& e() const;
-  void set_e(const ::std::string& value);
+  // required bytes encrypt_key_l = 2;
+  bool has_encrypt_key_l() const;
+  void clear_encrypt_key_l();
+  static const int kEncryptKeyLFieldNumber = 2;
+  const ::std::string& encrypt_key_l() const;
+  void set_encrypt_key_l(const ::std::string& value);
   #if LANG_CXX11
-  void set_e(::std::string&& value);
+  void set_encrypt_key_l(::std::string&& value);
   #endif
-  void set_e(const char* value);
-  void set_e(const void* value, size_t size);
-  ::std::string* mutable_e();
-  ::std::string* release_e();
-  void set_allocated_e(::std::string* e);
+  void set_encrypt_key_l(const char* value);
+  void set_encrypt_key_l(const void* value, size_t size);
+  ::std::string* mutable_encrypt_key_l();
+  ::std::string* release_encrypt_key_l();
+  void set_allocated_encrypt_key_l(::std::string* encrypt_key_l);
 
   // required uint32 version = 3 [default = 0];
   bool has_version() const;
@@ -359,10 +359,10 @@ class exchange_key_rq : public ::google::protobuf::Message /* @@protoc_insertion
 
   // @@protoc_insertion_point(class_scope:c_shuttle_lobby.exchange_key_rq)
  private:
-  void set_has_n();
-  void clear_has_n();
-  void set_has_e();
-  void clear_has_e();
+  void set_has_public_key();
+  void clear_has_public_key();
+  void set_has_encrypt_key_l();
+  void clear_has_encrypt_key_l();
   void set_has_version();
   void clear_has_version();
 
@@ -372,8 +372,8 @@ class exchange_key_rq : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr n_;
-  ::google::protobuf::internal::ArenaStringPtr e_;
+  ::google::protobuf::internal::ArenaStringPtr public_key_;
+  ::google::protobuf::internal::ArenaStringPtr encrypt_key_l_;
   ::google::protobuf::uint32 version_;
   friend struct protobuf_c_5fshuttle_5flobby_2eproto::TableStruct;
 };
@@ -475,20 +475,20 @@ class exchange_key_rs : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // required bytes key = 2;
-  bool has_key() const;
-  void clear_key();
-  static const int kKeyFieldNumber = 2;
-  const ::std::string& key() const;
-  void set_key(const ::std::string& value);
+  // required bytes encrypt_key_r = 2;
+  bool has_encrypt_key_r() const;
+  void clear_encrypt_key_r();
+  static const int kEncryptKeyRFieldNumber = 2;
+  const ::std::string& encrypt_key_r() const;
+  void set_encrypt_key_r(const ::std::string& value);
   #if LANG_CXX11
-  void set_key(::std::string&& value);
+  void set_encrypt_key_r(::std::string&& value);
   #endif
-  void set_key(const char* value);
-  void set_key(const void* value, size_t size);
-  ::std::string* mutable_key();
-  ::std::string* release_key();
-  void set_allocated_key(::std::string* key);
+  void set_encrypt_key_r(const char* value);
+  void set_encrypt_key_r(const void* value, size_t size);
+  ::std::string* mutable_encrypt_key_r();
+  ::std::string* release_encrypt_key_r();
+  void set_allocated_encrypt_key_r(::std::string* encrypt_key_r);
 
   // required .b_error.info error = 1;
   bool has_error() const;
@@ -503,8 +503,8 @@ class exchange_key_rs : public ::google::protobuf::Message /* @@protoc_insertion
  private:
   void set_has_error();
   void clear_has_error();
-  void set_has_key();
-  void clear_has_key();
+  void set_has_encrypt_key_r();
+  void clear_has_encrypt_key_r();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -512,7 +512,7 @@ class exchange_key_rs : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr encrypt_key_r_;
   ::b_error::info* error_;
   friend struct protobuf_c_5fshuttle_5flobby_2eproto::TableStruct;
 };
@@ -900,25 +900,10 @@ class heartbeat_rq : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // required string token = 2 [default = ""];
-  bool has_token() const;
-  void clear_token();
-  static const int kTokenFieldNumber = 2;
-  const ::std::string& token() const;
-  void set_token(const ::std::string& value);
-  #if LANG_CXX11
-  void set_token(::std::string&& value);
-  #endif
-  void set_token(const char* value);
-  void set_token(const char* value, size_t size);
-  ::std::string* mutable_token();
-  ::std::string* release_token();
-  void set_allocated_token(::std::string* token);
-
-  // required .b_math.coord coord_info = 4;
+  // required .b_math.coord coord_info = 3;
   bool has_coord_info() const;
   void clear_coord_info();
-  static const int kCoordInfoFieldNumber = 4;
+  static const int kCoordInfoFieldNumber = 3;
   const ::b_math::coord& coord_info() const;
   ::b_math::coord* mutable_coord_info();
   ::b_math::coord* release_coord_info();
@@ -931,10 +916,10 @@ class heartbeat_rq : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
-  // required uint64 timecode_native = 3 [default = 0];
+  // required uint64 timecode_native = 2 [default = 0];
   bool has_timecode_native() const;
   void clear_timecode_native();
-  static const int kTimecodeNativeFieldNumber = 3;
+  static const int kTimecodeNativeFieldNumber = 2;
   ::google::protobuf::uint64 timecode_native() const;
   void set_timecode_native(::google::protobuf::uint64 value);
 
@@ -942,8 +927,6 @@ class heartbeat_rq : public ::google::protobuf::Message /* @@protoc_insertion_po
  private:
   void set_has_uid();
   void clear_has_uid();
-  void set_has_token();
-  void clear_has_token();
   void set_has_timecode_native();
   void clear_has_timecode_native();
   void set_has_coord_info();
@@ -955,7 +938,6 @@ class heartbeat_rq : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr token_;
   ::b_math::coord* coord_info_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::uint64 timecode_native_;
@@ -1059,21 +1041,6 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // required string token = 3 [default = ""];
-  bool has_token() const;
-  void clear_token();
-  static const int kTokenFieldNumber = 3;
-  const ::std::string& token() const;
-  void set_token(const ::std::string& value);
-  #if LANG_CXX11
-  void set_token(::std::string&& value);
-  #endif
-  void set_token(const char* value);
-  void set_token(const char* value, size_t size);
-  ::std::string* mutable_token();
-  ::std::string* release_token();
-  void set_allocated_token(::std::string* token);
-
   // required .b_error.info error = 1;
   bool has_error() const;
   void clear_error();
@@ -1083,10 +1050,10 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::b_error::info* release_error();
   void set_allocated_error(::b_error::info* error);
 
-  // required .b_math.coord coord_info = 5;
+  // required .b_math.coord coord_info = 4;
   bool has_coord_info() const;
   void clear_coord_info();
-  static const int kCoordInfoFieldNumber = 5;
+  static const int kCoordInfoFieldNumber = 4;
   const ::b_math::coord& coord_info() const;
   ::b_math::coord* mutable_coord_info();
   ::b_math::coord* release_coord_info();
@@ -1099,10 +1066,10 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
-  // required uint64 timecode_native = 4 [default = 0];
+  // required uint64 timecode_native = 3 [default = 0];
   bool has_timecode_native() const;
   void clear_timecode_native();
-  static const int kTimecodeNativeFieldNumber = 4;
+  static const int kTimecodeNativeFieldNumber = 3;
   ::google::protobuf::uint64 timecode_native() const;
   void set_timecode_native(::google::protobuf::uint64 value);
 
@@ -1112,8 +1079,6 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
   void clear_has_error();
   void set_has_uid();
   void clear_has_uid();
-  void set_has_token();
-  void clear_has_token();
   void set_has_timecode_native();
   void clear_has_timecode_native();
   void set_has_coord_info();
@@ -1125,7 +1090,6 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr token_;
   ::b_error::info* error_;
   ::b_math::coord* coord_info_;
   ::google::protobuf::uint64 uid_;
@@ -1140,130 +1104,130 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // exchange_key_rq
 
-// required bytes n = 1;
-inline bool exchange_key_rq::has_n() const {
+// required bytes public_key = 1;
+inline bool exchange_key_rq::has_public_key() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void exchange_key_rq::set_has_n() {
+inline void exchange_key_rq::set_has_public_key() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void exchange_key_rq::clear_has_n() {
+inline void exchange_key_rq::clear_has_public_key() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void exchange_key_rq::clear_n() {
-  n_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_n();
+inline void exchange_key_rq::clear_public_key() {
+  public_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_public_key();
 }
-inline const ::std::string& exchange_key_rq::n() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_lobby.exchange_key_rq.n)
-  return n_.GetNoArena();
+inline const ::std::string& exchange_key_rq::public_key() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.exchange_key_rq.public_key)
+  return public_key_.GetNoArena();
 }
-inline void exchange_key_rq::set_n(const ::std::string& value) {
-  set_has_n();
-  n_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_lobby.exchange_key_rq.n)
+inline void exchange_key_rq::set_public_key(const ::std::string& value) {
+  set_has_public_key();
+  public_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.exchange_key_rq.public_key)
 }
 #if LANG_CXX11
-inline void exchange_key_rq::set_n(::std::string&& value) {
-  set_has_n();
-  n_.SetNoArena(
+inline void exchange_key_rq::set_public_key(::std::string&& value) {
+  set_has_public_key();
+  public_key_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.exchange_key_rq.n)
+  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.exchange_key_rq.public_key)
 }
 #endif
-inline void exchange_key_rq::set_n(const char* value) {
+inline void exchange_key_rq::set_public_key(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_n();
-  n_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.exchange_key_rq.n)
+  set_has_public_key();
+  public_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.exchange_key_rq.public_key)
 }
-inline void exchange_key_rq::set_n(const void* value, size_t size) {
-  set_has_n();
-  n_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void exchange_key_rq::set_public_key(const void* value, size_t size) {
+  set_has_public_key();
+  public_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.exchange_key_rq.n)
+  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.exchange_key_rq.public_key)
 }
-inline ::std::string* exchange_key_rq::mutable_n() {
-  set_has_n();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.exchange_key_rq.n)
-  return n_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* exchange_key_rq::mutable_public_key() {
+  set_has_public_key();
+  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.exchange_key_rq.public_key)
+  return public_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* exchange_key_rq::release_n() {
-  // @@protoc_insertion_point(field_release:c_shuttle_lobby.exchange_key_rq.n)
-  clear_has_n();
-  return n_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* exchange_key_rq::release_public_key() {
+  // @@protoc_insertion_point(field_release:c_shuttle_lobby.exchange_key_rq.public_key)
+  clear_has_public_key();
+  return public_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void exchange_key_rq::set_allocated_n(::std::string* n) {
-  if (n != NULL) {
-    set_has_n();
+inline void exchange_key_rq::set_allocated_public_key(::std::string* public_key) {
+  if (public_key != NULL) {
+    set_has_public_key();
   } else {
-    clear_has_n();
+    clear_has_public_key();
   }
-  n_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), n);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rq.n)
+  public_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), public_key);
+  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rq.public_key)
 }
 
-// required bytes e = 2;
-inline bool exchange_key_rq::has_e() const {
+// required bytes encrypt_key_l = 2;
+inline bool exchange_key_rq::has_encrypt_key_l() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void exchange_key_rq::set_has_e() {
+inline void exchange_key_rq::set_has_encrypt_key_l() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void exchange_key_rq::clear_has_e() {
+inline void exchange_key_rq::clear_has_encrypt_key_l() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void exchange_key_rq::clear_e() {
-  e_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_e();
+inline void exchange_key_rq::clear_encrypt_key_l() {
+  encrypt_key_l_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_encrypt_key_l();
 }
-inline const ::std::string& exchange_key_rq::e() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_lobby.exchange_key_rq.e)
-  return e_.GetNoArena();
+inline const ::std::string& exchange_key_rq::encrypt_key_l() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
+  return encrypt_key_l_.GetNoArena();
 }
-inline void exchange_key_rq::set_e(const ::std::string& value) {
-  set_has_e();
-  e_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_lobby.exchange_key_rq.e)
+inline void exchange_key_rq::set_encrypt_key_l(const ::std::string& value) {
+  set_has_encrypt_key_l();
+  encrypt_key_l_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
 }
 #if LANG_CXX11
-inline void exchange_key_rq::set_e(::std::string&& value) {
-  set_has_e();
-  e_.SetNoArena(
+inline void exchange_key_rq::set_encrypt_key_l(::std::string&& value) {
+  set_has_encrypt_key_l();
+  encrypt_key_l_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.exchange_key_rq.e)
+  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
 }
 #endif
-inline void exchange_key_rq::set_e(const char* value) {
+inline void exchange_key_rq::set_encrypt_key_l(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_e();
-  e_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.exchange_key_rq.e)
+  set_has_encrypt_key_l();
+  encrypt_key_l_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
 }
-inline void exchange_key_rq::set_e(const void* value, size_t size) {
-  set_has_e();
-  e_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void exchange_key_rq::set_encrypt_key_l(const void* value, size_t size) {
+  set_has_encrypt_key_l();
+  encrypt_key_l_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.exchange_key_rq.e)
+  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
 }
-inline ::std::string* exchange_key_rq::mutable_e() {
-  set_has_e();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.exchange_key_rq.e)
-  return e_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* exchange_key_rq::mutable_encrypt_key_l() {
+  set_has_encrypt_key_l();
+  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
+  return encrypt_key_l_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* exchange_key_rq::release_e() {
-  // @@protoc_insertion_point(field_release:c_shuttle_lobby.exchange_key_rq.e)
-  clear_has_e();
-  return e_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* exchange_key_rq::release_encrypt_key_l() {
+  // @@protoc_insertion_point(field_release:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
+  clear_has_encrypt_key_l();
+  return encrypt_key_l_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void exchange_key_rq::set_allocated_e(::std::string* e) {
-  if (e != NULL) {
-    set_has_e();
+inline void exchange_key_rq::set_allocated_encrypt_key_l(::std::string* encrypt_key_l) {
+  if (encrypt_key_l != NULL) {
+    set_has_encrypt_key_l();
   } else {
-    clear_has_e();
+    clear_has_encrypt_key_l();
   }
-  e_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), e);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rq.e)
+  encrypt_key_l_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), encrypt_key_l);
+  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rq.encrypt_key_l)
 }
 
 // required uint32 version = 3 [default = 0];
@@ -1339,67 +1303,67 @@ inline void exchange_key_rs::set_allocated_error(::b_error::info* error) {
   // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rs.error)
 }
 
-// required bytes key = 2;
-inline bool exchange_key_rs::has_key() const {
+// required bytes encrypt_key_r = 2;
+inline bool exchange_key_rs::has_encrypt_key_r() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void exchange_key_rs::set_has_key() {
+inline void exchange_key_rs::set_has_encrypt_key_r() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void exchange_key_rs::clear_has_key() {
+inline void exchange_key_rs::clear_has_encrypt_key_r() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void exchange_key_rs::clear_key() {
-  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_key();
+inline void exchange_key_rs::clear_encrypt_key_r() {
+  encrypt_key_r_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_encrypt_key_r();
 }
-inline const ::std::string& exchange_key_rs::key() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_lobby.exchange_key_rs.key)
-  return key_.GetNoArena();
+inline const ::std::string& exchange_key_rs::encrypt_key_r() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
+  return encrypt_key_r_.GetNoArena();
 }
-inline void exchange_key_rs::set_key(const ::std::string& value) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_lobby.exchange_key_rs.key)
+inline void exchange_key_rs::set_encrypt_key_r(const ::std::string& value) {
+  set_has_encrypt_key_r();
+  encrypt_key_r_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
 }
 #if LANG_CXX11
-inline void exchange_key_rs::set_key(::std::string&& value) {
-  set_has_key();
-  key_.SetNoArena(
+inline void exchange_key_rs::set_encrypt_key_r(::std::string&& value) {
+  set_has_encrypt_key_r();
+  encrypt_key_r_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.exchange_key_rs.key)
+  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
 }
 #endif
-inline void exchange_key_rs::set_key(const char* value) {
+inline void exchange_key_rs::set_encrypt_key_r(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.exchange_key_rs.key)
+  set_has_encrypt_key_r();
+  encrypt_key_r_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
 }
-inline void exchange_key_rs::set_key(const void* value, size_t size) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void exchange_key_rs::set_encrypt_key_r(const void* value, size_t size) {
+  set_has_encrypt_key_r();
+  encrypt_key_r_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.exchange_key_rs.key)
+  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
 }
-inline ::std::string* exchange_key_rs::mutable_key() {
-  set_has_key();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.exchange_key_rs.key)
-  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* exchange_key_rs::mutable_encrypt_key_r() {
+  set_has_encrypt_key_r();
+  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
+  return encrypt_key_r_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* exchange_key_rs::release_key() {
-  // @@protoc_insertion_point(field_release:c_shuttle_lobby.exchange_key_rs.key)
-  clear_has_key();
-  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* exchange_key_rs::release_encrypt_key_r() {
+  // @@protoc_insertion_point(field_release:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
+  clear_has_encrypt_key_r();
+  return encrypt_key_r_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void exchange_key_rs::set_allocated_key(::std::string* key) {
-  if (key != NULL) {
-    set_has_key();
+inline void exchange_key_rs::set_allocated_encrypt_key_r(::std::string* encrypt_key_r) {
+  if (encrypt_key_r != NULL) {
+    set_has_encrypt_key_r();
   } else {
-    clear_has_key();
+    clear_has_encrypt_key_r();
   }
-  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rs.key)
+  encrypt_key_r_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), encrypt_key_r);
+  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.exchange_key_rs.encrypt_key_r)
 }
 
 // -------------------------------------------------------------------
@@ -1635,13 +1599,13 @@ inline void token_verify_rs::set_allocated_token(::std::string* token) {
 
 // required uint64 uid = 1 [default = 0];
 inline bool heartbeat_rq::has_uid() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void heartbeat_rq::set_has_uid() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void heartbeat_rq::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void heartbeat_rq::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
@@ -1657,78 +1621,15 @@ inline void heartbeat_rq::set_uid(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:c_shuttle_lobby.heartbeat_rq.uid)
 }
 
-// required string token = 2 [default = ""];
-inline bool heartbeat_rq::has_token() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void heartbeat_rq::set_has_token() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void heartbeat_rq::clear_has_token() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void heartbeat_rq::clear_token() {
-  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_token();
-}
-inline const ::std::string& heartbeat_rq::token() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_lobby.heartbeat_rq.token)
-  return token_.GetNoArena();
-}
-inline void heartbeat_rq::set_token(const ::std::string& value) {
-  set_has_token();
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_lobby.heartbeat_rq.token)
-}
-#if LANG_CXX11
-inline void heartbeat_rq::set_token(::std::string&& value) {
-  set_has_token();
-  token_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.heartbeat_rq.token)
-}
-#endif
-inline void heartbeat_rq::set_token(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_token();
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.heartbeat_rq.token)
-}
-inline void heartbeat_rq::set_token(const char* value, size_t size) {
-  set_has_token();
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.heartbeat_rq.token)
-}
-inline ::std::string* heartbeat_rq::mutable_token() {
-  set_has_token();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.heartbeat_rq.token)
-  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* heartbeat_rq::release_token() {
-  // @@protoc_insertion_point(field_release:c_shuttle_lobby.heartbeat_rq.token)
-  clear_has_token();
-  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void heartbeat_rq::set_allocated_token(::std::string* token) {
-  if (token != NULL) {
-    set_has_token();
-  } else {
-    clear_has_token();
-  }
-  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.heartbeat_rq.token)
-}
-
-// required uint64 timecode_native = 3 [default = 0];
+// required uint64 timecode_native = 2 [default = 0];
 inline bool heartbeat_rq::has_timecode_native() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void heartbeat_rq::set_has_timecode_native() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void heartbeat_rq::clear_has_timecode_native() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void heartbeat_rq::clear_timecode_native() {
   timecode_native_ = GOOGLE_ULONGLONG(0);
@@ -1744,15 +1645,15 @@ inline void heartbeat_rq::set_timecode_native(::google::protobuf::uint64 value) 
   // @@protoc_insertion_point(field_set:c_shuttle_lobby.heartbeat_rq.timecode_native)
 }
 
-// required .b_math.coord coord_info = 4;
+// required .b_math.coord coord_info = 3;
 inline bool heartbeat_rq::has_coord_info() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void heartbeat_rq::set_has_coord_info() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void heartbeat_rq::clear_has_coord_info() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void heartbeat_rq::clear_coord_info() {
   if (coord_info_ != NULL) coord_info_->::b_math::coord::Clear();
@@ -1795,13 +1696,13 @@ inline void heartbeat_rq::set_allocated_coord_info(::b_math::coord* coord_info) 
 
 // required .b_error.info error = 1;
 inline bool heartbeat_rs::has_error() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void heartbeat_rs::set_has_error() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void heartbeat_rs::clear_has_error() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void heartbeat_rs::clear_error() {
   if (error_ != NULL) error_->::b_error::info::Clear();
@@ -1840,13 +1741,13 @@ inline void heartbeat_rs::set_allocated_error(::b_error::info* error) {
 
 // required uint64 uid = 2 [default = 0];
 inline bool heartbeat_rs::has_uid() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void heartbeat_rs::set_has_uid() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void heartbeat_rs::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void heartbeat_rs::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
@@ -1862,78 +1763,15 @@ inline void heartbeat_rs::set_uid(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:c_shuttle_lobby.heartbeat_rs.uid)
 }
 
-// required string token = 3 [default = ""];
-inline bool heartbeat_rs::has_token() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void heartbeat_rs::set_has_token() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void heartbeat_rs::clear_has_token() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void heartbeat_rs::clear_token() {
-  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_token();
-}
-inline const ::std::string& heartbeat_rs::token() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_lobby.heartbeat_rs.token)
-  return token_.GetNoArena();
-}
-inline void heartbeat_rs::set_token(const ::std::string& value) {
-  set_has_token();
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_lobby.heartbeat_rs.token)
-}
-#if LANG_CXX11
-inline void heartbeat_rs::set_token(::std::string&& value) {
-  set_has_token();
-  token_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_lobby.heartbeat_rs.token)
-}
-#endif
-inline void heartbeat_rs::set_token(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_token();
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_lobby.heartbeat_rs.token)
-}
-inline void heartbeat_rs::set_token(const char* value, size_t size) {
-  set_has_token();
-  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_lobby.heartbeat_rs.token)
-}
-inline ::std::string* heartbeat_rs::mutable_token() {
-  set_has_token();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_lobby.heartbeat_rs.token)
-  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* heartbeat_rs::release_token() {
-  // @@protoc_insertion_point(field_release:c_shuttle_lobby.heartbeat_rs.token)
-  clear_has_token();
-  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void heartbeat_rs::set_allocated_token(::std::string* token) {
-  if (token != NULL) {
-    set_has_token();
-  } else {
-    clear_has_token();
-  }
-  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.heartbeat_rs.token)
-}
-
-// required uint64 timecode_native = 4 [default = 0];
+// required uint64 timecode_native = 3 [default = 0];
 inline bool heartbeat_rs::has_timecode_native() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void heartbeat_rs::set_has_timecode_native() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void heartbeat_rs::clear_has_timecode_native() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void heartbeat_rs::clear_timecode_native() {
   timecode_native_ = GOOGLE_ULONGLONG(0);
@@ -1949,15 +1787,15 @@ inline void heartbeat_rs::set_timecode_native(::google::protobuf::uint64 value) 
   // @@protoc_insertion_point(field_set:c_shuttle_lobby.heartbeat_rs.timecode_native)
 }
 
-// required .b_math.coord coord_info = 5;
+// required .b_math.coord coord_info = 4;
 inline bool heartbeat_rs::has_coord_info() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void heartbeat_rs::set_has_coord_info() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void heartbeat_rs::clear_has_coord_info() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void heartbeat_rs::clear_coord_info() {
   if (coord_info_ != NULL) coord_info_->::b_math::coord::Clear();

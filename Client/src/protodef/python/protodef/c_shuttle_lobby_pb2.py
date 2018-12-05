@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='c_shuttle_lobby.proto',
   package='c_shuttle_lobby',
   syntax='proto2',
-  serialized_pb=_b('\n\x15\x63_shuttle_lobby.proto\x12\x0f\x63_shuttle_lobby\x1a\rb_error.proto\x1a\x0c\x62_math.proto\"M\n\x0f\x65xchange_key_rq\x12\t\n\x01n\x18\x01 \x02(\x0c\x12\t\n\x01\x65\x18\x02 \x02(\x0c\x12\x12\n\x07version\x18\x03 \x02(\r:\x01\x30\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa2\x80\x10\"N\n\x0f\x65xchange_key_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0b\n\x03key\x18\x02 \x02(\x0c\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xa2\x80\x10\"D\n\x0ftoken_verify_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x02 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x82\xa2\x80\x10\"b\n\x0ftoken_verify_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x03 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x83\xa2\x80\x10\"\x80\x01\n\x0cheartbeat_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x02 \x02(\t:\x00\x12\x1a\n\x0ftimecode_native\x18\x03 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x04 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x84\xa2\x80\x10\"\x9e\x01\n\x0cheartbeat_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x03 \x02(\t:\x00\x12\x1a\n\x0ftimecode_native\x18\x04 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x05 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x85\xa2\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xa2\x80\x10\x12\r\n\x06max_id\x10\xff\xa3\x80\x10\x42Z\n\x08protodefB\x0f\x63_shuttle_lobbyZ\x18protodef/c_shuttle_lobby\xa2\x02\x10\x43_shuttle_lobby_\xaa\x02\x0f\x63_shuttle_lobby')
+  serialized_pb=_b('\n\x15\x63_shuttle_lobby.proto\x12\x0f\x63_shuttle_lobby\x1a\rb_error.proto\x1a\x0c\x62_math.proto\"b\n\x0f\x65xchange_key_rq\x12\x12\n\npublic_key\x18\x01 \x02(\x0c\x12\x15\n\rencrypt_key_l\x18\x02 \x02(\x0c\x12\x12\n\x07version\x18\x03 \x02(\r:\x01\x30\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa2\x80\x10\"X\n\x0f\x65xchange_key_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x15\n\rencrypt_key_r\x18\x02 \x02(\x0c\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xa2\x80\x10\"D\n\x0ftoken_verify_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x02 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x82\xa2\x80\x10\"b\n\x0ftoken_verify_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x03 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x83\xa2\x80\x10\"o\n\x0cheartbeat_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_native\x18\x02 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x03 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x84\xa2\x80\x10\"\x8d\x01\n\x0cheartbeat_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_native\x18\x03 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x04 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x85\xa2\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xa2\x80\x10\x12\r\n\x06max_id\x10\xff\xa3\x80\x10\x42Z\n\x08protodefB\x0f\x63_shuttle_lobbyZ\x18protodef/c_shuttle_lobby\xa2\x02\x10\x43_shuttle_lobby_\xaa\x02\x0f\x63_shuttle_lobby')
   ,
   dependencies=[b__error__pb2.DESCRIPTOR,b__math__pb2.DESCRIPTOR,])
 
@@ -43,8 +43,8 @@ _MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=692,
-  serialized_end=727,
+  serialized_start=688,
+  serialized_end=723,
 )
 _sym_db.RegisterEnumDescriptor(_MSG)
 
@@ -66,8 +66,8 @@ _EXCHANGE_KEY_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=132,
-  serialized_end=148,
+  serialized_start=153,
+  serialized_end=169,
 )
 _sym_db.RegisterEnumDescriptor(_EXCHANGE_KEY_RQ_MSG)
 
@@ -84,8 +84,8 @@ _EXCHANGE_KEY_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=212,
-  serialized_end=228,
+  serialized_start=243,
+  serialized_end=259,
 )
 _sym_db.RegisterEnumDescriptor(_EXCHANGE_KEY_RS_MSG)
 
@@ -102,8 +102,8 @@ _TOKEN_VERIFY_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=282,
-  serialized_end=298,
+  serialized_start=313,
+  serialized_end=329,
 )
 _sym_db.RegisterEnumDescriptor(_TOKEN_VERIFY_RQ_MSG)
 
@@ -120,8 +120,8 @@ _TOKEN_VERIFY_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=382,
-  serialized_end=398,
+  serialized_start=413,
+  serialized_end=429,
 )
 _sym_db.RegisterEnumDescriptor(_TOKEN_VERIFY_RS_MSG)
 
@@ -138,8 +138,8 @@ _HEARTBEAT_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=513,
-  serialized_end=529,
+  serialized_start=526,
+  serialized_end=542,
 )
 _sym_db.RegisterEnumDescriptor(_HEARTBEAT_RQ_MSG)
 
@@ -156,8 +156,8 @@ _HEARTBEAT_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=674,
-  serialized_end=690,
+  serialized_start=670,
+  serialized_end=686,
 )
 _sym_db.RegisterEnumDescriptor(_HEARTBEAT_RS_MSG)
 
@@ -170,14 +170,14 @@ _EXCHANGE_KEY_RQ = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='n', full_name='c_shuttle_lobby.exchange_key_rq.n', index=0,
+      name='public_key', full_name='c_shuttle_lobby.exchange_key_rq.public_key', index=0,
       number=1, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='e', full_name='c_shuttle_lobby.exchange_key_rq.e', index=1,
+      name='encrypt_key_l', full_name='c_shuttle_lobby.exchange_key_rq.encrypt_key_l', index=1,
       number=2, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -204,7 +204,7 @@ _EXCHANGE_KEY_RQ = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=71,
-  serialized_end=148,
+  serialized_end=169,
 )
 
 
@@ -223,7 +223,7 @@ _EXCHANGE_KEY_RS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='key', full_name='c_shuttle_lobby.exchange_key_rs.key', index=1,
+      name='encrypt_key_r', full_name='c_shuttle_lobby.exchange_key_rs.encrypt_key_r', index=1,
       number=2, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -242,8 +242,8 @@ _EXCHANGE_KEY_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=150,
-  serialized_end=228,
+  serialized_start=171,
+  serialized_end=259,
 )
 
 
@@ -281,8 +281,8 @@ _TOKEN_VERIFY_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=230,
-  serialized_end=298,
+  serialized_start=261,
+  serialized_end=329,
 )
 
 
@@ -327,8 +327,8 @@ _TOKEN_VERIFY_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=300,
-  serialized_end=398,
+  serialized_start=331,
+  serialized_end=429,
 )
 
 
@@ -347,22 +347,15 @@ _HEARTBEAT_RQ = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='token', full_name='c_shuttle_lobby.heartbeat_rq.token', index=1,
-      number=2, type=9, cpp_type=9, label=2,
-      has_default_value=True, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='timecode_native', full_name='c_shuttle_lobby.heartbeat_rq.timecode_native', index=2,
-      number=3, type=4, cpp_type=4, label=2,
+      name='timecode_native', full_name='c_shuttle_lobby.heartbeat_rq.timecode_native', index=1,
+      number=2, type=4, cpp_type=4, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='coord_info', full_name='c_shuttle_lobby.heartbeat_rq.coord_info', index=3,
-      number=4, type=11, cpp_type=10, label=2,
+      name='coord_info', full_name='c_shuttle_lobby.heartbeat_rq.coord_info', index=2,
+      number=3, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -380,8 +373,8 @@ _HEARTBEAT_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=401,
-  serialized_end=529,
+  serialized_start=431,
+  serialized_end=542,
 )
 
 
@@ -407,22 +400,15 @@ _HEARTBEAT_RS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='token', full_name='c_shuttle_lobby.heartbeat_rs.token', index=2,
-      number=3, type=9, cpp_type=9, label=2,
-      has_default_value=True, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='timecode_native', full_name='c_shuttle_lobby.heartbeat_rs.timecode_native', index=3,
-      number=4, type=4, cpp_type=4, label=2,
+      name='timecode_native', full_name='c_shuttle_lobby.heartbeat_rs.timecode_native', index=2,
+      number=3, type=4, cpp_type=4, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='coord_info', full_name='c_shuttle_lobby.heartbeat_rs.coord_info', index=4,
-      number=5, type=11, cpp_type=10, label=2,
+      name='coord_info', full_name='c_shuttle_lobby.heartbeat_rs.coord_info', index=3,
+      number=4, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -440,8 +426,8 @@ _HEARTBEAT_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=532,
-  serialized_end=690,
+  serialized_start=545,
+  serialized_end=686,
 )
 
 _EXCHANGE_KEY_RQ_MSG.containing_type = _EXCHANGE_KEY_RQ

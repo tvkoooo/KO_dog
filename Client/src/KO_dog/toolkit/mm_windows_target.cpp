@@ -127,6 +127,7 @@ void mm_windows_target_terminate(struct mm_windows_target* p)
 	_imageMgr.destroy(*p->d_image);
 	CEGUI::CEGUIOgreRenderer* _ogre_renderer = p->d_cegui_system->get_ogre_renderer();
 	_ogre_renderer->destroyTextureTarget(p->d_cegui_texture_target);
+	p->d_ogre_texture = Ogre::TexturePtr();
 
 	//CEGUI::ImageManager& _imageMgr = CEGUI::ImageManager::getSingleton();
 	//_imageMgr.destroy(*p->d_image);

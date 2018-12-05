@@ -1,4 +1,4 @@
-#include "lj_KO_dog_jiemian.h"
+#include "KO_dog_jiemian.h"
 
 
 #include "CEGUI/System.h"
@@ -9,7 +9,7 @@
 
 namespace mm
 {
-	lj_KO_dog_jiemian::lj_KO_dog_jiemian()
+	KO_dog_jiemian::KO_dog_jiemian()
 		: d_flake_context(NULL)
 		, d_surface(NULL)
 
@@ -17,16 +17,16 @@ namespace mm
 
 	}
 
-	lj_KO_dog_jiemian::~lj_KO_dog_jiemian()
+	KO_dog_jiemian::~KO_dog_jiemian()
 	{
 
 	}
-	void lj_KO_dog_jiemian::assign_flake_context(mm_flake_context* flake_context)
+	void KO_dog_jiemian::assign_flake_context(mm_flake_context* flake_context)
 	{
 		this->d_flake_context = flake_context;
 	}
 
-	void lj_KO_dog_jiemian::on_finish_launching(mm_flake_surface* surface)
+	void KO_dog_jiemian::on_finish_launching(mm_flake_surface* surface)
 	{
 		this->d_surface = surface;
 		/////////////////////////////////////////////////////////////////////
@@ -71,7 +71,7 @@ namespace mm
 		this->zhujiemian.on_finish_launching();
 
 	}
-	void lj_KO_dog_jiemian::on_before_terminate(mm_flake_surface* surface)
+	void KO_dog_jiemian::on_before_terminate(mm_flake_surface* surface)
 	{
 		this->zhujiemian.on_before_terminate();
 		struct mm_logger* g_logger = mm_logger_instance();

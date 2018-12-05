@@ -17,7 +17,7 @@ void network_entry_callback_function_registration(struct KO_dog_network* p)
 }
 
 //udp/////////////////////////////////////////////////////////////////////////////////
-void mm_client_udp_flush_send_knock_rq_msg_id(struct mm_client_udp* p)
+void mm_client_udp_flush_send_knock_rq(struct mm_client_udp* p)
 {
 	c_shuttle_entry::knock_rq knock_rq;
 	b_math::coord* coord_info = knock_rq.mutable_coord_info();
@@ -54,7 +54,7 @@ void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pac
 		mm_logger_log_I(g_logger, "%s %d %s", __FUNCTION__, __LINE__, proto_desc.s);
 		//////////////////////////////////////////////////////////////////////////
 		// 回包逻辑错误
-		const b_network::address& g = rs_msg.addr();
+		
 		if (0 != error_info->code())
 		{
 			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());	
@@ -68,11 +68,18 @@ void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pac
 			data_log_view->d_event_set.fire_event(mm::KO_dog_data_log_view::event_log_view, evt_ags);
 		}
 		else
-		{			
+		{	
+			const b_network::address& g = rs_msg.addr();
 			//数据更新
 			mm::KO_dog_data_net* data_net = &impl->data.data_net;
-			data_net->lobby_ip = g.host();
-			data_net->lobby_port = g.port();
+			struct mm_openssl_rsa* p_rsa_server = &data_net->lobby_tcps.openssl_rsa_server;
+			data_net->lobby.ip = g.host();
+			data_net->lobby.port = g.port();
+			//存放entry 返回的rsa公钥
+			const std::string& server_rsa_public_key = rs_msg.public_key();
+			mm_openssl_rsa_pub_mem_set(p_rsa_server, (mm_uint8_t*)server_rsa_public_key.data(), 0, server_rsa_public_key.size());
+			mm_openssl_rsa_pub_mem_to_ctx(p_rsa_server);
+
 			//
 			//数据更新以后的事件发布    发布内容  evt_ags
 			mm_event_args evt_ags;

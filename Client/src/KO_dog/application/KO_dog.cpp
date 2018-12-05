@@ -32,7 +32,7 @@
 
 #include "core/mm_file_system.h"
 
-#include "lj_KO_dog_test_setup.h"
+#include "KO_dog_test_setup.h"
 #include "network/network_entry.h"
 
 //////////////////////////////////////////////////////////////////////////

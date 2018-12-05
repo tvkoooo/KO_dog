@@ -65,12 +65,6 @@ class addressDefaultTypeInternal;
 extern addressDefaultTypeInternal _address_default_instance_;
 }  // namespace b_network
 namespace c_shuttle_entry {
-class exchange_key_rq;
-class exchange_key_rqDefaultTypeInternal;
-extern exchange_key_rqDefaultTypeInternal _exchange_key_rq_default_instance_;
-class exchange_key_rs;
-class exchange_key_rsDefaultTypeInternal;
-extern exchange_key_rsDefaultTypeInternal _exchange_key_rs_default_instance_;
 class knock_rq;
 class knock_rqDefaultTypeInternal;
 extern knock_rqDefaultTypeInternal _knock_rq_default_instance_;
@@ -130,42 +124,6 @@ inline bool knock_rs_msg_Parse(
     const ::std::string& name, knock_rs_msg* value) {
   return ::google::protobuf::internal::ParseNamedEnum<knock_rs_msg>(
     knock_rs_msg_descriptor(), name, value);
-}
-enum exchange_key_rq_msg {
-  exchange_key_rq_msg_id = 33558544
-};
-bool exchange_key_rq_msg_IsValid(int value);
-const exchange_key_rq_msg exchange_key_rq_msg_msg_MIN = exchange_key_rq_msg_id;
-const exchange_key_rq_msg exchange_key_rq_msg_msg_MAX = exchange_key_rq_msg_id;
-const int exchange_key_rq_msg_msg_ARRAYSIZE = exchange_key_rq_msg_msg_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* exchange_key_rq_msg_descriptor();
-inline const ::std::string& exchange_key_rq_msg_Name(exchange_key_rq_msg value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    exchange_key_rq_msg_descriptor(), value);
-}
-inline bool exchange_key_rq_msg_Parse(
-    const ::std::string& name, exchange_key_rq_msg* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<exchange_key_rq_msg>(
-    exchange_key_rq_msg_descriptor(), name, value);
-}
-enum exchange_key_rs_msg {
-  exchange_key_rs_msg_id = 33558545
-};
-bool exchange_key_rs_msg_IsValid(int value);
-const exchange_key_rs_msg exchange_key_rs_msg_msg_MIN = exchange_key_rs_msg_id;
-const exchange_key_rs_msg exchange_key_rs_msg_msg_MAX = exchange_key_rs_msg_id;
-const int exchange_key_rs_msg_msg_ARRAYSIZE = exchange_key_rs_msg_msg_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* exchange_key_rs_msg_descriptor();
-inline const ::std::string& exchange_key_rs_msg_Name(exchange_key_rs_msg value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    exchange_key_rs_msg_descriptor(), value);
-}
-inline bool exchange_key_rs_msg_Parse(
-    const ::std::string& name, exchange_key_rs_msg* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<exchange_key_rs_msg>(
-    exchange_key_rs_msg_descriptor(), name, value);
 }
 enum msg {
   min_id = 33558528,
@@ -441,10 +399,25 @@ class knock_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string remote_client_version = 3 [default = ""];
+  // required bytes public_key = 3;
+  bool has_public_key() const;
+  void clear_public_key();
+  static const int kPublicKeyFieldNumber = 3;
+  const ::std::string& public_key() const;
+  void set_public_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_public_key(::std::string&& value);
+  #endif
+  void set_public_key(const char* value);
+  void set_public_key(const void* value, size_t size);
+  ::std::string* mutable_public_key();
+  ::std::string* release_public_key();
+  void set_allocated_public_key(::std::string* public_key);
+
+  // required string remote_client_version = 4 [default = ""];
   bool has_remote_client_version() const;
   void clear_remote_client_version();
-  static const int kRemoteClientVersionFieldNumber = 3;
+  static const int kRemoteClientVersionFieldNumber = 4;
   const ::std::string& remote_client_version() const;
   void set_remote_client_version(const ::std::string& value);
   #if LANG_CXX11
@@ -456,10 +429,10 @@ class knock_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_remote_client_version();
   void set_allocated_remote_client_version(::std::string* remote_client_version);
 
-  // required string remote_source_version = 4 [default = ""];
+  // required string remote_source_version = 5 [default = ""];
   bool has_remote_source_version() const;
   void clear_remote_source_version();
-  static const int kRemoteSourceVersionFieldNumber = 4;
+  static const int kRemoteSourceVersionFieldNumber = 5;
   const ::std::string& remote_source_version() const;
   void set_remote_source_version(const ::std::string& value);
   #if LANG_CXX11
@@ -471,10 +444,10 @@ class knock_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_remote_source_version();
   void set_allocated_remote_source_version(::std::string* remote_source_version);
 
-  // required string remote_server_version = 5 [default = ""];
+  // required string remote_server_version = 6 [default = ""];
   bool has_remote_server_version() const;
   void clear_remote_server_version();
-  static const int kRemoteServerVersionFieldNumber = 5;
+  static const int kRemoteServerVersionFieldNumber = 6;
   const ::std::string& remote_server_version() const;
   void set_remote_server_version(const ::std::string& value);
   #if LANG_CXX11
@@ -510,6 +483,8 @@ class knock_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(
   void clear_has_error();
   void set_has_addr();
   void clear_has_addr();
+  void set_has_public_key();
+  void clear_has_public_key();
   void set_has_remote_client_version();
   void clear_has_remote_client_version();
   void set_has_remote_source_version();
@@ -523,305 +498,12 @@ class knock_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr public_key_;
   ::google::protobuf::internal::ArenaStringPtr remote_client_version_;
   ::google::protobuf::internal::ArenaStringPtr remote_source_version_;
   ::google::protobuf::internal::ArenaStringPtr remote_server_version_;
   ::b_error::info* error_;
   ::b_network::address* addr_;
-  friend struct protobuf_c_5fshuttle_5fentry_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class exchange_key_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_shuttle_entry.exchange_key_rq) */ {
- public:
-  exchange_key_rq();
-  virtual ~exchange_key_rq();
-
-  exchange_key_rq(const exchange_key_rq& from);
-
-  inline exchange_key_rq& operator=(const exchange_key_rq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const exchange_key_rq& default_instance();
-
-  static inline const exchange_key_rq* internal_default_instance() {
-    return reinterpret_cast<const exchange_key_rq*>(
-               &_exchange_key_rq_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
-
-  void Swap(exchange_key_rq* other);
-
-  // implements Message ----------------------------------------------
-
-  inline exchange_key_rq* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  exchange_key_rq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const exchange_key_rq& from);
-  void MergeFrom(const exchange_key_rq& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(exchange_key_rq* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  typedef exchange_key_rq_msg msg;
-  static const msg id =
-    exchange_key_rq_msg_id;
-  static inline bool msg_IsValid(int value) {
-    return exchange_key_rq_msg_IsValid(value);
-  }
-  static const msg msg_MIN =
-    exchange_key_rq_msg_msg_MIN;
-  static const msg msg_MAX =
-    exchange_key_rq_msg_msg_MAX;
-  static const int msg_ARRAYSIZE =
-    exchange_key_rq_msg_msg_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  msg_descriptor() {
-    return exchange_key_rq_msg_descriptor();
-  }
-  static inline const ::std::string& msg_Name(msg value) {
-    return exchange_key_rq_msg_Name(value);
-  }
-  static inline bool msg_Parse(const ::std::string& name,
-      msg* value) {
-    return exchange_key_rq_msg_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // required bytes n = 1;
-  bool has_n() const;
-  void clear_n();
-  static const int kNFieldNumber = 1;
-  const ::std::string& n() const;
-  void set_n(const ::std::string& value);
-  #if LANG_CXX11
-  void set_n(::std::string&& value);
-  #endif
-  void set_n(const char* value);
-  void set_n(const void* value, size_t size);
-  ::std::string* mutable_n();
-  ::std::string* release_n();
-  void set_allocated_n(::std::string* n);
-
-  // required bytes e = 2;
-  bool has_e() const;
-  void clear_e();
-  static const int kEFieldNumber = 2;
-  const ::std::string& e() const;
-  void set_e(const ::std::string& value);
-  #if LANG_CXX11
-  void set_e(::std::string&& value);
-  #endif
-  void set_e(const char* value);
-  void set_e(const void* value, size_t size);
-  ::std::string* mutable_e();
-  ::std::string* release_e();
-  void set_allocated_e(::std::string* e);
-
-  // required uint32 version = 3 [default = 0];
-  bool has_version() const;
-  void clear_version();
-  static const int kVersionFieldNumber = 3;
-  ::google::protobuf::uint32 version() const;
-  void set_version(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:c_shuttle_entry.exchange_key_rq)
- private:
-  void set_has_n();
-  void clear_has_n();
-  void set_has_e();
-  void clear_has_e();
-  void set_has_version();
-  void clear_has_version();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr n_;
-  ::google::protobuf::internal::ArenaStringPtr e_;
-  ::google::protobuf::uint32 version_;
-  friend struct protobuf_c_5fshuttle_5fentry_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class exchange_key_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_shuttle_entry.exchange_key_rs) */ {
- public:
-  exchange_key_rs();
-  virtual ~exchange_key_rs();
-
-  exchange_key_rs(const exchange_key_rs& from);
-
-  inline exchange_key_rs& operator=(const exchange_key_rs& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const exchange_key_rs& default_instance();
-
-  static inline const exchange_key_rs* internal_default_instance() {
-    return reinterpret_cast<const exchange_key_rs*>(
-               &_exchange_key_rs_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
-
-  void Swap(exchange_key_rs* other);
-
-  // implements Message ----------------------------------------------
-
-  inline exchange_key_rs* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  exchange_key_rs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const exchange_key_rs& from);
-  void MergeFrom(const exchange_key_rs& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(exchange_key_rs* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  typedef exchange_key_rs_msg msg;
-  static const msg id =
-    exchange_key_rs_msg_id;
-  static inline bool msg_IsValid(int value) {
-    return exchange_key_rs_msg_IsValid(value);
-  }
-  static const msg msg_MIN =
-    exchange_key_rs_msg_msg_MIN;
-  static const msg msg_MAX =
-    exchange_key_rs_msg_msg_MAX;
-  static const int msg_ARRAYSIZE =
-    exchange_key_rs_msg_msg_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  msg_descriptor() {
-    return exchange_key_rs_msg_descriptor();
-  }
-  static inline const ::std::string& msg_Name(msg value) {
-    return exchange_key_rs_msg_Name(value);
-  }
-  static inline bool msg_Parse(const ::std::string& name,
-      msg* value) {
-    return exchange_key_rs_msg_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // required bytes key = 2;
-  bool has_key() const;
-  void clear_key();
-  static const int kKeyFieldNumber = 2;
-  const ::std::string& key() const;
-  void set_key(const ::std::string& value);
-  #if LANG_CXX11
-  void set_key(::std::string&& value);
-  #endif
-  void set_key(const char* value);
-  void set_key(const void* value, size_t size);
-  ::std::string* mutable_key();
-  ::std::string* release_key();
-  void set_allocated_key(::std::string* key);
-
-  // required .b_error.info error = 1;
-  bool has_error() const;
-  void clear_error();
-  static const int kErrorFieldNumber = 1;
-  const ::b_error::info& error() const;
-  ::b_error::info* mutable_error();
-  ::b_error::info* release_error();
-  void set_allocated_error(::b_error::info* error);
-
-  // @@protoc_insertion_point(class_scope:c_shuttle_entry.exchange_key_rs)
- private:
-  void set_has_error();
-  void clear_has_error();
-  void set_has_key();
-  void clear_has_key();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr key_;
-  ::b_error::info* error_;
   friend struct protobuf_c_5fshuttle_5fentry_2eproto::TableStruct;
 };
 // ===================================================================
@@ -1009,13 +691,13 @@ inline void knock_rq::set_allocated_coord_info(::b_math::coord* coord_info) {
 
 // required .b_error.info error = 1;
 inline bool knock_rs::has_error() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void knock_rs::set_has_error() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void knock_rs::clear_has_error() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void knock_rs::clear_error() {
   if (error_ != NULL) error_->::b_error::info::Clear();
@@ -1054,13 +736,13 @@ inline void knock_rs::set_allocated_error(::b_error::info* error) {
 
 // required .b_network.address addr = 2;
 inline bool knock_rs::has_addr() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void knock_rs::set_has_addr() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void knock_rs::clear_has_addr() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void knock_rs::clear_addr() {
   if (addr_ != NULL) addr_->::b_network::address::Clear();
@@ -1097,15 +779,78 @@ inline void knock_rs::set_allocated_addr(::b_network::address* addr) {
   // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.knock_rs.addr)
 }
 
-// required string remote_client_version = 3 [default = ""];
-inline bool knock_rs::has_remote_client_version() const {
+// required bytes public_key = 3;
+inline bool knock_rs::has_public_key() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void knock_rs::set_has_remote_client_version() {
+inline void knock_rs::set_has_public_key() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void knock_rs::clear_has_remote_client_version() {
+inline void knock_rs::clear_has_public_key() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void knock_rs::clear_public_key() {
+  public_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_public_key();
+}
+inline const ::std::string& knock_rs::public_key() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_entry.knock_rs.public_key)
+  return public_key_.GetNoArena();
+}
+inline void knock_rs::set_public_key(const ::std::string& value) {
+  set_has_public_key();
+  public_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_shuttle_entry.knock_rs.public_key)
+}
+#if LANG_CXX11
+inline void knock_rs::set_public_key(::std::string&& value) {
+  set_has_public_key();
+  public_key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_entry.knock_rs.public_key)
+}
+#endif
+inline void knock_rs::set_public_key(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_public_key();
+  public_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_shuttle_entry.knock_rs.public_key)
+}
+inline void knock_rs::set_public_key(const void* value, size_t size) {
+  set_has_public_key();
+  public_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_shuttle_entry.knock_rs.public_key)
+}
+inline ::std::string* knock_rs::mutable_public_key() {
+  set_has_public_key();
+  // @@protoc_insertion_point(field_mutable:c_shuttle_entry.knock_rs.public_key)
+  return public_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* knock_rs::release_public_key() {
+  // @@protoc_insertion_point(field_release:c_shuttle_entry.knock_rs.public_key)
+  clear_has_public_key();
+  return public_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void knock_rs::set_allocated_public_key(::std::string* public_key) {
+  if (public_key != NULL) {
+    set_has_public_key();
+  } else {
+    clear_has_public_key();
+  }
+  public_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), public_key);
+  // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.knock_rs.public_key)
+}
+
+// required string remote_client_version = 4 [default = ""];
+inline bool knock_rs::has_remote_client_version() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void knock_rs::set_has_remote_client_version() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void knock_rs::clear_has_remote_client_version() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void knock_rs::clear_remote_client_version() {
   remote_client_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1160,15 +905,15 @@ inline void knock_rs::set_allocated_remote_client_version(::std::string* remote_
   // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.knock_rs.remote_client_version)
 }
 
-// required string remote_source_version = 4 [default = ""];
+// required string remote_source_version = 5 [default = ""];
 inline bool knock_rs::has_remote_source_version() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void knock_rs::set_has_remote_source_version() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void knock_rs::clear_has_remote_source_version() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void knock_rs::clear_remote_source_version() {
   remote_source_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1223,15 +968,15 @@ inline void knock_rs::set_allocated_remote_source_version(::std::string* remote_
   // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.knock_rs.remote_source_version)
 }
 
-// required string remote_server_version = 5 [default = ""];
+// required string remote_server_version = 6 [default = ""];
 inline bool knock_rs::has_remote_server_version() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void knock_rs::set_has_remote_server_version() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void knock_rs::clear_has_remote_server_version() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void knock_rs::clear_remote_server_version() {
   remote_server_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1286,277 +1031,7 @@ inline void knock_rs::set_allocated_remote_server_version(::std::string* remote_
   // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.knock_rs.remote_server_version)
 }
 
-// -------------------------------------------------------------------
-
-// exchange_key_rq
-
-// required bytes n = 1;
-inline bool exchange_key_rq::has_n() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void exchange_key_rq::set_has_n() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void exchange_key_rq::clear_has_n() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void exchange_key_rq::clear_n() {
-  n_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_n();
-}
-inline const ::std::string& exchange_key_rq::n() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_entry.exchange_key_rq.n)
-  return n_.GetNoArena();
-}
-inline void exchange_key_rq::set_n(const ::std::string& value) {
-  set_has_n();
-  n_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_entry.exchange_key_rq.n)
-}
-#if LANG_CXX11
-inline void exchange_key_rq::set_n(::std::string&& value) {
-  set_has_n();
-  n_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_entry.exchange_key_rq.n)
-}
-#endif
-inline void exchange_key_rq::set_n(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_n();
-  n_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_entry.exchange_key_rq.n)
-}
-inline void exchange_key_rq::set_n(const void* value, size_t size) {
-  set_has_n();
-  n_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_entry.exchange_key_rq.n)
-}
-inline ::std::string* exchange_key_rq::mutable_n() {
-  set_has_n();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_entry.exchange_key_rq.n)
-  return n_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* exchange_key_rq::release_n() {
-  // @@protoc_insertion_point(field_release:c_shuttle_entry.exchange_key_rq.n)
-  clear_has_n();
-  return n_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void exchange_key_rq::set_allocated_n(::std::string* n) {
-  if (n != NULL) {
-    set_has_n();
-  } else {
-    clear_has_n();
-  }
-  n_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), n);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.exchange_key_rq.n)
-}
-
-// required bytes e = 2;
-inline bool exchange_key_rq::has_e() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void exchange_key_rq::set_has_e() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void exchange_key_rq::clear_has_e() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void exchange_key_rq::clear_e() {
-  e_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_e();
-}
-inline const ::std::string& exchange_key_rq::e() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_entry.exchange_key_rq.e)
-  return e_.GetNoArena();
-}
-inline void exchange_key_rq::set_e(const ::std::string& value) {
-  set_has_e();
-  e_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_entry.exchange_key_rq.e)
-}
-#if LANG_CXX11
-inline void exchange_key_rq::set_e(::std::string&& value) {
-  set_has_e();
-  e_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_entry.exchange_key_rq.e)
-}
-#endif
-inline void exchange_key_rq::set_e(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_e();
-  e_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_entry.exchange_key_rq.e)
-}
-inline void exchange_key_rq::set_e(const void* value, size_t size) {
-  set_has_e();
-  e_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_entry.exchange_key_rq.e)
-}
-inline ::std::string* exchange_key_rq::mutable_e() {
-  set_has_e();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_entry.exchange_key_rq.e)
-  return e_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* exchange_key_rq::release_e() {
-  // @@protoc_insertion_point(field_release:c_shuttle_entry.exchange_key_rq.e)
-  clear_has_e();
-  return e_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void exchange_key_rq::set_allocated_e(::std::string* e) {
-  if (e != NULL) {
-    set_has_e();
-  } else {
-    clear_has_e();
-  }
-  e_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), e);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.exchange_key_rq.e)
-}
-
-// required uint32 version = 3 [default = 0];
-inline bool exchange_key_rq::has_version() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void exchange_key_rq::set_has_version() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void exchange_key_rq::clear_has_version() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void exchange_key_rq::clear_version() {
-  version_ = 0u;
-  clear_has_version();
-}
-inline ::google::protobuf::uint32 exchange_key_rq::version() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_entry.exchange_key_rq.version)
-  return version_;
-}
-inline void exchange_key_rq::set_version(::google::protobuf::uint32 value) {
-  set_has_version();
-  version_ = value;
-  // @@protoc_insertion_point(field_set:c_shuttle_entry.exchange_key_rq.version)
-}
-
-// -------------------------------------------------------------------
-
-// exchange_key_rs
-
-// required .b_error.info error = 1;
-inline bool exchange_key_rs::has_error() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void exchange_key_rs::set_has_error() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void exchange_key_rs::clear_has_error() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void exchange_key_rs::clear_error() {
-  if (error_ != NULL) error_->::b_error::info::Clear();
-  clear_has_error();
-}
-inline const ::b_error::info& exchange_key_rs::error() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_entry.exchange_key_rs.error)
-  return error_ != NULL ? *error_
-                         : *::b_error::info::internal_default_instance();
-}
-inline ::b_error::info* exchange_key_rs::mutable_error() {
-  set_has_error();
-  if (error_ == NULL) {
-    error_ = new ::b_error::info;
-  }
-  // @@protoc_insertion_point(field_mutable:c_shuttle_entry.exchange_key_rs.error)
-  return error_;
-}
-inline ::b_error::info* exchange_key_rs::release_error() {
-  // @@protoc_insertion_point(field_release:c_shuttle_entry.exchange_key_rs.error)
-  clear_has_error();
-  ::b_error::info* temp = error_;
-  error_ = NULL;
-  return temp;
-}
-inline void exchange_key_rs::set_allocated_error(::b_error::info* error) {
-  delete error_;
-  error_ = error;
-  if (error) {
-    set_has_error();
-  } else {
-    clear_has_error();
-  }
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.exchange_key_rs.error)
-}
-
-// required bytes key = 2;
-inline bool exchange_key_rs::has_key() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void exchange_key_rs::set_has_key() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void exchange_key_rs::clear_has_key() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void exchange_key_rs::clear_key() {
-  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_key();
-}
-inline const ::std::string& exchange_key_rs::key() const {
-  // @@protoc_insertion_point(field_get:c_shuttle_entry.exchange_key_rs.key)
-  return key_.GetNoArena();
-}
-inline void exchange_key_rs::set_key(const ::std::string& value) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:c_shuttle_entry.exchange_key_rs.key)
-}
-#if LANG_CXX11
-inline void exchange_key_rs::set_key(::std::string&& value) {
-  set_has_key();
-  key_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:c_shuttle_entry.exchange_key_rs.key)
-}
-#endif
-inline void exchange_key_rs::set_key(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:c_shuttle_entry.exchange_key_rs.key)
-}
-inline void exchange_key_rs::set_key(const void* value, size_t size) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:c_shuttle_entry.exchange_key_rs.key)
-}
-inline ::std::string* exchange_key_rs::mutable_key() {
-  set_has_key();
-  // @@protoc_insertion_point(field_mutable:c_shuttle_entry.exchange_key_rs.key)
-  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* exchange_key_rs::release_key() {
-  // @@protoc_insertion_point(field_release:c_shuttle_entry.exchange_key_rs.key)
-  clear_has_key();
-  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void exchange_key_rs::set_allocated_key(::std::string* key) {
-  if (key != NULL) {
-    set_has_key();
-  } else {
-    clear_has_key();
-  }
-  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:c_shuttle_entry.exchange_key_rs.key)
-}
-
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 
@@ -1578,16 +1053,6 @@ template <> struct is_proto_enum< ::c_shuttle_entry::knock_rs_msg> : ::google::p
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::c_shuttle_entry::knock_rs_msg>() {
   return ::c_shuttle_entry::knock_rs_msg_descriptor();
-}
-template <> struct is_proto_enum< ::c_shuttle_entry::exchange_key_rq_msg> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::c_shuttle_entry::exchange_key_rq_msg>() {
-  return ::c_shuttle_entry::exchange_key_rq_msg_descriptor();
-}
-template <> struct is_proto_enum< ::c_shuttle_entry::exchange_key_rs_msg> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::c_shuttle_entry::exchange_key_rs_msg>() {
-  return ::c_shuttle_entry::exchange_key_rs_msg_descriptor();
 }
 template <> struct is_proto_enum< ::c_shuttle_entry::msg> : ::google::protobuf::internal::true_type {};
 template <>

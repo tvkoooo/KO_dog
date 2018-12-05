@@ -76,34 +76,6 @@ GPBEnumDescriptor *C_shuttle_entry_knock_rs_msg_EnumDescriptor(void);
  **/
 BOOL C_shuttle_entry_knock_rs_msg_IsValidValue(int32_t value);
 
-#pragma mark - Enum C_shuttle_entry_exchange_key_rq_msg
-
-typedef GPB_ENUM(C_shuttle_entry_exchange_key_rq_msg) {
-  C_shuttle_entry_exchange_key_rq_msg_Id = 33558544,
-};
-
-GPBEnumDescriptor *C_shuttle_entry_exchange_key_rq_msg_EnumDescriptor(void);
-
-/**
- * Checks to see if the given value is defined by the enum or was not known at
- * the time this source was generated.
- **/
-BOOL C_shuttle_entry_exchange_key_rq_msg_IsValidValue(int32_t value);
-
-#pragma mark - Enum C_shuttle_entry_exchange_key_rs_msg
-
-typedef GPB_ENUM(C_shuttle_entry_exchange_key_rs_msg) {
-  C_shuttle_entry_exchange_key_rs_msg_Id = 33558545,
-};
-
-GPBEnumDescriptor *C_shuttle_entry_exchange_key_rs_msg_EnumDescriptor(void);
-
-/**
- * Checks to see if the given value is defined by the enum or was not known at
- * the time this source was generated.
- **/
-BOOL C_shuttle_entry_exchange_key_rs_msg_IsValidValue(int32_t value);
-
 #pragma mark - C_shuttle_entry_CShuttleEntryRoot
 
 /**
@@ -154,9 +126,10 @@ typedef GPB_ENUM(C_shuttle_entry_knock_rq_FieldNumber) {
 typedef GPB_ENUM(C_shuttle_entry_knock_rs_FieldNumber) {
   C_shuttle_entry_knock_rs_FieldNumber_Error = 1,
   C_shuttle_entry_knock_rs_FieldNumber_Addr = 2,
-  C_shuttle_entry_knock_rs_FieldNumber_RemoteClientVersion = 3,
-  C_shuttle_entry_knock_rs_FieldNumber_RemoteSourceVersion = 4,
-  C_shuttle_entry_knock_rs_FieldNumber_RemoteServerVersion = 5,
+  C_shuttle_entry_knock_rs_FieldNumber_PublicKey = 3,
+  C_shuttle_entry_knock_rs_FieldNumber_RemoteClientVersion = 4,
+  C_shuttle_entry_knock_rs_FieldNumber_RemoteSourceVersion = 5,
+  C_shuttle_entry_knock_rs_FieldNumber_RemoteServerVersion = 6,
 };
 
 /**
@@ -169,10 +142,15 @@ typedef GPB_ENUM(C_shuttle_entry_knock_rs_FieldNumber) {
 /** Test to see if @c error has been set. */
 @property(nonatomic, readwrite) BOOL hasError;
 
-/** 网络地址 */
+/** 大厅网络地址 */
 @property(nonatomic, readwrite, strong, null_resettable) B_network_address *addr;
 /** Test to see if @c addr has been set. */
 @property(nonatomic, readwrite) BOOL hasAddr;
+
+/** 大厅服务端密钥对的公钥. */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *publicKey;
+/** Test to see if @c publicKey has been set. */
+@property(nonatomic, readwrite) BOOL hasPublicKey;
 
 /** 远端client version. */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *remoteClientVersion;
@@ -188,59 +166,6 @@ typedef GPB_ENUM(C_shuttle_entry_knock_rs_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSString *remoteServerVersion;
 /** Test to see if @c remoteServerVersion has been set. */
 @property(nonatomic, readwrite) BOOL hasRemoteServerVersion;
-
-@end
-
-#pragma mark - C_shuttle_entry_exchange_key_rq
-
-typedef GPB_ENUM(C_shuttle_entry_exchange_key_rq_FieldNumber) {
-  C_shuttle_entry_exchange_key_rq_FieldNumber_N = 1,
-  C_shuttle_entry_exchange_key_rq_FieldNumber_E = 2,
-  C_shuttle_entry_exchange_key_rq_FieldNumber_Version = 3,
-};
-
-/**
- * (tcp)交换秘钥请求
- **/
-@interface C_shuttle_entry_exchange_key_rq : GPBMessage
-
-/** n */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *n;
-/** Test to see if @c n has been set. */
-@property(nonatomic, readwrite) BOOL hasN;
-
-/** e */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *e;
-/** Test to see if @c e has been set. */
-@property(nonatomic, readwrite) BOOL hasE;
-
-/** 密钥交换协议版本号，初始为0 */
-@property(nonatomic, readwrite) uint32_t version;
-
-@property(nonatomic, readwrite) BOOL hasVersion;
-@end
-
-#pragma mark - C_shuttle_entry_exchange_key_rs
-
-typedef GPB_ENUM(C_shuttle_entry_exchange_key_rs_FieldNumber) {
-  C_shuttle_entry_exchange_key_rs_FieldNumber_Error = 1,
-  C_shuttle_entry_exchange_key_rs_FieldNumber_Key = 2,
-};
-
-/**
- * (tcp)交换秘钥返回
- **/
-@interface C_shuttle_entry_exchange_key_rs : GPBMessage
-
-/** error info */
-@property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
-/** Test to see if @c error has been set. */
-@property(nonatomic, readwrite) BOOL hasError;
-
-/** 对称密钥 */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
-/** Test to see if @c key has been set. */
-@property(nonatomic, readwrite) BOOL hasKey;
 
 @end
 

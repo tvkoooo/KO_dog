@@ -6,7 +6,7 @@
 #include "mysql/mm_db_mysql.h"
 #include "net/mm_mailbox.h"
 
-#include "zookeeper/mm_zkrb_path.h"
+#include "zookeeper/mm_zookeeper_zkrb_path.h"
 
 #include "shuttle_common/mm_loavger_holder.h"
 #include "shuttle_common/mm_control_tcp_hd.h"
@@ -14,7 +14,7 @@
 
 #include "random/mm_xoshiro.h"
 
-#include "jwt/mm_jwt.h"
+#include "jwt/mm_jwt_authority.h"
 
 
 #include "mm_business_account_launch.h"
@@ -32,7 +32,7 @@
 #define MM_BUSINESS_ACCOUNT_MSEC_COMMIT_DB 10000
 // commit milliseconds.default is 60 second(60000 ms).
 #define MM_BUSINESS_ACCOUNT_MSEC_COMMIT_ZK 60000
-//
+// jwt密钥长度
 #define MM_BUSINESS_ACCOUNT_JWT_SECRET_LENGTH 16
 
 
@@ -47,11 +47,7 @@ struct mm_business_account
 	struct mm_db_mysql_section db_sql_section;
 	struct mm_error_desc error_desc;               //错误码管理器
 	//token 令牌
-	struct mm_xoshiro256starstar token_random;     //tokey 随机生成器
-	struct mm_string jwt_secret;                   //HS256 算法密码
-	struct mm_jwt_algorithm_hmacsha jwt_algorithm; //HS256 算法
-	struct mm_jwt jwt;                             //json Web token 生成器
-	mm_atomic_t locker;
+	struct mm_jwt_authority_array jwt_authority_array;                             //json Web token 生成器
 
 	mm_msec_t msec_update_dt;// launch milliseconds.default is MM_BUSINESS_ACCOUNT_MSEC_UPDATE_DT.
 	mm_msec_t msec_launch_db;// launch milliseconds.default is MM_BUSINESS_ACCOUNT_MSEC_LAUNCH_DB.

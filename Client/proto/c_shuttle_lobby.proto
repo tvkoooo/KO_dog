@@ -26,8 +26,8 @@ enum msg
 message exchange_key_rq
 {
 	enum msg{ id=0x02001100;}
-	required bytes	n 					      = 1				 ; // n
-	required bytes	e 					      = 2				 ; // e
+	required bytes	public_key				  = 1				 ; // 客户端密钥对的公钥.
+	required bytes	encrypt_key_l			  = 2				 ; // 服务端公钥加密的对称密钥左边.
 	required uint32 version					  = 3 [default =  0 ]; // 密钥交换协议版本号，初始为0
 }
 // (tcp)交换秘钥返回
@@ -35,7 +35,7 @@ message exchange_key_rs
 {
 	enum msg{ id=0x02001101;}
 	required b_error.info error               = 1                ; // error info
-	required bytes	key 					  = 2				 ; // 对称密钥
+	required bytes	encrypt_key_r 			  = 2				 ; // 客户端公钥加密的对称密钥右边边
 }
 
 // (tcp)令牌校验请求
@@ -59,9 +59,8 @@ message heartbeat_rq
 {
 	enum msg{ id=0x02001104;}
     required uint64 uid                       = 1 [default =  0 ]; //用户ID
-	required string	token 					  = 2 [default = "" ]; // 用户令牌
-    required uint64 timecode_native           = 3 [default =  0 ]; //发出的时间点(ms毫秒)
-	required b_math.coord coord_info          = 4                ; // Earth(j,w).
+    required uint64 timecode_native           = 2 [default =  0 ]; //发出的时间点(ms毫秒)
+	required b_math.coord coord_info          = 3                ; // Earth(j,w).
 }
 // (tcp)大厅心跳返回
 message heartbeat_rs
@@ -69,7 +68,6 @@ message heartbeat_rs
 	enum msg{ id=0x02001105;}
 	required b_error.info error               = 1                ; // error info
     required uint64 uid                       = 2 [default =  0 ]; //用户ID
-	required string	token 					  = 3 [default = "" ]; // 用户令牌
-    required uint64 timecode_native           = 4 [default =  0 ]; //发出的时间点(ms毫秒)
-	required b_math.coord coord_info          = 5                ; // Earth(j,w).
+    required uint64 timecode_native           = 3 [default =  0 ]; //发出的时间点(ms毫秒)
+	required b_math.coord coord_info          = 4                ; // Earth(j,w).
 }

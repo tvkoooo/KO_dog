@@ -294,24 +294,24 @@ static const unsigned int c_shuttle_lobby_exchange_key_rq_version_default_value 
 static const ProtobufCFieldDescriptor c_shuttle_lobby_exchange_key_rq_field_descriptors[3] =
 {
   {
-    "n",
+    "public_key",
     1,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BYTES,
     0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_exchange_key_rq, n),
+    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_exchange_key_rq, public_key),
     NULL,
     NULL,
     0,            /* packed */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "e",
+    "encrypt_key_l",
     2,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BYTES,
     0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_exchange_key_rq, e),
+    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_exchange_key_rq, encrypt_key_l),
     NULL,
     NULL,
     0,            /* packed */
@@ -331,8 +331,8 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_exchange_key_rq_field_desc
   },
 };
 static const unsigned c_shuttle_lobby_exchange_key_rq_field_indices_by_name[] = {
-  1,   /* field[1] = e */
-  0,   /* field[0] = n */
+  1,   /* field[1] = encrypt_key_l */
+  0,   /* field[0] = public_key */
   2,   /* field[2] = version */
 };
 static const ProtobufCIntRange c_shuttle_lobby_exchange_key_rq_number_ranges[1 + 1] =
@@ -396,12 +396,12 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_exchange_key_rs_field_desc
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "key",
+    "encrypt_key_r",
     2,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BYTES,
     0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_exchange_key_rs, key),
+    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_exchange_key_rs, encrypt_key_r),
     NULL,
     NULL,
     0,            /* packed */
@@ -409,8 +409,8 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_exchange_key_rs_field_desc
   },
 };
 static const unsigned c_shuttle_lobby_exchange_key_rs_field_indices_by_name[] = {
+  1,   /* field[1] = encrypt_key_r */
   0,   /* field[0] = error */
-  1,   /* field[1] = key */
 };
 static const ProtobufCIntRange c_shuttle_lobby_exchange_key_rs_number_ranges[1 + 1] =
 {
@@ -629,10 +629,9 @@ const ProtobufCEnumDescriptor c_shuttle_lobby_heartbeat_rq_msg_descriptor =
   c_shuttle_lobby_heartbeat_rq_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-char c_shuttle_lobby_heartbeat_rq_token_default_value[] = "";
 static const unsigned long long int c_shuttle_lobby_heartbeat_rq_uid_default_value = 0;
 static const unsigned long long int c_shuttle_lobby_heartbeat_rq_timecode_native_default_value = 0;
-static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rq_field_descriptors[4] =
+static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rq_field_descriptors[3] =
 {
   {
     "uid",
@@ -647,20 +646,8 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rq_field_descrip
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "token",
-    2,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_STRING,
-    0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_heartbeat_rq, token),
-    NULL,
-    &c_shuttle_lobby_heartbeat_rq_token_default_value,
-    0,            /* packed */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
     "timecode_native",
-    3,
+    2,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT64,
     0,   /* quantifier_offset */
@@ -672,7 +659,7 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rq_field_descrip
   },
   {
     "coord_info",
-    4,
+    3,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
@@ -684,15 +671,14 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rq_field_descrip
   },
 };
 static const unsigned c_shuttle_lobby_heartbeat_rq_field_indices_by_name[] = {
-  3,   /* field[3] = coord_info */
-  2,   /* field[2] = timecode_native */
-  1,   /* field[1] = token */
+  2,   /* field[2] = coord_info */
+  1,   /* field[1] = timecode_native */
   0,   /* field[0] = uid */
 };
 static const ProtobufCIntRange c_shuttle_lobby_heartbeat_rq_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 4 }
+  { 0, 3 }
 };
 const ProtobufCMessageDescriptor c_shuttle_lobby_heartbeat_rq_descriptor =
 {
@@ -702,7 +688,7 @@ const ProtobufCMessageDescriptor c_shuttle_lobby_heartbeat_rq_descriptor =
   "c_shuttle_lobby_heartbeat_rq",
   "c_shuttle_lobby",
   sizeof(c_shuttle_lobby_heartbeat_rq),
-  4,
+  3,
   c_shuttle_lobby_heartbeat_rq_field_descriptors,
   c_shuttle_lobby_heartbeat_rq_field_indices_by_name,
   1,  c_shuttle_lobby_heartbeat_rq_number_ranges,
@@ -735,10 +721,9 @@ const ProtobufCEnumDescriptor c_shuttle_lobby_heartbeat_rs_msg_descriptor =
   c_shuttle_lobby_heartbeat_rs_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-char c_shuttle_lobby_heartbeat_rs_token_default_value[] = "";
 static const unsigned long long int c_shuttle_lobby_heartbeat_rs_uid_default_value = 0;
 static const unsigned long long int c_shuttle_lobby_heartbeat_rs_timecode_native_default_value = 0;
-static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rs_field_descriptors[5] =
+static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rs_field_descriptors[4] =
 {
   {
     "error",
@@ -765,20 +750,8 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rs_field_descrip
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "token",
-    3,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_STRING,
-    0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_heartbeat_rs, token),
-    NULL,
-    &c_shuttle_lobby_heartbeat_rs_token_default_value,
-    0,            /* packed */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
     "timecode_native",
-    4,
+    3,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT64,
     0,   /* quantifier_offset */
@@ -790,7 +763,7 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rs_field_descrip
   },
   {
     "coord_info",
-    5,
+    4,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
@@ -802,16 +775,15 @@ static const ProtobufCFieldDescriptor c_shuttle_lobby_heartbeat_rs_field_descrip
   },
 };
 static const unsigned c_shuttle_lobby_heartbeat_rs_field_indices_by_name[] = {
-  4,   /* field[4] = coord_info */
+  3,   /* field[3] = coord_info */
   0,   /* field[0] = error */
-  3,   /* field[3] = timecode_native */
-  2,   /* field[2] = token */
+  2,   /* field[2] = timecode_native */
   1,   /* field[1] = uid */
 };
 static const ProtobufCIntRange c_shuttle_lobby_heartbeat_rs_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 5 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor c_shuttle_lobby_heartbeat_rs_descriptor =
 {
@@ -821,7 +793,7 @@ const ProtobufCMessageDescriptor c_shuttle_lobby_heartbeat_rs_descriptor =
   "c_shuttle_lobby_heartbeat_rs",
   "c_shuttle_lobby",
   sizeof(c_shuttle_lobby_heartbeat_rs),
-  5,
+  4,
   c_shuttle_lobby_heartbeat_rs_field_descriptors,
   c_shuttle_lobby_heartbeat_rs_field_indices_by_name,
   1,  c_shuttle_lobby_heartbeat_rs_number_ranges,

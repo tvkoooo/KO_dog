@@ -110,37 +110,37 @@ public final class c_shuttle_lobby {
 
     /**
      * <pre>
-     * n
+     * 客户端密钥对的公钥.
      * </pre>
      *
-     * <code>required bytes n = 1;</code>
+     * <code>required bytes public_key = 1;</code>
      */
-    boolean hasN();
+    boolean hasPublicKey();
     /**
      * <pre>
-     * n
+     * 客户端密钥对的公钥.
      * </pre>
      *
-     * <code>required bytes n = 1;</code>
+     * <code>required bytes public_key = 1;</code>
      */
-    com.google.protobuf.ByteString getN();
+    com.google.protobuf.ByteString getPublicKey();
 
     /**
      * <pre>
-     * e
+     * 服务端公钥加密的对称密钥左边.
      * </pre>
      *
-     * <code>required bytes e = 2;</code>
+     * <code>required bytes encrypt_key_l = 2;</code>
      */
-    boolean hasE();
+    boolean hasEncryptKeyL();
     /**
      * <pre>
-     * e
+     * 服务端公钥加密的对称密钥左边.
      * </pre>
      *
-     * <code>required bytes e = 2;</code>
+     * <code>required bytes encrypt_key_l = 2;</code>
      */
-    com.google.protobuf.ByteString getE();
+    com.google.protobuf.ByteString getEncryptKeyL();
 
     /**
      * <pre>
@@ -181,8 +181,8 @@ public final class c_shuttle_lobby {
       super(builder);
     }
     private exchange_key_rq() {
-      n_ = com.google.protobuf.ByteString.EMPTY;
-      e_ = com.google.protobuf.ByteString.EMPTY;
+      publicKey_ = com.google.protobuf.ByteString.EMPTY;
+      encryptKeyL_ = com.google.protobuf.ByteString.EMPTY;
       version_ = 0;
     }
 
@@ -216,12 +216,12 @@ public final class c_shuttle_lobby {
             }
             case 10: {
               bitField0_ |= 0x00000001;
-              n_ = input.readBytes();
+              publicKey_ = input.readBytes();
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              e_ = input.readBytes();
+              encryptKeyL_ = input.readBytes();
               break;
             }
             case 24: {
@@ -335,50 +335,50 @@ public final class c_shuttle_lobby {
     }
 
     private int bitField0_;
-    public static final int N_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString n_;
+    public static final int PUBLIC_KEY_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString publicKey_;
     /**
      * <pre>
-     * n
+     * 客户端密钥对的公钥.
      * </pre>
      *
-     * <code>required bytes n = 1;</code>
+     * <code>required bytes public_key = 1;</code>
      */
-    public boolean hasN() {
+    public boolean hasPublicKey() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <pre>
-     * n
+     * 客户端密钥对的公钥.
      * </pre>
      *
-     * <code>required bytes n = 1;</code>
+     * <code>required bytes public_key = 1;</code>
      */
-    public com.google.protobuf.ByteString getN() {
-      return n_;
+    public com.google.protobuf.ByteString getPublicKey() {
+      return publicKey_;
     }
 
-    public static final int E_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString e_;
+    public static final int ENCRYPT_KEY_L_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString encryptKeyL_;
     /**
      * <pre>
-     * e
+     * 服务端公钥加密的对称密钥左边.
      * </pre>
      *
-     * <code>required bytes e = 2;</code>
+     * <code>required bytes encrypt_key_l = 2;</code>
      */
-    public boolean hasE() {
+    public boolean hasEncryptKeyL() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     * e
+     * 服务端公钥加密的对称密钥左边.
      * </pre>
      *
-     * <code>required bytes e = 2;</code>
+     * <code>required bytes encrypt_key_l = 2;</code>
      */
-    public com.google.protobuf.ByteString getE() {
-      return e_;
+    public com.google.protobuf.ByteString getEncryptKeyL() {
+      return encryptKeyL_;
     }
 
     public static final int VERSION_FIELD_NUMBER = 3;
@@ -410,11 +410,11 @@ public final class c_shuttle_lobby {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasN()) {
+      if (!hasPublicKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasE()) {
+      if (!hasEncryptKeyL()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -429,10 +429,10 @@ public final class c_shuttle_lobby {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, n_);
+        output.writeBytes(1, publicKey_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, e_);
+        output.writeBytes(2, encryptKeyL_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeUInt32(3, version_);
@@ -447,11 +447,11 @@ public final class c_shuttle_lobby {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, n_);
+          .computeBytesSize(1, publicKey_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, e_);
+          .computeBytesSize(2, encryptKeyL_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -474,15 +474,15 @@ public final class c_shuttle_lobby {
       protodef.c_shuttle_lobby.exchange_key_rq other = (protodef.c_shuttle_lobby.exchange_key_rq) obj;
 
       boolean result = true;
-      result = result && (hasN() == other.hasN());
-      if (hasN()) {
-        result = result && getN()
-            .equals(other.getN());
+      result = result && (hasPublicKey() == other.hasPublicKey());
+      if (hasPublicKey()) {
+        result = result && getPublicKey()
+            .equals(other.getPublicKey());
       }
-      result = result && (hasE() == other.hasE());
-      if (hasE()) {
-        result = result && getE()
-            .equals(other.getE());
+      result = result && (hasEncryptKeyL() == other.hasEncryptKeyL());
+      if (hasEncryptKeyL()) {
+        result = result && getEncryptKeyL()
+            .equals(other.getEncryptKeyL());
       }
       result = result && (hasVersion() == other.hasVersion());
       if (hasVersion()) {
@@ -500,13 +500,13 @@ public final class c_shuttle_lobby {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasN()) {
-        hash = (37 * hash) + N_FIELD_NUMBER;
-        hash = (53 * hash) + getN().hashCode();
+      if (hasPublicKey()) {
+        hash = (37 * hash) + PUBLIC_KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getPublicKey().hashCode();
       }
-      if (hasE()) {
-        hash = (37 * hash) + E_FIELD_NUMBER;
-        hash = (53 * hash) + getE().hashCode();
+      if (hasEncryptKeyL()) {
+        hash = (37 * hash) + ENCRYPT_KEY_L_FIELD_NUMBER;
+        hash = (53 * hash) + getEncryptKeyL().hashCode();
       }
       if (hasVersion()) {
         hash = (37 * hash) + VERSION_FIELD_NUMBER;
@@ -651,9 +651,9 @@ public final class c_shuttle_lobby {
       }
       public Builder clear() {
         super.clear();
-        n_ = com.google.protobuf.ByteString.EMPTY;
+        publicKey_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        e_ = com.google.protobuf.ByteString.EMPTY;
+        encryptKeyL_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         version_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -684,11 +684,11 @@ public final class c_shuttle_lobby {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.n_ = n_;
+        result.publicKey_ = publicKey_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.e_ = e_;
+        result.encryptKeyL_ = encryptKeyL_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -735,11 +735,11 @@ public final class c_shuttle_lobby {
 
       public Builder mergeFrom(protodef.c_shuttle_lobby.exchange_key_rq other) {
         if (other == protodef.c_shuttle_lobby.exchange_key_rq.getDefaultInstance()) return this;
-        if (other.hasN()) {
-          setN(other.getN());
+        if (other.hasPublicKey()) {
+          setPublicKey(other.getPublicKey());
         }
-        if (other.hasE()) {
-          setE(other.getE());
+        if (other.hasEncryptKeyL()) {
+          setEncryptKeyL(other.getEncryptKeyL());
         }
         if (other.hasVersion()) {
           setVersion(other.getVersion());
@@ -750,10 +750,10 @@ public final class c_shuttle_lobby {
       }
 
       public final boolean isInitialized() {
-        if (!hasN()) {
+        if (!hasPublicKey()) {
           return false;
         }
-        if (!hasE()) {
+        if (!hasEncryptKeyL()) {
           return false;
         }
         if (!hasVersion()) {
@@ -781,104 +781,104 @@ public final class c_shuttle_lobby {
       }
       private int bitField0_;
 
-      private com.google.protobuf.ByteString n_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString publicKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       * n
+       * 客户端密钥对的公钥.
        * </pre>
        *
-       * <code>required bytes n = 1;</code>
+       * <code>required bytes public_key = 1;</code>
        */
-      public boolean hasN() {
+      public boolean hasPublicKey() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <pre>
-       * n
+       * 客户端密钥对的公钥.
        * </pre>
        *
-       * <code>required bytes n = 1;</code>
+       * <code>required bytes public_key = 1;</code>
        */
-      public com.google.protobuf.ByteString getN() {
-        return n_;
+      public com.google.protobuf.ByteString getPublicKey() {
+        return publicKey_;
       }
       /**
        * <pre>
-       * n
+       * 客户端密钥对的公钥.
        * </pre>
        *
-       * <code>required bytes n = 1;</code>
+       * <code>required bytes public_key = 1;</code>
        */
-      public Builder setN(com.google.protobuf.ByteString value) {
+      public Builder setPublicKey(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        n_ = value;
+        publicKey_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * n
+       * 客户端密钥对的公钥.
        * </pre>
        *
-       * <code>required bytes n = 1;</code>
+       * <code>required bytes public_key = 1;</code>
        */
-      public Builder clearN() {
+      public Builder clearPublicKey() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        n_ = getDefaultInstance().getN();
+        publicKey_ = getDefaultInstance().getPublicKey();
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.ByteString e_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString encryptKeyL_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       * e
+       * 服务端公钥加密的对称密钥左边.
        * </pre>
        *
-       * <code>required bytes e = 2;</code>
+       * <code>required bytes encrypt_key_l = 2;</code>
        */
-      public boolean hasE() {
+      public boolean hasEncryptKeyL() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
-       * e
+       * 服务端公钥加密的对称密钥左边.
        * </pre>
        *
-       * <code>required bytes e = 2;</code>
+       * <code>required bytes encrypt_key_l = 2;</code>
        */
-      public com.google.protobuf.ByteString getE() {
-        return e_;
+      public com.google.protobuf.ByteString getEncryptKeyL() {
+        return encryptKeyL_;
       }
       /**
        * <pre>
-       * e
+       * 服务端公钥加密的对称密钥左边.
        * </pre>
        *
-       * <code>required bytes e = 2;</code>
+       * <code>required bytes encrypt_key_l = 2;</code>
        */
-      public Builder setE(com.google.protobuf.ByteString value) {
+      public Builder setEncryptKeyL(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        e_ = value;
+        encryptKeyL_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * e
+       * 服务端公钥加密的对称密钥左边.
        * </pre>
        *
-       * <code>required bytes e = 2;</code>
+       * <code>required bytes encrypt_key_l = 2;</code>
        */
-      public Builder clearE() {
+      public Builder clearEncryptKeyL() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        e_ = getDefaultInstance().getE();
+        encryptKeyL_ = getDefaultInstance().getEncryptKeyL();
         onChanged();
         return this;
       }
@@ -1010,20 +1010,20 @@ public final class c_shuttle_lobby {
 
     /**
      * <pre>
-     * 对称密钥
+     * 客户端公钥加密的对称密钥右边边
      * </pre>
      *
-     * <code>required bytes key = 2;</code>
+     * <code>required bytes encrypt_key_r = 2;</code>
      */
-    boolean hasKey();
+    boolean hasEncryptKeyR();
     /**
      * <pre>
-     * 对称密钥
+     * 客户端公钥加密的对称密钥右边边
      * </pre>
      *
-     * <code>required bytes key = 2;</code>
+     * <code>required bytes encrypt_key_r = 2;</code>
      */
-    com.google.protobuf.ByteString getKey();
+    com.google.protobuf.ByteString getEncryptKeyR();
   }
   /**
    * <pre>
@@ -1041,7 +1041,7 @@ public final class c_shuttle_lobby {
       super(builder);
     }
     private exchange_key_rs() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
+      encryptKeyR_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -1087,7 +1087,7 @@ public final class c_shuttle_lobby {
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              key_ = input.readBytes();
+              encryptKeyR_ = input.readBytes();
               break;
             }
           }
@@ -1229,27 +1229,27 @@ public final class c_shuttle_lobby {
       return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
     }
 
-    public static final int KEY_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString key_;
+    public static final int ENCRYPT_KEY_R_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString encryptKeyR_;
     /**
      * <pre>
-     * 对称密钥
+     * 客户端公钥加密的对称密钥右边边
      * </pre>
      *
-     * <code>required bytes key = 2;</code>
+     * <code>required bytes encrypt_key_r = 2;</code>
      */
-    public boolean hasKey() {
+    public boolean hasEncryptKeyR() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     * 对称密钥
+     * 客户端公钥加密的对称密钥右边边
      * </pre>
      *
-     * <code>required bytes key = 2;</code>
+     * <code>required bytes encrypt_key_r = 2;</code>
      */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
+    public com.google.protobuf.ByteString getEncryptKeyR() {
+      return encryptKeyR_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1262,7 +1262,7 @@ public final class c_shuttle_lobby {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasKey()) {
+      if (!hasEncryptKeyR()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1280,7 +1280,7 @@ public final class c_shuttle_lobby {
         output.writeMessage(1, getError());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, key_);
+        output.writeBytes(2, encryptKeyR_);
       }
       unknownFields.writeTo(output);
     }
@@ -1296,7 +1296,7 @@ public final class c_shuttle_lobby {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, key_);
+          .computeBytesSize(2, encryptKeyR_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1320,10 +1320,10 @@ public final class c_shuttle_lobby {
         result = result && getError()
             .equals(other.getError());
       }
-      result = result && (hasKey() == other.hasKey());
-      if (hasKey()) {
-        result = result && getKey()
-            .equals(other.getKey());
+      result = result && (hasEncryptKeyR() == other.hasEncryptKeyR());
+      if (hasEncryptKeyR()) {
+        result = result && getEncryptKeyR()
+            .equals(other.getEncryptKeyR());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -1340,9 +1340,9 @@ public final class c_shuttle_lobby {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
       }
-      if (hasKey()) {
-        hash = (37 * hash) + KEY_FIELD_NUMBER;
-        hash = (53 * hash) + getKey().hashCode();
+      if (hasEncryptKeyR()) {
+        hash = (37 * hash) + ENCRYPT_KEY_R_FIELD_NUMBER;
+        hash = (53 * hash) + getEncryptKeyR().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1484,7 +1484,7 @@ public final class c_shuttle_lobby {
           errorBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        key_ = com.google.protobuf.ByteString.EMPTY;
+        encryptKeyR_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -1521,7 +1521,7 @@ public final class c_shuttle_lobby {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.key_ = key_;
+        result.encryptKeyR_ = encryptKeyR_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1567,8 +1567,8 @@ public final class c_shuttle_lobby {
         if (other.hasError()) {
           mergeError(other.getError());
         }
-        if (other.hasKey()) {
-          setKey(other.getKey());
+        if (other.hasEncryptKeyR()) {
+          setEncryptKeyR(other.getEncryptKeyR());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1579,7 +1579,7 @@ public final class c_shuttle_lobby {
         if (!hasError()) {
           return false;
         }
-        if (!hasKey()) {
+        if (!hasEncryptKeyR()) {
           return false;
         }
         if (!getError().isInitialized()) {
@@ -1761,53 +1761,53 @@ public final class c_shuttle_lobby {
         return errorBuilder_;
       }
 
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString encryptKeyR_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       * 对称密钥
+       * 客户端公钥加密的对称密钥右边边
        * </pre>
        *
-       * <code>required bytes key = 2;</code>
+       * <code>required bytes encrypt_key_r = 2;</code>
        */
-      public boolean hasKey() {
+      public boolean hasEncryptKeyR() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
-       * 对称密钥
+       * 客户端公钥加密的对称密钥右边边
        * </pre>
        *
-       * <code>required bytes key = 2;</code>
+       * <code>required bytes encrypt_key_r = 2;</code>
        */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public com.google.protobuf.ByteString getEncryptKeyR() {
+        return encryptKeyR_;
       }
       /**
        * <pre>
-       * 对称密钥
+       * 客户端公钥加密的对称密钥右边边
        * </pre>
        *
-       * <code>required bytes key = 2;</code>
+       * <code>required bytes encrypt_key_r = 2;</code>
        */
-      public Builder setKey(com.google.protobuf.ByteString value) {
+      public Builder setEncryptKeyR(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        key_ = value;
+        encryptKeyR_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 对称密钥
+       * 客户端公钥加密的对称密钥右边边
        * </pre>
        *
-       * <code>required bytes key = 2;</code>
+       * <code>required bytes encrypt_key_r = 2;</code>
        */
-      public Builder clearKey() {
+      public Builder clearEncryptKeyR() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        key_ = getDefaultInstance().getKey();
+        encryptKeyR_ = getDefaultInstance().getEncryptKeyR();
         onChanged();
         return this;
       }
@@ -3808,36 +3808,10 @@ public final class c_shuttle_lobby {
 
     /**
      * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 2 [default = ""];</code>
-     */
-    boolean hasToken();
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 2 [default = ""];</code>
-     */
-    java.lang.String getToken();
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 2 [default = ""];</code>
-     */
-    com.google.protobuf.ByteString
-        getTokenBytes();
-
-    /**
-     * <pre>
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 3 [default = 0];</code>
+     * <code>required uint64 timecode_native = 2 [default = 0];</code>
      */
     boolean hasTimecodeNative();
     /**
@@ -3845,7 +3819,7 @@ public final class c_shuttle_lobby {
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 3 [default = 0];</code>
+     * <code>required uint64 timecode_native = 2 [default = 0];</code>
      */
     long getTimecodeNative();
 
@@ -3854,7 +3828,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 4;</code>
+     * <code>required .b_math.coord coord_info = 3;</code>
      */
     boolean hasCoordInfo();
     /**
@@ -3862,7 +3836,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 4;</code>
+     * <code>required .b_math.coord coord_info = 3;</code>
      */
     protodef.b_math.coord getCoordInfo();
     /**
@@ -3870,7 +3844,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 4;</code>
+     * <code>required .b_math.coord coord_info = 3;</code>
      */
     protodef.b_math.coordOrBuilder getCoordInfoOrBuilder();
   }
@@ -3891,7 +3865,6 @@ public final class c_shuttle_lobby {
     }
     private heartbeat_rq() {
       uid_ = 0L;
-      token_ = "";
       timecodeNative_ = 0L;
     }
 
@@ -3928,20 +3901,14 @@ public final class c_shuttle_lobby {
               uid_ = input.readUInt64();
               break;
             }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 16: {
               bitField0_ |= 0x00000002;
-              token_ = bs;
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
               timecodeNative_ = input.readUInt64();
               break;
             }
-            case 34: {
+            case 26: {
               protodef.b_math.coord.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = coordInfo_.toBuilder();
               }
               coordInfo_ = input.readMessage(protodef.b_math.coord.PARSER, extensionRegistry);
@@ -3949,7 +3916,7 @@ public final class c_shuttle_lobby {
                 subBuilder.mergeFrom(coordInfo_);
                 coordInfo_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             }
           }
@@ -4081,101 +4048,47 @@ public final class c_shuttle_lobby {
       return uid_;
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object token_;
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 2 [default = ""];</code>
-     */
-    public boolean hasToken() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 2 [default = ""];</code>
-     */
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          token_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 2 [default = ""];</code>
-     */
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TIMECODE_NATIVE_FIELD_NUMBER = 3;
+    public static final int TIMECODE_NATIVE_FIELD_NUMBER = 2;
     private long timecodeNative_;
     /**
      * <pre>
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 3 [default = 0];</code>
+     * <code>required uint64 timecode_native = 2 [default = 0];</code>
      */
     public boolean hasTimecodeNative() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 3 [default = 0];</code>
+     * <code>required uint64 timecode_native = 2 [default = 0];</code>
      */
     public long getTimecodeNative() {
       return timecodeNative_;
     }
 
-    public static final int COORD_INFO_FIELD_NUMBER = 4;
+    public static final int COORD_INFO_FIELD_NUMBER = 3;
     private protodef.b_math.coord coordInfo_;
     /**
      * <pre>
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 4;</code>
+     * <code>required .b_math.coord coord_info = 3;</code>
      */
     public boolean hasCoordInfo() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <pre>
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 4;</code>
+     * <code>required .b_math.coord coord_info = 3;</code>
      */
     public protodef.b_math.coord getCoordInfo() {
       return coordInfo_ == null ? protodef.b_math.coord.getDefaultInstance() : coordInfo_;
@@ -4185,7 +4098,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 4;</code>
+     * <code>required .b_math.coord coord_info = 3;</code>
      */
     public protodef.b_math.coordOrBuilder getCoordInfoOrBuilder() {
       return coordInfo_ == null ? protodef.b_math.coord.getDefaultInstance() : coordInfo_;
@@ -4198,10 +4111,6 @@ public final class c_shuttle_lobby {
       if (isInitialized == 0) return false;
 
       if (!hasUid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasToken()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -4227,13 +4136,10 @@ public final class c_shuttle_lobby {
         output.writeUInt64(1, uid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
+        output.writeUInt64(2, timecodeNative_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt64(3, timecodeNative_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, getCoordInfo());
+        output.writeMessage(3, getCoordInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -4248,15 +4154,12 @@ public final class c_shuttle_lobby {
           .computeUInt64Size(1, uid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, timecodeNative_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, timecodeNative_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getCoordInfo());
+          .computeMessageSize(3, getCoordInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4279,11 +4182,6 @@ public final class c_shuttle_lobby {
       if (hasUid()) {
         result = result && (getUid()
             == other.getUid());
-      }
-      result = result && (hasToken() == other.hasToken());
-      if (hasToken()) {
-        result = result && getToken()
-            .equals(other.getToken());
       }
       result = result && (hasTimecodeNative() == other.hasTimecodeNative());
       if (hasTimecodeNative()) {
@@ -4310,10 +4208,6 @@ public final class c_shuttle_lobby {
         hash = (37 * hash) + UID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getUid());
-      }
-      if (hasToken()) {
-        hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-        hash = (53 * hash) + getToken().hashCode();
       }
       if (hasTimecodeNative()) {
         hash = (37 * hash) + TIMECODE_NATIVE_FIELD_NUMBER;
@@ -4460,16 +4354,14 @@ public final class c_shuttle_lobby {
         super.clear();
         uid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        token_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         timecodeNative_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (coordInfoBuilder_ == null) {
           coordInfo_ = null;
         } else {
           coordInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -4501,13 +4393,9 @@ public final class c_shuttle_lobby {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.token_ = token_;
+        result.timecodeNative_ = timecodeNative_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
-        }
-        result.timecodeNative_ = timecodeNative_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
         }
         if (coordInfoBuilder_ == null) {
           result.coordInfo_ = coordInfo_;
@@ -4559,11 +4447,6 @@ public final class c_shuttle_lobby {
         if (other.hasUid()) {
           setUid(other.getUid());
         }
-        if (other.hasToken()) {
-          bitField0_ |= 0x00000002;
-          token_ = other.token_;
-          onChanged();
-        }
         if (other.hasTimecodeNative()) {
           setTimecodeNative(other.getTimecodeNative());
         }
@@ -4577,9 +4460,6 @@ public final class c_shuttle_lobby {
 
       public final boolean isInitialized() {
         if (!hasUid()) {
-          return false;
-        }
-        if (!hasToken()) {
           return false;
         }
         if (!hasTimecodeNative()) {
@@ -4661,123 +4541,23 @@ public final class c_shuttle_lobby {
         return this;
       }
 
-      private java.lang.Object token_ = "";
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 2 [default = ""];</code>
-       */
-      public boolean hasToken() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 2 [default = ""];</code>
-       */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            token_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 2 [default = ""];</code>
-       */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 2 [default = ""];</code>
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 2 [default = ""];</code>
-       */
-      public Builder clearToken() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 2 [default = ""];</code>
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        token_ = value;
-        onChanged();
-        return this;
-      }
-
       private long timecodeNative_ ;
       /**
        * <pre>
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 3 [default = 0];</code>
+       * <code>required uint64 timecode_native = 2 [default = 0];</code>
        */
       public boolean hasTimecodeNative() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 3 [default = 0];</code>
+       * <code>required uint64 timecode_native = 2 [default = 0];</code>
        */
       public long getTimecodeNative() {
         return timecodeNative_;
@@ -4787,10 +4567,10 @@ public final class c_shuttle_lobby {
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 3 [default = 0];</code>
+       * <code>required uint64 timecode_native = 2 [default = 0];</code>
        */
       public Builder setTimecodeNative(long value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         timecodeNative_ = value;
         onChanged();
         return this;
@@ -4800,10 +4580,10 @@ public final class c_shuttle_lobby {
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 3 [default = 0];</code>
+       * <code>required uint64 timecode_native = 2 [default = 0];</code>
        */
       public Builder clearTimecodeNative() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         timecodeNative_ = 0L;
         onChanged();
         return this;
@@ -4817,17 +4597,17 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public boolean hasCoordInfo() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public protodef.b_math.coord getCoordInfo() {
         if (coordInfoBuilder_ == null) {
@@ -4841,7 +4621,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public Builder setCoordInfo(protodef.b_math.coord value) {
         if (coordInfoBuilder_ == null) {
@@ -4853,7 +4633,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -4861,7 +4641,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public Builder setCoordInfo(
           protodef.b_math.coord.Builder builderForValue) {
@@ -4871,7 +4651,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -4879,11 +4659,11 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public Builder mergeCoordInfo(protodef.b_math.coord value) {
         if (coordInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
               coordInfo_ != null &&
               coordInfo_ != protodef.b_math.coord.getDefaultInstance()) {
             coordInfo_ =
@@ -4895,7 +4675,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -4903,7 +4683,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public Builder clearCoordInfo() {
         if (coordInfoBuilder_ == null) {
@@ -4912,7 +4692,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
@@ -4920,10 +4700,10 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public protodef.b_math.coord.Builder getCoordInfoBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
         return getCoordInfoFieldBuilder().getBuilder();
       }
@@ -4932,7 +4712,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       public protodef.b_math.coordOrBuilder getCoordInfoOrBuilder() {
         if (coordInfoBuilder_ != null) {
@@ -4947,7 +4727,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 4;</code>
+       * <code>required .b_math.coord coord_info = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           protodef.b_math.coord, protodef.b_math.coord.Builder, protodef.b_math.coordOrBuilder> 
@@ -5059,36 +4839,10 @@ public final class c_shuttle_lobby {
 
     /**
      * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 3 [default = ""];</code>
-     */
-    boolean hasToken();
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 3 [default = ""];</code>
-     */
-    java.lang.String getToken();
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 3 [default = ""];</code>
-     */
-    com.google.protobuf.ByteString
-        getTokenBytes();
-
-    /**
-     * <pre>
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 4 [default = 0];</code>
+     * <code>required uint64 timecode_native = 3 [default = 0];</code>
      */
     boolean hasTimecodeNative();
     /**
@@ -5096,7 +4850,7 @@ public final class c_shuttle_lobby {
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 4 [default = 0];</code>
+     * <code>required uint64 timecode_native = 3 [default = 0];</code>
      */
     long getTimecodeNative();
 
@@ -5105,7 +4859,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 5;</code>
+     * <code>required .b_math.coord coord_info = 4;</code>
      */
     boolean hasCoordInfo();
     /**
@@ -5113,7 +4867,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 5;</code>
+     * <code>required .b_math.coord coord_info = 4;</code>
      */
     protodef.b_math.coord getCoordInfo();
     /**
@@ -5121,7 +4875,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 5;</code>
+     * <code>required .b_math.coord coord_info = 4;</code>
      */
     protodef.b_math.coordOrBuilder getCoordInfoOrBuilder();
   }
@@ -5142,7 +4896,6 @@ public final class c_shuttle_lobby {
     }
     private heartbeat_rs() {
       uid_ = 0L;
-      token_ = "";
       timecodeNative_ = 0L;
     }
 
@@ -5192,20 +4945,14 @@ public final class c_shuttle_lobby {
               uid_ = input.readUInt64();
               break;
             }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 24: {
               bitField0_ |= 0x00000004;
-              token_ = bs;
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
               timecodeNative_ = input.readUInt64();
               break;
             }
-            case 42: {
+            case 34: {
               protodef.b_math.coord.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = coordInfo_.toBuilder();
               }
               coordInfo_ = input.readMessage(protodef.b_math.coord.PARSER, extensionRegistry);
@@ -5213,7 +4960,7 @@ public final class c_shuttle_lobby {
                 subBuilder.mergeFrom(coordInfo_);
                 coordInfo_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000008;
               break;
             }
           }
@@ -5378,101 +5125,47 @@ public final class c_shuttle_lobby {
       return uid_;
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object token_;
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 3 [default = ""];</code>
-     */
-    public boolean hasToken() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 3 [default = ""];</code>
-     */
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          token_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 用户令牌
-     * </pre>
-     *
-     * <code>required string token = 3 [default = ""];</code>
-     */
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TIMECODE_NATIVE_FIELD_NUMBER = 4;
+    public static final int TIMECODE_NATIVE_FIELD_NUMBER = 3;
     private long timecodeNative_;
     /**
      * <pre>
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 4 [default = 0];</code>
+     * <code>required uint64 timecode_native = 3 [default = 0];</code>
      */
     public boolean hasTimecodeNative() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <pre>
      *发出的时间点(ms毫秒)
      * </pre>
      *
-     * <code>required uint64 timecode_native = 4 [default = 0];</code>
+     * <code>required uint64 timecode_native = 3 [default = 0];</code>
      */
     public long getTimecodeNative() {
       return timecodeNative_;
     }
 
-    public static final int COORD_INFO_FIELD_NUMBER = 5;
+    public static final int COORD_INFO_FIELD_NUMBER = 4;
     private protodef.b_math.coord coordInfo_;
     /**
      * <pre>
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 5;</code>
+     * <code>required .b_math.coord coord_info = 4;</code>
      */
     public boolean hasCoordInfo() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <pre>
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 5;</code>
+     * <code>required .b_math.coord coord_info = 4;</code>
      */
     public protodef.b_math.coord getCoordInfo() {
       return coordInfo_ == null ? protodef.b_math.coord.getDefaultInstance() : coordInfo_;
@@ -5482,7 +5175,7 @@ public final class c_shuttle_lobby {
      * Earth(j,w).
      * </pre>
      *
-     * <code>required .b_math.coord coord_info = 5;</code>
+     * <code>required .b_math.coord coord_info = 4;</code>
      */
     public protodef.b_math.coordOrBuilder getCoordInfoOrBuilder() {
       return coordInfo_ == null ? protodef.b_math.coord.getDefaultInstance() : coordInfo_;
@@ -5499,10 +5192,6 @@ public final class c_shuttle_lobby {
         return false;
       }
       if (!hasUid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasToken()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -5535,13 +5224,10 @@ public final class c_shuttle_lobby {
         output.writeUInt64(2, uid_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
+        output.writeUInt64(3, timecodeNative_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeUInt64(4, timecodeNative_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeMessage(5, getCoordInfo());
+        output.writeMessage(4, getCoordInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -5560,15 +5246,12 @@ public final class c_shuttle_lobby {
           .computeUInt64Size(2, uid_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, timecodeNative_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, timecodeNative_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getCoordInfo());
+          .computeMessageSize(4, getCoordInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5596,11 +5279,6 @@ public final class c_shuttle_lobby {
       if (hasUid()) {
         result = result && (getUid()
             == other.getUid());
-      }
-      result = result && (hasToken() == other.hasToken());
-      if (hasToken()) {
-        result = result && getToken()
-            .equals(other.getToken());
       }
       result = result && (hasTimecodeNative() == other.hasTimecodeNative());
       if (hasTimecodeNative()) {
@@ -5631,10 +5309,6 @@ public final class c_shuttle_lobby {
         hash = (37 * hash) + UID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getUid());
-      }
-      if (hasToken()) {
-        hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-        hash = (53 * hash) + getToken().hashCode();
       }
       if (hasTimecodeNative()) {
         hash = (37 * hash) + TIMECODE_NATIVE_FIELD_NUMBER;
@@ -5788,16 +5462,14 @@ public final class c_shuttle_lobby {
         bitField0_ = (bitField0_ & ~0x00000001);
         uid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        token_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
         timecodeNative_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (coordInfoBuilder_ == null) {
           coordInfo_ = null;
         } else {
           coordInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -5837,13 +5509,9 @@ public final class c_shuttle_lobby {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.token_ = token_;
+        result.timecodeNative_ = timecodeNative_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
-        }
-        result.timecodeNative_ = timecodeNative_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
         }
         if (coordInfoBuilder_ == null) {
           result.coordInfo_ = coordInfo_;
@@ -5898,11 +5566,6 @@ public final class c_shuttle_lobby {
         if (other.hasUid()) {
           setUid(other.getUid());
         }
-        if (other.hasToken()) {
-          bitField0_ |= 0x00000004;
-          token_ = other.token_;
-          onChanged();
-        }
         if (other.hasTimecodeNative()) {
           setTimecodeNative(other.getTimecodeNative());
         }
@@ -5919,9 +5582,6 @@ public final class c_shuttle_lobby {
           return false;
         }
         if (!hasUid()) {
-          return false;
-        }
-        if (!hasToken()) {
           return false;
         }
         if (!hasTimecodeNative()) {
@@ -6160,123 +5820,23 @@ public final class c_shuttle_lobby {
         return this;
       }
 
-      private java.lang.Object token_ = "";
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 3 [default = ""];</code>
-       */
-      public boolean hasToken() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 3 [default = ""];</code>
-       */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            token_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 3 [default = ""];</code>
-       */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 3 [default = ""];</code>
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 3 [default = ""];</code>
-       */
-      public Builder clearToken() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户令牌
-       * </pre>
-       *
-       * <code>required string token = 3 [default = ""];</code>
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        token_ = value;
-        onChanged();
-        return this;
-      }
-
       private long timecodeNative_ ;
       /**
        * <pre>
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 4 [default = 0];</code>
+       * <code>required uint64 timecode_native = 3 [default = 0];</code>
        */
       public boolean hasTimecodeNative() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 4 [default = 0];</code>
+       * <code>required uint64 timecode_native = 3 [default = 0];</code>
        */
       public long getTimecodeNative() {
         return timecodeNative_;
@@ -6286,10 +5846,10 @@ public final class c_shuttle_lobby {
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 4 [default = 0];</code>
+       * <code>required uint64 timecode_native = 3 [default = 0];</code>
        */
       public Builder setTimecodeNative(long value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         timecodeNative_ = value;
         onChanged();
         return this;
@@ -6299,10 +5859,10 @@ public final class c_shuttle_lobby {
        *发出的时间点(ms毫秒)
        * </pre>
        *
-       * <code>required uint64 timecode_native = 4 [default = 0];</code>
+       * <code>required uint64 timecode_native = 3 [default = 0];</code>
        */
       public Builder clearTimecodeNative() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         timecodeNative_ = 0L;
         onChanged();
         return this;
@@ -6316,17 +5876,17 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public boolean hasCoordInfo() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public protodef.b_math.coord getCoordInfo() {
         if (coordInfoBuilder_ == null) {
@@ -6340,7 +5900,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public Builder setCoordInfo(protodef.b_math.coord value) {
         if (coordInfoBuilder_ == null) {
@@ -6352,7 +5912,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -6360,7 +5920,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public Builder setCoordInfo(
           protodef.b_math.coord.Builder builderForValue) {
@@ -6370,7 +5930,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -6378,11 +5938,11 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public Builder mergeCoordInfo(protodef.b_math.coord value) {
         if (coordInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
               coordInfo_ != null &&
               coordInfo_ != protodef.b_math.coord.getDefaultInstance()) {
             coordInfo_ =
@@ -6394,7 +5954,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -6402,7 +5962,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public Builder clearCoordInfo() {
         if (coordInfoBuilder_ == null) {
@@ -6411,7 +5971,7 @@ public final class c_shuttle_lobby {
         } else {
           coordInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
@@ -6419,10 +5979,10 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public protodef.b_math.coord.Builder getCoordInfoBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
         return getCoordInfoFieldBuilder().getBuilder();
       }
@@ -6431,7 +5991,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       public protodef.b_math.coordOrBuilder getCoordInfoOrBuilder() {
         if (coordInfoBuilder_ != null) {
@@ -6446,7 +6006,7 @@ public final class c_shuttle_lobby {
        * Earth(j,w).
        * </pre>
        *
-       * <code>required .b_math.coord coord_info = 5;</code>
+       * <code>required .b_math.coord coord_info = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           protodef.b_math.coord, protodef.b_math.coord.Builder, protodef.b_math.coordOrBuilder> 
@@ -6550,26 +6110,26 @@ public final class c_shuttle_lobby {
   static {
     java.lang.String[] descriptorData = {
       "\n\025c_shuttle_lobby.proto\022\017c_shuttle_lobby" +
-      "\032\rb_error.proto\032\014b_math.proto\"M\n\017exchang" +
-      "e_key_rq\022\t\n\001n\030\001 \002(\014\022\t\n\001e\030\002 \002(\014\022\022\n\007versio" +
-      "n\030\003 \002(\r:\0010\"\020\n\003msg\022\t\n\002id\020\200\242\200\020\"N\n\017exchange" +
-      "_key_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\013\n" +
-      "\003key\030\002 \002(\014\"\020\n\003msg\022\t\n\002id\020\201\242\200\020\"D\n\017token_ve" +
-      "rify_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\017\n\005token\030\002 \002(\t:\000" +
-      "\"\020\n\003msg\022\t\n\002id\020\202\242\200\020\"b\n\017token_verify_rs\022\034\n" +
-      "\005error\030\001 \002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002(\004" +
-      ":\0010\022\017\n\005token\030\003 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\203\242\200\020\"\200",
-      "\001\n\014heartbeat_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\017\n\005token" +
-      "\030\002 \002(\t:\000\022\032\n\017timecode_native\030\003 \002(\004:\0010\022!\n\n" +
-      "coord_info\030\004 \002(\0132\r.b_math.coord\"\020\n\003msg\022\t" +
-      "\n\002id\020\204\242\200\020\"\236\001\n\014heartbeat_rs\022\034\n\005error\030\001 \002(" +
-      "\0132\r.b_error.info\022\016\n\003uid\030\002 \002(\004:\0010\022\017\n\005toke" +
-      "n\030\003 \002(\t:\000\022\032\n\017timecode_native\030\004 \002(\004:\0010\022!\n" +
-      "\ncoord_info\030\005 \002(\0132\r.b_math.coord\"\020\n\003msg\022" +
-      "\t\n\002id\020\205\242\200\020*#\n\003msg\022\r\n\006min_id\020\200\242\200\020\022\r\n\006max_" +
-      "id\020\377\243\200\020BZ\n\010protodefB\017c_shuttle_lobbyZ\030pr" +
-      "otodef/c_shuttle_lobby\242\002\020C_shuttle_lobby",
-      "_\252\002\017c_shuttle_lobby"
+      "\032\rb_error.proto\032\014b_math.proto\"b\n\017exchang" +
+      "e_key_rq\022\022\n\npublic_key\030\001 \002(\014\022\025\n\rencrypt_" +
+      "key_l\030\002 \002(\014\022\022\n\007version\030\003 \002(\r:\0010\"\020\n\003msg\022\t" +
+      "\n\002id\020\200\242\200\020\"X\n\017exchange_key_rs\022\034\n\005error\030\001 " +
+      "\002(\0132\r.b_error.info\022\025\n\rencrypt_key_r\030\002 \002(" +
+      "\014\"\020\n\003msg\022\t\n\002id\020\201\242\200\020\"D\n\017token_verify_rq\022\016" +
+      "\n\003uid\030\001 \002(\004:\0010\022\017\n\005token\030\002 \002(\t:\000\"\020\n\003msg\022\t" +
+      "\n\002id\020\202\242\200\020\"b\n\017token_verify_rs\022\034\n\005error\030\001 " +
+      "\002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002(\004:\0010\022\017\n\005to",
+      "ken\030\003 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\203\242\200\020\"o\n\014heartbe" +
+      "at_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_native" +
+      "\030\002 \002(\004:\0010\022!\n\ncoord_info\030\003 \002(\0132\r.b_math.c" +
+      "oord\"\020\n\003msg\022\t\n\002id\020\204\242\200\020\"\215\001\n\014heartbeat_rs\022" +
+      "\034\n\005error\030\001 \002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002" +
+      "(\004:\0010\022\032\n\017timecode_native\030\003 \002(\004:\0010\022!\n\ncoo" +
+      "rd_info\030\004 \002(\0132\r.b_math.coord\"\020\n\003msg\022\t\n\002i" +
+      "d\020\205\242\200\020*#\n\003msg\022\r\n\006min_id\020\200\242\200\020\022\r\n\006max_id\020\377" +
+      "\243\200\020BZ\n\010protodefB\017c_shuttle_lobbyZ\030protod" +
+      "ef/c_shuttle_lobby\242\002\020C_shuttle_lobby_\252\002\017",
+      "c_shuttle_lobby"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6590,13 +6150,13 @@ public final class c_shuttle_lobby {
     internal_static_c_shuttle_lobby_exchange_key_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_exchange_key_rq_descriptor,
-        new java.lang.String[] { "N", "E", "Version", });
+        new java.lang.String[] { "PublicKey", "EncryptKeyL", "Version", });
     internal_static_c_shuttle_lobby_exchange_key_rs_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_c_shuttle_lobby_exchange_key_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_exchange_key_rs_descriptor,
-        new java.lang.String[] { "Error", "Key", });
+        new java.lang.String[] { "Error", "EncryptKeyR", });
     internal_static_c_shuttle_lobby_token_verify_rq_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_c_shuttle_lobby_token_verify_rq_fieldAccessorTable = new
@@ -6614,13 +6174,13 @@ public final class c_shuttle_lobby {
     internal_static_c_shuttle_lobby_heartbeat_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_heartbeat_rq_descriptor,
-        new java.lang.String[] { "Uid", "Token", "TimecodeNative", "CoordInfo", });
+        new java.lang.String[] { "Uid", "TimecodeNative", "CoordInfo", });
     internal_static_c_shuttle_lobby_heartbeat_rs_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_c_shuttle_lobby_heartbeat_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_heartbeat_rs_descriptor,
-        new java.lang.String[] { "Error", "Uid", "Token", "TimecodeNative", "CoordInfo", });
+        new java.lang.String[] { "Error", "Uid", "TimecodeNative", "CoordInfo", });
     protodef.b_error.getDescriptor();
     protodef.b_math.getDescriptor();
   }

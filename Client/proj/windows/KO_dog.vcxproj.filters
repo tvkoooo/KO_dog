@@ -93,18 +93,6 @@
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_util_mesh.cpp">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.cpp">
-      <Filter>src\KO_dog\application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.cpp">
-      <Filter>src\KO_dog\application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.cpp">
-      <Filter>src\KO_dog\application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\application\lj_KO_dog_test.cpp">
-      <Filter>src\KO_dog\application</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\KO_dog\network\network_handle.cpp">
       <Filter>src\KO_dog\network</Filter>
     </ClCompile>
@@ -156,6 +144,30 @@
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_windows_target.cpp">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_jiemian.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_setup.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt_coin.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_dog.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\network_lobby.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -193,18 +205,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_util_mesh.h">
       <Filter>src\KO_dog\toolkit</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_zhujiemian.h">
-      <Filter>src\KO_dog\application</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_jiemian.h">
-      <Filter>src\KO_dog\application</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test_setup.h">
-      <Filter>src\KO_dog\application</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\application\lj_KO_dog_test.h">
-      <Filter>src\KO_dog\application</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\network\network_handle.h">
       <Filter>src\KO_dog\network</Filter>
@@ -256,6 +256,30 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_windows_target.h">
       <Filter>src\KO_dog\toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_jiemian.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_setup.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_rtt_coin.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian_dog.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\network_lobby.h">
+      <Filter>src\KO_dog\network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

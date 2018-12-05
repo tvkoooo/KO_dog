@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='c_shuttle_entry.proto',
   package='c_shuttle_entry',
   syntax='proto2',
-  serialized_pb=_b('\n\x15\x63_shuttle_entry.proto\x12\x0f\x63_shuttle_entry\x1a\rb_error.proto\x1a\x0c\x62_math.proto\x1a\x0f\x62_network.proto\"\x81\x01\n\x08knock_rq\x12\x1f\n\x15native_client_version\x18\x01 \x02(\t:\x00\x12\x1f\n\x15native_source_version\x18\x02 \x02(\t:\x00\x12!\n\ncoord_info\x18\x03 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa0\x80\x10\"\xbf\x01\n\x08knock_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12 \n\x04\x61\x64\x64r\x18\x02 \x02(\x0b\x32\x12.b_network.address\x12\x1f\n\x15remote_client_version\x18\x03 \x02(\t:\x00\x12\x1f\n\x15remote_source_version\x18\x04 \x02(\t:\x00\x12\x1f\n\x15remote_server_version\x18\x05 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xa0\x80\x10\"M\n\x0f\x65xchange_key_rq\x12\t\n\x01n\x18\x01 \x02(\x0c\x12\t\n\x01\x65\x18\x02 \x02(\x0c\x12\x12\n\x07version\x18\x03 \x02(\r:\x01\x30\"\x10\n\x03msg\x12\t\n\x02id\x10\x90\xa0\x80\x10\"N\n\x0f\x65xchange_key_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0b\n\x03key\x18\x02 \x02(\x0c\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xa0\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xa0\x80\x10\x12\r\n\x06max_id\x10\xff\xa1\x80\x10\x42Z\n\x08protodefB\x0f\x63_shuttle_entryZ\x18protodef/c_shuttle_entry\xa2\x02\x10\x43_shuttle_entry_\xaa\x02\x0f\x63_shuttle_entry')
+  serialized_pb=_b('\n\x15\x63_shuttle_entry.proto\x12\x0f\x63_shuttle_entry\x1a\rb_error.proto\x1a\x0c\x62_math.proto\x1a\x0f\x62_network.proto\"\x81\x01\n\x08knock_rq\x12\x1f\n\x15native_client_version\x18\x01 \x02(\t:\x00\x12\x1f\n\x15native_source_version\x18\x02 \x02(\t:\x00\x12!\n\ncoord_info\x18\x03 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa0\x80\x10\"\xd3\x01\n\x08knock_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12 \n\x04\x61\x64\x64r\x18\x02 \x02(\x0b\x32\x12.b_network.address\x12\x12\n\npublic_key\x18\x03 \x02(\x0c\x12\x1f\n\x15remote_client_version\x18\x04 \x02(\t:\x00\x12\x1f\n\x15remote_source_version\x18\x05 \x02(\t:\x00\x12\x1f\n\x15remote_server_version\x18\x06 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xa0\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xa0\x80\x10\x12\r\n\x06max_id\x10\xff\xa1\x80\x10\x42Z\n\x08protodefB\x0f\x63_shuttle_entryZ\x18protodef/c_shuttle_entry\xa2\x02\x10\x43_shuttle_entry_\xaa\x02\x0f\x63_shuttle_entry')
   ,
   dependencies=[b__error__pb2.DESCRIPTOR,b__math__pb2.DESCRIPTOR,b__network__pb2.DESCRIPTOR,])
 
@@ -44,8 +44,8 @@ _MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=573,
-  serialized_end=608,
+  serialized_start=434,
+  serialized_end=469,
 )
 _sym_db.RegisterEnumDescriptor(_MSG)
 
@@ -85,46 +85,10 @@ _KNOCK_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=396,
-  serialized_end=412,
+  serialized_start=416,
+  serialized_end=432,
 )
 _sym_db.RegisterEnumDescriptor(_KNOCK_RS_MSG)
-
-_EXCHANGE_KEY_RQ_MSG = _descriptor.EnumDescriptor(
-  name='msg',
-  full_name='c_shuttle_entry.exchange_key_rq.msg',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='id', index=0, number=33558544,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=475,
-  serialized_end=491,
-)
-_sym_db.RegisterEnumDescriptor(_EXCHANGE_KEY_RQ_MSG)
-
-_EXCHANGE_KEY_RS_MSG = _descriptor.EnumDescriptor(
-  name='msg',
-  full_name='c_shuttle_entry.exchange_key_rs.msg',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='id', index=0, number=33558545,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=555,
-  serialized_end=571,
-)
-_sym_db.RegisterEnumDescriptor(_EXCHANGE_KEY_RS_MSG)
 
 
 _KNOCK_RQ = _descriptor.Descriptor(
@@ -195,22 +159,29 @@ _KNOCK_RS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='remote_client_version', full_name='c_shuttle_entry.knock_rs.remote_client_version', index=2,
-      number=3, type=9, cpp_type=9, label=2,
-      has_default_value=True, default_value=_b("").decode('utf-8'),
+      name='public_key', full_name='c_shuttle_entry.knock_rs.public_key', index=2,
+      number=3, type=12, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='remote_source_version', full_name='c_shuttle_entry.knock_rs.remote_source_version', index=3,
+      name='remote_client_version', full_name='c_shuttle_entry.knock_rs.remote_client_version', index=3,
       number=4, type=9, cpp_type=9, label=2,
       has_default_value=True, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='remote_server_version', full_name='c_shuttle_entry.knock_rs.remote_server_version', index=4,
+      name='remote_source_version', full_name='c_shuttle_entry.knock_rs.remote_source_version', index=4,
       number=5, type=9, cpp_type=9, label=2,
+      has_default_value=True, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='remote_server_version', full_name='c_shuttle_entry.knock_rs.remote_server_version', index=5,
+      number=6, type=9, cpp_type=9, label=2,
       has_default_value=True, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -229,92 +200,7 @@ _KNOCK_RS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=221,
-  serialized_end=412,
-)
-
-
-_EXCHANGE_KEY_RQ = _descriptor.Descriptor(
-  name='exchange_key_rq',
-  full_name='c_shuttle_entry.exchange_key_rq',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='n', full_name='c_shuttle_entry.exchange_key_rq.n', index=0,
-      number=1, type=12, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='e', full_name='c_shuttle_entry.exchange_key_rq.e', index=1,
-      number=2, type=12, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='version', full_name='c_shuttle_entry.exchange_key_rq.version', index=2,
-      number=3, type=13, cpp_type=3, label=2,
-      has_default_value=True, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _EXCHANGE_KEY_RQ_MSG,
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=414,
-  serialized_end=491,
-)
-
-
-_EXCHANGE_KEY_RS = _descriptor.Descriptor(
-  name='exchange_key_rs',
-  full_name='c_shuttle_entry.exchange_key_rs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='error', full_name='c_shuttle_entry.exchange_key_rs.error', index=0,
-      number=1, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='key', full_name='c_shuttle_entry.exchange_key_rs.key', index=1,
-      number=2, type=12, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _EXCHANGE_KEY_RS_MSG,
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=493,
-  serialized_end=571,
+  serialized_end=432,
 )
 
 _KNOCK_RQ.fields_by_name['coord_info'].message_type = b__math__pb2._COORD
@@ -322,13 +208,8 @@ _KNOCK_RQ_MSG.containing_type = _KNOCK_RQ
 _KNOCK_RS.fields_by_name['error'].message_type = b__error__pb2._INFO
 _KNOCK_RS.fields_by_name['addr'].message_type = b__network__pb2._ADDRESS
 _KNOCK_RS_MSG.containing_type = _KNOCK_RS
-_EXCHANGE_KEY_RQ_MSG.containing_type = _EXCHANGE_KEY_RQ
-_EXCHANGE_KEY_RS.fields_by_name['error'].message_type = b__error__pb2._INFO
-_EXCHANGE_KEY_RS_MSG.containing_type = _EXCHANGE_KEY_RS
 DESCRIPTOR.message_types_by_name['knock_rq'] = _KNOCK_RQ
 DESCRIPTOR.message_types_by_name['knock_rs'] = _KNOCK_RS
-DESCRIPTOR.message_types_by_name['exchange_key_rq'] = _EXCHANGE_KEY_RQ
-DESCRIPTOR.message_types_by_name['exchange_key_rs'] = _EXCHANGE_KEY_RS
 DESCRIPTOR.enum_types_by_name['msg'] = _MSG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -345,20 +226,6 @@ knock_rs = _reflection.GeneratedProtocolMessageType('knock_rs', (_message.Messag
   # @@protoc_insertion_point(class_scope:c_shuttle_entry.knock_rs)
   ))
 _sym_db.RegisterMessage(knock_rs)
-
-exchange_key_rq = _reflection.GeneratedProtocolMessageType('exchange_key_rq', (_message.Message,), dict(
-  DESCRIPTOR = _EXCHANGE_KEY_RQ,
-  __module__ = 'c_shuttle_entry_pb2'
-  # @@protoc_insertion_point(class_scope:c_shuttle_entry.exchange_key_rq)
-  ))
-_sym_db.RegisterMessage(exchange_key_rq)
-
-exchange_key_rs = _reflection.GeneratedProtocolMessageType('exchange_key_rs', (_message.Message,), dict(
-  DESCRIPTOR = _EXCHANGE_KEY_RS,
-  __module__ = 'c_shuttle_entry_pb2'
-  # @@protoc_insertion_point(class_scope:c_shuttle_entry.exchange_key_rs)
-  ))
-_sym_db.RegisterMessage(exchange_key_rs)
 
 
 DESCRIPTOR.has_options = True

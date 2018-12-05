@@ -48,8 +48,8 @@ typedef enum _c_shuttle_lobby_msg {
 struct  _c_shuttle_lobby_exchange_key_rq
 {
   ProtobufCMessage base;
-  ProtobufCBinaryData n;
-  ProtobufCBinaryData e;
+  ProtobufCBinaryData public_key;
+  ProtobufCBinaryData encrypt_key_l;
   unsigned int version;
 };
 #define c_shuttle_lobby_exchange_key_rq_Init \
@@ -61,7 +61,7 @@ struct  _c_shuttle_lobby_exchange_key_rs
 {
   ProtobufCMessage base;
   b_error_info *error;
-  ProtobufCBinaryData key;
+  ProtobufCBinaryData encrypt_key_r;
 };
 #define c_shuttle_lobby_exchange_key_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_shuttle_lobby_exchange_key_rs_descriptor) \
@@ -97,14 +97,12 @@ struct  _c_shuttle_lobby_heartbeat_rq
 {
   ProtobufCMessage base;
   unsigned long long int uid;
-  char *token;
   unsigned long long int timecode_native;
   b_math_coord *coord_info;
 };
-extern char c_shuttle_lobby_heartbeat_rq_token_default_value[];
 #define c_shuttle_lobby_heartbeat_rq_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_shuttle_lobby_heartbeat_rq_descriptor) \
-    , 0, c_shuttle_lobby_heartbeat_rq_token_default_value, 0, NULL }
+    , 0, 0, NULL }
 
 
 struct  _c_shuttle_lobby_heartbeat_rs
@@ -112,14 +110,12 @@ struct  _c_shuttle_lobby_heartbeat_rs
   ProtobufCMessage base;
   b_error_info *error;
   unsigned long long int uid;
-  char *token;
   unsigned long long int timecode_native;
   b_math_coord *coord_info;
 };
-extern char c_shuttle_lobby_heartbeat_rs_token_default_value[];
 #define c_shuttle_lobby_heartbeat_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_shuttle_lobby_heartbeat_rs_descriptor) \
-    , NULL, 0, c_shuttle_lobby_heartbeat_rs_token_default_value, 0, NULL }
+    , NULL, 0, 0, NULL }
 
 
 /* c_shuttle_lobby_exchange_key_rq methods */

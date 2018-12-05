@@ -1,4 +1,4 @@
-#include "lj_KO_dog_test_setup.h"
+#include "KO_dog_test_setup.h"
 #include "stdio.h"
 #include <string>
 #include <map>

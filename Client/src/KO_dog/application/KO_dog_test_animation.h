@@ -23,14 +23,15 @@
 
 #include "math/mm_fix32_linear.h"
 #include "container/mm_bitset.h"
+#include "KO_dog_zhujiemian_dog.h"
 
 namespace mm
 {
-	struct zhen_dog_luoji_data
-	{
-		mm_fix32_vector3 D_weizhi;
-		mm_fix32 D_jiaodu;
-	};
+	//struct zhen_dog_luoji_data
+	//{
+	//	mm_fix32_vector3 D_weizhi;
+	//	mm_fix32 D_jiaodu;
+	//};
 
 	class mm_event_animation_close : public mm_event_args
 	{
@@ -48,36 +49,36 @@ namespace mm
 		mm_flake_context* d_flake_context;
 		mm_flake_surface* d_surface;
 
-		Ogre::SceneManager* d_scene_manager;
-		Ogre::SceneNode* d_root_node;
+		//Ogre::SceneManager* d_scene_manager;
+		//Ogre::SceneNode* d_root_node;
 
-		Ogre::SceneNode* d_node_camera;
-		Ogre::Camera* d_camera;
-		Ogre::Viewport* d_viewport;
+		//Ogre::SceneNode* d_node_camera;
+		//Ogre::Camera* d_camera;
+		//Ogre::Viewport* d_viewport;
 
-		Ogre::SceneNode* d_light_node;
-		Ogre::Light* d_dir_light;
+		//Ogre::SceneNode* d_light_node;
+		//Ogre::Light* d_dir_light;
 	public:
-		Ogre::SceneNode* d_ogrehead_node_0;
-		Ogre::SceneNode* d_ogrehead_node_1;
-		Ogre::Entity* d_ogrehead_mesh_0;
+		//Ogre::SceneNode* d_ogrehead_node_0;
+		//Ogre::SceneNode* d_ogrehead_node_1;
+		//Ogre::Entity* d_ogrehead_mesh_0;
 		
-		Ogre::ResourcePtr d_skeleton_resource_ptr;
-		Ogre::Skeleton* d_cube_skeleton;
+		//Ogre::ResourcePtr d_skeleton_resource_ptr;
+		//Ogre::Skeleton* d_cube_skeleton;
 		//dish::UnitAnimation d_unit_animation;
 
-		Ogre::SceneNode* d_floor_node;
-		Ogre::Entity* d_floor_mash;
+		//Ogre::SceneNode* d_floor_node;
+		//Ogre::Entity* d_floor_mash;
 	public:
-		Ogre::MeshPtr d_dog_resource_ptr;
-		Ogre::MeshPtr d_floor_resource_ptr;
+		//Ogre::MeshPtr d_dog_resource_ptr;
+		//Ogre::MeshPtr d_floor_resource_ptr;
 	public:
 
-		mm_unit_animation d_unit_animation_n;
-		mm_unit_audio d_unit_audio_n;
+		//mm_unit_animation d_unit_animation_n;
+		//mm_unit_audio d_unit_audio_n;
 
-		OgreOggSound::OgreOggSoundFactory* d_audio_factory;
-		OgreOggSound::OgreOggSoundManager* d_audio_manager;
+		//OgreOggSound::OgreOggSoundFactory* d_audio_factory;
+		//OgreOggSound::OgreOggSoundManager* d_audio_manager;
 	public:
 		mm_event_handler d_event_updated_conn;
 
@@ -119,10 +120,13 @@ namespace mm
 		mm_fix32 dog_hudu_4_Dhudu;
 		mm_fix32 dog_ds_all;
 
-		zhen_dog_luoji_data dog_ago;
-		zhen_dog_luoji_data dog_tag;
-		zhen_dog_luoji_data dog_now;
-		zhen_dog_luoji_data dog_mid;
+		//zhen_dog_luoji_data dog_ago;
+		//zhen_dog_luoji_data dog_tag;
+		//zhen_dog_luoji_data dog_now;
+		//zhen_dog_luoji_data dog_mid;
+
+		//zhujiemian_dog
+		KO_dog_zhujiemian_dog dog;
 
 	public:
 		mm_fix32 d_sync_frequency;

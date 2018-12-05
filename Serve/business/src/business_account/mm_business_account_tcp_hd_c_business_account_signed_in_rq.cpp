@@ -1,5 +1,6 @@
 #include "mm_business_account_tcp_hd.h"
 #include "core/mm_logger.h"
+#include "core/mm_time_cache.h"
 #include "net/mm_packet.h"
 #include "net/mm_streambuf_packet.h"
 #include "shuttle_common/mm_error_code_common.h"
@@ -24,8 +25,8 @@ void mm_business_account_tcp_hd_c_business_account_signed_in_rq(void* obj, void*
 	struct mm_logger* g_logger = mm_logger_instance();
 	struct mm_tcp* tcp = (struct mm_tcp*)(obj);
 	struct mm_mailbox* mailbox = (struct mm_mailbox*)(tcp->callback.obj);
-	struct mm_business_account* business_account = (struct mm_business_account*)(u);
-	struct mm_error_desc* error_desc = &business_account->error_desc;
+	struct mm_business_account* impl = (struct mm_business_account*)(u);
+	struct mm_error_desc* error_desc = &impl->error_desc;
 	////////////////////////////////
 	error_info->set_code(0);
 	error_info->set_desc("");
@@ -50,7 +51,7 @@ void mm_business_account_tcp_hd_c_business_account_signed_in_rq(void* obj, void*
 		const std::string& password = rq_msg.password();
 		rs_msg.set_user_name(user_name);
 		//////////////////////////////////////////////////////////////////////////
-		struct mm_db_mysql* db_mysql = mm_db_mysql_section_thread_instance(&business_account->db_sql_section);
+		struct mm_db_mysql* db_mysql = mm_db_mysql_section_thread_instance(&impl->db_sql_section);
 		{
 			mm::p_userinfo_check query;
 			query.name = user_name;
@@ -67,8 +68,19 @@ void mm_business_account_tcp_hd_c_business_account_signed_in_rq(void* obj, void*
 				error_info->set_desc(mm_error_desc_string(error_desc, error_info->code()));
 				break;
 			}
+			// 获取系统时间缓存单例
+			struct mm_time_cache* g_time_cache = mm_time_cache_instance();
+			//
+			struct mm_jwt_authority_data jwt_authority_data;
+			jwt_authority_data.sub = query.id;
+			jwt_authority_data.iat = g_time_cache->msec_current;
+			jwt_authority_data.jti = rand();
+			struct mm_string token;
+			mm_string_init(&token);
+			mm_jwt_authority_array_sign(&impl->jwt_authority_array, &jwt_authority_data, &token);
 			rs_msg.set_user_id(query.id);
-			rs_msg.set_token("signed");
+			rs_msg.set_token(token.s);
+			mm_string_destroy(&token);
 		}
 		//////////////////////////////////////////////////////////////////////////
 	} while (0);

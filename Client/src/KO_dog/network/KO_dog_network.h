@@ -3,11 +3,13 @@
 
 #include "net/mm_client_tcp.h"
 #include "net/mm_client_udp.h"
+#include "openssl/mm_openssl_tcp_context.h"
 
 struct KO_dog_network
 {
 	struct mm_client_tcp tcp;
 	struct mm_client_udp udp;
+	struct mm_openssl_tcp_context openssl_tcp_context;
 };
 
 //////////////////////////////////////////////////////////////////////////

@@ -85,15 +85,15 @@ BOOL C_shuttle_lobby_msg_IsValidValue(int32_t value__) {
 
 @implementation C_shuttle_lobby_exchange_key_rq
 
-@dynamic hasN, n;
-@dynamic hasE, e;
+@dynamic hasPublicKey, publicKey;
+@dynamic hasEncryptKeyL, encryptKeyL;
 @dynamic hasVersion, version;
 
 typedef struct C_shuttle_lobby_exchange_key_rq__storage_ {
   uint32_t _has_storage_[1];
   uint32_t version;
-  NSData *n;
-  NSData *e;
+  NSData *publicKey;
+  NSData *encryptKeyL;
 } C_shuttle_lobby_exchange_key_rq__storage_;
 
 // This method is threadsafe because it is initially called
@@ -103,20 +103,20 @@ typedef struct C_shuttle_lobby_exchange_key_rq__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "n",
+        .name = "publicKey",
         .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_lobby_exchange_key_rq_FieldNumber_N,
+        .number = C_shuttle_lobby_exchange_key_rq_FieldNumber_PublicKey,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(C_shuttle_lobby_exchange_key_rq__storage_, n),
+        .offset = (uint32_t)offsetof(C_shuttle_lobby_exchange_key_rq__storage_, publicKey),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "e",
+        .name = "encryptKeyL",
         .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_lobby_exchange_key_rq_FieldNumber_E,
+        .number = C_shuttle_lobby_exchange_key_rq_FieldNumber_EncryptKeyL,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_shuttle_lobby_exchange_key_rq__storage_, e),
+        .offset = (uint32_t)offsetof(C_shuttle_lobby_exchange_key_rq__storage_, encryptKeyL),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeBytes,
       },
@@ -185,12 +185,12 @@ BOOL C_shuttle_lobby_exchange_key_rq_msg_IsValidValue(int32_t value__) {
 @implementation C_shuttle_lobby_exchange_key_rs
 
 @dynamic hasError, error;
-@dynamic hasKey, key;
+@dynamic hasEncryptKeyR, encryptKeyR;
 
 typedef struct C_shuttle_lobby_exchange_key_rs__storage_ {
   uint32_t _has_storage_[1];
   B_error_info *error;
-  NSData *key;
+  NSData *encryptKeyR;
 } C_shuttle_lobby_exchange_key_rs__storage_;
 
 // This method is threadsafe because it is initially called
@@ -209,11 +209,11 @@ typedef struct C_shuttle_lobby_exchange_key_rs__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "key",
+        .name = "encryptKeyR",
         .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_lobby_exchange_key_rs_FieldNumber_Key,
+        .number = C_shuttle_lobby_exchange_key_rs_FieldNumber_EncryptKeyR,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_shuttle_lobby_exchange_key_rs__storage_, key),
+        .offset = (uint32_t)offsetof(C_shuttle_lobby_exchange_key_rs__storage_, encryptKeyR),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeBytes,
       },
@@ -460,13 +460,11 @@ BOOL C_shuttle_lobby_token_verify_rs_msg_IsValidValue(int32_t value__) {
 @implementation C_shuttle_lobby_heartbeat_rq
 
 @dynamic hasUid, uid;
-@dynamic hasToken, token;
 @dynamic hasTimecodeNative, timecodeNative;
 @dynamic hasCoordInfo, coordInfo;
 
 typedef struct C_shuttle_lobby_heartbeat_rq__storage_ {
   uint32_t _has_storage_[1];
-  NSString *token;
   B_math_coord *coordInfo;
   uint64_t uid;
   uint64_t timecodeNative;
@@ -488,19 +486,10 @@ typedef struct C_shuttle_lobby_heartbeat_rq__storage_ {
         .dataType = GPBDataTypeUInt64,
       },
       {
-        .name = "token",
-        .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_lobby_heartbeat_rq_FieldNumber_Token,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_shuttle_lobby_heartbeat_rq__storage_, token),
-        .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "timecodeNative",
         .dataTypeSpecific.className = NULL,
         .number = C_shuttle_lobby_heartbeat_rq_FieldNumber_TimecodeNative,
-        .hasIndex = 2,
+        .hasIndex = 1,
         .offset = (uint32_t)offsetof(C_shuttle_lobby_heartbeat_rq__storage_, timecodeNative),
         .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
         .dataType = GPBDataTypeUInt64,
@@ -509,7 +498,7 @@ typedef struct C_shuttle_lobby_heartbeat_rq__storage_ {
         .name = "coordInfo",
         .dataTypeSpecific.className = GPBStringifySymbol(B_math_coord),
         .number = C_shuttle_lobby_heartbeat_rq_FieldNumber_CoordInfo,
-        .hasIndex = 3,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(C_shuttle_lobby_heartbeat_rq__storage_, coordInfo),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeMessage,
@@ -571,14 +560,12 @@ BOOL C_shuttle_lobby_heartbeat_rq_msg_IsValidValue(int32_t value__) {
 
 @dynamic hasError, error;
 @dynamic hasUid, uid;
-@dynamic hasToken, token;
 @dynamic hasTimecodeNative, timecodeNative;
 @dynamic hasCoordInfo, coordInfo;
 
 typedef struct C_shuttle_lobby_heartbeat_rs__storage_ {
   uint32_t _has_storage_[1];
   B_error_info *error;
-  NSString *token;
   B_math_coord *coordInfo;
   uint64_t uid;
   uint64_t timecodeNative;
@@ -609,19 +596,10 @@ typedef struct C_shuttle_lobby_heartbeat_rs__storage_ {
         .dataType = GPBDataTypeUInt64,
       },
       {
-        .name = "token",
-        .dataTypeSpecific.className = NULL,
-        .number = C_shuttle_lobby_heartbeat_rs_FieldNumber_Token,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(C_shuttle_lobby_heartbeat_rs__storage_, token),
-        .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "timecodeNative",
         .dataTypeSpecific.className = NULL,
         .number = C_shuttle_lobby_heartbeat_rs_FieldNumber_TimecodeNative,
-        .hasIndex = 3,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(C_shuttle_lobby_heartbeat_rs__storage_, timecodeNative),
         .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
         .dataType = GPBDataTypeUInt64,
@@ -630,7 +608,7 @@ typedef struct C_shuttle_lobby_heartbeat_rs__storage_ {
         .name = "coordInfo",
         .dataTypeSpecific.className = GPBStringifySymbol(B_math_coord),
         .number = C_shuttle_lobby_heartbeat_rs_FieldNumber_CoordInfo,
-        .hasIndex = 4,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(C_shuttle_lobby_heartbeat_rs__storage_, coordInfo),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeMessage,

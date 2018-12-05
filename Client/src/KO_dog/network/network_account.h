@@ -1,7 +1,7 @@
 #ifndef __network_account_h__
 #define __network_account_h__
 
-#include "net/mm_client_udp.h"
+#include "net/mm_packet.h"
 
 struct KO_dog_network;
 
