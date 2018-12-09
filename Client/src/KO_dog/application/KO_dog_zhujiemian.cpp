@@ -20,6 +20,8 @@ namespace mm
 		, d_surface(NULL)
 		, d_window_login(NULL)
 		, l_home_lj_login(NULL)
+		, l_layer_dog_window(NULL)
+
 		, MenuWindow(NULL)
 		, l_edit_text_id(NULL)
 		, l_s_button_login(NULL)
@@ -37,6 +39,10 @@ namespace mm
 		, l_image_gold5(NULL)
 		, l_image_gold_y1(NULL)
 		, l_image_gold_y2(NULL)
+		, DefaultWindow_entry(NULL)
+		, DefaultWindow_lobby(NULL)
+
+
 		//, l_image_gold_mov(NULL)
 
 		//, d_scene_manager(NULL)
@@ -90,6 +96,8 @@ namespace mm
 
 		this->d_window_login = (CEGUI::Window*)_window_manager->createWindow("DefaultWindow", "root_window_0");
 		this->l_home_lj_login = _window_manager->loadLayoutFromFile("l_home_lj_login.layout");
+		this->l_layer_dog_window = _window_manager->loadLayoutFromFile("l_layer_dog_window.layout");
+
 
 		this->MenuWindow = this->l_home_lj_login->getChild("MenuWindow");
 		this->l_edit_text_id = this->MenuWindow->getChild("l_edit_text_id");
@@ -107,10 +115,18 @@ namespace mm
 		this->l_image_gold5 = this->MenuWindow->getChild("l_image_gold5");
 		this->l_image_gold_y1 = this->MenuWindow->getChild("l_image_gold_y1");
 		this->l_image_gold_y2 = this->MenuWindow->getChild("l_image_gold_y2");
+		this->DefaultWindow_entry = this->MenuWindow->getChild("DefaultWindow_entry");
+		this->DefaultWindow_lobby = this->MenuWindow->getChild("DefaultWindow_lobby");
+
 		this->rtt_coin.l_rtt = this->MenuWindow->getChild("l_image_gold_mov");
-
 		this->StaticImage = this->l_home_lj_login->getChild("StaticImage");
+		////////////////////////////////////////////////////////////////////////////////
+		this->DefaultWindow_entry->addChild(this->l_layer_dog_window);
 
+		// {{0, 0}, {0, 0}, {1, 0}, {1, 0}}
+		// URect
+		CEGUI::URect  ur = { {0, 0}, {0, 0}, {1, 0}, {1, 0} };
+		this->l_layer_dog_window->setArea(ur);
 
 		this->l_text_id->setText("Your ID");
 		this->l_text_pwd->setText("Your password");
@@ -183,6 +199,8 @@ namespace mm
 		p_dog->data.data_log_view.d_event_set.unsubscribe_event(KO_dog_data_log_view::event_log_view, this->d_event_log_view_conn);
 
 		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
+
+		_window_manager->destroyWindow(this->l_layer_dog_window);
 		_window_manager->destroyWindow(this->l_home_lj_login);
 		_window_manager->destroyWindow(this->d_window_login);
 	}
@@ -205,47 +223,64 @@ namespace mm
 		//	}
 		//	else
 		//	{
-		//		this->l_text_notice->setText("Good luck");
-		//		//mm_msleep(1000);
-		//		this->test_animation.assign_flake_context(this->d_flake_context);
-		//		this->test_animation.on_finish_launching(this->d_surface);
+				this->l_text_notice->setText("Good luck");
+				//mm_msleep(1000);
+				this->test_animation.assign_flake_context(this->d_flake_context);
+				this->test_animation.on_finish_launching(this->d_surface);
 		//	}
 
 		//}
 
-		mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+					
 
-		if (0 != p->data.data_net.lobby.port)
-		{	
-			const CEGUI::String &user_name = this->l_edit_text_id->getText();
-			const CEGUI::String &pass_word = this->l_edit_text_pwd->getText();
 
-			md5_uint8 digest[16] = { 0 };
-			mm_md5_starts(&this->md5_context);
-			mm_md5_update(&this->md5_context, (md5_uint8 *)pass_word.c_str(), pass_word.length());
-			mm_md5_finish(&this->md5_context, digest);
 
-			char mima[33] = { 0 };
-			for (size_t i = 0; i < 16; i++)
-			{
-				sprintf(&mima[2 * i], "%02x", digest[i]);
-			}
 
-			c_business_account::signed_in_rq rq;
-			rq.set_user_name(user_name.c_str());
-			rq.set_password((const char*)mima);
-			mm_client_tcp_flush_send_message(&p->network.tcp,0, c_business_account::signed_in_rq_msg_id, &rq);
-			this->l_text_notice->setText("Please wait.....");
-		}
-		else
-		{
-			this->l_text_notice->setText("Network unstable, retry later!");
-		}
+		//mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+
+		//if (0 != p->data.data_net.lobby.port)
+		//{	
+		//	const CEGUI::String &user_name = this->l_edit_text_id->getText();
+		//	const CEGUI::String &pass_word = this->l_edit_text_pwd->getText();
+
+		//	md5_uint8 digest[16] = { 0 };
+		//	mm_md5_starts(&this->md5_context);
+		//	mm_md5_update(&this->md5_context, (md5_uint8 *)pass_word.c_str(), pass_word.length());
+		//	mm_md5_finish(&this->md5_context, digest);
+
+		//	char mima[33] = { 0 };
+		//	for (size_t i = 0; i < 16; i++)
+		//	{
+		//		sprintf(&mima[2 * i], "%02x", digest[i]);
+		//	}
+
+		//	c_business_account::signed_in_rq rq;
+		//	rq.set_user_name(user_name.c_str());
+		//	rq.set_password((const char*)mima);
+		//	mm_client_tcp_flush_send_message(&p->network.tcp,0, c_business_account::signed_in_rq_msg_id, &rq);
+		//	this->l_text_notice->setText("Please wait.....");
+		//}
+		//else
+		//{
+		//	this->l_text_notice->setText("Network unstable, retry later!");
+		//}
 
 		return false;
 	}
+	//static void* sindojojsfoj(void* p)
+	//{
+	//	mm_msleep(100);
+	//	mm_flake_context* pt = (mm_flake_context*)p;
+	//	pt->shutdown();
+	//	return NULL;
+	//}
+
 	bool KO_dog_zhujiemian::on_handle_l_s_button_out(const CEGUI::EventArgs& args)
 	{		
+		//this->d_flake_context->terminate();
+		//pthread_t eee;
+		//pthread_create(&eee, NULL, &sindojojsfoj, this->d_flake_context);
+
 		this->d_flake_context->shutdown();
 		return false;
 	}

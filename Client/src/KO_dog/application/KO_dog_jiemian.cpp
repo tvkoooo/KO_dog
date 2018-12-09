@@ -70,6 +70,7 @@ namespace mm
 		this->zhujiemian.set_data(this->d_flake_context,this->d_surface);
 		this->zhujiemian.on_finish_launching();
 
+
 	}
 	void KO_dog_jiemian::on_before_terminate(mm_flake_surface* surface)
 	{

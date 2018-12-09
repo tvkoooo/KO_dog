@@ -43,6 +43,7 @@
             <Item path="layouts/l_interpersonal_talk.layout" type="file" />
             <Item path="layouts/l_layer.layout" type="file" />
             <Item path="layouts/l_layer_dog_a1.layout" type="file" />
+            <Item path="layouts/l_layer_dog_window.layout" type="file" />
             <Item path="layouts/l_reconfirm.layout" type="file" />
             <Item path="layouts/l_synchronize.layout" type="file" />
             <Item path="layouts/l_title.layout" type="file" />

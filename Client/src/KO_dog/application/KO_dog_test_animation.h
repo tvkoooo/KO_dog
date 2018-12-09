@@ -107,6 +107,8 @@ namespace mm
 		CEGUI::Window* Label_sudu_v;
 		CEGUI::Window* Label_quyu;
 		CEGUI::Window* l_s_button_out;
+		CEGUI::Window* l_s_button_camera;
+
 		CEGUI::Window* StaticImage;
 
 	public:
@@ -118,6 +120,9 @@ namespace mm
 		mm_fix32 dog_v_4;
 		//mm_fix32 dog_hudu_4;
 		mm_fix32 dog_hudu_4_Dhudu;
+		mm_fix32 k_dog_hudu;
+		int k_dog_v;
+
 		mm_fix32 dog_ds_all;
 
 		//zhen_dog_luoji_data dog_ago;
@@ -174,6 +179,8 @@ namespace mm
 	public:
 		bool on_handle_StaticImage(const CEGUI::EventArgs& args);
 		bool on_handle_l_s_button_out(const CEGUI::EventArgs& args);
+		bool on_handle_l_s_button_camera(const CEGUI::EventArgs& args);
+
 
 	public:
 		void update_anchor_quaternion(double abs_x, double abs_y);

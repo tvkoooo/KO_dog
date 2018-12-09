@@ -30,6 +30,14 @@ LOCAL_SHARED_LIBRARIES += libmm_net_shared
 LOCAL_SHARED_LIBRARIES += libmm_flake_shared
 
 ########################################################################
+LOCAL_STATIC_LIBRARIES += libmm_data_openssl_static
+LOCAL_STATIC_LIBRARIES += libmm_data_lua_static
+LOCAL_STATIC_LIBRARIES += libmm_data_protobuf_static
+
+LOCAL_STATIC_LIBRARIES += libcrypto_static
+LOCAL_STATIC_LIBRARIES += libprotobuf_static
+LOCAL_STATIC_LIBRARIES += liblua_static
+
 LOCAL_STATIC_LIBRARIES += libOpenAL_static
 LOCAL_STATIC_LIBRARIES += libOgreAL_static
 
@@ -40,7 +48,6 @@ LOCAL_STATIC_LIBRARIES += libConvexDecomposition_static
 LOCAL_STATIC_LIBRARIES += libBulletDynamics_static
 LOCAL_STATIC_LIBRARIES += libBulletCollision_static
 LOCAL_STATIC_LIBRARIES += libLinearMath_static
-
 ########################################################################
 INSTALL_MODEL := mm_core_packet
 INSTALL_FILES := $(MM_CORE)/mm/proj/android/bin/mm_core.jar
@@ -59,7 +66,10 @@ INSTALL_FILES += $(MM_LIB)/build/cegui/proj_android/libs/$(APP_ABI)/libCEGUICore
 INSTALL_OPATH := $(NDK_APP_LIBS_OUT)/$(APP_ABI)
 include $(MM_MAKE_HOME)/compile/prebuilt-install.mk
 ########################################################################
-LOCAL_C_INCLUDES += $(MM_LIB)/src/protobuf-c/src
+LOCAL_C_INCLUDES += $(MM_LIB)/src/protobuf/src
+LOCAL_C_INCLUDES += $(MM_LIB)/src/openssl/include
+LOCAL_C_INCLUDES += $(MM_LIB)/build/openssl/include/android
+LOCAL_C_INCLUDES += $(MM_CORE)/data/src
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../src/KO_dog
 ########################################################################
 LOCAL_SRC_FILES  += 
@@ -72,6 +82,7 @@ MY_SOURCES_EXTENSION  :=
 #  
 # config self source file path ,suffix.
 MY_SOURCES_PATH += $(LOCAL_PATH)/../../../src/KO_dog
+MY_SOURCES_PATH += $(LOCAL_PATH)/../../../src/protodef/cxx/protodef
 MY_SOURCES_PATH += $(LOCAL_PATH)/android
 
 # config filter out file and path.

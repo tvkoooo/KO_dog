@@ -13,6 +13,8 @@ extern void mm_client_tcp_flush_send_exchange_key_rq(struct mm_client_tcp* p);
 
 
 extern void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* pack);
+extern void hd_q_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* pack);
+
 //extern void hd_n_c_shuttle_lobby_token_verify_rs(void* obj, void* u, struct mm_packet* pack);
 
 

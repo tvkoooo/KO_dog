@@ -85,91 +85,82 @@ namespace mm
 	{		
 		struct mm_logger* g_logger = mm_logger_instance();
 		mm_logger_log_I(g_logger,"%s %d 1.",__FUNCTION__,__LINE__);
-		//////////////////////////////////////////////////////////////////////////
-		//lj_bomer_test_a();
-		//////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
+		////lj_bomer_test_a();
+		////////////////////////////////////////////////////////////////////////////
 		mm_flake_context* flake_context = this->get_context();
 		mm_flake_surface* flake_surface = flake_context->get_main_flake_surface();
-		//ogre::renderwindow* render_window = flake_surface->get_render_window();
-		////启动  入口//////////////////////////////////////////////////////
+		////ogre::renderwindow* render_window = flake_surface->get_render_window();
+		//////启动  入口//////////////////////////////////////////////////////
 		this->test_s_launching(flake_surface);
-		//////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 		//添加一个网络模块数据线程队列的弹出模块处理过程
 		mm_adaptive_timer_schedule(&flake_context->d_adaptive_timer, "network", 5, 1, &__static_flake_context_adaptive_timer_unit_update_synchronize, this);
 		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 1);
 		//////////////////////////////////////////////////////////////////////////
 		//设置udp入口地址和端口
-		KO_dog_network_client_udp_assign_remote_target(&this->network, "::1", 20001);
+		KO_dog_network_client_udp_assign_remote_target(&this->network, "192.168.1.112", 20001);
 
 		//lua 脚本初始化
 		struct lua_State* L = this->lua_context.state;
 		mm_lua_state_set_global_file_context(L, &flake_context->d_file_context);
 		mm_lua_state_load_file_and_pcall(L, "script/main.lua");
-
-
 	}
 
 	void KO_dog::on_before_terminate()
 	{
-		//////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		mm_flake_context* flake_context = this->get_context();
 		mm_flake_surface* flake_surface = flake_context->get_main_flake_surface();
-		//////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 0);
-		/////结束  出口//////////////////////////////////////////////////////////////
+		///////结束  出口//////////////////////////////////////////////////////////////
 		this->test_s_terminate(flake_surface);
-
 	}
-
+	//void* sindojojsfoj(void* p)
+	//{
+	//	mm_msleep(5000);
+	//	mm_flake_context* pt = (mm_flake_context*)p;
+	//	pt->shutdown();
+	//	return NULL;
+	//}
 	void KO_dog::on_start()
 	{
-		//mm_flake_context* flake_context = this->get_context();
-		//flake_context->d_cegui_system.set_rendering_enabled(false);
-		//this->lj_timer_test.start();
 		KO_dog_network_start(&this->network);
+
+		//pthread_t eee;
+		//pthread_create(&eee, NULL, &sindojojsfoj, this->d_context);
 	}
 	void KO_dog::on_interrupt()
 	{
-		//this->lj_timer_test.interrupt();
 		KO_dog_network_interrupt(&this->network);
 	}
 	void KO_dog::on_shutdown()
 	{
-		//this->lj_timer_test.shutdown();
 		KO_dog_network_shutdown(&this->network);
 	}
 	void KO_dog::on_join()
 	{
-		//this->lj_timer_test.join();
 		KO_dog_network_join(&this->network);
 	}
 
 	void KO_dog::test_s_launching( mm_flake_surface* surface )
 	{
-		float d = 0;
-
-		struct mm_logger* g_logger = mm_logger_instance();
-		//////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 		mm_flake_context* flake_context = this->get_context();
 		//////////////////////////////////////////////////////////////////////////
 		this->jiemian.assign_flake_context(flake_context);
-		//this->d_test_animation.assign_flake_context(flake_context);
-		//////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 		this->jiemian.on_finish_launching(surface);
-		//this->d_test_animation.on_finish_launching(surface);
 
 		//////////////////////////////////////////////////////////////////////////
 	}
 	void KO_dog::test_s_terminate( mm_flake_surface* surface )
 	{
-		struct mm_logger* g_logger = mm_logger_instance();
-		mm_flake_context* flake_context = this->get_context();
-
-		//////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 		this->jiemian.on_before_terminate(surface);
-		//this->d_test_animation.on_before_terminate(surface);
 
-		//////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 	}
 
 }
@@ -178,5 +169,6 @@ static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* 
 {
 	struct mm_adaptive_timer_unit* unit = (struct mm_adaptive_timer_unit*)(obj);
 	mm::KO_dog* p = (mm::KO_dog*)(unit->callback.obj);
+	//
 	KO_dog_network_thread_handle_recv( &p->network);
 }

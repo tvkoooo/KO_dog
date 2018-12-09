@@ -5,79 +5,78 @@
 #include "core/mm_core.h"
 #include "dish/mm_event.h"
 
-#include "openssl/mm_openssl_rsa.h"
-#include "openssl/mm_openssl_rc4.h"
+
 
 #define KO_DOG_DATA_NET_RSA_LENGTH 1024
 #define KO_DOG_DATA_NET_RC4_LENGTH 16
 
 namespace mm
 {
-	struct ip_port_state
+	class ip_port_state
 	{
-		enum socket_state 
+		enum enum_socket_state
 		{
 			net_state_closed = 0,// fd is closed,connect closed.invalid at all.
 			net_state_motion = 1,// fd is opened,connect closed.at connecting.
 			net_state_finish = 2,// fd is opened,connect opened.at connected.
 			net_state_broken = 3,// fd is opened,connect broken.connect is broken fd not closed.
 		};
+		enum enum_crypto_state
+		{
+			crypto_state_closed = 0,// tcps is closed,Unencrypted packages are not allowed to be sent.
+			crypto_state_finish = 1,// tcps already completed,Unencrypted packages are allowed to be sent.
+		};
+
+	public:
 		std::string ip;
 		mm_ushort_t port;
 		int socket_state;
+
+		int crypto_state;
+
+		//ip and port update
+		static const std::string event_ip_port_update;
+
+		//the socket update
+		static const std::string event_socket_update;
+
+		//crypto state update
+		static const std::string event_crypto_update;
+	public:
+		// this member is event drive.
+		mm::mm_event_set d_event_set;
+
+
+	public:
+		ip_port_state();
+		~ip_port_state();
 	};
-	void ip_port_state_init(struct ip_port_state *p);
-	void ip_port_state_destroy(struct ip_port_state *p);
-
-	struct tcps_connect
-	{
-		enum tcps_state 
-		{
-			tcps_state_closed = 0,// tcps is closed,Unencrypted packages are not allowed to be sent.
-			tcps_state_finish = 1,// tcps already completed,Unencrypted packages are allowed to be sent.
-		};
-		std::string public_key;
-		struct mm_openssl_rsa openssl_rsa_client;
-		struct mm_openssl_rsa openssl_rsa_server;
-		struct mm_openssl_rc4 openssl_rc4;
-		struct mm_openssl_rc4_key openssl_rc4_key;
-		int state;
-	};
-	void tcps_connect_init(struct tcps_connect *p);
-	void tcps_connect_destroy(struct tcps_connect *p);
-
-
 
 
 
 	class KO_dog_data_net
 	{
 	public:
-		struct ip_port_state entry;
-		struct ip_port_state lobby;
+		ip_port_state entry;
+		ip_port_state lobby;
+		
+	//public:
+	//	
+	//	//ip and port update
+	//	static const std::string event_entry_update;
+	//	static const std::string event_lobby_update;
 
-	public:
-		struct tcps_connect lobby_tcps;
+	//	//the socket state change
+	//	static const std::string event_entry_socket_change;
+	//	static const std::string event_lobby_socket_change;
 
-	public:
-		//tcps state change
-		static const std::string event_tcps_state_change;
+	//	//tcps state change
+	//	static const std::string event_entry_crypto_change;
+	//	static const std::string event_obby_crypto_change;
 
-
-		//ip and port update
-		static const std::string event_entry_update;
-		static const std::string event_lobby_update;
-
-		//the socket state change
-		static const std::string event_entry_socket_change;
-		static const std::string event_lobby_socket_change;
-	public:
-		// this member is event drive.
-		mm::mm_event_set d_event_set;
-
-	public:
-		KO_dog_data_net();
-		~KO_dog_data_net();
+	//public:
+	//	// this member is event drive.
+	//	mm::mm_event_set d_event_set;
 
 	};
 }

@@ -40,6 +40,8 @@ namespace mm
 	public:
 		CEGUI::Window* d_window_login;
 		CEGUI::Window* l_home_lj_login;
+		CEGUI::Window* l_layer_dog_window;
+		//
 		CEGUI::Window* MenuWindow;
 		CEGUI::Window* l_edit_text_id;
 		CEGUI::Window* l_s_button_login;
@@ -57,6 +59,11 @@ namespace mm
 		CEGUI::Window* l_image_gold5;
 		CEGUI::Window* l_image_gold_y1;
 		CEGUI::Window* l_image_gold_y2;
+		CEGUI::Window* DefaultWindow_entry;
+		CEGUI::Window* DefaultWindow_lobby;
+		//
+
+
 		//CEGUI::Window* l_image_gold_mov;
 
 	//public:

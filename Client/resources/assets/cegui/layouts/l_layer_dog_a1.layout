@@ -42,5 +42,11 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="NormalTextColour" value="FF210CFF" />
         </Window>
+        <Window type="TaharezLook/ImageButton" name="l_s_button_camera" >
+            <Property name="Area" value="{{0.898438,0},{0.0990735,0},{0.994792,0},{0.175925,0}}" />
+            <Property name="HoverImage" value="TaharezLook/AltProgressLight3" />
+            <Property name="NormalImage" value="TaharezLook/AltProgressLight1" />
+            <Property name="PushedImage" value="TaharezLook/AltProgressLight6" />
+        </Window>
     </Window>
 </GUILayout>

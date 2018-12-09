@@ -15,44 +15,72 @@
 void network_lobby_callback_function_registration(struct KO_dog_network* p)
 {
 	mm_client_tcp_assign_n_callback(&p->tcp, c_shuttle_lobby::exchange_key_rs_msg_id, &hd_n_c_shuttle_lobby_exchange_key_rs);
-	//mm_client_tcp_assign_n_callback(&p->tcp, c_shuttle_lobby::token_verify_rs_msg_id, &hd_n_c_shuttle_lobby_token_verify_rs);
+	mm_client_tcp_assign_q_callback(&p->tcp, c_shuttle_lobby::exchange_key_rs_msg_id, &hd_q_c_shuttle_lobby_exchange_key_rs);
+}
+static void static_test_rc4_i()
+{
+	const char* key = "jfw9ejfoj#@%";
+
+	char a64[64] = "123456789";
+	char b64[64] = { 0 };
+	char c64[64] = { 0 };
+
+	RC4_KEY i;
+	RC4_KEY o;
+	RC4_set_key(&i, strlen(key), (const unsigned char *)key);
+	RC4_set_key(&o, strlen(key), (const unsigned char *)key);
+
+	//RC4(&i, 64, (const unsigned char *)a64, (unsigned char *)b64);
+	//RC4(&o, 64, (const unsigned char *)b64, (unsigned char *)c64);
+
+	RC4(&i, 64, (const unsigned char *)a64, (unsigned char *)a64);
+	RC4(&o, 64, (const unsigned char *)a64, (unsigned char *)a64);
+	
+	//int aa;
 }
 
 //udp/////////////////////////////////////////////////////////////////////////////////
 void mm_client_tcp_flush_send_exchange_key_rq(struct mm_client_tcp* p)
 {
+	//static_test_rc4_i();
 	struct mm_logger* g_logger = mm_logger_instance();
 
 	c_shuttle_lobby::exchange_key_rq msg_rq;
 	mm::KO_dog* impl = (mm::KO_dog*)p->u;
-	mm::KO_dog_data_net* p_data_net = &impl->data.data_net;
-	mm::tcps_connect* p_tcps_connect = &p_data_net->lobby_tcps;
-	struct mm_openssl_rsa* p_openssl_rsa_client = &p_tcps_connect->openssl_rsa_client;
-	struct mm_openssl_rsa* p_openssl_rsa_server = &p_tcps_connect->openssl_rsa_server;
-	struct mm_openssl_rc4* p_openssl_rc4 = &p_tcps_connect->openssl_rc4;
-	struct mm_openssl_rc4_key* p_openssl_rc4_key = &p_tcps_connect->openssl_rc4_key;
+	struct KO_dog_network* network = &impl->network;
+	struct tcps_connect* p_tcps = &network->tcps;
+	struct mm_openssl_rsa* p_openssl_rsa_client = &p_tcps->openssl_rsa_client;
+	struct mm_openssl_rsa* p_openssl_rsa_server = &p_tcps->openssl_rsa_server;
+	struct mm_openssl_rc4* p_openssl_rc4 = &p_tcps->openssl_rc4;
+	struct mm_openssl_rc4_key* p_openssl_rc4_key = &p_tcps->openssl_rc4_key;
 	int pub_encrypt_len = 0;
 
 	//产生 client rc4 L部分并且保存到 mm_openssl_rc4_key （R部分是由服务器rs回包过来的）
+	mm_openssl_rc4_lock(p_openssl_rc4);
 	mm_openssl_rc4_random_buffer(p_openssl_rc4, &p_openssl_rc4_key->key_l, KO_DOG_DATA_NET_RC4_LENGTH);
+	mm_openssl_rc4_unlock(p_openssl_rc4);
 	//取出 msg_rq 的 成员 encrypt_key_l（rc4的L部的key放回server给的公钥箱子里面：使用公钥加密rc4的L部） 地址。以供修改使用
 	std::string* p_encrypt_key_l = msg_rq.mutable_encrypt_key_l();
 	//创建一个临时缓冲区用来承接 公钥加密rc4的L部 的内容（因为出参是C的API，不能进行类型匹配）
 	struct mm_string output;
 	mm_string_init(&output);
 	// 用server rsa 公钥加密 rc4 L部
+	mm_openssl_rsa_lock(p_openssl_rsa_server);
+	mm_openssl_rc4_key_lock(p_openssl_rc4_key);
 	pub_encrypt_len = mm_openssl_rsa_pub_encrypt(p_openssl_rsa_server, &p_openssl_rc4_key->key_l, &output);
+	mm_openssl_rc4_key_unlock(p_openssl_rc4_key);
+	mm_openssl_rsa_unlock(p_openssl_rsa_server);
 	if (0 > pub_encrypt_len)
 	{
 		mm_logger_log_E(g_logger, "%s %d can not encrypt, server public key invalid.", __FUNCTION__, __LINE__);
 	}
 	else
 	{
+		mm_openssl_rsa_lock(p_openssl_rsa_client);
 		//产生 client rsa 仅仅生成到ctx当中，并没有将公钥或者私钥提取到 p_openssl_rsa_client对象当中。
 		mm_openssl_rsa_generate(p_openssl_rsa_client, KO_DOG_DATA_NET_RSA_LENGTH, RSA_3);
 		//生成的 rsa 公钥 放入 mm_openssl_rsa当中
 		mm_openssl_rsa_ctx_to_pub_mem(p_openssl_rsa_client);
-
 		//获得 client rsa 公钥
 		size_t openssl_rsa_pub_mem_size = mm_openssl_rsa_pub_mem_size(p_openssl_rsa_client);
 		//取出 msg_rq 的 成员 public_key 地址。以供修改使用
@@ -61,6 +89,7 @@ void mm_client_tcp_flush_send_exchange_key_rq(struct mm_client_tcp* p)
 		openssl_rsa_pub_mem->resize(openssl_rsa_pub_mem_size);
 		//把 client rsa 的公钥 对拷贝 预分配的缓冲区
 		mm_openssl_rsa_pub_mem_get(p_openssl_rsa_client, (mm_uint8_t*)openssl_rsa_pub_mem->data(), 0, openssl_rsa_pub_mem_size);
+		mm_openssl_rsa_unlock(p_openssl_rsa_client);
 
 		// 预分配承接对象
 		p_encrypt_key_l->resize(output.l);
@@ -69,11 +98,92 @@ void mm_client_tcp_flush_send_exchange_key_rq(struct mm_client_tcp* p)
 		mm_string_destroy(&output);
 		msg_rq.set_version(0);
 
+		//send api 线程安全
 		mm_client_tcp_flush_send_message(p, 0, c_shuttle_lobby::exchange_key_rq_msg_id, &msg_rq);
 	}
 }
 
 void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* pack)
+{
+	c_shuttle_lobby::exchange_key_rs msg_rs;
+	struct mm_string proto_desc;
+	b_error::info* error_info = msg_rs.mutable_error();
+
+	struct mm_logger* g_logger = mm_logger_instance();
+	struct mm_tcp* tcp = (struct mm_tcp*)(obj);
+	mm::KO_dog* impl = (mm::KO_dog*)(u);
+
+	////////////////////////////////
+	mm_string_init(&proto_desc);	
+	do
+	{
+		// 解包错误
+		if (0 != mm_protobuf_cxx_decode_message(pack, &msg_rs))
+		{
+			mm_logger_log_E(g_logger, "%s %d mid:0x%08X message decode failure.", __FUNCTION__, __LINE__, pack->phead.mid);
+			break;
+		}
+		// logger rq.
+		mm_protobuf_cxx_logger_append_packet_message(&proto_desc, pack, &msg_rs);
+		mm_logger_log_I(g_logger, "%s %d %s", __FUNCTION__, __LINE__, proto_desc.s);
+		//////////////////////////////////////////////////////////////////////////
+		// 回包逻辑错误
+		if (0 != error_info->code())
+		{
+			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());			
+		}
+		else
+		{	
+			//数据更新
+			struct KO_dog_network* network = &impl->network;
+			struct mm_tcp* p_tcp = &network->tcp.net_tcp.tcp;
+			struct tcps_connect* tcps = &network->tcps;
+			struct mm_openssl_tcp_context* p_openssl_tcp_context = &tcps->openssl_tcp_context;
+			struct mm_openssl_rsa* p_openssl_rsa_client = &tcps->openssl_rsa_client;
+			struct mm_openssl_rsa* p_openssl_rsa_server = &tcps->openssl_rsa_server;
+			struct mm_openssl_rc4* p_openssl_rc4 = &tcps->openssl_rc4;
+			struct mm_openssl_rc4_key* p_openssl_rc4_key = &tcps->openssl_rc4_key;
+			int pri_decrypt_len = 0;
+
+			//取出msg_rs rc4 R部 密文
+			const std::string& rc4_R_miwen = msg_rs.encrypt_key_r();
+			struct mm_string i_rc4_R_miwen;
+			mm_string_init(&i_rc4_R_miwen);
+			mm_string_resize(&i_rc4_R_miwen, rc4_R_miwen.size());
+			mm_memcpy(i_rc4_R_miwen.s, (char*)rc4_R_miwen.data(), rc4_R_miwen.size());	
+			//用client rsa 私钥解密rs返回的密文，输出 rs4 的R部
+			mm_openssl_rsa_lock(p_openssl_rsa_client);
+			mm_openssl_rc4_key_lock(p_openssl_rc4_key);
+			pri_decrypt_len = mm_openssl_rsa_pri_decrypt(p_openssl_rsa_client, &i_rc4_R_miwen, &p_openssl_rc4_key->key_r);
+			mm_openssl_rc4_key_unlock(p_openssl_rc4_key);
+			mm_openssl_rsa_unlock(p_openssl_rsa_client);
+			mm_string_destroy(&i_rc4_R_miwen);
+			// can not decrypt, client private key invalid.
+			if (0 > pri_decrypt_len)
+			{
+				mm_logger_log_E(g_logger, "%s %d can not decrypt, client private key invalid.", __FUNCTION__, __LINE__);
+				break;
+			}
+			//锁tcp 是因为p_openssl_tcp_context 属于tcp 的上下文， 锁住tcp，就相当于锁住 p_openssl_tcp_context
+			mm_tcp_lock(p_tcp);
+			//组装rc4 L部和R部 变成一个完整的 rc4 key			
+			mm_openssl_rc4_key_lock(p_openssl_rc4_key);
+			mm_openssl_rc4_key_assembly(p_openssl_rc4_key);
+			//将生产的完整rc4 key 设置到tcp连接当中
+			mm_openssl_tcp_context_assign_key(p_openssl_tcp_context, (mm_uint8_t*)p_openssl_rc4_key->key.s, 0, p_openssl_rc4_key->key.l);
+			mm_openssl_rc4_key_unlock(p_openssl_rc4_key);
+			//tcp连接 激活rc4加解密 标签
+			mm_openssl_tcp_context_assign_state(p_openssl_tcp_context, CRYPTO_CONTEXT_ACTIVATE);
+			mm_tcp_unlock(p_tcp);
+
+			//更新网络层的tcps 加密状态
+			tcps->state = tcps_connect::tcps_state_finish;
+			//////////////////////////////////////////////////////////////////////////
+		}
+	} while (0);
+}
+
+void hd_q_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* pack)
 {
 	c_shuttle_lobby::exchange_key_rs msg_rs;
 	struct mm_string proto_desc;
@@ -114,46 +224,16 @@ void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* 
 		{	
 			//数据更新
 			mm::KO_dog_data_net* p_data_net = &impl->data.data_net;
-			mm::tcps_connect* p_tcps_connect = &p_data_net->lobby_tcps;
-			struct mm_openssl_rsa* p_openssl_rsa_client = &p_tcps_connect->openssl_rsa_client;
-			struct mm_openssl_rsa* p_openssl_rsa_server = &p_tcps_connect->openssl_rsa_server;
-			struct mm_openssl_rc4* p_openssl_rc4 = &p_tcps_connect->openssl_rc4;
-			struct mm_openssl_rc4_key* p_openssl_rc4_key = &p_tcps_connect->openssl_rc4_key;
-			int pri_decrypt_len = 0;
-
-			//取出msg_rs rc4 R部 密文
-			const std::string& rc4_R_miwen = msg_rs.encrypt_key_r();
-			struct mm_string i_rc4_R_miwen;
-			mm_string_init(&i_rc4_R_miwen);
-			mm_string_resize(&i_rc4_R_miwen, rc4_R_miwen.size());
-			mm_memcpy(i_rc4_R_miwen.s, (char*)rc4_R_miwen.data(), rc4_R_miwen.size());	
-			//用client rsa 私钥解密rs返回的密文，输出 rs4 的R部
-			pri_decrypt_len = mm_openssl_rsa_pri_decrypt(p_openssl_rsa_client, &i_rc4_R_miwen, &p_openssl_rc4_key->key_r);
-			mm_string_destroy(&i_rc4_R_miwen);
-			// can not decrypt, client private key invalid.
-			if (0 > pri_decrypt_len)
-			{
-				mm_logger_log_E(g_logger, "%s %d can not decrypt, client private key invalid.", __FUNCTION__, __LINE__);
-				break;
-			}
-			//组装rc4 L部和R部 变成一个完整的 rc4 key
-			mm_openssl_rc4_key_assembly(p_openssl_rc4_key);
-			struct KO_dog_network* p_dog_network = &impl->network;
-			struct mm_openssl_tcp_context* p_openssl_tcp_context = &p_dog_network->openssl_tcp_context;
-			//将生产的完整rc4 key 设置到tcp连接当中
-			mm_openssl_tcp_context_assign_key(p_openssl_tcp_context, (mm_uint8_t*)p_openssl_rc4_key->key.s, 0, p_openssl_rc4_key->key.l);
-			//tcp连接 激活rc4加解密 标签
-			mm_openssl_tcp_context_assign_state(p_openssl_tcp_context, CRYPTO_CONTEXT_ACTIVATE);
-
-			//数据更新以后的事件发布    发布内容  evt_ags
-			p_tcps_connect->state = mm::tcps_connect::tcps_state_finish;
+			struct KO_dog_network* network = &impl->network;
+			struct tcps_connect* tcps = &network->tcps;
+			mm::ip_port_state* p_lobby = &p_data_net->lobby;
+			//队列更新网络线程完成的 tcps 状态
+			p_lobby->crypto_state = tcps->state;
+			//发布队列更新 tcps 状态 事件
 			mm_event_args evt_ags;
-			p_data_net->d_event_set.fire_event(mm::KO_dog_data_net::event_tcps_state_change, evt_ags);
+			p_lobby->d_event_set.fire_event(mm::ip_port_state::event_crypto_update, evt_ags);
 			//////////////////////////////////////////////////////////////////////////
 		}
-
-		//发布到界面视图log
-
 	} while (0);
 }
 

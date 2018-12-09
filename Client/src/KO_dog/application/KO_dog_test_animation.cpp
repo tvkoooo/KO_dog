@@ -17,6 +17,7 @@
 
 #include "flake/mm_system_event_surface.h"
 #include "math/mm_math_const.h"
+#include "core/mm_value_transform.h"
 
 
 namespace mm
@@ -65,12 +66,17 @@ namespace mm
 		, Label_sudu_v(NULL)
 		, Label_quyu(NULL)
 		, l_s_button_out(NULL)
+		, l_s_button_camera(NULL)
+
 		, StaticImage(NULL)
 		//, dog_m_x(0)
 		//, d_fix_v3()
 		//, d_fix_s3()
 		, dog_v_4(0)
 		, dog_hudu_4_Dhudu(0)
+		, k_dog_hudu(0)
+		, k_dog_v(0)
+
 		, dog_ds_all(0)
 		//, dog_ago()
 		//, dog_tag()
@@ -370,10 +376,12 @@ namespace mm
 		this->Label_sudu_v = this->l_layer_dog_a1->getChild("Label_sudu_v");
 		this->Label_quyu = this->l_layer_dog_a1->getChild("Label_quyu");
 		this->l_s_button_out = this->l_layer_dog_a1->getChild("l_s_button_out");
+		this->l_s_button_camera = this->l_layer_dog_a1->getChild("l_s_button_camera");
 
 		this->StaticImage = this->l_layer_dog_a1->getChild("StaticImage");
 		this->StaticImage->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_test_animation::on_handle_StaticImage, this));
 		this->l_s_button_out->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_test_animation::on_handle_l_s_button_out, this));
+		this->l_s_button_camera->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_test_animation::on_handle_l_s_button_camera, this));
 
 		this->Label_jiaodu->setText("0 (du)");
 		this->Label_zongchang->setText("0");
@@ -448,8 +456,17 @@ namespace mm
 		__static_logic_data_to_view(&this->dog.dog_mid, this->dog.a_node_horizon);
 
 		///////////////////////////////////////////////////////////////////////////////////////////////
-		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
-		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
+		//如果使用键盘，那么控制盘无效
+		if (mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) || mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown))
+		{
+			this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown) ;
+		}
+		else
+		{
+			this->dog_v_4 = this->k_dog_v;
+		}
+		
+		this->dog_hudu_4_Dhudu =  mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
 		if (this->dog_v_4 != 0 && this->dog_running == 0)
 		{
 			this->dog.am_unit_animation.stop("idle");
@@ -488,7 +505,6 @@ namespace mm
 			this->dog_running = false;
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////
-		this->Label_sudu_v->setText("v:" + this->dog_v_4.to_string());
 		return false;
 	}
 
@@ -500,7 +516,7 @@ namespace mm
 
 		this->d_camera_moved_pos.z = evt.content.abs_z;
 
-		if (this->now_camra_node != NULL)
+/*		if (this->dog.now_camra_node != NULL)
 		{
 			if (true == this->d_is_touch_began)
 			{
@@ -510,11 +526,11 @@ namespace mm
 				this->d_camera_moved_pos.x = evt.content.abs_x;
 				this->d_camera_moved_pos.y = evt.content.abs_y;
 
-				this->now_camra_node->yaw(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_x)));
-				this->now_camra_node->pitch(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_y)));
+				this->dog.now_camra_node->yaw(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_x)));
+				this->dog.now_camra_node->pitch(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_y)));
 			}
-			this->now_camra_node->roll(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_z)));
-		}		
+			this->dog.now_camra_node->roll(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_z)));
+		}*/		
 
 		printf("is in area:%d \n", this->d_is_anchor_touch_began);
 		//控制器/////////////////////////////////////////////////////////////////
@@ -568,6 +584,9 @@ namespace mm
 		if (true == this->d_is_anchor_touch_began)
 		{
 			this->d_is_anchor_touch_began = false;
+			this->k_dog_hudu = 0;
+			this->k_dog_v = 0;
+
 		}
 		return false;
 	}
@@ -596,23 +615,31 @@ namespace mm
 		if (evt.content.key == mm::mm_key::C && 1 != mm_bitset_get(&this->keyb_s, mm::mm_key::C))
 		{
 			mm_bitset_set(&this->keyb_s, mm::mm_key::C, 1);
-			if (this->now_camra_node == this->dog.a_node_head)
+			if (this->dog.now_camra_node == this->dog.a_node_head)
 			{
-				this->now_camra_node->detachObject(this->dog.d_camera);
+				this->dog.now_camra_node->detachObject(this->dog.d_camera);
 				this->dog.d_node_camera->attachObject(this->dog.d_camera);
-				this->now_camra_node = this->dog.d_node_camera;
+				this->dog.now_camra_node = this->dog.d_node_camera;
 			}
 			else
 			{
-				this->now_camra_node->detachObject(this->dog.d_camera);
+				this->dog.now_camra_node->detachObject(this->dog.d_camera);
 				this->dog.a_node_head->attachObject(this->dog.d_camera);
-				this->now_camra_node = this->dog.a_node_head;
+				this->dog.now_camra_node = this->dog.a_node_head;
 			}
 
 		}
 
-		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
-		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
+		//如果使用键盘，那么控制盘无效
+		if (mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) || mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown))
+		{
+			this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
+		}
+		else
+		{
+			this->dog_v_4 = this->k_dog_v;
+		}
+		this->dog_hudu_4_Dhudu =  mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
 
 
 		return false;
@@ -642,7 +669,15 @@ namespace mm
 			mm_bitset_set(&this->keyb_s, mm::mm_key::C, 0);
 		}
 
-		this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
+		//如果使用键盘，那么控制盘无效
+		if (mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) || mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown))
+		{
+			this->dog_v_4 = 3 * mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowUp) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowDown);
+		}
+		else
+		{
+			this->dog_v_4 = this->k_dog_v;
+		}
 		this->dog_hudu_4_Dhudu = mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowLeft) - mm_bitset_get(&this->keyb_s, mm::mm_key::ArrowRight);
 
 
@@ -673,10 +708,67 @@ namespace mm
 		this->dog.dog_tag = this->dog.dog_now;
 		this->dog.dog_mid = this->dog.dog_ago;
 		///////////////////////////////////////////////////////////////////////////////////////
-		mm_fix32 ctrl_list_now = this->dog_hudu_4_Dhudu;//从命令队列中弹出的当前帧命令
+		mm_fix32 ctrl_list_now = this->dog_hudu_4_Dhudu;//从命令队列中弹出的当前帧命令(相对转角度)
+		//如果键盘有效，那么控制盘无效
+		if ((mm_fix32)MM_MATH_FIX32_0 != ctrl_list_now  )
+		{
+			mm_fix32 drv = ctrl_list_now * 60 * this->d_sync_interval;//角度
+			this->dog.dog_now.d_vector4.jiaodu += drv * mm_fix32::MM_PI_DIV_180;//弧度
+		}
+		else
+		{
+			//如果是控制盘（绝对值）有效果，需要判断控制盘（和当前方向）如何操控方向
+			if ((mm_fix32)MM_MATH_FIX32_0 != this->k_dog_hudu)
+			{				
+				mm_fix32 zhuanxiang = fmod((this->k_dog_hudu - this->dog.dog_now.d_vector4.jiaodu + (MM_PI_2 * 4)), (mm_fix32)(MM_PI_2 * 4));
+				if (zhuanxiang <= (mm_fix32)MM_PI)
+				{
+					this->dog.dog_now.d_vector4.jiaodu += 60 * this->d_sync_interval * mm_fix32::MM_PI_DIV_180;
+					if (zhuanxiang <= (mm_fix32)MM_PI_2)
+					{
+						if (3 != this->k_dog_v)
+						{
+							this->k_dog_v = 3;
+						}
+					}
+					else
+					{
+						if (-1 != this->k_dog_v)
+						{
+							this->k_dog_v = -1;
+						}
+					}					
+				}
+				else
+				{
+					this->dog.dog_now.d_vector4.jiaodu -= 60 * this->d_sync_interval * mm_fix32::MM_PI_DIV_180;
+					if (zhuanxiang <= (mm_fix32)MM_PI_2 * 3)
+					{
+						if (-1 != this->k_dog_v)
+						{
+							this->k_dog_v = -1;
+						}
+					}
+					else
+					{
+						if (3 != this->k_dog_v)
+						{
+							this->k_dog_v = 3;
+						}
+					}
+				}
 
-		mm_fix32 drv = ctrl_list_now * 60 * this->d_sync_interval;
-		this->dog.dog_now.d_vector4.jiaodu += drv * mm_fix32::MM_PI_DIV_180;
+				this->Label_jiaodu->setText(this->k_dog_hudu.to_string() + " (kong)");
+				this->Label_zongchang->setText(this->dog.dog_now.d_vector4.jiaodu.to_string() + " (now)");
+				char val[16] = {0};
+				mm_value_sint_to_string(this->k_dog_v, val);
+				this->Label_sudu_v->setText(std::string(val) + "sd");
+				this->Label_quyu->setText(fmod((this->k_dog_hudu - this->dog.dog_now.d_vector4.jiaodu + (MM_PI_2 * 4)), (mm_fix32)(MM_PI_2 * 4)).to_string() + " (cha)");
+
+			}
+
+		}		
+		this->dog.dog_now.d_vector4.jiaodu = fmod((this->dog.dog_now.d_vector4.jiaodu + (MM_PI_2 * 4)), (mm_fix32)(MM_PI_2 * 4));//弧度
 
 		mm_fix32_quaternion dog_4_data;
 		dog_4_data.from_angle_axis(this->dog.dog_now.d_vector4.jiaodu, mm_fix32_vector3::UNIT_Y);
@@ -684,8 +776,9 @@ namespace mm
 		this->dog.dog_now.d_vector4.weizhi += dog_4_data * dog_ds;
 		///////////////////////////////////////////////////////////////////////////////////////
 		this->dog_ds_all = dog_ds.length() + this->dog_ds_all;
-		this->Label_jiaodu->setText(this->dog.dog_now.d_vector4.jiaodu.to_string() + " (du)");
-		this->Label_zongchang->setText(this->dog_ds_all.to_string());
+		//this->Label_jiaodu->setText(this->dog.dog_now.d_vector4.jiaodu.to_string() + " (du)");
+		//this->Label_zongchang->setText(this->dog_ds_all.to_string());
+
 		///////////////////////////////////////////////////////////////////////////////////////
 	}
 	static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval)
@@ -718,6 +811,24 @@ namespace mm
 		this->d_event_set.fire_event(KO_dog_test_animation::event_close, evt_ags);
 		return false;
 	}
+	bool KO_dog_test_animation::on_handle_l_s_button_camera(const CEGUI::EventArgs& args)
+	{
+		if (this->dog.now_camra_node == this->dog.a_node_head)
+		{
+			this->dog.now_camra_node->detachObject(this->dog.d_camera);
+			this->dog.d_node_camera->attachObject(this->dog.d_camera);
+			this->dog.now_camra_node = this->dog.d_node_camera;
+		}
+		else
+		{
+			this->dog.now_camra_node->detachObject(this->dog.d_camera);
+			this->dog.a_node_head->attachObject(this->dog.d_camera);
+			this->dog.now_camra_node = this->dog.a_node_head;
+		}
+		return false;
+	}
+
+
 	void KO_dog_test_animation::update_anchor_quaternion(double abs_x, double abs_y)
 	{
 		if (true == this->d_is_anchor_touch_began)
@@ -732,9 +843,12 @@ namespace mm
 			this->StaticImage->setRotation(ce_quaternion);
 
 			this->StaticImage->setVisible(true);
+			this->k_dog_hudu = fmod(5 * MM_PI_2  - (atan2(dy, dx) ) , MM_PI_2 * 4);
+			//
+
 		}
 		else
-		{
+		{			
 			this->StaticImage->setVisible(false);
 		}
 	}

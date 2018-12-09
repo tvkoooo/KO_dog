@@ -27,7 +27,7 @@ material Material_coin {
             transparent_sorting on 
 
             texture_unit  {
-                texture coin.png PF_A8B8G8R8
+                texture coin.png
                 tex_address_mode wrap 
                 scale 1.0 1.0 
                 colour_op modulate 
