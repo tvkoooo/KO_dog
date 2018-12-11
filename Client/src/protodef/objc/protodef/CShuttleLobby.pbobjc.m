@@ -455,6 +455,94 @@ BOOL C_shuttle_lobby_token_verify_rs_msg_IsValidValue(int32_t value__) {
   }
 }
 
+#pragma mark - C_shuttle_lobby_token_verify_nt
+
+@implementation C_shuttle_lobby_token_verify_nt
+
+@dynamic hasUid, uid;
+@dynamic hasTimecodeRemote, timecodeRemote;
+
+typedef struct C_shuttle_lobby_token_verify_nt__storage_ {
+  uint32_t _has_storage_[1];
+  uint64_t uid;
+  uint64_t timecodeRemote;
+} C_shuttle_lobby_token_verify_nt__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "uid",
+        .dataTypeSpecific.className = NULL,
+        .number = C_shuttle_lobby_token_verify_nt_FieldNumber_Uid,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_shuttle_lobby_token_verify_nt__storage_, uid),
+        .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "timecodeRemote",
+        .dataTypeSpecific.className = NULL,
+        .number = C_shuttle_lobby_token_verify_nt_FieldNumber_TimecodeRemote,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_shuttle_lobby_token_verify_nt__storage_, timecodeRemote),
+        .flags = (GPBFieldFlags)(GPBFieldRequired | GPBFieldHasDefaultValue),
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_shuttle_lobby_token_verify_nt class]
+                                     rootClass:[C_shuttle_lobby_CShuttleLobbyRoot class]
+                                          file:C_shuttle_lobby_CShuttleLobbyRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_shuttle_lobby_token_verify_nt__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_shuttle_lobby_token_verify_nt_msg
+
+GPBEnumDescriptor *C_shuttle_lobby_token_verify_nt_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_shuttle_lobby_token_verify_nt_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_shuttle_lobby_token_verify_nt_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_shuttle_lobby_token_verify_nt_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_shuttle_lobby_token_verify_nt_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_shuttle_lobby_token_verify_nt_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
 #pragma mark - C_shuttle_lobby_heartbeat_rq
 
 @implementation C_shuttle_lobby_heartbeat_rq

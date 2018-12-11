@@ -14,6 +14,7 @@ namespace mm
 {
 	class ip_port_state
 	{
+	public:
 		enum enum_socket_state
 		{
 			net_state_closed = 0,// fd is closed,connect closed.invalid at all.

@@ -71,6 +71,9 @@ extern heartbeat_rqDefaultTypeInternal _heartbeat_rq_default_instance_;
 class heartbeat_rs;
 class heartbeat_rsDefaultTypeInternal;
 extern heartbeat_rsDefaultTypeInternal _heartbeat_rs_default_instance_;
+class token_verify_nt;
+class token_verify_ntDefaultTypeInternal;
+extern token_verify_ntDefaultTypeInternal _token_verify_nt_default_instance_;
 class token_verify_rq;
 class token_verify_rqDefaultTypeInternal;
 extern token_verify_rqDefaultTypeInternal _token_verify_rq_default_instance_;
@@ -166,6 +169,24 @@ inline bool token_verify_rs_msg_Parse(
     const ::std::string& name, token_verify_rs_msg* value) {
   return ::google::protobuf::internal::ParseNamedEnum<token_verify_rs_msg>(
     token_verify_rs_msg_descriptor(), name, value);
+}
+enum token_verify_nt_msg {
+  token_verify_nt_msg_id = 33558912
+};
+bool token_verify_nt_msg_IsValid(int value);
+const token_verify_nt_msg token_verify_nt_msg_msg_MIN = token_verify_nt_msg_id;
+const token_verify_nt_msg token_verify_nt_msg_msg_MAX = token_verify_nt_msg_id;
+const int token_verify_nt_msg_msg_ARRAYSIZE = token_verify_nt_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* token_verify_nt_msg_descriptor();
+inline const ::std::string& token_verify_nt_msg_Name(token_verify_nt_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    token_verify_nt_msg_descriptor(), value);
+}
+inline bool token_verify_nt_msg_Parse(
+    const ::std::string& name, token_verify_nt_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<token_verify_nt_msg>(
+    token_verify_nt_msg_descriptor(), name, value);
 }
 enum heartbeat_rq_msg {
   heartbeat_rq_msg_id = 33558788
@@ -804,6 +825,135 @@ class token_verify_rs : public ::google::protobuf::Message /* @@protoc_insertion
 };
 // -------------------------------------------------------------------
 
+class token_verify_nt : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_shuttle_lobby.token_verify_nt) */ {
+ public:
+  token_verify_nt();
+  virtual ~token_verify_nt();
+
+  token_verify_nt(const token_verify_nt& from);
+
+  inline token_verify_nt& operator=(const token_verify_nt& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const token_verify_nt& default_instance();
+
+  static inline const token_verify_nt* internal_default_instance() {
+    return reinterpret_cast<const token_verify_nt*>(
+               &_token_verify_nt_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(token_verify_nt* other);
+
+  // implements Message ----------------------------------------------
+
+  inline token_verify_nt* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  token_verify_nt* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const token_verify_nt& from);
+  void MergeFrom(const token_verify_nt& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(token_verify_nt* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef token_verify_nt_msg msg;
+  static const msg id =
+    token_verify_nt_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return token_verify_nt_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    token_verify_nt_msg_msg_MIN;
+  static const msg msg_MAX =
+    token_verify_nt_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    token_verify_nt_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return token_verify_nt_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return token_verify_nt_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return token_verify_nt_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 uid = 1 [default = 0];
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  ::google::protobuf::uint64 uid() const;
+  void set_uid(::google::protobuf::uint64 value);
+
+  // required uint64 timecode_remote = 2 [default = 0];
+  bool has_timecode_remote() const;
+  void clear_timecode_remote();
+  static const int kTimecodeRemoteFieldNumber = 2;
+  ::google::protobuf::uint64 timecode_remote() const;
+  void set_timecode_remote(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_shuttle_lobby.token_verify_nt)
+ private:
+  void set_has_uid();
+  void clear_has_uid();
+  void set_has_timecode_remote();
+  void clear_has_timecode_remote();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::uint64 timecode_remote_;
+  friend struct protobuf_c_5fshuttle_5flobby_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class heartbeat_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_shuttle_lobby.heartbeat_rq) */ {
  public:
   heartbeat_rq();
@@ -832,7 +982,7 @@ class heartbeat_rq : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_heartbeat_rq_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(heartbeat_rq* other);
 
@@ -973,7 +1123,7 @@ class heartbeat_rs : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_heartbeat_rs_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(heartbeat_rs* other);
 
@@ -1595,6 +1745,58 @@ inline void token_verify_rs::set_allocated_token(::std::string* token) {
 
 // -------------------------------------------------------------------
 
+// token_verify_nt
+
+// required uint64 uid = 1 [default = 0];
+inline bool token_verify_nt::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void token_verify_nt::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void token_verify_nt::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void token_verify_nt::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 token_verify_nt::uid() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.token_verify_nt.uid)
+  return uid_;
+}
+inline void token_verify_nt::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.token_verify_nt.uid)
+}
+
+// required uint64 timecode_remote = 2 [default = 0];
+inline bool token_verify_nt::has_timecode_remote() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void token_verify_nt::set_has_timecode_remote() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void token_verify_nt::clear_has_timecode_remote() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void token_verify_nt::clear_timecode_remote() {
+  timecode_remote_ = GOOGLE_ULONGLONG(0);
+  clear_has_timecode_remote();
+}
+inline ::google::protobuf::uint64 token_verify_nt::timecode_remote() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.token_verify_nt.timecode_remote)
+  return timecode_remote_;
+}
+inline void token_verify_nt::set_timecode_remote(::google::protobuf::uint64 value) {
+  set_has_timecode_remote();
+  timecode_remote_ = value;
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.token_verify_nt.timecode_remote)
+}
+
+// -------------------------------------------------------------------
+
 // heartbeat_rq
 
 // required uint64 uid = 1 [default = 0];
@@ -1843,6 +2045,8 @@ inline void heartbeat_rs::set_allocated_coord_info(::b_math::coord* coord_info) 
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -1872,6 +2076,11 @@ template <> struct is_proto_enum< ::c_shuttle_lobby::token_verify_rs_msg> : ::go
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::c_shuttle_lobby::token_verify_rs_msg>() {
   return ::c_shuttle_lobby::token_verify_rs_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_shuttle_lobby::token_verify_nt_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_shuttle_lobby::token_verify_nt_msg>() {
+  return ::c_shuttle_lobby::token_verify_nt_msg_descriptor();
 }
 template <> struct is_proto_enum< ::c_shuttle_lobby::heartbeat_rq_msg> : ::google::protobuf::internal::true_type {};
 template <>

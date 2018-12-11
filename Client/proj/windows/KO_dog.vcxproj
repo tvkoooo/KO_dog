@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_jiemian.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_error_code.c" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_interface_manager.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_setup.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_window_ip.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_animation.cpp" />
@@ -45,6 +47,9 @@
     <ClCompile Include="..\..\src\KO_dog\network\network_entry.cpp" />
     <ClCompile Include="..\..\src\KO_dog\network\network_handle.cpp" />
     <ClCompile Include="..\..\src\KO_dog\network\network_lobby.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\network\network_state.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\script\KO_dog_script_error_code.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_error_desc.c" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_util_mesh.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_windows_target.cpp" />
     <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_animation.cpp" />
@@ -59,9 +64,11 @@
     <ClCompile Include="windows\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_jiemian.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_error_code.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_interface_manager.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_setup.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_window_ip.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_animation.h" />
@@ -85,6 +92,9 @@
     <ClInclude Include="..\..\src\KO_dog\network\network_entry.h" />
     <ClInclude Include="..\..\src\KO_dog\network\network_handle.h" />
     <ClInclude Include="..\..\src\KO_dog\network\network_lobby.h" />
+    <ClInclude Include="..\..\src\KO_dog\network\network_state.h" />
+    <ClInclude Include="..\..\src\KO_dog\script\KO_dog_script_error_code.h" />
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_error_desc.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_util_mesh.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_windows_target.h" />
     <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_animation.h" />

@@ -151,10 +151,11 @@ namespace mm
 		KO_dog_test_animation();
 		virtual ~KO_dog_test_animation();
 	public:
-		void assign_flake_context(mm_flake_context* flake_context);
+		void set_data(mm_flake_context* flake_context , mm_flake_surface* surface);
+		void set_l_layer(CEGUI::Window* l_layer);
 	public:
-		virtual void on_finish_launching(mm_flake_surface* surface);
-		virtual void on_before_terminate(mm_flake_surface* surface);
+		virtual void on_finish_launching();
+		virtual void on_before_terminate();
 	public:
 		void on_scene_launching();
 		void on_scene_terminate();

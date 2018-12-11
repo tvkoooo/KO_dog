@@ -9,12 +9,13 @@
 #include "dish/mm_event.h"
 
 //#include "KO_dog_test_animation.h"
-#include "KO_dog_jiemian.h"
+#include "KO_dog_interface_manager.h"
 #include "KO_dog_test.h"
 #include "model_data/KO_dog_data.h"
 #include "network/KO_dog_network.h"
 
 #include "lua/mm_lua_context.h"
+#include "toolkit/mm_error_desc.h"
 
 namespace mm
 {
@@ -33,8 +34,12 @@ namespace mm
 		struct KO_dog_network network;
 
 	public:
-		KO_dog_jiemian jiemian;
+		KO_dog_interface_manager jiemian;
 		//KO_dog_test_animation d_test_animation;
+
+	public:
+		struct mm_error_desc error_desc;
+
 	public:
 		void test_s_terminate( mm_flake_surface* surface );
 		void test_s_launching( mm_flake_surface* surface );

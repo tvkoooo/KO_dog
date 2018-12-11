@@ -33,14 +33,12 @@ namespace mm
 {
 	class KO_dog_zhujiemian
 	{
-	public:
+	private:
 		mm_flake_context* d_flake_context;
 		mm_flake_surface* d_surface;
 
-	public:
-		CEGUI::Window* d_window_login;
+	private:
 		CEGUI::Window* l_home_lj_login;
-		CEGUI::Window* l_layer_dog_window;
 		//
 		CEGUI::Window* MenuWindow;
 		CEGUI::Window* l_edit_text_id;
@@ -59,14 +57,12 @@ namespace mm
 		CEGUI::Window* l_image_gold5;
 		CEGUI::Window* l_image_gold_y1;
 		CEGUI::Window* l_image_gold_y2;
-		CEGUI::Window* DefaultWindow_entry;
-		CEGUI::Window* DefaultWindow_lobby;
 		//
 
 
 		//CEGUI::Window* l_image_gold_mov;
 
-	//public:
+	private:
 	//	struct mm_windows_target d_windows_target;
 	//	mm_event_handler d_event_enter_background;
 	//	mm_event_handler d_event_enter_foreground;
@@ -84,36 +80,44 @@ namespace mm
 	//	Ogre::SceneNode* d_coin_node;
 	//	Ogre::Entity* d_coin_mesh;
 	//	float d_coin_rotation;
-	public:
+
+	private:
 		KO_dog_zhujiemian_rtt_coin rtt_coin;
 
-	public:
+	private:
 		int image_gold_gif_n;
 		float d_rotation;
 
-	public:
-		mm_event_handler d_event_l_animation_closed_conn;
+	private:
+		//mm_event_handler d_event_l_animation_closed_conn;
 		mm_event_handler d_event_userdata_update_conn;
 		mm_event_handler d_event_log_view_conn;
 
 
-	public:
+	private:
 		typedef std::map<std::string, std::string> lj_type_map_string_string;
 		lj_type_map_string_string user_info;
 		struct mm_md5_context md5_context;
 
-	public:
-		KO_dog_test_animation test_animation;
+	private:
+		//KO_dog_test_animation test_animation;
+
+	private:
+		//mm_event_handler d_event_updated_conn;
+
+		//mm_event_handler d_event_mouse_moved_conn;
+		//mm_event_handler d_event_mouse_began_conn;
+		//mm_event_handler d_event_mouse_ended_conn;
+
+		//mm_event_handler d_event_key_pressed_conn;
+		//mm_event_handler d_event_key_release_conn;
 
 	public:
-		mm_event_handler d_event_updated_conn;
+		static const std::string event_login;
+	public:
+		// this member is event drive.
+		mm_event_set d_event_set;
 
-		mm_event_handler d_event_mouse_moved_conn;
-		mm_event_handler d_event_mouse_began_conn;
-		mm_event_handler d_event_mouse_ended_conn;
-
-		mm_event_handler d_event_key_pressed_conn;
-		mm_event_handler d_event_key_release_conn;
 
 	public:
 		KO_dog_zhujiemian();
@@ -121,25 +125,26 @@ namespace mm
 
 	public:
 		void set_data(mm_flake_context* d_flake_context, mm_flake_surface* d_surface);
+		void set_l_layer(CEGUI::Window* l_layer);
 		virtual void on_finish_launching();
 		virtual void on_before_terminate();
 
-	public:
+	private:
 		void scene_layer_launching();
 		void scene_layer_terminate();
 
-	public:
+	private:
 		bool on_handle_l_s_button_login(const CEGUI::EventArgs& args);
 		bool on_handle_l_s_button_out(const CEGUI::EventArgs& args);
 		bool on_handle_l_s_button_register(const CEGUI::EventArgs& args);
 
 		bool on_handle_MenuWindow_updated(const CEGUI::EventArgs& args);
 
-	public:		
-		bool on_handle_l_animation_closed(const mm_event_args& args);
+	private:
+		//bool on_handle_l_animation_closed(const mm_event_args& args);
 		bool on_handle_event_userdata_update(const mm_event_args& args);
 		bool on_handle_event_log_view(const mm_event_args& args);
-	public:		
+	private:
 		bool on_event_enter_background(const mm_event_args& args);
 		bool on_event_enter_foreground(const mm_event_args& args);
 	};

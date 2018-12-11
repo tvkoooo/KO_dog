@@ -43,11 +43,12 @@
             <Item path="layouts/l_interpersonal_talk.layout" type="file" />
             <Item path="layouts/l_layer.layout" type="file" />
             <Item path="layouts/l_layer_dog_a1.layout" type="file" />
-            <Item path="layouts/l_layer_dog_window.layout" type="file" />
             <Item path="layouts/l_reconfirm.layout" type="file" />
             <Item path="layouts/l_synchronize.layout" type="file" />
             <Item path="layouts/l_title.layout" type="file" />
             <Item path="layouts/l_user_info.layout" type="file" />
+            <Item path="layouts/l_layer_dog_window_ip.layout" type="file" />
+            <Item path="layouts/l_home_lj_interface_manager.layout" type="file" />
         </Item>
         <Item name="looknfeel" type="folder">
             <Item path="looknfeel/TaharezLook.looknfeel" type="file" />

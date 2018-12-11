@@ -67,20 +67,20 @@ namespace mm
 
 	}
 	static const std::string undefined_err = "未定义错误";
-	const std::string& KO_dog_data_log_error_code_map::get(mm_uint32_t code)
-	{
-		log_error_code_map_type::iterator it = this->map_err_code.find(code);
-		if (it == this->map_err_code.end())
-		{
-			//没有找到
-			return undefined_err;
-		}
-		else
-		{
-			//找到
-			return it->second;
-		}
-	}
+	//const std::string& KO_dog_data_log_error_code_map::get(mm_uint32_t code)
+	//{
+	//	log_error_code_map_type::iterator it = this->map_err_code.find(code);
+	//	if (it == this->map_err_code.end())
+	//	{
+	//		//没有找到
+	//		return undefined_err;
+	//	}
+	//	else
+	//	{
+	//		//找到
+	//		return it->second;
+	//	}
+	//}
 
 }
 

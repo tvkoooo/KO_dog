@@ -14,6 +14,7 @@ typedef struct _c_shuttle_lobby_exchange_key_rq c_shuttle_lobby_exchange_key_rq;
 typedef struct _c_shuttle_lobby_exchange_key_rs c_shuttle_lobby_exchange_key_rs;
 typedef struct _c_shuttle_lobby_token_verify_rq c_shuttle_lobby_token_verify_rq;
 typedef struct _c_shuttle_lobby_token_verify_rs c_shuttle_lobby_token_verify_rs;
+typedef struct _c_shuttle_lobby_token_verify_nt c_shuttle_lobby_token_verify_nt;
 typedef struct _c_shuttle_lobby_heartbeat_rq c_shuttle_lobby_heartbeat_rq;
 typedef struct _c_shuttle_lobby_heartbeat_rs c_shuttle_lobby_heartbeat_rs;
 
@@ -32,6 +33,9 @@ typedef enum _c_shuttle_lobby_token_verify_rq_msg {
 typedef enum _c_shuttle_lobby_token_verify_rs_msg {
   c_shuttle_lobby_token_verify_rs_msg_id = 33558787
 } c_shuttle_lobby_token_verify_rs_msg;
+typedef enum _c_shuttle_lobby_token_verify_nt_msg {
+  c_shuttle_lobby_token_verify_nt_msg_id = 33558912
+} c_shuttle_lobby_token_verify_nt_msg;
 typedef enum _c_shuttle_lobby_heartbeat_rq_msg {
   c_shuttle_lobby_heartbeat_rq_msg_id = 33558788
 } c_shuttle_lobby_heartbeat_rq_msg;
@@ -91,6 +95,17 @@ extern char c_shuttle_lobby_token_verify_rs_token_default_value[];
 #define c_shuttle_lobby_token_verify_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_shuttle_lobby_token_verify_rs_descriptor) \
     , NULL, 0, c_shuttle_lobby_token_verify_rs_token_default_value }
+
+
+struct  _c_shuttle_lobby_token_verify_nt
+{
+  ProtobufCMessage base;
+  unsigned long long int uid;
+  unsigned long long int timecode_remote;
+};
+#define c_shuttle_lobby_token_verify_nt_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_shuttle_lobby_token_verify_nt_descriptor) \
+    , 0, 0 }
 
 
 struct  _c_shuttle_lobby_heartbeat_rq
@@ -194,6 +209,25 @@ c_shuttle_lobby_token_verify_rs *
 void   c_shuttle_lobby_token_verify_rs_free_unpacked
                      (c_shuttle_lobby_token_verify_rs *message,
                       ProtobufCAllocator *allocator);
+/* c_shuttle_lobby_token_verify_nt methods */
+void   c_shuttle_lobby_token_verify_nt_init
+                     (c_shuttle_lobby_token_verify_nt         *message);
+size_t c_shuttle_lobby_token_verify_nt_get_packed_size
+                     (const c_shuttle_lobby_token_verify_nt   *message);
+size_t c_shuttle_lobby_token_verify_nt_pack
+                     (const c_shuttle_lobby_token_verify_nt   *message,
+                      unsigned char             *out);
+size_t c_shuttle_lobby_token_verify_nt_pack_to_buffer
+                     (const c_shuttle_lobby_token_verify_nt   *message,
+                      ProtobufCBuffer     *buffer);
+c_shuttle_lobby_token_verify_nt *
+       c_shuttle_lobby_token_verify_nt_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_shuttle_lobby_token_verify_nt_free_unpacked
+                     (c_shuttle_lobby_token_verify_nt *message,
+                      ProtobufCAllocator *allocator);
 /* c_shuttle_lobby_heartbeat_rq methods */
 void   c_shuttle_lobby_heartbeat_rq_init
                      (c_shuttle_lobby_heartbeat_rq         *message);
@@ -246,6 +280,9 @@ typedef void (*c_shuttle_lobby_token_verify_rq_Closure)
 typedef void (*c_shuttle_lobby_token_verify_rs_Closure)
                  (const c_shuttle_lobby_token_verify_rs *message,
                   void *closure_data);
+typedef void (*c_shuttle_lobby_token_verify_nt_Closure)
+                 (const c_shuttle_lobby_token_verify_nt *message,
+                  void *closure_data);
 typedef void (*c_shuttle_lobby_heartbeat_rq_Closure)
                  (const c_shuttle_lobby_heartbeat_rq *message,
                   void *closure_data);
@@ -267,6 +304,8 @@ extern const ProtobufCMessageDescriptor c_shuttle_lobby_token_verify_rq_descript
 extern const ProtobufCEnumDescriptor    c_shuttle_lobby_token_verify_rq_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_shuttle_lobby_token_verify_rs_descriptor;
 extern const ProtobufCEnumDescriptor    c_shuttle_lobby_token_verify_rs_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_shuttle_lobby_token_verify_nt_descriptor;
+extern const ProtobufCEnumDescriptor    c_shuttle_lobby_token_verify_nt_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_shuttle_lobby_heartbeat_rq_descriptor;
 extern const ProtobufCEnumDescriptor    c_shuttle_lobby_heartbeat_rq_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_shuttle_lobby_heartbeat_rs_descriptor;

@@ -3785,6 +3785,739 @@ public final class c_shuttle_lobby {
 
   }
 
+  public interface token_verify_ntOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_shuttle_lobby.token_verify_nt)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 用户编号
+     * </pre>
+     *
+     * <code>required uint64 uid = 1 [default = 0];</code>
+     */
+    boolean hasUid();
+    /**
+     * <pre>
+     * 用户编号
+     * </pre>
+     *
+     * <code>required uint64 uid = 1 [default = 0];</code>
+     */
+    long getUid();
+
+    /**
+     * <pre>
+     *发出的时间点(ms毫秒)
+     * </pre>
+     *
+     * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+     */
+    boolean hasTimecodeRemote();
+    /**
+     * <pre>
+     *发出的时间点(ms毫秒)
+     * </pre>
+     *
+     * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+     */
+    long getTimecodeRemote();
+  }
+  /**
+   * <pre>
+   * (tcp)令牌校验通知, 账号被挤掉的时候发给被挤的人, 被挤掉的人将收不到在线回推.
+   * </pre>
+   *
+   * Protobuf type {@code c_shuttle_lobby.token_verify_nt}
+   */
+  public  static final class token_verify_nt extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_shuttle_lobby.token_verify_nt)
+      token_verify_ntOrBuilder {
+    // Use token_verify_nt.newBuilder() to construct.
+    private token_verify_nt(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private token_verify_nt() {
+      uid_ = 0L;
+      timecodeRemote_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private token_verify_nt(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              uid_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timecodeRemote_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_shuttle_lobby.internal_static_c_shuttle_lobby_token_verify_nt_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_shuttle_lobby.internal_static_c_shuttle_lobby_token_verify_nt_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_shuttle_lobby.token_verify_nt.class, protodef.c_shuttle_lobby.token_verify_nt.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_shuttle_lobby.token_verify_nt.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33558912;</code>
+       */
+      id(33558912),
+      ;
+
+      /**
+       * <code>id = 33558912;</code>
+       */
+      public static final int id_VALUE = 33558912;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33558912: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_shuttle_lobby.token_verify_nt.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_shuttle_lobby.token_verify_nt.msg)
+    }
+
+    private int bitField0_;
+    public static final int UID_FIELD_NUMBER = 1;
+    private long uid_;
+    /**
+     * <pre>
+     * 用户编号
+     * </pre>
+     *
+     * <code>required uint64 uid = 1 [default = 0];</code>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 用户编号
+     * </pre>
+     *
+     * <code>required uint64 uid = 1 [default = 0];</code>
+     */
+    public long getUid() {
+      return uid_;
+    }
+
+    public static final int TIMECODE_REMOTE_FIELD_NUMBER = 2;
+    private long timecodeRemote_;
+    /**
+     * <pre>
+     *发出的时间点(ms毫秒)
+     * </pre>
+     *
+     * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+     */
+    public boolean hasTimecodeRemote() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *发出的时间点(ms毫秒)
+     * </pre>
+     *
+     * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+     */
+    public long getTimecodeRemote() {
+      return timecodeRemote_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimecodeRemote()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt64(2, timecodeRemote_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, timecodeRemote_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_shuttle_lobby.token_verify_nt)) {
+        return super.equals(obj);
+      }
+      protodef.c_shuttle_lobby.token_verify_nt other = (protodef.c_shuttle_lobby.token_verify_nt) obj;
+
+      boolean result = true;
+      result = result && (hasUid() == other.hasUid());
+      if (hasUid()) {
+        result = result && (getUid()
+            == other.getUid());
+      }
+      result = result && (hasTimecodeRemote() == other.hasTimecodeRemote());
+      if (hasTimecodeRemote()) {
+        result = result && (getTimecodeRemote()
+            == other.getTimecodeRemote());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUid()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUid());
+      }
+      if (hasTimecodeRemote()) {
+        hash = (37 * hash) + TIMECODE_REMOTE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimecodeRemote());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_shuttle_lobby.token_verify_nt parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_shuttle_lobby.token_verify_nt prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)令牌校验通知, 账号被挤掉的时候发给被挤的人, 被挤掉的人将收不到在线回推.
+     * </pre>
+     *
+     * Protobuf type {@code c_shuttle_lobby.token_verify_nt}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_shuttle_lobby.token_verify_nt)
+        protodef.c_shuttle_lobby.token_verify_ntOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_shuttle_lobby.internal_static_c_shuttle_lobby_token_verify_nt_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_shuttle_lobby.internal_static_c_shuttle_lobby_token_verify_nt_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_shuttle_lobby.token_verify_nt.class, protodef.c_shuttle_lobby.token_verify_nt.Builder.class);
+      }
+
+      // Construct using protodef.c_shuttle_lobby.token_verify_nt.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timecodeRemote_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_shuttle_lobby.internal_static_c_shuttle_lobby_token_verify_nt_descriptor;
+      }
+
+      public protodef.c_shuttle_lobby.token_verify_nt getDefaultInstanceForType() {
+        return protodef.c_shuttle_lobby.token_verify_nt.getDefaultInstance();
+      }
+
+      public protodef.c_shuttle_lobby.token_verify_nt build() {
+        protodef.c_shuttle_lobby.token_verify_nt result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_shuttle_lobby.token_verify_nt buildPartial() {
+        protodef.c_shuttle_lobby.token_verify_nt result = new protodef.c_shuttle_lobby.token_verify_nt(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.uid_ = uid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.timecodeRemote_ = timecodeRemote_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_shuttle_lobby.token_verify_nt) {
+          return mergeFrom((protodef.c_shuttle_lobby.token_verify_nt)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_shuttle_lobby.token_verify_nt other) {
+        if (other == protodef.c_shuttle_lobby.token_verify_nt.getDefaultInstance()) return this;
+        if (other.hasUid()) {
+          setUid(other.getUid());
+        }
+        if (other.hasTimecodeRemote()) {
+          setTimecodeRemote(other.getTimecodeRemote());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUid()) {
+          return false;
+        }
+        if (!hasTimecodeRemote()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_shuttle_lobby.token_verify_nt parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_shuttle_lobby.token_verify_nt) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long uid_ ;
+      /**
+       * <pre>
+       * 用户编号
+       * </pre>
+       *
+       * <code>required uint64 uid = 1 [default = 0];</code>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 用户编号
+       * </pre>
+       *
+       * <code>required uint64 uid = 1 [default = 0];</code>
+       */
+      public long getUid() {
+        return uid_;
+      }
+      /**
+       * <pre>
+       * 用户编号
+       * </pre>
+       *
+       * <code>required uint64 uid = 1 [default = 0];</code>
+       */
+      public Builder setUid(long value) {
+        bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户编号
+       * </pre>
+       *
+       * <code>required uint64 uid = 1 [default = 0];</code>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long timecodeRemote_ ;
+      /**
+       * <pre>
+       *发出的时间点(ms毫秒)
+       * </pre>
+       *
+       * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+       */
+      public boolean hasTimecodeRemote() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *发出的时间点(ms毫秒)
+       * </pre>
+       *
+       * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+       */
+      public long getTimecodeRemote() {
+        return timecodeRemote_;
+      }
+      /**
+       * <pre>
+       *发出的时间点(ms毫秒)
+       * </pre>
+       *
+       * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+       */
+      public Builder setTimecodeRemote(long value) {
+        bitField0_ |= 0x00000002;
+        timecodeRemote_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *发出的时间点(ms毫秒)
+       * </pre>
+       *
+       * <code>required uint64 timecode_remote = 2 [default = 0];</code>
+       */
+      public Builder clearTimecodeRemote() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timecodeRemote_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_shuttle_lobby.token_verify_nt)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_shuttle_lobby.token_verify_nt)
+    private static final protodef.c_shuttle_lobby.token_verify_nt DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_shuttle_lobby.token_verify_nt();
+    }
+
+    public static protodef.c_shuttle_lobby.token_verify_nt getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<token_verify_nt>
+        PARSER = new com.google.protobuf.AbstractParser<token_verify_nt>() {
+      public token_verify_nt parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new token_verify_nt(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<token_verify_nt> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<token_verify_nt> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_shuttle_lobby.token_verify_nt getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface heartbeat_rqOrBuilder extends
       // @@protoc_insertion_point(interface_extends:c_shuttle_lobby.heartbeat_rq)
       com.google.protobuf.MessageOrBuilder {
@@ -6091,6 +6824,11 @@ public final class c_shuttle_lobby {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_c_shuttle_lobby_token_verify_rs_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_shuttle_lobby_token_verify_nt_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_shuttle_lobby_token_verify_nt_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_c_shuttle_lobby_heartbeat_rq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -6119,17 +6857,19 @@ public final class c_shuttle_lobby {
       "\n\003uid\030\001 \002(\004:\0010\022\017\n\005token\030\002 \002(\t:\000\"\020\n\003msg\022\t" +
       "\n\002id\020\202\242\200\020\"b\n\017token_verify_rs\022\034\n\005error\030\001 " +
       "\002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002(\004:\0010\022\017\n\005to",
-      "ken\030\003 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\203\242\200\020\"o\n\014heartbe" +
-      "at_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_native" +
-      "\030\002 \002(\004:\0010\022!\n\ncoord_info\030\003 \002(\0132\r.b_math.c" +
-      "oord\"\020\n\003msg\022\t\n\002id\020\204\242\200\020\"\215\001\n\014heartbeat_rs\022" +
-      "\034\n\005error\030\001 \002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002" +
-      "(\004:\0010\022\032\n\017timecode_native\030\003 \002(\004:\0010\022!\n\ncoo" +
-      "rd_info\030\004 \002(\0132\r.b_math.coord\"\020\n\003msg\022\t\n\002i" +
-      "d\020\205\242\200\020*#\n\003msg\022\r\n\006min_id\020\200\242\200\020\022\r\n\006max_id\020\377" +
-      "\243\200\020BZ\n\010protodefB\017c_shuttle_lobbyZ\030protod" +
-      "ef/c_shuttle_lobby\242\002\020C_shuttle_lobby_\252\002\017",
-      "c_shuttle_lobby"
+      "ken\030\003 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\203\242\200\020\"O\n\017token_v" +
+      "erify_nt\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_rem" +
+      "ote\030\002 \002(\004:\0010\"\020\n\003msg\022\t\n\002id\020\200\243\200\020\"o\n\014heartb" +
+      "eat_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_nativ" +
+      "e\030\002 \002(\004:\0010\022!\n\ncoord_info\030\003 \002(\0132\r.b_math." +
+      "coord\"\020\n\003msg\022\t\n\002id\020\204\242\200\020\"\215\001\n\014heartbeat_rs" +
+      "\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\016\n\003uid\030\002 " +
+      "\002(\004:\0010\022\032\n\017timecode_native\030\003 \002(\004:\0010\022!\n\nco" +
+      "ord_info\030\004 \002(\0132\r.b_math.coord\"\020\n\003msg\022\t\n\002" +
+      "id\020\205\242\200\020*#\n\003msg\022\r\n\006min_id\020\200\242\200\020\022\r\n\006max_id\020",
+      "\377\243\200\020BZ\n\010protodefB\017c_shuttle_lobbyZ\030proto" +
+      "def/c_shuttle_lobby\242\002\020C_shuttle_lobby_\252\002" +
+      "\017c_shuttle_lobby"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6169,14 +6909,20 @@ public final class c_shuttle_lobby {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_token_verify_rs_descriptor,
         new java.lang.String[] { "Error", "Uid", "Token", });
-    internal_static_c_shuttle_lobby_heartbeat_rq_descriptor =
+    internal_static_c_shuttle_lobby_token_verify_nt_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_c_shuttle_lobby_token_verify_nt_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_shuttle_lobby_token_verify_nt_descriptor,
+        new java.lang.String[] { "Uid", "TimecodeRemote", });
+    internal_static_c_shuttle_lobby_heartbeat_rq_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_c_shuttle_lobby_heartbeat_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_heartbeat_rq_descriptor,
         new java.lang.String[] { "Uid", "TimecodeNative", "CoordInfo", });
     internal_static_c_shuttle_lobby_heartbeat_rs_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_c_shuttle_lobby_heartbeat_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_shuttle_lobby_heartbeat_rs_descriptor,

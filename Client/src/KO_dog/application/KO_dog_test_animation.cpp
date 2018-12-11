@@ -96,24 +96,29 @@ namespace mm
 		mm_bitset_destroy(&this->keyb_s);
 		mm_vector2_destroy(&this->d_anchor_center);
 	}
-	void KO_dog_test_animation::assign_flake_context(mm_flake_context* flake_context)
+	void KO_dog_test_animation::set_data(mm_flake_context* flake_context , mm_flake_surface* surface)
 	{
-		this->d_flake_context = flake_context;		
+		this->d_flake_context = flake_context;	
+		this->d_surface = surface;
+	}
+	void KO_dog_test_animation::set_l_layer(CEGUI::Window* l_layer)
+	{
+		this->l_layer_dog_a1 = l_layer;
 	}
 
-	void KO_dog_test_animation::on_finish_launching(mm_flake_surface* surface)
+	void KO_dog_test_animation::on_finish_launching()
 	{
-		this->d_surface = surface;
+		
 		this->dog.set_flake_context(this->d_flake_context, this->d_surface);
 
 		/////////////////////////////////////////////////////////////////////
-		this->d_event_updated_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_updated, &KO_dog_test_animation::on_event_updated, this);
+		this->d_event_updated_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_updated, &KO_dog_test_animation::on_event_updated, this);
 
-		this->d_event_mouse_moved_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_moved, &KO_dog_test_animation::on_event_mouse_moved, this);
-		this->d_event_mouse_began_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_began, &KO_dog_test_animation::on_event_mouse_began, this);
-		this->d_event_mouse_ended_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_ended, &KO_dog_test_animation::on_event_mouse_ended, this);
-		this->d_event_key_pressed_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_key_pressed, &KO_dog_test_animation::on_event_key_pressed, this);
-		this->d_event_key_release_conn = surface->d_event_set.subscribe_event(mm_flake_surface::event_key_release, &KO_dog_test_animation::on_event_key_release, this);
+		this->d_event_mouse_moved_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_moved, &KO_dog_test_animation::on_event_mouse_moved, this);
+		this->d_event_mouse_began_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_began, &KO_dog_test_animation::on_event_mouse_began, this);
+		this->d_event_mouse_ended_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_ended, &KO_dog_test_animation::on_event_mouse_ended, this);
+		this->d_event_key_pressed_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_key_pressed, &KO_dog_test_animation::on_event_key_pressed, this);
+		this->d_event_key_release_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_key_release, &KO_dog_test_animation::on_event_key_release, this);
 		/////////////////////////////////////////////////////////////////////
 		//Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
 		//// Create the scene manager
@@ -152,7 +157,7 @@ namespace mm
 		this->on_scene_layer_launching();
 		this->on_synchronize_launching();
 	}
-	void KO_dog_test_animation::on_before_terminate(mm_flake_surface* surface)
+	void KO_dog_test_animation::on_before_terminate()
 	{
 		//struct mm_logger* g_logger = mm_logger_instance();
 		//mm_flake_context* flake_context = this->d_flake_context;
@@ -173,13 +178,14 @@ namespace mm
 		//_ogre_root->destroySceneManager(this->d_scene_manager);
 		//mm_logger_log_I(g_logger, "KO_dog::%s %d success.", __FUNCTION__, __LINE__);
 		//////////////////////////////////////////////////////////////////////////
-		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_updated, this->d_event_updated_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_updated, this->d_event_updated_conn);
 
-		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_moved, this->d_event_mouse_moved_conn);
-		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_began, this->d_event_mouse_began_conn);
-		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_ended, this->d_event_mouse_ended_conn);
-		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_pressed, this->d_event_key_pressed_conn);
-		surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_release, this->d_event_key_release_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_moved, this->d_event_mouse_moved_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_began, this->d_event_mouse_began_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_ended, this->d_event_mouse_ended_conn);
+
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_pressed, this->d_event_key_pressed_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_release, this->d_event_key_release_conn);
 	}
 	void KO_dog_test_animation::on_scene_launching()
 	{
@@ -368,8 +374,9 @@ namespace mm
 		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
 		//std::string _root_window_name = "root_window";
 		//_root_window_name = _root_window_name + index_string;
-		this->d_window = (CEGUI::Window*)_window_manager->createWindow("DefaultWindow", "root_window_1");
-		this->l_layer_dog_a1 = _window_manager->loadLayoutFromFile("l_layer_dog_a1.layout");
+
+		//this->d_window = (CEGUI::Window*)_window_manager->createWindow("DefaultWindow", "root_window_1");
+		//this->l_layer_dog_a1 = _window_manager->loadLayoutFromFile("l_layer_dog_a1.layout");
 
 		this->Label_jiaodu = this->l_layer_dog_a1->getChild("Label_jiaodu");
 		this->Label_zongchang = this->l_layer_dog_a1->getChild("Label_zongchang");
@@ -386,10 +393,11 @@ namespace mm
 		this->Label_jiaodu->setText("0 (du)");
 		this->Label_zongchang->setText("0");
 		//this->l_ensure->setVisible(false);
-		this->d_window->addChild(this->l_layer_dog_a1);
-		_gui_context->setRootWindow(this->d_window);
 
-		_gui_context->getMouseCursor().setVisible(false);
+		//this->d_window->addChild(this->l_layer_dog_a1);
+		//_gui_context->setRootWindow(this->d_window);
+
+		//_gui_context->getMouseCursor().setVisible(false);
 
 
 		/////////////////////////////////////////////////////////////////////////
@@ -438,9 +446,9 @@ namespace mm
 		//_resource_group_mgr.removeResourceLocation("media/models/ogrehead", "media/models/ogrehead");
 		//_resource_group_mgr.removeResourceLocation("media/models/cube", "media/models/cube");
 		//////////////////////////////////////////////////////////////////////////
-		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
-		_window_manager->destroyWindow(this->l_layer_dog_a1);
-		_window_manager->destroyWindow(this->d_window);
+		//CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
+		//_window_manager->destroyWindow(this->l_layer_dog_a1);
+		//_window_manager->destroyWindow(this->d_window);
 	}
 
 	bool KO_dog_test_animation::on_event_updated(const mm_event_args& args)
@@ -532,7 +540,7 @@ namespace mm
 			this->dog.now_camra_node->roll(Ogre::Radian(Ogre::Degree((Ogre::Real)-_m_z)));
 		}*/		
 
-		printf("is in area:%d \n", this->d_is_anchor_touch_began);
+		//printf("is in area:%d \n", this->d_is_anchor_touch_began);
 		//¿ØÖÆÆ÷/////////////////////////////////////////////////////////////////
 		this->update_anchor_quaternion(evt.content.abs_x, evt.content.abs_y);
 

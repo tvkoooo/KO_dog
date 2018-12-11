@@ -30,7 +30,7 @@ namespace mm
 			user_token_motion = 1,// user token is implementing
 			user_token_finish = 2,// user token has already completed.
 		};
-		std::string token;// token.
+		//std::string token;// token.
 		int state;
 	};
 
@@ -47,7 +47,8 @@ namespace mm
 		struct data_user_token token;
 
 	public:
-		static const std::string event_userdata_update;
+		static const std::string event_userdata_user_basic_update;
+		static const std::string event_userdata_user_token_update;
 		// this member is event drive.
 		mm::mm_event_set d_event_set;
 

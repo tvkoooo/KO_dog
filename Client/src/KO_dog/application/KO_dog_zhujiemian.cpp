@@ -11,16 +11,16 @@
 #include "network/network_handle.h"
 #include "protodef/cxx/protodef/c_business_account.pb.h"
 
-#include "lua/mm_lua.h"
+//#include "script/KO_dog_script_error_code.h"
 
 namespace mm
 {
+	const std::string KO_dog_zhujiemian::event_login("event_login");
+
 	KO_dog_zhujiemian::KO_dog_zhujiemian()
 		: d_flake_context(NULL)
 		, d_surface(NULL)
-		, d_window_login(NULL)
 		, l_home_lj_login(NULL)
-		, l_layer_dog_window(NULL)
 
 		, MenuWindow(NULL)
 		, l_edit_text_id(NULL)
@@ -39,8 +39,6 @@ namespace mm
 		, l_image_gold5(NULL)
 		, l_image_gold_y1(NULL)
 		, l_image_gold_y2(NULL)
-		, DefaultWindow_entry(NULL)
-		, DefaultWindow_lobby(NULL)
 
 
 		//, l_image_gold_mov(NULL)
@@ -76,6 +74,10 @@ namespace mm
 		this->d_surface = d_surface;
 		this->rtt_coin.set_flake_context(d_flake_context, d_surface);
 	}
+	void KO_dog_zhujiemian::set_l_layer(CEGUI::Window* l_layer)
+	{
+		this->l_home_lj_login = l_layer;
+	}
 
 	void KO_dog_zhujiemian::on_finish_launching()
 	{
@@ -94,9 +96,9 @@ namespace mm
 		//////////////////////////////////////////////////////////////////////////
 		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
 
-		this->d_window_login = (CEGUI::Window*)_window_manager->createWindow("DefaultWindow", "root_window_0");
-		this->l_home_lj_login = _window_manager->loadLayoutFromFile("l_home_lj_login.layout");
-		this->l_layer_dog_window = _window_manager->loadLayoutFromFile("l_layer_dog_window.layout");
+		//this->d_window_login = (CEGUI::Window*)_window_manager->createWindow("DefaultWindow", "root_window_0");
+		//this->l_home_lj_login = _window_manager->loadLayoutFromFile("l_home_lj_login.layout");
+		//this->l_layer_dog_window = _window_manager->loadLayoutFromFile("l_layer_dog_window.layout");
 
 
 		this->MenuWindow = this->l_home_lj_login->getChild("MenuWindow");
@@ -115,27 +117,19 @@ namespace mm
 		this->l_image_gold5 = this->MenuWindow->getChild("l_image_gold5");
 		this->l_image_gold_y1 = this->MenuWindow->getChild("l_image_gold_y1");
 		this->l_image_gold_y2 = this->MenuWindow->getChild("l_image_gold_y2");
-		this->DefaultWindow_entry = this->MenuWindow->getChild("DefaultWindow_entry");
-		this->DefaultWindow_lobby = this->MenuWindow->getChild("DefaultWindow_lobby");
 
 		this->rtt_coin.l_rtt = this->MenuWindow->getChild("l_image_gold_mov");
 		this->StaticImage = this->l_home_lj_login->getChild("StaticImage");
 		////////////////////////////////////////////////////////////////////////////////
-		this->DefaultWindow_entry->addChild(this->l_layer_dog_window);
-
-		// {{0, 0}, {0, 0}, {1, 0}, {1, 0}}
-		// URect
-		CEGUI::URect  ur = { {0, 0}, {0, 0}, {1, 0}, {1, 0} };
-		this->l_layer_dog_window->setArea(ur);
 
 		this->l_text_id->setText("Your ID");
 		this->l_text_pwd->setText("Your password");
-		//this->l_ensure->setVisible(false);
-		CEGUI::GUIContext* _gui_context = this->d_surface->d_gui_context;
-		this->d_window_login->addChild(this->l_home_lj_login);
+		////this->l_ensure->setVisible(false);
+		//CEGUI::GUIContext* _gui_context = this->d_surface->d_gui_context;
+		//this->d_window_login->addChild(this->l_home_lj_login);
 
-		_gui_context->setRootWindow(this->d_window_login);
-		_gui_context->getMouseCursor().setVisible(false);
+		//_gui_context->setRootWindow(this->d_window_login);
+		//_gui_context->getMouseCursor().setVisible(false);
 
 		this->l_s_button_login->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_zhujiemian::on_handle_l_s_button_login, this));
 		this->l_s_button_out->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_zhujiemian::on_handle_l_s_button_out, this));
@@ -144,12 +138,12 @@ namespace mm
 		this->MenuWindow->subscribeEvent(CEGUI::Window::EventUpdated, CEGUI::Event::Subscriber(&KO_dog_zhujiemian::on_handle_MenuWindow_updated, this));
 
 
-		this->d_event_l_animation_closed_conn = this->test_animation.d_event_set.subscribe_event(KO_dog_test_animation::event_close, &KO_dog_zhujiemian::on_handle_l_animation_closed, this);
+		//this->d_event_l_animation_closed_conn = this->test_animation.d_event_set.subscribe_event(KO_dog_test_animation::event_close, &KO_dog_zhujiemian::on_handle_l_animation_closed, this);
 
 		
 		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
 		//订阅KO_dog_data_user_basic 的 event_userdata_update 事件
-		this->d_event_userdata_update_conn = p_dog->data.data_user_basic.d_event_set.subscribe_event(KO_dog_data_user_basic::event_userdata_update, &KO_dog_zhujiemian::on_handle_event_userdata_update, this);
+		this->d_event_userdata_update_conn = p_dog->data.data_user_basic.d_event_set.subscribe_event(KO_dog_data_user_basic::event_userdata_user_token_update, &KO_dog_zhujiemian::on_handle_event_userdata_update, this);
 
 		//订阅KO_dog_data_log_view 的 event_log_view 事件
 		this->d_event_log_view_conn = p_dog->data.data_log_view.d_event_set.subscribe_event(KO_dog_data_log_view::event_log_view, &KO_dog_zhujiemian::on_handle_event_log_view, this);
@@ -189,20 +183,20 @@ namespace mm
 		//coin terminate
 		this->rtt_coin.on_before_terminate();
 
-		this->test_animation.d_event_set.unsubscribe_event(KO_dog_test_animation::event_close, this->d_event_l_animation_closed_conn);
+		//this->test_animation.d_event_set.unsubscribe_event(KO_dog_test_animation::event_close, this->d_event_l_animation_closed_conn);
 
 		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
 		//解除 注册 KO_dog_data_user_basic 的 event_userdata_update 事件
-		p_dog->data.data_user_basic.d_event_set.unsubscribe_event(KO_dog_data_user_basic::event_userdata_update, this->d_event_userdata_update_conn);
+		p_dog->data.data_user_basic.d_event_set.unsubscribe_event(KO_dog_data_user_basic::event_userdata_user_token_update, this->d_event_userdata_update_conn);
 
 		// 解除 注册 KO_dog_data_log_view 的 event_log_view 事件
 		p_dog->data.data_log_view.d_event_set.unsubscribe_event(KO_dog_data_log_view::event_log_view, this->d_event_log_view_conn);
 
-		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
+		//CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
 
-		_window_manager->destroyWindow(this->l_layer_dog_window);
-		_window_manager->destroyWindow(this->l_home_lj_login);
-		_window_manager->destroyWindow(this->d_window_login);
+		//_window_manager->destroyWindow(this->l_layer_dog_window);
+		//_window_manager->destroyWindow(this->l_home_lj_login);
+		//_window_manager->destroyWindow(this->d_window_login);
 	}
 
 	bool KO_dog_zhujiemian::on_handle_l_s_button_login(const CEGUI::EventArgs& args)
@@ -223,10 +217,18 @@ namespace mm
 		//	}
 		//	else
 		//	{
-				this->l_text_notice->setText("Good luck");
+
+
+				//this->l_text_notice->setText("Good luck");
+
+				//mm_event_args evt_ags;
+				////mm_event_animation_close evt_closd("args");
+				//this->d_event_set.fire_event(KO_dog_zhujiemian::event_login, evt_ags);
+
+
 				//mm_msleep(1000);
-				this->test_animation.assign_flake_context(this->d_flake_context);
-				this->test_animation.on_finish_launching(this->d_surface);
+				//this->test_animation.assign_flake_context(this->d_flake_context);
+				//this->test_animation.on_finish_launching(this->d_surface);
 		//	}
 
 		//}
@@ -236,34 +238,34 @@ namespace mm
 
 
 
-		//mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+		mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
 
-		//if (0 != p->data.data_net.lobby.port)
-		//{	
-		//	const CEGUI::String &user_name = this->l_edit_text_id->getText();
-		//	const CEGUI::String &pass_word = this->l_edit_text_pwd->getText();
+		if (0 != p->data.data_net.lobby.port)
+		{	
+			const CEGUI::String &user_name = this->l_edit_text_id->getText();
+			const CEGUI::String &pass_word = this->l_edit_text_pwd->getText();
 
-		//	md5_uint8 digest[16] = { 0 };
-		//	mm_md5_starts(&this->md5_context);
-		//	mm_md5_update(&this->md5_context, (md5_uint8 *)pass_word.c_str(), pass_word.length());
-		//	mm_md5_finish(&this->md5_context, digest);
+			md5_uint8 digest[16] = { 0 };
+			mm_md5_starts(&this->md5_context);
+			mm_md5_update(&this->md5_context, (md5_uint8 *)pass_word.c_str(), pass_word.length());
+			mm_md5_finish(&this->md5_context, digest);
 
-		//	char mima[33] = { 0 };
-		//	for (size_t i = 0; i < 16; i++)
-		//	{
-		//		sprintf(&mima[2 * i], "%02x", digest[i]);
-		//	}
+			char mima[33] = { 0 };
+			for (size_t i = 0; i < 16; i++)
+			{
+				sprintf(&mima[2 * i], "%02x", digest[i]);
+			}
 
-		//	c_business_account::signed_in_rq rq;
-		//	rq.set_user_name(user_name.c_str());
-		//	rq.set_password((const char*)mima);
-		//	mm_client_tcp_flush_send_message(&p->network.tcp,0, c_business_account::signed_in_rq_msg_id, &rq);
-		//	this->l_text_notice->setText("Please wait.....");
-		//}
-		//else
-		//{
-		//	this->l_text_notice->setText("Network unstable, retry later!");
-		//}
+			c_business_account::signed_in_rq rq;
+			rq.set_user_name(user_name.c_str());
+			rq.set_password((const char*)mima);
+			mm_client_tcp_flush_send_message(&p->network.tcp,0, c_business_account::signed_in_rq_msg_id, &rq);
+			this->l_text_notice->setText("Please wait.....");
+		}
+		else
+		{
+			this->l_text_notice->setText("Network unstable, retry later!");
+		}
 
 		return false;
 	}
@@ -437,13 +439,13 @@ namespace mm
 		return false;
 	}
 
-	bool KO_dog_zhujiemian::on_handle_l_animation_closed(const mm_event_args& args)
-	{
-		this->test_animation.on_before_terminate(this->d_surface);
-		CEGUI::GUIContext* _gui_context = this->d_surface->d_gui_context;
-		_gui_context->setRootWindow(this->d_window_login);
-		return false;
-	}
+	//bool KO_dog_zhujiemian::on_handle_l_animation_closed(const mm_event_args& args)
+	//{
+	//	this->test_animation.on_before_terminate(this->d_surface);
+	//	CEGUI::GUIContext* _gui_context = this->d_surface->d_gui_context;
+	//	_gui_context->setRootWindow(this->d_window_login);
+	//	return false;
+	//}
 	bool KO_dog_zhujiemian::on_handle_event_userdata_update(const mm_event_args& args)
 	{
 		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
@@ -455,28 +457,32 @@ namespace mm
 		else
 		{
 			this->l_text_notice->setText("Good luck.");
-			this->test_animation.assign_flake_context(this->d_flake_context);
-			this->test_animation.on_finish_launching(this->d_surface);
+
+			mm_event_args evt_ags;
+			//mm_event_animation_close evt_closd("args");
+			this->d_event_set.fire_event(KO_dog_zhujiemian::event_login, evt_ags);
+
+			//this->test_animation.assign_flake_context(this->d_flake_context);
+			//this->test_animation.on_finish_launching(this->d_surface);
 		}
 		return false;
 	}
 	bool KO_dog_zhujiemian::on_handle_event_log_view(const mm_event_args& args)
 	{
 		const mm_event_data_log_view& evt = (const mm_event_data_log_view&)args;
-		// 中文展示：需要使用utf8无bom格式保存文本 后再经过 CEGUI::String 转化才能正常输出中文
-		//String(const utf8* utf8_str, size_type chars_len)
 		//CEGUI::String text((const CEGUI::utf8*)evt.view.c_str(), evt.view.size());
 
-		mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
-		struct lua_State* L = p->lua_context.state;
-		std::string view;
-		mm::mm_lua _lua(L);
-		_lua.push(evt.code);
-		_lua.call("model_error", "err_code_view", 1, 1);
-		_lua.pop(view);
+		//mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+		//struct lua_State* L = p->lua_context.state;
+		//std::string view;
+		//mm::mm_lua _lua(L);
+		//_lua.push(evt.code);
+		//_lua.call("model_error", "err_code_view", 1, 1);
+		//_lua.pop(view);
+		//KO_dog_error_code_get_view(L, evt.code, view);
 
 
-		CEGUI::String text1((const CEGUI::utf8*)view.c_str(), view.size());
+		CEGUI::String text1((const CEGUI::utf8*)evt.view.c_str(), evt.view.size());
 		this->l_text_notice->setText(text1);
 		return false;
 	}

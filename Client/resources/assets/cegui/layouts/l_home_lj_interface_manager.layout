@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_interface_manager" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="DefaultWindow" name="DefaultWindow" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="ZOrderingEnabled" value="false" />
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow_lobby" >
+            <Property name="Area" value="{{0.752083,0},{0.0481482,0},{0.996875,0},{0.0944445,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="ZOrderingEnabled" value="false" />
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow_entry" >
+            <Property name="Area" value="{{0.752083,0},{0.00555556,0},{0.996875,0},{0.0444444,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="ZOrderingEnabled" value="false" />
+        </Window>
+    </Window>
+</GUILayout>

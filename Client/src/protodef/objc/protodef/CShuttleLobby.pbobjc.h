@@ -103,6 +103,20 @@ GPBEnumDescriptor *C_shuttle_lobby_token_verify_rs_msg_EnumDescriptor(void);
  **/
 BOOL C_shuttle_lobby_token_verify_rs_msg_IsValidValue(int32_t value);
 
+#pragma mark - Enum C_shuttle_lobby_token_verify_nt_msg
+
+typedef GPB_ENUM(C_shuttle_lobby_token_verify_nt_msg) {
+  C_shuttle_lobby_token_verify_nt_msg_Id = 33558912,
+};
+
+GPBEnumDescriptor *C_shuttle_lobby_token_verify_nt_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_shuttle_lobby_token_verify_nt_msg_IsValidValue(int32_t value);
+
 #pragma mark - Enum C_shuttle_lobby_heartbeat_rq_msg
 
 typedef GPB_ENUM(C_shuttle_lobby_heartbeat_rq_msg) {
@@ -255,6 +269,28 @@ typedef GPB_ENUM(C_shuttle_lobby_token_verify_rs_FieldNumber) {
 /** Test to see if @c token has been set. */
 @property(nonatomic, readwrite) BOOL hasToken;
 
+@end
+
+#pragma mark - C_shuttle_lobby_token_verify_nt
+
+typedef GPB_ENUM(C_shuttle_lobby_token_verify_nt_FieldNumber) {
+  C_shuttle_lobby_token_verify_nt_FieldNumber_Uid = 1,
+  C_shuttle_lobby_token_verify_nt_FieldNumber_TimecodeRemote = 2,
+};
+
+/**
+ * (tcp)令牌校验通知, 账号被挤掉的时候发给被挤的人, 被挤掉的人将收不到在线回推.
+ **/
+@interface C_shuttle_lobby_token_verify_nt : GPBMessage
+
+/** 用户编号 */
+@property(nonatomic, readwrite) uint64_t uid;
+
+@property(nonatomic, readwrite) BOOL hasUid;
+/** 发出的时间点(ms毫秒) */
+@property(nonatomic, readwrite) uint64_t timecodeRemote;
+
+@property(nonatomic, readwrite) BOOL hasTimecodeRemote;
 @end
 
 #pragma mark - C_shuttle_lobby_heartbeat_rq

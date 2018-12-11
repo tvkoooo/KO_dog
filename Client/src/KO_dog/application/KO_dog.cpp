@@ -34,12 +34,18 @@
 
 #include "KO_dog_test_setup.h"
 #include "network/network_entry.h"
+#include "network/network_state.h"
 
 //////////////////////////////////////////////////////////////////////////
 static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval);
 
+static void __static_set_entry_ip_port(mm::KO_dog* p, const char* ip, unsigned short port);
+
+
 namespace mm
 {
+	
+
 
 	//////////////////////////////////////////////////////////////////////////
 	mm_flake_activity* mm_flake_activity_native_alloc()
@@ -56,10 +62,13 @@ namespace mm
 		mm_lua_context_init(&this->lua_context);
 		KO_dog_network_init(&this->network);
 		KO_dog_network_assign_context(&this->network, this);
+		mm_error_desc_init(&this->error_desc);
+		mm_error_desc_clear(&this->error_desc);
 	}
 
 	KO_dog::~KO_dog()
 	{
+		mm_error_desc_destroy(&this->error_desc);
 		KO_dog_network_destroy(&this->network);
 		mm_lua_context_destroy(&this->lua_context);
 	}
@@ -98,8 +107,9 @@ namespace mm
 		mm_adaptive_timer_schedule(&flake_context->d_adaptive_timer, "network", 5, 1, &__static_flake_context_adaptive_timer_unit_update_synchronize, this);
 		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 1);
 		//////////////////////////////////////////////////////////////////////////
-		//设置udp入口地址和端口
-		KO_dog_network_client_udp_assign_remote_target(&this->network, "192.168.1.112", 20001);
+		//设置 entry 地址和端口
+		__static_set_entry_ip_port(this, "192.168.1.112", 20001);
+
 
 		//lua 脚本初始化
 		struct lua_State* L = this->lua_context.state;
@@ -171,4 +181,12 @@ static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* 
 	mm::KO_dog* p = (mm::KO_dog*)(unit->callback.obj);
 	//
 	KO_dog_network_thread_handle_recv( &p->network);
+}
+
+static void __static_set_entry_ip_port(mm::KO_dog* p, const char* ip, unsigned short port)
+{
+	//设置udp入口地址和端口
+	KO_dog_network_client_udp_assign_remote_target(&p->network, ip, port);
+	//发布entry 改变事件
+	network_state_entry_event_publish(&p->network, ip, port);
 }

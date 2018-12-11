@@ -23,7 +23,7 @@ namespace mm
 		void load();
 		void add(mm_uint32_t code, const std::string& view);
 		void remove(mm_uint32_t code);
-		const std::string& get(mm_uint32_t code);
+		//const std::string& get(mm_uint32_t code);
 
 	private:
 		log_error_code_map_type map_err_code;

@@ -9,8 +9,7 @@ extern void network_entry_callback_function_registration(struct KO_dog_network* 
 
 //udp/////////////////////////////////////////////////////////////////////////////////
 extern void mm_client_udp_flush_send_knock_rq(struct mm_client_udp* p);
-extern void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
-extern void hd_q_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
+
 
 
 

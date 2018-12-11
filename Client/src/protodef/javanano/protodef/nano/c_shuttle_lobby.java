@@ -421,6 +421,100 @@ public interface c_shuttle_lobby {
     }
   }
 
+  public static final class token_verify_nt extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33558912;
+
+    private static volatile token_verify_nt[] _emptyArray;
+    public static token_verify_nt[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new token_verify_nt[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required uint64 uid = 1 [default = 0];
+    public long uid;
+
+    // required uint64 timecode_remote = 2 [default = 0];
+    public long timecodeRemote;
+
+    public token_verify_nt() {
+      clear();
+    }
+
+    public token_verify_nt clear() {
+      uid = 0L;
+      timecodeRemote = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      output.writeUInt64(1, this.uid);
+      output.writeUInt64(2, this.timecodeRemote);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(1, this.uid);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(2, this.timecodeRemote);
+      return size;
+    }
+
+    @Override
+    public token_verify_nt mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 8: {
+            this.uid = input.readUInt64();
+            break;
+          }
+          case 16: {
+            this.timecodeRemote = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static token_verify_nt parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new token_verify_nt(), data);
+    }
+
+    public static token_verify_nt parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new token_verify_nt().mergeFrom(input);
+    }
+  }
+
   public static final class heartbeat_rq extends
       com.google.protobuf.nano.MessageNano {
 

@@ -52,6 +52,9 @@
     <Filter Include="src\protodef\cxx\protodef">
       <UniqueIdentifier>{cac5a3db-d9f1-45f1-8704-94ecfaffc42d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\KO_dog\script">
+      <UniqueIdentifier>{14e9bb1a-398e-44e8-bd3d-83dedbab316e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp">
@@ -144,9 +147,6 @@
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_windows_target.cpp">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_jiemian.cpp">
-      <Filter>src\KO_dog\application</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test.cpp">
       <Filter>src\KO_dog\application</Filter>
     </ClCompile>
@@ -167,6 +167,24 @@
     </ClCompile>
     <ClCompile Include="..\..\src\KO_dog\network\network_lobby.cpp">
       <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_window_ip.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\network_state.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_interface_manager.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\script\KO_dog_script_error_code.cpp">
+      <Filter>src\KO_dog\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_error_code.c">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_error_desc.c">
+      <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -257,9 +275,6 @@
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_windows_target.h">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_jiemian.h">
-      <Filter>src\KO_dog\application</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test.h">
       <Filter>src\KO_dog\application</Filter>
     </ClInclude>
@@ -280,6 +295,24 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\network\network_lobby.h">
       <Filter>src\KO_dog\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_window_ip.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\network_state.h">
+      <Filter>src\KO_dog\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_interface_manager.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\script\KO_dog_script_error_code.h">
+      <Filter>src\KO_dog\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_error_code.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_error_desc.h">
+      <Filter>src\KO_dog\toolkit</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

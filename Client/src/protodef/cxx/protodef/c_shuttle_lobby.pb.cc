@@ -26,6 +26,8 @@ class token_verify_rqDefaultTypeInternal : public ::google::protobuf::internal::
 } _token_verify_rq_default_instance_;
 class token_verify_rsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<token_verify_rs> {
 } _token_verify_rs_default_instance_;
+class token_verify_ntDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<token_verify_nt> {
+} _token_verify_nt_default_instance_;
 class heartbeat_rqDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<heartbeat_rq> {
 } _heartbeat_rq_default_instance_;
 class heartbeat_rsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<heartbeat_rs> {
@@ -36,8 +38,8 @@ namespace protobuf_c_5fshuttle_5flobby_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[6];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[7];
+::google::protobuf::Metadata file_level_metadata[7];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[8];
 
 }  // namespace
 
@@ -52,6 +54,7 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -101,6 +104,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   1,
   2,
   0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(token_verify_nt, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(token_verify_nt, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(token_verify_nt, uid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(token_verify_nt, timecode_remote_),
+  0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(heartbeat_rq, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(heartbeat_rq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -132,8 +144,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 11, 18, sizeof(exchange_key_rs)},
   { 20, 27, sizeof(token_verify_rq)},
   { 29, 37, sizeof(token_verify_rs)},
-  { 40, 48, sizeof(heartbeat_rq)},
-  { 51, 60, sizeof(heartbeat_rs)},
+  { 40, 47, sizeof(token_verify_nt)},
+  { 49, 57, sizeof(heartbeat_rq)},
+  { 60, 69, sizeof(heartbeat_rs)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -141,6 +154,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_exchange_key_rs_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_token_verify_rq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_token_verify_rs_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_token_verify_nt_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_heartbeat_rq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_heartbeat_rs_default_instance_),
 };
@@ -163,7 +177,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 6);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 7);
 }
 
 }  // namespace
@@ -177,10 +191,12 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[2].reflection;
   _token_verify_rs_default_instance_.Shutdown();
   delete file_level_metadata[3].reflection;
-  _heartbeat_rq_default_instance_.Shutdown();
+  _token_verify_nt_default_instance_.Shutdown();
   delete file_level_metadata[4].reflection;
-  _heartbeat_rs_default_instance_.Shutdown();
+  _heartbeat_rq_default_instance_.Shutdown();
   delete file_level_metadata[5].reflection;
+  _heartbeat_rs_default_instance_.Shutdown();
+  delete file_level_metadata[6].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -193,6 +209,7 @@ void TableStruct::InitDefaultsImpl() {
   _exchange_key_rs_default_instance_.DefaultConstruct();
   _token_verify_rq_default_instance_.DefaultConstruct();
   _token_verify_rs_default_instance_.DefaultConstruct();
+  _token_verify_nt_default_instance_.DefaultConstruct();
   _heartbeat_rq_default_instance_.DefaultConstruct();
   _heartbeat_rs_default_instance_.DefaultConstruct();
   _exchange_key_rs_default_instance_.get_mutable()->error_ = const_cast< ::b_error::info*>(
@@ -224,20 +241,22 @@ void AddDescriptorsImpl() {
       "\n\003uid\030\001 \002(\004:\0010\022\017\n\005token\030\002 \002(\t:\000\"\020\n\003msg\022\t"
       "\n\002id\020\202\242\200\020\"b\n\017token_verify_rs\022\034\n\005error\030\001 "
       "\002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002(\004:\0010\022\017\n\005to"
-      "ken\030\003 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\203\242\200\020\"o\n\014heartbe"
-      "at_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_native"
-      "\030\002 \002(\004:\0010\022!\n\ncoord_info\030\003 \002(\0132\r.b_math.c"
-      "oord\"\020\n\003msg\022\t\n\002id\020\204\242\200\020\"\215\001\n\014heartbeat_rs\022"
-      "\034\n\005error\030\001 \002(\0132\r.b_error.info\022\016\n\003uid\030\002 \002"
-      "(\004:\0010\022\032\n\017timecode_native\030\003 \002(\004:\0010\022!\n\ncoo"
-      "rd_info\030\004 \002(\0132\r.b_math.coord\"\020\n\003msg\022\t\n\002i"
-      "d\020\205\242\200\020*#\n\003msg\022\r\n\006min_id\020\200\242\200\020\022\r\n\006max_id\020\377"
-      "\243\200\020BZ\n\010protodefB\017c_shuttle_lobbyZ\030protod"
-      "ef/c_shuttle_lobby\242\002\020C_shuttle_lobby_\252\002\017"
-      "c_shuttle_lobby"
+      "ken\030\003 \002(\t:\000\"\020\n\003msg\022\t\n\002id\020\203\242\200\020\"O\n\017token_v"
+      "erify_nt\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_rem"
+      "ote\030\002 \002(\004:\0010\"\020\n\003msg\022\t\n\002id\020\200\243\200\020\"o\n\014heartb"
+      "eat_rq\022\016\n\003uid\030\001 \002(\004:\0010\022\032\n\017timecode_nativ"
+      "e\030\002 \002(\004:\0010\022!\n\ncoord_info\030\003 \002(\0132\r.b_math."
+      "coord\"\020\n\003msg\022\t\n\002id\020\204\242\200\020\"\215\001\n\014heartbeat_rs"
+      "\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\016\n\003uid\030\002 "
+      "\002(\004:\0010\022\032\n\017timecode_native\030\003 \002(\004:\0010\022!\n\nco"
+      "ord_info\030\004 \002(\0132\r.b_math.coord\"\020\n\003msg\022\t\n\002"
+      "id\020\205\242\200\020*#\n\003msg\022\r\n\006min_id\020\200\242\200\020\022\r\n\006max_id\020"
+      "\377\243\200\020BZ\n\010protodefB\017c_shuttle_lobbyZ\030proto"
+      "def/c_shuttle_lobby\242\002\020C_shuttle_lobby_\252\002"
+      "\017c_shuttle_lobby"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 815);
+      descriptor, 896);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "c_shuttle_lobby.proto", &protobuf_RegisterTypes);
   ::b_error::protobuf_b_5ferror_2eproto::AddDescriptors();
@@ -334,9 +353,28 @@ const token_verify_rs_msg token_verify_rs::msg_MIN;
 const token_verify_rs_msg token_verify_rs::msg_MAX;
 const int token_verify_rs::msg_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* heartbeat_rq_msg_descriptor() {
+const ::google::protobuf::EnumDescriptor* token_verify_nt_msg_descriptor() {
   protobuf_c_5fshuttle_5flobby_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_c_5fshuttle_5flobby_2eproto::file_level_enum_descriptors[4];
+}
+bool token_verify_nt_msg_IsValid(int value) {
+  switch (value) {
+    case 33558912:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const token_verify_nt_msg token_verify_nt::id;
+const token_verify_nt_msg token_verify_nt::msg_MIN;
+const token_verify_nt_msg token_verify_nt::msg_MAX;
+const int token_verify_nt::msg_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* heartbeat_rq_msg_descriptor() {
+  protobuf_c_5fshuttle_5flobby_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_enum_descriptors[5];
 }
 bool heartbeat_rq_msg_IsValid(int value) {
   switch (value) {
@@ -355,7 +393,7 @@ const int heartbeat_rq::msg_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* heartbeat_rs_msg_descriptor() {
   protobuf_c_5fshuttle_5flobby_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_enum_descriptors[5];
+  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_enum_descriptors[6];
 }
 bool heartbeat_rs_msg_IsValid(int value) {
   switch (value) {
@@ -374,7 +412,7 @@ const int heartbeat_rs::msg_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* msg_descriptor() {
   protobuf_c_5fshuttle_5flobby_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_enum_descriptors[6];
+  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_enum_descriptors[7];
 }
 bool msg_IsValid(int value) {
   switch (value) {
@@ -2270,6 +2308,362 @@ void token_verify_rs::set_allocated_token(::std::string* token) {
   }
   token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
   // @@protoc_insertion_point(field_set_allocated:c_shuttle_lobby.token_verify_rs.token)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int token_verify_nt::kUidFieldNumber;
+const int token_verify_nt::kTimecodeRemoteFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+token_verify_nt::token_verify_nt()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_c_5fshuttle_5flobby_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:c_shuttle_lobby.token_verify_nt)
+}
+token_verify_nt::token_verify_nt(const token_verify_nt& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&uid_, &from.uid_,
+    reinterpret_cast<char*>(&timecode_remote_) -
+    reinterpret_cast<char*>(&uid_) + sizeof(timecode_remote_));
+  // @@protoc_insertion_point(copy_constructor:c_shuttle_lobby.token_verify_nt)
+}
+
+void token_verify_nt::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(&uid_, 0, reinterpret_cast<char*>(&timecode_remote_) -
+    reinterpret_cast<char*>(&uid_) + sizeof(timecode_remote_));
+}
+
+token_verify_nt::~token_verify_nt() {
+  // @@protoc_insertion_point(destructor:c_shuttle_lobby.token_verify_nt)
+  SharedDtor();
+}
+
+void token_verify_nt::SharedDtor() {
+}
+
+void token_verify_nt::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* token_verify_nt::descriptor() {
+  protobuf_c_5fshuttle_5flobby_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const token_verify_nt& token_verify_nt::default_instance() {
+  protobuf_c_5fshuttle_5flobby_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+token_verify_nt* token_verify_nt::New(::google::protobuf::Arena* arena) const {
+  token_verify_nt* n = new token_verify_nt;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void token_verify_nt::Clear() {
+// @@protoc_insertion_point(message_clear_start:c_shuttle_lobby.token_verify_nt)
+  if (_has_bits_[0 / 32] & 3u) {
+    ::memset(&uid_, 0, reinterpret_cast<char*>(&timecode_remote_) -
+      reinterpret_cast<char*>(&uid_) + sizeof(timecode_remote_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool token_verify_nt::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:c_shuttle_lobby.token_verify_nt)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 uid = 1 [default = 0];
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          set_has_uid();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &uid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint64 timecode_remote = 2 [default = 0];
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          set_has_timecode_remote();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &timecode_remote_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:c_shuttle_lobby.token_verify_nt)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:c_shuttle_lobby.token_verify_nt)
+  return false;
+#undef DO_
+}
+
+void token_verify_nt::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:c_shuttle_lobby.token_verify_nt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint64 uid = 1 [default = 0];
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->uid(), output);
+  }
+
+  // required uint64 timecode_remote = 2 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->timecode_remote(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:c_shuttle_lobby.token_verify_nt)
+}
+
+::google::protobuf::uint8* token_verify_nt::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:c_shuttle_lobby.token_verify_nt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required uint64 uid = 1 [default = 0];
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->uid(), target);
+  }
+
+  // required uint64 timecode_remote = 2 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->timecode_remote(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:c_shuttle_lobby.token_verify_nt)
+  return target;
+}
+
+size_t token_verify_nt::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:c_shuttle_lobby.token_verify_nt)
+  size_t total_size = 0;
+
+  if (has_uid()) {
+    // required uint64 uid = 1 [default = 0];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->uid());
+  }
+
+  if (has_timecode_remote()) {
+    // required uint64 timecode_remote = 2 [default = 0];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->timecode_remote());
+  }
+
+  return total_size;
+}
+size_t token_verify_nt::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:c_shuttle_lobby.token_verify_nt)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint64 uid = 1 [default = 0];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->uid());
+
+    // required uint64 timecode_remote = 2 [default = 0];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->timecode_remote());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void token_verify_nt::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:c_shuttle_lobby.token_verify_nt)
+  GOOGLE_DCHECK_NE(&from, this);
+  const token_verify_nt* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const token_verify_nt>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:c_shuttle_lobby.token_verify_nt)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:c_shuttle_lobby.token_verify_nt)
+    MergeFrom(*source);
+  }
+}
+
+void token_verify_nt::MergeFrom(const token_verify_nt& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:c_shuttle_lobby.token_verify_nt)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      uid_ = from.uid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      timecode_remote_ = from.timecode_remote_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void token_verify_nt::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:c_shuttle_lobby.token_verify_nt)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void token_verify_nt::CopyFrom(const token_verify_nt& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:c_shuttle_lobby.token_verify_nt)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool token_verify_nt::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  return true;
+}
+
+void token_verify_nt::Swap(token_verify_nt* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void token_verify_nt::InternalSwap(token_verify_nt* other) {
+  std::swap(uid_, other->uid_);
+  std::swap(timecode_remote_, other->timecode_remote_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata token_verify_nt::GetMetadata() const {
+  protobuf_c_5fshuttle_5flobby_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fshuttle_5flobby_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// token_verify_nt
+
+// required uint64 uid = 1 [default = 0];
+bool token_verify_nt::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void token_verify_nt::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void token_verify_nt::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void token_verify_nt::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+::google::protobuf::uint64 token_verify_nt::uid() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.token_verify_nt.uid)
+  return uid_;
+}
+void token_verify_nt::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.token_verify_nt.uid)
+}
+
+// required uint64 timecode_remote = 2 [default = 0];
+bool token_verify_nt::has_timecode_remote() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void token_verify_nt::set_has_timecode_remote() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void token_verify_nt::clear_has_timecode_remote() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void token_verify_nt::clear_timecode_remote() {
+  timecode_remote_ = GOOGLE_ULONGLONG(0);
+  clear_has_timecode_remote();
+}
+::google::protobuf::uint64 token_verify_nt::timecode_remote() const {
+  // @@protoc_insertion_point(field_get:c_shuttle_lobby.token_verify_nt.timecode_remote)
+  return timecode_remote_;
+}
+void token_verify_nt::set_timecode_remote(::google::protobuf::uint64 value) {
+  set_has_timecode_remote();
+  timecode_remote_ = value;
+  // @@protoc_insertion_point(field_set:c_shuttle_lobby.token_verify_nt.timecode_remote)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

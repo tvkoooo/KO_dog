@@ -2,6 +2,7 @@
 #define __KO_dog_network_h__
 
 #include <string>
+#include "core/mm_timer.h"
 #include "net/mm_client_tcp.h"
 #include "net/mm_client_udp.h"
 #include "openssl/mm_openssl_tcp_context.h"
@@ -20,19 +21,39 @@ struct tcps_connect
 	struct mm_openssl_rsa openssl_rsa_client;
 	struct mm_openssl_rsa openssl_rsa_server;
 	struct mm_openssl_rc4 openssl_rc4;
-	struct mm_openssl_rc4_key openssl_rc4_key;
 	struct mm_openssl_tcp_context openssl_tcp_context;
 	int state;
 };
 void tcps_connect_init(struct tcps_connect *p);
 void tcps_connect_destroy(struct tcps_connect *p);
 
+struct lobby_user_token
+{
+	enum lobby_user_token_state
+	{
+		user_token_closed = 0,// user token is closed
+		user_token_motion = 1,// user token is implementing
+		user_token_finish = 2,// user token has already completed.
+	};
+	mm_uint64_t uid;
+	std::string token;// token.
+	mm_atomic_t locker;
+	int state;
+};
+
+void lobby_user_token_init(struct lobby_user_token* p);
+void lobby_user_token_destroy(struct lobby_user_token* p);
+//
+void lobby_user_token_lock(struct lobby_user_token* p);
+void lobby_user_token_unlock(struct lobby_user_token* p);
 
 struct KO_dog_network
 {
+	struct mm_timer timer;
 	struct mm_client_udp udp;	
 	struct mm_client_tcp tcp;
 	struct tcps_connect tcps;
+	struct lobby_user_token lobby_token;
 };
 
 //////////////////////////////////////////////////////////////////////////

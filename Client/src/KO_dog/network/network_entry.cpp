@@ -9,6 +9,13 @@
 
 #include "model_data/KO_dog_data_log_view.h"
 #include "network_handle.h"
+#include "network_state.h"
+
+#include "script/KO_dog_script_error_code.h"
+
+extern void hd_n_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
+extern void hd_q_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pack, struct mm_sockaddr* remote);
+
 
 
 void network_entry_callback_function_registration(struct KO_dog_network* p)
@@ -121,21 +128,13 @@ void hd_q_c_basic_frame_entry_knock_rs(void* obj, void* u, struct mm_packet* pac
 			mm::mm_event_data_log_view evt_ags;
 			evt_ags.code = error_info->code();
 			evt_ags.desc = error_info->desc();
-			evt_ags.view = data_log_view->code_map.get(evt_ags.code);
+			KO_dog_script_error_code_get_view(impl->lua_context.state, evt_ags.code, evt_ags.view);
 			data_log_view->d_event_set.fire_event(mm::KO_dog_data_log_view::event_log_view, evt_ags);
 		}
 		else
 		{	
 			const b_network::address& g = rs_msg.addr();
-			//数据更新
-			mm::KO_dog_data_net* data_net = &impl->data.data_net;
-			mm::ip_port_state* p_lobby = &data_net->lobby;
-			p_lobby->ip = g.host();
-			p_lobby->port = g.port();
-			//
-			//数据更新以后的事件发布    发布内容  evt_ags
-			mm_event_args evt_ags;
-			p_lobby->d_event_set.fire_event(mm::ip_port_state::event_ip_port_update, evt_ags);
+			network_state_lobby_event_publish(&impl->network,g.host().c_str(),g.port());
 			//////////////////////////////////////////////////////////////////////////
 		}		
 	} while (0);

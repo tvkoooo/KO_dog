@@ -178,6 +178,49 @@ void   c_shuttle_lobby_token_verify_rs_free_unpacked
   PROTOBUF_C_ASSERT (message->base.descriptor == &c_shuttle_lobby_token_verify_rs_descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   c_shuttle_lobby_token_verify_nt_init
+                     (c_shuttle_lobby_token_verify_nt         *message)
+{
+  static c_shuttle_lobby_token_verify_nt init_value = c_shuttle_lobby_token_verify_nt_Init;
+  *message = init_value;
+}
+size_t c_shuttle_lobby_token_verify_nt_get_packed_size
+                     (const c_shuttle_lobby_token_verify_nt *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_shuttle_lobby_token_verify_nt_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_shuttle_lobby_token_verify_nt_pack
+                     (const c_shuttle_lobby_token_verify_nt *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_shuttle_lobby_token_verify_nt_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_shuttle_lobby_token_verify_nt_pack_to_buffer
+                     (const c_shuttle_lobby_token_verify_nt *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_shuttle_lobby_token_verify_nt_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_shuttle_lobby_token_verify_nt *
+       c_shuttle_lobby_token_verify_nt_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_shuttle_lobby_token_verify_nt *)
+     protobuf_c_message_unpack (&c_shuttle_lobby_token_verify_nt_descriptor,
+                                allocator, len, data);
+}
+void   c_shuttle_lobby_token_verify_nt_free_unpacked
+                     (c_shuttle_lobby_token_verify_nt *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_shuttle_lobby_token_verify_nt_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 void   c_shuttle_lobby_heartbeat_rq_init
                      (c_shuttle_lobby_heartbeat_rq         *message)
 {
@@ -601,6 +644,85 @@ const ProtobufCMessageDescriptor c_shuttle_lobby_token_verify_rs_descriptor =
   c_shuttle_lobby_token_verify_rs_field_indices_by_name,
   1,  c_shuttle_lobby_token_verify_rs_number_ranges,
   (ProtobufCMessageInit) c_shuttle_lobby_token_verify_rs_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_shuttle_lobby_token_verify_nt_msg_enum_values_by_number[1] =
+{
+  { "id", "c_shuttle_lobby_token_verify_nt_msg_ID", 33558912 },
+};
+static const ProtobufCIntRange c_shuttle_lobby_token_verify_nt_msg_value_ranges[] = {
+{33558912, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_shuttle_lobby_token_verify_nt_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_shuttle_lobby_token_verify_nt_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_shuttle_lobby.token_verify_nt.msg",
+  "msg",
+  "c_shuttle_lobby_token_verify_nt_msg",
+  "c_shuttle_lobby",
+  1,
+  c_shuttle_lobby_token_verify_nt_msg_enum_values_by_number,
+  1,
+  c_shuttle_lobby_token_verify_nt_msg_enum_values_by_name,
+  1,
+  c_shuttle_lobby_token_verify_nt_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const unsigned long long int c_shuttle_lobby_token_verify_nt_uid_default_value = 0;
+static const unsigned long long int c_shuttle_lobby_token_verify_nt_timecode_remote_default_value = 0;
+static const ProtobufCFieldDescriptor c_shuttle_lobby_token_verify_nt_field_descriptors[2] =
+{
+  {
+    "uid",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_token_verify_nt, uid),
+    NULL,
+    &c_shuttle_lobby_token_verify_nt_uid_default_value,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "timecode_remote",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_shuttle_lobby_token_verify_nt, timecode_remote),
+    NULL,
+    &c_shuttle_lobby_token_verify_nt_timecode_remote_default_value,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_shuttle_lobby_token_verify_nt_field_indices_by_name[] = {
+  1,   /* field[1] = timecode_remote */
+  0,   /* field[0] = uid */
+};
+static const ProtobufCIntRange c_shuttle_lobby_token_verify_nt_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor c_shuttle_lobby_token_verify_nt_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_shuttle_lobby.token_verify_nt",
+  "TokenVerifyNt",
+  "c_shuttle_lobby_token_verify_nt",
+  "c_shuttle_lobby",
+  sizeof(c_shuttle_lobby_token_verify_nt),
+  2,
+  c_shuttle_lobby_token_verify_nt_field_descriptors,
+  c_shuttle_lobby_token_verify_nt_field_indices_by_name,
+  1,  c_shuttle_lobby_token_verify_nt_number_ranges,
+  (ProtobufCMessageInit) c_shuttle_lobby_token_verify_nt_init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 const ProtobufCEnumValue c_shuttle_lobby_heartbeat_rq_msg_enum_values_by_number[1] =

@@ -5,13 +5,13 @@
         <Property name="Area" value="{{0,-4},{0,0},{1,-4},{1,0}}" />
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
         <Window type="TaharezLook/Label" name="Label_jiaodu" >
-            <Property name="Area" value="{{0.0291663,0},{0.0851852,0},{0.175,0},{0.114815,0}}" />
+            <Property name="Area" value="{{0.030208,0},{0.366667,0},{0.176041,0},{0.396296,0}}" />
             <Property name="Text" value="46464" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="NormalTextColour" value="FF210CFF" />
         </Window>
         <Window type="TaharezLook/Label" name="Label_zongchang" >
-            <Property name="Area" value="{{0.029167,0},{0.142593,0},{0.178125,0},{0.172222,0}}" />
+            <Property name="Area" value="{{0.029167,0},{0.416667,0},{0.178125,0},{0.446297,0}}" />
             <Property name="Text" value="46464" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="NormalTextColour" value="FF210CFF" />
@@ -23,7 +23,7 @@
             <Property name="NormalTextColour" value="FF210CFF" />
         </Window>
         <Window type="TaharezLook/ImageButton" name="l_s_button_out" >
-            <Property name="Area" value="{{0.897396,0},{0.0138883,0},{0.99375,0},{0.0907402,0}}" />
+            <Property name="Area" value="{{0.00677103,0},{0.00833275,0},{0.0833335,0},{0.0851846,0}}" />
             <Property name="HoverImage" value="login_lj/quit_a" />
             <Property name="NormalImage" value="login_lj/quit_0" />
             <Property name="PushedImage" value="login_lj/quit_an" />
@@ -43,7 +43,7 @@
             <Property name="NormalTextColour" value="FF210CFF" />
         </Window>
         <Window type="TaharezLook/ImageButton" name="l_s_button_camera" >
-            <Property name="Area" value="{{0.898438,0},{0.0990735,0},{0.994792,0},{0.175925,0}}" />
+            <Property name="Area" value="{{0.00781298,0},{0.0972217,0},{0.0854171,0},{0.174074,0}}" />
             <Property name="HoverImage" value="TaharezLook/AltProgressLight3" />
             <Property name="NormalImage" value="TaharezLook/AltProgressLight1" />
             <Property name="PushedImage" value="TaharezLook/AltProgressLight6" />

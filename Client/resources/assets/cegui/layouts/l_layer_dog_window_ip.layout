@@ -4,7 +4,7 @@
     <Window type="DefaultWindow" name="l_layer_dog_a1" >
         <Property name="Area" value="{{0.668229,0},{-0.00555556,0},{1.00104,0},{0.0527778,0}}" />
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
-        <Window type="TaharezLook/StaticImage" name="StaticImage_entry" >
+        <Window type="TaharezLook/StaticImage" name="StaticImage_basic" >
             <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="FrameEnabled" value="false" />
@@ -21,6 +21,7 @@
                 <Property name="Image" value="login_lj/suo" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
                 <Property name="FrameEnabled" value="false" />
+                <Property name="ImageColours" value="tl:FFFFCD00 tr:FFFFCD00 bl:FFFFCD00 br:FFFFCD00" />
                 <Property name="BackgroundEnabled" value="false" />
             </Window>
             <Window type="TaharezLook/Label" name="Label_ip" >

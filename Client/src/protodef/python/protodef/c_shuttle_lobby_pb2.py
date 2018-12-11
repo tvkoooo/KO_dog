@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='c_shuttle_lobby.proto',
   package='c_shuttle_lobby',
   syntax='proto2',
-  serialized_pb=_b('\n\x15\x63_shuttle_lobby.proto\x12\x0f\x63_shuttle_lobby\x1a\rb_error.proto\x1a\x0c\x62_math.proto\"b\n\x0f\x65xchange_key_rq\x12\x12\n\npublic_key\x18\x01 \x02(\x0c\x12\x15\n\rencrypt_key_l\x18\x02 \x02(\x0c\x12\x12\n\x07version\x18\x03 \x02(\r:\x01\x30\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa2\x80\x10\"X\n\x0f\x65xchange_key_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x15\n\rencrypt_key_r\x18\x02 \x02(\x0c\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xa2\x80\x10\"D\n\x0ftoken_verify_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x02 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x82\xa2\x80\x10\"b\n\x0ftoken_verify_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x03 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x83\xa2\x80\x10\"o\n\x0cheartbeat_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_native\x18\x02 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x03 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x84\xa2\x80\x10\"\x8d\x01\n\x0cheartbeat_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_native\x18\x03 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x04 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x85\xa2\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xa2\x80\x10\x12\r\n\x06max_id\x10\xff\xa3\x80\x10\x42Z\n\x08protodefB\x0f\x63_shuttle_lobbyZ\x18protodef/c_shuttle_lobby\xa2\x02\x10\x43_shuttle_lobby_\xaa\x02\x0f\x63_shuttle_lobby')
+  serialized_pb=_b('\n\x15\x63_shuttle_lobby.proto\x12\x0f\x63_shuttle_lobby\x1a\rb_error.proto\x1a\x0c\x62_math.proto\"b\n\x0f\x65xchange_key_rq\x12\x12\n\npublic_key\x18\x01 \x02(\x0c\x12\x15\n\rencrypt_key_l\x18\x02 \x02(\x0c\x12\x12\n\x07version\x18\x03 \x02(\r:\x01\x30\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa2\x80\x10\"X\n\x0f\x65xchange_key_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x15\n\rencrypt_key_r\x18\x02 \x02(\x0c\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xa2\x80\x10\"D\n\x0ftoken_verify_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x02 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x82\xa2\x80\x10\"b\n\x0ftoken_verify_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x0f\n\x05token\x18\x03 \x02(\t:\x00\"\x10\n\x03msg\x12\t\n\x02id\x10\x83\xa2\x80\x10\"O\n\x0ftoken_verify_nt\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_remote\x18\x02 \x02(\x04:\x01\x30\"\x10\n\x03msg\x12\t\n\x02id\x10\x80\xa3\x80\x10\"o\n\x0cheartbeat_rq\x12\x0e\n\x03uid\x18\x01 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_native\x18\x02 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x03 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x84\xa2\x80\x10\"\x8d\x01\n\x0cheartbeat_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x0e\n\x03uid\x18\x02 \x02(\x04:\x01\x30\x12\x1a\n\x0ftimecode_native\x18\x03 \x02(\x04:\x01\x30\x12!\n\ncoord_info\x18\x04 \x02(\x0b\x32\r.b_math.coord\"\x10\n\x03msg\x12\t\n\x02id\x10\x85\xa2\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xa2\x80\x10\x12\r\n\x06max_id\x10\xff\xa3\x80\x10\x42Z\n\x08protodefB\x0f\x63_shuttle_lobbyZ\x18protodef/c_shuttle_lobby\xa2\x02\x10\x43_shuttle_lobby_\xaa\x02\x0f\x63_shuttle_lobby')
   ,
   dependencies=[b__error__pb2.DESCRIPTOR,b__math__pb2.DESCRIPTOR,])
 
@@ -43,8 +43,8 @@ _MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=688,
-  serialized_end=723,
+  serialized_start=769,
+  serialized_end=804,
 )
 _sym_db.RegisterEnumDescriptor(_MSG)
 
@@ -125,6 +125,24 @@ _TOKEN_VERIFY_RS_MSG = _descriptor.EnumDescriptor(
 )
 _sym_db.RegisterEnumDescriptor(_TOKEN_VERIFY_RS_MSG)
 
+_TOKEN_VERIFY_NT_MSG = _descriptor.EnumDescriptor(
+  name='msg',
+  full_name='c_shuttle_lobby.token_verify_nt.msg',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='id', index=0, number=33558912,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=494,
+  serialized_end=510,
+)
+_sym_db.RegisterEnumDescriptor(_TOKEN_VERIFY_NT_MSG)
+
 _HEARTBEAT_RQ_MSG = _descriptor.EnumDescriptor(
   name='msg',
   full_name='c_shuttle_lobby.heartbeat_rq.msg',
@@ -138,8 +156,8 @@ _HEARTBEAT_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=526,
-  serialized_end=542,
+  serialized_start=607,
+  serialized_end=623,
 )
 _sym_db.RegisterEnumDescriptor(_HEARTBEAT_RQ_MSG)
 
@@ -156,8 +174,8 @@ _HEARTBEAT_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=670,
-  serialized_end=686,
+  serialized_start=751,
+  serialized_end=767,
 )
 _sym_db.RegisterEnumDescriptor(_HEARTBEAT_RS_MSG)
 
@@ -332,6 +350,45 @@ _TOKEN_VERIFY_RS = _descriptor.Descriptor(
 )
 
 
+_TOKEN_VERIFY_NT = _descriptor.Descriptor(
+  name='token_verify_nt',
+  full_name='c_shuttle_lobby.token_verify_nt',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='c_shuttle_lobby.token_verify_nt.uid', index=0,
+      number=1, type=4, cpp_type=4, label=2,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='timecode_remote', full_name='c_shuttle_lobby.token_verify_nt.timecode_remote', index=1,
+      number=2, type=4, cpp_type=4, label=2,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _TOKEN_VERIFY_NT_MSG,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=431,
+  serialized_end=510,
+)
+
+
 _HEARTBEAT_RQ = _descriptor.Descriptor(
   name='heartbeat_rq',
   full_name='c_shuttle_lobby.heartbeat_rq',
@@ -373,8 +430,8 @@ _HEARTBEAT_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=431,
-  serialized_end=542,
+  serialized_start=512,
+  serialized_end=623,
 )
 
 
@@ -426,8 +483,8 @@ _HEARTBEAT_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=545,
-  serialized_end=686,
+  serialized_start=626,
+  serialized_end=767,
 )
 
 _EXCHANGE_KEY_RQ_MSG.containing_type = _EXCHANGE_KEY_RQ
@@ -436,6 +493,7 @@ _EXCHANGE_KEY_RS_MSG.containing_type = _EXCHANGE_KEY_RS
 _TOKEN_VERIFY_RQ_MSG.containing_type = _TOKEN_VERIFY_RQ
 _TOKEN_VERIFY_RS.fields_by_name['error'].message_type = b__error__pb2._INFO
 _TOKEN_VERIFY_RS_MSG.containing_type = _TOKEN_VERIFY_RS
+_TOKEN_VERIFY_NT_MSG.containing_type = _TOKEN_VERIFY_NT
 _HEARTBEAT_RQ.fields_by_name['coord_info'].message_type = b__math__pb2._COORD
 _HEARTBEAT_RQ_MSG.containing_type = _HEARTBEAT_RQ
 _HEARTBEAT_RS.fields_by_name['error'].message_type = b__error__pb2._INFO
@@ -445,6 +503,7 @@ DESCRIPTOR.message_types_by_name['exchange_key_rq'] = _EXCHANGE_KEY_RQ
 DESCRIPTOR.message_types_by_name['exchange_key_rs'] = _EXCHANGE_KEY_RS
 DESCRIPTOR.message_types_by_name['token_verify_rq'] = _TOKEN_VERIFY_RQ
 DESCRIPTOR.message_types_by_name['token_verify_rs'] = _TOKEN_VERIFY_RS
+DESCRIPTOR.message_types_by_name['token_verify_nt'] = _TOKEN_VERIFY_NT
 DESCRIPTOR.message_types_by_name['heartbeat_rq'] = _HEARTBEAT_RQ
 DESCRIPTOR.message_types_by_name['heartbeat_rs'] = _HEARTBEAT_RS
 DESCRIPTOR.enum_types_by_name['msg'] = _MSG
@@ -477,6 +536,13 @@ token_verify_rs = _reflection.GeneratedProtocolMessageType('token_verify_rs', (_
   # @@protoc_insertion_point(class_scope:c_shuttle_lobby.token_verify_rs)
   ))
 _sym_db.RegisterMessage(token_verify_rs)
+
+token_verify_nt = _reflection.GeneratedProtocolMessageType('token_verify_nt', (_message.Message,), dict(
+  DESCRIPTOR = _TOKEN_VERIFY_NT,
+  __module__ = 'c_shuttle_lobby_pb2'
+  # @@protoc_insertion_point(class_scope:c_shuttle_lobby.token_verify_nt)
+  ))
+_sym_db.RegisterMessage(token_verify_nt)
 
 heartbeat_rq = _reflection.GeneratedProtocolMessageType('heartbeat_rq', (_message.Message,), dict(
   DESCRIPTOR = _HEARTBEAT_RQ,
