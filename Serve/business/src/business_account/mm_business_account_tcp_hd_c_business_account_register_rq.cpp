@@ -10,8 +10,8 @@
 #include "mm_business_account.h"
 #include "mm_error_code_business_account.h"
 
-#include "mm_q_db_ko_dog_t_user_basic.h"
-#include "mm_m_db_ko_dog_t_user_basic.h"
+#include "querydef/mm_q_db_ko_dog_t_user_basic.h"
+#include "querydef/mm_m_db_ko_dog_t_user_basic.h"
 //////////////////////////////////////////////////////////////////////////
 void mm_business_account_tcp_hd_c_business_account_register_rq(void* obj, void* u, struct mm_packet* rq_pack)
 {

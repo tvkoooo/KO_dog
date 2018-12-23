@@ -118,6 +118,8 @@ void mm_windows_target_launching(struct mm_windows_target* p)
 	p->d_image_window->setProperty("Image", p->d_image->getName());
 	//
 	mm_windows_target_active_update(p);
+	// note: we update render target Manual.
+	p->d_render_target->setAutoUpdated(false);
 	//
 	mm_logger_log_V(g_logger,"%s %d end.",__FUNCTION__,__LINE__);
 }
@@ -136,6 +138,12 @@ void mm_windows_target_terminate(struct mm_windows_target* p)
 	//Ogre::TextureManager& _texMgr = Ogre::TextureManager::getSingleton();
 	//_texMgr.remove(p->d_ogre_texture->getHandle());
 	//p->d_ogre_texture = Ogre::TexturePtr();
+}
+void mm_windows_target_update(struct mm_windows_target* p, double interval)
+{
+	p->d_render_target->update();
+	p->d_render_target->swapBuffers();
+	p->d_image_window->invalidate();
 }
 // set active state.
 void mm_windows_target_set_active(struct mm_windows_target* p,bool active)

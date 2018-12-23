@@ -104,7 +104,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -282,6 +282,35 @@
                 <rect>32,12,63,23</rect>
                 <key>scale9Paddings</key>
                 <rect>32,12,63,23</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">texture/suo.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>36,36,71,71</rect>
+                <key>scale9Paddings</key>
+                <rect>36,36,71,71</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">texture/wifi_baise.png</key>
+            <key type="filename">texture/wifi_gree.png</key>
+            <key type="filename">texture/wifi_huise.png</key>
+            <key type="filename">texture/wifi_yellow.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>71,49,142,97</rect>
+                <key>scale9Paddings</key>
+                <rect>71,49,142,97</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

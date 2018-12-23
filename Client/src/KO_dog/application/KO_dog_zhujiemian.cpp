@@ -354,8 +354,8 @@ namespace mm
 		_coin_quaternion.FromAngleAxis(Ogre::Radian(Ogre::Degree(this->rtt_coin.d_rtt_rotation)), Ogre::Vector3::UNIT_Z);
 
 		this->rtt_coin.a_rtt_node->setOrientation(_coin_quaternion);
-		//重绘界面
-		this->rtt_coin.d_windows_target.d_image_window->invalidate();
+		//更新界面
+		mm_windows_target_update(&this->rtt_coin.d_windows_target, evt.d_timeSinceLastFrame);
 
 		this->image_gold_gif_n++;	
 

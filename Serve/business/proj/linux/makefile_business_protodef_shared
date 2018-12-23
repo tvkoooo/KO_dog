@@ -1,0 +1,45 @@
+################################################
+include makefile_platform
+################################################
+Version := .0.0.0
+SUFFIX  := .so
+PREFIX  := lib
+##################################################################################################
+ProjectName := mm_business_protodef
+OutFileName := $(PREFIX)$(ProjectName)$(SUFFIX)
+OutPathName := bin
+# $(info $(OutPathName)/$(OutFileName))
+################################################
+#global directory defined
+ObjDirPath := ./obj
+PrefixPath := 
+################################################
+# cross compile tools defined.
+CrossCompile := 
+COMPILER     := g++
+FLAG_OUT     := -o
+################################################
+MY_FILES_SUFFIX := %.cpp %.c %.cc
+################################################
+LDFLAGS  	+= -shared -fPIC -rdynamic -ldl 
+################################################
+MY_COMMON_FLAGS += -Wall -MD -fPIC
+################################################
+CFLAGS 		+= $(MY_COMMON_FLAGS)
+################################################
+CXXFLAGS	+= $(MY_COMMON_FLAGS)
+################################################
+PROJ_ROOT_PATH = ../..
+################################################
+LIBS += -L$(MM_LIB)/build/protobuf/proj_$(PLATFORM)/bin
+################################################
+LIBS += $(MM_LIB)/build/protobuf/proj_$(PLATFORM)/bin/libprotobuf.so
+################################################
+MY_FILES_PATH += $(PROJ_ROOT_PATH)/src/protodef/cxx
+################################################
+# MY_FILTER_OUT += $(PROJ_ROOT_PATH)/src/exec%
+################################################
+LOCAL_C_INCLUDES += -I$(PROJ_ROOT_PATH)
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/protobuf/src/
+################################################
+include $(MAKE_HOME)/makefile_common

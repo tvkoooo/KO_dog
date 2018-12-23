@@ -108,7 +108,7 @@ namespace mm
 		mm_adaptive_timer_assign_active(&flake_context->d_adaptive_timer, "network", 1);
 		//////////////////////////////////////////////////////////////////////////
 		//设置 entry 地址和端口
-		__static_set_entry_ip_port(this, "192.168.1.112", 20001);
+		__static_set_entry_ip_port(this, "101.200.169.28", 20101);
 
 
 		//lua 脚本初始化

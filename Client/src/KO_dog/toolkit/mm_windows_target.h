@@ -47,6 +47,9 @@ extern void mm_windows_target_destroy(struct mm_windows_target* p);
 extern void mm_windows_target_launching(struct mm_windows_target* p);
 // closed
 extern void mm_windows_target_terminate(struct mm_windows_target* p);
+//////////////////////////////////////////////////////////////////////////
+extern void mm_windows_target_update(struct mm_windows_target* p, double interval);
+//////////////////////////////////////////////////////////////////////////
 // set active state.
 extern void mm_windows_target_set_active(struct mm_windows_target* p,bool active);
 // update windows target whether need active.

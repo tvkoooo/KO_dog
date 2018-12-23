@@ -1,0 +1,25 @@
+
+mm_shuttle_entry  192.168.1.112-10001[2] 192.168.1.112-20001[2] 127.0.0.1:10300, 127.0.0.1:10300, > nul 2>&1 &
+
+
+mm_shuttle_lobby.exe %log_dir% 7 1 192.168.1.112-10000[2] 192.168.1.112-20000[2] 127.0.0.1:10300, 127.0.0.1:10300, 101.200.169.28-10200 123456 > nul 2>&1 &
+
+
+mm_shuttle_proxy.exe %log_dir% 7 1 ::1-10002[2] ::1-20002[2] 127.0.0.1:10300, 127.0.0.1:10300, 100 0x02002000 0x020020FF 0 > nul 2>&1 &
+
+
+business_account.exe %log_dir% 7 1 ::1-10010[2] ::1-20010[2] 127.0.0.1:10300, 100 0 0 123456 > nul 2>&1 &
+
+
+程序名           内网端口      外网端口
+mm_shuttle_entry 10101-10199   20101-20199 
+mm_shuttle_lobby 10201-10299   20201-20299 
+mm_shuttle_proxy 10301-10399   20301-20399 
+
+business_account 19101-19199   29101-29199 
+
+
+cp mm_shuttle_entry.conf /etc/supervisor/conf.d/mm_shuttle_entry.conf
+cp mm_shuttle_lobby.conf /etc/supervisor/conf.d/mm_shuttle_lobby.conf
+cp mm_shuttle_proxy.conf /etc/supervisor/conf.d/mm_shuttle_proxy.conf
+cp business_account.conf /etc/supervisor/conf.d/business_account.conf

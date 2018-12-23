@@ -1,0 +1,53 @@
+################################################
+include makefile_platform
+################################################
+Version := .0.0.0
+SUFFIX  := .so
+PREFIX  := lib
+##################################################################################################
+ProjectName := mm_business_querydef
+OutFileName := $(PREFIX)$(ProjectName)$(SUFFIX)
+OutPathName := bin
+# $(info $(OutPathName)/$(OutFileName))
+################################################
+#global directory defined
+ObjDirPath := ./obj
+PrefixPath := 
+################################################
+# cross compile tools defined.
+CrossCompile := 
+COMPILER     := g++
+FLAG_OUT     := -o
+################################################
+MY_FILES_SUFFIX := %.cpp %.c %.cc
+################################################
+LDFLAGS  	+= -shared -fPIC -rdynamic -ldl 
+################################################
+MY_COMMON_FLAGS += -Wall -MD -fPIC
+################################################
+CFLAGS 		+= $(MY_COMMON_FLAGS)
+################################################
+CXXFLAGS	+= $(MY_COMMON_FLAGS)
+################################################
+PROJ_ROOT_PATH = ../..
+################################################
+LIBS += 
+################################################
+LIBS += $(MM_CORE)/mm/proj/$(PLATFORM)/bin/libmm_core.so
+LIBS += $(MM_CORE)/dish/proj/$(PLATFORM)/bin/libmm_dish.so
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_mysql.so
+LIBS += $(MYSQL_HOME)/lib/libmysqlclient.so
+################################################
+MY_FILES_PATH += $(PROJ_ROOT_PATH)/src/querydef
+################################################
+# MY_FILTER_OUT += $(PROJ_ROOT_PATH)/src/exec%
+################################################
+LOCAL_C_INCLUDES += -I$(PROJ_ROOT_PATH)/src
+LOCAL_C_INCLUDES += -I$(MM_CORE)/mm/src/
+LOCAL_C_INCLUDES += -I$(MM_CORE)/mm/src/os/$(PLATFORM)/
+LOCAL_C_INCLUDES += -I$(MM_CORE)/dish/src/
+LOCAL_C_INCLUDES += -I$(MM_CORE)/dish/src/os/$(PLATFORM)/
+LOCAL_C_INCLUDES += -I$(MM_CORE)/data/src/
+LOCAL_C_INCLUDES += -I$(MYSQL_HOME)/include/
+################################################
+include $(MAKE_HOME)/makefile_common
