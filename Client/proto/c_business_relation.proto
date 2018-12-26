@@ -1,0 +1,164 @@
+syntax = "proto2";
+package c_business_relation;
+
+option java_package = "protodef";
+option java_outer_classname = "c_business_relation";
+option objc_class_prefix = "C_business_relation_";
+option go_package = "protodef/c_business_relation";
+option csharp_namespace = "c_business_relation";
+
+import "b_error.proto";
+import "b_business_account.proto";
+
+enum msg
+{ 
+	min_id=0x02002100;
+	max_id=0x020021FF;
+}
+
+message friend_info
+{
+	required b_business_account.user_info user_info 		 = 1				 ; // 用户基础数据
+	optional string user_group 		                         = 2				 ; // 用户分组
+	optional string user_remark 		                     = 3				 ; // 用户备注名
+}
+
+// (tcp)加好友
+message add_friend_rq
+{
+	enum msg{ id=0x02002111;}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+	required uint64	user_add_id 							 = 2			     ; // 添加用户id
+	required string description 							 = 3			     ; // 添加描述
+}
+// (tcp)加好友
+message add_friend_rs
+{
+	enum msg{ id=0x02002112;}
+	required b_error.info error                      		 = 1                 ; // error info
+	required uint64	user_add_id 					 		 = 2			  	 ; // 添加用户id
+}
+// (tcp)加好友
+message add_friend_nt
+{
+	enum msg{ id=0x02002181;}
+	required b_business_account.user_info apply_user_info    = 1				 ; // 申请添加好友用户的数据
+	required string description 							 = 3			     ; // 添加描述	
+}
+// (tcp)删除好友
+message delete_friend_rq
+{
+	enum msg{ id=0x02002113;}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+	required uint64	user_delete_id 						     = 2				 ; // 删除用户id
+}
+// (tcp)删除好友
+message delete_friend_rs
+{
+	enum msg{ id=0x02002114;}
+	required b_error.info error                   		     = 1                 ; // error info
+	required uint64	user_delete_id 							 = 2				 ; // 删除用户id
+}
+// (tcp)删除好友
+message delete_friend_nt
+{
+	enum msg{ id=0x02002182;}
+	required uint64	apply_user_id				    		 = 1				 ; // 申请删除好友的用户数据
+}
+// (tcp)同意加好友
+message allow_friend_rq
+{
+	enum msg{ id=0x02002115;}
+	enum opcode_t
+	{ 
+		allow =1;
+		refuse=2;
+	}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+	required uint64	user_allow_id 							 = 2			     ; // 同意用户id
+	required uint32 opcode                                   = 3			     ; // 用户操作码
+}
+// (tcp)同意加好友
+message allow_friend_rs
+{
+	enum msg{ id=0x02002116;}
+	required b_error.info error                      		 = 1                 ; // error info
+	required uint64	user_allow_id 					 		 = 2			 	 ; // 同意用户id
+	required uint32 opcode                                   = 3			     ; // 用户操作码
+}
+// (tcp)同意加好友
+message allow_friend_nt
+{
+	enum msg{ id=0x02002183;}
+	required uint64	allow_user_id				    		 = 1				 ; // 同意添加好友的用户数据
+	required uint32 opcode                                   = 2			     ; // 用户操作码
+}
+// (tcp)查询好友
+message query_friends_rq
+{
+	enum msg{ id=0x02002117;}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+}
+// (tcp)查询好友
+message query_friends_rs
+{
+	enum msg{ id=0x02002118;}
+	required b_error.info error                       		 = 1                 ; // error info
+	repeated friend_info friend_info_s 		           		 = 2				 ; // 好友用户数据列表
+}
+// (tcp)修改好友备注
+message rename_friend_remark_rq
+{
+	enum msg{ id=0x02002119;}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+	required uint64	user_friend_id 							 = 2			     ; // 好友用户id
+	required string user_friend_remark 		                 = 3				 ; // 好友备注名
+}
+// (tcp)修改好友备注
+message rename_friend_remark_rs
+{
+	enum msg{ id=0x02002120;}
+	required b_error.info error                      		 = 1                 ; // error info
+	required uint64	user_friend_id 					 		 = 2			  	 ; // 聊天用户id
+	required string user_friend_remark 		                 = 3				 ; // 好友备注名
+}
+// (tcp)修改好友组名
+message rename_friend_group_rq
+{
+	enum msg{ id=0x02002121;}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+	required uint64	user_friend_id 							 = 2			     ; // 好友用户id
+	required string user_friend_group 		                 = 3				 ; // 好友组名
+}
+// (tcp)修改好友组名
+message rename_friend_group_rs
+{
+	enum msg{ id=0x02002122;}
+	required b_error.info error                      		 = 1                 ; // error info
+	required uint64	user_friend_id 					 		 = 2			  	 ; // 聊天用户id
+	required string user_friend_group 		               	 = 3				 ; // 好友组名
+}
+
+// (tcp)好友聊天
+message talk_friend_rq
+{
+	enum msg{ id=0x02002123;}
+	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
+	required uint64	user_talk_id 							 = 2			     ; // 聊天用户id
+	required string talking 								 = 3			     ; // 说话内容
+}
+// (tcp)好友聊天
+message talk_friend_rs
+{
+	enum msg{ id=0x02002124;}
+	required b_error.info error                      		 = 1                 ; // error info
+	required uint64	user_talk_id 					 		 = 2			  	 ; // 聊天用户id
+}
+// (tcp)好友聊天
+message talk_friend_nt
+{
+	enum msg{ id=0x02002184;}
+	required uint64	apply_talk_id 					 		 = 1			  	 ; // 聊天发起用户id
+	required string talking		 							 = 2			     ; // 说话内容	
+}
+

@@ -19,7 +19,7 @@ namespace mm
 		KO_dog_data_log_view data_log_view;
 	public:
 
-
+		void thread_handle();
 
 
 	};

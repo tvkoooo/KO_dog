@@ -8,6 +8,7 @@ option go_package = "protodef/c_business_account";
 option csharp_namespace = "c_business_account";
 
 import "b_error.proto";
+import "b_business_account.proto";
 
 enum msg
 { 
@@ -25,7 +26,7 @@ message signed_in_rq
 // (tcp)登陆
 message signed_in_rs
 {
-	enum msg{ id=0x02001011;}
+	enum msg{ id=0x02002011;}
 	required b_error.info error                       = 1                ; // error info
 	required string	user_name 					      = 2				 ; // 用户名
 	required uint64	user_id 					      = 3				 ; // 用户id
@@ -35,16 +36,28 @@ message signed_in_rs
 // (tcp)注册
 message register_rq
 {
-	enum msg{ id=0x02002020;}
+	enum msg{ id=0x02002012;}
 	required string	user_name 					      = 1				 ; // 用户名
 	required string	password 					      = 2				 ; // 密码（md5）
 }
 // (tcp)注册
 message register_rs
 {
-	enum msg{ id=0x02001021;}
+	enum msg{ id=0x02002013;}
 	required b_error.info error                       = 1                ; // error info
 	required string	user_name 					      = 2				 ; // 用户名
 	required uint64	user_id 					      = 3				 ; // 用户id
 	required string	token                             = 4				 ; // 用户令牌
+}// (tcp)搜索
+message search_account_rq
+{
+	enum msg{ id=0x02002020;}
+	required string	condition 					      = 1				 ; // 检索词	
+}
+// (tcp)搜索
+message search_account_rs
+{
+	enum msg{ id=0x02002021;}
+	required b_error.info error                       = 1                ; // error info
+	repeated b_business_account.user_info user_info_s = 2				 ; // 用户数据列表
 }

@@ -59,6 +59,7 @@ namespace mm
 		//Ogre::SceneNode* d_light_node;
 		//Ogre::Light* d_dir_light;
 	public:
+		
 		//Ogre::SceneNode* d_ogrehead_node_0;
 		//Ogre::SceneNode* d_ogrehead_node_1;
 		//Ogre::Entity* d_ogrehead_mesh_0;
@@ -153,6 +154,7 @@ namespace mm
 	public:
 		void set_data(mm_flake_context* flake_context , mm_flake_surface* surface);
 		void set_l_layer(CEGUI::Window* l_layer);
+		void setVisible(bool b);
 	public:
 		virtual void on_finish_launching();
 		virtual void on_before_terminate();

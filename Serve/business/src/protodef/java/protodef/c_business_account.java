@@ -1230,15 +1230,15 @@ public final class c_business_account {
     public enum msg
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>id = 33558545;</code>
+       * <code>id = 33562641;</code>
        */
-      id(33558545),
+      id(33562641),
       ;
 
       /**
-       * <code>id = 33558545;</code>
+       * <code>id = 33562641;</code>
        */
-      public static final int id_VALUE = 33558545;
+      public static final int id_VALUE = 33562641;
 
 
       public final int getNumber() {
@@ -1255,7 +1255,7 @@ public final class c_business_account {
 
       public static msg forNumber(int value) {
         switch (value) {
-          case 33558545: return id;
+          case 33562641: return id;
           default: return null;
         }
       }
@@ -2488,15 +2488,15 @@ public final class c_business_account {
     public enum msg
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>id = 33562656;</code>
+       * <code>id = 33562642;</code>
        */
-      id(33562656),
+      id(33562642),
       ;
 
       /**
-       * <code>id = 33562656;</code>
+       * <code>id = 33562642;</code>
        */
-      public static final int id_VALUE = 33562656;
+      public static final int id_VALUE = 33562642;
 
 
       public final int getNumber() {
@@ -2513,7 +2513,7 @@ public final class c_business_account {
 
       public static msg forNumber(int value) {
         switch (value) {
-          case 33562656: return id;
+          case 33562642: return id;
           default: return null;
         }
       }
@@ -3468,15 +3468,15 @@ public final class c_business_account {
     public enum msg
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>id = 33558561;</code>
+       * <code>id = 33562643;</code>
        */
-      id(33558561),
+      id(33562643),
       ;
 
       /**
-       * <code>id = 33558561;</code>
+       * <code>id = 33562643;</code>
        */
-      public static final int id_VALUE = 33558561;
+      public static final int id_VALUE = 33562643;
 
 
       public final int getNumber() {
@@ -3493,7 +3493,7 @@ public final class c_business_account {
 
       public static msg forNumber(int value) {
         switch (value) {
-          case 33558561: return id;
+          case 33562643: return id;
           default: return null;
         }
       }
@@ -4580,6 +4580,1939 @@ public final class c_business_account {
 
   }
 
+  public interface search_account_rqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_account.search_account_rq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 检索词	
+     * </pre>
+     *
+     * <code>required string condition = 1;</code>
+     */
+    boolean hasCondition();
+    /**
+     * <pre>
+     * 检索词	
+     * </pre>
+     *
+     * <code>required string condition = 1;</code>
+     */
+    java.lang.String getCondition();
+    /**
+     * <pre>
+     * 检索词	
+     * </pre>
+     *
+     * <code>required string condition = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getConditionBytes();
+  }
+  /**
+   * Protobuf type {@code c_business_account.search_account_rq}
+   */
+  public  static final class search_account_rq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_account.search_account_rq)
+      search_account_rqOrBuilder {
+    // Use search_account_rq.newBuilder() to construct.
+    private search_account_rq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private search_account_rq() {
+      condition_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private search_account_rq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              condition_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_account.internal_static_c_business_account_search_account_rq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_account.internal_static_c_business_account_search_account_rq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_account.search_account_rq.class, protodef.c_business_account.search_account_rq.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_account.search_account_rq.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562656;</code>
+       */
+      id(33562656),
+      ;
+
+      /**
+       * <code>id = 33562656;</code>
+       */
+      public static final int id_VALUE = 33562656;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562656: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_account.search_account_rq.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_account.search_account_rq.msg)
+    }
+
+    private int bitField0_;
+    public static final int CONDITION_FIELD_NUMBER = 1;
+    private volatile java.lang.Object condition_;
+    /**
+     * <pre>
+     * 检索词	
+     * </pre>
+     *
+     * <code>required string condition = 1;</code>
+     */
+    public boolean hasCondition() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 检索词	
+     * </pre>
+     *
+     * <code>required string condition = 1;</code>
+     */
+    public java.lang.String getCondition() {
+      java.lang.Object ref = condition_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          condition_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 检索词	
+     * </pre>
+     *
+     * <code>required string condition = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getConditionBytes() {
+      java.lang.Object ref = condition_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        condition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasCondition()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, condition_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, condition_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_account.search_account_rq)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_account.search_account_rq other = (protodef.c_business_account.search_account_rq) obj;
+
+      boolean result = true;
+      result = result && (hasCondition() == other.hasCondition());
+      if (hasCondition()) {
+        result = result && getCondition()
+            .equals(other.getCondition());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCondition()) {
+        hash = (37 * hash) + CONDITION_FIELD_NUMBER;
+        hash = (53 * hash) + getCondition().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_account.search_account_rq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_account.search_account_rq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_account.search_account_rq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code c_business_account.search_account_rq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_account.search_account_rq)
+        protodef.c_business_account.search_account_rqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_account.internal_static_c_business_account_search_account_rq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_account.internal_static_c_business_account_search_account_rq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_account.search_account_rq.class, protodef.c_business_account.search_account_rq.Builder.class);
+      }
+
+      // Construct using protodef.c_business_account.search_account_rq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        condition_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_account.internal_static_c_business_account_search_account_rq_descriptor;
+      }
+
+      public protodef.c_business_account.search_account_rq getDefaultInstanceForType() {
+        return protodef.c_business_account.search_account_rq.getDefaultInstance();
+      }
+
+      public protodef.c_business_account.search_account_rq build() {
+        protodef.c_business_account.search_account_rq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_account.search_account_rq buildPartial() {
+        protodef.c_business_account.search_account_rq result = new protodef.c_business_account.search_account_rq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.condition_ = condition_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_account.search_account_rq) {
+          return mergeFrom((protodef.c_business_account.search_account_rq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_account.search_account_rq other) {
+        if (other == protodef.c_business_account.search_account_rq.getDefaultInstance()) return this;
+        if (other.hasCondition()) {
+          bitField0_ |= 0x00000001;
+          condition_ = other.condition_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCondition()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_account.search_account_rq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_account.search_account_rq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object condition_ = "";
+      /**
+       * <pre>
+       * 检索词	
+       * </pre>
+       *
+       * <code>required string condition = 1;</code>
+       */
+      public boolean hasCondition() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 检索词	
+       * </pre>
+       *
+       * <code>required string condition = 1;</code>
+       */
+      public java.lang.String getCondition() {
+        java.lang.Object ref = condition_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            condition_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 检索词	
+       * </pre>
+       *
+       * <code>required string condition = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getConditionBytes() {
+        java.lang.Object ref = condition_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          condition_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 检索词	
+       * </pre>
+       *
+       * <code>required string condition = 1;</code>
+       */
+      public Builder setCondition(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        condition_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 检索词	
+       * </pre>
+       *
+       * <code>required string condition = 1;</code>
+       */
+      public Builder clearCondition() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        condition_ = getDefaultInstance().getCondition();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 检索词	
+       * </pre>
+       *
+       * <code>required string condition = 1;</code>
+       */
+      public Builder setConditionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        condition_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_account.search_account_rq)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_account.search_account_rq)
+    private static final protodef.c_business_account.search_account_rq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_account.search_account_rq();
+    }
+
+    public static protodef.c_business_account.search_account_rq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<search_account_rq>
+        PARSER = new com.google.protobuf.AbstractParser<search_account_rq>() {
+      public search_account_rq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new search_account_rq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<search_account_rq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<search_account_rq> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_account.search_account_rq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface search_account_rsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_account.search_account_rs)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.info getError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.infoOrBuilder getErrorOrBuilder();
+
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    java.util.List<protodef.b_business_account.user_info> 
+        getUserInfoSList();
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    protodef.b_business_account.user_info getUserInfoS(int index);
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    int getUserInfoSCount();
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    java.util.List<? extends protodef.b_business_account.user_infoOrBuilder> 
+        getUserInfoSOrBuilderList();
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    protodef.b_business_account.user_infoOrBuilder getUserInfoSOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * (tcp)搜索
+   * </pre>
+   *
+   * Protobuf type {@code c_business_account.search_account_rs}
+   */
+  public  static final class search_account_rs extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_account.search_account_rs)
+      search_account_rsOrBuilder {
+    // Use search_account_rs.newBuilder() to construct.
+    private search_account_rs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private search_account_rs() {
+      userInfoS_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private search_account_rs(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              protodef.b_error.info.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(protodef.b_error.info.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                userInfoS_ = new java.util.ArrayList<protodef.b_business_account.user_info>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              userInfoS_.add(
+                  input.readMessage(protodef.b_business_account.user_info.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          userInfoS_ = java.util.Collections.unmodifiableList(userInfoS_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_account.internal_static_c_business_account_search_account_rs_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_account.internal_static_c_business_account_search_account_rs_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_account.search_account_rs.class, protodef.c_business_account.search_account_rs.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_account.search_account_rs.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562657;</code>
+       */
+      id(33562657),
+      ;
+
+      /**
+       * <code>id = 33562657;</code>
+       */
+      public static final int id_VALUE = 33562657;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562657: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_account.search_account_rs.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_account.search_account_rs.msg)
+    }
+
+    private int bitField0_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private protodef.b_error.info error_;
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.info getError() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+
+    public static final int USER_INFO_S_FIELD_NUMBER = 2;
+    private java.util.List<protodef.b_business_account.user_info> userInfoS_;
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    public java.util.List<protodef.b_business_account.user_info> getUserInfoSList() {
+      return userInfoS_;
+    }
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    public java.util.List<? extends protodef.b_business_account.user_infoOrBuilder> 
+        getUserInfoSOrBuilderList() {
+      return userInfoS_;
+    }
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    public int getUserInfoSCount() {
+      return userInfoS_.size();
+    }
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    public protodef.b_business_account.user_info getUserInfoS(int index) {
+      return userInfoS_.get(index);
+    }
+    /**
+     * <pre>
+     * 用户数据列表
+     * </pre>
+     *
+     * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+     */
+    public protodef.b_business_account.user_infoOrBuilder getUserInfoSOrBuilder(
+        int index) {
+      return userInfoS_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasError()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getError().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getUserInfoSCount(); i++) {
+        if (!getUserInfoS(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getError());
+      }
+      for (int i = 0; i < userInfoS_.size(); i++) {
+        output.writeMessage(2, userInfoS_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
+      for (int i = 0; i < userInfoS_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, userInfoS_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_account.search_account_rs)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_account.search_account_rs other = (protodef.c_business_account.search_account_rs) obj;
+
+      boolean result = true;
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
+      }
+      result = result && getUserInfoSList()
+          .equals(other.getUserInfoSList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      if (getUserInfoSCount() > 0) {
+        hash = (37 * hash) + USER_INFO_S_FIELD_NUMBER;
+        hash = (53 * hash) + getUserInfoSList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rs parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_account.search_account_rs parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_account.search_account_rs parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_account.search_account_rs prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)搜索
+     * </pre>
+     *
+     * Protobuf type {@code c_business_account.search_account_rs}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_account.search_account_rs)
+        protodef.c_business_account.search_account_rsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_account.internal_static_c_business_account_search_account_rs_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_account.internal_static_c_business_account_search_account_rs_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_account.search_account_rs.class, protodef.c_business_account.search_account_rs.Builder.class);
+      }
+
+      // Construct using protodef.c_business_account.search_account_rs.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorFieldBuilder();
+          getUserInfoSFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (userInfoSBuilder_ == null) {
+          userInfoS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          userInfoSBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_account.internal_static_c_business_account_search_account_rs_descriptor;
+      }
+
+      public protodef.c_business_account.search_account_rs getDefaultInstanceForType() {
+        return protodef.c_business_account.search_account_rs.getDefaultInstance();
+      }
+
+      public protodef.c_business_account.search_account_rs build() {
+        protodef.c_business_account.search_account_rs result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_account.search_account_rs buildPartial() {
+        protodef.c_business_account.search_account_rs result = new protodef.c_business_account.search_account_rs(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        if (userInfoSBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            userInfoS_ = java.util.Collections.unmodifiableList(userInfoS_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.userInfoS_ = userInfoS_;
+        } else {
+          result.userInfoS_ = userInfoSBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_account.search_account_rs) {
+          return mergeFrom((protodef.c_business_account.search_account_rs)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_account.search_account_rs other) {
+        if (other == protodef.c_business_account.search_account_rs.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        if (userInfoSBuilder_ == null) {
+          if (!other.userInfoS_.isEmpty()) {
+            if (userInfoS_.isEmpty()) {
+              userInfoS_ = other.userInfoS_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureUserInfoSIsMutable();
+              userInfoS_.addAll(other.userInfoS_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.userInfoS_.isEmpty()) {
+            if (userInfoSBuilder_.isEmpty()) {
+              userInfoSBuilder_.dispose();
+              userInfoSBuilder_ = null;
+              userInfoS_ = other.userInfoS_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              userInfoSBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getUserInfoSFieldBuilder() : null;
+            } else {
+              userInfoSBuilder_.addAllMessages(other.userInfoS_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasError()) {
+          return false;
+        }
+        if (!getError().isInitialized()) {
+          return false;
+        }
+        for (int i = 0; i < getUserInfoSCount(); i++) {
+          if (!getUserInfoS(i).isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_account.search_account_rs parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_account.search_account_rs) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private protodef.b_error.info error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(
+          protodef.b_error.info.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder mergeError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              error_ != null &&
+              error_ != protodef.b_error.info.getDefaultInstance()) {
+            error_ =
+              protodef.b_error.info.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info.Builder getErrorBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              protodef.b_error.info.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
+      private java.util.List<protodef.b_business_account.user_info> userInfoS_ =
+        java.util.Collections.emptyList();
+      private void ensureUserInfoSIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          userInfoS_ = new java.util.ArrayList<protodef.b_business_account.user_info>(userInfoS_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_account.user_info, protodef.b_business_account.user_info.Builder, protodef.b_business_account.user_infoOrBuilder> userInfoSBuilder_;
+
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public java.util.List<protodef.b_business_account.user_info> getUserInfoSList() {
+        if (userInfoSBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(userInfoS_);
+        } else {
+          return userInfoSBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public int getUserInfoSCount() {
+        if (userInfoSBuilder_ == null) {
+          return userInfoS_.size();
+        } else {
+          return userInfoSBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public protodef.b_business_account.user_info getUserInfoS(int index) {
+        if (userInfoSBuilder_ == null) {
+          return userInfoS_.get(index);
+        } else {
+          return userInfoSBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder setUserInfoS(
+          int index, protodef.b_business_account.user_info value) {
+        if (userInfoSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfoSIsMutable();
+          userInfoS_.set(index, value);
+          onChanged();
+        } else {
+          userInfoSBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder setUserInfoS(
+          int index, protodef.b_business_account.user_info.Builder builderForValue) {
+        if (userInfoSBuilder_ == null) {
+          ensureUserInfoSIsMutable();
+          userInfoS_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          userInfoSBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder addUserInfoS(protodef.b_business_account.user_info value) {
+        if (userInfoSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfoSIsMutable();
+          userInfoS_.add(value);
+          onChanged();
+        } else {
+          userInfoSBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder addUserInfoS(
+          int index, protodef.b_business_account.user_info value) {
+        if (userInfoSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfoSIsMutable();
+          userInfoS_.add(index, value);
+          onChanged();
+        } else {
+          userInfoSBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder addUserInfoS(
+          protodef.b_business_account.user_info.Builder builderForValue) {
+        if (userInfoSBuilder_ == null) {
+          ensureUserInfoSIsMutable();
+          userInfoS_.add(builderForValue.build());
+          onChanged();
+        } else {
+          userInfoSBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder addUserInfoS(
+          int index, protodef.b_business_account.user_info.Builder builderForValue) {
+        if (userInfoSBuilder_ == null) {
+          ensureUserInfoSIsMutable();
+          userInfoS_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          userInfoSBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder addAllUserInfoS(
+          java.lang.Iterable<? extends protodef.b_business_account.user_info> values) {
+        if (userInfoSBuilder_ == null) {
+          ensureUserInfoSIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, userInfoS_);
+          onChanged();
+        } else {
+          userInfoSBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder clearUserInfoS() {
+        if (userInfoSBuilder_ == null) {
+          userInfoS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          userInfoSBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public Builder removeUserInfoS(int index) {
+        if (userInfoSBuilder_ == null) {
+          ensureUserInfoSIsMutable();
+          userInfoS_.remove(index);
+          onChanged();
+        } else {
+          userInfoSBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public protodef.b_business_account.user_info.Builder getUserInfoSBuilder(
+          int index) {
+        return getUserInfoSFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public protodef.b_business_account.user_infoOrBuilder getUserInfoSOrBuilder(
+          int index) {
+        if (userInfoSBuilder_ == null) {
+          return userInfoS_.get(index);  } else {
+          return userInfoSBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public java.util.List<? extends protodef.b_business_account.user_infoOrBuilder> 
+           getUserInfoSOrBuilderList() {
+        if (userInfoSBuilder_ != null) {
+          return userInfoSBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(userInfoS_);
+        }
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public protodef.b_business_account.user_info.Builder addUserInfoSBuilder() {
+        return getUserInfoSFieldBuilder().addBuilder(
+            protodef.b_business_account.user_info.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public protodef.b_business_account.user_info.Builder addUserInfoSBuilder(
+          int index) {
+        return getUserInfoSFieldBuilder().addBuilder(
+            index, protodef.b_business_account.user_info.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 用户数据列表
+       * </pre>
+       *
+       * <code>repeated .b_business_account.user_info user_info_s = 2;</code>
+       */
+      public java.util.List<protodef.b_business_account.user_info.Builder> 
+           getUserInfoSBuilderList() {
+        return getUserInfoSFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_account.user_info, protodef.b_business_account.user_info.Builder, protodef.b_business_account.user_infoOrBuilder> 
+          getUserInfoSFieldBuilder() {
+        if (userInfoSBuilder_ == null) {
+          userInfoSBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              protodef.b_business_account.user_info, protodef.b_business_account.user_info.Builder, protodef.b_business_account.user_infoOrBuilder>(
+                  userInfoS_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          userInfoS_ = null;
+        }
+        return userInfoSBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_account.search_account_rs)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_account.search_account_rs)
+    private static final protodef.c_business_account.search_account_rs DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_account.search_account_rs();
+    }
+
+    public static protodef.c_business_account.search_account_rs getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<search_account_rs>
+        PARSER = new com.google.protobuf.AbstractParser<search_account_rs>() {
+      public search_account_rs parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new search_account_rs(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<search_account_rs> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<search_account_rs> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_account.search_account_rs getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_c_business_account_signed_in_rq_descriptor;
   private static final 
@@ -4600,6 +6533,16 @@ public final class c_business_account {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_c_business_account_register_rs_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_account_search_account_rq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_account_search_account_rq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_account_search_account_rs_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_account_search_account_rs_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4610,21 +6553,25 @@ public final class c_business_account {
   static {
     java.lang.String[] descriptorData = {
       "\n\030c_business_account.proto\022\022c_business_a" +
-      "ccount\032\rb_error.proto\032\014b_math.proto\032\017b_n" +
-      "etwork.proto\"E\n\014signed_in_rq\022\021\n\tuser_nam" +
-      "e\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\220" +
-      "\300\200\020\"q\n\014signed_in_rs\022\034\n\005error\030\001 \002(\0132\r.b_e" +
-      "rror.info\022\021\n\tuser_name\030\002 \002(\t\022\017\n\007user_id\030" +
-      "\003 \002(\004\022\r\n\005token\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\240\200\020\"D" +
-      "\n\013register_rq\022\021\n\tuser_name\030\001 \002(\t\022\020\n\010pass" +
-      "word\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\240\300\200\020\"p\n\013register" +
-      "_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\021\n\tuse",
-      "r_name\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\004\022\r\n\005token\030\004" +
-      " \002(\t\"\020\n\003msg\022\t\n\002id\020\241\240\200\020*#\n\003msg\022\r\n\006min_id\020" +
-      "\200\300\200\020\022\r\n\006max_id\020\377\301\200\020Bf\n\010protodefB\022c_busin" +
-      "ess_accountZ\033protodef/c_business_account" +
-      "\242\002\023C_business_account_\252\002\022c_business_acco" +
-      "unt"
+      "ccount\032\rb_error.proto\032\030b_business_accoun" +
+      "t.proto\"E\n\014signed_in_rq\022\021\n\tuser_name\030\001 \002" +
+      "(\t\022\020\n\010password\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\220\300\200\020\"q" +
+      "\n\014signed_in_rs\022\034\n\005error\030\001 \002(\0132\r.b_error." +
+      "info\022\021\n\tuser_name\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\004" +
+      "\022\r\n\005token\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\300\200\020\"D\n\013reg" +
+      "ister_rq\022\021\n\tuser_name\030\001 \002(\t\022\020\n\010password\030" +
+      "\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\222\300\200\020\"p\n\013register_rs\022\034" +
+      "\n\005error\030\001 \002(\0132\r.b_error.info\022\021\n\tuser_nam",
+      "e\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\004\022\r\n\005token\030\004 \002(\t\"" +
+      "\020\n\003msg\022\t\n\002id\020\223\300\200\020\"8\n\021search_account_rq\022\021" +
+      "\n\tcondition\030\001 \002(\t\"\020\n\003msg\022\t\n\002id\020\240\300\200\020\"w\n\021s" +
+      "earch_account_rs\022\034\n\005error\030\001 \002(\0132\r.b_erro" +
+      "r.info\0222\n\013user_info_s\030\002 \003(\0132\035.b_business" +
+      "_account.user_info\"\020\n\003msg\022\t\n\002id\020\241\300\200\020*#\n\003" +
+      "msg\022\r\n\006min_id\020\200\300\200\020\022\r\n\006max_id\020\377\301\200\020Bf\n\010pro" +
+      "todefB\022c_business_accountZ\033protodef/c_bu" +
+      "siness_account\242\002\023C_business_account_\252\002\022c" +
+      "_business_account"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4638,8 +6585,7 @@ public final class c_business_account {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           protodef.b_error.getDescriptor(),
-          protodef.b_math.getDescriptor(),
-          protodef.b_network.getDescriptor(),
+          protodef.b_business_account.getDescriptor(),
         }, assigner);
     internal_static_c_business_account_signed_in_rq_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4665,9 +6611,20 @@ public final class c_business_account {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_account_register_rs_descriptor,
         new java.lang.String[] { "Error", "UserName", "UserId", "Token", });
+    internal_static_c_business_account_search_account_rq_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_c_business_account_search_account_rq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_account_search_account_rq_descriptor,
+        new java.lang.String[] { "Condition", });
+    internal_static_c_business_account_search_account_rs_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_c_business_account_search_account_rs_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_account_search_account_rs_descriptor,
+        new java.lang.String[] { "Error", "UserInfoS", });
     protodef.b_error.getDescriptor();
-    protodef.b_math.getDescriptor();
-    protodef.b_network.getDescriptor();
+    protodef.b_business_account.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

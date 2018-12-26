@@ -1,0 +1,17 @@
+syntax = "proto2";
+package b_business_account;
+
+option java_package = "protodef";
+option java_outer_classname = "b_business_account";
+option objc_class_prefix = "B_business_account_";
+option go_package = "protodef/b_business_account";
+option csharp_namespace = "b_business_account";
+
+message user_info
+{
+	required uint64	user_id 					      = 1				 ; // 用户id
+	required string	user_name 					      = 2				 ; // 用户名
+	required string	user_nick                         = 3				 ; // 用户昵称
+	required uint32 create_time                       = 4				 ; // 创建时间
+}
+

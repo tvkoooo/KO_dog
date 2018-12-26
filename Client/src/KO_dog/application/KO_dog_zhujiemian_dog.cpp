@@ -55,7 +55,10 @@ namespace mm
 		this->c_flake_context = d_flake_context;
 		this->c_surface = d_surface;
 	}
-
+	void KO_dog_zhujiemian_dog::setVisible(bool b)
+	{
+		this->d_scene_manager->setCameraRelativeRendering(false);
+	}
 	void KO_dog_zhujiemian_dog::on_finish_launching()
 	{
 		Ogre::Root* _ogre_root = this->c_flake_context->d_ogre_system.get_ogre_root();
@@ -65,7 +68,7 @@ namespace mm
 		// Create and initialise the camera
 		this->d_root_node = this->d_scene_manager->getRootSceneNode();
 		/////////////////////////////////////////////////////////////////////
-		this->d_camera = d_scene_manager->createCamera("main_camera");
+		this->d_camera = d_scene_manager->createCamera("main_camera");		
 		//this->d_camera->setPosition(Ogre::Vector3(0, 0, 0));
 		//this->d_camera->lookAt(Ogre::Vector3(0, 0, 0));
 		this->d_camera->setNearClipDistance(1.0f);

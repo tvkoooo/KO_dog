@@ -15,15 +15,16 @@ _sym_db = _symbol_database.Default()
 
 
 import b_error_pb2 as b__error__pb2
+import b_business_account_pb2 as b__business__account__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='c_business_account.proto',
   package='c_business_account',
   syntax='proto2',
-  serialized_pb=_b('\n\x18\x63_business_account.proto\x12\x12\x63_business_account\x1a\rb_error.proto\"E\n\x0csigned_in_rq\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x90\xc0\x80\x10\"q\n\x0csigned_in_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x11\n\tuser_name\x18\x02 \x02(\t\x12\x0f\n\x07user_id\x18\x03 \x02(\x04\x12\r\n\x05token\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xa0\x80\x10\"D\n\x0bregister_rq\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa0\xc0\x80\x10\"p\n\x0bregister_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x11\n\tuser_name\x18\x02 \x02(\t\x12\x0f\n\x07user_id\x18\x03 \x02(\x04\x12\r\n\x05token\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xa0\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xc0\x80\x10\x12\r\n\x06max_id\x10\xff\xc1\x80\x10\x42\x66\n\x08protodefB\x12\x63_business_accountZ\x1bprotodef/c_business_account\xa2\x02\x13\x43_business_account_\xaa\x02\x12\x63_business_account')
+  serialized_pb=_b('\n\x18\x63_business_account.proto\x12\x12\x63_business_account\x1a\rb_error.proto\x1a\x18\x62_business_account.proto\"E\n\x0csigned_in_rq\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x90\xc0\x80\x10\"q\n\x0csigned_in_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x11\n\tuser_name\x18\x02 \x02(\t\x12\x0f\n\x07user_id\x18\x03 \x02(\x04\x12\r\n\x05token\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xc0\x80\x10\"D\n\x0bregister_rq\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x92\xc0\x80\x10\"p\n\x0bregister_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x11\n\tuser_name\x18\x02 \x02(\t\x12\x0f\n\x07user_id\x18\x03 \x02(\x04\x12\r\n\x05token\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x93\xc0\x80\x10\"8\n\x11search_account_rq\x12\x11\n\tcondition\x18\x01 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa0\xc0\x80\x10\"w\n\x11search_account_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x32\n\x0buser_info_s\x18\x02 \x03(\x0b\x32\x1d.b_business_account.user_info\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc0\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xc0\x80\x10\x12\r\n\x06max_id\x10\xff\xc1\x80\x10\x42\x66\n\x08protodefB\x12\x63_business_accountZ\x1bprotodef/c_business_account\xa2\x02\x13\x43_business_account_\xaa\x02\x12\x63_business_account')
   ,
-  dependencies=[b__error__pb2.DESCRIPTOR,])
+  dependencies=[b__error__pb2.DESCRIPTOR,b__business__account__pb2.DESCRIPTOR,])
 
 _MSG = _descriptor.EnumDescriptor(
   name='msg',
@@ -42,8 +43,8 @@ _MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=433,
-  serialized_end=468,
+  serialized_start=638,
+  serialized_end=673,
 )
 _sym_db.RegisterEnumDescriptor(_MSG)
 
@@ -65,8 +66,8 @@ _SIGNED_IN_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=116,
-  serialized_end=132,
+  serialized_start=142,
+  serialized_end=158,
 )
 _sym_db.RegisterEnumDescriptor(_SIGNED_IN_RQ_MSG)
 
@@ -77,14 +78,14 @@ _SIGNED_IN_RS_MSG = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='id', index=0, number=33558545,
+      name='id', index=0, number=33562641,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=231,
-  serialized_end=247,
+  serialized_start=257,
+  serialized_end=273,
 )
 _sym_db.RegisterEnumDescriptor(_SIGNED_IN_RS_MSG)
 
@@ -95,14 +96,14 @@ _REGISTER_RQ_MSG = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='id', index=0, number=33562656,
+      name='id', index=0, number=33562642,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=301,
-  serialized_end=317,
+  serialized_start=327,
+  serialized_end=343,
 )
 _sym_db.RegisterEnumDescriptor(_REGISTER_RQ_MSG)
 
@@ -113,16 +114,52 @@ _REGISTER_RS_MSG = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='id', index=0, number=33558561,
+      name='id', index=0, number=33562643,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=415,
-  serialized_end=431,
+  serialized_start=441,
+  serialized_end=457,
 )
 _sym_db.RegisterEnumDescriptor(_REGISTER_RS_MSG)
+
+_SEARCH_ACCOUNT_RQ_MSG = _descriptor.EnumDescriptor(
+  name='msg',
+  full_name='c_business_account.search_account_rq.msg',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='id', index=0, number=33562656,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=499,
+  serialized_end=515,
+)
+_sym_db.RegisterEnumDescriptor(_SEARCH_ACCOUNT_RQ_MSG)
+
+_SEARCH_ACCOUNT_RS_MSG = _descriptor.EnumDescriptor(
+  name='msg',
+  full_name='c_business_account.search_account_rs.msg',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='id', index=0, number=33562657,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=620,
+  serialized_end=636,
+)
+_sym_db.RegisterEnumDescriptor(_SEARCH_ACCOUNT_RS_MSG)
 
 
 _SIGNED_IN_RQ = _descriptor.Descriptor(
@@ -159,8 +196,8 @@ _SIGNED_IN_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=63,
-  serialized_end=132,
+  serialized_start=89,
+  serialized_end=158,
 )
 
 
@@ -212,8 +249,8 @@ _SIGNED_IN_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=134,
-  serialized_end=247,
+  serialized_start=160,
+  serialized_end=273,
 )
 
 
@@ -251,8 +288,8 @@ _REGISTER_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=249,
-  serialized_end=317,
+  serialized_start=275,
+  serialized_end=343,
 )
 
 
@@ -304,8 +341,79 @@ _REGISTER_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=319,
-  serialized_end=431,
+  serialized_start=345,
+  serialized_end=457,
+)
+
+
+_SEARCH_ACCOUNT_RQ = _descriptor.Descriptor(
+  name='search_account_rq',
+  full_name='c_business_account.search_account_rq',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='condition', full_name='c_business_account.search_account_rq.condition', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SEARCH_ACCOUNT_RQ_MSG,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=459,
+  serialized_end=515,
+)
+
+
+_SEARCH_ACCOUNT_RS = _descriptor.Descriptor(
+  name='search_account_rs',
+  full_name='c_business_account.search_account_rs',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='error', full_name='c_business_account.search_account_rs.error', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='user_info_s', full_name='c_business_account.search_account_rs.user_info_s', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SEARCH_ACCOUNT_RS_MSG,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=517,
+  serialized_end=636,
 )
 
 _SIGNED_IN_RQ_MSG.containing_type = _SIGNED_IN_RQ
@@ -314,10 +422,16 @@ _SIGNED_IN_RS_MSG.containing_type = _SIGNED_IN_RS
 _REGISTER_RQ_MSG.containing_type = _REGISTER_RQ
 _REGISTER_RS.fields_by_name['error'].message_type = b__error__pb2._INFO
 _REGISTER_RS_MSG.containing_type = _REGISTER_RS
+_SEARCH_ACCOUNT_RQ_MSG.containing_type = _SEARCH_ACCOUNT_RQ
+_SEARCH_ACCOUNT_RS.fields_by_name['error'].message_type = b__error__pb2._INFO
+_SEARCH_ACCOUNT_RS.fields_by_name['user_info_s'].message_type = b__business__account__pb2._USER_INFO
+_SEARCH_ACCOUNT_RS_MSG.containing_type = _SEARCH_ACCOUNT_RS
 DESCRIPTOR.message_types_by_name['signed_in_rq'] = _SIGNED_IN_RQ
 DESCRIPTOR.message_types_by_name['signed_in_rs'] = _SIGNED_IN_RS
 DESCRIPTOR.message_types_by_name['register_rq'] = _REGISTER_RQ
 DESCRIPTOR.message_types_by_name['register_rs'] = _REGISTER_RS
+DESCRIPTOR.message_types_by_name['search_account_rq'] = _SEARCH_ACCOUNT_RQ
+DESCRIPTOR.message_types_by_name['search_account_rs'] = _SEARCH_ACCOUNT_RS
 DESCRIPTOR.enum_types_by_name['msg'] = _MSG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -348,6 +462,20 @@ register_rs = _reflection.GeneratedProtocolMessageType('register_rs', (_message.
   # @@protoc_insertion_point(class_scope:c_business_account.register_rs)
   ))
 _sym_db.RegisterMessage(register_rs)
+
+search_account_rq = _reflection.GeneratedProtocolMessageType('search_account_rq', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCH_ACCOUNT_RQ,
+  __module__ = 'c_business_account_pb2'
+  # @@protoc_insertion_point(class_scope:c_business_account.search_account_rq)
+  ))
+_sym_db.RegisterMessage(search_account_rq)
+
+search_account_rs = _reflection.GeneratedProtocolMessageType('search_account_rs', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCH_ACCOUNT_RS,
+  __module__ = 'c_business_account_pb2'
+  # @@protoc_insertion_point(class_scope:c_business_account.search_account_rs)
+  ))
+_sym_db.RegisterMessage(search_account_rs)
 
 
 DESCRIPTOR.has_options = True

@@ -31,7 +31,13 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "b_error.pb.h"
+#include "b_business_account.pb.h"
 // @@protoc_insertion_point(includes)
+namespace b_business_account {
+class user_info;
+class user_infoDefaultTypeInternal;
+extern user_infoDefaultTypeInternal _user_info_default_instance_;
+}  // namespace b_business_account
 namespace b_error {
 class info;
 class infoDefaultTypeInternal;
@@ -44,6 +50,12 @@ extern register_rqDefaultTypeInternal _register_rq_default_instance_;
 class register_rs;
 class register_rsDefaultTypeInternal;
 extern register_rsDefaultTypeInternal _register_rs_default_instance_;
+class search_account_rq;
+class search_account_rqDefaultTypeInternal;
+extern search_account_rqDefaultTypeInternal _search_account_rq_default_instance_;
+class search_account_rs;
+class search_account_rsDefaultTypeInternal;
+extern search_account_rsDefaultTypeInternal _search_account_rs_default_instance_;
 class signed_in_rq;
 class signed_in_rqDefaultTypeInternal;
 extern signed_in_rqDefaultTypeInternal _signed_in_rq_default_instance_;
@@ -87,7 +99,7 @@ inline bool signed_in_rq_msg_Parse(
     signed_in_rq_msg_descriptor(), name, value);
 }
 enum signed_in_rs_msg {
-  signed_in_rs_msg_id = 33558545
+  signed_in_rs_msg_id = 33562641
 };
 bool signed_in_rs_msg_IsValid(int value);
 const signed_in_rs_msg signed_in_rs_msg_msg_MIN = signed_in_rs_msg_id;
@@ -105,7 +117,7 @@ inline bool signed_in_rs_msg_Parse(
     signed_in_rs_msg_descriptor(), name, value);
 }
 enum register_rq_msg {
-  register_rq_msg_id = 33562656
+  register_rq_msg_id = 33562642
 };
 bool register_rq_msg_IsValid(int value);
 const register_rq_msg register_rq_msg_msg_MIN = register_rq_msg_id;
@@ -123,7 +135,7 @@ inline bool register_rq_msg_Parse(
     register_rq_msg_descriptor(), name, value);
 }
 enum register_rs_msg {
-  register_rs_msg_id = 33558561
+  register_rs_msg_id = 33562643
 };
 bool register_rs_msg_IsValid(int value);
 const register_rs_msg register_rs_msg_msg_MIN = register_rs_msg_id;
@@ -139,6 +151,42 @@ inline bool register_rs_msg_Parse(
     const ::std::string& name, register_rs_msg* value) {
   return ::google::protobuf::internal::ParseNamedEnum<register_rs_msg>(
     register_rs_msg_descriptor(), name, value);
+}
+enum search_account_rq_msg {
+  search_account_rq_msg_id = 33562656
+};
+bool search_account_rq_msg_IsValid(int value);
+const search_account_rq_msg search_account_rq_msg_msg_MIN = search_account_rq_msg_id;
+const search_account_rq_msg search_account_rq_msg_msg_MAX = search_account_rq_msg_id;
+const int search_account_rq_msg_msg_ARRAYSIZE = search_account_rq_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* search_account_rq_msg_descriptor();
+inline const ::std::string& search_account_rq_msg_Name(search_account_rq_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    search_account_rq_msg_descriptor(), value);
+}
+inline bool search_account_rq_msg_Parse(
+    const ::std::string& name, search_account_rq_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<search_account_rq_msg>(
+    search_account_rq_msg_descriptor(), name, value);
+}
+enum search_account_rs_msg {
+  search_account_rs_msg_id = 33562657
+};
+bool search_account_rs_msg_IsValid(int value);
+const search_account_rs_msg search_account_rs_msg_msg_MIN = search_account_rs_msg_id;
+const search_account_rs_msg search_account_rs_msg_msg_MAX = search_account_rs_msg_id;
+const int search_account_rs_msg_msg_ARRAYSIZE = search_account_rs_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* search_account_rs_msg_descriptor();
+inline const ::std::string& search_account_rs_msg_Name(search_account_rs_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    search_account_rs_msg_descriptor(), value);
+}
+inline bool search_account_rs_msg_Parse(
+    const ::std::string& name, search_account_rs_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<search_account_rs_msg>(
+    search_account_rs_msg_descriptor(), name, value);
 }
 enum msg {
   min_id = 33562624,
@@ -781,6 +829,261 @@ class register_rs : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::internal::ArenaStringPtr token_;
   ::b_error::info* error_;
   ::google::protobuf::uint64 user_id_;
+  friend struct protobuf_c_5fbusiness_5faccount_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class search_account_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_account.search_account_rq) */ {
+ public:
+  search_account_rq();
+  virtual ~search_account_rq();
+
+  search_account_rq(const search_account_rq& from);
+
+  inline search_account_rq& operator=(const search_account_rq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const search_account_rq& default_instance();
+
+  static inline const search_account_rq* internal_default_instance() {
+    return reinterpret_cast<const search_account_rq*>(
+               &_search_account_rq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(search_account_rq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline search_account_rq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  search_account_rq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const search_account_rq& from);
+  void MergeFrom(const search_account_rq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(search_account_rq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef search_account_rq_msg msg;
+  static const msg id =
+    search_account_rq_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return search_account_rq_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    search_account_rq_msg_msg_MIN;
+  static const msg msg_MAX =
+    search_account_rq_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    search_account_rq_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return search_account_rq_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return search_account_rq_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return search_account_rq_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required string condition = 1;
+  bool has_condition() const;
+  void clear_condition();
+  static const int kConditionFieldNumber = 1;
+  const ::std::string& condition() const;
+  void set_condition(const ::std::string& value);
+  #if LANG_CXX11
+  void set_condition(::std::string&& value);
+  #endif
+  void set_condition(const char* value);
+  void set_condition(const char* value, size_t size);
+  ::std::string* mutable_condition();
+  ::std::string* release_condition();
+  void set_allocated_condition(::std::string* condition);
+
+  // @@protoc_insertion_point(class_scope:c_business_account.search_account_rq)
+ private:
+  void set_has_condition();
+  void clear_has_condition();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr condition_;
+  friend struct protobuf_c_5fbusiness_5faccount_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class search_account_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_account.search_account_rs) */ {
+ public:
+  search_account_rs();
+  virtual ~search_account_rs();
+
+  search_account_rs(const search_account_rs& from);
+
+  inline search_account_rs& operator=(const search_account_rs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const search_account_rs& default_instance();
+
+  static inline const search_account_rs* internal_default_instance() {
+    return reinterpret_cast<const search_account_rs*>(
+               &_search_account_rs_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(search_account_rs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline search_account_rs* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  search_account_rs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const search_account_rs& from);
+  void MergeFrom(const search_account_rs& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(search_account_rs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef search_account_rs_msg msg;
+  static const msg id =
+    search_account_rs_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return search_account_rs_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    search_account_rs_msg_msg_MIN;
+  static const msg msg_MAX =
+    search_account_rs_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    search_account_rs_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return search_account_rs_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return search_account_rs_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return search_account_rs_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // repeated .b_business_account.user_info user_info_s = 2;
+  int user_info_s_size() const;
+  void clear_user_info_s();
+  static const int kUserInfoSFieldNumber = 2;
+  const ::b_business_account::user_info& user_info_s(int index) const;
+  ::b_business_account::user_info* mutable_user_info_s(int index);
+  ::b_business_account::user_info* add_user_info_s();
+  ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info >*
+      mutable_user_info_s();
+  const ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info >&
+      user_info_s() const;
+
+  // required .b_error.info error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::b_error::info& error() const;
+  ::b_error::info* mutable_error();
+  ::b_error::info* release_error();
+  void set_allocated_error(::b_error::info* error);
+
+  // @@protoc_insertion_point(class_scope:c_business_account.search_account_rs)
+ private:
+  void set_has_error();
+  void clear_has_error();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info > user_info_s_;
+  ::b_error::info* error_;
   friend struct protobuf_c_5fbusiness_5faccount_2eproto::TableStruct;
 };
 // ===================================================================
@@ -1445,7 +1748,157 @@ inline void register_rs::set_allocated_token(::std::string* token) {
   // @@protoc_insertion_point(field_set_allocated:c_business_account.register_rs.token)
 }
 
+// -------------------------------------------------------------------
+
+// search_account_rq
+
+// required string condition = 1;
+inline bool search_account_rq::has_condition() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void search_account_rq::set_has_condition() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void search_account_rq::clear_has_condition() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void search_account_rq::clear_condition() {
+  condition_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_condition();
+}
+inline const ::std::string& search_account_rq::condition() const {
+  // @@protoc_insertion_point(field_get:c_business_account.search_account_rq.condition)
+  return condition_.GetNoArena();
+}
+inline void search_account_rq::set_condition(const ::std::string& value) {
+  set_has_condition();
+  condition_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_account.search_account_rq.condition)
+}
+#if LANG_CXX11
+inline void search_account_rq::set_condition(::std::string&& value) {
+  set_has_condition();
+  condition_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_account.search_account_rq.condition)
+}
+#endif
+inline void search_account_rq::set_condition(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_condition();
+  condition_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_account.search_account_rq.condition)
+}
+inline void search_account_rq::set_condition(const char* value, size_t size) {
+  set_has_condition();
+  condition_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_account.search_account_rq.condition)
+}
+inline ::std::string* search_account_rq::mutable_condition() {
+  set_has_condition();
+  // @@protoc_insertion_point(field_mutable:c_business_account.search_account_rq.condition)
+  return condition_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* search_account_rq::release_condition() {
+  // @@protoc_insertion_point(field_release:c_business_account.search_account_rq.condition)
+  clear_has_condition();
+  return condition_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void search_account_rq::set_allocated_condition(::std::string* condition) {
+  if (condition != NULL) {
+    set_has_condition();
+  } else {
+    clear_has_condition();
+  }
+  condition_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), condition);
+  // @@protoc_insertion_point(field_set_allocated:c_business_account.search_account_rq.condition)
+}
+
+// -------------------------------------------------------------------
+
+// search_account_rs
+
+// required .b_error.info error = 1;
+inline bool search_account_rs::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void search_account_rs::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void search_account_rs::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void search_account_rs::clear_error() {
+  if (error_ != NULL) error_->::b_error::info::Clear();
+  clear_has_error();
+}
+inline const ::b_error::info& search_account_rs::error() const {
+  // @@protoc_insertion_point(field_get:c_business_account.search_account_rs.error)
+  return error_ != NULL ? *error_
+                         : *::b_error::info::internal_default_instance();
+}
+inline ::b_error::info* search_account_rs::mutable_error() {
+  set_has_error();
+  if (error_ == NULL) {
+    error_ = new ::b_error::info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_account.search_account_rs.error)
+  return error_;
+}
+inline ::b_error::info* search_account_rs::release_error() {
+  // @@protoc_insertion_point(field_release:c_business_account.search_account_rs.error)
+  clear_has_error();
+  ::b_error::info* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void search_account_rs::set_allocated_error(::b_error::info* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    set_has_error();
+  } else {
+    clear_has_error();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_account.search_account_rs.error)
+}
+
+// repeated .b_business_account.user_info user_info_s = 2;
+inline int search_account_rs::user_info_s_size() const {
+  return user_info_s_.size();
+}
+inline void search_account_rs::clear_user_info_s() {
+  user_info_s_.Clear();
+}
+inline const ::b_business_account::user_info& search_account_rs::user_info_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_.Get(index);
+}
+inline ::b_business_account::user_info* search_account_rs::mutable_user_info_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_.Mutable(index);
+}
+inline ::b_business_account::user_info* search_account_rs::add_user_info_s() {
+  // @@protoc_insertion_point(field_add:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info >*
+search_account_rs::mutable_user_info_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_account.search_account_rs.user_info_s)
+  return &user_info_s_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info >&
+search_account_rs::user_info_s() const {
+  // @@protoc_insertion_point(field_list:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1481,6 +1934,16 @@ template <> struct is_proto_enum< ::c_business_account::register_rs_msg> : ::goo
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::c_business_account::register_rs_msg>() {
   return ::c_business_account::register_rs_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_account::search_account_rq_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_account::search_account_rq_msg>() {
+  return ::c_business_account::search_account_rq_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_account::search_account_rs_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_account::search_account_rs_msg>() {
+  return ::c_business_account::search_account_rs_msg_descriptor();
 }
 template <> struct is_proto_enum< ::c_business_account::msg> : ::google::protobuf::internal::true_type {};
 template <>

@@ -15,8 +15,7 @@
 
  #import "CBusinessAccount.pbobjc.h"
  #import "BError.pbobjc.h"
- #import "BMath.pbobjc.h"
- #import "BNetwork.pbobjc.h"
+ #import "BBusinessAccount.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -472,6 +471,171 @@ GPBEnumDescriptor *C_business_account_register_rs_msg_EnumDescriptor(void) {
 BOOL C_business_account_register_rs_msg_IsValidValue(int32_t value__) {
   switch (value__) {
     case C_business_account_register_rs_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_account_search_account_rq
+
+@implementation C_business_account_search_account_rq
+
+@dynamic hasCondition, condition;
+
+typedef struct C_business_account_search_account_rq__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *condition;
+} C_business_account_search_account_rq__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "condition",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_account_search_account_rq_FieldNumber_Condition,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_account_search_account_rq__storage_, condition),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_account_search_account_rq class]
+                                     rootClass:[C_business_account_CBusinessAccountRoot class]
+                                          file:C_business_account_CBusinessAccountRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_account_search_account_rq__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_account_search_account_rq_msg
+
+GPBEnumDescriptor *C_business_account_search_account_rq_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_account_search_account_rq_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_account_search_account_rq_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_account_search_account_rq_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_account_search_account_rq_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_account_search_account_rq_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_account_search_account_rs
+
+@implementation C_business_account_search_account_rs
+
+@dynamic hasError, error;
+@dynamic userInfoSArray, userInfoSArray_Count;
+
+typedef struct C_business_account_search_account_rs__storage_ {
+  uint32_t _has_storage_[1];
+  B_error_info *error;
+  NSMutableArray *userInfoSArray;
+} C_business_account_search_account_rs__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "error",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_error_info),
+        .number = C_business_account_search_account_rs_FieldNumber_Error,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_account_search_account_rs__storage_, error),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "userInfoSArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_account_user_info),
+        .number = C_business_account_search_account_rs_FieldNumber_UserInfoSArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(C_business_account_search_account_rs__storage_, userInfoSArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_account_search_account_rs class]
+                                     rootClass:[C_business_account_CBusinessAccountRoot class]
+                                          file:C_business_account_CBusinessAccountRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_account_search_account_rs__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_account_search_account_rs_msg
+
+GPBEnumDescriptor *C_business_account_search_account_rs_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_account_search_account_rs_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_account_search_account_rs_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_account_search_account_rs_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_account_search_account_rs_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_account_search_account_rs_msg_Id:
       return YES;
     default:
       return NO;

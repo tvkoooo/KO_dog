@@ -16,7 +16,6 @@ namespace mm
 	t_user_basic::t_user_basic()
 		:id(0)
 		,name("")
-		,password("")
 		,nick("")
 		,create_time(0)
 	{
@@ -26,7 +25,6 @@ namespace mm
 	{
 		archive << id;
 		archive << name;
-		archive << password;
 		archive << nick;
 		archive << create_time;
 	}
@@ -34,7 +32,6 @@ namespace mm
 	{
 		archive >> id;
 		archive >> name;
-		archive >> password;
 		archive >> nick;
 		archive >> create_time;
 	}

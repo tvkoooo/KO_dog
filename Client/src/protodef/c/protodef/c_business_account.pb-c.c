@@ -178,6 +178,92 @@ void   c_business_account_register_rs_free_unpacked
   PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_register_rs_descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   c_business_account_search_account_rq_init
+                     (c_business_account_search_account_rq         *message)
+{
+  static c_business_account_search_account_rq init_value = c_business_account_search_account_rq_Init;
+  *message = init_value;
+}
+size_t c_business_account_search_account_rq_get_packed_size
+                     (const c_business_account_search_account_rq *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rq_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_account_search_account_rq_pack
+                     (const c_business_account_search_account_rq *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rq_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_account_search_account_rq_pack_to_buffer
+                     (const c_business_account_search_account_rq *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rq_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_account_search_account_rq *
+       c_business_account_search_account_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_account_search_account_rq *)
+     protobuf_c_message_unpack (&c_business_account_search_account_rq_descriptor,
+                                allocator, len, data);
+}
+void   c_business_account_search_account_rq_free_unpacked
+                     (c_business_account_search_account_rq *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rq_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_account_search_account_rs_init
+                     (c_business_account_search_account_rs         *message)
+{
+  static c_business_account_search_account_rs init_value = c_business_account_search_account_rs_Init;
+  *message = init_value;
+}
+size_t c_business_account_search_account_rs_get_packed_size
+                     (const c_business_account_search_account_rs *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rs_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_account_search_account_rs_pack
+                     (const c_business_account_search_account_rs *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rs_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_account_search_account_rs_pack_to_buffer
+                     (const c_business_account_search_account_rs *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rs_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_account_search_account_rs *
+       c_business_account_search_account_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_account_search_account_rs *)
+     protobuf_c_message_unpack (&c_business_account_search_account_rs_descriptor,
+                                allocator, len, data);
+}
+void   c_business_account_search_account_rs_free_unpacked
+                     (c_business_account_search_account_rs *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_account_search_account_rs_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 const ProtobufCEnumValue c_business_account_signed_in_rq_msg_enum_values_by_number[1] =
 {
   { "id", "c_business_account_signed_in_rq_msg_ID", 33562640 },
@@ -257,10 +343,10 @@ const ProtobufCMessageDescriptor c_business_account_signed_in_rq_descriptor =
 };
 const ProtobufCEnumValue c_business_account_signed_in_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_account_signed_in_rs_msg_ID", 33558545 },
+  { "id", "c_business_account_signed_in_rs_msg_ID", 33562641 },
 };
 static const ProtobufCIntRange c_business_account_signed_in_rs_msg_value_ranges[] = {
-{33558545, 0},{0, 1}
+{33562641, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_account_signed_in_rs_msg_enum_values_by_name[1] =
 {
@@ -360,10 +446,10 @@ const ProtobufCMessageDescriptor c_business_account_signed_in_rs_descriptor =
 };
 const ProtobufCEnumValue c_business_account_register_rq_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_account_register_rq_msg_ID", 33562656 },
+  { "id", "c_business_account_register_rq_msg_ID", 33562642 },
 };
 static const ProtobufCIntRange c_business_account_register_rq_msg_value_ranges[] = {
-{33562656, 0},{0, 1}
+{33562642, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_account_register_rq_msg_enum_values_by_name[1] =
 {
@@ -437,10 +523,10 @@ const ProtobufCMessageDescriptor c_business_account_register_rq_descriptor =
 };
 const ProtobufCEnumValue c_business_account_register_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_account_register_rs_msg_ID", 33558561 },
+  { "id", "c_business_account_register_rs_msg_ID", 33562643 },
 };
 static const ProtobufCIntRange c_business_account_register_rs_msg_value_ranges[] = {
-{33558561, 0},{0, 1}
+{33562643, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_account_register_rs_msg_enum_values_by_name[1] =
 {
@@ -536,6 +622,147 @@ const ProtobufCMessageDescriptor c_business_account_register_rs_descriptor =
   c_business_account_register_rs_field_indices_by_name,
   1,  c_business_account_register_rs_number_ranges,
   (ProtobufCMessageInit) c_business_account_register_rs_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_account_search_account_rq_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_account_search_account_rq_msg_ID", 33562656 },
+};
+static const ProtobufCIntRange c_business_account_search_account_rq_msg_value_ranges[] = {
+{33562656, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_account_search_account_rq_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_account_search_account_rq_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_account.search_account_rq.msg",
+  "msg",
+  "c_business_account_search_account_rq_msg",
+  "c_business_account",
+  1,
+  c_business_account_search_account_rq_msg_enum_values_by_number,
+  1,
+  c_business_account_search_account_rq_msg_enum_values_by_name,
+  1,
+  c_business_account_search_account_rq_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_account_search_account_rq_field_descriptors[1] =
+{
+  {
+    "condition",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_account_search_account_rq, condition),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_account_search_account_rq_field_indices_by_name[] = {
+  0,   /* field[0] = condition */
+};
+static const ProtobufCIntRange c_business_account_search_account_rq_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor c_business_account_search_account_rq_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_account.search_account_rq",
+  "SearchAccountRq",
+  "c_business_account_search_account_rq",
+  "c_business_account",
+  sizeof(c_business_account_search_account_rq),
+  1,
+  c_business_account_search_account_rq_field_descriptors,
+  c_business_account_search_account_rq_field_indices_by_name,
+  1,  c_business_account_search_account_rq_number_ranges,
+  (ProtobufCMessageInit) c_business_account_search_account_rq_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_account_search_account_rs_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_account_search_account_rs_msg_ID", 33562657 },
+};
+static const ProtobufCIntRange c_business_account_search_account_rs_msg_value_ranges[] = {
+{33562657, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_account_search_account_rs_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_account_search_account_rs_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_account.search_account_rs.msg",
+  "msg",
+  "c_business_account_search_account_rs_msg",
+  "c_business_account",
+  1,
+  c_business_account_search_account_rs_msg_enum_values_by_number,
+  1,
+  c_business_account_search_account_rs_msg_enum_values_by_name,
+  1,
+  c_business_account_search_account_rs_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_account_search_account_rs_field_descriptors[2] =
+{
+  {
+    "error",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_account_search_account_rs, error),
+    &b_error_info_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_info_s",
+    2,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    PROTOBUF_C_OFFSETOF(c_business_account_search_account_rs, n_user_info_s),
+    PROTOBUF_C_OFFSETOF(c_business_account_search_account_rs, user_info_s),
+    &b_business_account_user_info_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_account_search_account_rs_field_indices_by_name[] = {
+  0,   /* field[0] = error */
+  1,   /* field[1] = user_info_s */
+};
+static const ProtobufCIntRange c_business_account_search_account_rs_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor c_business_account_search_account_rs_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_account.search_account_rs",
+  "SearchAccountRs",
+  "c_business_account_search_account_rs",
+  "c_business_account",
+  sizeof(c_business_account_search_account_rs),
+  2,
+  c_business_account_search_account_rs_field_descriptors,
+  c_business_account_search_account_rs_field_indices_by_name,
+  1,  c_business_account_search_account_rs_number_ranges,
+  (ProtobufCMessageInit) c_business_account_search_account_rs_init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 const ProtobufCEnumValue c_business_account_msg_enum_values_by_number[2] =

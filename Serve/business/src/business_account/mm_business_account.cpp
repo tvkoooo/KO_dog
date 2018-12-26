@@ -170,6 +170,7 @@ void mm_business_account_start(struct mm_business_account* p)
 
 	mm_mailbox_assign_callback(&p->external_mailbox, c_business_account::signed_in_rq_msg_id, &mm_business_account_tcp_hd_c_business_account_signed_in_rq);
 	mm_mailbox_assign_callback(&p->external_mailbox, c_business_account::register_rq_msg_id, &mm_business_account_tcp_hd_c_business_account_register_rq);
+	mm_mailbox_assign_callback(&p->external_mailbox, c_business_account::search_account_rq_msg_id, &mm_business_account_tcp_hd_c_business_account_search_account_rq);
 	//////////////////////////////////////////////////////////////////////////
 	mm_business_account_runtime_assign_zkwb_path(&p->runtime_info, module_path);
 	// random token buffer.

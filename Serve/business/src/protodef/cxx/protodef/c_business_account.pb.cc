@@ -26,14 +26,18 @@ class register_rqDefaultTypeInternal : public ::google::protobuf::internal::Expl
 } _register_rq_default_instance_;
 class register_rsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<register_rs> {
 } _register_rs_default_instance_;
+class search_account_rqDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<search_account_rq> {
+} _search_account_rq_default_instance_;
+class search_account_rsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<search_account_rs> {
+} _search_account_rs_default_instance_;
 
 namespace protobuf_c_5fbusiness_5faccount_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[4];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
+::google::protobuf::Metadata file_level_metadata[6];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[7];
 
 }  // namespace
 
@@ -48,6 +52,8 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -99,6 +105,22 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   0,
   3,
   1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rq, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rq, condition_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rs, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rs, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rs, error_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(search_account_rs, user_info_s_),
+  0,
+  ~0u,
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
@@ -106,6 +128,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 9, 18, sizeof(signed_in_rs)},
   { 22, 29, sizeof(register_rq)},
   { 31, 40, sizeof(register_rs)},
+  { 44, 50, sizeof(search_account_rq)},
+  { 51, 58, sizeof(search_account_rs)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -113,6 +137,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_signed_in_rs_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_register_rq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_register_rs_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_search_account_rq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_search_account_rs_default_instance_),
 };
 
 namespace {
@@ -133,7 +159,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 6);
 }
 
 }  // namespace
@@ -147,6 +173,10 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[2].reflection;
   _register_rs_default_instance_.Shutdown();
   delete file_level_metadata[3].reflection;
+  _search_account_rq_default_instance_.Shutdown();
+  delete file_level_metadata[4].reflection;
+  _search_account_rs_default_instance_.Shutdown();
+  delete file_level_metadata[5].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -154,15 +184,18 @@ void TableStruct::InitDefaultsImpl() {
 
   ::google::protobuf::internal::InitProtobufDefaults();
   ::b_error::protobuf_b_5ferror_2eproto::InitDefaults();
-  ::b_math::protobuf_b_5fmath_2eproto::InitDefaults();
-  ::b_network::protobuf_b_5fnetwork_2eproto::InitDefaults();
+  ::b_business_account::protobuf_b_5fbusiness_5faccount_2eproto::InitDefaults();
   _signed_in_rq_default_instance_.DefaultConstruct();
   _signed_in_rs_default_instance_.DefaultConstruct();
   _register_rq_default_instance_.DefaultConstruct();
   _register_rs_default_instance_.DefaultConstruct();
+  _search_account_rq_default_instance_.DefaultConstruct();
+  _search_account_rs_default_instance_.DefaultConstruct();
   _signed_in_rs_default_instance_.get_mutable()->error_ = const_cast< ::b_error::info*>(
       ::b_error::info::internal_default_instance());
   _register_rs_default_instance_.get_mutable()->error_ = const_cast< ::b_error::info*>(
+      ::b_error::info::internal_default_instance());
+  _search_account_rs_default_instance_.get_mutable()->error_ = const_cast< ::b_error::info*>(
       ::b_error::info::internal_default_instance());
 }
 
@@ -174,29 +207,32 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] = {
       "\n\030c_business_account.proto\022\022c_business_a"
-      "ccount\032\rb_error.proto\032\014b_math.proto\032\017b_n"
-      "etwork.proto\"E\n\014signed_in_rq\022\021\n\tuser_nam"
-      "e\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\220"
-      "\300\200\020\"q\n\014signed_in_rs\022\034\n\005error\030\001 \002(\0132\r.b_e"
-      "rror.info\022\021\n\tuser_name\030\002 \002(\t\022\017\n\007user_id\030"
-      "\003 \002(\004\022\r\n\005token\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\240\200\020\"D"
-      "\n\013register_rq\022\021\n\tuser_name\030\001 \002(\t\022\020\n\010pass"
-      "word\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\240\300\200\020\"p\n\013register"
-      "_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\021\n\tuse"
-      "r_name\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\004\022\r\n\005token\030\004"
-      " \002(\t\"\020\n\003msg\022\t\n\002id\020\241\240\200\020*#\n\003msg\022\r\n\006min_id\020"
-      "\200\300\200\020\022\r\n\006max_id\020\377\301\200\020Bf\n\010protodefB\022c_busin"
-      "ess_accountZ\033protodef/c_business_account"
-      "\242\002\023C_business_account_\252\002\022c_business_acco"
-      "unt"
+      "ccount\032\rb_error.proto\032\030b_business_accoun"
+      "t.proto\"E\n\014signed_in_rq\022\021\n\tuser_name\030\001 \002"
+      "(\t\022\020\n\010password\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\220\300\200\020\"q"
+      "\n\014signed_in_rs\022\034\n\005error\030\001 \002(\0132\r.b_error."
+      "info\022\021\n\tuser_name\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\004"
+      "\022\r\n\005token\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\300\200\020\"D\n\013reg"
+      "ister_rq\022\021\n\tuser_name\030\001 \002(\t\022\020\n\010password\030"
+      "\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\222\300\200\020\"p\n\013register_rs\022\034"
+      "\n\005error\030\001 \002(\0132\r.b_error.info\022\021\n\tuser_nam"
+      "e\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\004\022\r\n\005token\030\004 \002(\t\""
+      "\020\n\003msg\022\t\n\002id\020\223\300\200\020\"8\n\021search_account_rq\022\021"
+      "\n\tcondition\030\001 \002(\t\"\020\n\003msg\022\t\n\002id\020\240\300\200\020\"w\n\021s"
+      "earch_account_rs\022\034\n\005error\030\001 \002(\0132\r.b_erro"
+      "r.info\0222\n\013user_info_s\030\002 \003(\0132\035.b_business"
+      "_account.user_info\"\020\n\003msg\022\t\n\002id\020\241\300\200\020*#\n\003"
+      "msg\022\r\n\006min_id\020\200\300\200\020\022\r\n\006max_id\020\377\301\200\020Bf\n\010pro"
+      "todefB\022c_business_accountZ\033protodef/c_bu"
+      "siness_account\242\002\023C_business_account_\252\002\022c"
+      "_business_account"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 603);
+      descriptor, 777);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "c_business_account.proto", &protobuf_RegisterTypes);
   ::b_error::protobuf_b_5ferror_2eproto::AddDescriptors();
-  ::b_math::protobuf_b_5fmath_2eproto::AddDescriptors();
-  ::b_network::protobuf_b_5fnetwork_2eproto::AddDescriptors();
+  ::b_business_account::protobuf_b_5fbusiness_5faccount_2eproto::AddDescriptors();
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
 
@@ -238,7 +274,7 @@ const ::google::protobuf::EnumDescriptor* signed_in_rs_msg_descriptor() {
 }
 bool signed_in_rs_msg_IsValid(int value) {
   switch (value) {
-    case 33558545:
+    case 33562641:
       return true;
     default:
       return false;
@@ -257,7 +293,7 @@ const ::google::protobuf::EnumDescriptor* register_rq_msg_descriptor() {
 }
 bool register_rq_msg_IsValid(int value) {
   switch (value) {
-    case 33562656:
+    case 33562642:
       return true;
     default:
       return false;
@@ -276,7 +312,7 @@ const ::google::protobuf::EnumDescriptor* register_rs_msg_descriptor() {
 }
 bool register_rs_msg_IsValid(int value) {
   switch (value) {
-    case 33558561:
+    case 33562643:
       return true;
     default:
       return false;
@@ -289,9 +325,47 @@ const register_rs_msg register_rs::msg_MIN;
 const register_rs_msg register_rs::msg_MAX;
 const int register_rs::msg_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* msg_descriptor() {
+const ::google::protobuf::EnumDescriptor* search_account_rq_msg_descriptor() {
   protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_c_5fbusiness_5faccount_2eproto::file_level_enum_descriptors[4];
+}
+bool search_account_rq_msg_IsValid(int value) {
+  switch (value) {
+    case 33562656:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const search_account_rq_msg search_account_rq::id;
+const search_account_rq_msg search_account_rq::msg_MIN;
+const search_account_rq_msg search_account_rq::msg_MAX;
+const int search_account_rq::msg_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* search_account_rs_msg_descriptor() {
+  protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fbusiness_5faccount_2eproto::file_level_enum_descriptors[5];
+}
+bool search_account_rs_msg_IsValid(int value) {
+  switch (value) {
+    case 33562657:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const search_account_rs_msg search_account_rs::id;
+const search_account_rs_msg search_account_rs::msg_MIN;
+const search_account_rs_msg search_account_rs::msg_MAX;
+const int search_account_rs::msg_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* msg_descriptor() {
+  protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fbusiness_5faccount_2eproto::file_level_enum_descriptors[6];
 }
 bool msg_IsValid(int value) {
   switch (value) {
@@ -2540,6 +2614,703 @@ void register_rs::set_allocated_token(::std::string* token) {
   }
   token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
   // @@protoc_insertion_point(field_set_allocated:c_business_account.register_rs.token)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int search_account_rq::kConditionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+search_account_rq::search_account_rq()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_c_5fbusiness_5faccount_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:c_business_account.search_account_rq)
+}
+search_account_rq::search_account_rq(const search_account_rq& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  condition_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_condition()) {
+    condition_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.condition_);
+  }
+  // @@protoc_insertion_point(copy_constructor:c_business_account.search_account_rq)
+}
+
+void search_account_rq::SharedCtor() {
+  _cached_size_ = 0;
+  condition_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+search_account_rq::~search_account_rq() {
+  // @@protoc_insertion_point(destructor:c_business_account.search_account_rq)
+  SharedDtor();
+}
+
+void search_account_rq::SharedDtor() {
+  condition_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void search_account_rq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* search_account_rq::descriptor() {
+  protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fbusiness_5faccount_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const search_account_rq& search_account_rq::default_instance() {
+  protobuf_c_5fbusiness_5faccount_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+search_account_rq* search_account_rq::New(::google::protobuf::Arena* arena) const {
+  search_account_rq* n = new search_account_rq;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void search_account_rq::Clear() {
+// @@protoc_insertion_point(message_clear_start:c_business_account.search_account_rq)
+  if (has_condition()) {
+    GOOGLE_DCHECK(!condition_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*condition_.UnsafeRawStringPointer())->clear();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool search_account_rq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:c_business_account.search_account_rq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string condition = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_condition()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->condition().data(), this->condition().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "c_business_account.search_account_rq.condition");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:c_business_account.search_account_rq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:c_business_account.search_account_rq)
+  return false;
+#undef DO_
+}
+
+void search_account_rq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:c_business_account.search_account_rq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required string condition = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->condition().data(), this->condition().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "c_business_account.search_account_rq.condition");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->condition(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:c_business_account.search_account_rq)
+}
+
+::google::protobuf::uint8* search_account_rq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:c_business_account.search_account_rq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required string condition = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->condition().data(), this->condition().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "c_business_account.search_account_rq.condition");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->condition(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:c_business_account.search_account_rq)
+  return target;
+}
+
+size_t search_account_rq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:c_business_account.search_account_rq)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required string condition = 1;
+  if (has_condition()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->condition());
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void search_account_rq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:c_business_account.search_account_rq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const search_account_rq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const search_account_rq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:c_business_account.search_account_rq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:c_business_account.search_account_rq)
+    MergeFrom(*source);
+  }
+}
+
+void search_account_rq::MergeFrom(const search_account_rq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:c_business_account.search_account_rq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_condition()) {
+    set_has_condition();
+    condition_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.condition_);
+  }
+}
+
+void search_account_rq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:c_business_account.search_account_rq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void search_account_rq::CopyFrom(const search_account_rq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:c_business_account.search_account_rq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool search_account_rq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  return true;
+}
+
+void search_account_rq::Swap(search_account_rq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void search_account_rq::InternalSwap(search_account_rq* other) {
+  condition_.Swap(&other->condition_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata search_account_rq::GetMetadata() const {
+  protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fbusiness_5faccount_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// search_account_rq
+
+// required string condition = 1;
+bool search_account_rq::has_condition() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void search_account_rq::set_has_condition() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void search_account_rq::clear_has_condition() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void search_account_rq::clear_condition() {
+  condition_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_condition();
+}
+const ::std::string& search_account_rq::condition() const {
+  // @@protoc_insertion_point(field_get:c_business_account.search_account_rq.condition)
+  return condition_.GetNoArena();
+}
+void search_account_rq::set_condition(const ::std::string& value) {
+  set_has_condition();
+  condition_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_account.search_account_rq.condition)
+}
+#if LANG_CXX11
+void search_account_rq::set_condition(::std::string&& value) {
+  set_has_condition();
+  condition_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_account.search_account_rq.condition)
+}
+#endif
+void search_account_rq::set_condition(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_condition();
+  condition_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_account.search_account_rq.condition)
+}
+void search_account_rq::set_condition(const char* value, size_t size) {
+  set_has_condition();
+  condition_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_account.search_account_rq.condition)
+}
+::std::string* search_account_rq::mutable_condition() {
+  set_has_condition();
+  // @@protoc_insertion_point(field_mutable:c_business_account.search_account_rq.condition)
+  return condition_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* search_account_rq::release_condition() {
+  // @@protoc_insertion_point(field_release:c_business_account.search_account_rq.condition)
+  clear_has_condition();
+  return condition_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void search_account_rq::set_allocated_condition(::std::string* condition) {
+  if (condition != NULL) {
+    set_has_condition();
+  } else {
+    clear_has_condition();
+  }
+  condition_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), condition);
+  // @@protoc_insertion_point(field_set_allocated:c_business_account.search_account_rq.condition)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int search_account_rs::kErrorFieldNumber;
+const int search_account_rs::kUserInfoSFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+search_account_rs::search_account_rs()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_c_5fbusiness_5faccount_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:c_business_account.search_account_rs)
+}
+search_account_rs::search_account_rs(const search_account_rs& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      user_info_s_(from.user_info_s_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_error()) {
+    error_ = new ::b_error::info(*from.error_);
+  } else {
+    error_ = NULL;
+  }
+  // @@protoc_insertion_point(copy_constructor:c_business_account.search_account_rs)
+}
+
+void search_account_rs::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = NULL;
+}
+
+search_account_rs::~search_account_rs() {
+  // @@protoc_insertion_point(destructor:c_business_account.search_account_rs)
+  SharedDtor();
+}
+
+void search_account_rs::SharedDtor() {
+  if (this != internal_default_instance()) {
+    delete error_;
+  }
+}
+
+void search_account_rs::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* search_account_rs::descriptor() {
+  protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fbusiness_5faccount_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const search_account_rs& search_account_rs::default_instance() {
+  protobuf_c_5fbusiness_5faccount_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+search_account_rs* search_account_rs::New(::google::protobuf::Arena* arena) const {
+  search_account_rs* n = new search_account_rs;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void search_account_rs::Clear() {
+// @@protoc_insertion_point(message_clear_start:c_business_account.search_account_rs)
+  user_info_s_.Clear();
+  if (has_error()) {
+    GOOGLE_DCHECK(error_ != NULL);
+    error_->::b_error::info::Clear();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool search_account_rs::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:c_business_account.search_account_rs)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .b_error.info error = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_error()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .b_business_account.user_info user_info_s = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_user_info_s()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:c_business_account.search_account_rs)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:c_business_account.search_account_rs)
+  return false;
+#undef DO_
+}
+
+void search_account_rs::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:c_business_account.search_account_rs)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required .b_error.info error = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->error_, output);
+  }
+
+  // repeated .b_business_account.user_info user_info_s = 2;
+  for (unsigned int i = 0, n = this->user_info_s_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->user_info_s(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:c_business_account.search_account_rs)
+}
+
+::google::protobuf::uint8* search_account_rs::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:c_business_account.search_account_rs)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required .b_error.info error = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->error_, deterministic, target);
+  }
+
+  // repeated .b_business_account.user_info user_info_s = 2;
+  for (unsigned int i = 0, n = this->user_info_s_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->user_info_s(i), deterministic, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:c_business_account.search_account_rs)
+  return target;
+}
+
+size_t search_account_rs::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:c_business_account.search_account_rs)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  // required .b_error.info error = 1;
+  if (has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->error_);
+  }
+  // repeated .b_business_account.user_info user_info_s = 2;
+  {
+    unsigned int count = this->user_info_s_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->user_info_s(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void search_account_rs::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:c_business_account.search_account_rs)
+  GOOGLE_DCHECK_NE(&from, this);
+  const search_account_rs* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const search_account_rs>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:c_business_account.search_account_rs)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:c_business_account.search_account_rs)
+    MergeFrom(*source);
+  }
+}
+
+void search_account_rs::MergeFrom(const search_account_rs& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:c_business_account.search_account_rs)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  user_info_s_.MergeFrom(from.user_info_s_);
+  if (from.has_error()) {
+    mutable_error()->::b_error::info::MergeFrom(from.error());
+  }
+}
+
+void search_account_rs::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:c_business_account.search_account_rs)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void search_account_rs::CopyFrom(const search_account_rs& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:c_business_account.search_account_rs)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool search_account_rs::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->user_info_s())) return false;
+  if (has_error()) {
+    if (!this->error_->IsInitialized()) return false;
+  }
+  return true;
+}
+
+void search_account_rs::Swap(search_account_rs* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void search_account_rs::InternalSwap(search_account_rs* other) {
+  user_info_s_.InternalSwap(&other->user_info_s_);
+  std::swap(error_, other->error_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata search_account_rs::GetMetadata() const {
+  protobuf_c_5fbusiness_5faccount_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_c_5fbusiness_5faccount_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// search_account_rs
+
+// required .b_error.info error = 1;
+bool search_account_rs::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void search_account_rs::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void search_account_rs::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void search_account_rs::clear_error() {
+  if (error_ != NULL) error_->::b_error::info::Clear();
+  clear_has_error();
+}
+const ::b_error::info& search_account_rs::error() const {
+  // @@protoc_insertion_point(field_get:c_business_account.search_account_rs.error)
+  return error_ != NULL ? *error_
+                         : *::b_error::info::internal_default_instance();
+}
+::b_error::info* search_account_rs::mutable_error() {
+  set_has_error();
+  if (error_ == NULL) {
+    error_ = new ::b_error::info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_account.search_account_rs.error)
+  return error_;
+}
+::b_error::info* search_account_rs::release_error() {
+  // @@protoc_insertion_point(field_release:c_business_account.search_account_rs.error)
+  clear_has_error();
+  ::b_error::info* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+void search_account_rs::set_allocated_error(::b_error::info* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    set_has_error();
+  } else {
+    clear_has_error();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_account.search_account_rs.error)
+}
+
+// repeated .b_business_account.user_info user_info_s = 2;
+int search_account_rs::user_info_s_size() const {
+  return user_info_s_.size();
+}
+void search_account_rs::clear_user_info_s() {
+  user_info_s_.Clear();
+}
+const ::b_business_account::user_info& search_account_rs::user_info_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_.Get(index);
+}
+::b_business_account::user_info* search_account_rs::mutable_user_info_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_.Mutable(index);
+}
+::b_business_account::user_info* search_account_rs::add_user_info_s() {
+  // @@protoc_insertion_point(field_add:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::b_business_account::user_info >*
+search_account_rs::mutable_user_info_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_account.search_account_rs.user_info_s)
+  return &user_info_s_;
+}
+const ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info >&
+search_account_rs::user_info_s() const {
+  // @@protoc_insertion_point(field_list:c_business_account.search_account_rs.user_info_s)
+  return user_info_s_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

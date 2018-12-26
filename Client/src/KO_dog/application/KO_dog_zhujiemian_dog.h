@@ -40,7 +40,7 @@ namespace mm
 		//数据结构/////////////////////////////////////////////////////////////////////////////
 	public:
 		//camera 名字 （ name ）
-		std::string n_camera;
+		std::string n_camera;		
 
 	public:
 		//数据承接上下文 ( context )
@@ -111,6 +111,7 @@ namespace mm
 	public:
 		//配置rtt
 		void set_flake_context(mm_flake_context* d_flake_context, mm_flake_surface* d_surface);
+		void setVisible(bool b);
 		void on_finish_launching();
 		void on_before_terminate();
 

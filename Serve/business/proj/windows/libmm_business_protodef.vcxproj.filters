@@ -39,6 +39,12 @@
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_network.pb.cc">
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.h">
@@ -63,6 +69,12 @@
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_network.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.h">
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClInclude>
   </ItemGroup>

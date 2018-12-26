@@ -120,9 +120,6 @@
     <ClCompile Include="..\..\src\KO_dog\model_data\KO_dog_data_log_view.cpp">
       <Filter>src\KO_dog\model_data</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\model_data\KO_dog_data_log_error_code_map.cpp">
-      <Filter>src\KO_dog\model_data</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\protodef\cxx\protodef\c_shuttle_entry.pb.cc">
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClCompile>
@@ -186,6 +183,18 @@
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_error_desc.c">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_search.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -246,9 +255,6 @@
       <Filter>src\KO_dog\network</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\model_data\KO_dog_data_log_view.h">
-      <Filter>src\KO_dog\model_data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\model_data\KO_dog_data_log_error_code_map.h">
       <Filter>src\KO_dog\model_data</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.h">
@@ -313,6 +319,18 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_error_desc.h">
       <Filter>src\KO_dog\toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_search.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

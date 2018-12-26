@@ -139,7 +139,7 @@ namespace mm
 
 
 		//this->d_event_l_animation_closed_conn = this->test_animation.d_event_set.subscribe_event(KO_dog_test_animation::event_close, &KO_dog_zhujiemian::on_handle_l_animation_closed, this);
-
+		
 		
 		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
 		//订阅KO_dog_data_user_basic 的 event_userdata_update 事件
@@ -259,7 +259,7 @@ namespace mm
 			c_business_account::signed_in_rq rq;
 			rq.set_user_name(user_name.c_str());
 			rq.set_password((const char*)mima);
-			mm_client_tcp_flush_send_message(&p->network.tcp,0, c_business_account::signed_in_rq_msg_id, &rq);
+			mm_client_tcps_flush_send_message(&p->network.tcp,0, c_business_account::signed_in_rq_msg_id, &rq);
 			this->l_text_notice->setText("Please wait.....");
 		}
 		else
@@ -331,7 +331,7 @@ namespace mm
 			c_business_account::register_rq rq;
 			rq.set_user_name(user_name.c_str());
 			rq.set_password((const char*)mima);
-			mm_client_tcp_flush_send_message(&p->network.tcp, 0, c_business_account::register_rq_msg_id, &rq);
+			mm_client_tcps_flush_send_message(&p->network.tcp, 0, c_business_account::register_rq_msg_id, &rq);
 			this->l_text_notice->setText("Please wait.....");
 		}
 		else

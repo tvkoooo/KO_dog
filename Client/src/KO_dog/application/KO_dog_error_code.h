@@ -9,7 +9,10 @@
 //////////////////////////////////////////////////////////////////////////
 enum KO_dog_error_code
 {
-	KO_dog_error_code_does_remote_login = 600001001,            //(600001001)异地登录
+	KO_dog_error_code_network_anomaly       = 600000001,            //(600000001)网络异常
+	KO_dog_error_code_unencrypted_network   = 600000002,            //(600000002)网络未加密
+
+	KO_dog_error_code_does_remote_login     = 600001001,            //(600001001)异地登录
 
 };
 //////////////////////////////////////////////////////////////////////////

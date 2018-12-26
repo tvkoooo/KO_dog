@@ -51,11 +51,17 @@ enum msg
 }
 
 /////////////////////////////////////////////////////////////////////////
-c_business_account:                  //(002 000~0FF)向服务端发送业务请求
+c_business_account:                  //(002 000~0FF)向服务端发送业务账号请求
 enum msg
 { 
 	min_id=0x02002000;
 	max_id=0x020020FF;
+}
+c_business_relation:                  //(002 100~1FF)向服务端发送业务关系请求
+enum msg
+{ 
+	min_id=0x02002100;
+	max_id=0x020021FF;
 }
 
 

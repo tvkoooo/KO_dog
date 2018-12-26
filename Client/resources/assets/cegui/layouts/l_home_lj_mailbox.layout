@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_mailbox" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage_basic" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="Text" value="=" />
+            <Property name="Image" value="login_lj/dise" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="FrameColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
+            <Property name="FrameEnabled" value="false" />
+            <Property name="ImageColours" value="tl:FFFFFF38 tr:FFFF2CFF bl:FFFF04FF br:FFFFFA00" />
+            <Property name="BackgroundColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
+            <Property name="BackgroundEnabled" value="false" />
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow_left" >
+            <Property name="Area" value="{{0,0},{0,0},{0.190104,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/Button" name="Button_search" >
+                <Property name="Area" value="{{0.0994764,0},{0.0314815,0},{0.931937,0},{0.0796296,0}}" />
+                <Property name="Text" value="search" />
+            </Window>
+            <Window type="TaharezLook/Listbox" name="Listbox_friend" >
+                <Property name="Area" value="{{0.104712,0},{0.1,0},{0.91978,0},{0.638889,0}}" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_game" >
+                <Property name="Area" value="{{0.0942408,0},{0.867037,0},{0.926433,0},{0.915185,0}}" />
+                <Property name="Text" value="game" />
+            </Window>
+            <Window type="TaharezLook/Listbox" name="Listbox_group" >
+                <Property name="Area" value="{{0.106082,0},{0.646296,0},{0.92115,0},{0.846296,0}}" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_quit" >
+                <Property name="Area" value="{{0.0942408,0},{0.93,0},{0.927118,0},{0.978148,0}}" />
+                <Property name="Text" value="quit" />
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow_right" >
+            <Property name="Area" value="{{0.2,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

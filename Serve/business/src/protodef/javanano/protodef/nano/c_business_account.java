@@ -107,7 +107,7 @@ public interface c_business_account {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33558545;
+    public static final int id = 33562641;
 
     private static volatile signed_in_rs[] _emptyArray;
     public static signed_in_rs[] emptyArray() {
@@ -230,7 +230,7 @@ public interface c_business_account {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562656;
+    public static final int id = 33562642;
 
     private static volatile register_rq[] _emptyArray;
     public static register_rq[] emptyArray() {
@@ -324,7 +324,7 @@ public interface c_business_account {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33558561;
+    public static final int id = 33562643;
 
     private static volatile register_rs[] _emptyArray;
     public static register_rs[] emptyArray() {
@@ -440,6 +440,220 @@ public interface c_business_account {
             com.google.protobuf.nano.CodedInputByteBufferNano input)
         throws java.io.IOException {
       return new register_rs().mergeFrom(input);
+    }
+  }
+
+  public static final class search_account_rq extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562656;
+
+    private static volatile search_account_rq[] _emptyArray;
+    public static search_account_rq[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new search_account_rq[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required string condition = 1;
+    public java.lang.String condition;
+
+    public search_account_rq() {
+      clear();
+    }
+
+    public search_account_rq clear() {
+      condition = "";
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      output.writeString(1, this.condition);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(1, this.condition);
+      return size;
+    }
+
+    @Override
+    public search_account_rq mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 10: {
+            this.condition = input.readString();
+            break;
+          }
+        }
+      }
+    }
+
+    public static search_account_rq parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new search_account_rq(), data);
+    }
+
+    public static search_account_rq parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new search_account_rq().mergeFrom(input);
+    }
+  }
+
+  public static final class search_account_rs extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562657;
+
+    private static volatile search_account_rs[] _emptyArray;
+    public static search_account_rs[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new search_account_rs[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required .b_error.info error = 1;
+    public protodef.nano.b_error.info error;
+
+    // repeated .b_business_account.user_info user_info_s = 2;
+    public protodef.nano.b_business_account.user_info[] userInfoS;
+
+    public search_account_rs() {
+      clear();
+    }
+
+    public search_account_rs clear() {
+      error = null;
+      userInfoS = protodef.nano.b_business_account.user_info.emptyArray();
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      if (this.error != null) {
+        output.writeMessage(1, this.error);
+      }
+      if (this.userInfoS != null && this.userInfoS.length > 0) {
+        for (int i = 0; i < this.userInfoS.length; i++) {
+          protodef.nano.b_business_account.user_info element = this.userInfoS[i];
+          if (element != null) {
+            output.writeMessage(2, element);
+          }
+        }
+      }
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      if (this.error != null) {
+        size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeMessageSize(1, this.error);
+      }
+      if (this.userInfoS != null && this.userInfoS.length > 0) {
+        for (int i = 0; i < this.userInfoS.length; i++) {
+          protodef.nano.b_business_account.user_info element = this.userInfoS[i];
+          if (element != null) {
+            size += com.google.protobuf.nano.CodedOutputByteBufferNano
+              .computeMessageSize(2, element);
+          }
+        }
+      }
+      return size;
+    }
+
+    @Override
+    public search_account_rs mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 10: {
+            if (this.error == null) {
+              this.error = new protodef.nano.b_error.info();
+            }
+            input.readMessage(this.error);
+            break;
+          }
+          case 18: {
+            int arrayLength = com.google.protobuf.nano.WireFormatNano
+                .getRepeatedFieldArrayLength(input, 18);
+            int i = this.userInfoS == null ? 0 : this.userInfoS.length;
+            protodef.nano.b_business_account.user_info[] newArray =
+                new protodef.nano.b_business_account.user_info[i + arrayLength];
+            if (i != 0) {
+              java.lang.System.arraycopy(this.userInfoS, 0, newArray, 0, i);
+            }
+            for (; i < newArray.length - 1; i++) {
+              newArray[i] = new protodef.nano.b_business_account.user_info();
+              input.readMessage(newArray[i]);
+              input.readTag();
+            }
+            // Last one without readTag.
+            newArray[i] = new protodef.nano.b_business_account.user_info();
+            input.readMessage(newArray[i]);
+            this.userInfoS = newArray;
+            break;
+          }
+        }
+      }
+    }
+
+    public static search_account_rs parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new search_account_rs(), data);
+    }
+
+    public static search_account_rs parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new search_account_rs().mergeFrom(input);
     }
   }
 }

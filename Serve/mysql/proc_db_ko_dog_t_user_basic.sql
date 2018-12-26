@@ -69,8 +69,10 @@ BEGIN
 				 0( 0)成功 
 				用户编号( id)
 		*/
-	
-    IF(SELECT COUNT(*) FROM db_ko_dog.t_user_basic WHERE (`name` = _name) = 0) THEN
+	declare _flag int(11) default 0;     
+    SELECT COUNT(*) into _flag FROM db_ko_dog.t_user_basic WHERE (`name` = _name);
+    
+    IF(_flag = 0) THEN
     
 		INSERT INTO db_ko_dog.t_user_basic(`name`,`password`,`nick`) 
 		VALUES                                   (_name ,PASSWORD(_password) ,_nick);
@@ -138,3 +140,50 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+
+/*!50003 DROP PROCEDURE IF EXISTS `p_userinfo_search`*/;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE PROCEDURE `p_userinfo_search`(
+	OUT `_code` int(11),	
+    IN `_limit` int(11),
+	IN `_search` char(50)    
+    )
+BEGIN
+	/*设置用户数据*/
+	/* 传入
+		_search,
+		*/
+	/* 返回
+		错误码 
+			0( 0)成功 
+		*/   
+	declare _character  char(64) default "";   
+	set _character = CONCAT("%",`_search`,"%");
+	select `id`	,`name` , `nick` , unix_timestamp(`create_time`) as create_time from db_ko_dog.t_user_basic 
+    where `name` LIKE _character  or `id` LIKE _character or `nick` LIKE _character limit `_limit`;
+
+	/*成功*/ 
+	set _code = 0;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

@@ -57,6 +57,8 @@ call :build_proto s_control
 call :build_proto s_proxy_curl
 call :build_proto s_basis
 call :build_proto c_business_account
+call :build_proto b_business_account
+call :build_proto c_business_relation
 GOTO :EOF
 
 :: build proto function.

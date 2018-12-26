@@ -31,6 +31,7 @@ namespace mm
 		: d_flake_context(NULL)
 		, d_surface(NULL)
 
+		
 		//, d_scene_manager(NULL)
 		//, d_root_node(NULL)
 
@@ -105,7 +106,10 @@ namespace mm
 	{
 		this->l_layer_dog_a1 = l_layer;
 	}
-
+	void KO_dog_test_animation::setVisible(bool b)
+	{
+		this->dog.setVisible(b);
+	}
 	void KO_dog_test_animation::on_finish_launching()
 	{
 		
@@ -156,6 +160,8 @@ namespace mm
 		this->on_scene_launching();
 		this->on_scene_layer_launching();
 		this->on_synchronize_launching();
+
+		
 	}
 	void KO_dog_test_animation::on_before_terminate()
 	{
@@ -186,10 +192,15 @@ namespace mm
 
 		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_pressed, this->d_event_key_pressed_conn);
 		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_release, this->d_event_key_release_conn);
+
+		
 	}
 	void KO_dog_test_animation::on_scene_launching()
 	{
+
 		this->dog.on_finish_launching();
+
+		
 		//Ogre::ResourceGroupManager* _resource_group_manager = Ogre::ResourceGroupManager::getSingletonPtr();
 
 		//_resource_group_manager->addResourceLocation("media/models/dog", "mm_file_system", "media/models/dog");
@@ -286,6 +297,7 @@ namespace mm
 	{
 		//dog terminate()
 		this->dog.on_before_terminate();
+		
 
 		//Ogre::Root* _ogre_root = this->d_flake_context->d_ogre_system.get_ogre_root();
 
@@ -813,10 +825,12 @@ namespace mm
 		return false;
 	}
 	bool KO_dog_test_animation::on_handle_l_s_button_out(const CEGUI::EventArgs& args)
-	{
+	{	
+
 		mm_event_args evt_ags;
 		//mm_event_animation_close evt_closd("args");
 		this->d_event_set.fire_event(KO_dog_test_animation::event_close, evt_ags);
+
 		return false;
 	}
 	bool KO_dog_test_animation::on_handle_l_s_button_camera(const CEGUI::EventArgs& args)

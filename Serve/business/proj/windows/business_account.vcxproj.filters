@@ -36,6 +36,9 @@
     <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_signed_in_rq.cpp">
       <Filter>src\business_account</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_search_account_rq.cpp">
+      <Filter>src\business_account</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\business_account\mm_business_account_runtime.h">

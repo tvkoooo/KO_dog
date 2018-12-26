@@ -16,11 +16,10 @@ namespace mm
 	struct t_user_basic : public mm_package
 	{
 	public:
-		mm_uint64_t id;// 用户id.
-		std::string name;// 用户名.
-		std::string password;// 用户密码.
-		std::string nick;// 昵称.
-		mm_uint32_t create_time;// 创建时间.
+		mm_uint64_t id;// user id.
+		std::string name;// user name 
+		std::string nick;// user nick 
+		mm_uint32_t create_time;// create time
 	public:
 		virtual ~t_user_basic();
 	public:

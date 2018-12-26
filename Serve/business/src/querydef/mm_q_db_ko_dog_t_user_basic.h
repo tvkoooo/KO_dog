@@ -9,6 +9,7 @@
 #include "dish/mm_package.h"
 #include "core/mm_logger.h"
 #include "querydef/mm_m_db_ko_dog_t_user_basic.h"
+#include <vector>
 
 namespace mm
 {
@@ -18,10 +19,10 @@ namespace mm
 	{
 	public:
 		mm_uint32_t code;// error code for sql.
-		std::string name;// 用户名.
-		std::string password;// 用户密码.
-		std::string nick;// 昵称.
-		mm_uint64_t id;// 用户id.
+		std::string name;// 
+		std::string password;// 
+		std::string nick;// 
+		mm_uint64_t id;// 
 	public:
 		virtual ~p_userinfo_add();
 	public:
@@ -40,13 +41,36 @@ namespace mm
 	{
 	public:
 		mm_uint32_t code;// error code for sql.
-		std::string name;// 用户名.
-		std::string password;// 用户密码.
-		mm_uint64_t id;// 用户id.
+		std::string name;// 
+		std::string password;// 
+		mm_uint64_t id;// 
 	public:
 		virtual ~p_userinfo_check();
 	public:
 		p_userinfo_check();
+		//////////////////////////////////////////////////////////////////////////
+		// package
+		virtual void encode(mm_o_archive& archive) const;
+		virtual void decode(const mm_i_archive& archive);
+		//////////////////////////////////////////////////////////////////////////
+		// queryer
+		virtual int query(struct mm_db_mysql* _sql, mm_uint32_t logger_level);
+	};
+	//
+	//	struct definition for p_userinfo_search	//
+	struct p_userinfo_search : public mm_queryer
+	{
+	public:
+		typedef std::vector<t_user_basic> user_basic_vec;
+	public:
+		mm_uint32_t code;// error code for sql.
+		mm_uint32_t limit;// 
+		std::string search;// 
+		user_basic_vec user_info_s;
+	public:
+		virtual ~p_userinfo_search();
+	public:
+		p_userinfo_search();
 		//////////////////////////////////////////////////////////////////////////
 		// package
 		virtual void encode(mm_o_archive& archive) const;

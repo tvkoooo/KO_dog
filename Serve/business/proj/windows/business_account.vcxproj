@@ -24,6 +24,7 @@
     <ClCompile Include="..\..\src\business_account\mm_business_account_launch.cpp" />
     <ClCompile Include="..\..\src\business_account\mm_business_account_runtime.cpp" />
     <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_register_rq.cpp" />
+    <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_search_account_rq.cpp" />
     <ClCompile Include="..\..\src\business_account\mm_business_account_tcp_hd_c_business_account_signed_in_rq.cpp" />
     <ClCompile Include="..\..\src\business_account\mm_error_code_business_account.c" />
     <ClCompile Include="windows\main.cpp" />

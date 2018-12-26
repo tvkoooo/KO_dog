@@ -27,6 +27,7 @@
 
 CF_EXTERN_C_BEGIN
 
+@class B_business_account_user_info;
 @class B_error_info;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -63,7 +64,7 @@ BOOL C_business_account_signed_in_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_account_signed_in_rs_msg
 
 typedef GPB_ENUM(C_business_account_signed_in_rs_msg) {
-  C_business_account_signed_in_rs_msg_Id = 33558545,
+  C_business_account_signed_in_rs_msg_Id = 33562641,
 };
 
 GPBEnumDescriptor *C_business_account_signed_in_rs_msg_EnumDescriptor(void);
@@ -77,7 +78,7 @@ BOOL C_business_account_signed_in_rs_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_account_register_rq_msg
 
 typedef GPB_ENUM(C_business_account_register_rq_msg) {
-  C_business_account_register_rq_msg_Id = 33562656,
+  C_business_account_register_rq_msg_Id = 33562642,
 };
 
 GPBEnumDescriptor *C_business_account_register_rq_msg_EnumDescriptor(void);
@@ -91,7 +92,7 @@ BOOL C_business_account_register_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_account_register_rs_msg
 
 typedef GPB_ENUM(C_business_account_register_rs_msg) {
-  C_business_account_register_rs_msg_Id = 33558561,
+  C_business_account_register_rs_msg_Id = 33562643,
 };
 
 GPBEnumDescriptor *C_business_account_register_rs_msg_EnumDescriptor(void);
@@ -101,6 +102,34 @@ GPBEnumDescriptor *C_business_account_register_rs_msg_EnumDescriptor(void);
  * the time this source was generated.
  **/
 BOOL C_business_account_register_rs_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_account_search_account_rq_msg
+
+typedef GPB_ENUM(C_business_account_search_account_rq_msg) {
+  C_business_account_search_account_rq_msg_Id = 33562656,
+};
+
+GPBEnumDescriptor *C_business_account_search_account_rq_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_account_search_account_rq_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_account_search_account_rs_msg
+
+typedef GPB_ENUM(C_business_account_search_account_rs_msg) {
+  C_business_account_search_account_rs_msg_Id = 33562657,
+};
+
+GPBEnumDescriptor *C_business_account_search_account_rs_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_account_search_account_rs_msg_IsValidValue(int32_t value);
 
 #pragma mark - C_business_account_CBusinessAccountRoot
 
@@ -232,6 +261,45 @@ typedef GPB_ENUM(C_business_account_register_rs_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSString *token;
 /** Test to see if @c token has been set. */
 @property(nonatomic, readwrite) BOOL hasToken;
+
+@end
+
+#pragma mark - C_business_account_search_account_rq
+
+typedef GPB_ENUM(C_business_account_search_account_rq_FieldNumber) {
+  C_business_account_search_account_rq_FieldNumber_Condition = 1,
+};
+
+@interface C_business_account_search_account_rq : GPBMessage
+
+/** 检索词 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *condition;
+/** Test to see if @c condition has been set. */
+@property(nonatomic, readwrite) BOOL hasCondition;
+
+@end
+
+#pragma mark - C_business_account_search_account_rs
+
+typedef GPB_ENUM(C_business_account_search_account_rs_FieldNumber) {
+  C_business_account_search_account_rs_FieldNumber_Error = 1,
+  C_business_account_search_account_rs_FieldNumber_UserInfoSArray = 2,
+};
+
+/**
+ * (tcp)搜索
+ **/
+@interface C_business_account_search_account_rs : GPBMessage
+
+/** error info */
+@property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
+/** Test to see if @c error has been set. */
+@property(nonatomic, readwrite) BOOL hasError;
+
+/** 用户数据列表 */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<B_business_account_user_info*> *userInfoSArray;
+/** The number of items in @c userInfoSArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger userInfoSArray_Count;
 
 @end
 

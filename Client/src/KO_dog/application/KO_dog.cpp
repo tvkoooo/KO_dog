@@ -35,6 +35,12 @@
 #include "KO_dog_test_setup.h"
 #include "network/network_entry.h"
 #include "network/network_state.h"
+//test linshi////////////////////////////////////////////////////////////////////////
+static void __static_test_linshi()
+{
+
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* obj, double interval);
@@ -44,8 +50,6 @@ static void __static_set_entry_ip_port(mm::KO_dog* p, const char* ip, unsigned s
 
 namespace mm
 {
-	
-
 
 	//////////////////////////////////////////////////////////////////////////
 	mm_flake_activity* mm_flake_activity_native_alloc()
@@ -59,6 +63,9 @@ namespace mm
 	//////////////////////////////////////////////////////////////////////////
 	KO_dog::KO_dog()
 	{
+		///////////////////////////////////////////////////////////////////
+		__static_test_linshi();
+		///////////////////////////////////////////////////////////////////
 		mm_lua_context_init(&this->lua_context);
 		KO_dog_network_init(&this->network);
 		KO_dog_network_assign_context(&this->network, this);
@@ -181,6 +188,7 @@ static void __static_flake_context_adaptive_timer_unit_update_synchronize(void* 
 	mm::KO_dog* p = (mm::KO_dog*)(unit->callback.obj);
 	//
 	KO_dog_network_thread_handle_recv( &p->network);
+	p->data.thread_handle();
 }
 
 static void __static_set_entry_ip_port(mm::KO_dog* p, const char* ip, unsigned short port)
