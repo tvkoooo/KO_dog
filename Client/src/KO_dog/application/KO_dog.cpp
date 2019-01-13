@@ -121,7 +121,7 @@ namespace mm
 		//lua ½Å±¾³õÊ¼»¯
 		struct lua_State* L = this->lua_context.state;
 		mm_lua_state_set_global_file_context(L, &flake_context->d_file_context);
-		mm_lua_state_load_file_and_pcall(L, "script/main.lua");
+		mm_lua_state_load_file_and_pcall(L, "script/main.lua");		
 	}
 
 	void KO_dog::on_before_terminate()

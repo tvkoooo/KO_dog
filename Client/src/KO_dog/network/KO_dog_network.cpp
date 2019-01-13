@@ -4,6 +4,8 @@
 #include "network_account.h"
 #include "network_lobby.h"
 #include "network_state.h"
+#include "network_relation.h"
+
 #include "application/KO_dog.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -102,12 +104,13 @@ void KO_dog_network_init(struct KO_dog_network* p)
 	network_entry_callback_function_registration(p);
 	network_lobby_callback_function_registration(p);
 	network_account_callback_function_registration(p);
+	network_relation_callback_function_registration(p);
 	//关闭tcp udp 自动重连回复
 	mm_client_udp_assign_state_check_flag(&p->udp, client_udp_check_inactive);
 	mm_client_tcp_assign_state_check_flag(&p->tcp, client_tcp_check_inactive);
 
 	//设置定时器，在tcp断开状态下（1s 发送一次），定时发送udp
-	mm_timer_schedule(&p->timer, 10, 5000, &__static_KO_dog_network_msec_send_udp_handle, p);
+	mm_timer_schedule(&p->timer, 5000, 5000, &__static_KO_dog_network_msec_send_udp_handle, p);
 }
 void KO_dog_network_destroy(struct KO_dog_network* p)
 {
@@ -127,7 +130,7 @@ void KO_dog_network_assign_context(struct KO_dog_network* p, void* u)
 
 void KO_dog_network_client_udp_assign_remote_target(struct KO_dog_network* p, const char* node, mm_ushort_t port)
 {
-	mm_client_udp_assign_remote_target(&p->udp, node, port);
+	mm_client_udp_assign_remote(&p->udp, node, port);
 	//状态监测线程 设置udp 标签处于就绪状态
 	mm_client_udp_assign_state_check_flag(&p->udp, client_udp_check_activate);
 	//让网络线程立刻激活，并且做一次检测
@@ -135,7 +138,7 @@ void KO_dog_network_client_udp_assign_remote_target(struct KO_dog_network* p, co
 }
 void KO_dog_network_client_tcp_assign_remote_target(struct KO_dog_network* p, const char* node, mm_ushort_t port)
 {
-	mm_client_tcp_assign_remote_target(&p->tcp, node, port);
+	mm_client_tcp_assign_remote(&p->tcp, node, port);
 	//状态监测线程 设置tcp 标签处于就绪状态
 	mm_client_tcp_assign_state_check_flag(&p->tcp, client_tcp_check_activate);
 	//让网络线程立刻激活，并且做一次检测

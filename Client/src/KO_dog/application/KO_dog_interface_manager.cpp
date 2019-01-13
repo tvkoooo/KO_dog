@@ -11,6 +11,9 @@
 #include "KO_dog_window_ip.h"
 #include "application/KO_dog.h"
 
+#include "network/network_handle.h"
+#include "protodef/cxx/protodef/c_business_relation.pb.h"
+
 
 namespace mm
 {
@@ -253,8 +256,17 @@ namespace mm
 	}
 	bool KO_dog_interface_manager::on_handle_l_zhujiemian_login(const mm_event_args& args)
 	{
+		mm::KO_dog* p = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+		mm::KO_dog_data_user_basic* p_data_user_basic = &p->data.data_user_basic;
+		struct data_user_basic* u_basic = &p_data_user_basic->basic;
+
 		this->l_home_lj_mailbox->setVisible(true);
 		this->l_home_lj_login->setVisible(false);
+		//登录后需要更新服务器好友关系列表
+		c_business_relation::query_friends_rq rq;
+		rq.set_user_myself_id(u_basic->id);
+		mm_client_tcps_flush_send_message(&p->network.tcp, u_basic->id, c_business_relation::query_friends_rq_msg_id, &rq);
+
 		return false;
 	}
 	bool KO_dog_interface_manager::on_handle_userdata_user_token_update(const mm_event_args& args)

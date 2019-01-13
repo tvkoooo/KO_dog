@@ -1,0 +1,88 @@
+################################################
+include makefile_platform
+################################################
+Version := .0.0.0
+SUFFIX  := 
+PREFIX  := 
+################################################
+ProjectName := business_relation
+OutFileName := $(ProjectName)
+OutPathName := bin
+# $(info $(OutPathName)/$(OutFileName))
+################################################
+#global directory defined
+ObjDirPath := ./obj/
+PrefixPath := 
+################################################
+# cross compile tools defined.
+CrossCompile := 
+COMPILER     := g++
+FLAG_OUT     := -o
+################################################
+MY_FILES_SUFFIX := %.cpp %.c %.cc
+################################################
+LDFLAGS  	+= -fPIC
+################################################
+MY_COMMON_FLAGS += -Wall -MD -fPIC
+################################################
+CFLAGS 		+= $(MY_COMMON_FLAGS)
+################################################
+CXXFLAGS	+= $(MY_COMMON_FLAGS)
+################################################
+PROJ_ROOT_PATH = ../..
+PRIVATE_SRC_PATH = business_relation
+################################################
+LIBS += 
+################################################
+LIBS += $(OutPathName)/libmm_business_protodef.a
+LIBS += $(OutPathName)/libmm_business_querydef.a
+LIBS += $(MM_SHUTTLE)/shuttle/proj/$(PLATFORM)/bin/libmm_shuttle_common.a
+LIBS += $(MM_SHUTTLE)/shuttle/proj/$(PLATFORM)/bin/libmm_shuttle_protodef.a
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_redis.a
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_zookeeper.a
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_protobuf.a
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_jwt.a
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_openssl.a
+LIBS += $(MM_CORE)/data/proj/$(PLATFORM)/bin/libmm_data_mysql.a
+LIBS += $(MM_CORE)/dish/proj/$(PLATFORM)/bin/libmm_dish.a
+LIBS += $(MM_CORE)/mm/proj/$(PLATFORM)/bin/libmm_net.a
+LIBS += $(MM_CORE)/mm/proj/$(PLATFORM)/bin/libmm_core.a
+LIBS += $(MM_LIB)/build/protobuf-c/proj_$(PLATFORM)/bin/libprotobuf-c.a
+LIBS += $(MM_LIB)/build/protobuf/proj_$(PLATFORM)/bin/libprotobuf.a
+LIBS += $(MM_LIB)/build/hiredis/proj_$(PLATFORM)/bin/libhiredis.a
+LIBS += $(MM_LIB)/build/zookeeper/proj_$(PLATFORM)/bin/libzookeeper.a
+LIBS += $(MM_LIB)/build/inih/proj_$(PLATFORM)/bin/libinih.a
+LIBS += $(MM_LIB)/build/cJSON/proj_$(PLATFORM)/bin/libcJSON.a
+LIBS += $(MM_LIB)/build/openssl/proj_$(PLATFORM)/bin/libcrypto.a
+LIBS += $(MM_LIB)/build/zlib/proj_$(PLATFORM)/bin/libz.a
+LIBS += $(MYSQL_HOME)/lib/libmysqlclient.a
+LIBS += -lpthread
+LIBS += -ldl
+################################################
+MY_FILES_PATH += $(PROJ_ROOT_PATH)/src/$(PRIVATE_SRC_PATH)
+MY_FILES_PATH += $(PLATFORM)
+################################################
+# MY_FILTER_OUT += $(PROJ_ROOT_PATH)/src/exec%
+################################################
+LOCAL_C_INCLUDES += -I$(MM_CORE)/mm/src
+LOCAL_C_INCLUDES += -I$(MM_CORE)/mm/src/os/$(PLATFORM)
+LOCAL_C_INCLUDES += -I$(MM_CORE)/dish/src
+LOCAL_C_INCLUDES += -I$(MM_CORE)/dish/src/os/$(PLATFORM)
+LOCAL_C_INCLUDES += -I$(MM_CORE)/data/src
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/protobuf/src
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/protobuf-c/src
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/hiredis
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/zookeeper/src/c/include
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/zookeeper/src/c/generated
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/rapidjson/include
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/inih
+LOCAL_C_INCLUDES += -I$(MM_LIB)/src/cJSON
+LOCAL_C_INCLUDES += -I$(MM_SHUTTLE)/shuttle/src
+LOCAL_C_INCLUDES += -I$(MYSQL_HOME)/include
+LOCAL_C_INCLUDES += -I$(PROJ_ROOT_PATH)/src
+LOCAL_C_INCLUDES += -I$(PROJ_ROOT_PATH)/src/protodef
+LOCAL_C_INCLUDES += -I$(PROJ_ROOT_PATH)/src/$(PRIVATE_SRC_PATH)
+LOCAL_C_INCLUDES += -I$(PLATFORM)
+################################################
+include $(MAKE_HOME)/makefile_common
+################################################

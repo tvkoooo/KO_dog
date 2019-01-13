@@ -152,7 +152,10 @@ public interface c_business_relation {
     // required uint64 user_add_id = 2;
     public long userAddId;
 
-    // required string description = 3;
+    // required string user_remark = 3;
+    public java.lang.String userRemark;
+
+    // required string description = 4;
     public java.lang.String description;
 
     public add_friend_rq() {
@@ -162,6 +165,7 @@ public interface c_business_relation {
     public add_friend_rq clear() {
       userMyselfId = 0L;
       userAddId = 0L;
+      userRemark = "";
       description = "";
       cachedSize = -1;
       return this;
@@ -172,7 +176,8 @@ public interface c_business_relation {
         throws java.io.IOException {
       output.writeUInt64(1, this.userMyselfId);
       output.writeUInt64(2, this.userAddId);
-      output.writeString(3, this.description);
+      output.writeString(3, this.userRemark);
+      output.writeString(4, this.description);
       super.writeTo(output);
     }
 
@@ -184,7 +189,9 @@ public interface c_business_relation {
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt64Size(2, this.userAddId);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(3, this.description);
+          .computeStringSize(3, this.userRemark);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(4, this.description);
       return size;
     }
 
@@ -212,6 +219,10 @@ public interface c_business_relation {
             break;
           }
           case 26: {
+            this.userRemark = input.readString();
+            break;
+          }
+          case 34: {
             this.description = input.readString();
             break;
           }
@@ -257,6 +268,9 @@ public interface c_business_relation {
     // required uint64 user_add_id = 2;
     public long userAddId;
 
+    // required string user_remark = 3;
+    public java.lang.String userRemark;
+
     public add_friend_rs() {
       clear();
     }
@@ -264,6 +278,7 @@ public interface c_business_relation {
     public add_friend_rs clear() {
       error = null;
       userAddId = 0L;
+      userRemark = "";
       cachedSize = -1;
       return this;
     }
@@ -275,6 +290,7 @@ public interface c_business_relation {
         output.writeMessage(1, this.error);
       }
       output.writeUInt64(2, this.userAddId);
+      output.writeString(3, this.userRemark);
       super.writeTo(output);
     }
 
@@ -287,6 +303,8 @@ public interface c_business_relation {
       }
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt64Size(2, this.userAddId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(3, this.userRemark);
       return size;
     }
 
@@ -314,6 +332,10 @@ public interface c_business_relation {
           }
           case 16: {
             this.userAddId = input.readUInt64();
+            break;
+          }
+          case 26: {
+            this.userRemark = input.readString();
             break;
           }
         }
@@ -355,7 +377,7 @@ public interface c_business_relation {
     // required .b_business_account.user_info apply_user_info = 1;
     public protodef.nano.b_business_account.user_info applyUserInfo;
 
-    // required string description = 3;
+    // required string description = 2;
     public java.lang.String description;
 
     public add_friend_nt() {
@@ -375,7 +397,7 @@ public interface c_business_relation {
       if (this.applyUserInfo != null) {
         output.writeMessage(1, this.applyUserInfo);
       }
-      output.writeString(3, this.description);
+      output.writeString(2, this.description);
       super.writeTo(output);
     }
 
@@ -387,7 +409,7 @@ public interface c_business_relation {
           .computeMessageSize(1, this.applyUserInfo);
       }
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(3, this.description);
+          .computeStringSize(2, this.description);
       return size;
     }
 
@@ -413,7 +435,7 @@ public interface c_business_relation {
             input.readMessage(this.applyUserInfo);
             break;
           }
-          case 26: {
+          case 18: {
             this.description = input.readString();
             break;
           }
@@ -741,7 +763,13 @@ public interface c_business_relation {
     // required uint64 user_allow_id = 2;
     public long userAllowId;
 
-    // required uint32 opcode = 3;
+    // required string user_myself_nick = 3;
+    public java.lang.String userMyselfNick;
+
+    // required string user_allow_nick = 4;
+    public java.lang.String userAllowNick;
+
+    // required uint32 opcode = 5;
     public int opcode;
 
     public allow_friend_rq() {
@@ -751,6 +779,8 @@ public interface c_business_relation {
     public allow_friend_rq clear() {
       userMyselfId = 0L;
       userAllowId = 0L;
+      userMyselfNick = "";
+      userAllowNick = "";
       opcode = 0;
       cachedSize = -1;
       return this;
@@ -761,7 +791,9 @@ public interface c_business_relation {
         throws java.io.IOException {
       output.writeUInt64(1, this.userMyselfId);
       output.writeUInt64(2, this.userAllowId);
-      output.writeUInt32(3, this.opcode);
+      output.writeString(3, this.userMyselfNick);
+      output.writeString(4, this.userAllowNick);
+      output.writeUInt32(5, this.opcode);
       super.writeTo(output);
     }
 
@@ -773,7 +805,11 @@ public interface c_business_relation {
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt64Size(2, this.userAllowId);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt32Size(3, this.opcode);
+          .computeStringSize(3, this.userMyselfNick);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(4, this.userAllowNick);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt32Size(5, this.opcode);
       return size;
     }
 
@@ -800,7 +836,15 @@ public interface c_business_relation {
             this.userAllowId = input.readUInt64();
             break;
           }
-          case 24: {
+          case 26: {
+            this.userMyselfNick = input.readString();
+            break;
+          }
+          case 34: {
+            this.userAllowNick = input.readString();
+            break;
+          }
+          case 40: {
             this.opcode = input.readUInt32();
             break;
           }
@@ -849,6 +893,9 @@ public interface c_business_relation {
     // required uint32 opcode = 3;
     public int opcode;
 
+    // repeated .b_business_relation.user_relation relation_s = 4;
+    public protodef.nano.b_business_relation.user_relation[] relationS;
+
     public allow_friend_rs() {
       clear();
     }
@@ -857,6 +904,7 @@ public interface c_business_relation {
       error = null;
       userAllowId = 0L;
       opcode = 0;
+      relationS = protodef.nano.b_business_relation.user_relation.emptyArray();
       cachedSize = -1;
       return this;
     }
@@ -869,6 +917,14 @@ public interface c_business_relation {
       }
       output.writeUInt64(2, this.userAllowId);
       output.writeUInt32(3, this.opcode);
+      if (this.relationS != null && this.relationS.length > 0) {
+        for (int i = 0; i < this.relationS.length; i++) {
+          protodef.nano.b_business_relation.user_relation element = this.relationS[i];
+          if (element != null) {
+            output.writeMessage(4, element);
+          }
+        }
+      }
       super.writeTo(output);
     }
 
@@ -883,6 +939,15 @@ public interface c_business_relation {
           .computeUInt64Size(2, this.userAllowId);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt32Size(3, this.opcode);
+      if (this.relationS != null && this.relationS.length > 0) {
+        for (int i = 0; i < this.relationS.length; i++) {
+          protodef.nano.b_business_relation.user_relation element = this.relationS[i];
+          if (element != null) {
+            size += com.google.protobuf.nano.CodedOutputByteBufferNano
+              .computeMessageSize(4, element);
+          }
+        }
+      }
       return size;
     }
 
@@ -914,6 +979,26 @@ public interface c_business_relation {
           }
           case 24: {
             this.opcode = input.readUInt32();
+            break;
+          }
+          case 34: {
+            int arrayLength = com.google.protobuf.nano.WireFormatNano
+                .getRepeatedFieldArrayLength(input, 34);
+            int i = this.relationS == null ? 0 : this.relationS.length;
+            protodef.nano.b_business_relation.user_relation[] newArray =
+                new protodef.nano.b_business_relation.user_relation[i + arrayLength];
+            if (i != 0) {
+              java.lang.System.arraycopy(this.relationS, 0, newArray, 0, i);
+            }
+            for (; i < newArray.length - 1; i++) {
+              newArray[i] = new protodef.nano.b_business_relation.user_relation();
+              input.readMessage(newArray[i]);
+              input.readTag();
+            }
+            // Last one without readTag.
+            newArray[i] = new protodef.nano.b_business_relation.user_relation();
+            input.readMessage(newArray[i]);
+            this.relationS = newArray;
             break;
           }
         }
@@ -952,19 +1037,23 @@ public interface c_business_relation {
       return _emptyArray;
     }
 
-    // required uint64 allow_user_id = 1;
-    public long allowUserId;
+    // required .b_business_account.user_info apply_user_info = 1;
+    public protodef.nano.b_business_account.user_info applyUserInfo;
 
     // required uint32 opcode = 2;
     public int opcode;
+
+    // repeated .b_business_relation.user_relation relation_s = 3;
+    public protodef.nano.b_business_relation.user_relation[] relationS;
 
     public allow_friend_nt() {
       clear();
     }
 
     public allow_friend_nt clear() {
-      allowUserId = 0L;
+      applyUserInfo = null;
       opcode = 0;
+      relationS = protodef.nano.b_business_relation.user_relation.emptyArray();
       cachedSize = -1;
       return this;
     }
@@ -972,18 +1061,39 @@ public interface c_business_relation {
     @Override
     public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
         throws java.io.IOException {
-      output.writeUInt64(1, this.allowUserId);
+      if (this.applyUserInfo != null) {
+        output.writeMessage(1, this.applyUserInfo);
+      }
       output.writeUInt32(2, this.opcode);
+      if (this.relationS != null && this.relationS.length > 0) {
+        for (int i = 0; i < this.relationS.length; i++) {
+          protodef.nano.b_business_relation.user_relation element = this.relationS[i];
+          if (element != null) {
+            output.writeMessage(3, element);
+          }
+        }
+      }
       super.writeTo(output);
     }
 
     @Override
     protected int computeSerializedSize() {
       int size = super.computeSerializedSize();
-      size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt64Size(1, this.allowUserId);
+      if (this.applyUserInfo != null) {
+        size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeMessageSize(1, this.applyUserInfo);
+      }
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt32Size(2, this.opcode);
+      if (this.relationS != null && this.relationS.length > 0) {
+        for (int i = 0; i < this.relationS.length; i++) {
+          protodef.nano.b_business_relation.user_relation element = this.relationS[i];
+          if (element != null) {
+            size += com.google.protobuf.nano.CodedOutputByteBufferNano
+              .computeMessageSize(3, element);
+          }
+        }
+      }
       return size;
     }
 
@@ -1002,12 +1112,35 @@ public interface c_business_relation {
             }
             break;
           }
-          case 8: {
-            this.allowUserId = input.readUInt64();
+          case 10: {
+            if (this.applyUserInfo == null) {
+              this.applyUserInfo = new protodef.nano.b_business_account.user_info();
+            }
+            input.readMessage(this.applyUserInfo);
             break;
           }
           case 16: {
             this.opcode = input.readUInt32();
+            break;
+          }
+          case 26: {
+            int arrayLength = com.google.protobuf.nano.WireFormatNano
+                .getRepeatedFieldArrayLength(input, 26);
+            int i = this.relationS == null ? 0 : this.relationS.length;
+            protodef.nano.b_business_relation.user_relation[] newArray =
+                new protodef.nano.b_business_relation.user_relation[i + arrayLength];
+            if (i != 0) {
+              java.lang.System.arraycopy(this.relationS, 0, newArray, 0, i);
+            }
+            for (; i < newArray.length - 1; i++) {
+              newArray[i] = new protodef.nano.b_business_relation.user_relation();
+              input.readMessage(newArray[i]);
+              input.readTag();
+            }
+            // Last one without readTag.
+            newArray[i] = new protodef.nano.b_business_relation.user_relation();
+            input.readMessage(newArray[i]);
+            this.relationS = newArray;
             break;
           }
         }
@@ -1132,8 +1265,11 @@ public interface c_business_relation {
     // required .b_error.info error = 1;
     public protodef.nano.b_error.info error;
 
-    // repeated .c_business_relation.friend_info friend_info_s = 2;
-    public protodef.nano.c_business_relation.friend_info[] friendInfoS;
+    // repeated .b_business_relation.user_relation_group group_s = 2;
+    public protodef.nano.b_business_relation.user_relation_group[] groupS;
+
+    // repeated .b_business_relation.user_relation relation_s = 3;
+    public protodef.nano.b_business_relation.user_relation[] relationS;
 
     public query_friends_rs() {
       clear();
@@ -1141,7 +1277,8 @@ public interface c_business_relation {
 
     public query_friends_rs clear() {
       error = null;
-      friendInfoS = protodef.nano.c_business_relation.friend_info.emptyArray();
+      groupS = protodef.nano.b_business_relation.user_relation_group.emptyArray();
+      relationS = protodef.nano.b_business_relation.user_relation.emptyArray();
       cachedSize = -1;
       return this;
     }
@@ -1152,11 +1289,19 @@ public interface c_business_relation {
       if (this.error != null) {
         output.writeMessage(1, this.error);
       }
-      if (this.friendInfoS != null && this.friendInfoS.length > 0) {
-        for (int i = 0; i < this.friendInfoS.length; i++) {
-          protodef.nano.c_business_relation.friend_info element = this.friendInfoS[i];
+      if (this.groupS != null && this.groupS.length > 0) {
+        for (int i = 0; i < this.groupS.length; i++) {
+          protodef.nano.b_business_relation.user_relation_group element = this.groupS[i];
           if (element != null) {
             output.writeMessage(2, element);
+          }
+        }
+      }
+      if (this.relationS != null && this.relationS.length > 0) {
+        for (int i = 0; i < this.relationS.length; i++) {
+          protodef.nano.b_business_relation.user_relation element = this.relationS[i];
+          if (element != null) {
+            output.writeMessage(3, element);
           }
         }
       }
@@ -1170,12 +1315,21 @@ public interface c_business_relation {
         size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeMessageSize(1, this.error);
       }
-      if (this.friendInfoS != null && this.friendInfoS.length > 0) {
-        for (int i = 0; i < this.friendInfoS.length; i++) {
-          protodef.nano.c_business_relation.friend_info element = this.friendInfoS[i];
+      if (this.groupS != null && this.groupS.length > 0) {
+        for (int i = 0; i < this.groupS.length; i++) {
+          protodef.nano.b_business_relation.user_relation_group element = this.groupS[i];
           if (element != null) {
             size += com.google.protobuf.nano.CodedOutputByteBufferNano
               .computeMessageSize(2, element);
+          }
+        }
+      }
+      if (this.relationS != null && this.relationS.length > 0) {
+        for (int i = 0; i < this.relationS.length; i++) {
+          protodef.nano.b_business_relation.user_relation element = this.relationS[i];
+          if (element != null) {
+            size += com.google.protobuf.nano.CodedOutputByteBufferNano
+              .computeMessageSize(3, element);
           }
         }
       }
@@ -1207,21 +1361,41 @@ public interface c_business_relation {
           case 18: {
             int arrayLength = com.google.protobuf.nano.WireFormatNano
                 .getRepeatedFieldArrayLength(input, 18);
-            int i = this.friendInfoS == null ? 0 : this.friendInfoS.length;
-            protodef.nano.c_business_relation.friend_info[] newArray =
-                new protodef.nano.c_business_relation.friend_info[i + arrayLength];
+            int i = this.groupS == null ? 0 : this.groupS.length;
+            protodef.nano.b_business_relation.user_relation_group[] newArray =
+                new protodef.nano.b_business_relation.user_relation_group[i + arrayLength];
             if (i != 0) {
-              java.lang.System.arraycopy(this.friendInfoS, 0, newArray, 0, i);
+              java.lang.System.arraycopy(this.groupS, 0, newArray, 0, i);
             }
             for (; i < newArray.length - 1; i++) {
-              newArray[i] = new protodef.nano.c_business_relation.friend_info();
+              newArray[i] = new protodef.nano.b_business_relation.user_relation_group();
               input.readMessage(newArray[i]);
               input.readTag();
             }
             // Last one without readTag.
-            newArray[i] = new protodef.nano.c_business_relation.friend_info();
+            newArray[i] = new protodef.nano.b_business_relation.user_relation_group();
             input.readMessage(newArray[i]);
-            this.friendInfoS = newArray;
+            this.groupS = newArray;
+            break;
+          }
+          case 26: {
+            int arrayLength = com.google.protobuf.nano.WireFormatNano
+                .getRepeatedFieldArrayLength(input, 26);
+            int i = this.relationS == null ? 0 : this.relationS.length;
+            protodef.nano.b_business_relation.user_relation[] newArray =
+                new protodef.nano.b_business_relation.user_relation[i + arrayLength];
+            if (i != 0) {
+              java.lang.System.arraycopy(this.relationS, 0, newArray, 0, i);
+            }
+            for (; i < newArray.length - 1; i++) {
+              newArray[i] = new protodef.nano.b_business_relation.user_relation();
+              input.readMessage(newArray[i]);
+              input.readTag();
+            }
+            // Last one without readTag.
+            newArray[i] = new protodef.nano.b_business_relation.user_relation();
+            input.readMessage(newArray[i]);
+            this.relationS = newArray;
             break;
           }
         }
@@ -1457,6 +1631,429 @@ public interface c_business_relation {
     }
   }
 
+  public static final class add_friend_group_rq extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562913;
+
+    private static volatile add_friend_group_rq[] _emptyArray;
+    public static add_friend_group_rq[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new add_friend_group_rq[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required uint64 user_myself_id = 1;
+    public long userMyselfId;
+
+    // required string user_friend_group = 2;
+    public java.lang.String userFriendGroup;
+
+    public add_friend_group_rq() {
+      clear();
+    }
+
+    public add_friend_group_rq clear() {
+      userMyselfId = 0L;
+      userFriendGroup = "";
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      output.writeUInt64(1, this.userMyselfId);
+      output.writeString(2, this.userFriendGroup);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(1, this.userMyselfId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(2, this.userFriendGroup);
+      return size;
+    }
+
+    @Override
+    public add_friend_group_rq mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 8: {
+            this.userMyselfId = input.readUInt64();
+            break;
+          }
+          case 18: {
+            this.userFriendGroup = input.readString();
+            break;
+          }
+        }
+      }
+    }
+
+    public static add_friend_group_rq parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new add_friend_group_rq(), data);
+    }
+
+    public static add_friend_group_rq parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new add_friend_group_rq().mergeFrom(input);
+    }
+  }
+
+  public static final class add_friend_group_rs extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562914;
+
+    private static volatile add_friend_group_rs[] _emptyArray;
+    public static add_friend_group_rs[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new add_friend_group_rs[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required .b_error.info error = 1;
+    public protodef.nano.b_error.info error;
+
+    // required string user_friend_group = 2;
+    public java.lang.String userFriendGroup;
+
+    // required uint64 user_friend_group_id = 3;
+    public long userFriendGroupId;
+
+    public add_friend_group_rs() {
+      clear();
+    }
+
+    public add_friend_group_rs clear() {
+      error = null;
+      userFriendGroup = "";
+      userFriendGroupId = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      if (this.error != null) {
+        output.writeMessage(1, this.error);
+      }
+      output.writeString(2, this.userFriendGroup);
+      output.writeUInt64(3, this.userFriendGroupId);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      if (this.error != null) {
+        size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeMessageSize(1, this.error);
+      }
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeStringSize(2, this.userFriendGroup);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(3, this.userFriendGroupId);
+      return size;
+    }
+
+    @Override
+    public add_friend_group_rs mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 10: {
+            if (this.error == null) {
+              this.error = new protodef.nano.b_error.info();
+            }
+            input.readMessage(this.error);
+            break;
+          }
+          case 18: {
+            this.userFriendGroup = input.readString();
+            break;
+          }
+          case 24: {
+            this.userFriendGroupId = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static add_friend_group_rs parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new add_friend_group_rs(), data);
+    }
+
+    public static add_friend_group_rs parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new add_friend_group_rs().mergeFrom(input);
+    }
+  }
+
+  public static final class delete_friend_group_rq extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562913;
+
+    private static volatile delete_friend_group_rq[] _emptyArray;
+    public static delete_friend_group_rq[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new delete_friend_group_rq[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required uint64 user_myself_id = 1;
+    public long userMyselfId;
+
+    // required uint64 user_friend_id = 2;
+    public long userFriendId;
+
+    // required uint64 user_friend_group_id = 3;
+    public long userFriendGroupId;
+
+    public delete_friend_group_rq() {
+      clear();
+    }
+
+    public delete_friend_group_rq clear() {
+      userMyselfId = 0L;
+      userFriendId = 0L;
+      userFriendGroupId = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      output.writeUInt64(1, this.userMyselfId);
+      output.writeUInt64(2, this.userFriendId);
+      output.writeUInt64(3, this.userFriendGroupId);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(1, this.userMyselfId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(2, this.userFriendId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(3, this.userFriendGroupId);
+      return size;
+    }
+
+    @Override
+    public delete_friend_group_rq mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 8: {
+            this.userMyselfId = input.readUInt64();
+            break;
+          }
+          case 16: {
+            this.userFriendId = input.readUInt64();
+            break;
+          }
+          case 24: {
+            this.userFriendGroupId = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static delete_friend_group_rq parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new delete_friend_group_rq(), data);
+    }
+
+    public static delete_friend_group_rq parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new delete_friend_group_rq().mergeFrom(input);
+    }
+  }
+
+  public static final class delete_friend_group_rs extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562914;
+
+    private static volatile delete_friend_group_rs[] _emptyArray;
+    public static delete_friend_group_rs[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new delete_friend_group_rs[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required .b_error.info error = 1;
+    public protodef.nano.b_error.info error;
+
+    // required uint64 user_friend_id = 2;
+    public long userFriendId;
+
+    // required uint64 user_friend_group_id = 3;
+    public long userFriendGroupId;
+
+    public delete_friend_group_rs() {
+      clear();
+    }
+
+    public delete_friend_group_rs clear() {
+      error = null;
+      userFriendId = 0L;
+      userFriendGroupId = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      if (this.error != null) {
+        output.writeMessage(1, this.error);
+      }
+      output.writeUInt64(2, this.userFriendId);
+      output.writeUInt64(3, this.userFriendGroupId);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      if (this.error != null) {
+        size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeMessageSize(1, this.error);
+      }
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(2, this.userFriendId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(3, this.userFriendGroupId);
+      return size;
+    }
+
+    @Override
+    public delete_friend_group_rs mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 10: {
+            if (this.error == null) {
+              this.error = new protodef.nano.b_error.info();
+            }
+            input.readMessage(this.error);
+            break;
+          }
+          case 16: {
+            this.userFriendId = input.readUInt64();
+            break;
+          }
+          case 24: {
+            this.userFriendGroupId = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static delete_friend_group_rs parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new delete_friend_group_rs(), data);
+    }
+
+    public static delete_friend_group_rs parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new delete_friend_group_rs().mergeFrom(input);
+    }
+  }
+
   public static final class rename_friend_group_rq extends
       com.google.protobuf.nano.MessageNano {
 
@@ -1480,10 +2077,10 @@ public interface c_business_relation {
     // required uint64 user_myself_id = 1;
     public long userMyselfId;
 
-    // required uint64 user_friend_id = 2;
-    public long userFriendId;
+    // required uint64 user_friend_group_id = 3;
+    public long userFriendGroupId;
 
-    // required string user_friend_group = 3;
+    // required string user_friend_group = 4;
     public java.lang.String userFriendGroup;
 
     public rename_friend_group_rq() {
@@ -1492,7 +2089,7 @@ public interface c_business_relation {
 
     public rename_friend_group_rq clear() {
       userMyselfId = 0L;
-      userFriendId = 0L;
+      userFriendGroupId = 0L;
       userFriendGroup = "";
       cachedSize = -1;
       return this;
@@ -1502,8 +2099,8 @@ public interface c_business_relation {
     public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
         throws java.io.IOException {
       output.writeUInt64(1, this.userMyselfId);
-      output.writeUInt64(2, this.userFriendId);
-      output.writeString(3, this.userFriendGroup);
+      output.writeUInt64(3, this.userFriendGroupId);
+      output.writeString(4, this.userFriendGroup);
       super.writeTo(output);
     }
 
@@ -1513,9 +2110,9 @@ public interface c_business_relation {
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeUInt64Size(1, this.userMyselfId);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt64Size(2, this.userFriendId);
+          .computeUInt64Size(3, this.userFriendGroupId);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(3, this.userFriendGroup);
+          .computeStringSize(4, this.userFriendGroup);
       return size;
     }
 
@@ -1538,11 +2135,11 @@ public interface c_business_relation {
             this.userMyselfId = input.readUInt64();
             break;
           }
-          case 16: {
-            this.userFriendId = input.readUInt64();
+          case 24: {
+            this.userFriendGroupId = input.readUInt64();
             break;
           }
-          case 26: {
+          case 34: {
             this.userFriendGroup = input.readString();
             break;
           }
@@ -1585,10 +2182,10 @@ public interface c_business_relation {
     // required .b_error.info error = 1;
     public protodef.nano.b_error.info error;
 
-    // required uint64 user_friend_id = 2;
-    public long userFriendId;
+    // required uint64 user_friend_group_id = 3;
+    public long userFriendGroupId;
 
-    // required string user_friend_group = 3;
+    // required string user_friend_group = 4;
     public java.lang.String userFriendGroup;
 
     public rename_friend_group_rs() {
@@ -1597,7 +2194,7 @@ public interface c_business_relation {
 
     public rename_friend_group_rs clear() {
       error = null;
-      userFriendId = 0L;
+      userFriendGroupId = 0L;
       userFriendGroup = "";
       cachedSize = -1;
       return this;
@@ -1609,8 +2206,8 @@ public interface c_business_relation {
       if (this.error != null) {
         output.writeMessage(1, this.error);
       }
-      output.writeUInt64(2, this.userFriendId);
-      output.writeString(3, this.userFriendGroup);
+      output.writeUInt64(3, this.userFriendGroupId);
+      output.writeString(4, this.userFriendGroup);
       super.writeTo(output);
     }
 
@@ -1622,9 +2219,9 @@ public interface c_business_relation {
           .computeMessageSize(1, this.error);
       }
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt64Size(2, this.userFriendId);
+          .computeUInt64Size(3, this.userFriendGroupId);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeStringSize(3, this.userFriendGroup);
+          .computeStringSize(4, this.userFriendGroup);
       return size;
     }
 
@@ -1650,11 +2247,11 @@ public interface c_business_relation {
             input.readMessage(this.error);
             break;
           }
-          case 16: {
-            this.userFriendId = input.readUInt64();
+          case 24: {
+            this.userFriendGroupId = input.readUInt64();
             break;
           }
-          case 26: {
+          case 34: {
             this.userFriendGroup = input.readString();
             break;
           }
@@ -1674,11 +2271,464 @@ public interface c_business_relation {
     }
   }
 
-  public static final class talk_friend_rq extends
+  public static final class change_friend_group_rq extends
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
     public static final int id = 33562915;
+
+    private static volatile change_friend_group_rq[] _emptyArray;
+    public static change_friend_group_rq[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new change_friend_group_rq[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required uint64 user_myself_id = 1;
+    public long userMyselfId;
+
+    // required uint64 user_friend_id = 2;
+    public long userFriendId;
+
+    // required uint64 user_friend_group_id_old = 3;
+    public long userFriendGroupIdOld;
+
+    // required uint64 user_friend_group_id_new = 4;
+    public long userFriendGroupIdNew;
+
+    public change_friend_group_rq() {
+      clear();
+    }
+
+    public change_friend_group_rq clear() {
+      userMyselfId = 0L;
+      userFriendId = 0L;
+      userFriendGroupIdOld = 0L;
+      userFriendGroupIdNew = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      output.writeUInt64(1, this.userMyselfId);
+      output.writeUInt64(2, this.userFriendId);
+      output.writeUInt64(3, this.userFriendGroupIdOld);
+      output.writeUInt64(4, this.userFriendGroupIdNew);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(1, this.userMyselfId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(2, this.userFriendId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(3, this.userFriendGroupIdOld);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(4, this.userFriendGroupIdNew);
+      return size;
+    }
+
+    @Override
+    public change_friend_group_rq mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 8: {
+            this.userMyselfId = input.readUInt64();
+            break;
+          }
+          case 16: {
+            this.userFriendId = input.readUInt64();
+            break;
+          }
+          case 24: {
+            this.userFriendGroupIdOld = input.readUInt64();
+            break;
+          }
+          case 32: {
+            this.userFriendGroupIdNew = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static change_friend_group_rq parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new change_friend_group_rq(), data);
+    }
+
+    public static change_friend_group_rq parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new change_friend_group_rq().mergeFrom(input);
+    }
+  }
+
+  public static final class change_friend_group_rs extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562916;
+
+    private static volatile change_friend_group_rs[] _emptyArray;
+    public static change_friend_group_rs[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new change_friend_group_rs[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required .b_error.info error = 1;
+    public protodef.nano.b_error.info error;
+
+    // required uint64 user_friend_id = 2;
+    public long userFriendId;
+
+    // required uint64 user_friend_group_id_old = 3;
+    public long userFriendGroupIdOld;
+
+    // required uint64 user_friend_group_id_new = 4;
+    public long userFriendGroupIdNew;
+
+    public change_friend_group_rs() {
+      clear();
+    }
+
+    public change_friend_group_rs clear() {
+      error = null;
+      userFriendId = 0L;
+      userFriendGroupIdOld = 0L;
+      userFriendGroupIdNew = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      if (this.error != null) {
+        output.writeMessage(1, this.error);
+      }
+      output.writeUInt64(2, this.userFriendId);
+      output.writeUInt64(3, this.userFriendGroupIdOld);
+      output.writeUInt64(4, this.userFriendGroupIdNew);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      if (this.error != null) {
+        size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeMessageSize(1, this.error);
+      }
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(2, this.userFriendId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(3, this.userFriendGroupIdOld);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(4, this.userFriendGroupIdNew);
+      return size;
+    }
+
+    @Override
+    public change_friend_group_rs mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 10: {
+            if (this.error == null) {
+              this.error = new protodef.nano.b_error.info();
+            }
+            input.readMessage(this.error);
+            break;
+          }
+          case 16: {
+            this.userFriendId = input.readUInt64();
+            break;
+          }
+          case 24: {
+            this.userFriendGroupIdOld = input.readUInt64();
+            break;
+          }
+          case 32: {
+            this.userFriendGroupIdNew = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static change_friend_group_rs parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new change_friend_group_rs(), data);
+    }
+
+    public static change_friend_group_rs parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new change_friend_group_rs().mergeFrom(input);
+    }
+  }
+
+  public static final class query_friends_apply_rq extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562917;
+
+    private static volatile query_friends_apply_rq[] _emptyArray;
+    public static query_friends_apply_rq[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new query_friends_apply_rq[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required uint64 user_myself_id = 1;
+    public long userMyselfId;
+
+    public query_friends_apply_rq() {
+      clear();
+    }
+
+    public query_friends_apply_rq clear() {
+      userMyselfId = 0L;
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      output.writeUInt64(1, this.userMyselfId);
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt64Size(1, this.userMyselfId);
+      return size;
+    }
+
+    @Override
+    public query_friends_apply_rq mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 8: {
+            this.userMyselfId = input.readUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    public static query_friends_apply_rq parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new query_friends_apply_rq(), data);
+    }
+
+    public static query_friends_apply_rq parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new query_friends_apply_rq().mergeFrom(input);
+    }
+  }
+
+  public static final class query_friends_apply_rs extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562918;
+
+    private static volatile query_friends_apply_rs[] _emptyArray;
+    public static query_friends_apply_rs[] emptyArray() {
+      // Lazily initializes the empty array
+      if (_emptyArray == null) {
+        synchronized (
+            com.google.protobuf.nano.InternalNano.LAZY_INIT_LOCK) {
+          if (_emptyArray == null) {
+            _emptyArray = new query_friends_apply_rs[0];
+          }
+        }
+      }
+      return _emptyArray;
+    }
+
+    // required .b_error.info error = 1;
+    public protodef.nano.b_error.info error;
+
+    // repeated .b_business_relation.friend_apply apply_s = 2;
+    public protodef.nano.b_business_relation.friend_apply[] applyS;
+
+    public query_friends_apply_rs() {
+      clear();
+    }
+
+    public query_friends_apply_rs clear() {
+      error = null;
+      applyS = protodef.nano.b_business_relation.friend_apply.emptyArray();
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.nano.CodedOutputByteBufferNano output)
+        throws java.io.IOException {
+      if (this.error != null) {
+        output.writeMessage(1, this.error);
+      }
+      if (this.applyS != null && this.applyS.length > 0) {
+        for (int i = 0; i < this.applyS.length; i++) {
+          protodef.nano.b_business_relation.friend_apply element = this.applyS[i];
+          if (element != null) {
+            output.writeMessage(2, element);
+          }
+        }
+      }
+      super.writeTo(output);
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = super.computeSerializedSize();
+      if (this.error != null) {
+        size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeMessageSize(1, this.error);
+      }
+      if (this.applyS != null && this.applyS.length > 0) {
+        for (int i = 0; i < this.applyS.length; i++) {
+          protodef.nano.b_business_relation.friend_apply element = this.applyS[i];
+          if (element != null) {
+            size += com.google.protobuf.nano.CodedOutputByteBufferNano
+              .computeMessageSize(2, element);
+          }
+        }
+      }
+      return size;
+    }
+
+    @Override
+    public query_friends_apply_rs mergeFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      while (true) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            return this;
+          default: {
+            if (!com.google.protobuf.nano.WireFormatNano.parseUnknownField(input, tag)) {
+              return this;
+            }
+            break;
+          }
+          case 10: {
+            if (this.error == null) {
+              this.error = new protodef.nano.b_error.info();
+            }
+            input.readMessage(this.error);
+            break;
+          }
+          case 18: {
+            int arrayLength = com.google.protobuf.nano.WireFormatNano
+                .getRepeatedFieldArrayLength(input, 18);
+            int i = this.applyS == null ? 0 : this.applyS.length;
+            protodef.nano.b_business_relation.friend_apply[] newArray =
+                new protodef.nano.b_business_relation.friend_apply[i + arrayLength];
+            if (i != 0) {
+              java.lang.System.arraycopy(this.applyS, 0, newArray, 0, i);
+            }
+            for (; i < newArray.length - 1; i++) {
+              newArray[i] = new protodef.nano.b_business_relation.friend_apply();
+              input.readMessage(newArray[i]);
+              input.readTag();
+            }
+            // Last one without readTag.
+            newArray[i] = new protodef.nano.b_business_relation.friend_apply();
+            input.readMessage(newArray[i]);
+            this.applyS = newArray;
+            break;
+          }
+        }
+      }
+    }
+
+    public static query_friends_apply_rs parseFrom(byte[] data)
+        throws com.google.protobuf.nano.InvalidProtocolBufferNanoException {
+      return com.google.protobuf.nano.MessageNano.mergeFrom(new query_friends_apply_rs(), data);
+    }
+
+    public static query_friends_apply_rs parseFrom(
+            com.google.protobuf.nano.CodedInputByteBufferNano input)
+        throws java.io.IOException {
+      return new query_friends_apply_rs().mergeFrom(input);
+    }
+  }
+
+  public static final class talk_friend_rq extends
+      com.google.protobuf.nano.MessageNano {
+
+    // enum msg
+    public static final int id = 33562961;
 
     private static volatile talk_friend_rq[] _emptyArray;
     public static talk_friend_rq[] emptyArray() {
@@ -1783,7 +2833,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562916;
+    public static final int id = 33562962;
 
     private static volatile talk_friend_rs[] _emptyArray;
     public static talk_friend_rs[] emptyArray() {
@@ -1884,7 +2934,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33563012;
+    public static final int id = 33563025;
 
     private static volatile talk_friend_nt[] _emptyArray;
     public static talk_friend_nt[] emptyArray() {

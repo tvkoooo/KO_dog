@@ -54,10 +54,12 @@ call :build_proto b_error
 call :build_proto b_math
 call :build_proto b_network
 call :build_proto b_business_account
+call :build_proto b_business_relation
 call :build_proto c_shuttle_entry
 call :build_proto c_shuttle_lobby
 call :build_proto c_business_account
 call :build_proto c_business_relation
+call :build_proto c_business_nt_message
 GOTO :EOF
 
 :: build proto function.

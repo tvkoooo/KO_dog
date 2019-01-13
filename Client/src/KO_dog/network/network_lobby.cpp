@@ -160,14 +160,16 @@ void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* 
 		mm_logger_log_I(g_logger, "%s %d %s", __FUNCTION__, __LINE__, proto_desc.s);
 		//////////////////////////////////////////////////////////////////////////
 		// 回包逻辑错误
+		struct KO_dog_network* network = &impl->network;
 		if (0 != error_info->code())
 		{
 			mm_logger_log_E(g_logger, "%s %d (%d)%s", __FUNCTION__, __LINE__, error_info->code(), error_info->desc().c_str());
+			// shutdown tcp socket.
+			mm_client_tcp_shutdown_socket(&network->tcp);
 		}
 		else
 		{
 			//数据更新
-			struct KO_dog_network* network = &impl->network;
 			struct mm_tcp* p_tcp = &network->tcp.net_tcp.tcp;
 			struct tcps_connect* tcps = &network->tcps;
 			struct mm_openssl_tcp_context* p_openssl_tcp_context = &tcps->openssl_tcp_context;
@@ -193,6 +195,8 @@ void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* 
 			if (0 > pri_decrypt_len)
 			{
 				mm_logger_log_E(g_logger, "%s %d can not decrypt, client private key invalid.", __FUNCTION__, __LINE__);
+				// shutdown tcp socket.
+				mm_client_tcp_shutdown_socket(&network->tcp);
 				break;
 			}
 			//锁tcp 因为p_openssl_tcp_context 属于tcp 的上下文

@@ -8,7 +8,6 @@
 
 #include "shuttle_common/mm_error_code_mysql.h"
 #include "shuttle_common/mm_error_code_common.h"
-#include "shuttle_common/mm_error_code_core.h"
 #include "shuttle_common/mm_runtime_calculate.h"
 #include "shuttle_common/mm_modules_runtime.h"
 

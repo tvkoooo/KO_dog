@@ -199,6 +199,19 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">texture/beijing.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>240,135,480,270</rect>
+                <key>scale9Paddings</key>
+                <rect>240,135,480,270</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">texture/j1.png</key>
             <key type="filename">texture/j2.png</key>
             <key type="filename">texture/j3.png</key>
@@ -224,6 +237,7 @@
             <filename>texture/j3.png</filename>
             <filename>texture/j4.png</filename>
             <filename>texture/j5.png</filename>
+            <filename>texture/beijing.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

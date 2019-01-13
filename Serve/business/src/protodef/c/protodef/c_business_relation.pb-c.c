@@ -608,6 +608,178 @@ void   c_business_relation_rename_friend_remark_rs_free_unpacked
   PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_rename_friend_remark_rs_descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   c_business_relation_add_friend_group_rq_init
+                     (c_business_relation_add_friend_group_rq         *message)
+{
+  static c_business_relation_add_friend_group_rq init_value = c_business_relation_add_friend_group_rq_Init;
+  *message = init_value;
+}
+size_t c_business_relation_add_friend_group_rq_get_packed_size
+                     (const c_business_relation_add_friend_group_rq *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rq_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_add_friend_group_rq_pack
+                     (const c_business_relation_add_friend_group_rq *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rq_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_add_friend_group_rq_pack_to_buffer
+                     (const c_business_relation_add_friend_group_rq *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rq_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_add_friend_group_rq *
+       c_business_relation_add_friend_group_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_add_friend_group_rq *)
+     protobuf_c_message_unpack (&c_business_relation_add_friend_group_rq_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_add_friend_group_rq_free_unpacked
+                     (c_business_relation_add_friend_group_rq *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rq_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_add_friend_group_rs_init
+                     (c_business_relation_add_friend_group_rs         *message)
+{
+  static c_business_relation_add_friend_group_rs init_value = c_business_relation_add_friend_group_rs_Init;
+  *message = init_value;
+}
+size_t c_business_relation_add_friend_group_rs_get_packed_size
+                     (const c_business_relation_add_friend_group_rs *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rs_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_add_friend_group_rs_pack
+                     (const c_business_relation_add_friend_group_rs *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rs_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_add_friend_group_rs_pack_to_buffer
+                     (const c_business_relation_add_friend_group_rs *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rs_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_add_friend_group_rs *
+       c_business_relation_add_friend_group_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_add_friend_group_rs *)
+     protobuf_c_message_unpack (&c_business_relation_add_friend_group_rs_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_add_friend_group_rs_free_unpacked
+                     (c_business_relation_add_friend_group_rs *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_add_friend_group_rs_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_delete_friend_group_rq_init
+                     (c_business_relation_delete_friend_group_rq         *message)
+{
+  static c_business_relation_delete_friend_group_rq init_value = c_business_relation_delete_friend_group_rq_Init;
+  *message = init_value;
+}
+size_t c_business_relation_delete_friend_group_rq_get_packed_size
+                     (const c_business_relation_delete_friend_group_rq *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rq_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_delete_friend_group_rq_pack
+                     (const c_business_relation_delete_friend_group_rq *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rq_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_delete_friend_group_rq_pack_to_buffer
+                     (const c_business_relation_delete_friend_group_rq *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rq_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_delete_friend_group_rq *
+       c_business_relation_delete_friend_group_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_delete_friend_group_rq *)
+     protobuf_c_message_unpack (&c_business_relation_delete_friend_group_rq_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_delete_friend_group_rq_free_unpacked
+                     (c_business_relation_delete_friend_group_rq *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rq_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_delete_friend_group_rs_init
+                     (c_business_relation_delete_friend_group_rs         *message)
+{
+  static c_business_relation_delete_friend_group_rs init_value = c_business_relation_delete_friend_group_rs_Init;
+  *message = init_value;
+}
+size_t c_business_relation_delete_friend_group_rs_get_packed_size
+                     (const c_business_relation_delete_friend_group_rs *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rs_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_delete_friend_group_rs_pack
+                     (const c_business_relation_delete_friend_group_rs *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rs_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_delete_friend_group_rs_pack_to_buffer
+                     (const c_business_relation_delete_friend_group_rs *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rs_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_delete_friend_group_rs *
+       c_business_relation_delete_friend_group_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_delete_friend_group_rs *)
+     protobuf_c_message_unpack (&c_business_relation_delete_friend_group_rs_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_delete_friend_group_rs_free_unpacked
+                     (c_business_relation_delete_friend_group_rs *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_delete_friend_group_rs_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 void   c_business_relation_rename_friend_group_rq_init
                      (c_business_relation_rename_friend_group_rq         *message)
 {
@@ -692,6 +864,178 @@ void   c_business_relation_rename_friend_group_rs_free_unpacked
                       ProtobufCAllocator *allocator)
 {
   PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_rename_friend_group_rs_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_change_friend_group_rq_init
+                     (c_business_relation_change_friend_group_rq         *message)
+{
+  static c_business_relation_change_friend_group_rq init_value = c_business_relation_change_friend_group_rq_Init;
+  *message = init_value;
+}
+size_t c_business_relation_change_friend_group_rq_get_packed_size
+                     (const c_business_relation_change_friend_group_rq *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rq_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_change_friend_group_rq_pack
+                     (const c_business_relation_change_friend_group_rq *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rq_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_change_friend_group_rq_pack_to_buffer
+                     (const c_business_relation_change_friend_group_rq *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rq_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_change_friend_group_rq *
+       c_business_relation_change_friend_group_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_change_friend_group_rq *)
+     protobuf_c_message_unpack (&c_business_relation_change_friend_group_rq_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_change_friend_group_rq_free_unpacked
+                     (c_business_relation_change_friend_group_rq *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rq_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_change_friend_group_rs_init
+                     (c_business_relation_change_friend_group_rs         *message)
+{
+  static c_business_relation_change_friend_group_rs init_value = c_business_relation_change_friend_group_rs_Init;
+  *message = init_value;
+}
+size_t c_business_relation_change_friend_group_rs_get_packed_size
+                     (const c_business_relation_change_friend_group_rs *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rs_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_change_friend_group_rs_pack
+                     (const c_business_relation_change_friend_group_rs *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rs_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_change_friend_group_rs_pack_to_buffer
+                     (const c_business_relation_change_friend_group_rs *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rs_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_change_friend_group_rs *
+       c_business_relation_change_friend_group_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_change_friend_group_rs *)
+     protobuf_c_message_unpack (&c_business_relation_change_friend_group_rs_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_change_friend_group_rs_free_unpacked
+                     (c_business_relation_change_friend_group_rs *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_change_friend_group_rs_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_query_friends_apply_rq_init
+                     (c_business_relation_query_friends_apply_rq         *message)
+{
+  static c_business_relation_query_friends_apply_rq init_value = c_business_relation_query_friends_apply_rq_Init;
+  *message = init_value;
+}
+size_t c_business_relation_query_friends_apply_rq_get_packed_size
+                     (const c_business_relation_query_friends_apply_rq *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rq_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_query_friends_apply_rq_pack
+                     (const c_business_relation_query_friends_apply_rq *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rq_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_query_friends_apply_rq_pack_to_buffer
+                     (const c_business_relation_query_friends_apply_rq *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rq_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_query_friends_apply_rq *
+       c_business_relation_query_friends_apply_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_query_friends_apply_rq *)
+     protobuf_c_message_unpack (&c_business_relation_query_friends_apply_rq_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_query_friends_apply_rq_free_unpacked
+                     (c_business_relation_query_friends_apply_rq *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rq_descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   c_business_relation_query_friends_apply_rs_init
+                     (c_business_relation_query_friends_apply_rs         *message)
+{
+  static c_business_relation_query_friends_apply_rs init_value = c_business_relation_query_friends_apply_rs_Init;
+  *message = init_value;
+}
+size_t c_business_relation_query_friends_apply_rs_get_packed_size
+                     (const c_business_relation_query_friends_apply_rs *message)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rs_descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t c_business_relation_query_friends_apply_rs_pack
+                     (const c_business_relation_query_friends_apply_rs *message,
+                      unsigned char       *out)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rs_descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t c_business_relation_query_friends_apply_rs_pack_to_buffer
+                     (const c_business_relation_query_friends_apply_rs *message,
+                      ProtobufCBuffer *buffer)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rs_descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+c_business_relation_query_friends_apply_rs *
+       c_business_relation_query_friends_apply_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data)
+{
+  return (c_business_relation_query_friends_apply_rs *)
+     protobuf_c_message_unpack (&c_business_relation_query_friends_apply_rs_descriptor,
+                                allocator, len, data);
+}
+void   c_business_relation_query_friends_apply_rs_free_unpacked
+                     (c_business_relation_query_friends_apply_rs *message,
+                      ProtobufCAllocator *allocator)
+{
+  PROTOBUF_C_ASSERT (message->base.descriptor == &c_business_relation_query_friends_apply_rs_descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   c_business_relation_talk_friend_rq_init
@@ -913,7 +1257,7 @@ const ProtobufCEnumDescriptor c_business_relation_add_friend_rq_msg_descriptor =
   c_business_relation_add_friend_rq_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCFieldDescriptor c_business_relation_add_friend_rq_field_descriptors[3] =
+static const ProtobufCFieldDescriptor c_business_relation_add_friend_rq_field_descriptors[4] =
 {
   {
     "user_myself_id",
@@ -940,8 +1284,20 @@ static const ProtobufCFieldDescriptor c_business_relation_add_friend_rq_field_de
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "description",
+    "user_remark",
     3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_rq, user_remark),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "description",
+    4,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
@@ -953,14 +1309,15 @@ static const ProtobufCFieldDescriptor c_business_relation_add_friend_rq_field_de
   },
 };
 static const unsigned c_business_relation_add_friend_rq_field_indices_by_name[] = {
-  2,   /* field[2] = description */
+  3,   /* field[3] = description */
   1,   /* field[1] = user_add_id */
   0,   /* field[0] = user_myself_id */
+  2,   /* field[2] = user_remark */
 };
 static const ProtobufCIntRange c_business_relation_add_friend_rq_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor c_business_relation_add_friend_rq_descriptor =
 {
@@ -970,7 +1327,7 @@ const ProtobufCMessageDescriptor c_business_relation_add_friend_rq_descriptor =
   "c_business_relation_add_friend_rq",
   "c_business_relation",
   sizeof(c_business_relation_add_friend_rq),
-  3,
+  4,
   c_business_relation_add_friend_rq_field_descriptors,
   c_business_relation_add_friend_rq_field_indices_by_name,
   1,  c_business_relation_add_friend_rq_number_ranges,
@@ -1003,7 +1360,7 @@ const ProtobufCEnumDescriptor c_business_relation_add_friend_rs_msg_descriptor =
   c_business_relation_add_friend_rs_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCFieldDescriptor c_business_relation_add_friend_rs_field_descriptors[2] =
+static const ProtobufCFieldDescriptor c_business_relation_add_friend_rs_field_descriptors[3] =
 {
   {
     "error",
@@ -1029,15 +1386,28 @@ static const ProtobufCFieldDescriptor c_business_relation_add_friend_rs_field_de
     0,            /* packed */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "user_remark",
+    3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_rs, user_remark),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned c_business_relation_add_friend_rs_field_indices_by_name[] = {
   0,   /* field[0] = error */
   1,   /* field[1] = user_add_id */
+  2,   /* field[2] = user_remark */
 };
 static const ProtobufCIntRange c_business_relation_add_friend_rs_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 2 }
+  { 0, 3 }
 };
 const ProtobufCMessageDescriptor c_business_relation_add_friend_rs_descriptor =
 {
@@ -1047,7 +1417,7 @@ const ProtobufCMessageDescriptor c_business_relation_add_friend_rs_descriptor =
   "c_business_relation_add_friend_rs",
   "c_business_relation",
   sizeof(c_business_relation_add_friend_rs),
-  2,
+  3,
   c_business_relation_add_friend_rs_field_descriptors,
   c_business_relation_add_friend_rs_field_indices_by_name,
   1,  c_business_relation_add_friend_rs_number_ranges,
@@ -1096,7 +1466,7 @@ static const ProtobufCFieldDescriptor c_business_relation_add_friend_nt_field_de
   },
   {
     "description",
-    3,
+    2,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
@@ -1111,10 +1481,9 @@ static const unsigned c_business_relation_add_friend_nt_field_indices_by_name[] 
   0,   /* field[0] = apply_user_info */
   1,   /* field[1] = description */
 };
-static const ProtobufCIntRange c_business_relation_add_friend_nt_number_ranges[2 + 1] =
+static const ProtobufCIntRange c_business_relation_add_friend_nt_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 3, 1 },
   { 0, 2 }
 };
 const ProtobufCMessageDescriptor c_business_relation_add_friend_nt_descriptor =
@@ -1128,7 +1497,7 @@ const ProtobufCMessageDescriptor c_business_relation_add_friend_nt_descriptor =
   2,
   c_business_relation_add_friend_nt_field_descriptors,
   c_business_relation_add_friend_nt_field_indices_by_name,
-  2,  c_business_relation_add_friend_nt_number_ranges,
+  1,  c_business_relation_add_friend_nt_number_ranges,
   (ProtobufCMessageInit) c_business_relation_add_friend_nt_init,
   NULL,NULL,NULL    /* reserved[123] */
 };
@@ -1404,7 +1773,7 @@ const ProtobufCEnumDescriptor c_business_relation_allow_friend_rq_opcode_t_descr
   c_business_relation_allow_friend_rq_opcode_t_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rq_field_descriptors[3] =
+static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rq_field_descriptors[5] =
 {
   {
     "user_myself_id",
@@ -1431,8 +1800,32 @@ static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rq_field_
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "opcode",
+    "user_myself_nick",
     3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_rq, user_myself_nick),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_allow_nick",
+    4,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_rq, user_allow_nick),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "opcode",
+    5,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
@@ -1444,14 +1837,16 @@ static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rq_field_
   },
 };
 static const unsigned c_business_relation_allow_friend_rq_field_indices_by_name[] = {
-  2,   /* field[2] = opcode */
+  4,   /* field[4] = opcode */
   1,   /* field[1] = user_allow_id */
+  3,   /* field[3] = user_allow_nick */
   0,   /* field[0] = user_myself_id */
+  2,   /* field[2] = user_myself_nick */
 };
 static const ProtobufCIntRange c_business_relation_allow_friend_rq_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 5 }
 };
 const ProtobufCMessageDescriptor c_business_relation_allow_friend_rq_descriptor =
 {
@@ -1461,7 +1856,7 @@ const ProtobufCMessageDescriptor c_business_relation_allow_friend_rq_descriptor 
   "c_business_relation_allow_friend_rq",
   "c_business_relation",
   sizeof(c_business_relation_allow_friend_rq),
-  3,
+  5,
   c_business_relation_allow_friend_rq_field_descriptors,
   c_business_relation_allow_friend_rq_field_indices_by_name,
   1,  c_business_relation_allow_friend_rq_number_ranges,
@@ -1494,7 +1889,7 @@ const ProtobufCEnumDescriptor c_business_relation_allow_friend_rs_msg_descriptor
   c_business_relation_allow_friend_rs_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rs_field_descriptors[3] =
+static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rs_field_descriptors[4] =
 {
   {
     "error",
@@ -1532,16 +1927,29 @@ static const ProtobufCFieldDescriptor c_business_relation_allow_friend_rs_field_
     0,            /* packed */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "relation_s",
+    4,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_rs, n_relation_s),
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_rs, relation_s),
+    &b_business_relation_user_relation_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned c_business_relation_allow_friend_rs_field_indices_by_name[] = {
   0,   /* field[0] = error */
   2,   /* field[2] = opcode */
+  3,   /* field[3] = relation_s */
   1,   /* field[1] = user_allow_id */
 };
 static const ProtobufCIntRange c_business_relation_allow_friend_rs_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor c_business_relation_allow_friend_rs_descriptor =
 {
@@ -1551,7 +1959,7 @@ const ProtobufCMessageDescriptor c_business_relation_allow_friend_rs_descriptor 
   "c_business_relation_allow_friend_rs",
   "c_business_relation",
   sizeof(c_business_relation_allow_friend_rs),
-  3,
+  4,
   c_business_relation_allow_friend_rs_field_descriptors,
   c_business_relation_allow_friend_rs_field_indices_by_name,
   1,  c_business_relation_allow_friend_rs_number_ranges,
@@ -1584,16 +1992,16 @@ const ProtobufCEnumDescriptor c_business_relation_allow_friend_nt_msg_descriptor
   c_business_relation_allow_friend_nt_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCFieldDescriptor c_business_relation_allow_friend_nt_field_descriptors[2] =
+static const ProtobufCFieldDescriptor c_business_relation_allow_friend_nt_field_descriptors[3] =
 {
   {
-    "allow_user_id",
+    "apply_user_info",
     1,
     PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_UINT64,
+    PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_nt, allow_user_id),
-    NULL,
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_nt, apply_user_info),
+    &b_business_account_user_info_descriptor,
     NULL,
     0,            /* packed */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -1610,15 +2018,28 @@ static const ProtobufCFieldDescriptor c_business_relation_allow_friend_nt_field_
     0,            /* packed */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "relation_s",
+    3,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_nt, n_relation_s),
+    PROTOBUF_C_OFFSETOF(c_business_relation_allow_friend_nt, relation_s),
+    &b_business_relation_user_relation_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned c_business_relation_allow_friend_nt_field_indices_by_name[] = {
-  0,   /* field[0] = allow_user_id */
+  0,   /* field[0] = apply_user_info */
   1,   /* field[1] = opcode */
+  2,   /* field[2] = relation_s */
 };
 static const ProtobufCIntRange c_business_relation_allow_friend_nt_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 2 }
+  { 0, 3 }
 };
 const ProtobufCMessageDescriptor c_business_relation_allow_friend_nt_descriptor =
 {
@@ -1628,7 +2049,7 @@ const ProtobufCMessageDescriptor c_business_relation_allow_friend_nt_descriptor 
   "c_business_relation_allow_friend_nt",
   "c_business_relation",
   sizeof(c_business_relation_allow_friend_nt),
-  2,
+  3,
   c_business_relation_allow_friend_nt_field_descriptors,
   c_business_relation_allow_friend_nt_field_indices_by_name,
   1,  c_business_relation_allow_friend_nt_number_ranges,
@@ -1725,7 +2146,7 @@ const ProtobufCEnumDescriptor c_business_relation_query_friends_rs_msg_descripto
   c_business_relation_query_friends_rs_msg_value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCFieldDescriptor c_business_relation_query_friends_rs_field_descriptors[2] =
+static const ProtobufCFieldDescriptor c_business_relation_query_friends_rs_field_descriptors[3] =
 {
   {
     "error",
@@ -1740,13 +2161,25 @@ static const ProtobufCFieldDescriptor c_business_relation_query_friends_rs_field
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "friend_info_s",
+    "group_s",
     2,
     PROTOBUF_C_LABEL_REPEATED,
     PROTOBUF_C_TYPE_MESSAGE,
-    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_rs, n_friend_info_s),
-    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_rs, friend_info_s),
-    &c_business_relation_friend_info_descriptor,
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_rs, n_group_s),
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_rs, group_s),
+    &b_business_relation_user_relation_group_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "relation_s",
+    3,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_rs, n_relation_s),
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_rs, relation_s),
+    &b_business_relation_user_relation_descriptor,
     NULL,
     0,            /* packed */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -1754,12 +2187,13 @@ static const ProtobufCFieldDescriptor c_business_relation_query_friends_rs_field
 };
 static const unsigned c_business_relation_query_friends_rs_field_indices_by_name[] = {
   0,   /* field[0] = error */
-  1,   /* field[1] = friend_info_s */
+  1,   /* field[1] = group_s */
+  2,   /* field[2] = relation_s */
 };
 static const ProtobufCIntRange c_business_relation_query_friends_rs_number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 2 }
+  { 0, 3 }
 };
 const ProtobufCMessageDescriptor c_business_relation_query_friends_rs_descriptor =
 {
@@ -1769,7 +2203,7 @@ const ProtobufCMessageDescriptor c_business_relation_query_friends_rs_descriptor
   "c_business_relation_query_friends_rs",
   "c_business_relation",
   sizeof(c_business_relation_query_friends_rs),
-  2,
+  3,
   c_business_relation_query_friends_rs_field_descriptors,
   c_business_relation_query_friends_rs_field_indices_by_name,
   1,  c_business_relation_query_friends_rs_number_ranges,
@@ -1956,6 +2390,353 @@ const ProtobufCMessageDescriptor c_business_relation_rename_friend_remark_rs_des
   (ProtobufCMessageInit) c_business_relation_rename_friend_remark_rs_init,
   NULL,NULL,NULL    /* reserved[123] */
 };
+const ProtobufCEnumValue c_business_relation_add_friend_group_rq_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_add_friend_group_rq_msg_ID", 33562913 },
+};
+static const ProtobufCIntRange c_business_relation_add_friend_group_rq_msg_value_ranges[] = {
+{33562913, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_add_friend_group_rq_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_add_friend_group_rq_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.add_friend_group_rq.msg",
+  "msg",
+  "c_business_relation_add_friend_group_rq_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_add_friend_group_rq_msg_enum_values_by_number,
+  1,
+  c_business_relation_add_friend_group_rq_msg_enum_values_by_name,
+  1,
+  c_business_relation_add_friend_group_rq_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_add_friend_group_rq_field_descriptors[2] =
+{
+  {
+    "user_myself_id",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_group_rq, user_myself_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_group_rq, user_friend_group),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_add_friend_group_rq_field_indices_by_name[] = {
+  1,   /* field[1] = user_friend_group */
+  0,   /* field[0] = user_myself_id */
+};
+static const ProtobufCIntRange c_business_relation_add_friend_group_rq_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor c_business_relation_add_friend_group_rq_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.add_friend_group_rq",
+  "AddFriendGroupRq",
+  "c_business_relation_add_friend_group_rq",
+  "c_business_relation",
+  sizeof(c_business_relation_add_friend_group_rq),
+  2,
+  c_business_relation_add_friend_group_rq_field_descriptors,
+  c_business_relation_add_friend_group_rq_field_indices_by_name,
+  1,  c_business_relation_add_friend_group_rq_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_add_friend_group_rq_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_add_friend_group_rs_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_add_friend_group_rs_msg_ID", 33562914 },
+};
+static const ProtobufCIntRange c_business_relation_add_friend_group_rs_msg_value_ranges[] = {
+{33562914, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_add_friend_group_rs_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_add_friend_group_rs_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.add_friend_group_rs.msg",
+  "msg",
+  "c_business_relation_add_friend_group_rs_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_add_friend_group_rs_msg_enum_values_by_number,
+  1,
+  c_business_relation_add_friend_group_rs_msg_enum_values_by_name,
+  1,
+  c_business_relation_add_friend_group_rs_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_add_friend_group_rs_field_descriptors[3] =
+{
+  {
+    "error",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_group_rs, error),
+    &b_error_info_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_group_rs, user_friend_group),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id",
+    3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_add_friend_group_rs, user_friend_group_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_add_friend_group_rs_field_indices_by_name[] = {
+  0,   /* field[0] = error */
+  1,   /* field[1] = user_friend_group */
+  2,   /* field[2] = user_friend_group_id */
+};
+static const ProtobufCIntRange c_business_relation_add_friend_group_rs_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor c_business_relation_add_friend_group_rs_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.add_friend_group_rs",
+  "AddFriendGroupRs",
+  "c_business_relation_add_friend_group_rs",
+  "c_business_relation",
+  sizeof(c_business_relation_add_friend_group_rs),
+  3,
+  c_business_relation_add_friend_group_rs_field_descriptors,
+  c_business_relation_add_friend_group_rs_field_indices_by_name,
+  1,  c_business_relation_add_friend_group_rs_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_add_friend_group_rs_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_delete_friend_group_rq_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_delete_friend_group_rq_msg_ID", 33562913 },
+};
+static const ProtobufCIntRange c_business_relation_delete_friend_group_rq_msg_value_ranges[] = {
+{33562913, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_delete_friend_group_rq_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_delete_friend_group_rq_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.delete_friend_group_rq.msg",
+  "msg",
+  "c_business_relation_delete_friend_group_rq_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_delete_friend_group_rq_msg_enum_values_by_number,
+  1,
+  c_business_relation_delete_friend_group_rq_msg_enum_values_by_name,
+  1,
+  c_business_relation_delete_friend_group_rq_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_delete_friend_group_rq_field_descriptors[3] =
+{
+  {
+    "user_myself_id",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_delete_friend_group_rq, user_myself_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_id",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_delete_friend_group_rq, user_friend_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id",
+    3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_delete_friend_group_rq, user_friend_group_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_delete_friend_group_rq_field_indices_by_name[] = {
+  2,   /* field[2] = user_friend_group_id */
+  1,   /* field[1] = user_friend_id */
+  0,   /* field[0] = user_myself_id */
+};
+static const ProtobufCIntRange c_business_relation_delete_friend_group_rq_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor c_business_relation_delete_friend_group_rq_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.delete_friend_group_rq",
+  "DeleteFriendGroupRq",
+  "c_business_relation_delete_friend_group_rq",
+  "c_business_relation",
+  sizeof(c_business_relation_delete_friend_group_rq),
+  3,
+  c_business_relation_delete_friend_group_rq_field_descriptors,
+  c_business_relation_delete_friend_group_rq_field_indices_by_name,
+  1,  c_business_relation_delete_friend_group_rq_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_delete_friend_group_rq_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_delete_friend_group_rs_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_delete_friend_group_rs_msg_ID", 33562914 },
+};
+static const ProtobufCIntRange c_business_relation_delete_friend_group_rs_msg_value_ranges[] = {
+{33562914, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_delete_friend_group_rs_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_delete_friend_group_rs_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.delete_friend_group_rs.msg",
+  "msg",
+  "c_business_relation_delete_friend_group_rs_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_delete_friend_group_rs_msg_enum_values_by_number,
+  1,
+  c_business_relation_delete_friend_group_rs_msg_enum_values_by_name,
+  1,
+  c_business_relation_delete_friend_group_rs_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_delete_friend_group_rs_field_descriptors[3] =
+{
+  {
+    "error",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_delete_friend_group_rs, error),
+    &b_error_info_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_id",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_delete_friend_group_rs, user_friend_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id",
+    3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_delete_friend_group_rs, user_friend_group_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_delete_friend_group_rs_field_indices_by_name[] = {
+  0,   /* field[0] = error */
+  2,   /* field[2] = user_friend_group_id */
+  1,   /* field[1] = user_friend_id */
+};
+static const ProtobufCIntRange c_business_relation_delete_friend_group_rs_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor c_business_relation_delete_friend_group_rs_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.delete_friend_group_rs",
+  "DeleteFriendGroupRs",
+  "c_business_relation_delete_friend_group_rs",
+  "c_business_relation",
+  sizeof(c_business_relation_delete_friend_group_rs),
+  3,
+  c_business_relation_delete_friend_group_rs_field_descriptors,
+  c_business_relation_delete_friend_group_rs_field_indices_by_name,
+  1,  c_business_relation_delete_friend_group_rs_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_delete_friend_group_rs_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
 const ProtobufCEnumValue c_business_relation_rename_friend_group_rq_msg_enum_values_by_number[1] =
 {
   { "id", "c_business_relation_rename_friend_group_rq_msg_ID", 33562913 },
@@ -1997,12 +2778,12 @@ static const ProtobufCFieldDescriptor c_business_relation_rename_friend_group_rq
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "user_friend_id",
-    2,
+    "user_friend_group_id",
+    3,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT64,
     0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_business_relation_rename_friend_group_rq, user_friend_id),
+    PROTOBUF_C_OFFSETOF(c_business_relation_rename_friend_group_rq, user_friend_group_id),
     NULL,
     NULL,
     0,            /* packed */
@@ -2010,7 +2791,7 @@ static const ProtobufCFieldDescriptor c_business_relation_rename_friend_group_rq
   },
   {
     "user_friend_group",
-    3,
+    4,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
@@ -2023,12 +2804,13 @@ static const ProtobufCFieldDescriptor c_business_relation_rename_friend_group_rq
 };
 static const unsigned c_business_relation_rename_friend_group_rq_field_indices_by_name[] = {
   2,   /* field[2] = user_friend_group */
-  1,   /* field[1] = user_friend_id */
+  1,   /* field[1] = user_friend_group_id */
   0,   /* field[0] = user_myself_id */
 };
-static const ProtobufCIntRange c_business_relation_rename_friend_group_rq_number_ranges[1 + 1] =
+static const ProtobufCIntRange c_business_relation_rename_friend_group_rq_number_ranges[2 + 1] =
 {
   { 1, 0 },
+  { 3, 1 },
   { 0, 3 }
 };
 const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rq_descriptor =
@@ -2042,7 +2824,7 @@ const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rq_desc
   3,
   c_business_relation_rename_friend_group_rq_field_descriptors,
   c_business_relation_rename_friend_group_rq_field_indices_by_name,
-  1,  c_business_relation_rename_friend_group_rq_number_ranges,
+  2,  c_business_relation_rename_friend_group_rq_number_ranges,
   (ProtobufCMessageInit) c_business_relation_rename_friend_group_rq_init,
   NULL,NULL,NULL    /* reserved[123] */
 };
@@ -2087,12 +2869,12 @@ static const ProtobufCFieldDescriptor c_business_relation_rename_friend_group_rs
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "user_friend_id",
-    2,
+    "user_friend_group_id",
+    3,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT64,
     0,   /* quantifier_offset */
-    PROTOBUF_C_OFFSETOF(c_business_relation_rename_friend_group_rs, user_friend_id),
+    PROTOBUF_C_OFFSETOF(c_business_relation_rename_friend_group_rs, user_friend_group_id),
     NULL,
     NULL,
     0,            /* packed */
@@ -2100,7 +2882,7 @@ static const ProtobufCFieldDescriptor c_business_relation_rename_friend_group_rs
   },
   {
     "user_friend_group",
-    3,
+    4,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
@@ -2114,11 +2896,12 @@ static const ProtobufCFieldDescriptor c_business_relation_rename_friend_group_rs
 static const unsigned c_business_relation_rename_friend_group_rs_field_indices_by_name[] = {
   0,   /* field[0] = error */
   2,   /* field[2] = user_friend_group */
-  1,   /* field[1] = user_friend_id */
+  1,   /* field[1] = user_friend_group_id */
 };
-static const ProtobufCIntRange c_business_relation_rename_friend_group_rs_number_ranges[1 + 1] =
+static const ProtobufCIntRange c_business_relation_rename_friend_group_rs_number_ranges[2 + 1] =
 {
   { 1, 0 },
+  { 3, 1 },
   { 0, 3 }
 };
 const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rs_descriptor =
@@ -2132,16 +2915,363 @@ const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rs_desc
   3,
   c_business_relation_rename_friend_group_rs_field_descriptors,
   c_business_relation_rename_friend_group_rs_field_indices_by_name,
-  1,  c_business_relation_rename_friend_group_rs_number_ranges,
+  2,  c_business_relation_rename_friend_group_rs_number_ranges,
   (ProtobufCMessageInit) c_business_relation_rename_friend_group_rs_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_change_friend_group_rq_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_change_friend_group_rq_msg_ID", 33562915 },
+};
+static const ProtobufCIntRange c_business_relation_change_friend_group_rq_msg_value_ranges[] = {
+{33562915, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_change_friend_group_rq_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_change_friend_group_rq_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.change_friend_group_rq.msg",
+  "msg",
+  "c_business_relation_change_friend_group_rq_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_change_friend_group_rq_msg_enum_values_by_number,
+  1,
+  c_business_relation_change_friend_group_rq_msg_enum_values_by_name,
+  1,
+  c_business_relation_change_friend_group_rq_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_change_friend_group_rq_field_descriptors[4] =
+{
+  {
+    "user_myself_id",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rq, user_myself_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_id",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rq, user_friend_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id_old",
+    3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rq, user_friend_group_id_old),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id_new",
+    4,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rq, user_friend_group_id_new),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_change_friend_group_rq_field_indices_by_name[] = {
+  3,   /* field[3] = user_friend_group_id_new */
+  2,   /* field[2] = user_friend_group_id_old */
+  1,   /* field[1] = user_friend_id */
+  0,   /* field[0] = user_myself_id */
+};
+static const ProtobufCIntRange c_business_relation_change_friend_group_rq_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 4 }
+};
+const ProtobufCMessageDescriptor c_business_relation_change_friend_group_rq_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.change_friend_group_rq",
+  "ChangeFriendGroupRq",
+  "c_business_relation_change_friend_group_rq",
+  "c_business_relation",
+  sizeof(c_business_relation_change_friend_group_rq),
+  4,
+  c_business_relation_change_friend_group_rq_field_descriptors,
+  c_business_relation_change_friend_group_rq_field_indices_by_name,
+  1,  c_business_relation_change_friend_group_rq_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_change_friend_group_rq_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_change_friend_group_rs_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_change_friend_group_rs_msg_ID", 33562916 },
+};
+static const ProtobufCIntRange c_business_relation_change_friend_group_rs_msg_value_ranges[] = {
+{33562916, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_change_friend_group_rs_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_change_friend_group_rs_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.change_friend_group_rs.msg",
+  "msg",
+  "c_business_relation_change_friend_group_rs_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_change_friend_group_rs_msg_enum_values_by_number,
+  1,
+  c_business_relation_change_friend_group_rs_msg_enum_values_by_name,
+  1,
+  c_business_relation_change_friend_group_rs_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_change_friend_group_rs_field_descriptors[4] =
+{
+  {
+    "error",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rs, error),
+    &b_error_info_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_id",
+    2,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rs, user_friend_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id_old",
+    3,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rs, user_friend_group_id_old),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "user_friend_group_id_new",
+    4,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_change_friend_group_rs, user_friend_group_id_new),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_change_friend_group_rs_field_indices_by_name[] = {
+  0,   /* field[0] = error */
+  3,   /* field[3] = user_friend_group_id_new */
+  2,   /* field[2] = user_friend_group_id_old */
+  1,   /* field[1] = user_friend_id */
+};
+static const ProtobufCIntRange c_business_relation_change_friend_group_rs_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 4 }
+};
+const ProtobufCMessageDescriptor c_business_relation_change_friend_group_rs_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.change_friend_group_rs",
+  "ChangeFriendGroupRs",
+  "c_business_relation_change_friend_group_rs",
+  "c_business_relation",
+  sizeof(c_business_relation_change_friend_group_rs),
+  4,
+  c_business_relation_change_friend_group_rs_field_descriptors,
+  c_business_relation_change_friend_group_rs_field_indices_by_name,
+  1,  c_business_relation_change_friend_group_rs_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_change_friend_group_rs_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_query_friends_apply_rq_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_query_friends_apply_rq_msg_ID", 33562917 },
+};
+static const ProtobufCIntRange c_business_relation_query_friends_apply_rq_msg_value_ranges[] = {
+{33562917, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_query_friends_apply_rq_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_query_friends_apply_rq_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.query_friends_apply_rq.msg",
+  "msg",
+  "c_business_relation_query_friends_apply_rq_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_query_friends_apply_rq_msg_enum_values_by_number,
+  1,
+  c_business_relation_query_friends_apply_rq_msg_enum_values_by_name,
+  1,
+  c_business_relation_query_friends_apply_rq_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_query_friends_apply_rq_field_descriptors[1] =
+{
+  {
+    "user_myself_id",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_UINT64,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_apply_rq, user_myself_id),
+    NULL,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_query_friends_apply_rq_field_indices_by_name[] = {
+  0,   /* field[0] = user_myself_id */
+};
+static const ProtobufCIntRange c_business_relation_query_friends_apply_rq_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor c_business_relation_query_friends_apply_rq_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.query_friends_apply_rq",
+  "QueryFriendsApplyRq",
+  "c_business_relation_query_friends_apply_rq",
+  "c_business_relation",
+  sizeof(c_business_relation_query_friends_apply_rq),
+  1,
+  c_business_relation_query_friends_apply_rq_field_descriptors,
+  c_business_relation_query_friends_apply_rq_field_indices_by_name,
+  1,  c_business_relation_query_friends_apply_rq_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_query_friends_apply_rq_init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+const ProtobufCEnumValue c_business_relation_query_friends_apply_rs_msg_enum_values_by_number[1] =
+{
+  { "id", "c_business_relation_query_friends_apply_rs_msg_ID", 33562918 },
+};
+static const ProtobufCIntRange c_business_relation_query_friends_apply_rs_msg_value_ranges[] = {
+{33562918, 0},{0, 1}
+};
+const ProtobufCEnumValueIndex c_business_relation_query_friends_apply_rs_msg_enum_values_by_name[1] =
+{
+  { "id", 0 },
+};
+const ProtobufCEnumDescriptor c_business_relation_query_friends_apply_rs_msg_descriptor =
+{
+  PROTOBUF_C_ENUM_DESCRIPTOR_MAGIC,
+  "c_business_relation.query_friends_apply_rs.msg",
+  "msg",
+  "c_business_relation_query_friends_apply_rs_msg",
+  "c_business_relation",
+  1,
+  c_business_relation_query_friends_apply_rs_msg_enum_values_by_number,
+  1,
+  c_business_relation_query_friends_apply_rs_msg_enum_values_by_name,
+  1,
+  c_business_relation_query_friends_apply_rs_msg_value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCFieldDescriptor c_business_relation_query_friends_apply_rs_field_descriptors[2] =
+{
+  {
+    "error",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_apply_rs, error),
+    &b_error_info_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "apply_s",
+    2,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_apply_rs, n_apply_s),
+    PROTOBUF_C_OFFSETOF(c_business_relation_query_friends_apply_rs, apply_s),
+    &b_business_relation_friend_apply_descriptor,
+    NULL,
+    0,            /* packed */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned c_business_relation_query_friends_apply_rs_field_indices_by_name[] = {
+  1,   /* field[1] = apply_s */
+  0,   /* field[0] = error */
+};
+static const ProtobufCIntRange c_business_relation_query_friends_apply_rs_number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor c_business_relation_query_friends_apply_rs_descriptor =
+{
+  PROTOBUF_C_MESSAGE_DESCRIPTOR_MAGIC,
+  "c_business_relation.query_friends_apply_rs",
+  "QueryFriendsApplyRs",
+  "c_business_relation_query_friends_apply_rs",
+  "c_business_relation",
+  sizeof(c_business_relation_query_friends_apply_rs),
+  2,
+  c_business_relation_query_friends_apply_rs_field_descriptors,
+  c_business_relation_query_friends_apply_rs_field_indices_by_name,
+  1,  c_business_relation_query_friends_apply_rs_number_ranges,
+  (ProtobufCMessageInit) c_business_relation_query_friends_apply_rs_init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 const ProtobufCEnumValue c_business_relation_talk_friend_rq_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_talk_friend_rq_msg_ID", 33562915 },
+  { "id", "c_business_relation_talk_friend_rq_msg_ID", 33562961 },
 };
 static const ProtobufCIntRange c_business_relation_talk_friend_rq_msg_value_ranges[] = {
-{33562915, 0},{0, 1}
+{33562961, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_talk_friend_rq_msg_enum_values_by_name[1] =
 {
@@ -2228,10 +3358,10 @@ const ProtobufCMessageDescriptor c_business_relation_talk_friend_rq_descriptor =
 };
 const ProtobufCEnumValue c_business_relation_talk_friend_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_talk_friend_rs_msg_ID", 33562916 },
+  { "id", "c_business_relation_talk_friend_rs_msg_ID", 33562962 },
 };
 static const ProtobufCIntRange c_business_relation_talk_friend_rs_msg_value_ranges[] = {
-{33562916, 0},{0, 1}
+{33562962, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_talk_friend_rs_msg_enum_values_by_name[1] =
 {
@@ -2305,10 +3435,10 @@ const ProtobufCMessageDescriptor c_business_relation_talk_friend_rs_descriptor =
 };
 const ProtobufCEnumValue c_business_relation_talk_friend_nt_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_talk_friend_nt_msg_ID", 33563012 },
+  { "id", "c_business_relation_talk_friend_nt_msg_ID", 33563025 },
 };
 static const ProtobufCIntRange c_business_relation_talk_friend_nt_msg_value_ranges[] = {
-{33563012, 0},{0, 1}
+{33563025, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_talk_friend_nt_msg_enum_values_by_name[1] =
 {

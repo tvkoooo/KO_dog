@@ -70,7 +70,7 @@ void mm_business_account_tcp_hd_c_business_account_search_account_rq(void* obj, 
 				error_info->set_desc(mm_error_desc_string(error_desc, error_info->code()));
 				break;
 			}
-			//拼装回包内容
+			//拼装sql返回select容器内容
 			//typedef 做一个短名称
 			typedef mm::p_userinfo_search::user_basic_vec user_basic_vec;
 			user_basic_vec& vec = query.user_info_s;
@@ -92,10 +92,10 @@ void mm_business_account_tcp_hd_c_business_account_search_account_rq(void* obj, 
 		//////////////////////////////////////////////////////////////////////////
 	} while (0);
 	// rs
-	mm_tcp_lock(tcp);
+	mm_tcp_o_lock(tcp);
 	mm_protobuf_cxx_n_tcp_append_rs(mailbox, tcp, c_business_account::search_account_rs_msg_id, &rs_msg, rq_pack, &rs_pack);
 	mm_protobuf_cxx_n_tcp_flush_send(tcp);
-	mm_tcp_unlock(tcp);
+	mm_tcp_o_unlock(tcp);
 	// logger rs.
 	mm_string_clear(&proto_desc);
 	mm_protobuf_cxx_logger_append_packet_message(&proto_desc, &rs_pack, &rs_msg);

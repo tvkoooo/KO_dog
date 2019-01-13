@@ -1,0 +1,36 @@
+syntax = "proto2";
+package s_shuttle_lobby;
+
+option java_package = "protodef";
+option java_outer_classname = "s_shuttle_lobby";
+option objc_class_prefix = "S_shuttle_lobby_";
+option go_package = "protodef/s_shuttle_lobby";
+option csharp_namespace = "s_shuttle_lobby";
+
+import "b_math.proto";
+
+enum msg
+{ 
+	min_id=0x01001100;
+	max_id=0x010011FF;
+}
+
+// (tcp)令牌校验事件.
+message token_verify_ev
+{
+	enum msg{ id=0x01001101;}
+    required uint64 event_time                = 1 [default =  0 ]; // 事件发生时间戳(毫秒)
+	required uint64	uid 					  = 2 [default =  0 ]; // 用户编号
+    required uint64 sid_now                   = 3 [default =  0 ]; // 当前添加用户会话号
+    required uint64 sid_old                   = 4 [default =  0 ]; // 被踢掉的用户会话号
+}
+
+// (tcp)大厅心跳事件
+message heartbeat_ev
+{
+	enum msg{ id=0x01001102;}
+    required uint64 event_time                = 1 [default =  0 ]; // 事件发生时间戳(毫秒)
+    required uint64 uid                       = 2 [default =  0 ]; // 用户编号
+    required uint64 timecode_native           = 3 [default =  0 ]; // 发出的时间点(ms毫秒)
+	required b_math.coord coord_info          = 4                ; // Earth(j,w).
+}

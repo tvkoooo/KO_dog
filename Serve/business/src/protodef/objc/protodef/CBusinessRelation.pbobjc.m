@@ -16,6 +16,7 @@
  #import "CBusinessRelation.pbobjc.h"
  #import "BError.pbobjc.h"
  #import "BBusinessAccount.pbobjc.h"
+ #import "BBusinessRelation.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -152,10 +153,12 @@ typedef struct C_business_relation_friend_info__storage_ {
 
 @dynamic hasUserMyselfId, userMyselfId;
 @dynamic hasUserAddId, userAddId;
+@dynamic hasUserRemark, userRemark;
 @dynamic hasDescription_p, description_p;
 
 typedef struct C_business_relation_add_friend_rq__storage_ {
   uint32_t _has_storage_[1];
+  NSString *userRemark;
   NSString *description_p;
   uint64_t userMyselfId;
   uint64_t userAddId;
@@ -186,10 +189,19 @@ typedef struct C_business_relation_add_friend_rq__storage_ {
         .dataType = GPBDataTypeUInt64,
       },
       {
+        .name = "userRemark",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_add_friend_rq_FieldNumber_UserRemark,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_rq__storage_, userRemark),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
+      },
+      {
         .name = "description_p",
         .dataTypeSpecific.className = NULL,
         .number = C_business_relation_add_friend_rq_FieldNumber_Description_p,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(C_business_relation_add_friend_rq__storage_, description_p),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeString,
@@ -251,10 +263,12 @@ BOOL C_business_relation_add_friend_rq_msg_IsValidValue(int32_t value__) {
 
 @dynamic hasError, error;
 @dynamic hasUserAddId, userAddId;
+@dynamic hasUserRemark, userRemark;
 
 typedef struct C_business_relation_add_friend_rs__storage_ {
   uint32_t _has_storage_[1];
   B_error_info *error;
+  NSString *userRemark;
   uint64_t userAddId;
 } C_business_relation_add_friend_rs__storage_;
 
@@ -281,6 +295,15 @@ typedef struct C_business_relation_add_friend_rs__storage_ {
         .offset = (uint32_t)offsetof(C_business_relation_add_friend_rs__storage_, userAddId),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userRemark",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_add_friend_rs_FieldNumber_UserRemark,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_rs__storage_, userRemark),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -680,11 +703,15 @@ BOOL C_business_relation_delete_friend_nt_msg_IsValidValue(int32_t value__) {
 
 @dynamic hasUserMyselfId, userMyselfId;
 @dynamic hasUserAllowId, userAllowId;
+@dynamic hasUserMyselfNick, userMyselfNick;
+@dynamic hasUserAllowNick, userAllowNick;
 @dynamic hasOpcode, opcode;
 
 typedef struct C_business_relation_allow_friend_rq__storage_ {
   uint32_t _has_storage_[1];
   uint32_t opcode;
+  NSString *userMyselfNick;
+  NSString *userAllowNick;
   uint64_t userMyselfId;
   uint64_t userAllowId;
 } C_business_relation_allow_friend_rq__storage_;
@@ -714,10 +741,28 @@ typedef struct C_business_relation_allow_friend_rq__storage_ {
         .dataType = GPBDataTypeUInt64,
       },
       {
+        .name = "userMyselfNick",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_allow_friend_rq_FieldNumber_UserMyselfNick,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rq__storage_, userMyselfNick),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "userAllowNick",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_allow_friend_rq_FieldNumber_UserAllowNick,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rq__storage_, userAllowNick),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
+      },
+      {
         .name = "opcode",
         .dataTypeSpecific.className = NULL,
         .number = C_business_relation_allow_friend_rq_FieldNumber_Opcode,
-        .hasIndex = 2,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rq__storage_, opcode),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt32,
@@ -816,11 +861,13 @@ BOOL C_business_relation_allow_friend_rq_opcode_t_IsValidValue(int32_t value__) 
 @dynamic hasError, error;
 @dynamic hasUserAllowId, userAllowId;
 @dynamic hasOpcode, opcode;
+@dynamic relationSArray, relationSArray_Count;
 
 typedef struct C_business_relation_allow_friend_rs__storage_ {
   uint32_t _has_storage_[1];
   uint32_t opcode;
   B_error_info *error;
+  NSMutableArray *relationSArray;
   uint64_t userAllowId;
 } C_business_relation_allow_friend_rs__storage_;
 
@@ -856,6 +903,15 @@ typedef struct C_business_relation_allow_friend_rs__storage_ {
         .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rs__storage_, opcode),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "relationSArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_relation_user_relation),
+        .number = C_business_relation_allow_friend_rs_FieldNumber_RelationSArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rs__storage_, relationSArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -912,13 +968,15 @@ BOOL C_business_relation_allow_friend_rs_msg_IsValidValue(int32_t value__) {
 
 @implementation C_business_relation_allow_friend_nt
 
-@dynamic hasAllowUserId, allowUserId;
+@dynamic hasApplyUserInfo, applyUserInfo;
 @dynamic hasOpcode, opcode;
+@dynamic relationSArray, relationSArray_Count;
 
 typedef struct C_business_relation_allow_friend_nt__storage_ {
   uint32_t _has_storage_[1];
   uint32_t opcode;
-  uint64_t allowUserId;
+  B_business_account_user_info *applyUserInfo;
+  NSMutableArray *relationSArray;
 } C_business_relation_allow_friend_nt__storage_;
 
 // This method is threadsafe because it is initially called
@@ -928,13 +986,13 @@ typedef struct C_business_relation_allow_friend_nt__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "allowUserId",
-        .dataTypeSpecific.className = NULL,
-        .number = C_business_relation_allow_friend_nt_FieldNumber_AllowUserId,
+        .name = "applyUserInfo",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_account_user_info),
+        .number = C_business_relation_allow_friend_nt_FieldNumber_ApplyUserInfo,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_nt__storage_, allowUserId),
+        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_nt__storage_, applyUserInfo),
         .flags = GPBFieldRequired,
-        .dataType = GPBDataTypeUInt64,
+        .dataType = GPBDataTypeMessage,
       },
       {
         .name = "opcode",
@@ -944,6 +1002,15 @@ typedef struct C_business_relation_allow_friend_nt__storage_ {
         .offset = (uint32_t)offsetof(C_business_relation_allow_friend_nt__storage_, opcode),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "relationSArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_relation_user_relation),
+        .number = C_business_relation_allow_friend_nt_FieldNumber_RelationSArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_nt__storage_, relationSArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -1078,12 +1145,14 @@ BOOL C_business_relation_query_friends_rq_msg_IsValidValue(int32_t value__) {
 @implementation C_business_relation_query_friends_rs
 
 @dynamic hasError, error;
-@dynamic friendInfoSArray, friendInfoSArray_Count;
+@dynamic groupSArray, groupSArray_Count;
+@dynamic relationSArray, relationSArray_Count;
 
 typedef struct C_business_relation_query_friends_rs__storage_ {
   uint32_t _has_storage_[1];
   B_error_info *error;
-  NSMutableArray *friendInfoSArray;
+  NSMutableArray *groupSArray;
+  NSMutableArray *relationSArray;
 } C_business_relation_query_friends_rs__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1102,11 +1171,20 @@ typedef struct C_business_relation_query_friends_rs__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "friendInfoSArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(C_business_relation_friend_info),
-        .number = C_business_relation_query_friends_rs_FieldNumber_FriendInfoSArray,
+        .name = "groupSArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_relation_user_relation_group),
+        .number = C_business_relation_query_friends_rs_FieldNumber_GroupSArray,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(C_business_relation_query_friends_rs__storage_, friendInfoSArray),
+        .offset = (uint32_t)offsetof(C_business_relation_query_friends_rs__storage_, groupSArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "relationSArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_relation_user_relation),
+        .number = C_business_relation_query_friends_rs_FieldNumber_RelationSArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(C_business_relation_query_friends_rs__storage_, relationSArray),
         .flags = GPBFieldRepeated,
         .dataType = GPBDataTypeMessage,
       },
@@ -1359,19 +1437,404 @@ BOOL C_business_relation_rename_friend_remark_rs_msg_IsValidValue(int32_t value_
   }
 }
 
+#pragma mark - C_business_relation_add_friend_group_rq
+
+@implementation C_business_relation_add_friend_group_rq
+
+@dynamic hasUserMyselfId, userMyselfId;
+@dynamic hasUserFriendGroup, userFriendGroup;
+
+typedef struct C_business_relation_add_friend_group_rq__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *userFriendGroup;
+  uint64_t userMyselfId;
+} C_business_relation_add_friend_group_rq__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "userMyselfId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_add_friend_group_rq_FieldNumber_UserMyselfId,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_group_rq__storage_, userMyselfId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroup",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_add_friend_group_rq_FieldNumber_UserFriendGroup,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_group_rq__storage_, userFriendGroup),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_add_friend_group_rq class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_add_friend_group_rq__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_add_friend_group_rq_msg
+
+GPBEnumDescriptor *C_business_relation_add_friend_group_rq_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_add_friend_group_rq_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_add_friend_group_rq_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_add_friend_group_rq_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_add_friend_group_rq_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_add_friend_group_rq_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_add_friend_group_rs
+
+@implementation C_business_relation_add_friend_group_rs
+
+@dynamic hasError, error;
+@dynamic hasUserFriendGroup, userFriendGroup;
+@dynamic hasUserFriendGroupId, userFriendGroupId;
+
+typedef struct C_business_relation_add_friend_group_rs__storage_ {
+  uint32_t _has_storage_[1];
+  B_error_info *error;
+  NSString *userFriendGroup;
+  uint64_t userFriendGroupId;
+} C_business_relation_add_friend_group_rs__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "error",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_error_info),
+        .number = C_business_relation_add_friend_group_rs_FieldNumber_Error,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_group_rs__storage_, error),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "userFriendGroup",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_add_friend_group_rs_FieldNumber_UserFriendGroup,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_group_rs__storage_, userFriendGroup),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "userFriendGroupId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_add_friend_group_rs_FieldNumber_UserFriendGroupId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_add_friend_group_rs__storage_, userFriendGroupId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_add_friend_group_rs class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_add_friend_group_rs__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_add_friend_group_rs_msg
+
+GPBEnumDescriptor *C_business_relation_add_friend_group_rs_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_add_friend_group_rs_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_add_friend_group_rs_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_add_friend_group_rs_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_add_friend_group_rs_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_add_friend_group_rs_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_delete_friend_group_rq
+
+@implementation C_business_relation_delete_friend_group_rq
+
+@dynamic hasUserMyselfId, userMyselfId;
+@dynamic hasUserFriendId, userFriendId;
+@dynamic hasUserFriendGroupId, userFriendGroupId;
+
+typedef struct C_business_relation_delete_friend_group_rq__storage_ {
+  uint32_t _has_storage_[1];
+  uint64_t userMyselfId;
+  uint64_t userFriendId;
+  uint64_t userFriendGroupId;
+} C_business_relation_delete_friend_group_rq__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "userMyselfId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_delete_friend_group_rq_FieldNumber_UserMyselfId,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_delete_friend_group_rq__storage_, userMyselfId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_delete_friend_group_rq_FieldNumber_UserFriendId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_business_relation_delete_friend_group_rq__storage_, userFriendId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroupId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_delete_friend_group_rq_FieldNumber_UserFriendGroupId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_delete_friend_group_rq__storage_, userFriendGroupId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_delete_friend_group_rq class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_delete_friend_group_rq__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_delete_friend_group_rq_msg
+
+GPBEnumDescriptor *C_business_relation_delete_friend_group_rq_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_delete_friend_group_rq_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_delete_friend_group_rq_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_delete_friend_group_rq_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_delete_friend_group_rq_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_delete_friend_group_rq_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_delete_friend_group_rs
+
+@implementation C_business_relation_delete_friend_group_rs
+
+@dynamic hasError, error;
+@dynamic hasUserFriendId, userFriendId;
+@dynamic hasUserFriendGroupId, userFriendGroupId;
+
+typedef struct C_business_relation_delete_friend_group_rs__storage_ {
+  uint32_t _has_storage_[1];
+  B_error_info *error;
+  uint64_t userFriendId;
+  uint64_t userFriendGroupId;
+} C_business_relation_delete_friend_group_rs__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "error",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_error_info),
+        .number = C_business_relation_delete_friend_group_rs_FieldNumber_Error,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_delete_friend_group_rs__storage_, error),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "userFriendId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_delete_friend_group_rs_FieldNumber_UserFriendId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_business_relation_delete_friend_group_rs__storage_, userFriendId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroupId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_delete_friend_group_rs_FieldNumber_UserFriendGroupId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_delete_friend_group_rs__storage_, userFriendGroupId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_delete_friend_group_rs class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_delete_friend_group_rs__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_delete_friend_group_rs_msg
+
+GPBEnumDescriptor *C_business_relation_delete_friend_group_rs_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_delete_friend_group_rs_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_delete_friend_group_rs_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_delete_friend_group_rs_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_delete_friend_group_rs_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_delete_friend_group_rs_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
 #pragma mark - C_business_relation_rename_friend_group_rq
 
 @implementation C_business_relation_rename_friend_group_rq
 
 @dynamic hasUserMyselfId, userMyselfId;
-@dynamic hasUserFriendId, userFriendId;
+@dynamic hasUserFriendGroupId, userFriendGroupId;
 @dynamic hasUserFriendGroup, userFriendGroup;
 
 typedef struct C_business_relation_rename_friend_group_rq__storage_ {
   uint32_t _has_storage_[1];
   NSString *userFriendGroup;
   uint64_t userMyselfId;
-  uint64_t userFriendId;
+  uint64_t userFriendGroupId;
 } C_business_relation_rename_friend_group_rq__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1390,11 +1853,11 @@ typedef struct C_business_relation_rename_friend_group_rq__storage_ {
         .dataType = GPBDataTypeUInt64,
       },
       {
-        .name = "userFriendId",
+        .name = "userFriendGroupId",
         .dataTypeSpecific.className = NULL,
-        .number = C_business_relation_rename_friend_group_rq_FieldNumber_UserFriendId,
+        .number = C_business_relation_rename_friend_group_rq_FieldNumber_UserFriendGroupId,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_business_relation_rename_friend_group_rq__storage_, userFriendId),
+        .offset = (uint32_t)offsetof(C_business_relation_rename_friend_group_rq__storage_, userFriendGroupId),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt64,
       },
@@ -1463,14 +1926,14 @@ BOOL C_business_relation_rename_friend_group_rq_msg_IsValidValue(int32_t value__
 @implementation C_business_relation_rename_friend_group_rs
 
 @dynamic hasError, error;
-@dynamic hasUserFriendId, userFriendId;
+@dynamic hasUserFriendGroupId, userFriendGroupId;
 @dynamic hasUserFriendGroup, userFriendGroup;
 
 typedef struct C_business_relation_rename_friend_group_rs__storage_ {
   uint32_t _has_storage_[1];
   B_error_info *error;
   NSString *userFriendGroup;
-  uint64_t userFriendId;
+  uint64_t userFriendGroupId;
 } C_business_relation_rename_friend_group_rs__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1489,11 +1952,11 @@ typedef struct C_business_relation_rename_friend_group_rs__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "userFriendId",
+        .name = "userFriendGroupId",
         .dataTypeSpecific.className = NULL,
-        .number = C_business_relation_rename_friend_group_rs_FieldNumber_UserFriendId,
+        .number = C_business_relation_rename_friend_group_rs_FieldNumber_UserFriendGroupId,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(C_business_relation_rename_friend_group_rs__storage_, userFriendId),
+        .offset = (uint32_t)offsetof(C_business_relation_rename_friend_group_rs__storage_, userFriendGroupId),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt64,
       },
@@ -1551,6 +2014,391 @@ GPBEnumDescriptor *C_business_relation_rename_friend_group_rs_msg_EnumDescriptor
 BOOL C_business_relation_rename_friend_group_rs_msg_IsValidValue(int32_t value__) {
   switch (value__) {
     case C_business_relation_rename_friend_group_rs_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_change_friend_group_rq
+
+@implementation C_business_relation_change_friend_group_rq
+
+@dynamic hasUserMyselfId, userMyselfId;
+@dynamic hasUserFriendId, userFriendId;
+@dynamic hasUserFriendGroupIdOld, userFriendGroupIdOld;
+@dynamic hasUserFriendGroupIdNew, userFriendGroupIdNew;
+
+typedef struct C_business_relation_change_friend_group_rq__storage_ {
+  uint32_t _has_storage_[1];
+  uint64_t userMyselfId;
+  uint64_t userFriendId;
+  uint64_t userFriendGroupIdOld;
+  uint64_t userFriendGroupIdNew;
+} C_business_relation_change_friend_group_rq__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "userMyselfId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rq_FieldNumber_UserMyselfId,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rq__storage_, userMyselfId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rq_FieldNumber_UserFriendId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rq__storage_, userFriendId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroupIdOld",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rq_FieldNumber_UserFriendGroupIdOld,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rq__storage_, userFriendGroupIdOld),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroupIdNew",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rq_FieldNumber_UserFriendGroupIdNew,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rq__storage_, userFriendGroupIdNew),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_change_friend_group_rq class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_change_friend_group_rq__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_change_friend_group_rq_msg
+
+GPBEnumDescriptor *C_business_relation_change_friend_group_rq_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_change_friend_group_rq_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_change_friend_group_rq_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_change_friend_group_rq_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_change_friend_group_rq_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_change_friend_group_rq_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_change_friend_group_rs
+
+@implementation C_business_relation_change_friend_group_rs
+
+@dynamic hasError, error;
+@dynamic hasUserFriendId, userFriendId;
+@dynamic hasUserFriendGroupIdOld, userFriendGroupIdOld;
+@dynamic hasUserFriendGroupIdNew, userFriendGroupIdNew;
+
+typedef struct C_business_relation_change_friend_group_rs__storage_ {
+  uint32_t _has_storage_[1];
+  B_error_info *error;
+  uint64_t userFriendId;
+  uint64_t userFriendGroupIdOld;
+  uint64_t userFriendGroupIdNew;
+} C_business_relation_change_friend_group_rs__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "error",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_error_info),
+        .number = C_business_relation_change_friend_group_rs_FieldNumber_Error,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rs__storage_, error),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "userFriendId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rs_FieldNumber_UserFriendId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rs__storage_, userFriendId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroupIdOld",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rs_FieldNumber_UserFriendGroupIdOld,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rs__storage_, userFriendGroupIdOld),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
+        .name = "userFriendGroupIdNew",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_change_friend_group_rs_FieldNumber_UserFriendGroupIdNew,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(C_business_relation_change_friend_group_rs__storage_, userFriendGroupIdNew),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_change_friend_group_rs class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_change_friend_group_rs__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_change_friend_group_rs_msg
+
+GPBEnumDescriptor *C_business_relation_change_friend_group_rs_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_change_friend_group_rs_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_change_friend_group_rs_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_change_friend_group_rs_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_change_friend_group_rs_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_change_friend_group_rs_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_query_friends_apply_rq
+
+@implementation C_business_relation_query_friends_apply_rq
+
+@dynamic hasUserMyselfId, userMyselfId;
+
+typedef struct C_business_relation_query_friends_apply_rq__storage_ {
+  uint32_t _has_storage_[1];
+  uint64_t userMyselfId;
+} C_business_relation_query_friends_apply_rq__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "userMyselfId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_query_friends_apply_rq_FieldNumber_UserMyselfId,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_query_friends_apply_rq__storage_, userMyselfId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_query_friends_apply_rq class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_query_friends_apply_rq__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_query_friends_apply_rq_msg
+
+GPBEnumDescriptor *C_business_relation_query_friends_apply_rq_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_query_friends_apply_rq_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_query_friends_apply_rq_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_query_friends_apply_rq_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_query_friends_apply_rq_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_query_friends_apply_rq_msg_Id:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
+#pragma mark - C_business_relation_query_friends_apply_rs
+
+@implementation C_business_relation_query_friends_apply_rs
+
+@dynamic hasError, error;
+@dynamic applySArray, applySArray_Count;
+
+typedef struct C_business_relation_query_friends_apply_rs__storage_ {
+  uint32_t _has_storage_[1];
+  B_error_info *error;
+  NSMutableArray *applySArray;
+} C_business_relation_query_friends_apply_rs__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "error",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_error_info),
+        .number = C_business_relation_query_friends_apply_rs_FieldNumber_Error,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(C_business_relation_query_friends_apply_rs__storage_, error),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "applySArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(B_business_relation_friend_apply),
+        .number = C_business_relation_query_friends_apply_rs_FieldNumber_ApplySArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(C_business_relation_query_friends_apply_rs__storage_, applySArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[C_business_relation_query_friends_apply_rs class]
+                                     rootClass:[C_business_relation_CBusinessRelationRoot class]
+                                          file:C_business_relation_CBusinessRelationRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(C_business_relation_query_friends_apply_rs__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Enum C_business_relation_query_friends_apply_rs_msg
+
+GPBEnumDescriptor *C_business_relation_query_friends_apply_rs_msg_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Id\000";
+    static const int32_t values[] = {
+        C_business_relation_query_friends_apply_rs_msg_Id,
+    };
+    static const char *extraTextFormatInfo = "\001\000\"\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(C_business_relation_query_friends_apply_rs_msg)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:C_business_relation_query_friends_apply_rs_msg_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL C_business_relation_query_friends_apply_rs_msg_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case C_business_relation_query_friends_apply_rs_msg_Id:
       return YES;
     default:
       return NO;

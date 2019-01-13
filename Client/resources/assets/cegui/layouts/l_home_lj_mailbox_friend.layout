@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_mailbox_friend" >
+        <Property name="Area" value="{{0.2,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticText" name="StaticText_opcode" >
+            <Property name="Area" value="{{0.818303,0},{0.0845195,0},{0.990829,0},{0.972482,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzScrollPageSize" value="247" />
+            <Property name="VertScrollPageSize" value="941" />
+            <Window type="TaharezLook/StaticText" name="StaticText_change_group" >
+                <Property name="Area" value="{{0.0258303,0},{0.0220049,0},{0.965453,0},{0.512099,0}}" />
+                <Property name="Text" value="change group" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Window type="TaharezLook/Combobox" name="Combobox" >
+                    <Property name="Area" value="{{0.0352941,0},{0.118884,0},{0.967021,0},{0.96782,0}}" />
+                    <AutoWindow namePath="__auto_editbox__" >
+                        <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_droplist__" >
+                        <AutoWindow namePath="__auto_hscrollbar__" >
+                            <AutoWindow namePath="__auto_incbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_decbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_thumb__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_vscrollbar__" >
+                            <AutoWindow namePath="__auto_incbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_decbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_thumb__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                        </AutoWindow>
+                    </AutoWindow>
+                </Window>
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_delete_group" >
+                <Property name="Area" value="{{0.0333775,0},{0.520441,0},{0.980547,0},{0.695623,0}}" />
+                <Property name="Text" value="delete group" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Window type="TaharezLook/Button" name="Button_delete" >
+                    <Property name="Area" value="{{0.0651198,0},{0.307143,0},{0.945598,0},{0.896429,0}}" />
+                    <Property name="Text" value="delete" />
+                </Window>
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_change_remark" >
+                <Property name="Area" value="{{0.0333775,0},{0.714393,0},{0.973,0},{0.98968,0}}" />
+                <Property name="Text" value="change remark" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Window type="TaharezLook/Button" name="Button_change" >
+                    <Property name="Area" value="{{0.0809921,0},{0.595022,0},{0.936414,0},{0.97381,0}}" />
+                    <Property name="Text" value="change" />
+                </Window>
+                <Window type="TaharezLook/Editbox" name="Editbox_remark" >
+                    <Property name="Area" value="{{0.0695613,0},{0.175982,0},{0.953095,0},{0.532043,0}}" />
+                </Window>
+            </Window>
+        </Window>
+        <Window type="TaharezLook/StaticText" name="StaticText_window" >
+            <Property name="Area" value="{{0.0117187,0},{0.0833334,0},{0.8125,0},{0.974074,0}}" />
+            <Property name="Text" value="Debate" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="HorzScrollPageSize" value="1212" />
+            <Property name="VertScrollPageSize" value="944" />
+            <Property name="HorzScrollDocumentSize" value="87" />
+            <Property name="VertScrollDocumentSize" value="27.9375" />
+            <Window type="TaharezLook/StaticText" name="StaticText_talk" >
+                <Property name="Area" value="{{0.0188236,0},{0.0548899,0},{0.981425,0},{0.980046,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

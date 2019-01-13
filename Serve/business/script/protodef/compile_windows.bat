@@ -53,12 +53,15 @@ call :build_proto b_enum
 call :build_proto b_error
 call :build_proto b_math
 call :build_proto b_network
+call :build_proto b_business_account
+call :build_proto b_business_relation
 call :build_proto s_control
+call :build_proto s_shuttle_lobby
 call :build_proto s_proxy_curl
 call :build_proto s_basis
 call :build_proto c_business_account
-call :build_proto b_business_account
 call :build_proto c_business_relation
+call :build_proto c_business_nt_message
 GOTO :EOF
 
 :: build proto function.

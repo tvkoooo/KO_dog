@@ -1,0 +1,32 @@
+syntax = "proto2";
+package b_business_relation;
+
+option java_package = "protodef";
+option java_outer_classname = "b_business_relation";
+option objc_class_prefix = "B_business_relation_";
+option go_package = "protodef/b_business_relation";
+option csharp_namespace = "b_business_relation";
+
+message user_relation
+{
+	required uint64	user_id 					      = 1				 ; // 用户id
+	required uint64	friend_group_id 				  = 2				 ; // 关系组id
+	required uint64	friend_id 					      = 3				 ; // 朋友id
+	required string	friend_remark 					  = 4				 ; // 朋友昵称
+	required uint32 build_friend_time                 = 5				 ; // 朋友关系创建时间
+}
+
+message user_relation_group
+{
+	required uint64	id		 					      = 1				 ; // 朋友组索引key
+	required uint64	user_id			 				  = 2				 ; // 用户id
+	required string	friend_group 					  = 3				 ; // 朋友组名
+}
+message friend_apply
+{
+	required uint64	user_apply_id		 			  = 1				 ; // 申请朋友id
+	required string	user_apply_name 				  = 2				 ; // 申请朋友名
+	required string	user_apply_nick 				  = 3				 ; // 申请朋友昵称
+	required uint32	user_apply_create_time 			  = 4				 ; // 申请朋友名创建时间
+	required string	user_apply_description 			  = 5				 ; // 申请朋友申请理由
+}

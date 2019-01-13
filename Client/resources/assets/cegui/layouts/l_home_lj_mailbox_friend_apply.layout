@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_mailbox_friend_apply" >
+        <Property name="Area" value="{{0.2,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticText" name="StaticText_apply_info" >
+            <Property name="Area" value="{{0.0130208,0},{0.0907408,0},{0.234375,0},{0.981482,0}}" />
+            <Property name="Text" value="friend apply info" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="HorzScrollPageSize" value="322" />
+            <Property name="VertScrollPageSize" value="944" />
+            <Property name="HorzScrollDocumentSize" value="197" />
+            <Property name="VertScrollDocumentSize" value="27.9375" />
+            <Window type="TaharezLook/StaticText" name="StaticText_user_info" >
+                <Property name="Area" value="{{0.0432138,0},{0.0486529,0},{0.963802,0},{0.986283,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+        </Window>
+        <Window type="TaharezLook/StaticText" name="StaticText_friend" >
+            <Property name="Area" value="{{0.252604,0},{0.22037,0},{0.605469,0},{0.977777,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzScrollPageSize" value="524" />
+            <Property name="VertScrollPageSize" value="800" />
+            <Window type="TaharezLook/StaticText" name="StaticText_group" >
+                <Property name="Area" value="{{0.0258303,0},{0.0220049,0},{0.96679,0},{0.689487,0}}" />
+                <Property name="Text" value="friend group" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Window type="TaharezLook/Combobox" name="Combobox" >
+                    <Property name="Area" value="{{0.0352941,0},{0.0805861,0},{0.968627,0},{0.967033,0}}" />
+                    <AutoWindow namePath="__auto_editbox__" >
+                        <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_droplist__" >
+                        <AutoWindow namePath="__auto_hscrollbar__" >
+                            <AutoWindow namePath="__auto_incbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_decbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_thumb__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_vscrollbar__" >
+                            <AutoWindow namePath="__auto_incbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_decbtn__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                            <AutoWindow namePath="__auto_thumb__" >
+                                <Property name="RestoreOldCapture" value="true" />
+                            </AutoWindow>
+                        </AutoWindow>
+                    </AutoWindow>
+                </Window>
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_remark" >
+                <Property name="Area" value="{{0.0221403,0},{0.713936,0},{0.97048,0},{0.84841,0}}" />
+                <Property name="Text" value="remark" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/Editbox" name="Editbox_remark" >
+                    <Property name="Area" value="{{0.238236,0},{0.0699209,0},{0.961971,0},{0.879012,0}}" />
+                </Window>
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_set" >
+                <Property name="Area" value="{{0.0322878,0},{0.889659,0},{0.952952,0},{0.974011,0}}" />
+                <Property name="Text" value="Agree to add friends" />
+            </Window>
+        </Window>
+        <Window type="TaharezLook/StaticText" name="StaticText_opcode" >
+            <Property name="Area" value="{{0.253906,0},{0.0944444,0},{0.604166,0},{0.214815,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzScrollPageSize" value="520" />
+            <Property name="VertScrollPageSize" value="112" />
+            <Window type="TaharezLook/Button" name="Button_agree" >
+                <Property name="Area" value="{{0.522813,0},{0.101282,0},{0.957758,0},{0.870513,0}}" />
+                <Property name="Text" value="Agree" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_refuse" >
+                <Property name="Area" value="{{0.0338398,0},{0.101282,0},{0.478078,0},{0.855128,0}}" />
+                <Property name="Text" value="refuse" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

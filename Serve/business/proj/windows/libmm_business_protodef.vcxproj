@@ -20,27 +20,33 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.cc" />
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_enum.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_error.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_math.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_network.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.cc" />
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_nt_message.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\s_basis.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\s_control.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\s_proxy_curl.pb.cc" />
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\s_shuttle_lobby.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.h" />
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_enum.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_error.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_math.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_network.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.h" />
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_nt_message.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\s_basis.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\s_control.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\s_proxy_curl.pb.h" />
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\s_shuttle_lobby.pb.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

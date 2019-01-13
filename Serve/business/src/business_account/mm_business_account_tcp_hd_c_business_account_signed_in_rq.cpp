@@ -85,10 +85,10 @@ void mm_business_account_tcp_hd_c_business_account_signed_in_rq(void* obj, void*
 		//////////////////////////////////////////////////////////////////////////
 	} while (0);
 	// rs
-	mm_tcp_lock(tcp);
+	mm_tcp_o_lock(tcp);
 	mm_protobuf_cxx_n_tcp_append_rs(mailbox, tcp, c_business_account::signed_in_rs_msg_id, &rs_msg, rq_pack, &rs_pack);
 	mm_protobuf_cxx_n_tcp_flush_send(tcp);
-	mm_tcp_unlock(tcp);
+	mm_tcp_o_unlock(tcp);
 	// logger rs.
 	mm_string_clear(&proto_desc);
 	mm_protobuf_cxx_logger_append_packet_message(&proto_desc, &rs_pack, &rs_msg);

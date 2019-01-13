@@ -15,12 +15,36 @@
     <ClInclude Include="..\..\src\querydef\mm_q_db_ko_dog_t_user_basic.h">
       <Filter>src\querydef</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_nt_message.h">
+      <Filter>src\querydef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_nt_message.h">
+      <Filter>src\querydef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_user_relation.h">
+      <Filter>src\querydef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_user_relation.h">
+      <Filter>src\querydef</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\querydef\mm_q_db_ko_dog_t_user_basic.cpp">
       <Filter>src\querydef</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\querydef\mm_m_db_ko_dog_t_user_basic.cpp">
+      <Filter>src\querydef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_nt_message.cpp">
+      <Filter>src\querydef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_nt_message.cpp">
+      <Filter>src\querydef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_user_relation.cpp">
+      <Filter>src\querydef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_user_relation.cpp">
       <Filter>src\querydef</Filter>
     </ClCompile>
   </ItemGroup>

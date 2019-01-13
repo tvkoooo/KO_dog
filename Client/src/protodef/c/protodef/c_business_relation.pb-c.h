@@ -9,6 +9,7 @@ PROTOBUF_C_BEGIN_DECLS
 
 #include "b_error.pb-c.h"
 #include "b_business_account.pb-c.h"
+#include "b_business_relation.pb-c.h"
 
 typedef struct _c_business_relation_friend_info c_business_relation_friend_info;
 typedef struct _c_business_relation_add_friend_rq c_business_relation_add_friend_rq;
@@ -24,8 +25,16 @@ typedef struct _c_business_relation_query_friends_rq c_business_relation_query_f
 typedef struct _c_business_relation_query_friends_rs c_business_relation_query_friends_rs;
 typedef struct _c_business_relation_rename_friend_remark_rq c_business_relation_rename_friend_remark_rq;
 typedef struct _c_business_relation_rename_friend_remark_rs c_business_relation_rename_friend_remark_rs;
+typedef struct _c_business_relation_add_friend_group_rq c_business_relation_add_friend_group_rq;
+typedef struct _c_business_relation_add_friend_group_rs c_business_relation_add_friend_group_rs;
+typedef struct _c_business_relation_delete_friend_group_rq c_business_relation_delete_friend_group_rq;
+typedef struct _c_business_relation_delete_friend_group_rs c_business_relation_delete_friend_group_rs;
 typedef struct _c_business_relation_rename_friend_group_rq c_business_relation_rename_friend_group_rq;
 typedef struct _c_business_relation_rename_friend_group_rs c_business_relation_rename_friend_group_rs;
+typedef struct _c_business_relation_change_friend_group_rq c_business_relation_change_friend_group_rq;
+typedef struct _c_business_relation_change_friend_group_rs c_business_relation_change_friend_group_rs;
+typedef struct _c_business_relation_query_friends_apply_rq c_business_relation_query_friends_apply_rq;
+typedef struct _c_business_relation_query_friends_apply_rs c_business_relation_query_friends_apply_rs;
 typedef struct _c_business_relation_talk_friend_rq c_business_relation_talk_friend_rq;
 typedef struct _c_business_relation_talk_friend_rs c_business_relation_talk_friend_rs;
 typedef struct _c_business_relation_talk_friend_nt c_business_relation_talk_friend_nt;
@@ -76,20 +85,44 @@ typedef enum _c_business_relation_rename_friend_remark_rq_msg {
 typedef enum _c_business_relation_rename_friend_remark_rs_msg {
   c_business_relation_rename_friend_remark_rs_msg_id = 33562912
 } c_business_relation_rename_friend_remark_rs_msg;
+typedef enum _c_business_relation_add_friend_group_rq_msg {
+  c_business_relation_add_friend_group_rq_msg_id = 33562913
+} c_business_relation_add_friend_group_rq_msg;
+typedef enum _c_business_relation_add_friend_group_rs_msg {
+  c_business_relation_add_friend_group_rs_msg_id = 33562914
+} c_business_relation_add_friend_group_rs_msg;
+typedef enum _c_business_relation_delete_friend_group_rq_msg {
+  c_business_relation_delete_friend_group_rq_msg_id = 33562913
+} c_business_relation_delete_friend_group_rq_msg;
+typedef enum _c_business_relation_delete_friend_group_rs_msg {
+  c_business_relation_delete_friend_group_rs_msg_id = 33562914
+} c_business_relation_delete_friend_group_rs_msg;
 typedef enum _c_business_relation_rename_friend_group_rq_msg {
   c_business_relation_rename_friend_group_rq_msg_id = 33562913
 } c_business_relation_rename_friend_group_rq_msg;
 typedef enum _c_business_relation_rename_friend_group_rs_msg {
   c_business_relation_rename_friend_group_rs_msg_id = 33562914
 } c_business_relation_rename_friend_group_rs_msg;
+typedef enum _c_business_relation_change_friend_group_rq_msg {
+  c_business_relation_change_friend_group_rq_msg_id = 33562915
+} c_business_relation_change_friend_group_rq_msg;
+typedef enum _c_business_relation_change_friend_group_rs_msg {
+  c_business_relation_change_friend_group_rs_msg_id = 33562916
+} c_business_relation_change_friend_group_rs_msg;
+typedef enum _c_business_relation_query_friends_apply_rq_msg {
+  c_business_relation_query_friends_apply_rq_msg_id = 33562917
+} c_business_relation_query_friends_apply_rq_msg;
+typedef enum _c_business_relation_query_friends_apply_rs_msg {
+  c_business_relation_query_friends_apply_rs_msg_id = 33562918
+} c_business_relation_query_friends_apply_rs_msg;
 typedef enum _c_business_relation_talk_friend_rq_msg {
-  c_business_relation_talk_friend_rq_msg_id = 33562915
+  c_business_relation_talk_friend_rq_msg_id = 33562961
 } c_business_relation_talk_friend_rq_msg;
 typedef enum _c_business_relation_talk_friend_rs_msg {
-  c_business_relation_talk_friend_rs_msg_id = 33562916
+  c_business_relation_talk_friend_rs_msg_id = 33562962
 } c_business_relation_talk_friend_rs_msg;
 typedef enum _c_business_relation_talk_friend_nt_msg {
-  c_business_relation_talk_friend_nt_msg_id = 33563012
+  c_business_relation_talk_friend_nt_msg_id = 33563025
 } c_business_relation_talk_friend_nt_msg;
 typedef enum _c_business_relation_msg {
   c_business_relation_msg_min_id = 33562880,
@@ -115,11 +148,12 @@ struct  _c_business_relation_add_friend_rq
   ProtobufCMessage base;
   unsigned long long int user_myself_id;
   unsigned long long int user_add_id;
+  char *user_remark;
   char *description;
 };
 #define c_business_relation_add_friend_rq_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_add_friend_rq_descriptor) \
-    , 0, 0, NULL }
+    , 0, 0, NULL, NULL }
 
 
 struct  _c_business_relation_add_friend_rs
@@ -127,10 +161,11 @@ struct  _c_business_relation_add_friend_rs
   ProtobufCMessage base;
   b_error_info *error;
   unsigned long long int user_add_id;
+  char *user_remark;
 };
 #define c_business_relation_add_friend_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_add_friend_rs_descriptor) \
-    , NULL, 0 }
+    , NULL, 0, NULL }
 
 
 struct  _c_business_relation_add_friend_nt
@@ -181,11 +216,13 @@ struct  _c_business_relation_allow_friend_rq
   ProtobufCMessage base;
   unsigned long long int user_myself_id;
   unsigned long long int user_allow_id;
+  char *user_myself_nick;
+  char *user_allow_nick;
   unsigned int opcode;
 };
 #define c_business_relation_allow_friend_rq_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_allow_friend_rq_descriptor) \
-    , 0, 0, 0 }
+    , 0, 0, NULL, NULL, 0 }
 
 
 struct  _c_business_relation_allow_friend_rs
@@ -194,21 +231,25 @@ struct  _c_business_relation_allow_friend_rs
   b_error_info *error;
   unsigned long long int user_allow_id;
   unsigned int opcode;
+  size_t n_relation_s;
+  b_business_relation_user_relation **relation_s;
 };
 #define c_business_relation_allow_friend_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_allow_friend_rs_descriptor) \
-    , NULL, 0, 0 }
+    , NULL, 0, 0, 0,NULL }
 
 
 struct  _c_business_relation_allow_friend_nt
 {
   ProtobufCMessage base;
-  unsigned long long int allow_user_id;
+  b_business_account_user_info *apply_user_info;
   unsigned int opcode;
+  size_t n_relation_s;
+  b_business_relation_user_relation **relation_s;
 };
 #define c_business_relation_allow_friend_nt_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_allow_friend_nt_descriptor) \
-    , 0, 0 }
+    , NULL, 0, 0,NULL }
 
 
 struct  _c_business_relation_query_friends_rq
@@ -225,12 +266,14 @@ struct  _c_business_relation_query_friends_rs
 {
   ProtobufCMessage base;
   b_error_info *error;
-  size_t n_friend_info_s;
-  c_business_relation_friend_info **friend_info_s;
+  size_t n_group_s;
+  b_business_relation_user_relation_group **group_s;
+  size_t n_relation_s;
+  b_business_relation_user_relation **relation_s;
 };
 #define c_business_relation_query_friends_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_query_friends_rs_descriptor) \
-    , NULL, 0,NULL }
+    , NULL, 0,NULL, 0,NULL }
 
 
 struct  _c_business_relation_rename_friend_remark_rq
@@ -257,11 +300,58 @@ struct  _c_business_relation_rename_friend_remark_rs
     , NULL, 0, NULL }
 
 
-struct  _c_business_relation_rename_friend_group_rq
+struct  _c_business_relation_add_friend_group_rq
+{
+  ProtobufCMessage base;
+  unsigned long long int user_myself_id;
+  char *user_friend_group;
+};
+#define c_business_relation_add_friend_group_rq_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_add_friend_group_rq_descriptor) \
+    , 0, NULL }
+
+
+struct  _c_business_relation_add_friend_group_rs
+{
+  ProtobufCMessage base;
+  b_error_info *error;
+  char *user_friend_group;
+  unsigned long long int user_friend_group_id;
+};
+#define c_business_relation_add_friend_group_rs_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_add_friend_group_rs_descriptor) \
+    , NULL, NULL, 0 }
+
+
+struct  _c_business_relation_delete_friend_group_rq
 {
   ProtobufCMessage base;
   unsigned long long int user_myself_id;
   unsigned long long int user_friend_id;
+  unsigned long long int user_friend_group_id;
+};
+#define c_business_relation_delete_friend_group_rq_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_delete_friend_group_rq_descriptor) \
+    , 0, 0, 0 }
+
+
+struct  _c_business_relation_delete_friend_group_rs
+{
+  ProtobufCMessage base;
+  b_error_info *error;
+  unsigned long long int user_friend_id;
+  unsigned long long int user_friend_group_id;
+};
+#define c_business_relation_delete_friend_group_rs_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_delete_friend_group_rs_descriptor) \
+    , NULL, 0, 0 }
+
+
+struct  _c_business_relation_rename_friend_group_rq
+{
+  ProtobufCMessage base;
+  unsigned long long int user_myself_id;
+  unsigned long long int user_friend_group_id;
   char *user_friend_group;
 };
 #define c_business_relation_rename_friend_group_rq_Init \
@@ -273,12 +363,60 @@ struct  _c_business_relation_rename_friend_group_rs
 {
   ProtobufCMessage base;
   b_error_info *error;
-  unsigned long long int user_friend_id;
+  unsigned long long int user_friend_group_id;
   char *user_friend_group;
 };
 #define c_business_relation_rename_friend_group_rs_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_rename_friend_group_rs_descriptor) \
     , NULL, 0, NULL }
+
+
+struct  _c_business_relation_change_friend_group_rq
+{
+  ProtobufCMessage base;
+  unsigned long long int user_myself_id;
+  unsigned long long int user_friend_id;
+  unsigned long long int user_friend_group_id_old;
+  unsigned long long int user_friend_group_id_new;
+};
+#define c_business_relation_change_friend_group_rq_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_change_friend_group_rq_descriptor) \
+    , 0, 0, 0, 0 }
+
+
+struct  _c_business_relation_change_friend_group_rs
+{
+  ProtobufCMessage base;
+  b_error_info *error;
+  unsigned long long int user_friend_id;
+  unsigned long long int user_friend_group_id_old;
+  unsigned long long int user_friend_group_id_new;
+};
+#define c_business_relation_change_friend_group_rs_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_change_friend_group_rs_descriptor) \
+    , NULL, 0, 0, 0 }
+
+
+struct  _c_business_relation_query_friends_apply_rq
+{
+  ProtobufCMessage base;
+  unsigned long long int user_myself_id;
+};
+#define c_business_relation_query_friends_apply_rq_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_query_friends_apply_rq_descriptor) \
+    , 0 }
+
+
+struct  _c_business_relation_query_friends_apply_rs
+{
+  ProtobufCMessage base;
+  b_error_info *error;
+  size_t n_apply_s;
+  b_business_relation_friend_apply **apply_s;
+};
+#define c_business_relation_query_friends_apply_rs_Init \
+ { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_query_friends_apply_rs_descriptor) \
+    , NULL, 0,NULL }
 
 
 struct  _c_business_relation_talk_friend_rq
@@ -581,6 +719,82 @@ c_business_relation_rename_friend_remark_rs *
 void   c_business_relation_rename_friend_remark_rs_free_unpacked
                      (c_business_relation_rename_friend_remark_rs *message,
                       ProtobufCAllocator *allocator);
+/* c_business_relation_add_friend_group_rq methods */
+void   c_business_relation_add_friend_group_rq_init
+                     (c_business_relation_add_friend_group_rq         *message);
+size_t c_business_relation_add_friend_group_rq_get_packed_size
+                     (const c_business_relation_add_friend_group_rq   *message);
+size_t c_business_relation_add_friend_group_rq_pack
+                     (const c_business_relation_add_friend_group_rq   *message,
+                      unsigned char             *out);
+size_t c_business_relation_add_friend_group_rq_pack_to_buffer
+                     (const c_business_relation_add_friend_group_rq   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_add_friend_group_rq *
+       c_business_relation_add_friend_group_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_add_friend_group_rq_free_unpacked
+                     (c_business_relation_add_friend_group_rq *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_add_friend_group_rs methods */
+void   c_business_relation_add_friend_group_rs_init
+                     (c_business_relation_add_friend_group_rs         *message);
+size_t c_business_relation_add_friend_group_rs_get_packed_size
+                     (const c_business_relation_add_friend_group_rs   *message);
+size_t c_business_relation_add_friend_group_rs_pack
+                     (const c_business_relation_add_friend_group_rs   *message,
+                      unsigned char             *out);
+size_t c_business_relation_add_friend_group_rs_pack_to_buffer
+                     (const c_business_relation_add_friend_group_rs   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_add_friend_group_rs *
+       c_business_relation_add_friend_group_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_add_friend_group_rs_free_unpacked
+                     (c_business_relation_add_friend_group_rs *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_delete_friend_group_rq methods */
+void   c_business_relation_delete_friend_group_rq_init
+                     (c_business_relation_delete_friend_group_rq         *message);
+size_t c_business_relation_delete_friend_group_rq_get_packed_size
+                     (const c_business_relation_delete_friend_group_rq   *message);
+size_t c_business_relation_delete_friend_group_rq_pack
+                     (const c_business_relation_delete_friend_group_rq   *message,
+                      unsigned char             *out);
+size_t c_business_relation_delete_friend_group_rq_pack_to_buffer
+                     (const c_business_relation_delete_friend_group_rq   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_delete_friend_group_rq *
+       c_business_relation_delete_friend_group_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_delete_friend_group_rq_free_unpacked
+                     (c_business_relation_delete_friend_group_rq *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_delete_friend_group_rs methods */
+void   c_business_relation_delete_friend_group_rs_init
+                     (c_business_relation_delete_friend_group_rs         *message);
+size_t c_business_relation_delete_friend_group_rs_get_packed_size
+                     (const c_business_relation_delete_friend_group_rs   *message);
+size_t c_business_relation_delete_friend_group_rs_pack
+                     (const c_business_relation_delete_friend_group_rs   *message,
+                      unsigned char             *out);
+size_t c_business_relation_delete_friend_group_rs_pack_to_buffer
+                     (const c_business_relation_delete_friend_group_rs   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_delete_friend_group_rs *
+       c_business_relation_delete_friend_group_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_delete_friend_group_rs_free_unpacked
+                     (c_business_relation_delete_friend_group_rs *message,
+                      ProtobufCAllocator *allocator);
 /* c_business_relation_rename_friend_group_rq methods */
 void   c_business_relation_rename_friend_group_rq_init
                      (c_business_relation_rename_friend_group_rq         *message);
@@ -618,6 +832,82 @@ c_business_relation_rename_friend_group_rs *
                       const unsigned char       *data);
 void   c_business_relation_rename_friend_group_rs_free_unpacked
                      (c_business_relation_rename_friend_group_rs *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_change_friend_group_rq methods */
+void   c_business_relation_change_friend_group_rq_init
+                     (c_business_relation_change_friend_group_rq         *message);
+size_t c_business_relation_change_friend_group_rq_get_packed_size
+                     (const c_business_relation_change_friend_group_rq   *message);
+size_t c_business_relation_change_friend_group_rq_pack
+                     (const c_business_relation_change_friend_group_rq   *message,
+                      unsigned char             *out);
+size_t c_business_relation_change_friend_group_rq_pack_to_buffer
+                     (const c_business_relation_change_friend_group_rq   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_change_friend_group_rq *
+       c_business_relation_change_friend_group_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_change_friend_group_rq_free_unpacked
+                     (c_business_relation_change_friend_group_rq *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_change_friend_group_rs methods */
+void   c_business_relation_change_friend_group_rs_init
+                     (c_business_relation_change_friend_group_rs         *message);
+size_t c_business_relation_change_friend_group_rs_get_packed_size
+                     (const c_business_relation_change_friend_group_rs   *message);
+size_t c_business_relation_change_friend_group_rs_pack
+                     (const c_business_relation_change_friend_group_rs   *message,
+                      unsigned char             *out);
+size_t c_business_relation_change_friend_group_rs_pack_to_buffer
+                     (const c_business_relation_change_friend_group_rs   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_change_friend_group_rs *
+       c_business_relation_change_friend_group_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_change_friend_group_rs_free_unpacked
+                     (c_business_relation_change_friend_group_rs *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_query_friends_apply_rq methods */
+void   c_business_relation_query_friends_apply_rq_init
+                     (c_business_relation_query_friends_apply_rq         *message);
+size_t c_business_relation_query_friends_apply_rq_get_packed_size
+                     (const c_business_relation_query_friends_apply_rq   *message);
+size_t c_business_relation_query_friends_apply_rq_pack
+                     (const c_business_relation_query_friends_apply_rq   *message,
+                      unsigned char             *out);
+size_t c_business_relation_query_friends_apply_rq_pack_to_buffer
+                     (const c_business_relation_query_friends_apply_rq   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_query_friends_apply_rq *
+       c_business_relation_query_friends_apply_rq_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_query_friends_apply_rq_free_unpacked
+                     (c_business_relation_query_friends_apply_rq *message,
+                      ProtobufCAllocator *allocator);
+/* c_business_relation_query_friends_apply_rs methods */
+void   c_business_relation_query_friends_apply_rs_init
+                     (c_business_relation_query_friends_apply_rs         *message);
+size_t c_business_relation_query_friends_apply_rs_get_packed_size
+                     (const c_business_relation_query_friends_apply_rs   *message);
+size_t c_business_relation_query_friends_apply_rs_pack
+                     (const c_business_relation_query_friends_apply_rs   *message,
+                      unsigned char             *out);
+size_t c_business_relation_query_friends_apply_rs_pack_to_buffer
+                     (const c_business_relation_query_friends_apply_rs   *message,
+                      ProtobufCBuffer     *buffer);
+c_business_relation_query_friends_apply_rs *
+       c_business_relation_query_friends_apply_rs_unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const unsigned char       *data);
+void   c_business_relation_query_friends_apply_rs_free_unpacked
+                     (c_business_relation_query_friends_apply_rs *message,
                       ProtobufCAllocator *allocator);
 /* c_business_relation_talk_friend_rq methods */
 void   c_business_relation_talk_friend_rq_init
@@ -720,11 +1010,35 @@ typedef void (*c_business_relation_rename_friend_remark_rq_Closure)
 typedef void (*c_business_relation_rename_friend_remark_rs_Closure)
                  (const c_business_relation_rename_friend_remark_rs *message,
                   void *closure_data);
+typedef void (*c_business_relation_add_friend_group_rq_Closure)
+                 (const c_business_relation_add_friend_group_rq *message,
+                  void *closure_data);
+typedef void (*c_business_relation_add_friend_group_rs_Closure)
+                 (const c_business_relation_add_friend_group_rs *message,
+                  void *closure_data);
+typedef void (*c_business_relation_delete_friend_group_rq_Closure)
+                 (const c_business_relation_delete_friend_group_rq *message,
+                  void *closure_data);
+typedef void (*c_business_relation_delete_friend_group_rs_Closure)
+                 (const c_business_relation_delete_friend_group_rs *message,
+                  void *closure_data);
 typedef void (*c_business_relation_rename_friend_group_rq_Closure)
                  (const c_business_relation_rename_friend_group_rq *message,
                   void *closure_data);
 typedef void (*c_business_relation_rename_friend_group_rs_Closure)
                  (const c_business_relation_rename_friend_group_rs *message,
+                  void *closure_data);
+typedef void (*c_business_relation_change_friend_group_rq_Closure)
+                 (const c_business_relation_change_friend_group_rq *message,
+                  void *closure_data);
+typedef void (*c_business_relation_change_friend_group_rs_Closure)
+                 (const c_business_relation_change_friend_group_rs *message,
+                  void *closure_data);
+typedef void (*c_business_relation_query_friends_apply_rq_Closure)
+                 (const c_business_relation_query_friends_apply_rq *message,
+                  void *closure_data);
+typedef void (*c_business_relation_query_friends_apply_rs_Closure)
+                 (const c_business_relation_query_friends_apply_rs *message,
                   void *closure_data);
 typedef void (*c_business_relation_talk_friend_rq_Closure)
                  (const c_business_relation_talk_friend_rq *message,
@@ -770,10 +1084,26 @@ extern const ProtobufCMessageDescriptor c_business_relation_rename_friend_remark
 extern const ProtobufCEnumDescriptor    c_business_relation_rename_friend_remark_rq_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_business_relation_rename_friend_remark_rs_descriptor;
 extern const ProtobufCEnumDescriptor    c_business_relation_rename_friend_remark_rs_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_add_friend_group_rq_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_add_friend_group_rq_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_add_friend_group_rs_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_add_friend_group_rs_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_delete_friend_group_rq_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_delete_friend_group_rq_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_delete_friend_group_rs_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_delete_friend_group_rs_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rq_descriptor;
 extern const ProtobufCEnumDescriptor    c_business_relation_rename_friend_group_rq_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rs_descriptor;
 extern const ProtobufCEnumDescriptor    c_business_relation_rename_friend_group_rs_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_change_friend_group_rq_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_change_friend_group_rq_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_change_friend_group_rs_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_change_friend_group_rs_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_query_friends_apply_rq_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_query_friends_apply_rq_msg_descriptor;
+extern const ProtobufCMessageDescriptor c_business_relation_query_friends_apply_rs_descriptor;
+extern const ProtobufCEnumDescriptor    c_business_relation_query_friends_apply_rs_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_business_relation_talk_friend_rq_descriptor;
 extern const ProtobufCEnumDescriptor    c_business_relation_talk_friend_rq_msg_descriptor;
 extern const ProtobufCMessageDescriptor c_business_relation_talk_friend_rs_descriptor;

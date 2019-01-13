@@ -275,36 +275,53 @@ void hd_q_c_business_account_search_account_rs(void* obj, void* u, struct mm_pac
 		}
 		else
 		{
-			//数据更新
-			typedef ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info > b_user_info_v;
-			b_user_info_v* user_info_s = rs_msg.mutable_user_info_s();
-			int index = 0;
-
-			p_data_user_basic->friend_basics.resize(user_info_s->size());
-			//拼装回包内容
-			//typedef 做一个短名称
-			typedef mm::KO_dog_data_user_basic::v_friend_basic user_basic_vec;
-			user_basic_vec& vec = p_data_user_basic->friend_basics;
-			//遍历容器
-			for (user_basic_vec::iterator it = vec.begin();
-				it != vec.end(); it++, index++)
 			{
-				//protobuf repeated 字段元素添加函数，获取的是容器元素类型
-				b_business_account::user_info* u = user_info_s->Mutable(index);
-				//获取具体迭代器包含的元素引用
-				mm::data_search_friend_basic& e = *it;
-				//对拷贝数据
-				e.id = u->user_id();
-				e.name = u->user_name();
-				e.nick = u->user_nick();
-				e.create_time = u->create_time();
+				typedef ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info > b_user_info_v;
+				b_user_info_v* user_info_s = rs_msg.mutable_user_info_s();
+				int index = user_info_s->size();
+				//先清空现有map(组数据 和好友数据)，遍历传回数据并添加进map
+				p_data_user_basic->m_friend_search.clear();
+				b_user_info_v::iterator it;
+				for (it = user_info_s->begin(); it != user_info_s->end(); it++)
+				{
+					mm::data_basic_friend_info* e = p_data_user_basic->m_friend_search.add(it->user_id());
+					e->id = it->user_id();
+					e->name = it->user_name();
+					e->nick = it->user_nick();
+					e->create_time = it->create_time();
+				}
 			}
-			//////////////////////////////////////////////////////////////////////////
+
+			////数据更新
+			//typedef ::google::protobuf::RepeatedPtrField< ::b_business_account::user_info > b_user_info_v;
+			//b_user_info_v* user_info_s = rs_msg.mutable_user_info_s();
+			//int index = 0;
+
+			//p_data_user_basic->friend_search.resize(user_info_s->size());
+			////拼装回包内容
+			////typedef 做一个短名称
+			//typedef mm::KO_dog_data_user_basic::v_friend_basic user_basic_vec;
+			//user_basic_vec& vec = p_data_user_basic->friend_search;
+			////遍历容器
+			//for (user_basic_vec::iterator it = vec.begin();
+			//	it != vec.end(); it++, index++)
+			//{
+			//	//protobuf repeated 字段元素添加函数，获取的是容器元素类型
+			//	b_business_account::user_info* u = user_info_s->Mutable(index);
+			//	//获取具体迭代器包含的元素引用
+			//	mm::data_search_friend_basic& e = *it;
+			//	//对拷贝数据
+			//	e.id = u->user_id();
+			//	e.name = u->user_name();
+			//	e.nick = u->user_nick();
+			//	e.create_time = u->create_time();
+			//}
+			////////////////////////////////////////////////////////////////////////////
 
 			//数据更新以后的事件发布    发布内容  evt_ags
 			mm_event_args evt_ags;
 			p_data_user_basic->d_event_set.fire_event(mm::KO_dog_data_user_basic::event_data_search_friend_basic_update, evt_ags);
-			//////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////
 		}
 	} while (0);
 

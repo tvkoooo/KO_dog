@@ -60,6 +60,21 @@ namespace mm
 	public:
 		ip_port_state entry;
 		ip_port_state lobby;
+
+	public:
+		// this member is event drive.
+		mm::mm_event_set d_event_set;
+	public:
+		static const std::string event_add;
+		static const std::string event_rmv;
+	public:
+		//     执行者   被操作者
+		// 增  x        表
+		// 删  x        表
+		// 改           行
+		// 查           行
+	public:
+		std::map<int, ip_port_state> m;
 		
 	//public:
 	//	

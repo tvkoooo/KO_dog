@@ -1233,10 +1233,36 @@ public final class c_business_relation {
 
     /**
      * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    boolean hasUserRemark();
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    java.lang.String getUserRemark();
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserRemarkBytes();
+
+    /**
+     * <pre>
      * 添加描述
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 4;</code>
      */
     boolean hasDescription();
     /**
@@ -1244,7 +1270,7 @@ public final class c_business_relation {
      * 添加描述
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 4;</code>
      */
     java.lang.String getDescription();
     /**
@@ -1252,7 +1278,7 @@ public final class c_business_relation {
      * 添加描述
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 4;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -1275,6 +1301,7 @@ public final class c_business_relation {
     private add_friend_rq() {
       userMyselfId_ = 0L;
       userAddId_ = 0L;
+      userRemark_ = "";
       description_ = "";
     }
 
@@ -1319,6 +1346,12 @@ public final class c_business_relation {
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
+              userRemark_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
               description_ = bs;
               break;
             }
@@ -1474,24 +1507,78 @@ public final class c_business_relation {
       return userAddId_;
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 3;
+    public static final int USER_REMARK_FIELD_NUMBER = 3;
+    private volatile java.lang.Object userRemark_;
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    public boolean hasUserRemark() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    public java.lang.String getUserRemark() {
+      java.lang.Object ref = userRemark_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userRemark_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserRemarkBytes() {
+      java.lang.Object ref = userRemark_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userRemark_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 4;
     private volatile java.lang.Object description_;
     /**
      * <pre>
      * 添加描述
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 4;</code>
      */
     public boolean hasDescription() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <pre>
      * 添加描述
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 4;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -1512,7 +1599,7 @@ public final class c_business_relation {
      * 添加描述
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 4;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -1542,6 +1629,10 @@ public final class c_business_relation {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasUserRemark()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasDescription()) {
         memoizedIsInitialized = 0;
         return false;
@@ -1559,7 +1650,10 @@ public final class c_business_relation {
         output.writeUInt64(2, userAddId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userRemark_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
       }
       unknownFields.writeTo(output);
     }
@@ -1578,7 +1672,10 @@ public final class c_business_relation {
           .computeUInt64Size(2, userAddId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userRemark_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1607,6 +1704,11 @@ public final class c_business_relation {
         result = result && (getUserAddId()
             == other.getUserAddId());
       }
+      result = result && (hasUserRemark() == other.hasUserRemark());
+      if (hasUserRemark()) {
+        result = result && getUserRemark()
+            .equals(other.getUserRemark());
+      }
       result = result && (hasDescription() == other.hasDescription());
       if (hasDescription()) {
         result = result && getDescription()
@@ -1632,6 +1734,10 @@ public final class c_business_relation {
         hash = (37 * hash) + USER_ADD_ID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getUserAddId());
+      }
+      if (hasUserRemark()) {
+        hash = (37 * hash) + USER_REMARK_FIELD_NUMBER;
+        hash = (53 * hash) + getUserRemark().hashCode();
       }
       if (hasDescription()) {
         hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -1774,8 +1880,10 @@ public final class c_business_relation {
         bitField0_ = (bitField0_ & ~0x00000001);
         userAddId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        description_ = "";
+        userRemark_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        description_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1810,6 +1918,10 @@ public final class c_business_relation {
         result.userAddId_ = userAddId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.userRemark_ = userRemark_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         result.description_ = description_;
         result.bitField0_ = to_bitField0_;
@@ -1860,8 +1972,13 @@ public final class c_business_relation {
         if (other.hasUserAddId()) {
           setUserAddId(other.getUserAddId());
         }
-        if (other.hasDescription()) {
+        if (other.hasUserRemark()) {
           bitField0_ |= 0x00000004;
+          userRemark_ = other.userRemark_;
+          onChanged();
+        }
+        if (other.hasDescription()) {
+          bitField0_ |= 0x00000008;
           description_ = other.description_;
           onChanged();
         }
@@ -1875,6 +1992,9 @@ public final class c_business_relation {
           return false;
         }
         if (!hasUserAddId()) {
+          return false;
+        }
+        if (!hasUserRemark()) {
           return false;
         }
         if (!hasDescription()) {
@@ -1998,23 +2118,123 @@ public final class c_business_relation {
         return this;
       }
 
+      private java.lang.Object userRemark_ = "";
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public boolean hasUserRemark() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public java.lang.String getUserRemark() {
+        java.lang.Object ref = userRemark_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userRemark_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserRemarkBytes() {
+        java.lang.Object ref = userRemark_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userRemark_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public Builder setUserRemark(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userRemark_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public Builder clearUserRemark() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userRemark_ = getDefaultInstance().getUserRemark();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public Builder setUserRemarkBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userRemark_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object description_ = "";
       /**
        * <pre>
        * 添加描述
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 4;</code>
        */
       public boolean hasDescription() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
        * 添加描述
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 4;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -2035,7 +2255,7 @@ public final class c_business_relation {
        * 添加描述
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 4;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -2055,14 +2275,14 @@ public final class c_business_relation {
        * 添加描述
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 4;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         description_ = value;
         onChanged();
         return this;
@@ -2072,10 +2292,10 @@ public final class c_business_relation {
        * 添加描述
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 4;</code>
        */
       public Builder clearDescription() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
@@ -2085,14 +2305,14 @@ public final class c_business_relation {
        * 添加描述
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 4;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         description_ = value;
         onChanged();
         return this;
@@ -2191,6 +2411,32 @@ public final class c_business_relation {
      * <code>required uint64 user_add_id = 2;</code>
      */
     long getUserAddId();
+
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    boolean hasUserRemark();
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    java.lang.String getUserRemark();
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserRemarkBytes();
   }
   /**
    * <pre>
@@ -2209,6 +2455,7 @@ public final class c_business_relation {
     }
     private add_friend_rs() {
       userAddId_ = 0L;
+      userRemark_ = "";
     }
 
     @java.lang.Override
@@ -2255,6 +2502,12 @@ public final class c_business_relation {
             case 16: {
               bitField0_ |= 0x00000002;
               userAddId_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              userRemark_ = bs;
               break;
             }
           }
@@ -2419,6 +2672,60 @@ public final class c_business_relation {
       return userAddId_;
     }
 
+    public static final int USER_REMARK_FIELD_NUMBER = 3;
+    private volatile java.lang.Object userRemark_;
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    public boolean hasUserRemark() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    public java.lang.String getUserRemark() {
+      java.lang.Object ref = userRemark_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userRemark_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 添加朋友备注名
+     * </pre>
+     *
+     * <code>required string user_remark = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserRemarkBytes() {
+      java.lang.Object ref = userRemark_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userRemark_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2430,6 +2737,10 @@ public final class c_business_relation {
         return false;
       }
       if (!hasUserAddId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserRemark()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2449,6 +2760,9 @@ public final class c_business_relation {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(2, userAddId_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userRemark_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2464,6 +2778,9 @@ public final class c_business_relation {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, userAddId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userRemark_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2492,6 +2809,11 @@ public final class c_business_relation {
         result = result && (getUserAddId()
             == other.getUserAddId());
       }
+      result = result && (hasUserRemark() == other.hasUserRemark());
+      if (hasUserRemark()) {
+        result = result && getUserRemark()
+            .equals(other.getUserRemark());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2511,6 +2833,10 @@ public final class c_business_relation {
         hash = (37 * hash) + USER_ADD_ID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getUserAddId());
+      }
+      if (hasUserRemark()) {
+        hash = (37 * hash) + USER_REMARK_FIELD_NUMBER;
+        hash = (53 * hash) + getUserRemark().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2654,6 +2980,8 @@ public final class c_business_relation {
         bitField0_ = (bitField0_ & ~0x00000001);
         userAddId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        userRemark_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -2690,6 +3018,10 @@ public final class c_business_relation {
           to_bitField0_ |= 0x00000002;
         }
         result.userAddId_ = userAddId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userRemark_ = userRemark_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2738,6 +3070,11 @@ public final class c_business_relation {
         if (other.hasUserAddId()) {
           setUserAddId(other.getUserAddId());
         }
+        if (other.hasUserRemark()) {
+          bitField0_ |= 0x00000004;
+          userRemark_ = other.userRemark_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2748,6 +3085,9 @@ public final class c_business_relation {
           return false;
         }
         if (!hasUserAddId()) {
+          return false;
+        }
+        if (!hasUserRemark()) {
           return false;
         }
         if (!getError().isInitialized()) {
@@ -2976,6 +3316,106 @@ public final class c_business_relation {
         onChanged();
         return this;
       }
+
+      private java.lang.Object userRemark_ = "";
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public boolean hasUserRemark() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public java.lang.String getUserRemark() {
+        java.lang.Object ref = userRemark_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userRemark_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserRemarkBytes() {
+        java.lang.Object ref = userRemark_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userRemark_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public Builder setUserRemark(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userRemark_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public Builder clearUserRemark() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userRemark_ = getDefaultInstance().getUserRemark();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 添加朋友备注名
+       * </pre>
+       *
+       * <code>required string user_remark = 3;</code>
+       */
+      public Builder setUserRemarkBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userRemark_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -3059,7 +3499,7 @@ public final class c_business_relation {
      * 添加描述	
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 2;</code>
      */
     boolean hasDescription();
     /**
@@ -3067,7 +3507,7 @@ public final class c_business_relation {
      * 添加描述	
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 2;</code>
      */
     java.lang.String getDescription();
     /**
@@ -3075,7 +3515,7 @@ public final class c_business_relation {
      * 添加描述	
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 2;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -3140,7 +3580,7 @@ public final class c_business_relation {
               bitField0_ |= 0x00000001;
               break;
             }
-            case 26: {
+            case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
               description_ = bs;
@@ -3285,14 +3725,14 @@ public final class c_business_relation {
       return applyUserInfo_ == null ? protodef.b_business_account.user_info.getDefaultInstance() : applyUserInfo_;
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 3;
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
     private volatile java.lang.Object description_;
     /**
      * <pre>
      * 添加描述	
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 2;</code>
      */
     public boolean hasDescription() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -3302,7 +3742,7 @@ public final class c_business_relation {
      * 添加描述	
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 2;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -3323,7 +3763,7 @@ public final class c_business_relation {
      * 添加描述	
      * </pre>
      *
-     * <code>required string description = 3;</code>
+     * <code>required string description = 2;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -3367,7 +3807,7 @@ public final class c_business_relation {
         output.writeMessage(1, getApplyUserInfo());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       unknownFields.writeTo(output);
     }
@@ -3382,7 +3822,7 @@ public final class c_business_relation {
           .computeMessageSize(1, getApplyUserInfo());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3855,7 +4295,7 @@ public final class c_business_relation {
        * 添加描述	
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 2;</code>
        */
       public boolean hasDescription() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -3865,7 +4305,7 @@ public final class c_business_relation {
        * 添加描述	
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 2;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -3886,7 +4326,7 @@ public final class c_business_relation {
        * 添加描述	
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 2;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -3906,7 +4346,7 @@ public final class c_business_relation {
        * 添加描述	
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 2;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -3923,7 +4363,7 @@ public final class c_business_relation {
        * 添加描述	
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 2;</code>
        */
       public Builder clearDescription() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -3936,7 +4376,7 @@ public final class c_business_relation {
        * 添加描述	
        * </pre>
        *
-       * <code>required string description = 3;</code>
+       * <code>required string description = 2;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -6255,10 +6695,62 @@ public final class c_business_relation {
 
     /**
      * <pre>
+     * 自己用户昵称
+     * </pre>
+     *
+     * <code>required string user_myself_nick = 3;</code>
+     */
+    boolean hasUserMyselfNick();
+    /**
+     * <pre>
+     * 自己用户昵称
+     * </pre>
+     *
+     * <code>required string user_myself_nick = 3;</code>
+     */
+    java.lang.String getUserMyselfNick();
+    /**
+     * <pre>
+     * 自己用户昵称
+     * </pre>
+     *
+     * <code>required string user_myself_nick = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserMyselfNickBytes();
+
+    /**
+     * <pre>
+     * 同意用户昵称	
+     * </pre>
+     *
+     * <code>required string user_allow_nick = 4;</code>
+     */
+    boolean hasUserAllowNick();
+    /**
+     * <pre>
+     * 同意用户昵称	
+     * </pre>
+     *
+     * <code>required string user_allow_nick = 4;</code>
+     */
+    java.lang.String getUserAllowNick();
+    /**
+     * <pre>
+     * 同意用户昵称	
+     * </pre>
+     *
+     * <code>required string user_allow_nick = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserAllowNickBytes();
+
+    /**
+     * <pre>
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 3;</code>
+     * <code>required uint32 opcode = 5;</code>
      */
     boolean hasOpcode();
     /**
@@ -6266,7 +6758,7 @@ public final class c_business_relation {
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 3;</code>
+     * <code>required uint32 opcode = 5;</code>
      */
     int getOpcode();
   }
@@ -6288,6 +6780,8 @@ public final class c_business_relation {
     private allow_friend_rq() {
       userMyselfId_ = 0L;
       userAllowId_ = 0L;
+      userMyselfNick_ = "";
+      userAllowNick_ = "";
       opcode_ = 0;
     }
 
@@ -6329,8 +6823,20 @@ public final class c_business_relation {
               userAllowId_ = input.readUInt64();
               break;
             }
-            case 24: {
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
+              userMyselfNick_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              userAllowNick_ = bs;
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
               opcode_ = input.readUInt32();
               break;
             }
@@ -6576,24 +7082,132 @@ public final class c_business_relation {
       return userAllowId_;
     }
 
-    public static final int OPCODE_FIELD_NUMBER = 3;
+    public static final int USER_MYSELF_NICK_FIELD_NUMBER = 3;
+    private volatile java.lang.Object userMyselfNick_;
+    /**
+     * <pre>
+     * 自己用户昵称
+     * </pre>
+     *
+     * <code>required string user_myself_nick = 3;</code>
+     */
+    public boolean hasUserMyselfNick() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 自己用户昵称
+     * </pre>
+     *
+     * <code>required string user_myself_nick = 3;</code>
+     */
+    public java.lang.String getUserMyselfNick() {
+      java.lang.Object ref = userMyselfNick_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userMyselfNick_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 自己用户昵称
+     * </pre>
+     *
+     * <code>required string user_myself_nick = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserMyselfNickBytes() {
+      java.lang.Object ref = userMyselfNick_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userMyselfNick_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USER_ALLOW_NICK_FIELD_NUMBER = 4;
+    private volatile java.lang.Object userAllowNick_;
+    /**
+     * <pre>
+     * 同意用户昵称	
+     * </pre>
+     *
+     * <code>required string user_allow_nick = 4;</code>
+     */
+    public boolean hasUserAllowNick() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * 同意用户昵称	
+     * </pre>
+     *
+     * <code>required string user_allow_nick = 4;</code>
+     */
+    public java.lang.String getUserAllowNick() {
+      java.lang.Object ref = userAllowNick_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userAllowNick_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 同意用户昵称	
+     * </pre>
+     *
+     * <code>required string user_allow_nick = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserAllowNickBytes() {
+      java.lang.Object ref = userAllowNick_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userAllowNick_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OPCODE_FIELD_NUMBER = 5;
     private int opcode_;
     /**
      * <pre>
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 3;</code>
+     * <code>required uint32 opcode = 5;</code>
      */
     public boolean hasOpcode() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <pre>
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 3;</code>
+     * <code>required uint32 opcode = 5;</code>
      */
     public int getOpcode() {
       return opcode_;
@@ -6610,6 +7224,14 @@ public final class c_business_relation {
         return false;
       }
       if (!hasUserAllowId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserMyselfNick()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserAllowNick()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -6630,7 +7252,13 @@ public final class c_business_relation {
         output.writeUInt64(2, userAllowId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt32(3, opcode_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userMyselfNick_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userAllowNick_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeUInt32(5, opcode_);
       }
       unknownFields.writeTo(output);
     }
@@ -6649,8 +7277,14 @@ public final class c_business_relation {
           .computeUInt64Size(2, userAllowId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userMyselfNick_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userAllowNick_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, opcode_);
+          .computeUInt32Size(5, opcode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6679,6 +7313,16 @@ public final class c_business_relation {
         result = result && (getUserAllowId()
             == other.getUserAllowId());
       }
+      result = result && (hasUserMyselfNick() == other.hasUserMyselfNick());
+      if (hasUserMyselfNick()) {
+        result = result && getUserMyselfNick()
+            .equals(other.getUserMyselfNick());
+      }
+      result = result && (hasUserAllowNick() == other.hasUserAllowNick());
+      if (hasUserAllowNick()) {
+        result = result && getUserAllowNick()
+            .equals(other.getUserAllowNick());
+      }
       result = result && (hasOpcode() == other.hasOpcode());
       if (hasOpcode()) {
         result = result && (getOpcode()
@@ -6704,6 +7348,14 @@ public final class c_business_relation {
         hash = (37 * hash) + USER_ALLOW_ID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getUserAllowId());
+      }
+      if (hasUserMyselfNick()) {
+        hash = (37 * hash) + USER_MYSELF_NICK_FIELD_NUMBER;
+        hash = (53 * hash) + getUserMyselfNick().hashCode();
+      }
+      if (hasUserAllowNick()) {
+        hash = (37 * hash) + USER_ALLOW_NICK_FIELD_NUMBER;
+        hash = (53 * hash) + getUserAllowNick().hashCode();
       }
       if (hasOpcode()) {
         hash = (37 * hash) + OPCODE_FIELD_NUMBER;
@@ -6846,8 +7498,12 @@ public final class c_business_relation {
         bitField0_ = (bitField0_ & ~0x00000001);
         userAllowId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        opcode_ = 0;
+        userMyselfNick_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        userAllowNick_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        opcode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -6882,6 +7538,14 @@ public final class c_business_relation {
         result.userAllowId_ = userAllowId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.userMyselfNick_ = userMyselfNick_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.userAllowNick_ = userAllowNick_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         result.opcode_ = opcode_;
         result.bitField0_ = to_bitField0_;
@@ -6932,6 +7596,16 @@ public final class c_business_relation {
         if (other.hasUserAllowId()) {
           setUserAllowId(other.getUserAllowId());
         }
+        if (other.hasUserMyselfNick()) {
+          bitField0_ |= 0x00000004;
+          userMyselfNick_ = other.userMyselfNick_;
+          onChanged();
+        }
+        if (other.hasUserAllowNick()) {
+          bitField0_ |= 0x00000008;
+          userAllowNick_ = other.userAllowNick_;
+          onChanged();
+        }
         if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
         }
@@ -6945,6 +7619,12 @@ public final class c_business_relation {
           return false;
         }
         if (!hasUserAllowId()) {
+          return false;
+        }
+        if (!hasUserMyselfNick()) {
+          return false;
+        }
+        if (!hasUserAllowNick()) {
           return false;
         }
         if (!hasOpcode()) {
@@ -7068,23 +7748,223 @@ public final class c_business_relation {
         return this;
       }
 
+      private java.lang.Object userMyselfNick_ = "";
+      /**
+       * <pre>
+       * 自己用户昵称
+       * </pre>
+       *
+       * <code>required string user_myself_nick = 3;</code>
+       */
+      public boolean hasUserMyselfNick() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 自己用户昵称
+       * </pre>
+       *
+       * <code>required string user_myself_nick = 3;</code>
+       */
+      public java.lang.String getUserMyselfNick() {
+        java.lang.Object ref = userMyselfNick_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userMyselfNick_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 自己用户昵称
+       * </pre>
+       *
+       * <code>required string user_myself_nick = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserMyselfNickBytes() {
+        java.lang.Object ref = userMyselfNick_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userMyselfNick_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 自己用户昵称
+       * </pre>
+       *
+       * <code>required string user_myself_nick = 3;</code>
+       */
+      public Builder setUserMyselfNick(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userMyselfNick_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 自己用户昵称
+       * </pre>
+       *
+       * <code>required string user_myself_nick = 3;</code>
+       */
+      public Builder clearUserMyselfNick() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userMyselfNick_ = getDefaultInstance().getUserMyselfNick();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 自己用户昵称
+       * </pre>
+       *
+       * <code>required string user_myself_nick = 3;</code>
+       */
+      public Builder setUserMyselfNickBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userMyselfNick_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userAllowNick_ = "";
+      /**
+       * <pre>
+       * 同意用户昵称	
+       * </pre>
+       *
+       * <code>required string user_allow_nick = 4;</code>
+       */
+      public boolean hasUserAllowNick() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * 同意用户昵称	
+       * </pre>
+       *
+       * <code>required string user_allow_nick = 4;</code>
+       */
+      public java.lang.String getUserAllowNick() {
+        java.lang.Object ref = userAllowNick_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userAllowNick_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 同意用户昵称	
+       * </pre>
+       *
+       * <code>required string user_allow_nick = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserAllowNickBytes() {
+        java.lang.Object ref = userAllowNick_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userAllowNick_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 同意用户昵称	
+       * </pre>
+       *
+       * <code>required string user_allow_nick = 4;</code>
+       */
+      public Builder setUserAllowNick(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        userAllowNick_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意用户昵称	
+       * </pre>
+       *
+       * <code>required string user_allow_nick = 4;</code>
+       */
+      public Builder clearUserAllowNick() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        userAllowNick_ = getDefaultInstance().getUserAllowNick();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意用户昵称	
+       * </pre>
+       *
+       * <code>required string user_allow_nick = 4;</code>
+       */
+      public Builder setUserAllowNickBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        userAllowNick_ = value;
+        onChanged();
+        return this;
+      }
+
       private int opcode_ ;
       /**
        * <pre>
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 3;</code>
+       * <code>required uint32 opcode = 5;</code>
        */
       public boolean hasOpcode() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <pre>
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 3;</code>
+       * <code>required uint32 opcode = 5;</code>
        */
       public int getOpcode() {
         return opcode_;
@@ -7094,10 +7974,10 @@ public final class c_business_relation {
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 3;</code>
+       * <code>required uint32 opcode = 5;</code>
        */
       public Builder setOpcode(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
         opcode_ = value;
         onChanged();
         return this;
@@ -7107,10 +7987,10 @@ public final class c_business_relation {
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 3;</code>
+       * <code>required uint32 opcode = 5;</code>
        */
       public Builder clearOpcode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         opcode_ = 0;
         onChanged();
         return this;
@@ -7226,6 +8106,50 @@ public final class c_business_relation {
      * <code>required uint32 opcode = 3;</code>
      */
     int getOpcode();
+
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    java.util.List<protodef.b_business_relation.user_relation> 
+        getRelationSList();
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    protodef.b_business_relation.user_relation getRelationS(int index);
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    int getRelationSCount();
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+        getRelationSOrBuilderList();
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -7245,6 +8169,7 @@ public final class c_business_relation {
     private allow_friend_rs() {
       userAllowId_ = 0L;
       opcode_ = 0;
+      relationS_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -7298,6 +8223,15 @@ public final class c_business_relation {
               opcode_ = input.readUInt32();
               break;
             }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                relationS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              relationS_.add(
+                  input.readMessage(protodef.b_business_relation.user_relation.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7306,6 +8240,9 @@ public final class c_business_relation {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          relationS_ = java.util.Collections.unmodifiableList(relationS_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -7483,6 +8420,61 @@ public final class c_business_relation {
       return opcode_;
     }
 
+    public static final int RELATION_S_FIELD_NUMBER = 4;
+    private java.util.List<protodef.b_business_relation.user_relation> relationS_;
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    public java.util.List<protodef.b_business_relation.user_relation> getRelationSList() {
+      return relationS_;
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    public java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+        getRelationSOrBuilderList() {
+      return relationS_;
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    public int getRelationSCount() {
+      return relationS_.size();
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    public protodef.b_business_relation.user_relation getRelationS(int index) {
+      return relationS_.get(index);
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+     */
+    public protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+        int index) {
+      return relationS_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7505,6 +8497,12 @@ public final class c_business_relation {
         memoizedIsInitialized = 0;
         return false;
       }
+      for (int i = 0; i < getRelationSCount(); i++) {
+        if (!getRelationS(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -7519,6 +8517,9 @@ public final class c_business_relation {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeUInt32(3, opcode_);
+      }
+      for (int i = 0; i < relationS_.size(); i++) {
+        output.writeMessage(4, relationS_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -7539,6 +8540,10 @@ public final class c_business_relation {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, opcode_);
+      }
+      for (int i = 0; i < relationS_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, relationS_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7572,6 +8577,8 @@ public final class c_business_relation {
         result = result && (getOpcode()
             == other.getOpcode());
       }
+      result = result && getRelationSList()
+          .equals(other.getRelationSList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7595,6 +8602,10 @@ public final class c_business_relation {
       if (hasOpcode()) {
         hash = (37 * hash) + OPCODE_FIELD_NUMBER;
         hash = (53 * hash) + getOpcode();
+      }
+      if (getRelationSCount() > 0) {
+        hash = (37 * hash) + RELATION_S_FIELD_NUMBER;
+        hash = (53 * hash) + getRelationSList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7726,6 +8737,7 @@ public final class c_business_relation {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getErrorFieldBuilder();
+          getRelationSFieldBuilder();
         }
       }
       public Builder clear() {
@@ -7740,6 +8752,12 @@ public final class c_business_relation {
         bitField0_ = (bitField0_ & ~0x00000002);
         opcode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (relationSBuilder_ == null) {
+          relationS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          relationSBuilder_.clear();
+        }
         return this;
       }
 
@@ -7780,6 +8798,15 @@ public final class c_business_relation {
           to_bitField0_ |= 0x00000004;
         }
         result.opcode_ = opcode_;
+        if (relationSBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            relationS_ = java.util.Collections.unmodifiableList(relationS_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.relationS_ = relationS_;
+        } else {
+          result.relationS_ = relationSBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7831,6 +8858,32 @@ public final class c_business_relation {
         if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
         }
+        if (relationSBuilder_ == null) {
+          if (!other.relationS_.isEmpty()) {
+            if (relationS_.isEmpty()) {
+              relationS_ = other.relationS_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureRelationSIsMutable();
+              relationS_.addAll(other.relationS_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.relationS_.isEmpty()) {
+            if (relationSBuilder_.isEmpty()) {
+              relationSBuilder_.dispose();
+              relationSBuilder_ = null;
+              relationS_ = other.relationS_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              relationSBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRelationSFieldBuilder() : null;
+            } else {
+              relationSBuilder_.addAllMessages(other.relationS_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7848,6 +8901,11 @@ public final class c_business_relation {
         }
         if (!getError().isInitialized()) {
           return false;
+        }
+        for (int i = 0; i < getRelationSCount(); i++) {
+          if (!getRelationS(i).isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -8120,6 +9178,318 @@ public final class c_business_relation {
         onChanged();
         return this;
       }
+
+      private java.util.List<protodef.b_business_relation.user_relation> relationS_ =
+        java.util.Collections.emptyList();
+      private void ensureRelationSIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          relationS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation>(relationS_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder> relationSBuilder_;
+
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public java.util.List<protodef.b_business_relation.user_relation> getRelationSList() {
+        if (relationSBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(relationS_);
+        } else {
+          return relationSBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public int getRelationSCount() {
+        if (relationSBuilder_ == null) {
+          return relationS_.size();
+        } else {
+          return relationSBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public protodef.b_business_relation.user_relation getRelationS(int index) {
+        if (relationSBuilder_ == null) {
+          return relationS_.get(index);
+        } else {
+          return relationSBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder setRelationS(
+          int index, protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.set(index, value);
+          onChanged();
+        } else {
+          relationSBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder setRelationS(
+          int index, protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder addRelationS(protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.add(value);
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder addRelationS(
+          int index, protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.add(index, value);
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder addRelationS(
+          protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.add(builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder addRelationS(
+          int index, protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder addAllRelationS(
+          java.lang.Iterable<? extends protodef.b_business_relation.user_relation> values) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, relationS_);
+          onChanged();
+        } else {
+          relationSBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder clearRelationS() {
+        if (relationSBuilder_ == null) {
+          relationS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          relationSBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public Builder removeRelationS(int index) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.remove(index);
+          onChanged();
+        } else {
+          relationSBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder getRelationSBuilder(
+          int index) {
+        return getRelationSFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+          int index) {
+        if (relationSBuilder_ == null) {
+          return relationS_.get(index);  } else {
+          return relationSBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+           getRelationSOrBuilderList() {
+        if (relationSBuilder_ != null) {
+          return relationSBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(relationS_);
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder addRelationSBuilder() {
+        return getRelationSFieldBuilder().addBuilder(
+            protodef.b_business_relation.user_relation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder addRelationSBuilder(
+          int index) {
+        return getRelationSFieldBuilder().addBuilder(
+            index, protodef.b_business_relation.user_relation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 4;</code>
+       */
+      public java.util.List<protodef.b_business_relation.user_relation.Builder> 
+           getRelationSBuilderList() {
+        return getRelationSFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder> 
+          getRelationSFieldBuilder() {
+        if (relationSBuilder_ == null) {
+          relationSBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder>(
+                  relationS_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          relationS_ = null;
+        }
+        return relationSBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -8178,17 +9548,25 @@ public final class c_business_relation {
      * 同意添加好友的用户数据
      * </pre>
      *
-     * <code>required uint64 allow_user_id = 1;</code>
+     * <code>required .b_business_account.user_info apply_user_info = 1;</code>
      */
-    boolean hasAllowUserId();
+    boolean hasApplyUserInfo();
     /**
      * <pre>
      * 同意添加好友的用户数据
      * </pre>
      *
-     * <code>required uint64 allow_user_id = 1;</code>
+     * <code>required .b_business_account.user_info apply_user_info = 1;</code>
      */
-    long getAllowUserId();
+    protodef.b_business_account.user_info getApplyUserInfo();
+    /**
+     * <pre>
+     * 同意添加好友的用户数据
+     * </pre>
+     *
+     * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+     */
+    protodef.b_business_account.user_infoOrBuilder getApplyUserInfoOrBuilder();
 
     /**
      * <pre>
@@ -8206,6 +9584,50 @@ public final class c_business_relation {
      * <code>required uint32 opcode = 2;</code>
      */
     int getOpcode();
+
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    java.util.List<protodef.b_business_relation.user_relation> 
+        getRelationSList();
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    protodef.b_business_relation.user_relation getRelationS(int index);
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    int getRelationSCount();
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+        getRelationSOrBuilderList();
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -8223,8 +9645,8 @@ public final class c_business_relation {
       super(builder);
     }
     private allow_friend_nt() {
-      allowUserId_ = 0L;
       opcode_ = 0;
+      relationS_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -8255,14 +9677,31 @@ public final class c_business_relation {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              protodef.b_business_account.user_info.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = applyUserInfo_.toBuilder();
+              }
+              applyUserInfo_ = input.readMessage(protodef.b_business_account.user_info.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(applyUserInfo_);
+                applyUserInfo_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000001;
-              allowUserId_ = input.readUInt64();
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
               opcode_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                relationS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              relationS_.add(
+                  input.readMessage(protodef.b_business_relation.user_relation.PARSER, extensionRegistry));
               break;
             }
           }
@@ -8273,6 +9712,9 @@ public final class c_business_relation {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          relationS_ = java.util.Collections.unmodifiableList(relationS_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -8371,16 +9813,16 @@ public final class c_business_relation {
     }
 
     private int bitField0_;
-    public static final int ALLOW_USER_ID_FIELD_NUMBER = 1;
-    private long allowUserId_;
+    public static final int APPLY_USER_INFO_FIELD_NUMBER = 1;
+    private protodef.b_business_account.user_info applyUserInfo_;
     /**
      * <pre>
      * 同意添加好友的用户数据
      * </pre>
      *
-     * <code>required uint64 allow_user_id = 1;</code>
+     * <code>required .b_business_account.user_info apply_user_info = 1;</code>
      */
-    public boolean hasAllowUserId() {
+    public boolean hasApplyUserInfo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
@@ -8388,10 +9830,20 @@ public final class c_business_relation {
      * 同意添加好友的用户数据
      * </pre>
      *
-     * <code>required uint64 allow_user_id = 1;</code>
+     * <code>required .b_business_account.user_info apply_user_info = 1;</code>
      */
-    public long getAllowUserId() {
-      return allowUserId_;
+    public protodef.b_business_account.user_info getApplyUserInfo() {
+      return applyUserInfo_ == null ? protodef.b_business_account.user_info.getDefaultInstance() : applyUserInfo_;
+    }
+    /**
+     * <pre>
+     * 同意添加好友的用户数据
+     * </pre>
+     *
+     * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+     */
+    public protodef.b_business_account.user_infoOrBuilder getApplyUserInfoOrBuilder() {
+      return applyUserInfo_ == null ? protodef.b_business_account.user_info.getDefaultInstance() : applyUserInfo_;
     }
 
     public static final int OPCODE_FIELD_NUMBER = 2;
@@ -8417,19 +9869,84 @@ public final class c_business_relation {
       return opcode_;
     }
 
+    public static final int RELATION_S_FIELD_NUMBER = 3;
+    private java.util.List<protodef.b_business_relation.user_relation> relationS_;
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public java.util.List<protodef.b_business_relation.user_relation> getRelationSList() {
+      return relationS_;
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+        getRelationSOrBuilderList() {
+      return relationS_;
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public int getRelationSCount() {
+      return relationS_.size();
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public protodef.b_business_relation.user_relation getRelationS(int index) {
+      return relationS_.get(index);
+    }
+    /**
+     * <pre>
+     * 同意后的好友更新数据（如果不同意，该项无）	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+        int index) {
+      return relationS_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasAllowUserId()) {
+      if (!hasApplyUserInfo()) {
         memoizedIsInitialized = 0;
         return false;
       }
       if (!hasOpcode()) {
         memoizedIsInitialized = 0;
         return false;
+      }
+      if (!getApplyUserInfo().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getRelationSCount(); i++) {
+        if (!getRelationS(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -8438,10 +9955,13 @@ public final class c_business_relation {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeUInt64(1, allowUserId_);
+        output.writeMessage(1, getApplyUserInfo());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt32(2, opcode_);
+      }
+      for (int i = 0; i < relationS_.size(); i++) {
+        output.writeMessage(3, relationS_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -8453,11 +9973,15 @@ public final class c_business_relation {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, allowUserId_);
+          .computeMessageSize(1, getApplyUserInfo());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, opcode_);
+      }
+      for (int i = 0; i < relationS_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, relationS_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8476,16 +10000,18 @@ public final class c_business_relation {
       protodef.c_business_relation.allow_friend_nt other = (protodef.c_business_relation.allow_friend_nt) obj;
 
       boolean result = true;
-      result = result && (hasAllowUserId() == other.hasAllowUserId());
-      if (hasAllowUserId()) {
-        result = result && (getAllowUserId()
-            == other.getAllowUserId());
+      result = result && (hasApplyUserInfo() == other.hasApplyUserInfo());
+      if (hasApplyUserInfo()) {
+        result = result && getApplyUserInfo()
+            .equals(other.getApplyUserInfo());
       }
       result = result && (hasOpcode() == other.hasOpcode());
       if (hasOpcode()) {
         result = result && (getOpcode()
             == other.getOpcode());
       }
+      result = result && getRelationSList()
+          .equals(other.getRelationSList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8497,14 +10023,17 @@ public final class c_business_relation {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasAllowUserId()) {
-        hash = (37 * hash) + ALLOW_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getAllowUserId());
+      if (hasApplyUserInfo()) {
+        hash = (37 * hash) + APPLY_USER_INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getApplyUserInfo().hashCode();
       }
       if (hasOpcode()) {
         hash = (37 * hash) + OPCODE_FIELD_NUMBER;
         hash = (53 * hash) + getOpcode();
+      }
+      if (getRelationSCount() > 0) {
+        hash = (37 * hash) + RELATION_S_FIELD_NUMBER;
+        hash = (53 * hash) + getRelationSList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8635,14 +10164,26 @@ public final class c_business_relation {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getApplyUserInfoFieldBuilder();
+          getRelationSFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
-        allowUserId_ = 0L;
+        if (applyUserInfoBuilder_ == null) {
+          applyUserInfo_ = null;
+        } else {
+          applyUserInfoBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
         opcode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (relationSBuilder_ == null) {
+          relationS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          relationSBuilder_.clear();
+        }
         return this;
       }
 
@@ -8670,11 +10211,24 @@ public final class c_business_relation {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.allowUserId_ = allowUserId_;
+        if (applyUserInfoBuilder_ == null) {
+          result.applyUserInfo_ = applyUserInfo_;
+        } else {
+          result.applyUserInfo_ = applyUserInfoBuilder_.build();
+        }
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
         result.opcode_ = opcode_;
+        if (relationSBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            relationS_ = java.util.Collections.unmodifiableList(relationS_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.relationS_ = relationS_;
+        } else {
+          result.relationS_ = relationSBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8717,11 +10271,37 @@ public final class c_business_relation {
 
       public Builder mergeFrom(protodef.c_business_relation.allow_friend_nt other) {
         if (other == protodef.c_business_relation.allow_friend_nt.getDefaultInstance()) return this;
-        if (other.hasAllowUserId()) {
-          setAllowUserId(other.getAllowUserId());
+        if (other.hasApplyUserInfo()) {
+          mergeApplyUserInfo(other.getApplyUserInfo());
         }
         if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
+        }
+        if (relationSBuilder_ == null) {
+          if (!other.relationS_.isEmpty()) {
+            if (relationS_.isEmpty()) {
+              relationS_ = other.relationS_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureRelationSIsMutable();
+              relationS_.addAll(other.relationS_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.relationS_.isEmpty()) {
+            if (relationSBuilder_.isEmpty()) {
+              relationSBuilder_.dispose();
+              relationSBuilder_ = null;
+              relationS_ = other.relationS_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              relationSBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRelationSFieldBuilder() : null;
+            } else {
+              relationSBuilder_.addAllMessages(other.relationS_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8729,11 +10309,19 @@ public final class c_business_relation {
       }
 
       public final boolean isInitialized() {
-        if (!hasAllowUserId()) {
+        if (!hasApplyUserInfo()) {
           return false;
         }
         if (!hasOpcode()) {
           return false;
+        }
+        if (!getApplyUserInfo().isInitialized()) {
+          return false;
+        }
+        for (int i = 0; i < getRelationSCount(); i++) {
+          if (!getRelationS(i).isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -8757,15 +10345,17 @@ public final class c_business_relation {
       }
       private int bitField0_;
 
-      private long allowUserId_ ;
+      private protodef.b_business_account.user_info applyUserInfo_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_business_account.user_info, protodef.b_business_account.user_info.Builder, protodef.b_business_account.user_infoOrBuilder> applyUserInfoBuilder_;
       /**
        * <pre>
        * 同意添加好友的用户数据
        * </pre>
        *
-       * <code>required uint64 allow_user_id = 1;</code>
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
        */
-      public boolean hasAllowUserId() {
+      public boolean hasApplyUserInfo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
@@ -8773,22 +10363,33 @@ public final class c_business_relation {
        * 同意添加好友的用户数据
        * </pre>
        *
-       * <code>required uint64 allow_user_id = 1;</code>
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
        */
-      public long getAllowUserId() {
-        return allowUserId_;
+      public protodef.b_business_account.user_info getApplyUserInfo() {
+        if (applyUserInfoBuilder_ == null) {
+          return applyUserInfo_ == null ? protodef.b_business_account.user_info.getDefaultInstance() : applyUserInfo_;
+        } else {
+          return applyUserInfoBuilder_.getMessage();
+        }
       }
       /**
        * <pre>
        * 同意添加好友的用户数据
        * </pre>
        *
-       * <code>required uint64 allow_user_id = 1;</code>
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
        */
-      public Builder setAllowUserId(long value) {
+      public Builder setApplyUserInfo(protodef.b_business_account.user_info value) {
+        if (applyUserInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          applyUserInfo_ = value;
+          onChanged();
+        } else {
+          applyUserInfoBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000001;
-        allowUserId_ = value;
-        onChanged();
         return this;
       }
       /**
@@ -8796,13 +10397,106 @@ public final class c_business_relation {
        * 同意添加好友的用户数据
        * </pre>
        *
-       * <code>required uint64 allow_user_id = 1;</code>
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
        */
-      public Builder clearAllowUserId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        allowUserId_ = 0L;
-        onChanged();
+      public Builder setApplyUserInfo(
+          protodef.b_business_account.user_info.Builder builderForValue) {
+        if (applyUserInfoBuilder_ == null) {
+          applyUserInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          applyUserInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
         return this;
+      }
+      /**
+       * <pre>
+       * 同意添加好友的用户数据
+       * </pre>
+       *
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+       */
+      public Builder mergeApplyUserInfo(protodef.b_business_account.user_info value) {
+        if (applyUserInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              applyUserInfo_ != null &&
+              applyUserInfo_ != protodef.b_business_account.user_info.getDefaultInstance()) {
+            applyUserInfo_ =
+              protodef.b_business_account.user_info.newBuilder(applyUserInfo_).mergeFrom(value).buildPartial();
+          } else {
+            applyUserInfo_ = value;
+          }
+          onChanged();
+        } else {
+          applyUserInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意添加好友的用户数据
+       * </pre>
+       *
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+       */
+      public Builder clearApplyUserInfo() {
+        if (applyUserInfoBuilder_ == null) {
+          applyUserInfo_ = null;
+          onChanged();
+        } else {
+          applyUserInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意添加好友的用户数据
+       * </pre>
+       *
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+       */
+      public protodef.b_business_account.user_info.Builder getApplyUserInfoBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getApplyUserInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 同意添加好友的用户数据
+       * </pre>
+       *
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+       */
+      public protodef.b_business_account.user_infoOrBuilder getApplyUserInfoOrBuilder() {
+        if (applyUserInfoBuilder_ != null) {
+          return applyUserInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return applyUserInfo_ == null ?
+              protodef.b_business_account.user_info.getDefaultInstance() : applyUserInfo_;
+        }
+      }
+      /**
+       * <pre>
+       * 同意添加好友的用户数据
+       * </pre>
+       *
+       * <code>required .b_business_account.user_info apply_user_info = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_business_account.user_info, protodef.b_business_account.user_info.Builder, protodef.b_business_account.user_infoOrBuilder> 
+          getApplyUserInfoFieldBuilder() {
+        if (applyUserInfoBuilder_ == null) {
+          applyUserInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protodef.b_business_account.user_info, protodef.b_business_account.user_info.Builder, protodef.b_business_account.user_infoOrBuilder>(
+                  getApplyUserInfo(),
+                  getParentForChildren(),
+                  isClean());
+          applyUserInfo_ = null;
+        }
+        return applyUserInfoBuilder_;
       }
 
       private int opcode_ ;
@@ -8851,6 +10545,318 @@ public final class c_business_relation {
         opcode_ = 0;
         onChanged();
         return this;
+      }
+
+      private java.util.List<protodef.b_business_relation.user_relation> relationS_ =
+        java.util.Collections.emptyList();
+      private void ensureRelationSIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          relationS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation>(relationS_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder> relationSBuilder_;
+
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public java.util.List<protodef.b_business_relation.user_relation> getRelationSList() {
+        if (relationSBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(relationS_);
+        } else {
+          return relationSBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public int getRelationSCount() {
+        if (relationSBuilder_ == null) {
+          return relationS_.size();
+        } else {
+          return relationSBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation getRelationS(int index) {
+        if (relationSBuilder_ == null) {
+          return relationS_.get(index);
+        } else {
+          return relationSBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder setRelationS(
+          int index, protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.set(index, value);
+          onChanged();
+        } else {
+          relationSBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder setRelationS(
+          int index, protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.add(value);
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(
+          int index, protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.add(index, value);
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(
+          protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.add(builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(
+          int index, protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addAllRelationS(
+          java.lang.Iterable<? extends protodef.b_business_relation.user_relation> values) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, relationS_);
+          onChanged();
+        } else {
+          relationSBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder clearRelationS() {
+        if (relationSBuilder_ == null) {
+          relationS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          relationSBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder removeRelationS(int index) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.remove(index);
+          onChanged();
+        } else {
+          relationSBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder getRelationSBuilder(
+          int index) {
+        return getRelationSFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+          int index) {
+        if (relationSBuilder_ == null) {
+          return relationS_.get(index);  } else {
+          return relationSBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+           getRelationSOrBuilderList() {
+        if (relationSBuilder_ != null) {
+          return relationSBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(relationS_);
+        }
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder addRelationSBuilder() {
+        return getRelationSFieldBuilder().addBuilder(
+            protodef.b_business_relation.user_relation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder addRelationSBuilder(
+          int index) {
+        return getRelationSFieldBuilder().addBuilder(
+            index, protodef.b_business_relation.user_relation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 同意后的好友更新数据（如果不同意，该项无）	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public java.util.List<protodef.b_business_relation.user_relation.Builder> 
+           getRelationSBuilderList() {
+        return getRelationSFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder> 
+          getRelationSFieldBuilder() {
+        if (relationSBuilder_ == null) {
+          relationSBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder>(
+                  relationS_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          relationS_ = null;
+        }
+        return relationSBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9538,46 +11544,90 @@ public final class c_business_relation {
 
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    java.util.List<protodef.c_business_relation.friend_info> 
-        getFriendInfoSList();
+    java.util.List<protodef.b_business_relation.user_relation_group> 
+        getGroupSList();
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    protodef.c_business_relation.friend_info getFriendInfoS(int index);
+    protodef.b_business_relation.user_relation_group getGroupS(int index);
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    int getFriendInfoSCount();
+    int getGroupSCount();
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    java.util.List<? extends protodef.c_business_relation.friend_infoOrBuilder> 
-        getFriendInfoSOrBuilderList();
+    java.util.List<? extends protodef.b_business_relation.user_relation_groupOrBuilder> 
+        getGroupSOrBuilderList();
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    protodef.c_business_relation.friend_infoOrBuilder getFriendInfoSOrBuilder(
+    protodef.b_business_relation.user_relation_groupOrBuilder getGroupSOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    java.util.List<protodef.b_business_relation.user_relation> 
+        getRelationSList();
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    protodef.b_business_relation.user_relation getRelationS(int index);
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    int getRelationSCount();
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+        getRelationSOrBuilderList();
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
         int index);
   }
   /**
@@ -9596,7 +11646,8 @@ public final class c_business_relation {
       super(builder);
     }
     private query_friends_rs() {
-      friendInfoS_ = java.util.Collections.emptyList();
+      groupS_ = java.util.Collections.emptyList();
+      relationS_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -9642,11 +11693,20 @@ public final class c_business_relation {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                friendInfoS_ = new java.util.ArrayList<protodef.c_business_relation.friend_info>();
+                groupS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation_group>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              friendInfoS_.add(
-                  input.readMessage(protodef.c_business_relation.friend_info.PARSER, extensionRegistry));
+              groupS_.add(
+                  input.readMessage(protodef.b_business_relation.user_relation_group.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                relationS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              relationS_.add(
+                  input.readMessage(protodef.b_business_relation.user_relation.PARSER, extensionRegistry));
               break;
             }
           }
@@ -9658,7 +11718,10 @@ public final class c_business_relation {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          friendInfoS_ = java.util.Collections.unmodifiableList(friendInfoS_);
+          groupS_ = java.util.Collections.unmodifiableList(groupS_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          relationS_ = java.util.Collections.unmodifiableList(relationS_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -9791,59 +11854,114 @@ public final class c_business_relation {
       return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
     }
 
-    public static final int FRIEND_INFO_S_FIELD_NUMBER = 2;
-    private java.util.List<protodef.c_business_relation.friend_info> friendInfoS_;
+    public static final int GROUP_S_FIELD_NUMBER = 2;
+    private java.util.List<protodef.b_business_relation.user_relation_group> groupS_;
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    public java.util.List<protodef.c_business_relation.friend_info> getFriendInfoSList() {
-      return friendInfoS_;
+    public java.util.List<protodef.b_business_relation.user_relation_group> getGroupSList() {
+      return groupS_;
     }
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    public java.util.List<? extends protodef.c_business_relation.friend_infoOrBuilder> 
-        getFriendInfoSOrBuilderList() {
-      return friendInfoS_;
+    public java.util.List<? extends protodef.b_business_relation.user_relation_groupOrBuilder> 
+        getGroupSOrBuilderList() {
+      return groupS_;
     }
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    public int getFriendInfoSCount() {
-      return friendInfoS_.size();
+    public int getGroupSCount() {
+      return groupS_.size();
     }
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    public protodef.c_business_relation.friend_info getFriendInfoS(int index) {
-      return friendInfoS_.get(index);
+    public protodef.b_business_relation.user_relation_group getGroupS(int index) {
+      return groupS_.get(index);
     }
     /**
      * <pre>
-     * 好友用户数据列表
+     * 好友关系组列表
      * </pre>
      *
-     * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+     * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
      */
-    public protodef.c_business_relation.friend_infoOrBuilder getFriendInfoSOrBuilder(
+    public protodef.b_business_relation.user_relation_groupOrBuilder getGroupSOrBuilder(
         int index) {
-      return friendInfoS_.get(index);
+      return groupS_.get(index);
+    }
+
+    public static final int RELATION_S_FIELD_NUMBER = 3;
+    private java.util.List<protodef.b_business_relation.user_relation> relationS_;
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public java.util.List<protodef.b_business_relation.user_relation> getRelationSList() {
+      return relationS_;
+    }
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+        getRelationSOrBuilderList() {
+      return relationS_;
+    }
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public int getRelationSCount() {
+      return relationS_.size();
+    }
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public protodef.b_business_relation.user_relation getRelationS(int index) {
+      return relationS_.get(index);
+    }
+    /**
+     * <pre>
+     * 好友关系列表	
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+     */
+    public protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+        int index) {
+      return relationS_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9860,8 +11978,14 @@ public final class c_business_relation {
         memoizedIsInitialized = 0;
         return false;
       }
-      for (int i = 0; i < getFriendInfoSCount(); i++) {
-        if (!getFriendInfoS(i).isInitialized()) {
+      for (int i = 0; i < getGroupSCount(); i++) {
+        if (!getGroupS(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getRelationSCount(); i++) {
+        if (!getRelationS(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -9875,8 +11999,11 @@ public final class c_business_relation {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getError());
       }
-      for (int i = 0; i < friendInfoS_.size(); i++) {
-        output.writeMessage(2, friendInfoS_.get(i));
+      for (int i = 0; i < groupS_.size(); i++) {
+        output.writeMessage(2, groupS_.get(i));
+      }
+      for (int i = 0; i < relationS_.size(); i++) {
+        output.writeMessage(3, relationS_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -9890,9 +12017,13 @@ public final class c_business_relation {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getError());
       }
-      for (int i = 0; i < friendInfoS_.size(); i++) {
+      for (int i = 0; i < groupS_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, friendInfoS_.get(i));
+          .computeMessageSize(2, groupS_.get(i));
+      }
+      for (int i = 0; i < relationS_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, relationS_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9916,8 +12047,10 @@ public final class c_business_relation {
         result = result && getError()
             .equals(other.getError());
       }
-      result = result && getFriendInfoSList()
-          .equals(other.getFriendInfoSList());
+      result = result && getGroupSList()
+          .equals(other.getGroupSList());
+      result = result && getRelationSList()
+          .equals(other.getRelationSList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -9933,9 +12066,13 @@ public final class c_business_relation {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
       }
-      if (getFriendInfoSCount() > 0) {
-        hash = (37 * hash) + FRIEND_INFO_S_FIELD_NUMBER;
-        hash = (53 * hash) + getFriendInfoSList().hashCode();
+      if (getGroupSCount() > 0) {
+        hash = (37 * hash) + GROUP_S_FIELD_NUMBER;
+        hash = (53 * hash) + getGroupSList().hashCode();
+      }
+      if (getRelationSCount() > 0) {
+        hash = (37 * hash) + RELATION_S_FIELD_NUMBER;
+        hash = (53 * hash) + getRelationSList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10067,7 +12204,8 @@ public final class c_business_relation {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getErrorFieldBuilder();
-          getFriendInfoSFieldBuilder();
+          getGroupSFieldBuilder();
+          getRelationSFieldBuilder();
         }
       }
       public Builder clear() {
@@ -10078,11 +12216,17 @@ public final class c_business_relation {
           errorBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (friendInfoSBuilder_ == null) {
-          friendInfoS_ = java.util.Collections.emptyList();
+        if (groupSBuilder_ == null) {
+          groupS_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          friendInfoSBuilder_.clear();
+          groupSBuilder_.clear();
+        }
+        if (relationSBuilder_ == null) {
+          relationS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          relationSBuilder_.clear();
         }
         return this;
       }
@@ -10116,14 +12260,23 @@ public final class c_business_relation {
         } else {
           result.error_ = errorBuilder_.build();
         }
-        if (friendInfoSBuilder_ == null) {
+        if (groupSBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            friendInfoS_ = java.util.Collections.unmodifiableList(friendInfoS_);
+            groupS_ = java.util.Collections.unmodifiableList(groupS_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
-          result.friendInfoS_ = friendInfoS_;
+          result.groupS_ = groupS_;
         } else {
-          result.friendInfoS_ = friendInfoSBuilder_.build();
+          result.groupS_ = groupSBuilder_.build();
+        }
+        if (relationSBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            relationS_ = java.util.Collections.unmodifiableList(relationS_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.relationS_ = relationS_;
+        } else {
+          result.relationS_ = relationSBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -10170,29 +12323,55 @@ public final class c_business_relation {
         if (other.hasError()) {
           mergeError(other.getError());
         }
-        if (friendInfoSBuilder_ == null) {
-          if (!other.friendInfoS_.isEmpty()) {
-            if (friendInfoS_.isEmpty()) {
-              friendInfoS_ = other.friendInfoS_;
+        if (groupSBuilder_ == null) {
+          if (!other.groupS_.isEmpty()) {
+            if (groupS_.isEmpty()) {
+              groupS_ = other.groupS_;
               bitField0_ = (bitField0_ & ~0x00000002);
             } else {
-              ensureFriendInfoSIsMutable();
-              friendInfoS_.addAll(other.friendInfoS_);
+              ensureGroupSIsMutable();
+              groupS_.addAll(other.groupS_);
             }
             onChanged();
           }
         } else {
-          if (!other.friendInfoS_.isEmpty()) {
-            if (friendInfoSBuilder_.isEmpty()) {
-              friendInfoSBuilder_.dispose();
-              friendInfoSBuilder_ = null;
-              friendInfoS_ = other.friendInfoS_;
+          if (!other.groupS_.isEmpty()) {
+            if (groupSBuilder_.isEmpty()) {
+              groupSBuilder_.dispose();
+              groupSBuilder_ = null;
+              groupS_ = other.groupS_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              friendInfoSBuilder_ = 
+              groupSBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getFriendInfoSFieldBuilder() : null;
+                   getGroupSFieldBuilder() : null;
             } else {
-              friendInfoSBuilder_.addAllMessages(other.friendInfoS_);
+              groupSBuilder_.addAllMessages(other.groupS_);
+            }
+          }
+        }
+        if (relationSBuilder_ == null) {
+          if (!other.relationS_.isEmpty()) {
+            if (relationS_.isEmpty()) {
+              relationS_ = other.relationS_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureRelationSIsMutable();
+              relationS_.addAll(other.relationS_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.relationS_.isEmpty()) {
+            if (relationSBuilder_.isEmpty()) {
+              relationSBuilder_.dispose();
+              relationSBuilder_ = null;
+              relationS_ = other.relationS_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              relationSBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRelationSFieldBuilder() : null;
+            } else {
+              relationSBuilder_.addAllMessages(other.relationS_);
             }
           }
         }
@@ -10208,8 +12387,13 @@ public final class c_business_relation {
         if (!getError().isInitialized()) {
           return false;
         }
-        for (int i = 0; i < getFriendInfoSCount(); i++) {
-          if (!getFriendInfoS(i).isInitialized()) {
+        for (int i = 0; i < getGroupSCount(); i++) {
+          if (!getGroupS(i).isInitialized()) {
+            return false;
+          }
+        }
+        for (int i = 0; i < getRelationSCount(); i++) {
+          if (!getRelationS(i).isInitialized()) {
             return false;
           }
         }
@@ -10389,316 +12573,628 @@ public final class c_business_relation {
         return errorBuilder_;
       }
 
-      private java.util.List<protodef.c_business_relation.friend_info> friendInfoS_ =
+      private java.util.List<protodef.b_business_relation.user_relation_group> groupS_ =
         java.util.Collections.emptyList();
-      private void ensureFriendInfoSIsMutable() {
+      private void ensureGroupSIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          friendInfoS_ = new java.util.ArrayList<protodef.c_business_relation.friend_info>(friendInfoS_);
+          groupS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation_group>(groupS_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          protodef.c_business_relation.friend_info, protodef.c_business_relation.friend_info.Builder, protodef.c_business_relation.friend_infoOrBuilder> friendInfoSBuilder_;
+          protodef.b_business_relation.user_relation_group, protodef.b_business_relation.user_relation_group.Builder, protodef.b_business_relation.user_relation_groupOrBuilder> groupSBuilder_;
 
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public java.util.List<protodef.c_business_relation.friend_info> getFriendInfoSList() {
-        if (friendInfoSBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(friendInfoS_);
+      public java.util.List<protodef.b_business_relation.user_relation_group> getGroupSList() {
+        if (groupSBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(groupS_);
         } else {
-          return friendInfoSBuilder_.getMessageList();
+          return groupSBuilder_.getMessageList();
         }
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public int getFriendInfoSCount() {
-        if (friendInfoSBuilder_ == null) {
-          return friendInfoS_.size();
+      public int getGroupSCount() {
+        if (groupSBuilder_ == null) {
+          return groupS_.size();
         } else {
-          return friendInfoSBuilder_.getCount();
+          return groupSBuilder_.getCount();
         }
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public protodef.c_business_relation.friend_info getFriendInfoS(int index) {
-        if (friendInfoSBuilder_ == null) {
-          return friendInfoS_.get(index);
+      public protodef.b_business_relation.user_relation_group getGroupS(int index) {
+        if (groupSBuilder_ == null) {
+          return groupS_.get(index);
         } else {
-          return friendInfoSBuilder_.getMessage(index);
+          return groupSBuilder_.getMessage(index);
         }
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder setFriendInfoS(
-          int index, protodef.c_business_relation.friend_info value) {
-        if (friendInfoSBuilder_ == null) {
+      public Builder setGroupS(
+          int index, protodef.b_business_relation.user_relation_group value) {
+        if (groupSBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.set(index, value);
+          ensureGroupSIsMutable();
+          groupS_.set(index, value);
           onChanged();
         } else {
-          friendInfoSBuilder_.setMessage(index, value);
+          groupSBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder setFriendInfoS(
-          int index, protodef.c_business_relation.friend_info.Builder builderForValue) {
-        if (friendInfoSBuilder_ == null) {
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.set(index, builderForValue.build());
+      public Builder setGroupS(
+          int index, protodef.b_business_relation.user_relation_group.Builder builderForValue) {
+        if (groupSBuilder_ == null) {
+          ensureGroupSIsMutable();
+          groupS_.set(index, builderForValue.build());
           onChanged();
         } else {
-          friendInfoSBuilder_.setMessage(index, builderForValue.build());
+          groupSBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder addFriendInfoS(protodef.c_business_relation.friend_info value) {
-        if (friendInfoSBuilder_ == null) {
+      public Builder addGroupS(protodef.b_business_relation.user_relation_group value) {
+        if (groupSBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.add(value);
+          ensureGroupSIsMutable();
+          groupS_.add(value);
           onChanged();
         } else {
-          friendInfoSBuilder_.addMessage(value);
+          groupSBuilder_.addMessage(value);
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder addFriendInfoS(
-          int index, protodef.c_business_relation.friend_info value) {
-        if (friendInfoSBuilder_ == null) {
+      public Builder addGroupS(
+          int index, protodef.b_business_relation.user_relation_group value) {
+        if (groupSBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.add(index, value);
+          ensureGroupSIsMutable();
+          groupS_.add(index, value);
           onChanged();
         } else {
-          friendInfoSBuilder_.addMessage(index, value);
+          groupSBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder addFriendInfoS(
-          protodef.c_business_relation.friend_info.Builder builderForValue) {
-        if (friendInfoSBuilder_ == null) {
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.add(builderForValue.build());
+      public Builder addGroupS(
+          protodef.b_business_relation.user_relation_group.Builder builderForValue) {
+        if (groupSBuilder_ == null) {
+          ensureGroupSIsMutable();
+          groupS_.add(builderForValue.build());
           onChanged();
         } else {
-          friendInfoSBuilder_.addMessage(builderForValue.build());
+          groupSBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder addFriendInfoS(
-          int index, protodef.c_business_relation.friend_info.Builder builderForValue) {
-        if (friendInfoSBuilder_ == null) {
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.add(index, builderForValue.build());
+      public Builder addGroupS(
+          int index, protodef.b_business_relation.user_relation_group.Builder builderForValue) {
+        if (groupSBuilder_ == null) {
+          ensureGroupSIsMutable();
+          groupS_.add(index, builderForValue.build());
           onChanged();
         } else {
-          friendInfoSBuilder_.addMessage(index, builderForValue.build());
+          groupSBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder addAllFriendInfoS(
-          java.lang.Iterable<? extends protodef.c_business_relation.friend_info> values) {
-        if (friendInfoSBuilder_ == null) {
-          ensureFriendInfoSIsMutable();
+      public Builder addAllGroupS(
+          java.lang.Iterable<? extends protodef.b_business_relation.user_relation_group> values) {
+        if (groupSBuilder_ == null) {
+          ensureGroupSIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, friendInfoS_);
+              values, groupS_);
           onChanged();
         } else {
-          friendInfoSBuilder_.addAllMessages(values);
+          groupSBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder clearFriendInfoS() {
-        if (friendInfoSBuilder_ == null) {
-          friendInfoS_ = java.util.Collections.emptyList();
+      public Builder clearGroupS() {
+        if (groupSBuilder_ == null) {
+          groupS_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
-          friendInfoSBuilder_.clear();
+          groupSBuilder_.clear();
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public Builder removeFriendInfoS(int index) {
-        if (friendInfoSBuilder_ == null) {
-          ensureFriendInfoSIsMutable();
-          friendInfoS_.remove(index);
+      public Builder removeGroupS(int index) {
+        if (groupSBuilder_ == null) {
+          ensureGroupSIsMutable();
+          groupS_.remove(index);
           onChanged();
         } else {
-          friendInfoSBuilder_.remove(index);
+          groupSBuilder_.remove(index);
         }
         return this;
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public protodef.c_business_relation.friend_info.Builder getFriendInfoSBuilder(
+      public protodef.b_business_relation.user_relation_group.Builder getGroupSBuilder(
           int index) {
-        return getFriendInfoSFieldBuilder().getBuilder(index);
+        return getGroupSFieldBuilder().getBuilder(index);
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public protodef.c_business_relation.friend_infoOrBuilder getFriendInfoSOrBuilder(
+      public protodef.b_business_relation.user_relation_groupOrBuilder getGroupSOrBuilder(
           int index) {
-        if (friendInfoSBuilder_ == null) {
-          return friendInfoS_.get(index);  } else {
-          return friendInfoSBuilder_.getMessageOrBuilder(index);
+        if (groupSBuilder_ == null) {
+          return groupS_.get(index);  } else {
+          return groupSBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public java.util.List<? extends protodef.c_business_relation.friend_infoOrBuilder> 
-           getFriendInfoSOrBuilderList() {
-        if (friendInfoSBuilder_ != null) {
-          return friendInfoSBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends protodef.b_business_relation.user_relation_groupOrBuilder> 
+           getGroupSOrBuilderList() {
+        if (groupSBuilder_ != null) {
+          return groupSBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(friendInfoS_);
+          return java.util.Collections.unmodifiableList(groupS_);
         }
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public protodef.c_business_relation.friend_info.Builder addFriendInfoSBuilder() {
-        return getFriendInfoSFieldBuilder().addBuilder(
-            protodef.c_business_relation.friend_info.getDefaultInstance());
+      public protodef.b_business_relation.user_relation_group.Builder addGroupSBuilder() {
+        return getGroupSFieldBuilder().addBuilder(
+            protodef.b_business_relation.user_relation_group.getDefaultInstance());
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public protodef.c_business_relation.friend_info.Builder addFriendInfoSBuilder(
+      public protodef.b_business_relation.user_relation_group.Builder addGroupSBuilder(
           int index) {
-        return getFriendInfoSFieldBuilder().addBuilder(
-            index, protodef.c_business_relation.friend_info.getDefaultInstance());
+        return getGroupSFieldBuilder().addBuilder(
+            index, protodef.b_business_relation.user_relation_group.getDefaultInstance());
       }
       /**
        * <pre>
-       * 好友用户数据列表
+       * 好友关系组列表
        * </pre>
        *
-       * <code>repeated .c_business_relation.friend_info friend_info_s = 2;</code>
+       * <code>repeated .b_business_relation.user_relation_group group_s = 2;</code>
        */
-      public java.util.List<protodef.c_business_relation.friend_info.Builder> 
-           getFriendInfoSBuilderList() {
-        return getFriendInfoSFieldBuilder().getBuilderList();
+      public java.util.List<protodef.b_business_relation.user_relation_group.Builder> 
+           getGroupSBuilderList() {
+        return getGroupSFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          protodef.c_business_relation.friend_info, protodef.c_business_relation.friend_info.Builder, protodef.c_business_relation.friend_infoOrBuilder> 
-          getFriendInfoSFieldBuilder() {
-        if (friendInfoSBuilder_ == null) {
-          friendInfoSBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              protodef.c_business_relation.friend_info, protodef.c_business_relation.friend_info.Builder, protodef.c_business_relation.friend_infoOrBuilder>(
-                  friendInfoS_,
+          protodef.b_business_relation.user_relation_group, protodef.b_business_relation.user_relation_group.Builder, protodef.b_business_relation.user_relation_groupOrBuilder> 
+          getGroupSFieldBuilder() {
+        if (groupSBuilder_ == null) {
+          groupSBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              protodef.b_business_relation.user_relation_group, protodef.b_business_relation.user_relation_group.Builder, protodef.b_business_relation.user_relation_groupOrBuilder>(
+                  groupS_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
-          friendInfoS_ = null;
+          groupS_ = null;
         }
-        return friendInfoSBuilder_;
+        return groupSBuilder_;
+      }
+
+      private java.util.List<protodef.b_business_relation.user_relation> relationS_ =
+        java.util.Collections.emptyList();
+      private void ensureRelationSIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          relationS_ = new java.util.ArrayList<protodef.b_business_relation.user_relation>(relationS_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder> relationSBuilder_;
+
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public java.util.List<protodef.b_business_relation.user_relation> getRelationSList() {
+        if (relationSBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(relationS_);
+        } else {
+          return relationSBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public int getRelationSCount() {
+        if (relationSBuilder_ == null) {
+          return relationS_.size();
+        } else {
+          return relationSBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation getRelationS(int index) {
+        if (relationSBuilder_ == null) {
+          return relationS_.get(index);
+        } else {
+          return relationSBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder setRelationS(
+          int index, protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.set(index, value);
+          onChanged();
+        } else {
+          relationSBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder setRelationS(
+          int index, protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.add(value);
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(
+          int index, protodef.b_business_relation.user_relation value) {
+        if (relationSBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRelationSIsMutable();
+          relationS_.add(index, value);
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(
+          protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.add(builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addRelationS(
+          int index, protodef.b_business_relation.user_relation.Builder builderForValue) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          relationSBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder addAllRelationS(
+          java.lang.Iterable<? extends protodef.b_business_relation.user_relation> values) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, relationS_);
+          onChanged();
+        } else {
+          relationSBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder clearRelationS() {
+        if (relationSBuilder_ == null) {
+          relationS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          relationSBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public Builder removeRelationS(int index) {
+        if (relationSBuilder_ == null) {
+          ensureRelationSIsMutable();
+          relationS_.remove(index);
+          onChanged();
+        } else {
+          relationSBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder getRelationSBuilder(
+          int index) {
+        return getRelationSFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relationOrBuilder getRelationSOrBuilder(
+          int index) {
+        if (relationSBuilder_ == null) {
+          return relationS_.get(index);  } else {
+          return relationSBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public java.util.List<? extends protodef.b_business_relation.user_relationOrBuilder> 
+           getRelationSOrBuilderList() {
+        if (relationSBuilder_ != null) {
+          return relationSBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(relationS_);
+        }
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder addRelationSBuilder() {
+        return getRelationSFieldBuilder().addBuilder(
+            protodef.b_business_relation.user_relation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public protodef.b_business_relation.user_relation.Builder addRelationSBuilder(
+          int index) {
+        return getRelationSFieldBuilder().addBuilder(
+            index, protodef.b_business_relation.user_relation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 好友关系列表	
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.user_relation relation_s = 3;</code>
+       */
+      public java.util.List<protodef.b_business_relation.user_relation.Builder> 
+           getRelationSBuilderList() {
+        return getRelationSFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder> 
+          getRelationSFieldBuilder() {
+        if (relationSBuilder_ == null) {
+          relationSBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              protodef.b_business_relation.user_relation, protodef.b_business_relation.user_relation.Builder, protodef.b_business_relation.user_relationOrBuilder>(
+                  relationS_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          relationS_ = null;
+        }
+        return relationSBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -12801,8 +15297,1933 @@ public final class c_business_relation {
 
   }
 
-  public interface rename_friend_group_rqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:c_business_relation.rename_friend_group_rq)
+  public interface add_friend_group_rqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.add_friend_group_rq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    boolean hasUserMyselfId();
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    long getUserMyselfId();
+
+    /**
+     * <pre>
+     * 好友组名
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    boolean hasUserFriendGroup();
+    /**
+     * <pre>
+     * 好友组名
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    java.lang.String getUserFriendGroup();
+    /**
+     * <pre>
+     * 好友组名
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserFriendGroupBytes();
+  }
+  /**
+   * <pre>
+   * (tcp)新增好友组名
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.add_friend_group_rq}
+   */
+  public  static final class add_friend_group_rq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.add_friend_group_rq)
+      add_friend_group_rqOrBuilder {
+    // Use add_friend_group_rq.newBuilder() to construct.
+    private add_friend_group_rq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private add_friend_group_rq() {
+      userMyselfId_ = 0L;
+      userFriendGroup_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private add_friend_group_rq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userMyselfId_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              userFriendGroup_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.add_friend_group_rq.class, protodef.c_business_relation.add_friend_group_rq.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.add_friend_group_rq.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562913;</code>
+       */
+      id(33562913),
+      ;
+
+      /**
+       * <code>id = 33562913;</code>
+       */
+      public static final int id_VALUE = 33562913;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562913: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.add_friend_group_rq.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.add_friend_group_rq.msg)
+    }
+
+    private int bitField0_;
+    public static final int USER_MYSELF_ID_FIELD_NUMBER = 1;
+    private long userMyselfId_;
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public boolean hasUserMyselfId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public long getUserMyselfId() {
+      return userMyselfId_;
+    }
+
+    public static final int USER_FRIEND_GROUP_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userFriendGroup_;
+    /**
+     * <pre>
+     * 好友组名
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    public boolean hasUserFriendGroup() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 好友组名
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    public java.lang.String getUserFriendGroup() {
+      java.lang.Object ref = userFriendGroup_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userFriendGroup_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 好友组名
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserFriendGroupBytes() {
+      java.lang.Object ref = userFriendGroup_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userFriendGroup_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserMyselfId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroup()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, userMyselfId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userFriendGroup_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, userMyselfId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userFriendGroup_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.add_friend_group_rq)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.add_friend_group_rq other = (protodef.c_business_relation.add_friend_group_rq) obj;
+
+      boolean result = true;
+      result = result && (hasUserMyselfId() == other.hasUserMyselfId());
+      if (hasUserMyselfId()) {
+        result = result && (getUserMyselfId()
+            == other.getUserMyselfId());
+      }
+      result = result && (hasUserFriendGroup() == other.hasUserFriendGroup());
+      if (hasUserFriendGroup()) {
+        result = result && getUserFriendGroup()
+            .equals(other.getUserFriendGroup());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserMyselfId()) {
+        hash = (37 * hash) + USER_MYSELF_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserMyselfId());
+      }
+      if (hasUserFriendGroup()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_FIELD_NUMBER;
+        hash = (53 * hash) + getUserFriendGroup().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.add_friend_group_rq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.add_friend_group_rq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)新增好友组名
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.add_friend_group_rq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.add_friend_group_rq)
+        protodef.c_business_relation.add_friend_group_rqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.add_friend_group_rq.class, protodef.c_business_relation.add_friend_group_rq.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.add_friend_group_rq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userMyselfId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userFriendGroup_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rq_descriptor;
+      }
+
+      public protodef.c_business_relation.add_friend_group_rq getDefaultInstanceForType() {
+        return protodef.c_business_relation.add_friend_group_rq.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.add_friend_group_rq build() {
+        protodef.c_business_relation.add_friend_group_rq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.add_friend_group_rq buildPartial() {
+        protodef.c_business_relation.add_friend_group_rq result = new protodef.c_business_relation.add_friend_group_rq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userMyselfId_ = userMyselfId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userFriendGroup_ = userFriendGroup_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.add_friend_group_rq) {
+          return mergeFrom((protodef.c_business_relation.add_friend_group_rq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.add_friend_group_rq other) {
+        if (other == protodef.c_business_relation.add_friend_group_rq.getDefaultInstance()) return this;
+        if (other.hasUserMyselfId()) {
+          setUserMyselfId(other.getUserMyselfId());
+        }
+        if (other.hasUserFriendGroup()) {
+          bitField0_ |= 0x00000002;
+          userFriendGroup_ = other.userFriendGroup_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserMyselfId()) {
+          return false;
+        }
+        if (!hasUserFriendGroup()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.add_friend_group_rq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.add_friend_group_rq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long userMyselfId_ ;
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public boolean hasUserMyselfId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public long getUserMyselfId() {
+        return userMyselfId_;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder setUserMyselfId(long value) {
+        bitField0_ |= 0x00000001;
+        userMyselfId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder clearUserMyselfId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userMyselfId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userFriendGroup_ = "";
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public boolean hasUserFriendGroup() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public java.lang.String getUserFriendGroup() {
+        java.lang.Object ref = userFriendGroup_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userFriendGroup_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserFriendGroupBytes() {
+        java.lang.Object ref = userFriendGroup_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userFriendGroup_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public Builder setUserFriendGroup(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        userFriendGroup_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public Builder clearUserFriendGroup() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroup_ = getDefaultInstance().getUserFriendGroup();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public Builder setUserFriendGroupBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        userFriendGroup_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.add_friend_group_rq)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.add_friend_group_rq)
+    private static final protodef.c_business_relation.add_friend_group_rq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.add_friend_group_rq();
+    }
+
+    public static protodef.c_business_relation.add_friend_group_rq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<add_friend_group_rq>
+        PARSER = new com.google.protobuf.AbstractParser<add_friend_group_rq>() {
+      public add_friend_group_rq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new add_friend_group_rq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<add_friend_group_rq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<add_friend_group_rq> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.add_friend_group_rq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface add_friend_group_rsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.add_friend_group_rs)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.info getError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.infoOrBuilder getErrorOrBuilder();
+
+    /**
+     * <pre>
+     * 好友组名	
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    boolean hasUserFriendGroup();
+    /**
+     * <pre>
+     * 好友组名	
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    java.lang.String getUserFriendGroup();
+    /**
+     * <pre>
+     * 好友组名	
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserFriendGroupBytes();
+
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    boolean hasUserFriendGroupId();
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    long getUserFriendGroupId();
+  }
+  /**
+   * <pre>
+   * (tcp)新增好友组名
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.add_friend_group_rs}
+   */
+  public  static final class add_friend_group_rs extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.add_friend_group_rs)
+      add_friend_group_rsOrBuilder {
+    // Use add_friend_group_rs.newBuilder() to construct.
+    private add_friend_group_rs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private add_friend_group_rs() {
+      userFriendGroup_ = "";
+      userFriendGroupId_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private add_friend_group_rs(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              protodef.b_error.info.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(protodef.b_error.info.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              userFriendGroup_ = bs;
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userFriendGroupId_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rs_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rs_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.add_friend_group_rs.class, protodef.c_business_relation.add_friend_group_rs.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.add_friend_group_rs.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562914;</code>
+       */
+      id(33562914),
+      ;
+
+      /**
+       * <code>id = 33562914;</code>
+       */
+      public static final int id_VALUE = 33562914;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562914: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.add_friend_group_rs.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.add_friend_group_rs.msg)
+    }
+
+    private int bitField0_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private protodef.b_error.info error_;
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.info getError() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+
+    public static final int USER_FRIEND_GROUP_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userFriendGroup_;
+    /**
+     * <pre>
+     * 好友组名	
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    public boolean hasUserFriendGroup() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 好友组名	
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    public java.lang.String getUserFriendGroup() {
+      java.lang.Object ref = userFriendGroup_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userFriendGroup_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 好友组名	
+     * </pre>
+     *
+     * <code>required string user_friend_group = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserFriendGroupBytes() {
+      java.lang.Object ref = userFriendGroup_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userFriendGroup_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_FIELD_NUMBER = 3;
+    private long userFriendGroupId_;
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    public boolean hasUserFriendGroupId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    public long getUserFriendGroupId() {
+      return userFriendGroupId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasError()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroup()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getError().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getError());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userFriendGroup_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt64(3, userFriendGroupId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userFriendGroup_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, userFriendGroupId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.add_friend_group_rs)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.add_friend_group_rs other = (protodef.c_business_relation.add_friend_group_rs) obj;
+
+      boolean result = true;
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
+      }
+      result = result && (hasUserFriendGroup() == other.hasUserFriendGroup());
+      if (hasUserFriendGroup()) {
+        result = result && getUserFriendGroup()
+            .equals(other.getUserFriendGroup());
+      }
+      result = result && (hasUserFriendGroupId() == other.hasUserFriendGroupId());
+      if (hasUserFriendGroupId()) {
+        result = result && (getUserFriendGroupId()
+            == other.getUserFriendGroupId());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      if (hasUserFriendGroup()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_FIELD_NUMBER;
+        hash = (53 * hash) + getUserFriendGroup().hashCode();
+      }
+      if (hasUserFriendGroupId()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupId());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.add_friend_group_rs parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.add_friend_group_rs prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)新增好友组名
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.add_friend_group_rs}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.add_friend_group_rs)
+        protodef.c_business_relation.add_friend_group_rsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rs_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rs_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.add_friend_group_rs.class, protodef.c_business_relation.add_friend_group_rs.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.add_friend_group_rs.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userFriendGroup_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_add_friend_group_rs_descriptor;
+      }
+
+      public protodef.c_business_relation.add_friend_group_rs getDefaultInstanceForType() {
+        return protodef.c_business_relation.add_friend_group_rs.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.add_friend_group_rs build() {
+        protodef.c_business_relation.add_friend_group_rs result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.add_friend_group_rs buildPartial() {
+        protodef.c_business_relation.add_friend_group_rs result = new protodef.c_business_relation.add_friend_group_rs(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userFriendGroup_ = userFriendGroup_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userFriendGroupId_ = userFriendGroupId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.add_friend_group_rs) {
+          return mergeFrom((protodef.c_business_relation.add_friend_group_rs)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.add_friend_group_rs other) {
+        if (other == protodef.c_business_relation.add_friend_group_rs.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        if (other.hasUserFriendGroup()) {
+          bitField0_ |= 0x00000002;
+          userFriendGroup_ = other.userFriendGroup_;
+          onChanged();
+        }
+        if (other.hasUserFriendGroupId()) {
+          setUserFriendGroupId(other.getUserFriendGroupId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasError()) {
+          return false;
+        }
+        if (!hasUserFriendGroup()) {
+          return false;
+        }
+        if (!hasUserFriendGroupId()) {
+          return false;
+        }
+        if (!getError().isInitialized()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.add_friend_group_rs parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.add_friend_group_rs) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private protodef.b_error.info error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(
+          protodef.b_error.info.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder mergeError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              error_ != null &&
+              error_ != protodef.b_error.info.getDefaultInstance()) {
+            error_ =
+              protodef.b_error.info.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info.Builder getErrorBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              protodef.b_error.info.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
+      private java.lang.Object userFriendGroup_ = "";
+      /**
+       * <pre>
+       * 好友组名	
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public boolean hasUserFriendGroup() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 好友组名	
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public java.lang.String getUserFriendGroup() {
+        java.lang.Object ref = userFriendGroup_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userFriendGroup_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 好友组名	
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserFriendGroupBytes() {
+        java.lang.Object ref = userFriendGroup_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userFriendGroup_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 好友组名	
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public Builder setUserFriendGroup(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        userFriendGroup_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名	
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public Builder clearUserFriendGroup() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroup_ = getDefaultInstance().getUserFriendGroup();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名	
+       * </pre>
+       *
+       * <code>required string user_friend_group = 2;</code>
+       */
+      public Builder setUserFriendGroupBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        userFriendGroup_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendGroupId_ ;
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public boolean hasUserFriendGroupId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public long getUserFriendGroupId() {
+        return userFriendGroupId_;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder setUserFriendGroupId(long value) {
+        bitField0_ |= 0x00000004;
+        userFriendGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder clearUserFriendGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.add_friend_group_rs)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.add_friend_group_rs)
+    private static final protodef.c_business_relation.add_friend_group_rs DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.add_friend_group_rs();
+    }
+
+    public static protodef.c_business_relation.add_friend_group_rs getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<add_friend_group_rs>
+        PARSER = new com.google.protobuf.AbstractParser<add_friend_group_rs>() {
+      public add_friend_group_rs parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new add_friend_group_rs(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<add_friend_group_rs> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<add_friend_group_rs> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.add_friend_group_rs getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface delete_friend_group_rqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.delete_friend_group_rq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12841,10 +17262,1876 @@ public final class c_business_relation {
 
     /**
      * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    boolean hasUserFriendGroupId();
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    long getUserFriendGroupId();
+  }
+  /**
+   * <pre>
+   * (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.delete_friend_group_rq}
+   */
+  public  static final class delete_friend_group_rq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.delete_friend_group_rq)
+      delete_friend_group_rqOrBuilder {
+    // Use delete_friend_group_rq.newBuilder() to construct.
+    private delete_friend_group_rq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private delete_friend_group_rq() {
+      userMyselfId_ = 0L;
+      userFriendId_ = 0L;
+      userFriendGroupId_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private delete_friend_group_rq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userMyselfId_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              userFriendId_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userFriendGroupId_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.delete_friend_group_rq.class, protodef.c_business_relation.delete_friend_group_rq.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.delete_friend_group_rq.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562913;</code>
+       */
+      id(33562913),
+      ;
+
+      /**
+       * <code>id = 33562913;</code>
+       */
+      public static final int id_VALUE = 33562913;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562913: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.delete_friend_group_rq.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.delete_friend_group_rq.msg)
+    }
+
+    private int bitField0_;
+    public static final int USER_MYSELF_ID_FIELD_NUMBER = 1;
+    private long userMyselfId_;
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public boolean hasUserMyselfId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public long getUserMyselfId() {
+      return userMyselfId_;
+    }
+
+    public static final int USER_FRIEND_ID_FIELD_NUMBER = 2;
+    private long userFriendId_;
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public boolean hasUserFriendId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public long getUserFriendId() {
+      return userFriendId_;
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_FIELD_NUMBER = 3;
+    private long userFriendGroupId_;
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    public boolean hasUserFriendGroupId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    public long getUserFriendGroupId() {
+      return userFriendGroupId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserMyselfId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, userMyselfId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt64(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt64(3, userFriendGroupId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, userMyselfId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, userFriendGroupId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.delete_friend_group_rq)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.delete_friend_group_rq other = (protodef.c_business_relation.delete_friend_group_rq) obj;
+
+      boolean result = true;
+      result = result && (hasUserMyselfId() == other.hasUserMyselfId());
+      if (hasUserMyselfId()) {
+        result = result && (getUserMyselfId()
+            == other.getUserMyselfId());
+      }
+      result = result && (hasUserFriendId() == other.hasUserFriendId());
+      if (hasUserFriendId()) {
+        result = result && (getUserFriendId()
+            == other.getUserFriendId());
+      }
+      result = result && (hasUserFriendGroupId() == other.hasUserFriendGroupId());
+      if (hasUserFriendGroupId()) {
+        result = result && (getUserFriendGroupId()
+            == other.getUserFriendGroupId());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserMyselfId()) {
+        hash = (37 * hash) + USER_MYSELF_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserMyselfId());
+      }
+      if (hasUserFriendId()) {
+        hash = (37 * hash) + USER_FRIEND_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendId());
+      }
+      if (hasUserFriendGroupId()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupId());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.delete_friend_group_rq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.delete_friend_group_rq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.delete_friend_group_rq)
+        protodef.c_business_relation.delete_friend_group_rqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.delete_friend_group_rq.class, protodef.c_business_relation.delete_friend_group_rq.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.delete_friend_group_rq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userMyselfId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userFriendId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rq_descriptor;
+      }
+
+      public protodef.c_business_relation.delete_friend_group_rq getDefaultInstanceForType() {
+        return protodef.c_business_relation.delete_friend_group_rq.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.delete_friend_group_rq build() {
+        protodef.c_business_relation.delete_friend_group_rq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.delete_friend_group_rq buildPartial() {
+        protodef.c_business_relation.delete_friend_group_rq result = new protodef.c_business_relation.delete_friend_group_rq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userMyselfId_ = userMyselfId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userFriendId_ = userFriendId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userFriendGroupId_ = userFriendGroupId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.delete_friend_group_rq) {
+          return mergeFrom((protodef.c_business_relation.delete_friend_group_rq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.delete_friend_group_rq other) {
+        if (other == protodef.c_business_relation.delete_friend_group_rq.getDefaultInstance()) return this;
+        if (other.hasUserMyselfId()) {
+          setUserMyselfId(other.getUserMyselfId());
+        }
+        if (other.hasUserFriendId()) {
+          setUserFriendId(other.getUserFriendId());
+        }
+        if (other.hasUserFriendGroupId()) {
+          setUserFriendGroupId(other.getUserFriendGroupId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserMyselfId()) {
+          return false;
+        }
+        if (!hasUserFriendId()) {
+          return false;
+        }
+        if (!hasUserFriendGroupId()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.delete_friend_group_rq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.delete_friend_group_rq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long userMyselfId_ ;
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public boolean hasUserMyselfId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public long getUserMyselfId() {
+        return userMyselfId_;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder setUserMyselfId(long value) {
+        bitField0_ |= 0x00000001;
+        userMyselfId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder clearUserMyselfId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userMyselfId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendId_ ;
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public boolean hasUserFriendId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public long getUserFriendId() {
+        return userFriendId_;
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public Builder setUserFriendId(long value) {
+        bitField0_ |= 0x00000002;
+        userFriendId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public Builder clearUserFriendId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendGroupId_ ;
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public boolean hasUserFriendGroupId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public long getUserFriendGroupId() {
+        return userFriendGroupId_;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder setUserFriendGroupId(long value) {
+        bitField0_ |= 0x00000004;
+        userFriendGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder clearUserFriendGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.delete_friend_group_rq)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.delete_friend_group_rq)
+    private static final protodef.c_business_relation.delete_friend_group_rq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.delete_friend_group_rq();
+    }
+
+    public static protodef.c_business_relation.delete_friend_group_rq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<delete_friend_group_rq>
+        PARSER = new com.google.protobuf.AbstractParser<delete_friend_group_rq>() {
+      public delete_friend_group_rq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new delete_friend_group_rq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<delete_friend_group_rq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<delete_friend_group_rq> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.delete_friend_group_rq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface delete_friend_group_rsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.delete_friend_group_rs)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.info getError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.infoOrBuilder getErrorOrBuilder();
+
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    boolean hasUserFriendId();
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    long getUserFriendId();
+
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    boolean hasUserFriendGroupId();
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    long getUserFriendGroupId();
+  }
+  /**
+   * <pre>
+   * (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.delete_friend_group_rs}
+   */
+  public  static final class delete_friend_group_rs extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.delete_friend_group_rs)
+      delete_friend_group_rsOrBuilder {
+    // Use delete_friend_group_rs.newBuilder() to construct.
+    private delete_friend_group_rs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private delete_friend_group_rs() {
+      userFriendId_ = 0L;
+      userFriendGroupId_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private delete_friend_group_rs(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              protodef.b_error.info.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(protodef.b_error.info.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              userFriendId_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userFriendGroupId_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rs_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rs_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.delete_friend_group_rs.class, protodef.c_business_relation.delete_friend_group_rs.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.delete_friend_group_rs.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562914;</code>
+       */
+      id(33562914),
+      ;
+
+      /**
+       * <code>id = 33562914;</code>
+       */
+      public static final int id_VALUE = 33562914;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562914: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.delete_friend_group_rs.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.delete_friend_group_rs.msg)
+    }
+
+    private int bitField0_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private protodef.b_error.info error_;
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.info getError() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+
+    public static final int USER_FRIEND_ID_FIELD_NUMBER = 2;
+    private long userFriendId_;
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public boolean hasUserFriendId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public long getUserFriendId() {
+      return userFriendId_;
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_FIELD_NUMBER = 3;
+    private long userFriendGroupId_;
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    public boolean hasUserFriendGroupId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    public long getUserFriendGroupId() {
+      return userFriendGroupId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasError()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getError().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getError());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt64(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt64(3, userFriendGroupId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, userFriendGroupId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.delete_friend_group_rs)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.delete_friend_group_rs other = (protodef.c_business_relation.delete_friend_group_rs) obj;
+
+      boolean result = true;
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
+      }
+      result = result && (hasUserFriendId() == other.hasUserFriendId());
+      if (hasUserFriendId()) {
+        result = result && (getUserFriendId()
+            == other.getUserFriendId());
+      }
+      result = result && (hasUserFriendGroupId() == other.hasUserFriendGroupId());
+      if (hasUserFriendGroupId()) {
+        result = result && (getUserFriendGroupId()
+            == other.getUserFriendGroupId());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      if (hasUserFriendId()) {
+        hash = (37 * hash) + USER_FRIEND_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendId());
+      }
+      if (hasUserFriendGroupId()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupId());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.delete_friend_group_rs parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.delete_friend_group_rs prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.delete_friend_group_rs}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.delete_friend_group_rs)
+        protodef.c_business_relation.delete_friend_group_rsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rs_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rs_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.delete_friend_group_rs.class, protodef.c_business_relation.delete_friend_group_rs.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.delete_friend_group_rs.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userFriendId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_delete_friend_group_rs_descriptor;
+      }
+
+      public protodef.c_business_relation.delete_friend_group_rs getDefaultInstanceForType() {
+        return protodef.c_business_relation.delete_friend_group_rs.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.delete_friend_group_rs build() {
+        protodef.c_business_relation.delete_friend_group_rs result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.delete_friend_group_rs buildPartial() {
+        protodef.c_business_relation.delete_friend_group_rs result = new protodef.c_business_relation.delete_friend_group_rs(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userFriendId_ = userFriendId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userFriendGroupId_ = userFriendGroupId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.delete_friend_group_rs) {
+          return mergeFrom((protodef.c_business_relation.delete_friend_group_rs)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.delete_friend_group_rs other) {
+        if (other == protodef.c_business_relation.delete_friend_group_rs.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        if (other.hasUserFriendId()) {
+          setUserFriendId(other.getUserFriendId());
+        }
+        if (other.hasUserFriendGroupId()) {
+          setUserFriendGroupId(other.getUserFriendGroupId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasError()) {
+          return false;
+        }
+        if (!hasUserFriendId()) {
+          return false;
+        }
+        if (!hasUserFriendGroupId()) {
+          return false;
+        }
+        if (!getError().isInitialized()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.delete_friend_group_rs parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.delete_friend_group_rs) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private protodef.b_error.info error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(
+          protodef.b_error.info.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder mergeError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              error_ != null &&
+              error_ != protodef.b_error.info.getDefaultInstance()) {
+            error_ =
+              protodef.b_error.info.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info.Builder getErrorBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              protodef.b_error.info.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
+      private long userFriendId_ ;
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public boolean hasUserFriendId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public long getUserFriendId() {
+        return userFriendId_;
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public Builder setUserFriendId(long value) {
+        bitField0_ |= 0x00000002;
+        userFriendId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public Builder clearUserFriendId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendGroupId_ ;
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public boolean hasUserFriendGroupId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public long getUserFriendGroupId() {
+        return userFriendGroupId_;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder setUserFriendGroupId(long value) {
+        bitField0_ |= 0x00000004;
+        userFriendGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder clearUserFriendGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.delete_friend_group_rs)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.delete_friend_group_rs)
+    private static final protodef.c_business_relation.delete_friend_group_rs DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.delete_friend_group_rs();
+    }
+
+    public static protodef.c_business_relation.delete_friend_group_rs getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<delete_friend_group_rs>
+        PARSER = new com.google.protobuf.AbstractParser<delete_friend_group_rs>() {
+      public delete_friend_group_rs parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new delete_friend_group_rs(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<delete_friend_group_rs> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<delete_friend_group_rs> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.delete_friend_group_rs getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface rename_friend_group_rqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.rename_friend_group_rq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    boolean hasUserMyselfId();
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    long getUserMyselfId();
+
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    boolean hasUserFriendGroupId();
+    /**
+     * <pre>
+     * 好友组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id = 3;</code>
+     */
+    long getUserFriendGroupId();
+
+    /**
+     * <pre>
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     boolean hasUserFriendGroup();
     /**
@@ -12852,7 +19139,7 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     java.lang.String getUserFriendGroup();
     /**
@@ -12860,14 +19147,14 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     com.google.protobuf.ByteString
         getUserFriendGroupBytes();
   }
   /**
    * <pre>
-   * (tcp)修改好友组名
+   * (tcp)修改好友组名(重命名组)
    * </pre>
    *
    * Protobuf type {@code c_business_relation.rename_friend_group_rq}
@@ -12882,7 +19169,7 @@ public final class c_business_relation {
     }
     private rename_friend_group_rq() {
       userMyselfId_ = 0L;
-      userFriendId_ = 0L;
+      userFriendGroupId_ = 0L;
       userFriendGroup_ = "";
     }
 
@@ -12919,12 +19206,12 @@ public final class c_business_relation {
               userMyselfId_ = input.readUInt64();
               break;
             }
-            case 16: {
+            case 24: {
               bitField0_ |= 0x00000002;
-              userFriendId_ = input.readUInt64();
+              userFriendGroupId_ = input.readUInt64();
               break;
             }
-            case 26: {
+            case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               userFriendGroup_ = bs;
@@ -13059,37 +19346,37 @@ public final class c_business_relation {
       return userMyselfId_;
     }
 
-    public static final int USER_FRIEND_ID_FIELD_NUMBER = 2;
-    private long userFriendId_;
+    public static final int USER_FRIEND_GROUP_ID_FIELD_NUMBER = 3;
+    private long userFriendGroupId_;
     /**
      * <pre>
-     * 好友用户id
+     * 好友组名id
      * </pre>
      *
-     * <code>required uint64 user_friend_id = 2;</code>
+     * <code>required uint64 user_friend_group_id = 3;</code>
      */
-    public boolean hasUserFriendId() {
+    public boolean hasUserFriendGroupId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     * 好友用户id
+     * 好友组名id
      * </pre>
      *
-     * <code>required uint64 user_friend_id = 2;</code>
+     * <code>required uint64 user_friend_group_id = 3;</code>
      */
-    public long getUserFriendId() {
-      return userFriendId_;
+    public long getUserFriendGroupId() {
+      return userFriendGroupId_;
     }
 
-    public static final int USER_FRIEND_GROUP_FIELD_NUMBER = 3;
+    public static final int USER_FRIEND_GROUP_FIELD_NUMBER = 4;
     private volatile java.lang.Object userFriendGroup_;
     /**
      * <pre>
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     public boolean hasUserFriendGroup() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -13099,7 +19386,7 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     public java.lang.String getUserFriendGroup() {
       java.lang.Object ref = userFriendGroup_;
@@ -13120,7 +19407,7 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     public com.google.protobuf.ByteString
         getUserFriendGroupBytes() {
@@ -13146,7 +19433,7 @@ public final class c_business_relation {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasUserFriendId()) {
+      if (!hasUserFriendGroupId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -13164,10 +19451,10 @@ public final class c_business_relation {
         output.writeUInt64(1, userMyselfId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt64(2, userFriendId_);
+        output.writeUInt64(3, userFriendGroupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userFriendGroup_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userFriendGroup_);
       }
       unknownFields.writeTo(output);
     }
@@ -13183,10 +19470,10 @@ public final class c_business_relation {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, userFriendId_);
+          .computeUInt64Size(3, userFriendGroupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userFriendGroup_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userFriendGroup_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13210,10 +19497,10 @@ public final class c_business_relation {
         result = result && (getUserMyselfId()
             == other.getUserMyselfId());
       }
-      result = result && (hasUserFriendId() == other.hasUserFriendId());
-      if (hasUserFriendId()) {
-        result = result && (getUserFriendId()
-            == other.getUserFriendId());
+      result = result && (hasUserFriendGroupId() == other.hasUserFriendGroupId());
+      if (hasUserFriendGroupId()) {
+        result = result && (getUserFriendGroupId()
+            == other.getUserFriendGroupId());
       }
       result = result && (hasUserFriendGroup() == other.hasUserFriendGroup());
       if (hasUserFriendGroup()) {
@@ -13236,10 +19523,10 @@ public final class c_business_relation {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getUserMyselfId());
       }
-      if (hasUserFriendId()) {
-        hash = (37 * hash) + USER_FRIEND_ID_FIELD_NUMBER;
+      if (hasUserFriendGroupId()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getUserFriendId());
+            getUserFriendGroupId());
       }
       if (hasUserFriendGroup()) {
         hash = (37 * hash) + USER_FRIEND_GROUP_FIELD_NUMBER;
@@ -13340,7 +19627,7 @@ public final class c_business_relation {
     }
     /**
      * <pre>
-     * (tcp)修改好友组名
+     * (tcp)修改好友组名(重命名组)
      * </pre>
      *
      * Protobuf type {@code c_business_relation.rename_friend_group_rq}
@@ -13380,7 +19667,7 @@ public final class c_business_relation {
         super.clear();
         userMyselfId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userFriendId_ = 0L;
+        userFriendGroupId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         userFriendGroup_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -13415,7 +19702,7 @@ public final class c_business_relation {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.userFriendId_ = userFriendId_;
+        result.userFriendGroupId_ = userFriendGroupId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -13465,8 +19752,8 @@ public final class c_business_relation {
         if (other.hasUserMyselfId()) {
           setUserMyselfId(other.getUserMyselfId());
         }
-        if (other.hasUserFriendId()) {
-          setUserFriendId(other.getUserFriendId());
+        if (other.hasUserFriendGroupId()) {
+          setUserFriendGroupId(other.getUserFriendGroupId());
         }
         if (other.hasUserFriendGroup()) {
           bitField0_ |= 0x00000004;
@@ -13482,7 +19769,7 @@ public final class c_business_relation {
         if (!hasUserMyselfId()) {
           return false;
         }
-        if (!hasUserFriendId()) {
+        if (!hasUserFriendGroupId()) {
           return false;
         }
         if (!hasUserFriendGroup()) {
@@ -13558,50 +19845,50 @@ public final class c_business_relation {
         return this;
       }
 
-      private long userFriendId_ ;
+      private long userFriendGroupId_ ;
       /**
        * <pre>
-       * 好友用户id
+       * 好友组名id
        * </pre>
        *
-       * <code>required uint64 user_friend_id = 2;</code>
+       * <code>required uint64 user_friend_group_id = 3;</code>
        */
-      public boolean hasUserFriendId() {
+      public boolean hasUserFriendGroupId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
-       * 好友用户id
+       * 好友组名id
        * </pre>
        *
-       * <code>required uint64 user_friend_id = 2;</code>
+       * <code>required uint64 user_friend_group_id = 3;</code>
        */
-      public long getUserFriendId() {
-        return userFriendId_;
+      public long getUserFriendGroupId() {
+        return userFriendGroupId_;
       }
       /**
        * <pre>
-       * 好友用户id
+       * 好友组名id
        * </pre>
        *
-       * <code>required uint64 user_friend_id = 2;</code>
+       * <code>required uint64 user_friend_group_id = 3;</code>
        */
-      public Builder setUserFriendId(long value) {
+      public Builder setUserFriendGroupId(long value) {
         bitField0_ |= 0x00000002;
-        userFriendId_ = value;
+        userFriendGroupId_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 好友用户id
+       * 好友组名id
        * </pre>
        *
-       * <code>required uint64 user_friend_id = 2;</code>
+       * <code>required uint64 user_friend_group_id = 3;</code>
        */
-      public Builder clearUserFriendId() {
+      public Builder clearUserFriendGroupId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        userFriendId_ = 0L;
+        userFriendGroupId_ = 0L;
         onChanged();
         return this;
       }
@@ -13612,7 +19899,7 @@ public final class c_business_relation {
        * 好友组名
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required string user_friend_group = 4;</code>
        */
       public boolean hasUserFriendGroup() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -13622,7 +19909,7 @@ public final class c_business_relation {
        * 好友组名
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required string user_friend_group = 4;</code>
        */
       public java.lang.String getUserFriendGroup() {
         java.lang.Object ref = userFriendGroup_;
@@ -13643,7 +19930,7 @@ public final class c_business_relation {
        * 好友组名
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required string user_friend_group = 4;</code>
        */
       public com.google.protobuf.ByteString
           getUserFriendGroupBytes() {
@@ -13663,7 +19950,7 @@ public final class c_business_relation {
        * 好友组名
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required string user_friend_group = 4;</code>
        */
       public Builder setUserFriendGroup(
           java.lang.String value) {
@@ -13680,7 +19967,7 @@ public final class c_business_relation {
        * 好友组名
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required string user_friend_group = 4;</code>
        */
       public Builder clearUserFriendGroup() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -13693,7 +19980,7 @@ public final class c_business_relation {
        * 好友组名
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required string user_friend_group = 4;</code>
        */
       public Builder setUserFriendGroupBytes(
           com.google.protobuf.ByteString value) {
@@ -13785,27 +20072,27 @@ public final class c_business_relation {
 
     /**
      * <pre>
-     * 聊天用户id
+     * 好友组名id
      * </pre>
      *
-     * <code>required uint64 user_friend_id = 2;</code>
+     * <code>required uint64 user_friend_group_id = 3;</code>
      */
-    boolean hasUserFriendId();
+    boolean hasUserFriendGroupId();
     /**
      * <pre>
-     * 聊天用户id
+     * 好友组名id
      * </pre>
      *
-     * <code>required uint64 user_friend_id = 2;</code>
+     * <code>required uint64 user_friend_group_id = 3;</code>
      */
-    long getUserFriendId();
+    long getUserFriendGroupId();
 
     /**
      * <pre>
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     boolean hasUserFriendGroup();
     /**
@@ -13813,7 +20100,7 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     java.lang.String getUserFriendGroup();
     /**
@@ -13821,14 +20108,14 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     com.google.protobuf.ByteString
         getUserFriendGroupBytes();
   }
   /**
    * <pre>
-   * (tcp)修改好友组名
+   * (tcp)修改好友组名(重命名组)
    * </pre>
    *
    * Protobuf type {@code c_business_relation.rename_friend_group_rs}
@@ -13842,7 +20129,7 @@ public final class c_business_relation {
       super(builder);
     }
     private rename_friend_group_rs() {
-      userFriendId_ = 0L;
+      userFriendGroupId_ = 0L;
       userFriendGroup_ = "";
     }
 
@@ -13887,12 +20174,12 @@ public final class c_business_relation {
               bitField0_ |= 0x00000001;
               break;
             }
-            case 16: {
+            case 24: {
               bitField0_ |= 0x00000002;
-              userFriendId_ = input.readUInt64();
+              userFriendGroupId_ = input.readUInt64();
               break;
             }
-            case 26: {
+            case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               userFriendGroup_ = bs;
@@ -14037,37 +20324,37 @@ public final class c_business_relation {
       return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
     }
 
-    public static final int USER_FRIEND_ID_FIELD_NUMBER = 2;
-    private long userFriendId_;
+    public static final int USER_FRIEND_GROUP_ID_FIELD_NUMBER = 3;
+    private long userFriendGroupId_;
     /**
      * <pre>
-     * 聊天用户id
+     * 好友组名id
      * </pre>
      *
-     * <code>required uint64 user_friend_id = 2;</code>
+     * <code>required uint64 user_friend_group_id = 3;</code>
      */
-    public boolean hasUserFriendId() {
+    public boolean hasUserFriendGroupId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     * 聊天用户id
+     * 好友组名id
      * </pre>
      *
-     * <code>required uint64 user_friend_id = 2;</code>
+     * <code>required uint64 user_friend_group_id = 3;</code>
      */
-    public long getUserFriendId() {
-      return userFriendId_;
+    public long getUserFriendGroupId() {
+      return userFriendGroupId_;
     }
 
-    public static final int USER_FRIEND_GROUP_FIELD_NUMBER = 3;
+    public static final int USER_FRIEND_GROUP_FIELD_NUMBER = 4;
     private volatile java.lang.Object userFriendGroup_;
     /**
      * <pre>
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     public boolean hasUserFriendGroup() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -14077,7 +20364,7 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     public java.lang.String getUserFriendGroup() {
       java.lang.Object ref = userFriendGroup_;
@@ -14098,7 +20385,7 @@ public final class c_business_relation {
      * 好友组名
      * </pre>
      *
-     * <code>required string user_friend_group = 3;</code>
+     * <code>required string user_friend_group = 4;</code>
      */
     public com.google.protobuf.ByteString
         getUserFriendGroupBytes() {
@@ -14124,7 +20411,7 @@ public final class c_business_relation {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasUserFriendId()) {
+      if (!hasUserFriendGroupId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -14146,10 +20433,10 @@ public final class c_business_relation {
         output.writeMessage(1, getError());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt64(2, userFriendId_);
+        output.writeUInt64(3, userFriendGroupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userFriendGroup_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userFriendGroup_);
       }
       unknownFields.writeTo(output);
     }
@@ -14165,10 +20452,10 @@ public final class c_business_relation {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, userFriendId_);
+          .computeUInt64Size(3, userFriendGroupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userFriendGroup_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userFriendGroup_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14192,10 +20479,10 @@ public final class c_business_relation {
         result = result && getError()
             .equals(other.getError());
       }
-      result = result && (hasUserFriendId() == other.hasUserFriendId());
-      if (hasUserFriendId()) {
-        result = result && (getUserFriendId()
-            == other.getUserFriendId());
+      result = result && (hasUserFriendGroupId() == other.hasUserFriendGroupId());
+      if (hasUserFriendGroupId()) {
+        result = result && (getUserFriendGroupId()
+            == other.getUserFriendGroupId());
       }
       result = result && (hasUserFriendGroup() == other.hasUserFriendGroup());
       if (hasUserFriendGroup()) {
@@ -14217,10 +20504,10 @@ public final class c_business_relation {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
       }
-      if (hasUserFriendId()) {
-        hash = (37 * hash) + USER_FRIEND_ID_FIELD_NUMBER;
+      if (hasUserFriendGroupId()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getUserFriendId());
+            getUserFriendGroupId());
       }
       if (hasUserFriendGroup()) {
         hash = (37 * hash) + USER_FRIEND_GROUP_FIELD_NUMBER;
@@ -14321,7 +20608,7 @@ public final class c_business_relation {
     }
     /**
      * <pre>
-     * (tcp)修改好友组名
+     * (tcp)修改好友组名(重命名组)
      * </pre>
      *
      * Protobuf type {@code c_business_relation.rename_friend_group_rs}
@@ -14366,7 +20653,7 @@ public final class c_business_relation {
           errorBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        userFriendId_ = 0L;
+        userFriendGroupId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         userFriendGroup_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -14405,7 +20692,7 @@ public final class c_business_relation {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.userFriendId_ = userFriendId_;
+        result.userFriendGroupId_ = userFriendGroupId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -14455,8 +20742,8 @@ public final class c_business_relation {
         if (other.hasError()) {
           mergeError(other.getError());
         }
-        if (other.hasUserFriendId()) {
-          setUserFriendId(other.getUserFriendId());
+        if (other.hasUserFriendGroupId()) {
+          setUserFriendGroupId(other.getUserFriendGroupId());
         }
         if (other.hasUserFriendGroup()) {
           bitField0_ |= 0x00000004;
@@ -14472,7 +20759,7 @@ public final class c_business_relation {
         if (!hasError()) {
           return false;
         }
-        if (!hasUserFriendId()) {
+        if (!hasUserFriendGroupId()) {
           return false;
         }
         if (!hasUserFriendGroup()) {
@@ -14493,6 +20780,2130 @@ public final class c_business_relation {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (protodef.c_business_relation.rename_friend_group_rs) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private protodef.b_error.info error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(
+          protodef.b_error.info.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder mergeError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              error_ != null &&
+              error_ != protodef.b_error.info.getDefaultInstance()) {
+            error_ =
+              protodef.b_error.info.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info.Builder getErrorBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              protodef.b_error.info.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
+      private long userFriendGroupId_ ;
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public boolean hasUserFriendGroupId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public long getUserFriendGroupId() {
+        return userFriendGroupId_;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder setUserFriendGroupId(long value) {
+        bitField0_ |= 0x00000002;
+        userFriendGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id = 3;</code>
+       */
+      public Builder clearUserFriendGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userFriendGroup_ = "";
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 4;</code>
+       */
+      public boolean hasUserFriendGroup() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 4;</code>
+       */
+      public java.lang.String getUserFriendGroup() {
+        java.lang.Object ref = userFriendGroup_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userFriendGroup_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserFriendGroupBytes() {
+        java.lang.Object ref = userFriendGroup_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userFriendGroup_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 4;</code>
+       */
+      public Builder setUserFriendGroup(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userFriendGroup_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 4;</code>
+       */
+      public Builder clearUserFriendGroup() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroup_ = getDefaultInstance().getUserFriendGroup();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组名
+       * </pre>
+       *
+       * <code>required string user_friend_group = 4;</code>
+       */
+      public Builder setUserFriendGroupBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        userFriendGroup_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.rename_friend_group_rs)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.rename_friend_group_rs)
+    private static final protodef.c_business_relation.rename_friend_group_rs DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.rename_friend_group_rs();
+    }
+
+    public static protodef.c_business_relation.rename_friend_group_rs getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<rename_friend_group_rs>
+        PARSER = new com.google.protobuf.AbstractParser<rename_friend_group_rs>() {
+      public rename_friend_group_rs parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new rename_friend_group_rs(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<rename_friend_group_rs> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<rename_friend_group_rs> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.rename_friend_group_rs getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface change_friend_group_rqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.change_friend_group_rq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    boolean hasUserMyselfId();
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    long getUserMyselfId();
+
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    boolean hasUserFriendId();
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    long getUserFriendId();
+
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    boolean hasUserFriendGroupIdOld();
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    long getUserFriendGroupIdOld();
+
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    boolean hasUserFriendGroupIdNew();
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    long getUserFriendGroupIdNew();
+  }
+  /**
+   * <pre>
+   * (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.change_friend_group_rq}
+   */
+  public  static final class change_friend_group_rq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.change_friend_group_rq)
+      change_friend_group_rqOrBuilder {
+    // Use change_friend_group_rq.newBuilder() to construct.
+    private change_friend_group_rq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private change_friend_group_rq() {
+      userMyselfId_ = 0L;
+      userFriendId_ = 0L;
+      userFriendGroupIdOld_ = 0L;
+      userFriendGroupIdNew_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private change_friend_group_rq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userMyselfId_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              userFriendId_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userFriendGroupIdOld_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              userFriendGroupIdNew_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.change_friend_group_rq.class, protodef.c_business_relation.change_friend_group_rq.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.change_friend_group_rq.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562915;</code>
+       */
+      id(33562915),
+      ;
+
+      /**
+       * <code>id = 33562915;</code>
+       */
+      public static final int id_VALUE = 33562915;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562915: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.change_friend_group_rq.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.change_friend_group_rq.msg)
+    }
+
+    private int bitField0_;
+    public static final int USER_MYSELF_ID_FIELD_NUMBER = 1;
+    private long userMyselfId_;
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public boolean hasUserMyselfId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public long getUserMyselfId() {
+      return userMyselfId_;
+    }
+
+    public static final int USER_FRIEND_ID_FIELD_NUMBER = 2;
+    private long userFriendId_;
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public boolean hasUserFriendId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 好友用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public long getUserFriendId() {
+      return userFriendId_;
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_OLD_FIELD_NUMBER = 3;
+    private long userFriendGroupIdOld_;
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    public boolean hasUserFriendGroupIdOld() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    public long getUserFriendGroupIdOld() {
+      return userFriendGroupIdOld_;
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_NEW_FIELD_NUMBER = 4;
+    private long userFriendGroupIdNew_;
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    public boolean hasUserFriendGroupIdNew() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    public long getUserFriendGroupIdNew() {
+      return userFriendGroupIdNew_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserMyselfId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupIdOld()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupIdNew()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, userMyselfId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt64(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt64(3, userFriendGroupIdOld_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeUInt64(4, userFriendGroupIdNew_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, userMyselfId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, userFriendGroupIdOld_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, userFriendGroupIdNew_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.change_friend_group_rq)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.change_friend_group_rq other = (protodef.c_business_relation.change_friend_group_rq) obj;
+
+      boolean result = true;
+      result = result && (hasUserMyselfId() == other.hasUserMyselfId());
+      if (hasUserMyselfId()) {
+        result = result && (getUserMyselfId()
+            == other.getUserMyselfId());
+      }
+      result = result && (hasUserFriendId() == other.hasUserFriendId());
+      if (hasUserFriendId()) {
+        result = result && (getUserFriendId()
+            == other.getUserFriendId());
+      }
+      result = result && (hasUserFriendGroupIdOld() == other.hasUserFriendGroupIdOld());
+      if (hasUserFriendGroupIdOld()) {
+        result = result && (getUserFriendGroupIdOld()
+            == other.getUserFriendGroupIdOld());
+      }
+      result = result && (hasUserFriendGroupIdNew() == other.hasUserFriendGroupIdNew());
+      if (hasUserFriendGroupIdNew()) {
+        result = result && (getUserFriendGroupIdNew()
+            == other.getUserFriendGroupIdNew());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserMyselfId()) {
+        hash = (37 * hash) + USER_MYSELF_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserMyselfId());
+      }
+      if (hasUserFriendId()) {
+        hash = (37 * hash) + USER_FRIEND_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendId());
+      }
+      if (hasUserFriendGroupIdOld()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_OLD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupIdOld());
+      }
+      if (hasUserFriendGroupIdNew()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_NEW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupIdNew());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.change_friend_group_rq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.change_friend_group_rq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.change_friend_group_rq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.change_friend_group_rq)
+        protodef.c_business_relation.change_friend_group_rqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.change_friend_group_rq.class, protodef.c_business_relation.change_friend_group_rq.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.change_friend_group_rq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userMyselfId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userFriendId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroupIdOld_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroupIdNew_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rq_descriptor;
+      }
+
+      public protodef.c_business_relation.change_friend_group_rq getDefaultInstanceForType() {
+        return protodef.c_business_relation.change_friend_group_rq.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.change_friend_group_rq build() {
+        protodef.c_business_relation.change_friend_group_rq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.change_friend_group_rq buildPartial() {
+        protodef.c_business_relation.change_friend_group_rq result = new protodef.c_business_relation.change_friend_group_rq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userMyselfId_ = userMyselfId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userFriendId_ = userFriendId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userFriendGroupIdOld_ = userFriendGroupIdOld_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.userFriendGroupIdNew_ = userFriendGroupIdNew_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.change_friend_group_rq) {
+          return mergeFrom((protodef.c_business_relation.change_friend_group_rq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.change_friend_group_rq other) {
+        if (other == protodef.c_business_relation.change_friend_group_rq.getDefaultInstance()) return this;
+        if (other.hasUserMyselfId()) {
+          setUserMyselfId(other.getUserMyselfId());
+        }
+        if (other.hasUserFriendId()) {
+          setUserFriendId(other.getUserFriendId());
+        }
+        if (other.hasUserFriendGroupIdOld()) {
+          setUserFriendGroupIdOld(other.getUserFriendGroupIdOld());
+        }
+        if (other.hasUserFriendGroupIdNew()) {
+          setUserFriendGroupIdNew(other.getUserFriendGroupIdNew());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserMyselfId()) {
+          return false;
+        }
+        if (!hasUserFriendId()) {
+          return false;
+        }
+        if (!hasUserFriendGroupIdOld()) {
+          return false;
+        }
+        if (!hasUserFriendGroupIdNew()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.change_friend_group_rq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.change_friend_group_rq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long userMyselfId_ ;
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public boolean hasUserMyselfId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public long getUserMyselfId() {
+        return userMyselfId_;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder setUserMyselfId(long value) {
+        bitField0_ |= 0x00000001;
+        userMyselfId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder clearUserMyselfId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userMyselfId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendId_ ;
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public boolean hasUserFriendId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public long getUserFriendId() {
+        return userFriendId_;
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public Builder setUserFriendId(long value) {
+        bitField0_ |= 0x00000002;
+        userFriendId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友用户id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_id = 2;</code>
+       */
+      public Builder clearUserFriendId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendGroupIdOld_ ;
+      /**
+       * <pre>
+       * 好友旧组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
+       */
+      public boolean hasUserFriendGroupIdOld() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 好友旧组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
+       */
+      public long getUserFriendGroupIdOld() {
+        return userFriendGroupIdOld_;
+      }
+      /**
+       * <pre>
+       * 好友旧组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
+       */
+      public Builder setUserFriendGroupIdOld(long value) {
+        bitField0_ |= 0x00000004;
+        userFriendGroupIdOld_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友旧组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
+       */
+      public Builder clearUserFriendGroupIdOld() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroupIdOld_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendGroupIdNew_ ;
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public boolean hasUserFriendGroupIdNew() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public long getUserFriendGroupIdNew() {
+        return userFriendGroupIdNew_;
+      }
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public Builder setUserFriendGroupIdNew(long value) {
+        bitField0_ |= 0x00000008;
+        userFriendGroupIdNew_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public Builder clearUserFriendGroupIdNew() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        userFriendGroupIdNew_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.change_friend_group_rq)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.change_friend_group_rq)
+    private static final protodef.c_business_relation.change_friend_group_rq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.change_friend_group_rq();
+    }
+
+    public static protodef.c_business_relation.change_friend_group_rq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<change_friend_group_rq>
+        PARSER = new com.google.protobuf.AbstractParser<change_friend_group_rq>() {
+      public change_friend_group_rq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new change_friend_group_rq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<change_friend_group_rq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<change_friend_group_rq> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.change_friend_group_rq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface change_friend_group_rsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.change_friend_group_rs)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.info getError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.infoOrBuilder getErrorOrBuilder();
+
+    /**
+     * <pre>
+     * 聊天用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    boolean hasUserFriendId();
+    /**
+     * <pre>
+     * 聊天用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    long getUserFriendId();
+
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    boolean hasUserFriendGroupIdOld();
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    long getUserFriendGroupIdOld();
+
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    boolean hasUserFriendGroupIdNew();
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    long getUserFriendGroupIdNew();
+  }
+  /**
+   * <pre>
+   * (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.change_friend_group_rs}
+   */
+  public  static final class change_friend_group_rs extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.change_friend_group_rs)
+      change_friend_group_rsOrBuilder {
+    // Use change_friend_group_rs.newBuilder() to construct.
+    private change_friend_group_rs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private change_friend_group_rs() {
+      userFriendId_ = 0L;
+      userFriendGroupIdOld_ = 0L;
+      userFriendGroupIdNew_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private change_friend_group_rs(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              protodef.b_error.info.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(protodef.b_error.info.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              userFriendId_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userFriendGroupIdOld_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              userFriendGroupIdNew_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rs_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rs_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.change_friend_group_rs.class, protodef.c_business_relation.change_friend_group_rs.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.change_friend_group_rs.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562916;</code>
+       */
+      id(33562916),
+      ;
+
+      /**
+       * <code>id = 33562916;</code>
+       */
+      public static final int id_VALUE = 33562916;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562916: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.change_friend_group_rs.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.change_friend_group_rs.msg)
+    }
+
+    private int bitField0_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private protodef.b_error.info error_;
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.info getError() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+
+    public static final int USER_FRIEND_ID_FIELD_NUMBER = 2;
+    private long userFriendId_;
+    /**
+     * <pre>
+     * 聊天用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public boolean hasUserFriendId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 聊天用户id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_id = 2;</code>
+     */
+    public long getUserFriendId() {
+      return userFriendId_;
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_OLD_FIELD_NUMBER = 3;
+    private long userFriendGroupIdOld_;
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    public boolean hasUserFriendGroupIdOld() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 好友旧组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_old = 3;</code>
+     */
+    public long getUserFriendGroupIdOld() {
+      return userFriendGroupIdOld_;
+    }
+
+    public static final int USER_FRIEND_GROUP_ID_NEW_FIELD_NUMBER = 4;
+    private long userFriendGroupIdNew_;
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    public boolean hasUserFriendGroupIdNew() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * 好友新组名id
+     * </pre>
+     *
+     * <code>required uint64 user_friend_group_id_new = 4;</code>
+     */
+    public long getUserFriendGroupIdNew() {
+      return userFriendGroupIdNew_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasError()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupIdOld()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserFriendGroupIdNew()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getError().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getError());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt64(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt64(3, userFriendGroupIdOld_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeUInt64(4, userFriendGroupIdNew_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, userFriendId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, userFriendGroupIdOld_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, userFriendGroupIdNew_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.change_friend_group_rs)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.change_friend_group_rs other = (protodef.c_business_relation.change_friend_group_rs) obj;
+
+      boolean result = true;
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
+      }
+      result = result && (hasUserFriendId() == other.hasUserFriendId());
+      if (hasUserFriendId()) {
+        result = result && (getUserFriendId()
+            == other.getUserFriendId());
+      }
+      result = result && (hasUserFriendGroupIdOld() == other.hasUserFriendGroupIdOld());
+      if (hasUserFriendGroupIdOld()) {
+        result = result && (getUserFriendGroupIdOld()
+            == other.getUserFriendGroupIdOld());
+      }
+      result = result && (hasUserFriendGroupIdNew() == other.hasUserFriendGroupIdNew());
+      if (hasUserFriendGroupIdNew()) {
+        result = result && (getUserFriendGroupIdNew()
+            == other.getUserFriendGroupIdNew());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      if (hasUserFriendId()) {
+        hash = (37 * hash) + USER_FRIEND_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendId());
+      }
+      if (hasUserFriendGroupIdOld()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_OLD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupIdOld());
+      }
+      if (hasUserFriendGroupIdNew()) {
+        hash = (37 * hash) + USER_FRIEND_GROUP_ID_NEW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserFriendGroupIdNew());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.change_friend_group_rs parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.change_friend_group_rs prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.change_friend_group_rs}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.change_friend_group_rs)
+        protodef.c_business_relation.change_friend_group_rsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rs_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rs_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.change_friend_group_rs.class, protodef.c_business_relation.change_friend_group_rs.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.change_friend_group_rs.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userFriendId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userFriendGroupIdOld_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userFriendGroupIdNew_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_change_friend_group_rs_descriptor;
+      }
+
+      public protodef.c_business_relation.change_friend_group_rs getDefaultInstanceForType() {
+        return protodef.c_business_relation.change_friend_group_rs.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.change_friend_group_rs build() {
+        protodef.c_business_relation.change_friend_group_rs result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.change_friend_group_rs buildPartial() {
+        protodef.c_business_relation.change_friend_group_rs result = new protodef.c_business_relation.change_friend_group_rs(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userFriendId_ = userFriendId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userFriendGroupIdOld_ = userFriendGroupIdOld_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.userFriendGroupIdNew_ = userFriendGroupIdNew_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.change_friend_group_rs) {
+          return mergeFrom((protodef.c_business_relation.change_friend_group_rs)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.change_friend_group_rs other) {
+        if (other == protodef.c_business_relation.change_friend_group_rs.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        if (other.hasUserFriendId()) {
+          setUserFriendId(other.getUserFriendId());
+        }
+        if (other.hasUserFriendGroupIdOld()) {
+          setUserFriendGroupIdOld(other.getUserFriendGroupIdOld());
+        }
+        if (other.hasUserFriendGroupIdNew()) {
+          setUserFriendGroupIdNew(other.getUserFriendGroupIdNew());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasError()) {
+          return false;
+        }
+        if (!hasUserFriendId()) {
+          return false;
+        }
+        if (!hasUserFriendGroupIdOld()) {
+          return false;
+        }
+        if (!hasUserFriendGroupIdNew()) {
+          return false;
+        }
+        if (!getError().isInitialized()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.change_friend_group_rs parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.change_friend_group_rs) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14705,102 +23116,98 @@ public final class c_business_relation {
         return this;
       }
 
-      private java.lang.Object userFriendGroup_ = "";
+      private long userFriendGroupIdOld_ ;
       /**
        * <pre>
-       * 好友组名
+       * 好友旧组名id
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
        */
-      public boolean hasUserFriendGroup() {
+      public boolean hasUserFriendGroupIdOld() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
-       * 好友组名
+       * 好友旧组名id
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
        */
-      public java.lang.String getUserFriendGroup() {
-        java.lang.Object ref = userFriendGroup_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            userFriendGroup_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getUserFriendGroupIdOld() {
+        return userFriendGroupIdOld_;
       }
       /**
        * <pre>
-       * 好友组名
+       * 好友旧组名id
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getUserFriendGroupBytes() {
-        java.lang.Object ref = userFriendGroup_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userFriendGroup_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 好友组名
-       * </pre>
-       *
-       * <code>required string user_friend_group = 3;</code>
-       */
-      public Builder setUserFriendGroup(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        userFriendGroup_ = value;
+      public Builder setUserFriendGroupIdOld(long value) {
+        bitField0_ |= 0x00000004;
+        userFriendGroupIdOld_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 好友组名
+       * 好友旧组名id
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required uint64 user_friend_group_id_old = 3;</code>
        */
-      public Builder clearUserFriendGroup() {
+      public Builder clearUserFriendGroupIdOld() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        userFriendGroup_ = getDefaultInstance().getUserFriendGroup();
+        userFriendGroupIdOld_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long userFriendGroupIdNew_ ;
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public boolean hasUserFriendGroupIdNew() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public long getUserFriendGroupIdNew() {
+        return userFriendGroupIdNew_;
+      }
+      /**
+       * <pre>
+       * 好友新组名id
+       * </pre>
+       *
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
+       */
+      public Builder setUserFriendGroupIdNew(long value) {
+        bitField0_ |= 0x00000008;
+        userFriendGroupIdNew_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 好友组名
+       * 好友新组名id
        * </pre>
        *
-       * <code>required string user_friend_group = 3;</code>
+       * <code>required uint64 user_friend_group_id_new = 4;</code>
        */
-      public Builder setUserFriendGroupBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        userFriendGroup_ = value;
+      public Builder clearUserFriendGroupIdNew() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        userFriendGroupIdNew_ = 0L;
         onChanged();
         return this;
       }
@@ -14815,39 +23222,1887 @@ public final class c_business_relation {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:c_business_relation.rename_friend_group_rs)
+      // @@protoc_insertion_point(builder_scope:c_business_relation.change_friend_group_rs)
     }
 
-    // @@protoc_insertion_point(class_scope:c_business_relation.rename_friend_group_rs)
-    private static final protodef.c_business_relation.rename_friend_group_rs DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:c_business_relation.change_friend_group_rs)
+    private static final protodef.c_business_relation.change_friend_group_rs DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new protodef.c_business_relation.rename_friend_group_rs();
+      DEFAULT_INSTANCE = new protodef.c_business_relation.change_friend_group_rs();
     }
 
-    public static protodef.c_business_relation.rename_friend_group_rs getDefaultInstance() {
+    public static protodef.c_business_relation.change_friend_group_rs getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<rename_friend_group_rs>
-        PARSER = new com.google.protobuf.AbstractParser<rename_friend_group_rs>() {
-      public rename_friend_group_rs parsePartialFrom(
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<change_friend_group_rs>
+        PARSER = new com.google.protobuf.AbstractParser<change_friend_group_rs>() {
+      public change_friend_group_rs parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new rename_friend_group_rs(input, extensionRegistry);
+          return new change_friend_group_rs(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<rename_friend_group_rs> parser() {
+    public static com.google.protobuf.Parser<change_friend_group_rs> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<rename_friend_group_rs> getParserForType() {
+    public com.google.protobuf.Parser<change_friend_group_rs> getParserForType() {
       return PARSER;
     }
 
-    public protodef.c_business_relation.rename_friend_group_rs getDefaultInstanceForType() {
+    public protodef.c_business_relation.change_friend_group_rs getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface query_friends_apply_rqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.query_friends_apply_rq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    boolean hasUserMyselfId();
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    long getUserMyselfId();
+  }
+  /**
+   * <pre>
+   * (tcp)查询好友申请
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.query_friends_apply_rq}
+   */
+  public  static final class query_friends_apply_rq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.query_friends_apply_rq)
+      query_friends_apply_rqOrBuilder {
+    // Use query_friends_apply_rq.newBuilder() to construct.
+    private query_friends_apply_rq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private query_friends_apply_rq() {
+      userMyselfId_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private query_friends_apply_rq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userMyselfId_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.query_friends_apply_rq.class, protodef.c_business_relation.query_friends_apply_rq.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.query_friends_apply_rq.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562917;</code>
+       */
+      id(33562917),
+      ;
+
+      /**
+       * <code>id = 33562917;</code>
+       */
+      public static final int id_VALUE = 33562917;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562917: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.query_friends_apply_rq.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.query_friends_apply_rq.msg)
+    }
+
+    private int bitField0_;
+    public static final int USER_MYSELF_ID_FIELD_NUMBER = 1;
+    private long userMyselfId_;
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public boolean hasUserMyselfId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 自己用户id
+     * </pre>
+     *
+     * <code>required uint64 user_myself_id = 1;</code>
+     */
+    public long getUserMyselfId() {
+      return userMyselfId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserMyselfId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, userMyselfId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, userMyselfId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.query_friends_apply_rq)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.query_friends_apply_rq other = (protodef.c_business_relation.query_friends_apply_rq) obj;
+
+      boolean result = true;
+      result = result && (hasUserMyselfId() == other.hasUserMyselfId());
+      if (hasUserMyselfId()) {
+        result = result && (getUserMyselfId()
+            == other.getUserMyselfId());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserMyselfId()) {
+        hash = (37 * hash) + USER_MYSELF_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUserMyselfId());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.query_friends_apply_rq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)查询好友申请
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.query_friends_apply_rq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.query_friends_apply_rq)
+        protodef.c_business_relation.query_friends_apply_rqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.query_friends_apply_rq.class, protodef.c_business_relation.query_friends_apply_rq.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.query_friends_apply_rq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userMyselfId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rq_descriptor;
+      }
+
+      public protodef.c_business_relation.query_friends_apply_rq getDefaultInstanceForType() {
+        return protodef.c_business_relation.query_friends_apply_rq.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.query_friends_apply_rq build() {
+        protodef.c_business_relation.query_friends_apply_rq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.query_friends_apply_rq buildPartial() {
+        protodef.c_business_relation.query_friends_apply_rq result = new protodef.c_business_relation.query_friends_apply_rq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userMyselfId_ = userMyselfId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.query_friends_apply_rq) {
+          return mergeFrom((protodef.c_business_relation.query_friends_apply_rq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.query_friends_apply_rq other) {
+        if (other == protodef.c_business_relation.query_friends_apply_rq.getDefaultInstance()) return this;
+        if (other.hasUserMyselfId()) {
+          setUserMyselfId(other.getUserMyselfId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserMyselfId()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.query_friends_apply_rq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.query_friends_apply_rq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long userMyselfId_ ;
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public boolean hasUserMyselfId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public long getUserMyselfId() {
+        return userMyselfId_;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder setUserMyselfId(long value) {
+        bitField0_ |= 0x00000001;
+        userMyselfId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 自己用户id
+       * </pre>
+       *
+       * <code>required uint64 user_myself_id = 1;</code>
+       */
+      public Builder clearUserMyselfId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userMyselfId_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.query_friends_apply_rq)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.query_friends_apply_rq)
+    private static final protodef.c_business_relation.query_friends_apply_rq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.query_friends_apply_rq();
+    }
+
+    public static protodef.c_business_relation.query_friends_apply_rq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<query_friends_apply_rq>
+        PARSER = new com.google.protobuf.AbstractParser<query_friends_apply_rq>() {
+      public query_friends_apply_rq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new query_friends_apply_rq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<query_friends_apply_rq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<query_friends_apply_rq> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.query_friends_apply_rq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface query_friends_apply_rsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:c_business_relation.query_friends_apply_rs)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.info getError();
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    protodef.b_error.infoOrBuilder getErrorOrBuilder();
+
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    java.util.List<protodef.b_business_relation.friend_apply> 
+        getApplySList();
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    protodef.b_business_relation.friend_apply getApplyS(int index);
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    int getApplySCount();
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    java.util.List<? extends protodef.b_business_relation.friend_applyOrBuilder> 
+        getApplySOrBuilderList();
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    protodef.b_business_relation.friend_applyOrBuilder getApplySOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * (tcp)查询好友申请
+   * </pre>
+   *
+   * Protobuf type {@code c_business_relation.query_friends_apply_rs}
+   */
+  public  static final class query_friends_apply_rs extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:c_business_relation.query_friends_apply_rs)
+      query_friends_apply_rsOrBuilder {
+    // Use query_friends_apply_rs.newBuilder() to construct.
+    private query_friends_apply_rs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private query_friends_apply_rs() {
+      applyS_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private query_friends_apply_rs(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              protodef.b_error.info.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(protodef.b_error.info.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                applyS_ = new java.util.ArrayList<protodef.b_business_relation.friend_apply>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              applyS_.add(
+                  input.readMessage(protodef.b_business_relation.friend_apply.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          applyS_ = java.util.Collections.unmodifiableList(applyS_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rs_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rs_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protodef.c_business_relation.query_friends_apply_rs.class, protodef.c_business_relation.query_friends_apply_rs.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code c_business_relation.query_friends_apply_rs.msg}
+     */
+    public enum msg
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>id = 33562918;</code>
+       */
+      id(33562918),
+      ;
+
+      /**
+       * <code>id = 33562918;</code>
+       */
+      public static final int id_VALUE = 33562918;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static msg valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static msg forNumber(int value) {
+        switch (value) {
+          case 33562918: return id;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<msg>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          msg> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<msg>() {
+              public msg findValueByNumber(int number) {
+                return msg.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return protodef.c_business_relation.query_friends_apply_rs.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final msg[] VALUES = values();
+
+      public static msg valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private msg(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:c_business_relation.query_friends_apply_rs.msg)
+    }
+
+    private int bitField0_;
+    public static final int ERROR_FIELD_NUMBER = 1;
+    private protodef.b_error.info error_;
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.info getError() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+    /**
+     * <pre>
+     * error info
+     * </pre>
+     *
+     * <code>required .b_error.info error = 1;</code>
+     */
+    public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+      return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+    }
+
+    public static final int APPLY_S_FIELD_NUMBER = 2;
+    private java.util.List<protodef.b_business_relation.friend_apply> applyS_;
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    public java.util.List<protodef.b_business_relation.friend_apply> getApplySList() {
+      return applyS_;
+    }
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    public java.util.List<? extends protodef.b_business_relation.friend_applyOrBuilder> 
+        getApplySOrBuilderList() {
+      return applyS_;
+    }
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    public int getApplySCount() {
+      return applyS_.size();
+    }
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    public protodef.b_business_relation.friend_apply getApplyS(int index) {
+      return applyS_.get(index);
+    }
+    /**
+     * <pre>
+     * 申请好友未处理列表
+     * </pre>
+     *
+     * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+     */
+    public protodef.b_business_relation.friend_applyOrBuilder getApplySOrBuilder(
+        int index) {
+      return applyS_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasError()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getError().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getApplySCount(); i++) {
+        if (!getApplyS(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getError());
+      }
+      for (int i = 0; i < applyS_.size(); i++) {
+        output.writeMessage(2, applyS_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getError());
+      }
+      for (int i = 0; i < applyS_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, applyS_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protodef.c_business_relation.query_friends_apply_rs)) {
+        return super.equals(obj);
+      }
+      protodef.c_business_relation.query_friends_apply_rs other = (protodef.c_business_relation.query_friends_apply_rs) obj;
+
+      boolean result = true;
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
+      }
+      result = result && getApplySList()
+          .equals(other.getApplySList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+      }
+      if (getApplySCount() > 0) {
+        hash = (37 * hash) + APPLY_S_FIELD_NUMBER;
+        hash = (53 * hash) + getApplySList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protodef.c_business_relation.query_friends_apply_rs parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protodef.c_business_relation.query_friends_apply_rs prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * (tcp)查询好友申请
+     * </pre>
+     *
+     * Protobuf type {@code c_business_relation.query_friends_apply_rs}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:c_business_relation.query_friends_apply_rs)
+        protodef.c_business_relation.query_friends_apply_rsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rs_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rs_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protodef.c_business_relation.query_friends_apply_rs.class, protodef.c_business_relation.query_friends_apply_rs.Builder.class);
+      }
+
+      // Construct using protodef.c_business_relation.query_friends_apply_rs.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorFieldBuilder();
+          getApplySFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (applySBuilder_ == null) {
+          applyS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          applySBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protodef.c_business_relation.internal_static_c_business_relation_query_friends_apply_rs_descriptor;
+      }
+
+      public protodef.c_business_relation.query_friends_apply_rs getDefaultInstanceForType() {
+        return protodef.c_business_relation.query_friends_apply_rs.getDefaultInstance();
+      }
+
+      public protodef.c_business_relation.query_friends_apply_rs build() {
+        protodef.c_business_relation.query_friends_apply_rs result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protodef.c_business_relation.query_friends_apply_rs buildPartial() {
+        protodef.c_business_relation.query_friends_apply_rs result = new protodef.c_business_relation.query_friends_apply_rs(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
+        }
+        if (applySBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            applyS_ = java.util.Collections.unmodifiableList(applyS_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.applyS_ = applyS_;
+        } else {
+          result.applyS_ = applySBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protodef.c_business_relation.query_friends_apply_rs) {
+          return mergeFrom((protodef.c_business_relation.query_friends_apply_rs)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protodef.c_business_relation.query_friends_apply_rs other) {
+        if (other == protodef.c_business_relation.query_friends_apply_rs.getDefaultInstance()) return this;
+        if (other.hasError()) {
+          mergeError(other.getError());
+        }
+        if (applySBuilder_ == null) {
+          if (!other.applyS_.isEmpty()) {
+            if (applyS_.isEmpty()) {
+              applyS_ = other.applyS_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureApplySIsMutable();
+              applyS_.addAll(other.applyS_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.applyS_.isEmpty()) {
+            if (applySBuilder_.isEmpty()) {
+              applySBuilder_.dispose();
+              applySBuilder_ = null;
+              applyS_ = other.applyS_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              applySBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getApplySFieldBuilder() : null;
+            } else {
+              applySBuilder_.addAllMessages(other.applyS_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasError()) {
+          return false;
+        }
+        if (!getError().isInitialized()) {
+          return false;
+        }
+        for (int i = 0; i < getApplySCount(); i++) {
+          if (!getApplyS(i).isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protodef.c_business_relation.query_friends_apply_rs parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protodef.c_business_relation.query_friends_apply_rs) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private protodef.b_error.info error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> errorBuilder_;
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? protodef.b_error.info.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          error_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder setError(
+          protodef.b_error.info.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder mergeError(protodef.b_error.info value) {
+        if (errorBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              error_ != null &&
+              error_ != protodef.b_error.info.getDefaultInstance()) {
+            error_ =
+              protodef.b_error.info.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.info.Builder getErrorBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      public protodef.b_error.infoOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              protodef.b_error.info.getDefaultInstance() : error_;
+        }
+      }
+      /**
+       * <pre>
+       * error info
+       * </pre>
+       *
+       * <code>required .b_error.info error = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protodef.b_error.info, protodef.b_error.info.Builder, protodef.b_error.infoOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
+        }
+        return errorBuilder_;
+      }
+
+      private java.util.List<protodef.b_business_relation.friend_apply> applyS_ =
+        java.util.Collections.emptyList();
+      private void ensureApplySIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          applyS_ = new java.util.ArrayList<protodef.b_business_relation.friend_apply>(applyS_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.friend_apply, protodef.b_business_relation.friend_apply.Builder, protodef.b_business_relation.friend_applyOrBuilder> applySBuilder_;
+
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public java.util.List<protodef.b_business_relation.friend_apply> getApplySList() {
+        if (applySBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(applyS_);
+        } else {
+          return applySBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public int getApplySCount() {
+        if (applySBuilder_ == null) {
+          return applyS_.size();
+        } else {
+          return applySBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public protodef.b_business_relation.friend_apply getApplyS(int index) {
+        if (applySBuilder_ == null) {
+          return applyS_.get(index);
+        } else {
+          return applySBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder setApplyS(
+          int index, protodef.b_business_relation.friend_apply value) {
+        if (applySBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplySIsMutable();
+          applyS_.set(index, value);
+          onChanged();
+        } else {
+          applySBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder setApplyS(
+          int index, protodef.b_business_relation.friend_apply.Builder builderForValue) {
+        if (applySBuilder_ == null) {
+          ensureApplySIsMutable();
+          applyS_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          applySBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder addApplyS(protodef.b_business_relation.friend_apply value) {
+        if (applySBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplySIsMutable();
+          applyS_.add(value);
+          onChanged();
+        } else {
+          applySBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder addApplyS(
+          int index, protodef.b_business_relation.friend_apply value) {
+        if (applySBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplySIsMutable();
+          applyS_.add(index, value);
+          onChanged();
+        } else {
+          applySBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder addApplyS(
+          protodef.b_business_relation.friend_apply.Builder builderForValue) {
+        if (applySBuilder_ == null) {
+          ensureApplySIsMutable();
+          applyS_.add(builderForValue.build());
+          onChanged();
+        } else {
+          applySBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder addApplyS(
+          int index, protodef.b_business_relation.friend_apply.Builder builderForValue) {
+        if (applySBuilder_ == null) {
+          ensureApplySIsMutable();
+          applyS_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          applySBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder addAllApplyS(
+          java.lang.Iterable<? extends protodef.b_business_relation.friend_apply> values) {
+        if (applySBuilder_ == null) {
+          ensureApplySIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, applyS_);
+          onChanged();
+        } else {
+          applySBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder clearApplyS() {
+        if (applySBuilder_ == null) {
+          applyS_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          applySBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public Builder removeApplyS(int index) {
+        if (applySBuilder_ == null) {
+          ensureApplySIsMutable();
+          applyS_.remove(index);
+          onChanged();
+        } else {
+          applySBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public protodef.b_business_relation.friend_apply.Builder getApplySBuilder(
+          int index) {
+        return getApplySFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public protodef.b_business_relation.friend_applyOrBuilder getApplySOrBuilder(
+          int index) {
+        if (applySBuilder_ == null) {
+          return applyS_.get(index);  } else {
+          return applySBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public java.util.List<? extends protodef.b_business_relation.friend_applyOrBuilder> 
+           getApplySOrBuilderList() {
+        if (applySBuilder_ != null) {
+          return applySBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(applyS_);
+        }
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public protodef.b_business_relation.friend_apply.Builder addApplySBuilder() {
+        return getApplySFieldBuilder().addBuilder(
+            protodef.b_business_relation.friend_apply.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public protodef.b_business_relation.friend_apply.Builder addApplySBuilder(
+          int index) {
+        return getApplySFieldBuilder().addBuilder(
+            index, protodef.b_business_relation.friend_apply.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 申请好友未处理列表
+       * </pre>
+       *
+       * <code>repeated .b_business_relation.friend_apply apply_s = 2;</code>
+       */
+      public java.util.List<protodef.b_business_relation.friend_apply.Builder> 
+           getApplySBuilderList() {
+        return getApplySFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          protodef.b_business_relation.friend_apply, protodef.b_business_relation.friend_apply.Builder, protodef.b_business_relation.friend_applyOrBuilder> 
+          getApplySFieldBuilder() {
+        if (applySBuilder_ == null) {
+          applySBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              protodef.b_business_relation.friend_apply, protodef.b_business_relation.friend_apply.Builder, protodef.b_business_relation.friend_applyOrBuilder>(
+                  applyS_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          applyS_ = null;
+        }
+        return applySBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:c_business_relation.query_friends_apply_rs)
+    }
+
+    // @@protoc_insertion_point(class_scope:c_business_relation.query_friends_apply_rs)
+    private static final protodef.c_business_relation.query_friends_apply_rs DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protodef.c_business_relation.query_friends_apply_rs();
+    }
+
+    public static protodef.c_business_relation.query_friends_apply_rs getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<query_friends_apply_rs>
+        PARSER = new com.google.protobuf.AbstractParser<query_friends_apply_rs>() {
+      public query_friends_apply_rs parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new query_friends_apply_rs(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<query_friends_apply_rs> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<query_friends_apply_rs> getParserForType() {
+      return PARSER;
+    }
+
+    public protodef.c_business_relation.query_friends_apply_rs getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15012,15 +25267,15 @@ public final class c_business_relation {
     public enum msg
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>id = 33562915;</code>
+       * <code>id = 33562961;</code>
        */
-      id(33562915),
+      id(33562961),
       ;
 
       /**
-       * <code>id = 33562915;</code>
+       * <code>id = 33562961;</code>
        */
-      public static final int id_VALUE = 33562915;
+      public static final int id_VALUE = 33562961;
 
 
       public final int getNumber() {
@@ -15037,7 +25292,7 @@ public final class c_business_relation {
 
       public static msg forNumber(int value) {
         switch (value) {
-          case 33562915: return id;
+          case 33562961: return id;
           default: return null;
         }
       }
@@ -15947,15 +26202,15 @@ public final class c_business_relation {
     public enum msg
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>id = 33562916;</code>
+       * <code>id = 33562962;</code>
        */
-      id(33562916),
+      id(33562962),
       ;
 
       /**
-       * <code>id = 33562916;</code>
+       * <code>id = 33562962;</code>
        */
-      public static final int id_VALUE = 33562916;
+      public static final int id_VALUE = 33562962;
 
 
       public final int getNumber() {
@@ -15972,7 +26227,7 @@ public final class c_business_relation {
 
       public static msg forNumber(int value) {
         switch (value) {
-          case 33562916: return id;
+          case 33562962: return id;
           default: return null;
         }
       }
@@ -16821,15 +27076,15 @@ public final class c_business_relation {
     public enum msg
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>id = 33563012;</code>
+       * <code>id = 33563025;</code>
        */
-      id(33563012),
+      id(33563025),
       ;
 
       /**
-       * <code>id = 33563012;</code>
+       * <code>id = 33563025;</code>
        */
-      public static final int id_VALUE = 33563012;
+      public static final int id_VALUE = 33563025;
 
 
       public final int getNumber() {
@@ -16846,7 +27101,7 @@ public final class c_business_relation {
 
       public static msg forNumber(int value) {
         switch (value) {
-          case 33563012: return id;
+          case 33563025: return id;
           default: return null;
         }
       }
@@ -17582,6 +27837,26 @@ public final class c_business_relation {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_c_business_relation_rename_friend_remark_rs_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_add_friend_group_rq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_add_friend_group_rq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_add_friend_group_rs_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_add_friend_group_rs_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_delete_friend_group_rq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_delete_friend_group_rq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_delete_friend_group_rs_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_delete_friend_group_rs_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_c_business_relation_rename_friend_group_rq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17591,6 +27866,26 @@ public final class c_business_relation {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_c_business_relation_rename_friend_group_rs_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_change_friend_group_rq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_change_friend_group_rq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_change_friend_group_rs_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_change_friend_group_rs_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_query_friends_apply_rq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_query_friends_apply_rq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_c_business_relation_query_friends_apply_rs_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_c_business_relation_query_friends_apply_rs_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_c_business_relation_talk_friend_rq_descriptor;
   private static final 
@@ -17617,58 +27912,91 @@ public final class c_business_relation {
     java.lang.String[] descriptorData = {
       "\n\031c_business_relation.proto\022\023c_business_" +
       "relation\032\rb_error.proto\032\030b_business_acco" +
-      "unt.proto\"h\n\013friend_info\0220\n\tuser_info\030\001 " +
-      "\002(\0132\035.b_business_account.user_info\022\022\n\nus" +
-      "er_group\030\002 \001(\t\022\023\n\013user_remark\030\003 \001(\t\"c\n\ra" +
-      "dd_friend_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\023\n\013" +
-      "user_add_id\030\002 \002(\004\022\023\n\013description\030\003 \002(\t\"\020" +
-      "\n\003msg\022\t\n\002id\020\221\302\200\020\"T\n\radd_friend_rs\022\034\n\005err" +
-      "or\030\001 \002(\0132\r.b_error.info\022\023\n\013user_add_id\030\002" +
-      " \002(\004\"\020\n\003msg\022\t\n\002id\020\222\302\200\020\"n\n\radd_friend_nt\022",
-      "6\n\017apply_user_info\030\001 \002(\0132\035.b_business_ac" +
-      "count.user_info\022\023\n\013description\030\003 \002(\t\"\020\n\003" +
-      "msg\022\t\n\002id\020\201\303\200\020\"T\n\020delete_friend_rq\022\026\n\016us" +
-      "er_myself_id\030\001 \002(\004\022\026\n\016user_delete_id\030\002 \002" +
-      "(\004\"\020\n\003msg\022\t\n\002id\020\223\302\200\020\"Z\n\020delete_friend_rs" +
-      "\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n\016user_d" +
-      "elete_id\030\002 \002(\004\"\020\n\003msg\022\t\n\002id\020\224\302\200\020\";\n\020dele" +
-      "te_friend_nt\022\025\n\rapply_user_id\030\001 \002(\004\"\020\n\003m" +
-      "sg\022\t\n\002id\020\202\303\200\020\"\205\001\n\017allow_friend_rq\022\026\n\016use" +
-      "r_myself_id\030\001 \002(\004\022\025\n\ruser_allow_id\030\002 \002(\004",
-      "\022\016\n\006opcode\030\003 \002(\r\"\020\n\003msg\022\t\n\002id\020\225\302\200\020\"!\n\010op" +
-      "code_t\022\t\n\005allow\020\001\022\n\n\006refuse\020\002\"h\n\017allow_f" +
-      "riend_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\025" +
-      "\n\ruser_allow_id\030\002 \002(\004\022\016\n\006opcode\030\003 \002(\r\"\020\n" +
-      "\003msg\022\t\n\002id\020\226\302\200\020\"J\n\017allow_friend_nt\022\025\n\ral" +
-      "low_user_id\030\001 \002(\004\022\016\n\006opcode\030\002 \002(\r\"\020\n\003msg" +
-      "\022\t\n\002id\020\203\303\200\020\"<\n\020query_friends_rq\022\026\n\016user_" +
-      "myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\227\302\200\020\"{\n\020que" +
-      "ry_friends_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.i" +
-      "nfo\0227\n\rfriend_info_s\030\002 \003(\0132 .c_business_",
-      "relation.friend_info\"\020\n\003msg\022\t\n\002id\020\230\302\200\020\"w" +
-      "\n\027rename_friend_remark_rq\022\026\n\016user_myself" +
-      "_id\030\001 \002(\004\022\026\n\016user_friend_id\030\002 \002(\004\022\032\n\022use" +
-      "r_friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\231\302\200\020\"" +
-      "}\n\027rename_friend_remark_rs\022\034\n\005error\030\001 \002(" +
-      "\0132\r.b_error.info\022\026\n\016user_friend_id\030\002 \002(\004" +
-      "\022\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002i" +
-      "d\020\240\302\200\020\"u\n\026rename_friend_group_rq\022\026\n\016user" +
-      "_myself_id\030\001 \002(\004\022\026\n\016user_friend_id\030\002 \002(\004" +
-      "\022\031\n\021user_friend_group\030\003 \002(\t\"\020\n\003msg\022\t\n\002id",
-      "\020\241\302\200\020\"{\n\026rename_friend_group_rs\022\034\n\005error" +
-      "\030\001 \002(\0132\r.b_error.info\022\026\n\016user_friend_id\030" +
-      "\002 \002(\004\022\031\n\021user_friend_group\030\003 \002(\t\"\020\n\003msg\022" +
-      "\t\n\002id\020\242\302\200\020\"a\n\016talk_friend_rq\022\026\n\016user_mys" +
-      "elf_id\030\001 \002(\004\022\024\n\014user_talk_id\030\002 \002(\004\022\017\n\007ta" +
-      "lking\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\243\302\200\020\"V\n\016talk_fr" +
-      "iend_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\024\n" +
-      "\014user_talk_id\030\002 \002(\004\"\020\n\003msg\022\t\n\002id\020\244\302\200\020\"J\n" +
-      "\016talk_friend_nt\022\025\n\rapply_talk_id\030\001 \002(\004\022\017" +
-      "\n\007talking\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\204\303\200\020*#\n\003msg",
-      "\022\r\n\006min_id\020\200\302\200\020\022\r\n\006max_id\020\377\303\200\020Bj\n\010protod" +
-      "efB\023c_business_relationZ\034protodef/c_busi" +
-      "ness_relation\242\002\024C_business_relation_\252\002\023c" +
-      "_business_relation"
+      "unt.proto\032\031b_business_relation.proto\"h\n\013" +
+      "friend_info\0220\n\tuser_info\030\001 \002(\0132\035.b_busin" +
+      "ess_account.user_info\022\022\n\nuser_group\030\002 \001(" +
+      "\t\022\023\n\013user_remark\030\003 \001(\t\"x\n\radd_friend_rq\022" +
+      "\026\n\016user_myself_id\030\001 \002(\004\022\023\n\013user_add_id\030\002" +
+      " \002(\004\022\023\n\013user_remark\030\003 \002(\t\022\023\n\013description" +
+      "\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\302\200\020\"i\n\radd_friend_r" +
+      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\023\n\013user_",
+      "add_id\030\002 \002(\004\022\023\n\013user_remark\030\003 \002(\t\"\020\n\003msg" +
+      "\022\t\n\002id\020\222\302\200\020\"n\n\radd_friend_nt\0226\n\017apply_us" +
+      "er_info\030\001 \002(\0132\035.b_business_account.user_" +
+      "info\022\023\n\013description\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\201" +
+      "\303\200\020\"T\n\020delete_friend_rq\022\026\n\016user_myself_i" +
+      "d\030\001 \002(\004\022\026\n\016user_delete_id\030\002 \002(\004\"\020\n\003msg\022\t" +
+      "\n\002id\020\223\302\200\020\"Z\n\020delete_friend_rs\022\034\n\005error\030\001" +
+      " \002(\0132\r.b_error.info\022\026\n\016user_delete_id\030\002 " +
+      "\002(\004\"\020\n\003msg\022\t\n\002id\020\224\302\200\020\";\n\020delete_friend_n" +
+      "t\022\025\n\rapply_user_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\202\303",
+      "\200\020\"\270\001\n\017allow_friend_rq\022\026\n\016user_myself_id" +
+      "\030\001 \002(\004\022\025\n\ruser_allow_id\030\002 \002(\004\022\030\n\020user_my" +
+      "self_nick\030\003 \002(\t\022\027\n\017user_allow_nick\030\004 \002(\t" +
+      "\022\016\n\006opcode\030\005 \002(\r\"\020\n\003msg\022\t\n\002id\020\225\302\200\020\"!\n\010op" +
+      "code_t\022\t\n\005allow\020\001\022\n\n\006refuse\020\002\"\240\001\n\017allow_" +
+      "friend_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022" +
+      "\025\n\ruser_allow_id\030\002 \002(\004\022\016\n\006opcode\030\003 \002(\r\0226" +
+      "\n\nrelation_s\030\004 \003(\0132\".b_business_relation" +
+      ".user_relation\"\020\n\003msg\022\t\n\002id\020\226\302\200\020\"\243\001\n\017all" +
+      "ow_friend_nt\0226\n\017apply_user_info\030\001 \002(\0132\035.",
+      "b_business_account.user_info\022\016\n\006opcode\030\002" +
+      " \002(\r\0226\n\nrelation_s\030\003 \003(\0132\".b_business_re" +
+      "lation.user_relation\"\020\n\003msg\022\t\n\002id\020\203\303\200\020\"<" +
+      "\n\020query_friends_rq\022\026\n\016user_myself_id\030\001 \002" +
+      "(\004\"\020\n\003msg\022\t\n\002id\020\227\302\200\020\"\265\001\n\020query_friends_r" +
+      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\0229\n\007group" +
+      "_s\030\002 \003(\0132(.b_business_relation.user_rela" +
+      "tion_group\0226\n\nrelation_s\030\003 \003(\0132\".b_busin" +
+      "ess_relation.user_relation\"\020\n\003msg\022\t\n\002id\020" +
+      "\230\302\200\020\"w\n\027rename_friend_remark_rq\022\026\n\016user_",
+      "myself_id\030\001 \002(\004\022\026\n\016user_friend_id\030\002 \002(\004\022" +
+      "\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id" +
+      "\020\231\302\200\020\"}\n\027rename_friend_remark_rs\022\034\n\005erro" +
+      "r\030\001 \002(\0132\r.b_error.info\022\026\n\016user_friend_id" +
+      "\030\002 \002(\004\022\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003ms" +
+      "g\022\t\n\002id\020\240\302\200\020\"Z\n\023add_friend_group_rq\022\026\n\016u" +
+      "ser_myself_id\030\001 \002(\004\022\031\n\021user_friend_group" +
+      "\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\023add_friend_g" +
+      "roup_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\031\n" +
+      "\021user_friend_group\030\002 \002(\t\022\034\n\024user_friend_",
+      "group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"x\n\026dele" +
+      "te_friend_group_rq\022\026\n\016user_myself_id\030\001 \002" +
+      "(\004\022\026\n\016user_friend_id\030\002 \002(\004\022\034\n\024user_frien" +
+      "d_group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\026de" +
+      "lete_friend_group_rs\022\034\n\005error\030\001 \002(\0132\r.b_" +
+      "error.info\022\026\n\016user_friend_id\030\002 \002(\004\022\034\n\024us" +
+      "er_friend_group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302" +
+      "\200\020\"{\n\026rename_friend_group_rq\022\026\n\016user_mys" +
+      "elf_id\030\001 \002(\004\022\034\n\024user_friend_group_id\030\003 \002" +
+      "(\004\022\031\n\021user_friend_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002",
+      "id\020\241\302\200\020\"\201\001\n\026rename_friend_group_rs\022\034\n\005er" +
+      "ror\030\001 \002(\0132\r.b_error.info\022\034\n\024user_friend_" +
+      "group_id\030\003 \002(\004\022\031\n\021user_friend_group\030\004 \002(" +
+      "\t\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"\236\001\n\026change_friend_gr" +
+      "oup_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\026\n\016user_f" +
+      "riend_id\030\002 \002(\004\022 \n\030user_friend_group_id_o" +
+      "ld\030\003 \002(\004\022 \n\030user_friend_group_id_new\030\004 \002" +
+      "(\004\"\020\n\003msg\022\t\n\002id\020\243\302\200\020\"\244\001\n\026change_friend_g" +
+      "roup_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n" +
+      "\016user_friend_id\030\002 \002(\004\022 \n\030user_friend_gro",
+      "up_id_old\030\003 \002(\004\022 \n\030user_friend_group_id_" +
+      "new\030\004 \002(\004\"\020\n\003msg\022\t\n\002id\020\244\302\200\020\"B\n\026query_fri" +
+      "ends_apply_rq\022\026\n\016user_myself_id\030\001 \002(\004\"\020\n" +
+      "\003msg\022\t\n\002id\020\245\302\200\020\"|\n\026query_friends_apply_r" +
+      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\0222\n\007apply" +
+      "_s\030\002 \003(\0132!.b_business_relation.friend_ap" +
+      "ply\"\020\n\003msg\022\t\n\002id\020\246\302\200\020\"a\n\016talk_friend_rq\022" +
+      "\026\n\016user_myself_id\030\001 \002(\004\022\024\n\014user_talk_id\030" +
+      "\002 \002(\004\022\017\n\007talking\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\321\302\200\020" +
+      "\"V\n\016talk_friend_rs\022\034\n\005error\030\001 \002(\0132\r.b_er",
+      "ror.info\022\024\n\014user_talk_id\030\002 \002(\004\"\020\n\003msg\022\t\n" +
+      "\002id\020\322\302\200\020\"J\n\016talk_friend_nt\022\025\n\rapply_talk" +
+      "_id\030\001 \002(\004\022\017\n\007talking\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020" +
+      "\221\303\200\020*#\n\003msg\022\r\n\006min_id\020\200\302\200\020\022\r\n\006max_id\020\377\303\200" +
+      "\020Bj\n\010protodefB\023c_business_relationZ\034prot" +
+      "odef/c_business_relation\242\002\024C_business_re" +
+      "lation_\252\002\023c_business_relation"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17683,6 +28011,7 @@ public final class c_business_relation {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           protodef.b_error.getDescriptor(),
           protodef.b_business_account.getDescriptor(),
+          protodef.b_business_relation.getDescriptor(),
         }, assigner);
     internal_static_c_business_relation_friend_info_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -17695,13 +28024,13 @@ public final class c_business_relation {
     internal_static_c_business_relation_add_friend_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_add_friend_rq_descriptor,
-        new java.lang.String[] { "UserMyselfId", "UserAddId", "Description", });
+        new java.lang.String[] { "UserMyselfId", "UserAddId", "UserRemark", "Description", });
     internal_static_c_business_relation_add_friend_rs_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_c_business_relation_add_friend_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_add_friend_rs_descriptor,
-        new java.lang.String[] { "Error", "UserAddId", });
+        new java.lang.String[] { "Error", "UserAddId", "UserRemark", });
     internal_static_c_business_relation_add_friend_nt_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_c_business_relation_add_friend_nt_fieldAccessorTable = new
@@ -17731,19 +28060,19 @@ public final class c_business_relation {
     internal_static_c_business_relation_allow_friend_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_allow_friend_rq_descriptor,
-        new java.lang.String[] { "UserMyselfId", "UserAllowId", "Opcode", });
+        new java.lang.String[] { "UserMyselfId", "UserAllowId", "UserMyselfNick", "UserAllowNick", "Opcode", });
     internal_static_c_business_relation_allow_friend_rs_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_c_business_relation_allow_friend_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_allow_friend_rs_descriptor,
-        new java.lang.String[] { "Error", "UserAllowId", "Opcode", });
+        new java.lang.String[] { "Error", "UserAllowId", "Opcode", "RelationS", });
     internal_static_c_business_relation_allow_friend_nt_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_c_business_relation_allow_friend_nt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_allow_friend_nt_descriptor,
-        new java.lang.String[] { "AllowUserId", "Opcode", });
+        new java.lang.String[] { "ApplyUserInfo", "Opcode", "RelationS", });
     internal_static_c_business_relation_query_friends_rq_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_c_business_relation_query_friends_rq_fieldAccessorTable = new
@@ -17755,7 +28084,7 @@ public final class c_business_relation {
     internal_static_c_business_relation_query_friends_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_query_friends_rs_descriptor,
-        new java.lang.String[] { "Error", "FriendInfoS", });
+        new java.lang.String[] { "Error", "GroupS", "RelationS", });
     internal_static_c_business_relation_rename_friend_remark_rq_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_c_business_relation_rename_friend_remark_rq_fieldAccessorTable = new
@@ -17768,38 +28097,87 @@ public final class c_business_relation {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_rename_friend_remark_rs_descriptor,
         new java.lang.String[] { "Error", "UserFriendId", "UserFriendRemark", });
-    internal_static_c_business_relation_rename_friend_group_rq_descriptor =
+    internal_static_c_business_relation_add_friend_group_rq_descriptor =
       getDescriptor().getMessageTypes().get(14);
+    internal_static_c_business_relation_add_friend_group_rq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_add_friend_group_rq_descriptor,
+        new java.lang.String[] { "UserMyselfId", "UserFriendGroup", });
+    internal_static_c_business_relation_add_friend_group_rs_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_c_business_relation_add_friend_group_rs_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_add_friend_group_rs_descriptor,
+        new java.lang.String[] { "Error", "UserFriendGroup", "UserFriendGroupId", });
+    internal_static_c_business_relation_delete_friend_group_rq_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_c_business_relation_delete_friend_group_rq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_delete_friend_group_rq_descriptor,
+        new java.lang.String[] { "UserMyselfId", "UserFriendId", "UserFriendGroupId", });
+    internal_static_c_business_relation_delete_friend_group_rs_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_c_business_relation_delete_friend_group_rs_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_delete_friend_group_rs_descriptor,
+        new java.lang.String[] { "Error", "UserFriendId", "UserFriendGroupId", });
+    internal_static_c_business_relation_rename_friend_group_rq_descriptor =
+      getDescriptor().getMessageTypes().get(18);
     internal_static_c_business_relation_rename_friend_group_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_rename_friend_group_rq_descriptor,
-        new java.lang.String[] { "UserMyselfId", "UserFriendId", "UserFriendGroup", });
+        new java.lang.String[] { "UserMyselfId", "UserFriendGroupId", "UserFriendGroup", });
     internal_static_c_business_relation_rename_friend_group_rs_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_c_business_relation_rename_friend_group_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_rename_friend_group_rs_descriptor,
-        new java.lang.String[] { "Error", "UserFriendId", "UserFriendGroup", });
+        new java.lang.String[] { "Error", "UserFriendGroupId", "UserFriendGroup", });
+    internal_static_c_business_relation_change_friend_group_rq_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_c_business_relation_change_friend_group_rq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_change_friend_group_rq_descriptor,
+        new java.lang.String[] { "UserMyselfId", "UserFriendId", "UserFriendGroupIdOld", "UserFriendGroupIdNew", });
+    internal_static_c_business_relation_change_friend_group_rs_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_c_business_relation_change_friend_group_rs_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_change_friend_group_rs_descriptor,
+        new java.lang.String[] { "Error", "UserFriendId", "UserFriendGroupIdOld", "UserFriendGroupIdNew", });
+    internal_static_c_business_relation_query_friends_apply_rq_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_c_business_relation_query_friends_apply_rq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_query_friends_apply_rq_descriptor,
+        new java.lang.String[] { "UserMyselfId", });
+    internal_static_c_business_relation_query_friends_apply_rs_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_c_business_relation_query_friends_apply_rs_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_c_business_relation_query_friends_apply_rs_descriptor,
+        new java.lang.String[] { "Error", "ApplyS", });
     internal_static_c_business_relation_talk_friend_rq_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_c_business_relation_talk_friend_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_talk_friend_rq_descriptor,
         new java.lang.String[] { "UserMyselfId", "UserTalkId", "Talking", });
     internal_static_c_business_relation_talk_friend_rs_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_c_business_relation_talk_friend_rs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_talk_friend_rs_descriptor,
         new java.lang.String[] { "Error", "UserTalkId", });
     internal_static_c_business_relation_talk_friend_nt_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_c_business_relation_talk_friend_nt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_talk_friend_nt_descriptor,
         new java.lang.String[] { "ApplyTalkId", "Talking", });
     protodef.b_error.getDescriptor();
     protodef.b_business_account.getDescriptor();
+    protodef.b_business_relation.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

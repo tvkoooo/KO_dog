@@ -28,8 +28,10 @@
 CF_EXTERN_C_BEGIN
 
 @class B_business_account_user_info;
+@class B_business_relation_friend_apply;
+@class B_business_relation_user_relation;
+@class B_business_relation_user_relation_group;
 @class B_error_info;
-@class C_business_relation_friend_info;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -245,6 +247,62 @@ GPBEnumDescriptor *C_business_relation_rename_friend_remark_rs_msg_EnumDescripto
  **/
 BOOL C_business_relation_rename_friend_remark_rs_msg_IsValidValue(int32_t value);
 
+#pragma mark - Enum C_business_relation_add_friend_group_rq_msg
+
+typedef GPB_ENUM(C_business_relation_add_friend_group_rq_msg) {
+  C_business_relation_add_friend_group_rq_msg_Id = 33562913,
+};
+
+GPBEnumDescriptor *C_business_relation_add_friend_group_rq_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_add_friend_group_rq_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_relation_add_friend_group_rs_msg
+
+typedef GPB_ENUM(C_business_relation_add_friend_group_rs_msg) {
+  C_business_relation_add_friend_group_rs_msg_Id = 33562914,
+};
+
+GPBEnumDescriptor *C_business_relation_add_friend_group_rs_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_add_friend_group_rs_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_relation_delete_friend_group_rq_msg
+
+typedef GPB_ENUM(C_business_relation_delete_friend_group_rq_msg) {
+  C_business_relation_delete_friend_group_rq_msg_Id = 33562913,
+};
+
+GPBEnumDescriptor *C_business_relation_delete_friend_group_rq_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_delete_friend_group_rq_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_relation_delete_friend_group_rs_msg
+
+typedef GPB_ENUM(C_business_relation_delete_friend_group_rs_msg) {
+  C_business_relation_delete_friend_group_rs_msg_Id = 33562914,
+};
+
+GPBEnumDescriptor *C_business_relation_delete_friend_group_rs_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_delete_friend_group_rs_msg_IsValidValue(int32_t value);
+
 #pragma mark - Enum C_business_relation_rename_friend_group_rq_msg
 
 typedef GPB_ENUM(C_business_relation_rename_friend_group_rq_msg) {
@@ -273,10 +331,66 @@ GPBEnumDescriptor *C_business_relation_rename_friend_group_rs_msg_EnumDescriptor
  **/
 BOOL C_business_relation_rename_friend_group_rs_msg_IsValidValue(int32_t value);
 
+#pragma mark - Enum C_business_relation_change_friend_group_rq_msg
+
+typedef GPB_ENUM(C_business_relation_change_friend_group_rq_msg) {
+  C_business_relation_change_friend_group_rq_msg_Id = 33562915,
+};
+
+GPBEnumDescriptor *C_business_relation_change_friend_group_rq_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_change_friend_group_rq_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_relation_change_friend_group_rs_msg
+
+typedef GPB_ENUM(C_business_relation_change_friend_group_rs_msg) {
+  C_business_relation_change_friend_group_rs_msg_Id = 33562916,
+};
+
+GPBEnumDescriptor *C_business_relation_change_friend_group_rs_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_change_friend_group_rs_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_relation_query_friends_apply_rq_msg
+
+typedef GPB_ENUM(C_business_relation_query_friends_apply_rq_msg) {
+  C_business_relation_query_friends_apply_rq_msg_Id = 33562917,
+};
+
+GPBEnumDescriptor *C_business_relation_query_friends_apply_rq_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_query_friends_apply_rq_msg_IsValidValue(int32_t value);
+
+#pragma mark - Enum C_business_relation_query_friends_apply_rs_msg
+
+typedef GPB_ENUM(C_business_relation_query_friends_apply_rs_msg) {
+  C_business_relation_query_friends_apply_rs_msg_Id = 33562918,
+};
+
+GPBEnumDescriptor *C_business_relation_query_friends_apply_rs_msg_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL C_business_relation_query_friends_apply_rs_msg_IsValidValue(int32_t value);
+
 #pragma mark - Enum C_business_relation_talk_friend_rq_msg
 
 typedef GPB_ENUM(C_business_relation_talk_friend_rq_msg) {
-  C_business_relation_talk_friend_rq_msg_Id = 33562915,
+  C_business_relation_talk_friend_rq_msg_Id = 33562961,
 };
 
 GPBEnumDescriptor *C_business_relation_talk_friend_rq_msg_EnumDescriptor(void);
@@ -290,7 +404,7 @@ BOOL C_business_relation_talk_friend_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_talk_friend_rs_msg
 
 typedef GPB_ENUM(C_business_relation_talk_friend_rs_msg) {
-  C_business_relation_talk_friend_rs_msg_Id = 33562916,
+  C_business_relation_talk_friend_rs_msg_Id = 33562962,
 };
 
 GPBEnumDescriptor *C_business_relation_talk_friend_rs_msg_EnumDescriptor(void);
@@ -304,7 +418,7 @@ BOOL C_business_relation_talk_friend_rs_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_talk_friend_nt_msg
 
 typedef GPB_ENUM(C_business_relation_talk_friend_nt_msg) {
-  C_business_relation_talk_friend_nt_msg_Id = 33563012,
+  C_business_relation_talk_friend_nt_msg_Id = 33563025,
 };
 
 GPBEnumDescriptor *C_business_relation_talk_friend_nt_msg_EnumDescriptor(void);
@@ -362,7 +476,8 @@ typedef GPB_ENUM(C_business_relation_friend_info_FieldNumber) {
 typedef GPB_ENUM(C_business_relation_add_friend_rq_FieldNumber) {
   C_business_relation_add_friend_rq_FieldNumber_UserMyselfId = 1,
   C_business_relation_add_friend_rq_FieldNumber_UserAddId = 2,
-  C_business_relation_add_friend_rq_FieldNumber_Description_p = 3,
+  C_business_relation_add_friend_rq_FieldNumber_UserRemark = 3,
+  C_business_relation_add_friend_rq_FieldNumber_Description_p = 4,
 };
 
 /**
@@ -378,6 +493,11 @@ typedef GPB_ENUM(C_business_relation_add_friend_rq_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t userAddId;
 
 @property(nonatomic, readwrite) BOOL hasUserAddId;
+/** 添加朋友备注名 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userRemark;
+/** Test to see if @c userRemark has been set. */
+@property(nonatomic, readwrite) BOOL hasUserRemark;
+
 /** 添加描述 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *description_p;
 /** Test to see if @c description_p has been set. */
@@ -390,6 +510,7 @@ typedef GPB_ENUM(C_business_relation_add_friend_rq_FieldNumber) {
 typedef GPB_ENUM(C_business_relation_add_friend_rs_FieldNumber) {
   C_business_relation_add_friend_rs_FieldNumber_Error = 1,
   C_business_relation_add_friend_rs_FieldNumber_UserAddId = 2,
+  C_business_relation_add_friend_rs_FieldNumber_UserRemark = 3,
 };
 
 /**
@@ -406,13 +527,18 @@ typedef GPB_ENUM(C_business_relation_add_friend_rs_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t userAddId;
 
 @property(nonatomic, readwrite) BOOL hasUserAddId;
+/** 添加朋友备注名 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userRemark;
+/** Test to see if @c userRemark has been set. */
+@property(nonatomic, readwrite) BOOL hasUserRemark;
+
 @end
 
 #pragma mark - C_business_relation_add_friend_nt
 
 typedef GPB_ENUM(C_business_relation_add_friend_nt_FieldNumber) {
   C_business_relation_add_friend_nt_FieldNumber_ApplyUserInfo = 1,
-  C_business_relation_add_friend_nt_FieldNumber_Description_p = 3,
+  C_business_relation_add_friend_nt_FieldNumber_Description_p = 2,
 };
 
 /**
@@ -499,7 +625,9 @@ typedef GPB_ENUM(C_business_relation_delete_friend_nt_FieldNumber) {
 typedef GPB_ENUM(C_business_relation_allow_friend_rq_FieldNumber) {
   C_business_relation_allow_friend_rq_FieldNumber_UserMyselfId = 1,
   C_business_relation_allow_friend_rq_FieldNumber_UserAllowId = 2,
-  C_business_relation_allow_friend_rq_FieldNumber_Opcode = 3,
+  C_business_relation_allow_friend_rq_FieldNumber_UserMyselfNick = 3,
+  C_business_relation_allow_friend_rq_FieldNumber_UserAllowNick = 4,
+  C_business_relation_allow_friend_rq_FieldNumber_Opcode = 5,
 };
 
 /**
@@ -515,6 +643,16 @@ typedef GPB_ENUM(C_business_relation_allow_friend_rq_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t userAllowId;
 
 @property(nonatomic, readwrite) BOOL hasUserAllowId;
+/** 自己用户昵称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userMyselfNick;
+/** Test to see if @c userMyselfNick has been set. */
+@property(nonatomic, readwrite) BOOL hasUserMyselfNick;
+
+/** 同意用户昵称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userAllowNick;
+/** Test to see if @c userAllowNick has been set. */
+@property(nonatomic, readwrite) BOOL hasUserAllowNick;
+
 /** 用户操作码 */
 @property(nonatomic, readwrite) uint32_t opcode;
 
@@ -527,6 +665,7 @@ typedef GPB_ENUM(C_business_relation_allow_friend_rs_FieldNumber) {
   C_business_relation_allow_friend_rs_FieldNumber_Error = 1,
   C_business_relation_allow_friend_rs_FieldNumber_UserAllowId = 2,
   C_business_relation_allow_friend_rs_FieldNumber_Opcode = 3,
+  C_business_relation_allow_friend_rs_FieldNumber_RelationSArray = 4,
 };
 
 /**
@@ -547,13 +686,19 @@ typedef GPB_ENUM(C_business_relation_allow_friend_rs_FieldNumber) {
 @property(nonatomic, readwrite) uint32_t opcode;
 
 @property(nonatomic, readwrite) BOOL hasOpcode;
+/** 同意后的好友更新数据（如果不同意，该项无） */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<B_business_relation_user_relation*> *relationSArray;
+/** The number of items in @c relationSArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger relationSArray_Count;
+
 @end
 
 #pragma mark - C_business_relation_allow_friend_nt
 
 typedef GPB_ENUM(C_business_relation_allow_friend_nt_FieldNumber) {
-  C_business_relation_allow_friend_nt_FieldNumber_AllowUserId = 1,
+  C_business_relation_allow_friend_nt_FieldNumber_ApplyUserInfo = 1,
   C_business_relation_allow_friend_nt_FieldNumber_Opcode = 2,
+  C_business_relation_allow_friend_nt_FieldNumber_RelationSArray = 3,
 };
 
 /**
@@ -562,13 +707,19 @@ typedef GPB_ENUM(C_business_relation_allow_friend_nt_FieldNumber) {
 @interface C_business_relation_allow_friend_nt : GPBMessage
 
 /** 同意添加好友的用户数据 */
-@property(nonatomic, readwrite) uint64_t allowUserId;
+@property(nonatomic, readwrite, strong, null_resettable) B_business_account_user_info *applyUserInfo;
+/** Test to see if @c applyUserInfo has been set. */
+@property(nonatomic, readwrite) BOOL hasApplyUserInfo;
 
-@property(nonatomic, readwrite) BOOL hasAllowUserId;
 /** 用户操作码 */
 @property(nonatomic, readwrite) uint32_t opcode;
 
 @property(nonatomic, readwrite) BOOL hasOpcode;
+/** 同意后的好友更新数据（如果不同意，该项无） */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<B_business_relation_user_relation*> *relationSArray;
+/** The number of items in @c relationSArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger relationSArray_Count;
+
 @end
 
 #pragma mark - C_business_relation_query_friends_rq
@@ -592,7 +743,8 @@ typedef GPB_ENUM(C_business_relation_query_friends_rq_FieldNumber) {
 
 typedef GPB_ENUM(C_business_relation_query_friends_rs_FieldNumber) {
   C_business_relation_query_friends_rs_FieldNumber_Error = 1,
-  C_business_relation_query_friends_rs_FieldNumber_FriendInfoSArray = 2,
+  C_business_relation_query_friends_rs_FieldNumber_GroupSArray = 2,
+  C_business_relation_query_friends_rs_FieldNumber_RelationSArray = 3,
 };
 
 /**
@@ -605,10 +757,15 @@ typedef GPB_ENUM(C_business_relation_query_friends_rs_FieldNumber) {
 /** Test to see if @c error has been set. */
 @property(nonatomic, readwrite) BOOL hasError;
 
-/** 好友用户数据列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<C_business_relation_friend_info*> *friendInfoSArray;
-/** The number of items in @c friendInfoSArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger friendInfoSArray_Count;
+/** 好友关系组列表 */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<B_business_relation_user_relation_group*> *groupSArray;
+/** The number of items in @c groupSArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger groupSArray_Count;
+
+/** 好友关系列表 */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<B_business_relation_user_relation*> *relationSArray;
+/** The number of items in @c relationSArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger relationSArray_Count;
 
 @end
 
@@ -669,18 +826,70 @@ typedef GPB_ENUM(C_business_relation_rename_friend_remark_rs_FieldNumber) {
 
 @end
 
-#pragma mark - C_business_relation_rename_friend_group_rq
+#pragma mark - C_business_relation_add_friend_group_rq
 
-typedef GPB_ENUM(C_business_relation_rename_friend_group_rq_FieldNumber) {
-  C_business_relation_rename_friend_group_rq_FieldNumber_UserMyselfId = 1,
-  C_business_relation_rename_friend_group_rq_FieldNumber_UserFriendId = 2,
-  C_business_relation_rename_friend_group_rq_FieldNumber_UserFriendGroup = 3,
+typedef GPB_ENUM(C_business_relation_add_friend_group_rq_FieldNumber) {
+  C_business_relation_add_friend_group_rq_FieldNumber_UserMyselfId = 1,
+  C_business_relation_add_friend_group_rq_FieldNumber_UserFriendGroup = 2,
 };
 
 /**
- * (tcp)修改好友组名
+ * (tcp)新增好友组名
  **/
-@interface C_business_relation_rename_friend_group_rq : GPBMessage
+@interface C_business_relation_add_friend_group_rq : GPBMessage
+
+/** 自己用户id */
+@property(nonatomic, readwrite) uint64_t userMyselfId;
+
+@property(nonatomic, readwrite) BOOL hasUserMyselfId;
+/** 好友组名 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userFriendGroup;
+/** Test to see if @c userFriendGroup has been set. */
+@property(nonatomic, readwrite) BOOL hasUserFriendGroup;
+
+@end
+
+#pragma mark - C_business_relation_add_friend_group_rs
+
+typedef GPB_ENUM(C_business_relation_add_friend_group_rs_FieldNumber) {
+  C_business_relation_add_friend_group_rs_FieldNumber_Error = 1,
+  C_business_relation_add_friend_group_rs_FieldNumber_UserFriendGroup = 2,
+  C_business_relation_add_friend_group_rs_FieldNumber_UserFriendGroupId = 3,
+};
+
+/**
+ * (tcp)新增好友组名
+ **/
+@interface C_business_relation_add_friend_group_rs : GPBMessage
+
+/** error info */
+@property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
+/** Test to see if @c error has been set. */
+@property(nonatomic, readwrite) BOOL hasError;
+
+/** 好友组名 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userFriendGroup;
+/** Test to see if @c userFriendGroup has been set. */
+@property(nonatomic, readwrite) BOOL hasUserFriendGroup;
+
+/** 好友组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupId;
+@end
+
+#pragma mark - C_business_relation_delete_friend_group_rq
+
+typedef GPB_ENUM(C_business_relation_delete_friend_group_rq_FieldNumber) {
+  C_business_relation_delete_friend_group_rq_FieldNumber_UserMyselfId = 1,
+  C_business_relation_delete_friend_group_rq_FieldNumber_UserFriendId = 2,
+  C_business_relation_delete_friend_group_rq_FieldNumber_UserFriendGroupId = 3,
+};
+
+/**
+ * (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
+ **/
+@interface C_business_relation_delete_friend_group_rq : GPBMessage
 
 /** 自己用户id */
 @property(nonatomic, readwrite) uint64_t userMyselfId;
@@ -690,6 +899,61 @@ typedef GPB_ENUM(C_business_relation_rename_friend_group_rq_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t userFriendId;
 
 @property(nonatomic, readwrite) BOOL hasUserFriendId;
+/** 好友组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupId;
+@end
+
+#pragma mark - C_business_relation_delete_friend_group_rs
+
+typedef GPB_ENUM(C_business_relation_delete_friend_group_rs_FieldNumber) {
+  C_business_relation_delete_friend_group_rs_FieldNumber_Error = 1,
+  C_business_relation_delete_friend_group_rs_FieldNumber_UserFriendId = 2,
+  C_business_relation_delete_friend_group_rs_FieldNumber_UserFriendGroupId = 3,
+};
+
+/**
+ * (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
+ **/
+@interface C_business_relation_delete_friend_group_rs : GPBMessage
+
+/** error info */
+@property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
+/** Test to see if @c error has been set. */
+@property(nonatomic, readwrite) BOOL hasError;
+
+/** 好友用户id */
+@property(nonatomic, readwrite) uint64_t userFriendId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendId;
+/** 好友组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupId;
+@end
+
+#pragma mark - C_business_relation_rename_friend_group_rq
+
+typedef GPB_ENUM(C_business_relation_rename_friend_group_rq_FieldNumber) {
+  C_business_relation_rename_friend_group_rq_FieldNumber_UserMyselfId = 1,
+  C_business_relation_rename_friend_group_rq_FieldNumber_UserFriendGroupId = 3,
+  C_business_relation_rename_friend_group_rq_FieldNumber_UserFriendGroup = 4,
+};
+
+/**
+ * (tcp)修改好友组名(重命名组)
+ **/
+@interface C_business_relation_rename_friend_group_rq : GPBMessage
+
+/** 自己用户id */
+@property(nonatomic, readwrite) uint64_t userMyselfId;
+
+@property(nonatomic, readwrite) BOOL hasUserMyselfId;
+/** 好友组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupId;
 /** 好友组名 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *userFriendGroup;
 /** Test to see if @c userFriendGroup has been set. */
@@ -701,14 +965,76 @@ typedef GPB_ENUM(C_business_relation_rename_friend_group_rq_FieldNumber) {
 
 typedef GPB_ENUM(C_business_relation_rename_friend_group_rs_FieldNumber) {
   C_business_relation_rename_friend_group_rs_FieldNumber_Error = 1,
-  C_business_relation_rename_friend_group_rs_FieldNumber_UserFriendId = 2,
-  C_business_relation_rename_friend_group_rs_FieldNumber_UserFriendGroup = 3,
+  C_business_relation_rename_friend_group_rs_FieldNumber_UserFriendGroupId = 3,
+  C_business_relation_rename_friend_group_rs_FieldNumber_UserFriendGroup = 4,
 };
 
 /**
- * (tcp)修改好友组名
+ * (tcp)修改好友组名(重命名组)
  **/
 @interface C_business_relation_rename_friend_group_rs : GPBMessage
+
+/** error info */
+@property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
+/** Test to see if @c error has been set. */
+@property(nonatomic, readwrite) BOOL hasError;
+
+/** 好友组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupId;
+/** 好友组名 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userFriendGroup;
+/** Test to see if @c userFriendGroup has been set. */
+@property(nonatomic, readwrite) BOOL hasUserFriendGroup;
+
+@end
+
+#pragma mark - C_business_relation_change_friend_group_rq
+
+typedef GPB_ENUM(C_business_relation_change_friend_group_rq_FieldNumber) {
+  C_business_relation_change_friend_group_rq_FieldNumber_UserMyselfId = 1,
+  C_business_relation_change_friend_group_rq_FieldNumber_UserFriendId = 2,
+  C_business_relation_change_friend_group_rq_FieldNumber_UserFriendGroupIdOld = 3,
+  C_business_relation_change_friend_group_rq_FieldNumber_UserFriendGroupIdNew = 4,
+};
+
+/**
+ * (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
+ **/
+@interface C_business_relation_change_friend_group_rq : GPBMessage
+
+/** 自己用户id */
+@property(nonatomic, readwrite) uint64_t userMyselfId;
+
+@property(nonatomic, readwrite) BOOL hasUserMyselfId;
+/** 好友用户id */
+@property(nonatomic, readwrite) uint64_t userFriendId;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendId;
+/** 好友旧组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupIdOld;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupIdOld;
+/** 好友新组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupIdNew;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupIdNew;
+@end
+
+#pragma mark - C_business_relation_change_friend_group_rs
+
+typedef GPB_ENUM(C_business_relation_change_friend_group_rs_FieldNumber) {
+  C_business_relation_change_friend_group_rs_FieldNumber_Error = 1,
+  C_business_relation_change_friend_group_rs_FieldNumber_UserFriendId = 2,
+  C_business_relation_change_friend_group_rs_FieldNumber_UserFriendGroupIdOld = 3,
+  C_business_relation_change_friend_group_rs_FieldNumber_UserFriendGroupIdNew = 4,
+};
+
+/**
+ * (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
+ **/
+@interface C_business_relation_change_friend_group_rs : GPBMessage
 
 /** error info */
 @property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
@@ -719,10 +1045,54 @@ typedef GPB_ENUM(C_business_relation_rename_friend_group_rs_FieldNumber) {
 @property(nonatomic, readwrite) uint64_t userFriendId;
 
 @property(nonatomic, readwrite) BOOL hasUserFriendId;
-/** 好友组名 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *userFriendGroup;
-/** Test to see if @c userFriendGroup has been set. */
-@property(nonatomic, readwrite) BOOL hasUserFriendGroup;
+/** 好友旧组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupIdOld;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupIdOld;
+/** 好友新组名id */
+@property(nonatomic, readwrite) uint64_t userFriendGroupIdNew;
+
+@property(nonatomic, readwrite) BOOL hasUserFriendGroupIdNew;
+@end
+
+#pragma mark - C_business_relation_query_friends_apply_rq
+
+typedef GPB_ENUM(C_business_relation_query_friends_apply_rq_FieldNumber) {
+  C_business_relation_query_friends_apply_rq_FieldNumber_UserMyselfId = 1,
+};
+
+/**
+ * (tcp)查询好友申请
+ **/
+@interface C_business_relation_query_friends_apply_rq : GPBMessage
+
+/** 自己用户id */
+@property(nonatomic, readwrite) uint64_t userMyselfId;
+
+@property(nonatomic, readwrite) BOOL hasUserMyselfId;
+@end
+
+#pragma mark - C_business_relation_query_friends_apply_rs
+
+typedef GPB_ENUM(C_business_relation_query_friends_apply_rs_FieldNumber) {
+  C_business_relation_query_friends_apply_rs_FieldNumber_Error = 1,
+  C_business_relation_query_friends_apply_rs_FieldNumber_ApplySArray = 2,
+};
+
+/**
+ * (tcp)查询好友申请
+ **/
+@interface C_business_relation_query_friends_apply_rs : GPBMessage
+
+/** error info */
+@property(nonatomic, readwrite, strong, null_resettable) B_error_info *error;
+/** Test to see if @c error has been set. */
+@property(nonatomic, readwrite) BOOL hasError;
+
+/** 申请好友未处理列表 */
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<B_business_relation_friend_apply*> *applySArray;
+/** The number of items in @c applySArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger applySArray_Count;
 
 @end
 

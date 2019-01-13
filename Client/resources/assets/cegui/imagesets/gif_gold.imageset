@@ -1,7 +1,8 @@
-<Imageset autoScaled="false" imagefile="gif_gold.png" name="gif_gold" nativeHorzRes="1024" nativeVertRes="1024" version="2">
-    <Image height="299" name="j1" width="307" xPos="1" yPos="1" />
-    <Image height="299" name="j2" width="307" xPos="310" yPos="1" />
-    <Image height="299" name="j3" width="307" xPos="619" yPos="1" />
-    <Image height="299" name="j4" width="307" xPos="1" yPos="302" />
-    <Image height="299" name="j5" width="307" xPos="1" yPos="603" />
+<Imageset autoScaled="false" imagefile="gif_gold.png" name="gif_gold" nativeHorzRes="1024" nativeVertRes="2048" version="2">
+    <Image height="540" name="beijing" width="960" xPos="1" yPos="1" />
+    <Image height="299" name="j1" width="307" xPos="1" yPos="543" />
+    <Image height="299" name="j2" width="307" xPos="310" yPos="543" />
+    <Image height="299" name="j3" width="307" xPos="619" yPos="543" />
+    <Image height="299" name="j4" width="307" xPos="1" yPos="844" />
+    <Image height="299" name="j5" width="307" xPos="310" yPos="844" />
 </Imageset>

@@ -79,7 +79,14 @@ void mm_application_initialize(struct mm_application* p,int argc,const char **ar
 	if (p->argument.argc == g_argument.argc)
 	{
 		struct mm_logger_manager* g_logger_manager = mm_logger_manager_instance();
-		mm_string_assigns(&g_logger_manager->file_name,"mm_business_account");
+
+		struct mm_string log_name;
+		mm_string_init(&log_name);
+		mm_string_assigns(&log_name, "mm_business_account_");
+		mm_string_putsn(&log_name, p->argument.argv[3], (int)strlen(p->argument.argv[3]));
+		mm_logger_manager_assign_file_name(g_logger_manager, log_name.s);
+		mm_string_destroy(&log_name);
+
 		mm_string_assigns(&g_logger_manager->logger_path,p->argument.argv[1]);
 		g_logger_manager->file_size = 300 * 1024 * 1024;
 		g_logger_manager->logger_level = mm_atoi32(p->argument.argv[2]);

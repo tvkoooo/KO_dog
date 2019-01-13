@@ -7,12 +7,9 @@
         <Window type="TaharezLook/StaticImage" name="StaticImage_basic" >
             <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
             <Property name="Text" value="=" />
-            <Property name="Image" value="login_lj/dise" />
+            <Property name="Image" value="gif_gold/beijing" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="FrameColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
             <Property name="FrameEnabled" value="false" />
-            <Property name="ImageColours" value="tl:FFFFFF38 tr:FFFF2CFF bl:FFFF04FF br:FFFFFA00" />
-            <Property name="BackgroundColours" value="tl:FFFF0000 tr:FFFF0000 bl:FFFF0000 br:FFFF0000" />
             <Property name="BackgroundEnabled" value="false" />
         </Window>
         <Window type="DefaultWindow" name="DefaultWindow_left" >
@@ -22,19 +19,34 @@
                 <Property name="Area" value="{{0.0994764,0},{0.0314815,0},{0.931937,0},{0.0796296,0}}" />
                 <Property name="Text" value="search" />
             </Window>
-            <Window type="TaharezLook/Listbox" name="Listbox_friend" >
-                <Property name="Area" value="{{0.104712,0},{0.1,0},{0.91978,0},{0.638889,0}}" />
-            </Window>
             <Window type="TaharezLook/Button" name="Button_game" >
                 <Property name="Area" value="{{0.0942408,0},{0.867037,0},{0.926433,0},{0.915185,0}}" />
                 <Property name="Text" value="game" />
             </Window>
-            <Window type="TaharezLook/Listbox" name="Listbox_group" >
-                <Property name="Area" value="{{0.106082,0},{0.646296,0},{0.92115,0},{0.846296,0}}" />
-            </Window>
             <Window type="TaharezLook/Button" name="Button_quit" >
                 <Property name="Area" value="{{0.0942408,0},{0.93,0},{0.927118,0},{0.978148,0}}" />
                 <Property name="Text" value="quit" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="StaticImage_Tree_image" >
+                <Property name="Area" value="{{0.109589,0},{0.0851852,0},{0.926027,0},{0.705556,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/Tree" name="Tree_friend" >
+                    <Property name="Area" value="{{0.0302841,0},{0.0183803,0},{0.953103,0},{0.987037,0}}" />
+                </Window>
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_nt" >
+                <Property name="Area" value="{{0.10411,0},{0.714815,0},{0.926027,0},{0.855556,0}}" />
+                <Property name="Text" value="Friend_apply" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Property name="HorzScrollPageSize" value="282" />
+                <Property name="VertScrollPageSize" value="134" />
+                <Property name="HorzScrollDocumentSize" value="152" />
+                <Property name="VertScrollDocumentSize" value="27.9375" />
+                <Window type="TaharezLook/Listbox" name="Listbox_nt" >
+                    <Property name="Area" value="{{-0.000584667,0},{0.248733,0},{0.999415,0},{1.00531,0}}" />
+                </Window>
             </Window>
         </Window>
         <Window type="DefaultWindow" name="DefaultWindow_right" >

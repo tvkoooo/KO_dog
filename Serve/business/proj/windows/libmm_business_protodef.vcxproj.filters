@@ -45,6 +45,15 @@
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.cc">
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_nt_message.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\s_shuttle_lobby.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_account.pb.h">
@@ -75,6 +84,15 @@
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_nt_message.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\s_shuttle_lobby.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.h">
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClInclude>
   </ItemGroup>

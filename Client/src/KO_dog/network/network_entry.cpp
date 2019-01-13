@@ -36,7 +36,7 @@ void mm_client_udp_flush_send_knock_rq(struct mm_client_udp* p)
 	coord_info->set_w(0);
 	knock_rq.set_native_client_version("");
 	knock_rq.set_native_source_version("");
-	mm_client_udp_flush_send_message(p,0 , c_shuttle_entry::knock_rq_msg_id, &knock_rq, &p->ss_remote);
+	mm_client_udp_flush_send_message(p,0 , c_shuttle_entry::knock_rq_msg_id, &knock_rq, &p->net_udp.udp.socket.ss_remote);
 
 }
 

@@ -1,0 +1,83 @@
+syntax = "proto2";
+package c_business_nt_message;
+
+option java_package = "protodef";
+option java_outer_classname = "c_business_nt_message";
+option objc_class_prefix = "C_business_nt_message_";
+option go_package = "protodef/c_business_nt_message";
+option csharp_namespace = "c_business_nt_message";
+
+import "b_error.proto";
+
+enum msg
+{ 
+	min_id=0x02000000;
+	max_id=0x020000FF;
+}
+
+// (tcp)消费其中一条消息记录(note_id) 应答包
+message nt_message_consume_by_id_rq
+{
+	enum msg{ id=0x02000001;}
+	required uint64	user_id 					      = 1				 ; // 用户id
+	required uint64	note_id 					      = 2				 ; // 消息记录(note_id) 
+}
+// (tcp)消费其中一条消息记录(note_id) 应答包
+message nt_message_consume_by_id_rs
+{
+	enum msg{ id=0x02000002;}
+	required b_error.info error                       = 1                ; // error info
+	required uint64	user_id 					      = 2				 ; // 用户id
+	required uint64	note_id 					      = 3				 ; // 消息记录(note_id) 
+}
+// (tcp)消费最大记录(note_maxid)以内所有未读消息 应答包
+message nt_message_consume_by_maxid_rq
+{
+	enum msg{ id=0x02000003;}
+	required uint64	user_id 					      = 1				 ; // 用户id
+	required uint64	note_maxid 					      = 2				 ; // 最大消息记录(note_maxid) 
+}
+// (tcp)消费最大记录(note_maxid)以内所有未读消息 应答包
+message nt_message_consume_by_maxid_rs
+{
+	enum msg{ id=0x02000004;}
+	required b_error.info error                       = 1                ; // error info
+	required uint64	user_id 					      = 2				 ; // 用户id
+	required uint64	note_maxid 					      = 3				 ; // 最大消息记录(note_maxid) 
+}
+
+//可选接口（主动请求服务器发回离线状态下的消息）
+// (tcp)请求阅读其中一条消息记录(note_id)，消息会以nt异步模式发回
+message nt_message_read_note_id_rq
+{
+	enum msg{ id=0x02000001;}
+	required uint64	user_id 					      = 1				 ; // 用户id
+	required uint64	note_id 					      = 2				 ; // 消息记录(note_id) 
+}
+// (tcp)请求阅读其中一条消息记录(note_id)，消息会以nt异步模式发回
+message nt_message_read_note_id_rs
+{
+	enum msg{ id=0x02000002;}
+	required b_error.info error                       = 1                ; // error info
+	required uint64	user_id 					      = 2				 ; // 用户id
+	required uint64	note_id 					      = 3				 ; // 消息记录(note_id) 
+}
+// (tcp)请求阅读所有未读消息记录，消息会以nt异步模式发回
+message nt_message_all_unread_rq
+{
+	enum msg{ id=0x02000003;}
+	required uint64	user_id 					      = 1				 ; // 用户id
+}
+// (tcp)请求阅读所有未读消息记录，消息会以nt异步模式发回
+message nt_message_all_unread_rs
+{
+	enum msg{ id=0x02000004;}
+	required b_error.info error                       = 1                ; // error info
+	required uint64	user_id 					      = 2				 ; // 用户id
+}
+// (tcp)请求阅读所有未读消息记录，消息会以nt异步模式发回
+message nt_message_all_unread_nt
+{
+	enum msg{ id=0x02000005;}
+	required uint64	user_id 					      = 2				 ; // 用户id
+}

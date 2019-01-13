@@ -19,10 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_nt_message.h" />
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_user_relation.h" />
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_nt_message.h" />
+    <ClInclude Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_user_relation.h" />
     <ClInclude Include="..\..\src\querydef\mm_m_db_ko_dog_t_user_basic.h" />
     <ClInclude Include="..\..\src\querydef\mm_q_db_ko_dog_t_user_basic.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_nt_message.cpp" />
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_m_db_ko_dog_t_user_relation.cpp" />
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_nt_message.cpp" />
+    <ClCompile Include="..\..\script\querydef\data\cpp\mm_q_db_ko_dog_t_user_relation.cpp" />
     <ClCompile Include="..\..\src\querydef\mm_m_db_ko_dog_t_user_basic.cpp" />
     <ClCompile Include="..\..\src\querydef\mm_q_db_ko_dog_t_user_basic.cpp" />
   </ItemGroup>

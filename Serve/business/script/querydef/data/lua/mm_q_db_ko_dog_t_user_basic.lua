@@ -118,7 +118,7 @@ event =
 				},
 			},
 		},
-	},
+	},	
 	{
 		define = "struct", name="p_userinfo_search", KeyH = "2", KeyL = "1",base = "mm_queryer",virtual_base = true,
 		typedef = 

@@ -195,6 +195,21 @@
     <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_relation.pb.cc">
       <Filter>src\protodef\cxx\protodef</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\protodef\cxx\protodef\c_business_nt_message.pb.cc">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\model_data\KO_dog_data_relation.cpp">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\network\network_relation.cpp">
+      <Filter>src\KO_dog\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -331,6 +346,24 @@
     </ClInclude>
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.h">
       <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\protodef\cxx\protodef\c_business_nt_message.pb.h">
+      <Filter>src\protodef\cxx\protodef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\model_data\KO_dog_data_relation.h">
+      <Filter>src\KO_dog\model_data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\network\network_relation.h">
+      <Filter>src\KO_dog\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_elem_map.h">
+      <Filter>src\KO_dog\toolkit</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

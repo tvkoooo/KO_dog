@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:e7d5a33a504490b8a46f6cc531a94aaa:a407b36af6d04b49719cda28ab32bd54:4a86e9cc16ea6c7211ce1b0257b01694$ -->
-<Imageset Name="gif_gold" Imagefile="gif_gold.png" NativeHorzRes="1024" NativeVertRes="1024" AutoScaled="false">
-    <Image Name="j1" XPos="1" YPos="1" Width="307" Height="299"/>
-    <Image Name="j2" XPos="310" YPos="1" Width="307" Height="299"/>
-    <Image Name="j3" XPos="619" YPos="1" Width="307" Height="299"/>
-    <Image Name="j4" XPos="1" YPos="302" Width="307" Height="299"/>
-    <Image Name="j5" XPos="1" YPos="603" Width="307" Height="299"/>
+<!-- $TexturePacker:SmartUpdate:2d7bb88b3a550ba37cb80490718d08e0:f20d85a88d6d805ec3bb20984456f9d2:4a86e9cc16ea6c7211ce1b0257b01694$ -->
+<Imageset Name="gif_gold" Imagefile="gif_gold.png" NativeHorzRes="1024" NativeVertRes="2048" AutoScaled="false">
+    <Image Name="beijing" XPos="1" YPos="1" Width="960" Height="540"/>
+    <Image Name="j1" XPos="1" YPos="543" Width="307" Height="299"/>
+    <Image Name="j2" XPos="310" YPos="543" Width="307" Height="299"/>
+    <Image Name="j3" XPos="619" YPos="543" Width="307" Height="299"/>
+    <Image Name="j4" XPos="1" YPos="844" Width="307" Height="299"/>
+    <Image Name="j5" XPos="310" YPos="844" Width="307" Height="299"/>
 </Imageset>

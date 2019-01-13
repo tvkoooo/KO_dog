@@ -3,7 +3,7 @@
 
 #include "core/mm_core.h"
 
-#include "shuttle_common/mm_error_desc.h"
+#include "dish/mm_error_desc.h"
 
 #include "core/mm_prefix.h"
 //////////////////////////////////////////////////////////////////////////

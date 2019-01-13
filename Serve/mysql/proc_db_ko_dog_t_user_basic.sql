@@ -24,10 +24,10 @@ error code
 	}
     100 = 账号
     {
-		400100011,           	 //(100011)登陆账号不存在
-		400100012,   			 //(100012)账号与密码不匹配
-		400100013,            	 //(100013)注册账号已经存在
-		400100014,               //(100014)注册账号或者密码非法
+		400100011,           	 //(400100011)登陆账号不存在
+		400100012,   			 //(400100012)账号与密码不匹配
+		400100013,            	 //(400100013)注册账号已经存在
+		400100014,               //(400100014)注册账号或者密码非法
     }
 */
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -124,7 +124,6 @@ BEGIN
 		*/
     declare _id bigint(20) default 0;    
 	select id into _id from db_ko_dog.t_user_basic where `name`=_name and `password`=PASSWORD(_password);
-
 	if 0 = row_count() then
 		/*(400100012)账号与密码不匹配*/
 		set _code = 400100012;
@@ -170,8 +169,7 @@ BEGIN
 	set _character = CONCAT("%",`_search`,"%");
 	select `id`	,`name` , `nick` , unix_timestamp(`create_time`) as create_time from db_ko_dog.t_user_basic 
     where `name` LIKE _character  or `id` LIKE _character or `nick` LIKE _character limit `_limit`;
-
-	/*成功*/ 
+    /*成功*/ 
 	set _code = 0;
 END ;;
 DELIMITER ;

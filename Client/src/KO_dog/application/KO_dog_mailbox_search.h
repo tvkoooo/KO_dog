@@ -1,6 +1,7 @@
 #ifndef __KO_dog_mailbox_search_h__
 #define __KO_dog_mailbox_search_h__
 
+#include <map>
 #include "core/mm_core.h"
 
 #include "flake/mm_flake_surface.h"
@@ -9,23 +10,25 @@
 
 #include "math/mm_vector3.h"
 
-
-
+#include "CEGUI/widgets/Listbox.h"
+#include "CEGUI/widgets/ListboxItem.h"
+#include "CEGUI/widgets/ListboxTextItem.h"
+#include "toolkit/mm_elem_map.h"
 
 #include "dotsceneloader/DotSceneLoader.h"
 
 #include "math/mm_fix32_linear.h"
 #include "container/mm_bitset.h"
 
-
+#include "model_data/KO_dog_data_user_basic.h"
 
 //////////////////////////////////////////////////////////////////////////
 namespace mm
-{
-
+{	
 
 	class KO_dog_mailbox_search
 	{
+
 	private:
 		mm_flake_context* d_flake_context;
 		mm_flake_surface* d_surface;
@@ -33,17 +36,24 @@ namespace mm
 	private:
 		CEGUI::Window* l_home_lj_mailbox_search;
 		//
-		CEGUI::Window* StaticImage_basic;
-		CEGUI::Window* StaticImage_widget;
 
 		CEGUI::Window* StaticText_condition;
 		CEGUI::Window* Editbox_condition;
+		CEGUI::Window* Editbox_description;
 		CEGUI::Window* StaticText_result;
 		CEGUI::Window* Listbox_search;
 		CEGUI::Window* Button_search;
 		CEGUI::Window* Button_add;
 		CEGUI::Window* StaticText_user_info;
 		////
+
+
+	private:
+		struct data_search_friend_basic chose_friend;
+
+	public:
+		elem_p_map<mm_uint64_t, CEGUI::ListboxTextItem*> map_friend_wp;
+		data_basic_friend_info* p_friend_info;
 
 	private:
 		mm_event_handler d_event_search_friend_update_conn;

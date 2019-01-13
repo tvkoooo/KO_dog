@@ -32,18 +32,36 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "b_error.pb.h"
 #include "b_business_account.pb.h"
+#include "b_business_relation.pb.h"
 // @@protoc_insertion_point(includes)
 namespace b_business_account {
 class user_info;
 class user_infoDefaultTypeInternal;
 extern user_infoDefaultTypeInternal _user_info_default_instance_;
 }  // namespace b_business_account
+namespace b_business_relation {
+class friend_apply;
+class friend_applyDefaultTypeInternal;
+extern friend_applyDefaultTypeInternal _friend_apply_default_instance_;
+class user_relation;
+class user_relationDefaultTypeInternal;
+extern user_relationDefaultTypeInternal _user_relation_default_instance_;
+class user_relation_group;
+class user_relation_groupDefaultTypeInternal;
+extern user_relation_groupDefaultTypeInternal _user_relation_group_default_instance_;
+}  // namespace b_business_relation
 namespace b_error {
 class info;
 class infoDefaultTypeInternal;
 extern infoDefaultTypeInternal _info_default_instance_;
 }  // namespace b_error
 namespace c_business_relation {
+class add_friend_group_rq;
+class add_friend_group_rqDefaultTypeInternal;
+extern add_friend_group_rqDefaultTypeInternal _add_friend_group_rq_default_instance_;
+class add_friend_group_rs;
+class add_friend_group_rsDefaultTypeInternal;
+extern add_friend_group_rsDefaultTypeInternal _add_friend_group_rs_default_instance_;
 class add_friend_nt;
 class add_friend_ntDefaultTypeInternal;
 extern add_friend_ntDefaultTypeInternal _add_friend_nt_default_instance_;
@@ -62,6 +80,18 @@ extern allow_friend_rqDefaultTypeInternal _allow_friend_rq_default_instance_;
 class allow_friend_rs;
 class allow_friend_rsDefaultTypeInternal;
 extern allow_friend_rsDefaultTypeInternal _allow_friend_rs_default_instance_;
+class change_friend_group_rq;
+class change_friend_group_rqDefaultTypeInternal;
+extern change_friend_group_rqDefaultTypeInternal _change_friend_group_rq_default_instance_;
+class change_friend_group_rs;
+class change_friend_group_rsDefaultTypeInternal;
+extern change_friend_group_rsDefaultTypeInternal _change_friend_group_rs_default_instance_;
+class delete_friend_group_rq;
+class delete_friend_group_rqDefaultTypeInternal;
+extern delete_friend_group_rqDefaultTypeInternal _delete_friend_group_rq_default_instance_;
+class delete_friend_group_rs;
+class delete_friend_group_rsDefaultTypeInternal;
+extern delete_friend_group_rsDefaultTypeInternal _delete_friend_group_rs_default_instance_;
 class delete_friend_nt;
 class delete_friend_ntDefaultTypeInternal;
 extern delete_friend_ntDefaultTypeInternal _delete_friend_nt_default_instance_;
@@ -74,6 +104,12 @@ extern delete_friend_rsDefaultTypeInternal _delete_friend_rs_default_instance_;
 class friend_info;
 class friend_infoDefaultTypeInternal;
 extern friend_infoDefaultTypeInternal _friend_info_default_instance_;
+class query_friends_apply_rq;
+class query_friends_apply_rqDefaultTypeInternal;
+extern query_friends_apply_rqDefaultTypeInternal _query_friends_apply_rq_default_instance_;
+class query_friends_apply_rs;
+class query_friends_apply_rsDefaultTypeInternal;
+extern query_friends_apply_rsDefaultTypeInternal _query_friends_apply_rs_default_instance_;
 class query_friends_rq;
 class query_friends_rqDefaultTypeInternal;
 extern query_friends_rqDefaultTypeInternal _query_friends_rq_default_instance_;
@@ -372,6 +408,78 @@ inline bool rename_friend_remark_rs_msg_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<rename_friend_remark_rs_msg>(
     rename_friend_remark_rs_msg_descriptor(), name, value);
 }
+enum add_friend_group_rq_msg {
+  add_friend_group_rq_msg_id = 33562913
+};
+bool add_friend_group_rq_msg_IsValid(int value);
+const add_friend_group_rq_msg add_friend_group_rq_msg_msg_MIN = add_friend_group_rq_msg_id;
+const add_friend_group_rq_msg add_friend_group_rq_msg_msg_MAX = add_friend_group_rq_msg_id;
+const int add_friend_group_rq_msg_msg_ARRAYSIZE = add_friend_group_rq_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* add_friend_group_rq_msg_descriptor();
+inline const ::std::string& add_friend_group_rq_msg_Name(add_friend_group_rq_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    add_friend_group_rq_msg_descriptor(), value);
+}
+inline bool add_friend_group_rq_msg_Parse(
+    const ::std::string& name, add_friend_group_rq_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<add_friend_group_rq_msg>(
+    add_friend_group_rq_msg_descriptor(), name, value);
+}
+enum add_friend_group_rs_msg {
+  add_friend_group_rs_msg_id = 33562914
+};
+bool add_friend_group_rs_msg_IsValid(int value);
+const add_friend_group_rs_msg add_friend_group_rs_msg_msg_MIN = add_friend_group_rs_msg_id;
+const add_friend_group_rs_msg add_friend_group_rs_msg_msg_MAX = add_friend_group_rs_msg_id;
+const int add_friend_group_rs_msg_msg_ARRAYSIZE = add_friend_group_rs_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* add_friend_group_rs_msg_descriptor();
+inline const ::std::string& add_friend_group_rs_msg_Name(add_friend_group_rs_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    add_friend_group_rs_msg_descriptor(), value);
+}
+inline bool add_friend_group_rs_msg_Parse(
+    const ::std::string& name, add_friend_group_rs_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<add_friend_group_rs_msg>(
+    add_friend_group_rs_msg_descriptor(), name, value);
+}
+enum delete_friend_group_rq_msg {
+  delete_friend_group_rq_msg_id = 33562913
+};
+bool delete_friend_group_rq_msg_IsValid(int value);
+const delete_friend_group_rq_msg delete_friend_group_rq_msg_msg_MIN = delete_friend_group_rq_msg_id;
+const delete_friend_group_rq_msg delete_friend_group_rq_msg_msg_MAX = delete_friend_group_rq_msg_id;
+const int delete_friend_group_rq_msg_msg_ARRAYSIZE = delete_friend_group_rq_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* delete_friend_group_rq_msg_descriptor();
+inline const ::std::string& delete_friend_group_rq_msg_Name(delete_friend_group_rq_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    delete_friend_group_rq_msg_descriptor(), value);
+}
+inline bool delete_friend_group_rq_msg_Parse(
+    const ::std::string& name, delete_friend_group_rq_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<delete_friend_group_rq_msg>(
+    delete_friend_group_rq_msg_descriptor(), name, value);
+}
+enum delete_friend_group_rs_msg {
+  delete_friend_group_rs_msg_id = 33562914
+};
+bool delete_friend_group_rs_msg_IsValid(int value);
+const delete_friend_group_rs_msg delete_friend_group_rs_msg_msg_MIN = delete_friend_group_rs_msg_id;
+const delete_friend_group_rs_msg delete_friend_group_rs_msg_msg_MAX = delete_friend_group_rs_msg_id;
+const int delete_friend_group_rs_msg_msg_ARRAYSIZE = delete_friend_group_rs_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* delete_friend_group_rs_msg_descriptor();
+inline const ::std::string& delete_friend_group_rs_msg_Name(delete_friend_group_rs_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    delete_friend_group_rs_msg_descriptor(), value);
+}
+inline bool delete_friend_group_rs_msg_Parse(
+    const ::std::string& name, delete_friend_group_rs_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<delete_friend_group_rs_msg>(
+    delete_friend_group_rs_msg_descriptor(), name, value);
+}
 enum rename_friend_group_rq_msg {
   rename_friend_group_rq_msg_id = 33562913
 };
@@ -408,8 +516,80 @@ inline bool rename_friend_group_rs_msg_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<rename_friend_group_rs_msg>(
     rename_friend_group_rs_msg_descriptor(), name, value);
 }
+enum change_friend_group_rq_msg {
+  change_friend_group_rq_msg_id = 33562915
+};
+bool change_friend_group_rq_msg_IsValid(int value);
+const change_friend_group_rq_msg change_friend_group_rq_msg_msg_MIN = change_friend_group_rq_msg_id;
+const change_friend_group_rq_msg change_friend_group_rq_msg_msg_MAX = change_friend_group_rq_msg_id;
+const int change_friend_group_rq_msg_msg_ARRAYSIZE = change_friend_group_rq_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* change_friend_group_rq_msg_descriptor();
+inline const ::std::string& change_friend_group_rq_msg_Name(change_friend_group_rq_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    change_friend_group_rq_msg_descriptor(), value);
+}
+inline bool change_friend_group_rq_msg_Parse(
+    const ::std::string& name, change_friend_group_rq_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<change_friend_group_rq_msg>(
+    change_friend_group_rq_msg_descriptor(), name, value);
+}
+enum change_friend_group_rs_msg {
+  change_friend_group_rs_msg_id = 33562916
+};
+bool change_friend_group_rs_msg_IsValid(int value);
+const change_friend_group_rs_msg change_friend_group_rs_msg_msg_MIN = change_friend_group_rs_msg_id;
+const change_friend_group_rs_msg change_friend_group_rs_msg_msg_MAX = change_friend_group_rs_msg_id;
+const int change_friend_group_rs_msg_msg_ARRAYSIZE = change_friend_group_rs_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* change_friend_group_rs_msg_descriptor();
+inline const ::std::string& change_friend_group_rs_msg_Name(change_friend_group_rs_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    change_friend_group_rs_msg_descriptor(), value);
+}
+inline bool change_friend_group_rs_msg_Parse(
+    const ::std::string& name, change_friend_group_rs_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<change_friend_group_rs_msg>(
+    change_friend_group_rs_msg_descriptor(), name, value);
+}
+enum query_friends_apply_rq_msg {
+  query_friends_apply_rq_msg_id = 33562917
+};
+bool query_friends_apply_rq_msg_IsValid(int value);
+const query_friends_apply_rq_msg query_friends_apply_rq_msg_msg_MIN = query_friends_apply_rq_msg_id;
+const query_friends_apply_rq_msg query_friends_apply_rq_msg_msg_MAX = query_friends_apply_rq_msg_id;
+const int query_friends_apply_rq_msg_msg_ARRAYSIZE = query_friends_apply_rq_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* query_friends_apply_rq_msg_descriptor();
+inline const ::std::string& query_friends_apply_rq_msg_Name(query_friends_apply_rq_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    query_friends_apply_rq_msg_descriptor(), value);
+}
+inline bool query_friends_apply_rq_msg_Parse(
+    const ::std::string& name, query_friends_apply_rq_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<query_friends_apply_rq_msg>(
+    query_friends_apply_rq_msg_descriptor(), name, value);
+}
+enum query_friends_apply_rs_msg {
+  query_friends_apply_rs_msg_id = 33562918
+};
+bool query_friends_apply_rs_msg_IsValid(int value);
+const query_friends_apply_rs_msg query_friends_apply_rs_msg_msg_MIN = query_friends_apply_rs_msg_id;
+const query_friends_apply_rs_msg query_friends_apply_rs_msg_msg_MAX = query_friends_apply_rs_msg_id;
+const int query_friends_apply_rs_msg_msg_ARRAYSIZE = query_friends_apply_rs_msg_msg_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* query_friends_apply_rs_msg_descriptor();
+inline const ::std::string& query_friends_apply_rs_msg_Name(query_friends_apply_rs_msg value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    query_friends_apply_rs_msg_descriptor(), value);
+}
+inline bool query_friends_apply_rs_msg_Parse(
+    const ::std::string& name, query_friends_apply_rs_msg* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<query_friends_apply_rs_msg>(
+    query_friends_apply_rs_msg_descriptor(), name, value);
+}
 enum talk_friend_rq_msg {
-  talk_friend_rq_msg_id = 33562915
+  talk_friend_rq_msg_id = 33562961
 };
 bool talk_friend_rq_msg_IsValid(int value);
 const talk_friend_rq_msg talk_friend_rq_msg_msg_MIN = talk_friend_rq_msg_id;
@@ -427,7 +607,7 @@ inline bool talk_friend_rq_msg_Parse(
     talk_friend_rq_msg_descriptor(), name, value);
 }
 enum talk_friend_rs_msg {
-  talk_friend_rs_msg_id = 33562916
+  talk_friend_rs_msg_id = 33562962
 };
 bool talk_friend_rs_msg_IsValid(int value);
 const talk_friend_rs_msg talk_friend_rs_msg_msg_MIN = talk_friend_rs_msg_id;
@@ -445,7 +625,7 @@ inline bool talk_friend_rs_msg_Parse(
     talk_friend_rs_msg_descriptor(), name, value);
 }
 enum talk_friend_nt_msg {
-  talk_friend_nt_msg_id = 33563012
+  talk_friend_nt_msg_id = 33563025
 };
 bool talk_friend_nt_msg_IsValid(int value);
 const talk_friend_nt_msg talk_friend_nt_msg_msg_MIN = talk_friend_nt_msg_id;
@@ -709,10 +889,25 @@ class add_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // required string description = 3;
+  // required string user_remark = 3;
+  bool has_user_remark() const;
+  void clear_user_remark();
+  static const int kUserRemarkFieldNumber = 3;
+  const ::std::string& user_remark() const;
+  void set_user_remark(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_remark(::std::string&& value);
+  #endif
+  void set_user_remark(const char* value);
+  void set_user_remark(const char* value, size_t size);
+  ::std::string* mutable_user_remark();
+  ::std::string* release_user_remark();
+  void set_allocated_user_remark(::std::string* user_remark);
+
+  // required string description = 4;
   bool has_description() const;
   void clear_description();
-  static const int kDescriptionFieldNumber = 3;
+  static const int kDescriptionFieldNumber = 4;
   const ::std::string& description() const;
   void set_description(const ::std::string& value);
   #if LANG_CXX11
@@ -744,6 +939,8 @@ class add_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion_p
   void clear_has_user_myself_id();
   void set_has_user_add_id();
   void clear_has_user_add_id();
+  void set_has_user_remark();
+  void clear_has_user_remark();
   void set_has_description();
   void clear_has_description();
 
@@ -753,6 +950,7 @@ class add_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_remark_;
   ::google::protobuf::internal::ArenaStringPtr description_;
   ::google::protobuf::uint64 user_myself_id_;
   ::google::protobuf::uint64 user_add_id_;
@@ -856,6 +1054,21 @@ class add_friend_rs : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
+  // required string user_remark = 3;
+  bool has_user_remark() const;
+  void clear_user_remark();
+  static const int kUserRemarkFieldNumber = 3;
+  const ::std::string& user_remark() const;
+  void set_user_remark(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_remark(::std::string&& value);
+  #endif
+  void set_user_remark(const char* value);
+  void set_user_remark(const char* value, size_t size);
+  ::std::string* mutable_user_remark();
+  ::std::string* release_user_remark();
+  void set_allocated_user_remark(::std::string* user_remark);
+
   // required .b_error.info error = 1;
   bool has_error() const;
   void clear_error();
@@ -878,6 +1091,8 @@ class add_friend_rs : public ::google::protobuf::Message /* @@protoc_insertion_p
   void clear_has_error();
   void set_has_user_add_id();
   void clear_has_user_add_id();
+  void set_has_user_remark();
+  void clear_has_user_remark();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -885,6 +1100,7 @@ class add_friend_rs : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_remark_;
   ::b_error::info* error_;
   ::google::protobuf::uint64 user_add_id_;
   friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
@@ -987,10 +1203,10 @@ class add_friend_nt : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // required string description = 3;
+  // required string description = 2;
   bool has_description() const;
   void clear_description();
-  static const int kDescriptionFieldNumber = 3;
+  static const int kDescriptionFieldNumber = 2;
   const ::std::string& description() const;
   void set_description(const ::std::string& value);
   #if LANG_CXX11
@@ -1528,6 +1744,36 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
+  // required string user_myself_nick = 3;
+  bool has_user_myself_nick() const;
+  void clear_user_myself_nick();
+  static const int kUserMyselfNickFieldNumber = 3;
+  const ::std::string& user_myself_nick() const;
+  void set_user_myself_nick(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_myself_nick(::std::string&& value);
+  #endif
+  void set_user_myself_nick(const char* value);
+  void set_user_myself_nick(const char* value, size_t size);
+  ::std::string* mutable_user_myself_nick();
+  ::std::string* release_user_myself_nick();
+  void set_allocated_user_myself_nick(::std::string* user_myself_nick);
+
+  // required string user_allow_nick = 4;
+  bool has_user_allow_nick() const;
+  void clear_user_allow_nick();
+  static const int kUserAllowNickFieldNumber = 4;
+  const ::std::string& user_allow_nick() const;
+  void set_user_allow_nick(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_allow_nick(::std::string&& value);
+  #endif
+  void set_user_allow_nick(const char* value);
+  void set_user_allow_nick(const char* value, size_t size);
+  ::std::string* mutable_user_allow_nick();
+  ::std::string* release_user_allow_nick();
+  void set_allocated_user_allow_nick(::std::string* user_allow_nick);
+
   // required uint64 user_myself_id = 1;
   bool has_user_myself_id() const;
   void clear_user_myself_id();
@@ -1542,10 +1788,10 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::uint64 user_allow_id() const;
   void set_user_allow_id(::google::protobuf::uint64 value);
 
-  // required uint32 opcode = 3;
+  // required uint32 opcode = 5;
   bool has_opcode() const;
   void clear_opcode();
-  static const int kOpcodeFieldNumber = 3;
+  static const int kOpcodeFieldNumber = 5;
   ::google::protobuf::uint32 opcode() const;
   void set_opcode(::google::protobuf::uint32 value);
 
@@ -1555,6 +1801,10 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_user_myself_id();
   void set_has_user_allow_id();
   void clear_has_user_allow_id();
+  void set_has_user_myself_nick();
+  void clear_has_user_myself_nick();
+  void set_has_user_allow_nick();
+  void clear_has_user_allow_nick();
   void set_has_opcode();
   void clear_has_opcode();
 
@@ -1564,6 +1814,8 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_myself_nick_;
+  ::google::protobuf::internal::ArenaStringPtr user_allow_nick_;
   ::google::protobuf::uint64 user_myself_id_;
   ::google::protobuf::uint64 user_allow_id_;
   ::google::protobuf::uint32 opcode_;
@@ -1667,6 +1919,18 @@ class allow_friend_rs : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
+  // repeated .b_business_relation.user_relation relation_s = 4;
+  int relation_s_size() const;
+  void clear_relation_s();
+  static const int kRelationSFieldNumber = 4;
+  const ::b_business_relation::user_relation& relation_s(int index) const;
+  ::b_business_relation::user_relation* mutable_relation_s(int index);
+  ::b_business_relation::user_relation* add_relation_s();
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >*
+      mutable_relation_s();
+  const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >&
+      relation_s() const;
+
   // required .b_error.info error = 1;
   bool has_error() const;
   void clear_error();
@@ -1705,6 +1969,7 @@ class allow_friend_rs : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation > relation_s_;
   ::b_error::info* error_;
   ::google::protobuf::uint64 user_allow_id_;
   ::google::protobuf::uint32 opcode_;
@@ -1808,12 +2073,26 @@ class allow_friend_nt : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // required uint64 allow_user_id = 1;
-  bool has_allow_user_id() const;
-  void clear_allow_user_id();
-  static const int kAllowUserIdFieldNumber = 1;
-  ::google::protobuf::uint64 allow_user_id() const;
-  void set_allow_user_id(::google::protobuf::uint64 value);
+  // repeated .b_business_relation.user_relation relation_s = 3;
+  int relation_s_size() const;
+  void clear_relation_s();
+  static const int kRelationSFieldNumber = 3;
+  const ::b_business_relation::user_relation& relation_s(int index) const;
+  ::b_business_relation::user_relation* mutable_relation_s(int index);
+  ::b_business_relation::user_relation* add_relation_s();
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >*
+      mutable_relation_s();
+  const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >&
+      relation_s() const;
+
+  // required .b_business_account.user_info apply_user_info = 1;
+  bool has_apply_user_info() const;
+  void clear_apply_user_info();
+  static const int kApplyUserInfoFieldNumber = 1;
+  const ::b_business_account::user_info& apply_user_info() const;
+  ::b_business_account::user_info* mutable_apply_user_info();
+  ::b_business_account::user_info* release_apply_user_info();
+  void set_allocated_apply_user_info(::b_business_account::user_info* apply_user_info);
 
   // required uint32 opcode = 2;
   bool has_opcode() const;
@@ -1824,8 +2103,8 @@ class allow_friend_nt : public ::google::protobuf::Message /* @@protoc_insertion
 
   // @@protoc_insertion_point(class_scope:c_business_relation.allow_friend_nt)
  private:
-  void set_has_allow_user_id();
-  void clear_has_allow_user_id();
+  void set_has_apply_user_info();
+  void clear_has_apply_user_info();
   void set_has_opcode();
   void clear_has_opcode();
 
@@ -1835,7 +2114,8 @@ class allow_friend_nt : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::uint64 allow_user_id_;
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation > relation_s_;
+  ::b_business_account::user_info* apply_user_info_;
   ::google::protobuf::uint32 opcode_;
   friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
 };
@@ -2053,17 +2333,29 @@ class query_friends_rs : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // repeated .c_business_relation.friend_info friend_info_s = 2;
-  int friend_info_s_size() const;
-  void clear_friend_info_s();
-  static const int kFriendInfoSFieldNumber = 2;
-  const ::c_business_relation::friend_info& friend_info_s(int index) const;
-  ::c_business_relation::friend_info* mutable_friend_info_s(int index);
-  ::c_business_relation::friend_info* add_friend_info_s();
-  ::google::protobuf::RepeatedPtrField< ::c_business_relation::friend_info >*
-      mutable_friend_info_s();
-  const ::google::protobuf::RepeatedPtrField< ::c_business_relation::friend_info >&
-      friend_info_s() const;
+  // repeated .b_business_relation.user_relation_group group_s = 2;
+  int group_s_size() const;
+  void clear_group_s();
+  static const int kGroupSFieldNumber = 2;
+  const ::b_business_relation::user_relation_group& group_s(int index) const;
+  ::b_business_relation::user_relation_group* mutable_group_s(int index);
+  ::b_business_relation::user_relation_group* add_group_s();
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation_group >*
+      mutable_group_s();
+  const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation_group >&
+      group_s() const;
+
+  // repeated .b_business_relation.user_relation relation_s = 3;
+  int relation_s_size() const;
+  void clear_relation_s();
+  static const int kRelationSFieldNumber = 3;
+  const ::b_business_relation::user_relation& relation_s(int index) const;
+  ::b_business_relation::user_relation* mutable_relation_s(int index);
+  ::b_business_relation::user_relation* add_relation_s();
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >*
+      mutable_relation_s();
+  const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >&
+      relation_s() const;
 
   // required .b_error.info error = 1;
   bool has_error() const;
@@ -2082,7 +2374,8 @@ class query_friends_rs : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::c_business_relation::friend_info > friend_info_s_;
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation_group > group_s_;
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation > relation_s_;
   ::b_error::info* error_;
   friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
 };
@@ -2384,6 +2677,572 @@ class rename_friend_remark_rs : public ::google::protobuf::Message /* @@protoc_i
 };
 // -------------------------------------------------------------------
 
+class add_friend_group_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.add_friend_group_rq) */ {
+ public:
+  add_friend_group_rq();
+  virtual ~add_friend_group_rq();
+
+  add_friend_group_rq(const add_friend_group_rq& from);
+
+  inline add_friend_group_rq& operator=(const add_friend_group_rq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const add_friend_group_rq& default_instance();
+
+  static inline const add_friend_group_rq* internal_default_instance() {
+    return reinterpret_cast<const add_friend_group_rq*>(
+               &_add_friend_group_rq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    14;
+
+  void Swap(add_friend_group_rq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline add_friend_group_rq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  add_friend_group_rq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const add_friend_group_rq& from);
+  void MergeFrom(const add_friend_group_rq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(add_friend_group_rq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef add_friend_group_rq_msg msg;
+  static const msg id =
+    add_friend_group_rq_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return add_friend_group_rq_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    add_friend_group_rq_msg_msg_MIN;
+  static const msg msg_MAX =
+    add_friend_group_rq_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    add_friend_group_rq_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return add_friend_group_rq_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return add_friend_group_rq_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return add_friend_group_rq_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required string user_friend_group = 2;
+  bool has_user_friend_group() const;
+  void clear_user_friend_group();
+  static const int kUserFriendGroupFieldNumber = 2;
+  const ::std::string& user_friend_group() const;
+  void set_user_friend_group(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_friend_group(::std::string&& value);
+  #endif
+  void set_user_friend_group(const char* value);
+  void set_user_friend_group(const char* value, size_t size);
+  ::std::string* mutable_user_friend_group();
+  ::std::string* release_user_friend_group();
+  void set_allocated_user_friend_group(::std::string* user_friend_group);
+
+  // required uint64 user_myself_id = 1;
+  bool has_user_myself_id() const;
+  void clear_user_myself_id();
+  static const int kUserMyselfIdFieldNumber = 1;
+  ::google::protobuf::uint64 user_myself_id() const;
+  void set_user_myself_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.add_friend_group_rq)
+ private:
+  void set_has_user_myself_id();
+  void clear_has_user_myself_id();
+  void set_has_user_friend_group();
+  void clear_has_user_friend_group();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_friend_group_;
+  ::google::protobuf::uint64 user_myself_id_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class add_friend_group_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.add_friend_group_rs) */ {
+ public:
+  add_friend_group_rs();
+  virtual ~add_friend_group_rs();
+
+  add_friend_group_rs(const add_friend_group_rs& from);
+
+  inline add_friend_group_rs& operator=(const add_friend_group_rs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const add_friend_group_rs& default_instance();
+
+  static inline const add_friend_group_rs* internal_default_instance() {
+    return reinterpret_cast<const add_friend_group_rs*>(
+               &_add_friend_group_rs_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    15;
+
+  void Swap(add_friend_group_rs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline add_friend_group_rs* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  add_friend_group_rs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const add_friend_group_rs& from);
+  void MergeFrom(const add_friend_group_rs& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(add_friend_group_rs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef add_friend_group_rs_msg msg;
+  static const msg id =
+    add_friend_group_rs_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return add_friend_group_rs_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    add_friend_group_rs_msg_msg_MIN;
+  static const msg msg_MAX =
+    add_friend_group_rs_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    add_friend_group_rs_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return add_friend_group_rs_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return add_friend_group_rs_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return add_friend_group_rs_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required string user_friend_group = 2;
+  bool has_user_friend_group() const;
+  void clear_user_friend_group();
+  static const int kUserFriendGroupFieldNumber = 2;
+  const ::std::string& user_friend_group() const;
+  void set_user_friend_group(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_friend_group(::std::string&& value);
+  #endif
+  void set_user_friend_group(const char* value);
+  void set_user_friend_group(const char* value, size_t size);
+  ::std::string* mutable_user_friend_group();
+  ::std::string* release_user_friend_group();
+  void set_allocated_user_friend_group(::std::string* user_friend_group);
+
+  // required .b_error.info error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::b_error::info& error() const;
+  ::b_error::info* mutable_error();
+  ::b_error::info* release_error();
+  void set_allocated_error(::b_error::info* error);
+
+  // required uint64 user_friend_group_id = 3;
+  bool has_user_friend_group_id() const;
+  void clear_user_friend_group_id();
+  static const int kUserFriendGroupIdFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id() const;
+  void set_user_friend_group_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.add_friend_group_rs)
+ private:
+  void set_has_error();
+  void clear_has_error();
+  void set_has_user_friend_group();
+  void clear_has_user_friend_group();
+  void set_has_user_friend_group_id();
+  void clear_has_user_friend_group_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_friend_group_;
+  ::b_error::info* error_;
+  ::google::protobuf::uint64 user_friend_group_id_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class delete_friend_group_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.delete_friend_group_rq) */ {
+ public:
+  delete_friend_group_rq();
+  virtual ~delete_friend_group_rq();
+
+  delete_friend_group_rq(const delete_friend_group_rq& from);
+
+  inline delete_friend_group_rq& operator=(const delete_friend_group_rq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const delete_friend_group_rq& default_instance();
+
+  static inline const delete_friend_group_rq* internal_default_instance() {
+    return reinterpret_cast<const delete_friend_group_rq*>(
+               &_delete_friend_group_rq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    16;
+
+  void Swap(delete_friend_group_rq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline delete_friend_group_rq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  delete_friend_group_rq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const delete_friend_group_rq& from);
+  void MergeFrom(const delete_friend_group_rq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(delete_friend_group_rq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef delete_friend_group_rq_msg msg;
+  static const msg id =
+    delete_friend_group_rq_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return delete_friend_group_rq_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    delete_friend_group_rq_msg_msg_MIN;
+  static const msg msg_MAX =
+    delete_friend_group_rq_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    delete_friend_group_rq_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return delete_friend_group_rq_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return delete_friend_group_rq_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return delete_friend_group_rq_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 user_myself_id = 1;
+  bool has_user_myself_id() const;
+  void clear_user_myself_id();
+  static const int kUserMyselfIdFieldNumber = 1;
+  ::google::protobuf::uint64 user_myself_id() const;
+  void set_user_myself_id(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_id = 2;
+  bool has_user_friend_id() const;
+  void clear_user_friend_id();
+  static const int kUserFriendIdFieldNumber = 2;
+  ::google::protobuf::uint64 user_friend_id() const;
+  void set_user_friend_id(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_group_id = 3;
+  bool has_user_friend_group_id() const;
+  void clear_user_friend_group_id();
+  static const int kUserFriendGroupIdFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id() const;
+  void set_user_friend_group_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.delete_friend_group_rq)
+ private:
+  void set_has_user_myself_id();
+  void clear_has_user_myself_id();
+  void set_has_user_friend_id();
+  void clear_has_user_friend_id();
+  void set_has_user_friend_group_id();
+  void clear_has_user_friend_group_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 user_myself_id_;
+  ::google::protobuf::uint64 user_friend_id_;
+  ::google::protobuf::uint64 user_friend_group_id_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class delete_friend_group_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.delete_friend_group_rs) */ {
+ public:
+  delete_friend_group_rs();
+  virtual ~delete_friend_group_rs();
+
+  delete_friend_group_rs(const delete_friend_group_rs& from);
+
+  inline delete_friend_group_rs& operator=(const delete_friend_group_rs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const delete_friend_group_rs& default_instance();
+
+  static inline const delete_friend_group_rs* internal_default_instance() {
+    return reinterpret_cast<const delete_friend_group_rs*>(
+               &_delete_friend_group_rs_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    17;
+
+  void Swap(delete_friend_group_rs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline delete_friend_group_rs* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  delete_friend_group_rs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const delete_friend_group_rs& from);
+  void MergeFrom(const delete_friend_group_rs& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(delete_friend_group_rs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef delete_friend_group_rs_msg msg;
+  static const msg id =
+    delete_friend_group_rs_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return delete_friend_group_rs_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    delete_friend_group_rs_msg_msg_MIN;
+  static const msg msg_MAX =
+    delete_friend_group_rs_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    delete_friend_group_rs_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return delete_friend_group_rs_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return delete_friend_group_rs_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return delete_friend_group_rs_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required .b_error.info error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::b_error::info& error() const;
+  ::b_error::info* mutable_error();
+  ::b_error::info* release_error();
+  void set_allocated_error(::b_error::info* error);
+
+  // required uint64 user_friend_id = 2;
+  bool has_user_friend_id() const;
+  void clear_user_friend_id();
+  static const int kUserFriendIdFieldNumber = 2;
+  ::google::protobuf::uint64 user_friend_id() const;
+  void set_user_friend_id(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_group_id = 3;
+  bool has_user_friend_group_id() const;
+  void clear_user_friend_group_id();
+  static const int kUserFriendGroupIdFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id() const;
+  void set_user_friend_group_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.delete_friend_group_rs)
+ private:
+  void set_has_error();
+  void clear_has_error();
+  void set_has_user_friend_id();
+  void clear_has_user_friend_id();
+  void set_has_user_friend_group_id();
+  void clear_has_user_friend_group_id();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::b_error::info* error_;
+  ::google::protobuf::uint64 user_friend_id_;
+  ::google::protobuf::uint64 user_friend_group_id_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class rename_friend_group_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.rename_friend_group_rq) */ {
  public:
   rename_friend_group_rq();
@@ -2412,7 +3271,7 @@ class rename_friend_group_rq : public ::google::protobuf::Message /* @@protoc_in
                &_rename_friend_group_rq_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    18;
 
   void Swap(rename_friend_group_rq* other);
 
@@ -2480,10 +3339,10 @@ class rename_friend_group_rq : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // required string user_friend_group = 3;
+  // required string user_friend_group = 4;
   bool has_user_friend_group() const;
   void clear_user_friend_group();
-  static const int kUserFriendGroupFieldNumber = 3;
+  static const int kUserFriendGroupFieldNumber = 4;
   const ::std::string& user_friend_group() const;
   void set_user_friend_group(const ::std::string& value);
   #if LANG_CXX11
@@ -2502,19 +3361,19 @@ class rename_friend_group_rq : public ::google::protobuf::Message /* @@protoc_in
   ::google::protobuf::uint64 user_myself_id() const;
   void set_user_myself_id(::google::protobuf::uint64 value);
 
-  // required uint64 user_friend_id = 2;
-  bool has_user_friend_id() const;
-  void clear_user_friend_id();
-  static const int kUserFriendIdFieldNumber = 2;
-  ::google::protobuf::uint64 user_friend_id() const;
-  void set_user_friend_id(::google::protobuf::uint64 value);
+  // required uint64 user_friend_group_id = 3;
+  bool has_user_friend_group_id() const;
+  void clear_user_friend_group_id();
+  static const int kUserFriendGroupIdFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id() const;
+  void set_user_friend_group_id(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:c_business_relation.rename_friend_group_rq)
  private:
   void set_has_user_myself_id();
   void clear_has_user_myself_id();
-  void set_has_user_friend_id();
-  void clear_has_user_friend_id();
+  void set_has_user_friend_group_id();
+  void clear_has_user_friend_group_id();
   void set_has_user_friend_group();
   void clear_has_user_friend_group();
 
@@ -2526,7 +3385,7 @@ class rename_friend_group_rq : public ::google::protobuf::Message /* @@protoc_in
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr user_friend_group_;
   ::google::protobuf::uint64 user_myself_id_;
-  ::google::protobuf::uint64 user_friend_id_;
+  ::google::protobuf::uint64 user_friend_group_id_;
   friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -2559,7 +3418,7 @@ class rename_friend_group_rs : public ::google::protobuf::Message /* @@protoc_in
                &_rename_friend_group_rs_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    19;
 
   void Swap(rename_friend_group_rs* other);
 
@@ -2627,10 +3486,10 @@ class rename_friend_group_rs : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // required string user_friend_group = 3;
+  // required string user_friend_group = 4;
   bool has_user_friend_group() const;
   void clear_user_friend_group();
-  static const int kUserFriendGroupFieldNumber = 3;
+  static const int kUserFriendGroupFieldNumber = 4;
   const ::std::string& user_friend_group() const;
   void set_user_friend_group(const ::std::string& value);
   #if LANG_CXX11
@@ -2651,19 +3510,19 @@ class rename_friend_group_rs : public ::google::protobuf::Message /* @@protoc_in
   ::b_error::info* release_error();
   void set_allocated_error(::b_error::info* error);
 
-  // required uint64 user_friend_id = 2;
-  bool has_user_friend_id() const;
-  void clear_user_friend_id();
-  static const int kUserFriendIdFieldNumber = 2;
-  ::google::protobuf::uint64 user_friend_id() const;
-  void set_user_friend_id(::google::protobuf::uint64 value);
+  // required uint64 user_friend_group_id = 3;
+  bool has_user_friend_group_id() const;
+  void clear_user_friend_group_id();
+  static const int kUserFriendGroupIdFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id() const;
+  void set_user_friend_group_id(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:c_business_relation.rename_friend_group_rs)
  private:
   void set_has_error();
   void clear_has_error();
-  void set_has_user_friend_id();
-  void clear_has_user_friend_id();
+  void set_has_user_friend_group_id();
+  void clear_has_user_friend_group_id();
   void set_has_user_friend_group();
   void clear_has_user_friend_group();
 
@@ -2675,7 +3534,554 @@ class rename_friend_group_rs : public ::google::protobuf::Message /* @@protoc_in
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr user_friend_group_;
   ::b_error::info* error_;
+  ::google::protobuf::uint64 user_friend_group_id_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class change_friend_group_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.change_friend_group_rq) */ {
+ public:
+  change_friend_group_rq();
+  virtual ~change_friend_group_rq();
+
+  change_friend_group_rq(const change_friend_group_rq& from);
+
+  inline change_friend_group_rq& operator=(const change_friend_group_rq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const change_friend_group_rq& default_instance();
+
+  static inline const change_friend_group_rq* internal_default_instance() {
+    return reinterpret_cast<const change_friend_group_rq*>(
+               &_change_friend_group_rq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    20;
+
+  void Swap(change_friend_group_rq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline change_friend_group_rq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  change_friend_group_rq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const change_friend_group_rq& from);
+  void MergeFrom(const change_friend_group_rq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(change_friend_group_rq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef change_friend_group_rq_msg msg;
+  static const msg id =
+    change_friend_group_rq_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return change_friend_group_rq_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    change_friend_group_rq_msg_msg_MIN;
+  static const msg msg_MAX =
+    change_friend_group_rq_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    change_friend_group_rq_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return change_friend_group_rq_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return change_friend_group_rq_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return change_friend_group_rq_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 user_myself_id = 1;
+  bool has_user_myself_id() const;
+  void clear_user_myself_id();
+  static const int kUserMyselfIdFieldNumber = 1;
+  ::google::protobuf::uint64 user_myself_id() const;
+  void set_user_myself_id(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_id = 2;
+  bool has_user_friend_id() const;
+  void clear_user_friend_id();
+  static const int kUserFriendIdFieldNumber = 2;
+  ::google::protobuf::uint64 user_friend_id() const;
+  void set_user_friend_id(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_group_id_old = 3;
+  bool has_user_friend_group_id_old() const;
+  void clear_user_friend_group_id_old();
+  static const int kUserFriendGroupIdOldFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id_old() const;
+  void set_user_friend_group_id_old(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_group_id_new = 4;
+  bool has_user_friend_group_id_new() const;
+  void clear_user_friend_group_id_new();
+  static const int kUserFriendGroupIdNewFieldNumber = 4;
+  ::google::protobuf::uint64 user_friend_group_id_new() const;
+  void set_user_friend_group_id_new(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.change_friend_group_rq)
+ private:
+  void set_has_user_myself_id();
+  void clear_has_user_myself_id();
+  void set_has_user_friend_id();
+  void clear_has_user_friend_id();
+  void set_has_user_friend_group_id_old();
+  void clear_has_user_friend_group_id_old();
+  void set_has_user_friend_group_id_new();
+  void clear_has_user_friend_group_id_new();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 user_myself_id_;
   ::google::protobuf::uint64 user_friend_id_;
+  ::google::protobuf::uint64 user_friend_group_id_old_;
+  ::google::protobuf::uint64 user_friend_group_id_new_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class change_friend_group_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.change_friend_group_rs) */ {
+ public:
+  change_friend_group_rs();
+  virtual ~change_friend_group_rs();
+
+  change_friend_group_rs(const change_friend_group_rs& from);
+
+  inline change_friend_group_rs& operator=(const change_friend_group_rs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const change_friend_group_rs& default_instance();
+
+  static inline const change_friend_group_rs* internal_default_instance() {
+    return reinterpret_cast<const change_friend_group_rs*>(
+               &_change_friend_group_rs_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    21;
+
+  void Swap(change_friend_group_rs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline change_friend_group_rs* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  change_friend_group_rs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const change_friend_group_rs& from);
+  void MergeFrom(const change_friend_group_rs& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(change_friend_group_rs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef change_friend_group_rs_msg msg;
+  static const msg id =
+    change_friend_group_rs_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return change_friend_group_rs_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    change_friend_group_rs_msg_msg_MIN;
+  static const msg msg_MAX =
+    change_friend_group_rs_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    change_friend_group_rs_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return change_friend_group_rs_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return change_friend_group_rs_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return change_friend_group_rs_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required .b_error.info error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::b_error::info& error() const;
+  ::b_error::info* mutable_error();
+  ::b_error::info* release_error();
+  void set_allocated_error(::b_error::info* error);
+
+  // required uint64 user_friend_id = 2;
+  bool has_user_friend_id() const;
+  void clear_user_friend_id();
+  static const int kUserFriendIdFieldNumber = 2;
+  ::google::protobuf::uint64 user_friend_id() const;
+  void set_user_friend_id(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_group_id_old = 3;
+  bool has_user_friend_group_id_old() const;
+  void clear_user_friend_group_id_old();
+  static const int kUserFriendGroupIdOldFieldNumber = 3;
+  ::google::protobuf::uint64 user_friend_group_id_old() const;
+  void set_user_friend_group_id_old(::google::protobuf::uint64 value);
+
+  // required uint64 user_friend_group_id_new = 4;
+  bool has_user_friend_group_id_new() const;
+  void clear_user_friend_group_id_new();
+  static const int kUserFriendGroupIdNewFieldNumber = 4;
+  ::google::protobuf::uint64 user_friend_group_id_new() const;
+  void set_user_friend_group_id_new(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.change_friend_group_rs)
+ private:
+  void set_has_error();
+  void clear_has_error();
+  void set_has_user_friend_id();
+  void clear_has_user_friend_id();
+  void set_has_user_friend_group_id_old();
+  void clear_has_user_friend_group_id_old();
+  void set_has_user_friend_group_id_new();
+  void clear_has_user_friend_group_id_new();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::b_error::info* error_;
+  ::google::protobuf::uint64 user_friend_id_;
+  ::google::protobuf::uint64 user_friend_group_id_old_;
+  ::google::protobuf::uint64 user_friend_group_id_new_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class query_friends_apply_rq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.query_friends_apply_rq) */ {
+ public:
+  query_friends_apply_rq();
+  virtual ~query_friends_apply_rq();
+
+  query_friends_apply_rq(const query_friends_apply_rq& from);
+
+  inline query_friends_apply_rq& operator=(const query_friends_apply_rq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const query_friends_apply_rq& default_instance();
+
+  static inline const query_friends_apply_rq* internal_default_instance() {
+    return reinterpret_cast<const query_friends_apply_rq*>(
+               &_query_friends_apply_rq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    22;
+
+  void Swap(query_friends_apply_rq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline query_friends_apply_rq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  query_friends_apply_rq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const query_friends_apply_rq& from);
+  void MergeFrom(const query_friends_apply_rq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(query_friends_apply_rq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef query_friends_apply_rq_msg msg;
+  static const msg id =
+    query_friends_apply_rq_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return query_friends_apply_rq_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    query_friends_apply_rq_msg_msg_MIN;
+  static const msg msg_MAX =
+    query_friends_apply_rq_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    query_friends_apply_rq_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return query_friends_apply_rq_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return query_friends_apply_rq_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return query_friends_apply_rq_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 user_myself_id = 1;
+  bool has_user_myself_id() const;
+  void clear_user_myself_id();
+  static const int kUserMyselfIdFieldNumber = 1;
+  ::google::protobuf::uint64 user_myself_id() const;
+  void set_user_myself_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.query_friends_apply_rq)
+ private:
+  void set_has_user_myself_id();
+  void clear_has_user_myself_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 user_myself_id_;
+  friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class query_friends_apply_rs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:c_business_relation.query_friends_apply_rs) */ {
+ public:
+  query_friends_apply_rs();
+  virtual ~query_friends_apply_rs();
+
+  query_friends_apply_rs(const query_friends_apply_rs& from);
+
+  inline query_friends_apply_rs& operator=(const query_friends_apply_rs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const query_friends_apply_rs& default_instance();
+
+  static inline const query_friends_apply_rs* internal_default_instance() {
+    return reinterpret_cast<const query_friends_apply_rs*>(
+               &_query_friends_apply_rs_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    23;
+
+  void Swap(query_friends_apply_rs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline query_friends_apply_rs* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  query_friends_apply_rs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const query_friends_apply_rs& from);
+  void MergeFrom(const query_friends_apply_rs& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(query_friends_apply_rs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef query_friends_apply_rs_msg msg;
+  static const msg id =
+    query_friends_apply_rs_msg_id;
+  static inline bool msg_IsValid(int value) {
+    return query_friends_apply_rs_msg_IsValid(value);
+  }
+  static const msg msg_MIN =
+    query_friends_apply_rs_msg_msg_MIN;
+  static const msg msg_MAX =
+    query_friends_apply_rs_msg_msg_MAX;
+  static const int msg_ARRAYSIZE =
+    query_friends_apply_rs_msg_msg_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  msg_descriptor() {
+    return query_friends_apply_rs_msg_descriptor();
+  }
+  static inline const ::std::string& msg_Name(msg value) {
+    return query_friends_apply_rs_msg_Name(value);
+  }
+  static inline bool msg_Parse(const ::std::string& name,
+      msg* value) {
+    return query_friends_apply_rs_msg_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // repeated .b_business_relation.friend_apply apply_s = 2;
+  int apply_s_size() const;
+  void clear_apply_s();
+  static const int kApplySFieldNumber = 2;
+  const ::b_business_relation::friend_apply& apply_s(int index) const;
+  ::b_business_relation::friend_apply* mutable_apply_s(int index);
+  ::b_business_relation::friend_apply* add_apply_s();
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::friend_apply >*
+      mutable_apply_s();
+  const ::google::protobuf::RepeatedPtrField< ::b_business_relation::friend_apply >&
+      apply_s() const;
+
+  // required .b_error.info error = 1;
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  const ::b_error::info& error() const;
+  ::b_error::info* mutable_error();
+  ::b_error::info* release_error();
+  void set_allocated_error(::b_error::info* error);
+
+  // @@protoc_insertion_point(class_scope:c_business_relation.query_friends_apply_rs)
+ private:
+  void set_has_error();
+  void clear_has_error();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::b_business_relation::friend_apply > apply_s_;
+  ::b_error::info* error_;
   friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -2708,7 +4114,7 @@ class talk_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion_
                &_talk_friend_rq_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    24;
 
   void Swap(talk_friend_rq* other);
 
@@ -2855,7 +4261,7 @@ class talk_friend_rs : public ::google::protobuf::Message /* @@protoc_insertion_
                &_talk_friend_rs_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    25;
 
   void Swap(talk_friend_rs* other);
 
@@ -2986,7 +4392,7 @@ class talk_friend_nt : public ::google::protobuf::Message /* @@protoc_insertion_
                &_talk_friend_nt_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    26;
 
   void Swap(talk_friend_nt* other);
 
@@ -3278,13 +4684,13 @@ inline void friend_info::set_allocated_user_remark(::std::string* user_remark) {
 
 // required uint64 user_myself_id = 1;
 inline bool add_friend_rq::has_user_myself_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void add_friend_rq::set_has_user_myself_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void add_friend_rq::clear_has_user_myself_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void add_friend_rq::clear_user_myself_id() {
   user_myself_id_ = GOOGLE_ULONGLONG(0);
@@ -3302,13 +4708,13 @@ inline void add_friend_rq::set_user_myself_id(::google::protobuf::uint64 value) 
 
 // required uint64 user_add_id = 2;
 inline bool add_friend_rq::has_user_add_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void add_friend_rq::set_has_user_add_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void add_friend_rq::clear_has_user_add_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void add_friend_rq::clear_user_add_id() {
   user_add_id_ = GOOGLE_ULONGLONG(0);
@@ -3324,15 +4730,78 @@ inline void add_friend_rq::set_user_add_id(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:c_business_relation.add_friend_rq.user_add_id)
 }
 
-// required string description = 3;
-inline bool add_friend_rq::has_description() const {
+// required string user_remark = 3;
+inline bool add_friend_rq::has_user_remark() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void add_friend_rq::set_has_description() {
+inline void add_friend_rq::set_has_user_remark() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void add_friend_rq::clear_has_description() {
+inline void add_friend_rq::clear_has_user_remark() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void add_friend_rq::clear_user_remark() {
+  user_remark_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_remark();
+}
+inline const ::std::string& add_friend_rq::user_remark() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_rq.user_remark)
+  return user_remark_.GetNoArena();
+}
+inline void add_friend_rq::set_user_remark(const ::std::string& value) {
+  set_has_user_remark();
+  user_remark_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_relation.add_friend_rq.user_remark)
+}
+#if LANG_CXX11
+inline void add_friend_rq::set_user_remark(::std::string&& value) {
+  set_has_user_remark();
+  user_remark_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_relation.add_friend_rq.user_remark)
+}
+#endif
+inline void add_friend_rq::set_user_remark(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_remark();
+  user_remark_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_relation.add_friend_rq.user_remark)
+}
+inline void add_friend_rq::set_user_remark(const char* value, size_t size) {
+  set_has_user_remark();
+  user_remark_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_relation.add_friend_rq.user_remark)
+}
+inline ::std::string* add_friend_rq::mutable_user_remark() {
+  set_has_user_remark();
+  // @@protoc_insertion_point(field_mutable:c_business_relation.add_friend_rq.user_remark)
+  return user_remark_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* add_friend_rq::release_user_remark() {
+  // @@protoc_insertion_point(field_release:c_business_relation.add_friend_rq.user_remark)
+  clear_has_user_remark();
+  return user_remark_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void add_friend_rq::set_allocated_user_remark(::std::string* user_remark) {
+  if (user_remark != NULL) {
+    set_has_user_remark();
+  } else {
+    clear_has_user_remark();
+  }
+  user_remark_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_remark);
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.add_friend_rq.user_remark)
+}
+
+// required string description = 4;
+inline bool add_friend_rq::has_description() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void add_friend_rq::set_has_description() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void add_friend_rq::clear_has_description() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void add_friend_rq::clear_description() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -3393,13 +4862,13 @@ inline void add_friend_rq::set_allocated_description(::std::string* description)
 
 // required .b_error.info error = 1;
 inline bool add_friend_rs::has_error() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void add_friend_rs::set_has_error() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void add_friend_rs::clear_has_error() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void add_friend_rs::clear_error() {
   if (error_ != NULL) error_->::b_error::info::Clear();
@@ -3438,13 +4907,13 @@ inline void add_friend_rs::set_allocated_error(::b_error::info* error) {
 
 // required uint64 user_add_id = 2;
 inline bool add_friend_rs::has_user_add_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void add_friend_rs::set_has_user_add_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void add_friend_rs::clear_has_user_add_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void add_friend_rs::clear_user_add_id() {
   user_add_id_ = GOOGLE_ULONGLONG(0);
@@ -3458,6 +4927,69 @@ inline void add_friend_rs::set_user_add_id(::google::protobuf::uint64 value) {
   set_has_user_add_id();
   user_add_id_ = value;
   // @@protoc_insertion_point(field_set:c_business_relation.add_friend_rs.user_add_id)
+}
+
+// required string user_remark = 3;
+inline bool add_friend_rs::has_user_remark() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void add_friend_rs::set_has_user_remark() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void add_friend_rs::clear_has_user_remark() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void add_friend_rs::clear_user_remark() {
+  user_remark_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_remark();
+}
+inline const ::std::string& add_friend_rs::user_remark() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_rs.user_remark)
+  return user_remark_.GetNoArena();
+}
+inline void add_friend_rs::set_user_remark(const ::std::string& value) {
+  set_has_user_remark();
+  user_remark_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_relation.add_friend_rs.user_remark)
+}
+#if LANG_CXX11
+inline void add_friend_rs::set_user_remark(::std::string&& value) {
+  set_has_user_remark();
+  user_remark_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_relation.add_friend_rs.user_remark)
+}
+#endif
+inline void add_friend_rs::set_user_remark(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_remark();
+  user_remark_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_relation.add_friend_rs.user_remark)
+}
+inline void add_friend_rs::set_user_remark(const char* value, size_t size) {
+  set_has_user_remark();
+  user_remark_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_relation.add_friend_rs.user_remark)
+}
+inline ::std::string* add_friend_rs::mutable_user_remark() {
+  set_has_user_remark();
+  // @@protoc_insertion_point(field_mutable:c_business_relation.add_friend_rs.user_remark)
+  return user_remark_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* add_friend_rs::release_user_remark() {
+  // @@protoc_insertion_point(field_release:c_business_relation.add_friend_rs.user_remark)
+  clear_has_user_remark();
+  return user_remark_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void add_friend_rs::set_allocated_user_remark(::std::string* user_remark) {
+  if (user_remark != NULL) {
+    set_has_user_remark();
+  } else {
+    clear_has_user_remark();
+  }
+  user_remark_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_remark);
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.add_friend_rs.user_remark)
 }
 
 // -------------------------------------------------------------------
@@ -3509,7 +5041,7 @@ inline void add_friend_nt::set_allocated_apply_user_info(::b_business_account::u
   // @@protoc_insertion_point(field_set_allocated:c_business_relation.add_friend_nt.apply_user_info)
 }
 
-// required string description = 3;
+// required string description = 2;
 inline bool add_friend_nt::has_description() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3731,13 +5263,13 @@ inline void delete_friend_nt::set_apply_user_id(::google::protobuf::uint64 value
 
 // required uint64 user_myself_id = 1;
 inline bool allow_friend_rq::has_user_myself_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void allow_friend_rq::set_has_user_myself_id() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void allow_friend_rq::clear_has_user_myself_id() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void allow_friend_rq::clear_user_myself_id() {
   user_myself_id_ = GOOGLE_ULONGLONG(0);
@@ -3755,13 +5287,13 @@ inline void allow_friend_rq::set_user_myself_id(::google::protobuf::uint64 value
 
 // required uint64 user_allow_id = 2;
 inline bool allow_friend_rq::has_user_allow_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void allow_friend_rq::set_has_user_allow_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void allow_friend_rq::clear_has_user_allow_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void allow_friend_rq::clear_user_allow_id() {
   user_allow_id_ = GOOGLE_ULONGLONG(0);
@@ -3777,15 +5309,141 @@ inline void allow_friend_rq::set_user_allow_id(::google::protobuf::uint64 value)
   // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_rq.user_allow_id)
 }
 
-// required uint32 opcode = 3;
+// required string user_myself_nick = 3;
+inline bool allow_friend_rq::has_user_myself_nick() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void allow_friend_rq::set_has_user_myself_nick() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void allow_friend_rq::clear_has_user_myself_nick() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void allow_friend_rq::clear_user_myself_nick() {
+  user_myself_nick_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_myself_nick();
+}
+inline const ::std::string& allow_friend_rq::user_myself_nick() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_rq.user_myself_nick)
+  return user_myself_nick_.GetNoArena();
+}
+inline void allow_friend_rq::set_user_myself_nick(const ::std::string& value) {
+  set_has_user_myself_nick();
+  user_myself_nick_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_rq.user_myself_nick)
+}
+#if LANG_CXX11
+inline void allow_friend_rq::set_user_myself_nick(::std::string&& value) {
+  set_has_user_myself_nick();
+  user_myself_nick_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_relation.allow_friend_rq.user_myself_nick)
+}
+#endif
+inline void allow_friend_rq::set_user_myself_nick(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_myself_nick();
+  user_myself_nick_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_relation.allow_friend_rq.user_myself_nick)
+}
+inline void allow_friend_rq::set_user_myself_nick(const char* value, size_t size) {
+  set_has_user_myself_nick();
+  user_myself_nick_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_relation.allow_friend_rq.user_myself_nick)
+}
+inline ::std::string* allow_friend_rq::mutable_user_myself_nick() {
+  set_has_user_myself_nick();
+  // @@protoc_insertion_point(field_mutable:c_business_relation.allow_friend_rq.user_myself_nick)
+  return user_myself_nick_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* allow_friend_rq::release_user_myself_nick() {
+  // @@protoc_insertion_point(field_release:c_business_relation.allow_friend_rq.user_myself_nick)
+  clear_has_user_myself_nick();
+  return user_myself_nick_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void allow_friend_rq::set_allocated_user_myself_nick(::std::string* user_myself_nick) {
+  if (user_myself_nick != NULL) {
+    set_has_user_myself_nick();
+  } else {
+    clear_has_user_myself_nick();
+  }
+  user_myself_nick_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_myself_nick);
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.allow_friend_rq.user_myself_nick)
+}
+
+// required string user_allow_nick = 4;
+inline bool allow_friend_rq::has_user_allow_nick() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void allow_friend_rq::set_has_user_allow_nick() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void allow_friend_rq::clear_has_user_allow_nick() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void allow_friend_rq::clear_user_allow_nick() {
+  user_allow_nick_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_allow_nick();
+}
+inline const ::std::string& allow_friend_rq::user_allow_nick() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_rq.user_allow_nick)
+  return user_allow_nick_.GetNoArena();
+}
+inline void allow_friend_rq::set_user_allow_nick(const ::std::string& value) {
+  set_has_user_allow_nick();
+  user_allow_nick_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_rq.user_allow_nick)
+}
+#if LANG_CXX11
+inline void allow_friend_rq::set_user_allow_nick(::std::string&& value) {
+  set_has_user_allow_nick();
+  user_allow_nick_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_relation.allow_friend_rq.user_allow_nick)
+}
+#endif
+inline void allow_friend_rq::set_user_allow_nick(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_allow_nick();
+  user_allow_nick_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_relation.allow_friend_rq.user_allow_nick)
+}
+inline void allow_friend_rq::set_user_allow_nick(const char* value, size_t size) {
+  set_has_user_allow_nick();
+  user_allow_nick_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_relation.allow_friend_rq.user_allow_nick)
+}
+inline ::std::string* allow_friend_rq::mutable_user_allow_nick() {
+  set_has_user_allow_nick();
+  // @@protoc_insertion_point(field_mutable:c_business_relation.allow_friend_rq.user_allow_nick)
+  return user_allow_nick_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* allow_friend_rq::release_user_allow_nick() {
+  // @@protoc_insertion_point(field_release:c_business_relation.allow_friend_rq.user_allow_nick)
+  clear_has_user_allow_nick();
+  return user_allow_nick_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void allow_friend_rq::set_allocated_user_allow_nick(::std::string* user_allow_nick) {
+  if (user_allow_nick != NULL) {
+    set_has_user_allow_nick();
+  } else {
+    clear_has_user_allow_nick();
+  }
+  user_allow_nick_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_allow_nick);
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.allow_friend_rq.user_allow_nick)
+}
+
+// required uint32 opcode = 5;
 inline bool allow_friend_rq::has_opcode() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void allow_friend_rq::set_has_opcode() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void allow_friend_rq::clear_has_opcode() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void allow_friend_rq::clear_opcode() {
   opcode_ = 0u;
@@ -3898,32 +5556,83 @@ inline void allow_friend_rs::set_opcode(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_rs.opcode)
 }
 
+// repeated .b_business_relation.user_relation relation_s = 4;
+inline int allow_friend_rs::relation_s_size() const {
+  return relation_s_.size();
+}
+inline void allow_friend_rs::clear_relation_s() {
+  relation_s_.Clear();
+}
+inline const ::b_business_relation::user_relation& allow_friend_rs::relation_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_rs.relation_s)
+  return relation_s_.Get(index);
+}
+inline ::b_business_relation::user_relation* allow_friend_rs::mutable_relation_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_relation.allow_friend_rs.relation_s)
+  return relation_s_.Mutable(index);
+}
+inline ::b_business_relation::user_relation* allow_friend_rs::add_relation_s() {
+  // @@protoc_insertion_point(field_add:c_business_relation.allow_friend_rs.relation_s)
+  return relation_s_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >*
+allow_friend_rs::mutable_relation_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_relation.allow_friend_rs.relation_s)
+  return &relation_s_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >&
+allow_friend_rs::relation_s() const {
+  // @@protoc_insertion_point(field_list:c_business_relation.allow_friend_rs.relation_s)
+  return relation_s_;
+}
+
 // -------------------------------------------------------------------
 
 // allow_friend_nt
 
-// required uint64 allow_user_id = 1;
-inline bool allow_friend_nt::has_allow_user_id() const {
+// required .b_business_account.user_info apply_user_info = 1;
+inline bool allow_friend_nt::has_apply_user_info() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void allow_friend_nt::set_has_allow_user_id() {
+inline void allow_friend_nt::set_has_apply_user_info() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void allow_friend_nt::clear_has_allow_user_id() {
+inline void allow_friend_nt::clear_has_apply_user_info() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void allow_friend_nt::clear_allow_user_id() {
-  allow_user_id_ = GOOGLE_ULONGLONG(0);
-  clear_has_allow_user_id();
+inline void allow_friend_nt::clear_apply_user_info() {
+  if (apply_user_info_ != NULL) apply_user_info_->::b_business_account::user_info::Clear();
+  clear_has_apply_user_info();
 }
-inline ::google::protobuf::uint64 allow_friend_nt::allow_user_id() const {
-  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_nt.allow_user_id)
-  return allow_user_id_;
+inline const ::b_business_account::user_info& allow_friend_nt::apply_user_info() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_nt.apply_user_info)
+  return apply_user_info_ != NULL ? *apply_user_info_
+                         : *::b_business_account::user_info::internal_default_instance();
 }
-inline void allow_friend_nt::set_allow_user_id(::google::protobuf::uint64 value) {
-  set_has_allow_user_id();
-  allow_user_id_ = value;
-  // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_nt.allow_user_id)
+inline ::b_business_account::user_info* allow_friend_nt::mutable_apply_user_info() {
+  set_has_apply_user_info();
+  if (apply_user_info_ == NULL) {
+    apply_user_info_ = new ::b_business_account::user_info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_relation.allow_friend_nt.apply_user_info)
+  return apply_user_info_;
+}
+inline ::b_business_account::user_info* allow_friend_nt::release_apply_user_info() {
+  // @@protoc_insertion_point(field_release:c_business_relation.allow_friend_nt.apply_user_info)
+  clear_has_apply_user_info();
+  ::b_business_account::user_info* temp = apply_user_info_;
+  apply_user_info_ = NULL;
+  return temp;
+}
+inline void allow_friend_nt::set_allocated_apply_user_info(::b_business_account::user_info* apply_user_info) {
+  delete apply_user_info_;
+  apply_user_info_ = apply_user_info;
+  if (apply_user_info) {
+    set_has_apply_user_info();
+  } else {
+    clear_has_apply_user_info();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.allow_friend_nt.apply_user_info)
 }
 
 // required uint32 opcode = 2;
@@ -3948,6 +5657,36 @@ inline void allow_friend_nt::set_opcode(::google::protobuf::uint32 value) {
   set_has_opcode();
   opcode_ = value;
   // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_nt.opcode)
+}
+
+// repeated .b_business_relation.user_relation relation_s = 3;
+inline int allow_friend_nt::relation_s_size() const {
+  return relation_s_.size();
+}
+inline void allow_friend_nt::clear_relation_s() {
+  relation_s_.Clear();
+}
+inline const ::b_business_relation::user_relation& allow_friend_nt::relation_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_nt.relation_s)
+  return relation_s_.Get(index);
+}
+inline ::b_business_relation::user_relation* allow_friend_nt::mutable_relation_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_relation.allow_friend_nt.relation_s)
+  return relation_s_.Mutable(index);
+}
+inline ::b_business_relation::user_relation* allow_friend_nt::add_relation_s() {
+  // @@protoc_insertion_point(field_add:c_business_relation.allow_friend_nt.relation_s)
+  return relation_s_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >*
+allow_friend_nt::mutable_relation_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_relation.allow_friend_nt.relation_s)
+  return &relation_s_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >&
+allow_friend_nt::relation_s() const {
+  // @@protoc_insertion_point(field_list:c_business_relation.allow_friend_nt.relation_s)
+  return relation_s_;
 }
 
 // -------------------------------------------------------------------
@@ -4027,34 +5766,64 @@ inline void query_friends_rs::set_allocated_error(::b_error::info* error) {
   // @@protoc_insertion_point(field_set_allocated:c_business_relation.query_friends_rs.error)
 }
 
-// repeated .c_business_relation.friend_info friend_info_s = 2;
-inline int query_friends_rs::friend_info_s_size() const {
-  return friend_info_s_.size();
+// repeated .b_business_relation.user_relation_group group_s = 2;
+inline int query_friends_rs::group_s_size() const {
+  return group_s_.size();
 }
-inline void query_friends_rs::clear_friend_info_s() {
-  friend_info_s_.Clear();
+inline void query_friends_rs::clear_group_s() {
+  group_s_.Clear();
 }
-inline const ::c_business_relation::friend_info& query_friends_rs::friend_info_s(int index) const {
-  // @@protoc_insertion_point(field_get:c_business_relation.query_friends_rs.friend_info_s)
-  return friend_info_s_.Get(index);
+inline const ::b_business_relation::user_relation_group& query_friends_rs::group_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_relation.query_friends_rs.group_s)
+  return group_s_.Get(index);
 }
-inline ::c_business_relation::friend_info* query_friends_rs::mutable_friend_info_s(int index) {
-  // @@protoc_insertion_point(field_mutable:c_business_relation.query_friends_rs.friend_info_s)
-  return friend_info_s_.Mutable(index);
+inline ::b_business_relation::user_relation_group* query_friends_rs::mutable_group_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_relation.query_friends_rs.group_s)
+  return group_s_.Mutable(index);
 }
-inline ::c_business_relation::friend_info* query_friends_rs::add_friend_info_s() {
-  // @@protoc_insertion_point(field_add:c_business_relation.query_friends_rs.friend_info_s)
-  return friend_info_s_.Add();
+inline ::b_business_relation::user_relation_group* query_friends_rs::add_group_s() {
+  // @@protoc_insertion_point(field_add:c_business_relation.query_friends_rs.group_s)
+  return group_s_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::c_business_relation::friend_info >*
-query_friends_rs::mutable_friend_info_s() {
-  // @@protoc_insertion_point(field_mutable_list:c_business_relation.query_friends_rs.friend_info_s)
-  return &friend_info_s_;
+inline ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation_group >*
+query_friends_rs::mutable_group_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_relation.query_friends_rs.group_s)
+  return &group_s_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::c_business_relation::friend_info >&
-query_friends_rs::friend_info_s() const {
-  // @@protoc_insertion_point(field_list:c_business_relation.query_friends_rs.friend_info_s)
-  return friend_info_s_;
+inline const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation_group >&
+query_friends_rs::group_s() const {
+  // @@protoc_insertion_point(field_list:c_business_relation.query_friends_rs.group_s)
+  return group_s_;
+}
+
+// repeated .b_business_relation.user_relation relation_s = 3;
+inline int query_friends_rs::relation_s_size() const {
+  return relation_s_.size();
+}
+inline void query_friends_rs::clear_relation_s() {
+  relation_s_.Clear();
+}
+inline const ::b_business_relation::user_relation& query_friends_rs::relation_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_relation.query_friends_rs.relation_s)
+  return relation_s_.Get(index);
+}
+inline ::b_business_relation::user_relation* query_friends_rs::mutable_relation_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_relation.query_friends_rs.relation_s)
+  return relation_s_.Mutable(index);
+}
+inline ::b_business_relation::user_relation* query_friends_rs::add_relation_s() {
+  // @@protoc_insertion_point(field_add:c_business_relation.query_friends_rs.relation_s)
+  return relation_s_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >*
+query_friends_rs::mutable_relation_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_relation.query_friends_rs.relation_s)
+  return &relation_s_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::b_business_relation::user_relation >&
+query_friends_rs::relation_s() const {
+  // @@protoc_insertion_point(field_list:c_business_relation.query_friends_rs.relation_s)
+  return relation_s_;
 }
 
 // -------------------------------------------------------------------
@@ -4310,6 +6079,406 @@ inline void rename_friend_remark_rs::set_allocated_user_friend_remark(::std::str
 
 // -------------------------------------------------------------------
 
+// add_friend_group_rq
+
+// required uint64 user_myself_id = 1;
+inline bool add_friend_group_rq::has_user_myself_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void add_friend_group_rq::set_has_user_myself_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void add_friend_group_rq::clear_has_user_myself_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void add_friend_group_rq::clear_user_myself_id() {
+  user_myself_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_myself_id();
+}
+inline ::google::protobuf::uint64 add_friend_group_rq::user_myself_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_group_rq.user_myself_id)
+  return user_myself_id_;
+}
+inline void add_friend_group_rq::set_user_myself_id(::google::protobuf::uint64 value) {
+  set_has_user_myself_id();
+  user_myself_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.add_friend_group_rq.user_myself_id)
+}
+
+// required string user_friend_group = 2;
+inline bool add_friend_group_rq::has_user_friend_group() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void add_friend_group_rq::set_has_user_friend_group() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void add_friend_group_rq::clear_has_user_friend_group() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void add_friend_group_rq::clear_user_friend_group() {
+  user_friend_group_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_friend_group();
+}
+inline const ::std::string& add_friend_group_rq::user_friend_group() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_group_rq.user_friend_group)
+  return user_friend_group_.GetNoArena();
+}
+inline void add_friend_group_rq::set_user_friend_group(const ::std::string& value) {
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_relation.add_friend_group_rq.user_friend_group)
+}
+#if LANG_CXX11
+inline void add_friend_group_rq::set_user_friend_group(::std::string&& value) {
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_relation.add_friend_group_rq.user_friend_group)
+}
+#endif
+inline void add_friend_group_rq::set_user_friend_group(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_relation.add_friend_group_rq.user_friend_group)
+}
+inline void add_friend_group_rq::set_user_friend_group(const char* value, size_t size) {
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_relation.add_friend_group_rq.user_friend_group)
+}
+inline ::std::string* add_friend_group_rq::mutable_user_friend_group() {
+  set_has_user_friend_group();
+  // @@protoc_insertion_point(field_mutable:c_business_relation.add_friend_group_rq.user_friend_group)
+  return user_friend_group_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* add_friend_group_rq::release_user_friend_group() {
+  // @@protoc_insertion_point(field_release:c_business_relation.add_friend_group_rq.user_friend_group)
+  clear_has_user_friend_group();
+  return user_friend_group_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void add_friend_group_rq::set_allocated_user_friend_group(::std::string* user_friend_group) {
+  if (user_friend_group != NULL) {
+    set_has_user_friend_group();
+  } else {
+    clear_has_user_friend_group();
+  }
+  user_friend_group_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_friend_group);
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.add_friend_group_rq.user_friend_group)
+}
+
+// -------------------------------------------------------------------
+
+// add_friend_group_rs
+
+// required .b_error.info error = 1;
+inline bool add_friend_group_rs::has_error() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void add_friend_group_rs::set_has_error() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void add_friend_group_rs::clear_has_error() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void add_friend_group_rs::clear_error() {
+  if (error_ != NULL) error_->::b_error::info::Clear();
+  clear_has_error();
+}
+inline const ::b_error::info& add_friend_group_rs::error() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_group_rs.error)
+  return error_ != NULL ? *error_
+                         : *::b_error::info::internal_default_instance();
+}
+inline ::b_error::info* add_friend_group_rs::mutable_error() {
+  set_has_error();
+  if (error_ == NULL) {
+    error_ = new ::b_error::info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_relation.add_friend_group_rs.error)
+  return error_;
+}
+inline ::b_error::info* add_friend_group_rs::release_error() {
+  // @@protoc_insertion_point(field_release:c_business_relation.add_friend_group_rs.error)
+  clear_has_error();
+  ::b_error::info* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void add_friend_group_rs::set_allocated_error(::b_error::info* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    set_has_error();
+  } else {
+    clear_has_error();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.add_friend_group_rs.error)
+}
+
+// required string user_friend_group = 2;
+inline bool add_friend_group_rs::has_user_friend_group() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void add_friend_group_rs::set_has_user_friend_group() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void add_friend_group_rs::clear_has_user_friend_group() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void add_friend_group_rs::clear_user_friend_group() {
+  user_friend_group_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_friend_group();
+}
+inline const ::std::string& add_friend_group_rs::user_friend_group() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_group_rs.user_friend_group)
+  return user_friend_group_.GetNoArena();
+}
+inline void add_friend_group_rs::set_user_friend_group(const ::std::string& value) {
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:c_business_relation.add_friend_group_rs.user_friend_group)
+}
+#if LANG_CXX11
+inline void add_friend_group_rs::set_user_friend_group(::std::string&& value) {
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:c_business_relation.add_friend_group_rs.user_friend_group)
+}
+#endif
+inline void add_friend_group_rs::set_user_friend_group(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:c_business_relation.add_friend_group_rs.user_friend_group)
+}
+inline void add_friend_group_rs::set_user_friend_group(const char* value, size_t size) {
+  set_has_user_friend_group();
+  user_friend_group_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:c_business_relation.add_friend_group_rs.user_friend_group)
+}
+inline ::std::string* add_friend_group_rs::mutable_user_friend_group() {
+  set_has_user_friend_group();
+  // @@protoc_insertion_point(field_mutable:c_business_relation.add_friend_group_rs.user_friend_group)
+  return user_friend_group_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* add_friend_group_rs::release_user_friend_group() {
+  // @@protoc_insertion_point(field_release:c_business_relation.add_friend_group_rs.user_friend_group)
+  clear_has_user_friend_group();
+  return user_friend_group_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void add_friend_group_rs::set_allocated_user_friend_group(::std::string* user_friend_group) {
+  if (user_friend_group != NULL) {
+    set_has_user_friend_group();
+  } else {
+    clear_has_user_friend_group();
+  }
+  user_friend_group_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_friend_group);
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.add_friend_group_rs.user_friend_group)
+}
+
+// required uint64 user_friend_group_id = 3;
+inline bool add_friend_group_rs::has_user_friend_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void add_friend_group_rs::set_has_user_friend_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void add_friend_group_rs::clear_has_user_friend_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void add_friend_group_rs::clear_user_friend_group_id() {
+  user_friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id();
+}
+inline ::google::protobuf::uint64 add_friend_group_rs::user_friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.add_friend_group_rs.user_friend_group_id)
+  return user_friend_group_id_;
+}
+inline void add_friend_group_rs::set_user_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id();
+  user_friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.add_friend_group_rs.user_friend_group_id)
+}
+
+// -------------------------------------------------------------------
+
+// delete_friend_group_rq
+
+// required uint64 user_myself_id = 1;
+inline bool delete_friend_group_rq::has_user_myself_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void delete_friend_group_rq::set_has_user_myself_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void delete_friend_group_rq::clear_has_user_myself_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void delete_friend_group_rq::clear_user_myself_id() {
+  user_myself_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_myself_id();
+}
+inline ::google::protobuf::uint64 delete_friend_group_rq::user_myself_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.delete_friend_group_rq.user_myself_id)
+  return user_myself_id_;
+}
+inline void delete_friend_group_rq::set_user_myself_id(::google::protobuf::uint64 value) {
+  set_has_user_myself_id();
+  user_myself_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.delete_friend_group_rq.user_myself_id)
+}
+
+// required uint64 user_friend_id = 2;
+inline bool delete_friend_group_rq::has_user_friend_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void delete_friend_group_rq::set_has_user_friend_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void delete_friend_group_rq::clear_has_user_friend_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void delete_friend_group_rq::clear_user_friend_id() {
+  user_friend_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_id();
+}
+inline ::google::protobuf::uint64 delete_friend_group_rq::user_friend_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.delete_friend_group_rq.user_friend_id)
+  return user_friend_id_;
+}
+inline void delete_friend_group_rq::set_user_friend_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_id();
+  user_friend_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.delete_friend_group_rq.user_friend_id)
+}
+
+// required uint64 user_friend_group_id = 3;
+inline bool delete_friend_group_rq::has_user_friend_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void delete_friend_group_rq::set_has_user_friend_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void delete_friend_group_rq::clear_has_user_friend_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void delete_friend_group_rq::clear_user_friend_group_id() {
+  user_friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id();
+}
+inline ::google::protobuf::uint64 delete_friend_group_rq::user_friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.delete_friend_group_rq.user_friend_group_id)
+  return user_friend_group_id_;
+}
+inline void delete_friend_group_rq::set_user_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id();
+  user_friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.delete_friend_group_rq.user_friend_group_id)
+}
+
+// -------------------------------------------------------------------
+
+// delete_friend_group_rs
+
+// required .b_error.info error = 1;
+inline bool delete_friend_group_rs::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void delete_friend_group_rs::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void delete_friend_group_rs::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void delete_friend_group_rs::clear_error() {
+  if (error_ != NULL) error_->::b_error::info::Clear();
+  clear_has_error();
+}
+inline const ::b_error::info& delete_friend_group_rs::error() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.delete_friend_group_rs.error)
+  return error_ != NULL ? *error_
+                         : *::b_error::info::internal_default_instance();
+}
+inline ::b_error::info* delete_friend_group_rs::mutable_error() {
+  set_has_error();
+  if (error_ == NULL) {
+    error_ = new ::b_error::info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_relation.delete_friend_group_rs.error)
+  return error_;
+}
+inline ::b_error::info* delete_friend_group_rs::release_error() {
+  // @@protoc_insertion_point(field_release:c_business_relation.delete_friend_group_rs.error)
+  clear_has_error();
+  ::b_error::info* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void delete_friend_group_rs::set_allocated_error(::b_error::info* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    set_has_error();
+  } else {
+    clear_has_error();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.delete_friend_group_rs.error)
+}
+
+// required uint64 user_friend_id = 2;
+inline bool delete_friend_group_rs::has_user_friend_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void delete_friend_group_rs::set_has_user_friend_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void delete_friend_group_rs::clear_has_user_friend_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void delete_friend_group_rs::clear_user_friend_id() {
+  user_friend_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_id();
+}
+inline ::google::protobuf::uint64 delete_friend_group_rs::user_friend_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.delete_friend_group_rs.user_friend_id)
+  return user_friend_id_;
+}
+inline void delete_friend_group_rs::set_user_friend_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_id();
+  user_friend_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.delete_friend_group_rs.user_friend_id)
+}
+
+// required uint64 user_friend_group_id = 3;
+inline bool delete_friend_group_rs::has_user_friend_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void delete_friend_group_rs::set_has_user_friend_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void delete_friend_group_rs::clear_has_user_friend_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void delete_friend_group_rs::clear_user_friend_group_id() {
+  user_friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id();
+}
+inline ::google::protobuf::uint64 delete_friend_group_rs::user_friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.delete_friend_group_rs.user_friend_group_id)
+  return user_friend_group_id_;
+}
+inline void delete_friend_group_rs::set_user_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id();
+  user_friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.delete_friend_group_rs.user_friend_group_id)
+}
+
+// -------------------------------------------------------------------
+
 // rename_friend_group_rq
 
 // required uint64 user_myself_id = 1;
@@ -4336,31 +6505,31 @@ inline void rename_friend_group_rq::set_user_myself_id(::google::protobuf::uint6
   // @@protoc_insertion_point(field_set:c_business_relation.rename_friend_group_rq.user_myself_id)
 }
 
-// required uint64 user_friend_id = 2;
-inline bool rename_friend_group_rq::has_user_friend_id() const {
+// required uint64 user_friend_group_id = 3;
+inline bool rename_friend_group_rq::has_user_friend_group_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void rename_friend_group_rq::set_has_user_friend_id() {
+inline void rename_friend_group_rq::set_has_user_friend_group_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void rename_friend_group_rq::clear_has_user_friend_id() {
+inline void rename_friend_group_rq::clear_has_user_friend_group_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void rename_friend_group_rq::clear_user_friend_id() {
-  user_friend_id_ = GOOGLE_ULONGLONG(0);
-  clear_has_user_friend_id();
+inline void rename_friend_group_rq::clear_user_friend_group_id() {
+  user_friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id();
 }
-inline ::google::protobuf::uint64 rename_friend_group_rq::user_friend_id() const {
-  // @@protoc_insertion_point(field_get:c_business_relation.rename_friend_group_rq.user_friend_id)
-  return user_friend_id_;
+inline ::google::protobuf::uint64 rename_friend_group_rq::user_friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.rename_friend_group_rq.user_friend_group_id)
+  return user_friend_group_id_;
 }
-inline void rename_friend_group_rq::set_user_friend_id(::google::protobuf::uint64 value) {
-  set_has_user_friend_id();
-  user_friend_id_ = value;
-  // @@protoc_insertion_point(field_set:c_business_relation.rename_friend_group_rq.user_friend_id)
+inline void rename_friend_group_rq::set_user_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id();
+  user_friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.rename_friend_group_rq.user_friend_group_id)
 }
 
-// required string user_friend_group = 3;
+// required string user_friend_group = 4;
 inline bool rename_friend_group_rq::has_user_friend_group() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4472,31 +6641,31 @@ inline void rename_friend_group_rs::set_allocated_error(::b_error::info* error) 
   // @@protoc_insertion_point(field_set_allocated:c_business_relation.rename_friend_group_rs.error)
 }
 
-// required uint64 user_friend_id = 2;
-inline bool rename_friend_group_rs::has_user_friend_id() const {
+// required uint64 user_friend_group_id = 3;
+inline bool rename_friend_group_rs::has_user_friend_group_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void rename_friend_group_rs::set_has_user_friend_id() {
+inline void rename_friend_group_rs::set_has_user_friend_group_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void rename_friend_group_rs::clear_has_user_friend_id() {
+inline void rename_friend_group_rs::clear_has_user_friend_group_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void rename_friend_group_rs::clear_user_friend_id() {
-  user_friend_id_ = GOOGLE_ULONGLONG(0);
-  clear_has_user_friend_id();
+inline void rename_friend_group_rs::clear_user_friend_group_id() {
+  user_friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id();
 }
-inline ::google::protobuf::uint64 rename_friend_group_rs::user_friend_id() const {
-  // @@protoc_insertion_point(field_get:c_business_relation.rename_friend_group_rs.user_friend_id)
-  return user_friend_id_;
+inline ::google::protobuf::uint64 rename_friend_group_rs::user_friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.rename_friend_group_rs.user_friend_group_id)
+  return user_friend_group_id_;
 }
-inline void rename_friend_group_rs::set_user_friend_id(::google::protobuf::uint64 value) {
-  set_has_user_friend_id();
-  user_friend_id_ = value;
-  // @@protoc_insertion_point(field_set:c_business_relation.rename_friend_group_rs.user_friend_id)
+inline void rename_friend_group_rs::set_user_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id();
+  user_friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.rename_friend_group_rs.user_friend_group_id)
 }
 
-// required string user_friend_group = 3;
+// required string user_friend_group = 4;
 inline bool rename_friend_group_rs::has_user_friend_group() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4557,6 +6726,334 @@ inline void rename_friend_group_rs::set_allocated_user_friend_group(::std::strin
   }
   user_friend_group_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_friend_group);
   // @@protoc_insertion_point(field_set_allocated:c_business_relation.rename_friend_group_rs.user_friend_group)
+}
+
+// -------------------------------------------------------------------
+
+// change_friend_group_rq
+
+// required uint64 user_myself_id = 1;
+inline bool change_friend_group_rq::has_user_myself_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void change_friend_group_rq::set_has_user_myself_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void change_friend_group_rq::clear_has_user_myself_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void change_friend_group_rq::clear_user_myself_id() {
+  user_myself_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_myself_id();
+}
+inline ::google::protobuf::uint64 change_friend_group_rq::user_myself_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rq.user_myself_id)
+  return user_myself_id_;
+}
+inline void change_friend_group_rq::set_user_myself_id(::google::protobuf::uint64 value) {
+  set_has_user_myself_id();
+  user_myself_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rq.user_myself_id)
+}
+
+// required uint64 user_friend_id = 2;
+inline bool change_friend_group_rq::has_user_friend_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void change_friend_group_rq::set_has_user_friend_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void change_friend_group_rq::clear_has_user_friend_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void change_friend_group_rq::clear_user_friend_id() {
+  user_friend_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_id();
+}
+inline ::google::protobuf::uint64 change_friend_group_rq::user_friend_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rq.user_friend_id)
+  return user_friend_id_;
+}
+inline void change_friend_group_rq::set_user_friend_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_id();
+  user_friend_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rq.user_friend_id)
+}
+
+// required uint64 user_friend_group_id_old = 3;
+inline bool change_friend_group_rq::has_user_friend_group_id_old() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void change_friend_group_rq::set_has_user_friend_group_id_old() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void change_friend_group_rq::clear_has_user_friend_group_id_old() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void change_friend_group_rq::clear_user_friend_group_id_old() {
+  user_friend_group_id_old_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id_old();
+}
+inline ::google::protobuf::uint64 change_friend_group_rq::user_friend_group_id_old() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rq.user_friend_group_id_old)
+  return user_friend_group_id_old_;
+}
+inline void change_friend_group_rq::set_user_friend_group_id_old(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id_old();
+  user_friend_group_id_old_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rq.user_friend_group_id_old)
+}
+
+// required uint64 user_friend_group_id_new = 4;
+inline bool change_friend_group_rq::has_user_friend_group_id_new() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void change_friend_group_rq::set_has_user_friend_group_id_new() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void change_friend_group_rq::clear_has_user_friend_group_id_new() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void change_friend_group_rq::clear_user_friend_group_id_new() {
+  user_friend_group_id_new_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id_new();
+}
+inline ::google::protobuf::uint64 change_friend_group_rq::user_friend_group_id_new() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rq.user_friend_group_id_new)
+  return user_friend_group_id_new_;
+}
+inline void change_friend_group_rq::set_user_friend_group_id_new(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id_new();
+  user_friend_group_id_new_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rq.user_friend_group_id_new)
+}
+
+// -------------------------------------------------------------------
+
+// change_friend_group_rs
+
+// required .b_error.info error = 1;
+inline bool change_friend_group_rs::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void change_friend_group_rs::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void change_friend_group_rs::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void change_friend_group_rs::clear_error() {
+  if (error_ != NULL) error_->::b_error::info::Clear();
+  clear_has_error();
+}
+inline const ::b_error::info& change_friend_group_rs::error() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rs.error)
+  return error_ != NULL ? *error_
+                         : *::b_error::info::internal_default_instance();
+}
+inline ::b_error::info* change_friend_group_rs::mutable_error() {
+  set_has_error();
+  if (error_ == NULL) {
+    error_ = new ::b_error::info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_relation.change_friend_group_rs.error)
+  return error_;
+}
+inline ::b_error::info* change_friend_group_rs::release_error() {
+  // @@protoc_insertion_point(field_release:c_business_relation.change_friend_group_rs.error)
+  clear_has_error();
+  ::b_error::info* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void change_friend_group_rs::set_allocated_error(::b_error::info* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    set_has_error();
+  } else {
+    clear_has_error();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.change_friend_group_rs.error)
+}
+
+// required uint64 user_friend_id = 2;
+inline bool change_friend_group_rs::has_user_friend_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void change_friend_group_rs::set_has_user_friend_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void change_friend_group_rs::clear_has_user_friend_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void change_friend_group_rs::clear_user_friend_id() {
+  user_friend_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_id();
+}
+inline ::google::protobuf::uint64 change_friend_group_rs::user_friend_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rs.user_friend_id)
+  return user_friend_id_;
+}
+inline void change_friend_group_rs::set_user_friend_id(::google::protobuf::uint64 value) {
+  set_has_user_friend_id();
+  user_friend_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rs.user_friend_id)
+}
+
+// required uint64 user_friend_group_id_old = 3;
+inline bool change_friend_group_rs::has_user_friend_group_id_old() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void change_friend_group_rs::set_has_user_friend_group_id_old() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void change_friend_group_rs::clear_has_user_friend_group_id_old() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void change_friend_group_rs::clear_user_friend_group_id_old() {
+  user_friend_group_id_old_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id_old();
+}
+inline ::google::protobuf::uint64 change_friend_group_rs::user_friend_group_id_old() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rs.user_friend_group_id_old)
+  return user_friend_group_id_old_;
+}
+inline void change_friend_group_rs::set_user_friend_group_id_old(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id_old();
+  user_friend_group_id_old_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rs.user_friend_group_id_old)
+}
+
+// required uint64 user_friend_group_id_new = 4;
+inline bool change_friend_group_rs::has_user_friend_group_id_new() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void change_friend_group_rs::set_has_user_friend_group_id_new() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void change_friend_group_rs::clear_has_user_friend_group_id_new() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void change_friend_group_rs::clear_user_friend_group_id_new() {
+  user_friend_group_id_new_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_friend_group_id_new();
+}
+inline ::google::protobuf::uint64 change_friend_group_rs::user_friend_group_id_new() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.change_friend_group_rs.user_friend_group_id_new)
+  return user_friend_group_id_new_;
+}
+inline void change_friend_group_rs::set_user_friend_group_id_new(::google::protobuf::uint64 value) {
+  set_has_user_friend_group_id_new();
+  user_friend_group_id_new_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.change_friend_group_rs.user_friend_group_id_new)
+}
+
+// -------------------------------------------------------------------
+
+// query_friends_apply_rq
+
+// required uint64 user_myself_id = 1;
+inline bool query_friends_apply_rq::has_user_myself_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void query_friends_apply_rq::set_has_user_myself_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void query_friends_apply_rq::clear_has_user_myself_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void query_friends_apply_rq::clear_user_myself_id() {
+  user_myself_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_myself_id();
+}
+inline ::google::protobuf::uint64 query_friends_apply_rq::user_myself_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.query_friends_apply_rq.user_myself_id)
+  return user_myself_id_;
+}
+inline void query_friends_apply_rq::set_user_myself_id(::google::protobuf::uint64 value) {
+  set_has_user_myself_id();
+  user_myself_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.query_friends_apply_rq.user_myself_id)
+}
+
+// -------------------------------------------------------------------
+
+// query_friends_apply_rs
+
+// required .b_error.info error = 1;
+inline bool query_friends_apply_rs::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void query_friends_apply_rs::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void query_friends_apply_rs::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void query_friends_apply_rs::clear_error() {
+  if (error_ != NULL) error_->::b_error::info::Clear();
+  clear_has_error();
+}
+inline const ::b_error::info& query_friends_apply_rs::error() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.query_friends_apply_rs.error)
+  return error_ != NULL ? *error_
+                         : *::b_error::info::internal_default_instance();
+}
+inline ::b_error::info* query_friends_apply_rs::mutable_error() {
+  set_has_error();
+  if (error_ == NULL) {
+    error_ = new ::b_error::info;
+  }
+  // @@protoc_insertion_point(field_mutable:c_business_relation.query_friends_apply_rs.error)
+  return error_;
+}
+inline ::b_error::info* query_friends_apply_rs::release_error() {
+  // @@protoc_insertion_point(field_release:c_business_relation.query_friends_apply_rs.error)
+  clear_has_error();
+  ::b_error::info* temp = error_;
+  error_ = NULL;
+  return temp;
+}
+inline void query_friends_apply_rs::set_allocated_error(::b_error::info* error) {
+  delete error_;
+  error_ = error;
+  if (error) {
+    set_has_error();
+  } else {
+    clear_has_error();
+  }
+  // @@protoc_insertion_point(field_set_allocated:c_business_relation.query_friends_apply_rs.error)
+}
+
+// repeated .b_business_relation.friend_apply apply_s = 2;
+inline int query_friends_apply_rs::apply_s_size() const {
+  return apply_s_.size();
+}
+inline void query_friends_apply_rs::clear_apply_s() {
+  apply_s_.Clear();
+}
+inline const ::b_business_relation::friend_apply& query_friends_apply_rs::apply_s(int index) const {
+  // @@protoc_insertion_point(field_get:c_business_relation.query_friends_apply_rs.apply_s)
+  return apply_s_.Get(index);
+}
+inline ::b_business_relation::friend_apply* query_friends_apply_rs::mutable_apply_s(int index) {
+  // @@protoc_insertion_point(field_mutable:c_business_relation.query_friends_apply_rs.apply_s)
+  return apply_s_.Mutable(index);
+}
+inline ::b_business_relation::friend_apply* query_friends_apply_rs::add_apply_s() {
+  // @@protoc_insertion_point(field_add:c_business_relation.query_friends_apply_rs.apply_s)
+  return apply_s_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::b_business_relation::friend_apply >*
+query_friends_apply_rs::mutable_apply_s() {
+  // @@protoc_insertion_point(field_mutable_list:c_business_relation.query_friends_apply_rs.apply_s)
+  return &apply_s_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::b_business_relation::friend_apply >&
+query_friends_apply_rs::apply_s() const {
+  // @@protoc_insertion_point(field_list:c_business_relation.query_friends_apply_rs.apply_s)
+  return apply_s_;
 }
 
 // -------------------------------------------------------------------
@@ -4875,6 +7372,22 @@ inline void talk_friend_nt::set_allocated_talking(::std::string* talking) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -4955,6 +7468,26 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::rename_friend_remark_rs_msg>() {
   return ::c_business_relation::rename_friend_remark_rs_msg_descriptor();
 }
+template <> struct is_proto_enum< ::c_business_relation::add_friend_group_rq_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::add_friend_group_rq_msg>() {
+  return ::c_business_relation::add_friend_group_rq_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::add_friend_group_rs_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::add_friend_group_rs_msg>() {
+  return ::c_business_relation::add_friend_group_rs_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::delete_friend_group_rq_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::delete_friend_group_rq_msg>() {
+  return ::c_business_relation::delete_friend_group_rq_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::delete_friend_group_rs_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::delete_friend_group_rs_msg>() {
+  return ::c_business_relation::delete_friend_group_rs_msg_descriptor();
+}
 template <> struct is_proto_enum< ::c_business_relation::rename_friend_group_rq_msg> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::rename_friend_group_rq_msg>() {
@@ -4964,6 +7497,26 @@ template <> struct is_proto_enum< ::c_business_relation::rename_friend_group_rs_
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::rename_friend_group_rs_msg>() {
   return ::c_business_relation::rename_friend_group_rs_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::change_friend_group_rq_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::change_friend_group_rq_msg>() {
+  return ::c_business_relation::change_friend_group_rq_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::change_friend_group_rs_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::change_friend_group_rs_msg>() {
+  return ::c_business_relation::change_friend_group_rs_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::query_friends_apply_rq_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::query_friends_apply_rq_msg>() {
+  return ::c_business_relation::query_friends_apply_rq_msg_descriptor();
+}
+template <> struct is_proto_enum< ::c_business_relation::query_friends_apply_rs_msg> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::c_business_relation::query_friends_apply_rs_msg>() {
+  return ::c_business_relation::query_friends_apply_rs_msg_descriptor();
 }
 template <> struct is_proto_enum< ::c_business_relation::talk_friend_rq_msg> : ::google::protobuf::internal::true_type {};
 template <>

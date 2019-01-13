@@ -34,6 +34,11 @@
             <Item path="layouts/l_frame_stats.layout" type="file" />
             <Item path="layouts/l_home_lj_interface_manager.layout" type="file" />
             <Item path="layouts/l_home_lj_login.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox_friend.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox_friend_apply.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox_friend_group.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox_search.layout" type="file" />
             <Item path="layouts/l_home_main.layout" type="file" />
             <Item path="layouts/l_home_page_about.layout" type="file" />
             <Item path="layouts/l_home_page_account.layout" type="file" />
@@ -49,8 +54,6 @@
             <Item path="layouts/l_synchronize.layout" type="file" />
             <Item path="layouts/l_title.layout" type="file" />
             <Item path="layouts/l_user_info.layout" type="file" />
-            <Item path="layouts/l_home_lj_mailbox.layout" type="file" />
-            <Item path="layouts/l_home_lj_mailbox_search.layout" type="file" />
         </Item>
         <Item name="looknfeel" type="folder">
             <Item path="looknfeel/TaharezLook.looknfeel" type="file" />

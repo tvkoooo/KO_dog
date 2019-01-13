@@ -4,6 +4,7 @@
 #include "KO_dog_data_net.h"
 #include "KO_dog_data_user_basic.h"
 #include "KO_dog_data_log_view.h"
+#include "KO_dog_data_relation.h"
 
 namespace mm
 {
@@ -17,6 +18,7 @@ namespace mm
 		KO_dog_data_net data_net;
 		KO_dog_data_user_basic data_user_basic;
 		KO_dog_data_log_view data_log_view;
+		KO_dog_data_relation data_relation;
 	public:
 
 		void thread_handle();

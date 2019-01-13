@@ -1,0 +1,41 @@
+
+脚本格式:
+mm_shuttle_entry.exe %log_dir% 7 1 192.168.1.112-10001[2] 192.168.1.112-20001[2] 127.0.0.1:10300, 127.0.0.1:10300, > nul 2>&1 &
+mm_shuttle_lobby.exe %log_dir% 7 1 192.168.1.112-10002[2] 192.168.1.112-20002[2] 127.0.0.1:10300, 127.0.0.1:10300, 101.200.169.28-10200 123456 > nul 2>&1 &
+business_account.exe %log_dir% 7 1 192.168.1.112-10010[2] 192.168.1.112-20010[2] 127.0.0.1:10300, 100 0 0 123456 > nul 2>&1 &
+business_relation.exe %log_dir% 7 1 192.168.1.112-10011[2] 192.168.1.112-20011[2] 127.0.0.1:10300, 101 0 0 > nul 2>&1 &
+mm_shuttle_proxy.exe %log_dir% 7 1 192.168.1.112-10051[2] 192.168.1.112-20051[2] 127.0.0.1:10300, 127.0.0.1:10300, 100 0x02002000 0x020020FF 0 > nul 2>&1 &
+mm_shuttle_proxy.exe %log_dir% 7 1 192.168.1.112-10052[2] 192.168.1.112-20052[2] 127.0.0.1:10300, 127.0.0.1:10300, 101 0x02002100 0x020021FF 0 > nul 2>&1 &
+
+
+
+supervisor:
+./mm_shuttle_entry /data/log/mm_shuttle_entry 7 %(process_num)d 10.44.53.26-101%(process_num)02d[2] 101.200.169.28-201%(process_num)02d[2] 127.0.0.1:10300, 127.0.0.1:10300,
+./mm_shuttle_lobby /data/log/mm_shuttle_lobby 7 %(process_num)d 10.44.53.26-102%(process_num)02d[2] 101.200.169.28-202%(process_num)02d[2] 127.0.0.1:10300, 127.0.0.1:10300, 101.200.169.28-10200 201812
+./business_account /data/log/business_account 7 %(process_num)d 10.44.53.26-191%(process_num)02d[2] 10.44.53.26-291%(process_num)02d[2] 127.0.0.1:10300, 100 0 0 201812
+./business_relation /data/log/business_account 7 %(process_num)d 10.44.53.26-192%(process_num)02d[2] 10.44.53.26-292%(process_num)02d[2] 127.0.0.1:10300, 101 0 0
+
+./mm_shuttle_proxy /data/log/mm_shuttle_proxy 7 %(process_num)d 10.44.53.26-103%(process_num)02d[2] 10.44.53.26-203%(process_num)02d[2] 127.0.0.1:10300, 127.0.0.1:10300, 100 0x02002000 0x020020FF 0
+./mm_shuttle_proxy /data/log/mm_shuttle_proxy 7 %(process_num)d 10.44.53.26-103%(process_num)02d[2] 10.44.53.26-203%(process_num)02d[2] 127.0.0.1:10300, 127.0.0.1:10300, 100 0x02002000 0x020020FF 0
+
+
+程序名           	内网端口      外网端口
+mm_shuttle_entry 	10101-10199   20101-20199 
+mm_shuttle_lobby 	10201-10299   20201-20299
+business_account 	19101-19199   29101-29199 
+business_relation 	19201-19299   29201-29299 
+
+mm_shuttle_proxy 	10301-10399   20301-20399  //business_account   0x02002000 0x020020FF
+mm_shuttle_proxy 	10401-10499   20401-20499  //business_relation  0x02002100 0x020021FF
+
+
+cp mm_handler_lobby.conf /etc/supervisor/conf.d/mm_handler_lobby.conf
+cp mm_shuttle_cback.conf /etc/supervisor/conf.d/mm_shuttle_cback.conf
+cp mm_shuttle_entry.conf /etc/supervisor/conf.d/mm_shuttle_entry.conf
+cp mm_shuttle_lobby.conf /etc/supervisor/conf.d/mm_shuttle_lobby.conf
+cp business_account.conf /etc/supervisor/conf.d/business_account.conf
+cp business_relation.conf /etc/supervisor/conf.d/business_relation.conf
+cp mm_shuttle_proxy_account.conf /etc/supervisor/conf.d/mm_shuttle_proxy_account.conf
+cp mm_shuttle_proxy_relation.conf /etc/supervisor/conf.d/mm_shuttle_proxy_relation.conf
+
+cp conf.d /etc/supervisor/conf.d
