@@ -6747,10 +6747,27 @@ public final class c_business_relation {
 
     /**
      * <pre>
+     * 好友组id
+     * </pre>
+     *
+     * <code>required uint64 friend_group_id = 5;</code>
+     */
+    boolean hasFriendGroupId();
+    /**
+     * <pre>
+     * 好友组id
+     * </pre>
+     *
+     * <code>required uint64 friend_group_id = 5;</code>
+     */
+    long getFriendGroupId();
+
+    /**
+     * <pre>
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 5;</code>
+     * <code>required uint32 opcode = 6;</code>
      */
     boolean hasOpcode();
     /**
@@ -6758,7 +6775,7 @@ public final class c_business_relation {
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 5;</code>
+     * <code>required uint32 opcode = 6;</code>
      */
     int getOpcode();
   }
@@ -6782,6 +6799,7 @@ public final class c_business_relation {
       userAllowId_ = 0L;
       userMyselfNick_ = "";
       userAllowNick_ = "";
+      friendGroupId_ = 0L;
       opcode_ = 0;
     }
 
@@ -6837,6 +6855,11 @@ public final class c_business_relation {
             }
             case 40: {
               bitField0_ |= 0x00000010;
+              friendGroupId_ = input.readUInt64();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
               opcode_ = input.readUInt32();
               break;
             }
@@ -7190,24 +7213,47 @@ public final class c_business_relation {
       }
     }
 
-    public static final int OPCODE_FIELD_NUMBER = 5;
+    public static final int FRIEND_GROUP_ID_FIELD_NUMBER = 5;
+    private long friendGroupId_;
+    /**
+     * <pre>
+     * 好友组id
+     * </pre>
+     *
+     * <code>required uint64 friend_group_id = 5;</code>
+     */
+    public boolean hasFriendGroupId() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * 好友组id
+     * </pre>
+     *
+     * <code>required uint64 friend_group_id = 5;</code>
+     */
+    public long getFriendGroupId() {
+      return friendGroupId_;
+    }
+
+    public static final int OPCODE_FIELD_NUMBER = 6;
     private int opcode_;
     /**
      * <pre>
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 5;</code>
+     * <code>required uint32 opcode = 6;</code>
      */
     public boolean hasOpcode() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <pre>
      * 用户操作码
      * </pre>
      *
-     * <code>required uint32 opcode = 5;</code>
+     * <code>required uint32 opcode = 6;</code>
      */
     public int getOpcode() {
       return opcode_;
@@ -7235,6 +7281,10 @@ public final class c_business_relation {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasFriendGroupId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasOpcode()) {
         memoizedIsInitialized = 0;
         return false;
@@ -7258,7 +7308,10 @@ public final class c_business_relation {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userAllowNick_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt32(5, opcode_);
+        output.writeUInt64(5, friendGroupId_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeUInt32(6, opcode_);
       }
       unknownFields.writeTo(output);
     }
@@ -7284,7 +7337,11 @@ public final class c_business_relation {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, opcode_);
+          .computeUInt64Size(5, friendGroupId_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, opcode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7323,6 +7380,11 @@ public final class c_business_relation {
         result = result && getUserAllowNick()
             .equals(other.getUserAllowNick());
       }
+      result = result && (hasFriendGroupId() == other.hasFriendGroupId());
+      if (hasFriendGroupId()) {
+        result = result && (getFriendGroupId()
+            == other.getFriendGroupId());
+      }
       result = result && (hasOpcode() == other.hasOpcode());
       if (hasOpcode()) {
         result = result && (getOpcode()
@@ -7356,6 +7418,11 @@ public final class c_business_relation {
       if (hasUserAllowNick()) {
         hash = (37 * hash) + USER_ALLOW_NICK_FIELD_NUMBER;
         hash = (53 * hash) + getUserAllowNick().hashCode();
+      }
+      if (hasFriendGroupId()) {
+        hash = (37 * hash) + FRIEND_GROUP_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFriendGroupId());
       }
       if (hasOpcode()) {
         hash = (37 * hash) + OPCODE_FIELD_NUMBER;
@@ -7502,8 +7569,10 @@ public final class c_business_relation {
         bitField0_ = (bitField0_ & ~0x00000004);
         userAllowNick_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        opcode_ = 0;
+        friendGroupId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
+        opcode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -7546,6 +7615,10 @@ public final class c_business_relation {
         result.userAllowNick_ = userAllowNick_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.friendGroupId_ = friendGroupId_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         result.opcode_ = opcode_;
         result.bitField0_ = to_bitField0_;
@@ -7606,6 +7679,9 @@ public final class c_business_relation {
           userAllowNick_ = other.userAllowNick_;
           onChanged();
         }
+        if (other.hasFriendGroupId()) {
+          setFriendGroupId(other.getFriendGroupId());
+        }
         if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
         }
@@ -7625,6 +7701,9 @@ public final class c_business_relation {
           return false;
         }
         if (!hasUserAllowNick()) {
+          return false;
+        }
+        if (!hasFriendGroupId()) {
           return false;
         }
         if (!hasOpcode()) {
@@ -7948,23 +8027,71 @@ public final class c_business_relation {
         return this;
       }
 
+      private long friendGroupId_ ;
+      /**
+       * <pre>
+       * 好友组id
+       * </pre>
+       *
+       * <code>required uint64 friend_group_id = 5;</code>
+       */
+      public boolean hasFriendGroupId() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * 好友组id
+       * </pre>
+       *
+       * <code>required uint64 friend_group_id = 5;</code>
+       */
+      public long getFriendGroupId() {
+        return friendGroupId_;
+      }
+      /**
+       * <pre>
+       * 好友组id
+       * </pre>
+       *
+       * <code>required uint64 friend_group_id = 5;</code>
+       */
+      public Builder setFriendGroupId(long value) {
+        bitField0_ |= 0x00000010;
+        friendGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 好友组id
+       * </pre>
+       *
+       * <code>required uint64 friend_group_id = 5;</code>
+       */
+      public Builder clearFriendGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        friendGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private int opcode_ ;
       /**
        * <pre>
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 5;</code>
+       * <code>required uint32 opcode = 6;</code>
        */
       public boolean hasOpcode() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <pre>
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 5;</code>
+       * <code>required uint32 opcode = 6;</code>
        */
       public int getOpcode() {
         return opcode_;
@@ -7974,10 +8101,10 @@ public final class c_business_relation {
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 5;</code>
+       * <code>required uint32 opcode = 6;</code>
        */
       public Builder setOpcode(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         opcode_ = value;
         onChanged();
         return this;
@@ -7987,10 +8114,10 @@ public final class c_business_relation {
        * 用户操作码
        * </pre>
        *
-       * <code>required uint32 opcode = 5;</code>
+       * <code>required uint32 opcode = 6;</code>
        */
       public Builder clearOpcode() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         opcode_ = 0;
         onChanged();
         return this;
@@ -27930,73 +28057,74 @@ public final class c_business_relation {
       " \002(\0132\r.b_error.info\022\026\n\016user_delete_id\030\002 " +
       "\002(\004\"\020\n\003msg\022\t\n\002id\020\224\302\200\020\";\n\020delete_friend_n" +
       "t\022\025\n\rapply_user_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\202\303",
-      "\200\020\"\270\001\n\017allow_friend_rq\022\026\n\016user_myself_id" +
+      "\200\020\"\321\001\n\017allow_friend_rq\022\026\n\016user_myself_id" +
       "\030\001 \002(\004\022\025\n\ruser_allow_id\030\002 \002(\004\022\030\n\020user_my" +
       "self_nick\030\003 \002(\t\022\027\n\017user_allow_nick\030\004 \002(\t" +
-      "\022\016\n\006opcode\030\005 \002(\r\"\020\n\003msg\022\t\n\002id\020\225\302\200\020\"!\n\010op" +
-      "code_t\022\t\n\005allow\020\001\022\n\n\006refuse\020\002\"\240\001\n\017allow_" +
-      "friend_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022" +
-      "\025\n\ruser_allow_id\030\002 \002(\004\022\016\n\006opcode\030\003 \002(\r\0226" +
-      "\n\nrelation_s\030\004 \003(\0132\".b_business_relation" +
-      ".user_relation\"\020\n\003msg\022\t\n\002id\020\226\302\200\020\"\243\001\n\017all" +
-      "ow_friend_nt\0226\n\017apply_user_info\030\001 \002(\0132\035.",
-      "b_business_account.user_info\022\016\n\006opcode\030\002" +
-      " \002(\r\0226\n\nrelation_s\030\003 \003(\0132\".b_business_re" +
-      "lation.user_relation\"\020\n\003msg\022\t\n\002id\020\203\303\200\020\"<" +
-      "\n\020query_friends_rq\022\026\n\016user_myself_id\030\001 \002" +
-      "(\004\"\020\n\003msg\022\t\n\002id\020\227\302\200\020\"\265\001\n\020query_friends_r" +
-      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\0229\n\007group" +
-      "_s\030\002 \003(\0132(.b_business_relation.user_rela" +
-      "tion_group\0226\n\nrelation_s\030\003 \003(\0132\".b_busin" +
-      "ess_relation.user_relation\"\020\n\003msg\022\t\n\002id\020" +
-      "\230\302\200\020\"w\n\027rename_friend_remark_rq\022\026\n\016user_",
+      "\022\027\n\017friend_group_id\030\005 \002(\004\022\016\n\006opcode\030\006 \002(" +
+      "\r\"\020\n\003msg\022\t\n\002id\020\225\302\200\020\"!\n\010opcode_t\022\t\n\005allow" +
+      "\020\001\022\n\n\006refuse\020\002\"\240\001\n\017allow_friend_rs\022\034\n\005er" +
+      "ror\030\001 \002(\0132\r.b_error.info\022\025\n\ruser_allow_i" +
+      "d\030\002 \002(\004\022\016\n\006opcode\030\003 \002(\r\0226\n\nrelation_s\030\004 " +
+      "\003(\0132\".b_business_relation.user_relation\"" +
+      "\020\n\003msg\022\t\n\002id\020\226\302\200\020\"\243\001\n\017allow_friend_nt\0226\n",
+      "\017apply_user_info\030\001 \002(\0132\035.b_business_acco" +
+      "unt.user_info\022\016\n\006opcode\030\002 \002(\r\0226\n\nrelatio" +
+      "n_s\030\003 \003(\0132\".b_business_relation.user_rel" +
+      "ation\"\020\n\003msg\022\t\n\002id\020\203\303\200\020\"<\n\020query_friends" +
+      "_rq\022\026\n\016user_myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id" +
+      "\020\227\302\200\020\"\265\001\n\020query_friends_rs\022\034\n\005error\030\001 \002(" +
+      "\0132\r.b_error.info\0229\n\007group_s\030\002 \003(\0132(.b_bu" +
+      "siness_relation.user_relation_group\0226\n\nr" +
+      "elation_s\030\003 \003(\0132\".b_business_relation.us" +
+      "er_relation\"\020\n\003msg\022\t\n\002id\020\230\302\200\020\"w\n\027rename_",
+      "friend_remark_rq\022\026\n\016user_myself_id\030\001 \002(\004" +
+      "\022\026\n\016user_friend_id\030\002 \002(\004\022\032\n\022user_friend_" +
+      "remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\231\302\200\020\"}\n\027rename" +
+      "_friend_remark_rs\022\034\n\005error\030\001 \002(\0132\r.b_err" +
+      "or.info\022\026\n\016user_friend_id\030\002 \002(\004\022\032\n\022user_" +
+      "friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\240\302\200\020\"Z\n" +
+      "\023add_friend_group_rq\022\026\n\016user_myself_id\030\001" +
+      " \002(\004\022\031\n\021user_friend_group\030\002 \002(\t\"\020\n\003msg\022\t" +
+      "\n\002id\020\241\302\200\020\"~\n\023add_friend_group_rs\022\034\n\005erro" +
+      "r\030\001 \002(\0132\r.b_error.info\022\031\n\021user_friend_gr",
+      "oup\030\002 \002(\t\022\034\n\024user_friend_group_id\030\003 \002(\004\"" +
+      "\020\n\003msg\022\t\n\002id\020\242\302\200\020\"x\n\026delete_friend_group" +
+      "_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\026\n\016user_frie" +
+      "nd_id\030\002 \002(\004\022\034\n\024user_friend_group_id\030\003 \002(" +
+      "\004\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\026delete_friend_gro" +
+      "up_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n\016u" +
+      "ser_friend_id\030\002 \002(\004\022\034\n\024user_friend_group" +
+      "_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"{\n\026rename_fr" +
+      "iend_group_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\034\n" +
+      "\024user_friend_group_id\030\003 \002(\004\022\031\n\021user_frie",
+      "nd_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"\201\001\n\026ren" +
+      "ame_friend_group_rs\022\034\n\005error\030\001 \002(\0132\r.b_e" +
+      "rror.info\022\034\n\024user_friend_group_id\030\003 \002(\004\022" +
+      "\031\n\021user_friend_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020" +
+      "\242\302\200\020\"\236\001\n\026change_friend_group_rq\022\026\n\016user_" +
       "myself_id\030\001 \002(\004\022\026\n\016user_friend_id\030\002 \002(\004\022" +
-      "\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id" +
-      "\020\231\302\200\020\"}\n\027rename_friend_remark_rs\022\034\n\005erro" +
-      "r\030\001 \002(\0132\r.b_error.info\022\026\n\016user_friend_id" +
-      "\030\002 \002(\004\022\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003ms" +
-      "g\022\t\n\002id\020\240\302\200\020\"Z\n\023add_friend_group_rq\022\026\n\016u" +
-      "ser_myself_id\030\001 \002(\004\022\031\n\021user_friend_group" +
-      "\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\023add_friend_g" +
-      "roup_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\031\n" +
-      "\021user_friend_group\030\002 \002(\t\022\034\n\024user_friend_",
-      "group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"x\n\026dele" +
-      "te_friend_group_rq\022\026\n\016user_myself_id\030\001 \002" +
-      "(\004\022\026\n\016user_friend_id\030\002 \002(\004\022\034\n\024user_frien" +
-      "d_group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\026de" +
-      "lete_friend_group_rs\022\034\n\005error\030\001 \002(\0132\r.b_" +
-      "error.info\022\026\n\016user_friend_id\030\002 \002(\004\022\034\n\024us" +
-      "er_friend_group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302" +
-      "\200\020\"{\n\026rename_friend_group_rq\022\026\n\016user_mys" +
-      "elf_id\030\001 \002(\004\022\034\n\024user_friend_group_id\030\003 \002" +
-      "(\004\022\031\n\021user_friend_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002",
-      "id\020\241\302\200\020\"\201\001\n\026rename_friend_group_rs\022\034\n\005er" +
-      "ror\030\001 \002(\0132\r.b_error.info\022\034\n\024user_friend_" +
-      "group_id\030\003 \002(\004\022\031\n\021user_friend_group\030\004 \002(" +
-      "\t\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"\236\001\n\026change_friend_gr" +
-      "oup_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\026\n\016user_f" +
-      "riend_id\030\002 \002(\004\022 \n\030user_friend_group_id_o" +
-      "ld\030\003 \002(\004\022 \n\030user_friend_group_id_new\030\004 \002" +
-      "(\004\"\020\n\003msg\022\t\n\002id\020\243\302\200\020\"\244\001\n\026change_friend_g" +
-      "roup_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n" +
-      "\016user_friend_id\030\002 \002(\004\022 \n\030user_friend_gro",
-      "up_id_old\030\003 \002(\004\022 \n\030user_friend_group_id_" +
-      "new\030\004 \002(\004\"\020\n\003msg\022\t\n\002id\020\244\302\200\020\"B\n\026query_fri" +
-      "ends_apply_rq\022\026\n\016user_myself_id\030\001 \002(\004\"\020\n" +
-      "\003msg\022\t\n\002id\020\245\302\200\020\"|\n\026query_friends_apply_r" +
-      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\0222\n\007apply" +
-      "_s\030\002 \003(\0132!.b_business_relation.friend_ap" +
-      "ply\"\020\n\003msg\022\t\n\002id\020\246\302\200\020\"a\n\016talk_friend_rq\022" +
-      "\026\n\016user_myself_id\030\001 \002(\004\022\024\n\014user_talk_id\030" +
-      "\002 \002(\004\022\017\n\007talking\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\321\302\200\020" +
-      "\"V\n\016talk_friend_rs\022\034\n\005error\030\001 \002(\0132\r.b_er",
-      "ror.info\022\024\n\014user_talk_id\030\002 \002(\004\"\020\n\003msg\022\t\n" +
-      "\002id\020\322\302\200\020\"J\n\016talk_friend_nt\022\025\n\rapply_talk" +
-      "_id\030\001 \002(\004\022\017\n\007talking\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020" +
-      "\221\303\200\020*#\n\003msg\022\r\n\006min_id\020\200\302\200\020\022\r\n\006max_id\020\377\303\200" +
-      "\020Bj\n\010protodefB\023c_business_relationZ\034prot" +
-      "odef/c_business_relation\242\002\024C_business_re" +
-      "lation_\252\002\023c_business_relation"
+      " \n\030user_friend_group_id_old\030\003 \002(\004\022 \n\030use" +
+      "r_friend_group_id_new\030\004 \002(\004\"\020\n\003msg\022\t\n\002id" +
+      "\020\243\302\200\020\"\244\001\n\026change_friend_group_rs\022\034\n\005erro" +
+      "r\030\001 \002(\0132\r.b_error.info\022\026\n\016user_friend_id",
+      "\030\002 \002(\004\022 \n\030user_friend_group_id_old\030\003 \002(\004" +
+      "\022 \n\030user_friend_group_id_new\030\004 \002(\004\"\020\n\003ms" +
+      "g\022\t\n\002id\020\244\302\200\020\"B\n\026query_friends_apply_rq\022\026" +
+      "\n\016user_myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\245\302\200\020" +
+      "\"|\n\026query_friends_apply_rs\022\034\n\005error\030\001 \002(" +
+      "\0132\r.b_error.info\0222\n\007apply_s\030\002 \003(\0132!.b_bu" +
+      "siness_relation.friend_apply\"\020\n\003msg\022\t\n\002i" +
+      "d\020\246\302\200\020\"a\n\016talk_friend_rq\022\026\n\016user_myself_" +
+      "id\030\001 \002(\004\022\024\n\014user_talk_id\030\002 \002(\004\022\017\n\007talkin" +
+      "g\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\321\302\200\020\"V\n\016talk_friend",
+      "_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\024\n\014use" +
+      "r_talk_id\030\002 \002(\004\"\020\n\003msg\022\t\n\002id\020\322\302\200\020\"J\n\016tal" +
+      "k_friend_nt\022\025\n\rapply_talk_id\030\001 \002(\004\022\017\n\007ta" +
+      "lking\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\303\200\020*#\n\003msg\022\r\n\006" +
+      "min_id\020\200\302\200\020\022\r\n\006max_id\020\377\303\200\020Bj\n\010protodefB\023" +
+      "c_business_relationZ\034protodef/c_business" +
+      "_relation\242\002\024C_business_relation_\252\002\023c_bus" +
+      "iness_relation"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -28060,7 +28188,7 @@ public final class c_business_relation {
     internal_static_c_business_relation_allow_friend_rq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_c_business_relation_allow_friend_rq_descriptor,
-        new java.lang.String[] { "UserMyselfId", "UserAllowId", "UserMyselfNick", "UserAllowNick", "Opcode", });
+        new java.lang.String[] { "UserMyselfId", "UserAllowId", "UserMyselfNick", "UserAllowNick", "FriendGroupId", "Opcode", });
     internal_static_c_business_relation_allow_friend_rs_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_c_business_relation_allow_friend_rs_fieldAccessorTable = new

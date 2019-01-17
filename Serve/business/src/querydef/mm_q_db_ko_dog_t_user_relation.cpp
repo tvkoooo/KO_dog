@@ -17,6 +17,7 @@ namespace mm
 		:code(0)
 		,myself_id(0)
 		,friend_id(0)
+		,friend_group_id(0)
 		,friend_remark("")
 	{
 
@@ -26,6 +27,7 @@ namespace mm
 		archive << code;
 		archive << myself_id;
 		archive << friend_id;
+		archive << friend_group_id;
 		archive << friend_remark;
 		archive << user_relation_s;
 	}
@@ -34,6 +36,7 @@ namespace mm
 		archive >> code;
 		archive >> myself_id;
 		archive >> friend_id;
+		archive >> friend_group_id;
 		archive >> friend_remark;
 		archive >> user_relation_s;
 	}
@@ -50,6 +53,7 @@ namespace mm
 			<< " " << "@code"
 			<< ",'" << myself_id << "'"
 			<< ",'" << friend_id << "'"
+			<< ",'" << friend_group_id << "'"
 			<< ",'" << friend_remark << "'" << " );"
 			<< "select "
 			<< " " << "@code" << "  ;";

@@ -36,12 +36,12 @@ namespace mm
 		, StaticText_user_info(NULL)
 		, p_friend_info(NULL)
 	{
-		data_search_friend_basic_init(&this->chose_friend);
+		//data_search_friend_basic_init(&this->chose_friend);
 	}
 
 	KO_dog_mailbox_search::~KO_dog_mailbox_search()
 	{
-		data_search_friend_basic_destroy(&this->chose_friend);
+		//data_search_friend_basic_destroy(&this->chose_friend);
 	}
 
 	void KO_dog_mailbox_search::set_data(mm_flake_context* d_flake_context, mm_flake_surface* d_surface)

@@ -218,11 +218,12 @@ struct  _c_business_relation_allow_friend_rq
   unsigned long long int user_allow_id;
   char *user_myself_nick;
   char *user_allow_nick;
+  unsigned long long int friend_group_id;
   unsigned int opcode;
 };
 #define c_business_relation_allow_friend_rq_Init \
  { PROTOBUF_C_MESSAGE_INIT (&c_business_relation_allow_friend_rq_descriptor) \
-    , 0, 0, NULL, NULL, 0 }
+    , 0, 0, NULL, NULL, 0, 0 }
 
 
 struct  _c_business_relation_allow_friend_rs

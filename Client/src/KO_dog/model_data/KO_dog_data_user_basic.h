@@ -115,8 +115,8 @@ namespace mm
 		static const std::string event_userdata_user_token_update;
 		static const std::string event_data_search_friend_basic_update;
 		static const std::string event_data_friend_apply_update;
-		static const std::string event_data_add_friend_nt;
-		static const std::string event_data_respond_friend_nt;
+		//static const std::string event_data_add_friend_nt;
+		//static const std::string event_data_rmv_friend_nt;
 		// this member is event drive.
 		mm::mm_event_set d_event_set;
 

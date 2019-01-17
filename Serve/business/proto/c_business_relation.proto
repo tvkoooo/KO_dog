@@ -81,7 +81,8 @@ message allow_friend_rq
 	required uint64	user_allow_id 							 = 2			     ; // 同意用户id
 	required string	user_myself_nick   						 = 3			     ; // 自己用户昵称
 	required string	user_allow_nick   						 = 4			     ; // 同意用户昵称	
-	required uint32 opcode                                   = 5			     ; // 用户操作码
+	required uint64	friend_group_id 						 = 5			     ; // 好友组id
+	required uint32 opcode                                   = 6			     ; // 用户操作码
 }
 // (tcp)同意加好友
 message allow_friend_rs

@@ -49,7 +49,7 @@ namespace mm
 
 
 	private:
-		struct data_search_friend_basic chose_friend;
+		//struct data_search_friend_basic chose_friend;
 
 	public:
 		elem_p_map<mm_uint64_t, CEGUI::ListboxTextItem*> map_friend_wp;

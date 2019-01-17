@@ -769,7 +769,10 @@ public interface c_business_relation {
     // required string user_allow_nick = 4;
     public java.lang.String userAllowNick;
 
-    // required uint32 opcode = 5;
+    // required uint64 friend_group_id = 5;
+    public long friendGroupId;
+
+    // required uint32 opcode = 6;
     public int opcode;
 
     public allow_friend_rq() {
@@ -781,6 +784,7 @@ public interface c_business_relation {
       userAllowId = 0L;
       userMyselfNick = "";
       userAllowNick = "";
+      friendGroupId = 0L;
       opcode = 0;
       cachedSize = -1;
       return this;
@@ -793,7 +797,8 @@ public interface c_business_relation {
       output.writeUInt64(2, this.userAllowId);
       output.writeString(3, this.userMyselfNick);
       output.writeString(4, this.userAllowNick);
-      output.writeUInt32(5, this.opcode);
+      output.writeUInt64(5, this.friendGroupId);
+      output.writeUInt32(6, this.opcode);
       super.writeTo(output);
     }
 
@@ -809,7 +814,9 @@ public interface c_business_relation {
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
           .computeStringSize(4, this.userAllowNick);
       size += com.google.protobuf.nano.CodedOutputByteBufferNano
-          .computeUInt32Size(5, this.opcode);
+          .computeUInt64Size(5, this.friendGroupId);
+      size += com.google.protobuf.nano.CodedOutputByteBufferNano
+          .computeUInt32Size(6, this.opcode);
       return size;
     }
 
@@ -845,6 +852,10 @@ public interface c_business_relation {
             break;
           }
           case 40: {
+            this.friendGroupId = input.readUInt64();
+            break;
+          }
+          case 48: {
             this.opcode = input.readUInt32();
             break;
           }

@@ -106,7 +106,7 @@ void mm_business_relation_tcp_hd_c_business_relation_query_friends_apply_rq(void
 
 	// rs
 	mm_tcp_o_lock(tcp);
-	mm_protobuf_cxx_n_tcp_append_rs(mailbox, tcp, c_business_relation::query_friends_rs_msg_id, &rs_msg, rq_pack, &rs_pack);
+	mm_protobuf_cxx_n_tcp_append_rs(mailbox, tcp, c_business_relation::query_friends_apply_rs_msg_id, &rs_msg, rq_pack, &rs_pack);
 	mm_protobuf_cxx_n_tcp_flush_send(tcp);
 	mm_tcp_o_unlock(tcp);
 	// logger rs.

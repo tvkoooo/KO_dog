@@ -58,6 +58,7 @@ CREATE PROCEDURE `p_user_relation_add_friend`(
 	OUT `_code` int(11),
 	IN `_myself_id` bigint(20),
 	IN `_friend_id` bigint(20),
+	IN `_friend_group_id` bigint(20),
  	IN `_friend_remark` char(50)   
     )
 BEGIN
@@ -65,6 +66,7 @@ BEGIN
 	/* 传入
 		_myself_id,
 		_friend_id,
+		_friend_group_id,
 		_friend_remark,
 		*/
 	/* 返回
@@ -92,10 +94,16 @@ BEGIN
 			set _code = 400101013;
 			leave cond_process;
 		end if;
-        
-        
+        IF 0 != `_friend_group_id` THEN        
+			SELECT COUNT(*) into _flag FROM db_ko_dog.t_user_relation_assist WHERE (`id` = `_friend_group_id`);
+			if 0 = _flag THEN
+				/*(400101016)用户操作组名不存在 */
+				set _code = 400101016;
+				leave cond_process;
+			end if;
+		END IF;	
  		INSERT INTO db_ko_dog.t_user_relation(`user_id`,`friend_group_id`,`friend_id`,`friend_remark`) 
-		VALUE (`_myself_id` ,default ,`_friend_id` , `_friend_remark` );
+		VALUE (`_myself_id` ,`_friend_group_id` ,`_friend_id` , `_friend_remark` );
         if 0 = row_count() THEN
 			/*200000001(1)插入数据失败 */
 			set _code = 200000001;
@@ -716,13 +724,8 @@ BEGIN
 			UPDATE db_ko_dog.t_user_relation_apply
 			SET `user_apply_description`=`_user_apply_description`
 			where `user_allow_id` = `_user_allow_id` and `user_apply_id` = `_user_apply_id`;
-			if 0 = row_count() THEN
-				/*200000003(3)数据更新失败 */
-				set _code = 200000003;
-			else
-				/*0( 0)成功  */
-				set _code = 0;
-			end if;
+			/*0( 0)成功  */
+			set _code = 0;
 
 		end IF;
     end;       

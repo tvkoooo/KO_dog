@@ -23,6 +23,7 @@ namespace mm
 		mm_uint32_t code;// error code for sql.
 		mm_uint64_t myself_id;// myself_id
 		mm_uint64_t friend_id;// friend_id
+		mm_uint64_t friend_group_id;// friend_group_id
 		std::string friend_remark;// friend_remark
 		user_relation_vec user_relation_s;
 	public:

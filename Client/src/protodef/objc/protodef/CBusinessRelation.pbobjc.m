@@ -705,6 +705,7 @@ BOOL C_business_relation_delete_friend_nt_msg_IsValidValue(int32_t value__) {
 @dynamic hasUserAllowId, userAllowId;
 @dynamic hasUserMyselfNick, userMyselfNick;
 @dynamic hasUserAllowNick, userAllowNick;
+@dynamic hasFriendGroupId, friendGroupId;
 @dynamic hasOpcode, opcode;
 
 typedef struct C_business_relation_allow_friend_rq__storage_ {
@@ -714,6 +715,7 @@ typedef struct C_business_relation_allow_friend_rq__storage_ {
   NSString *userAllowNick;
   uint64_t userMyselfId;
   uint64_t userAllowId;
+  uint64_t friendGroupId;
 } C_business_relation_allow_friend_rq__storage_;
 
 // This method is threadsafe because it is initially called
@@ -759,10 +761,19 @@ typedef struct C_business_relation_allow_friend_rq__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
+        .name = "friendGroupId",
+        .dataTypeSpecific.className = NULL,
+        .number = C_business_relation_allow_friend_rq_FieldNumber_FriendGroupId,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rq__storage_, friendGroupId),
+        .flags = GPBFieldRequired,
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
         .name = "opcode",
         .dataTypeSpecific.className = NULL,
         .number = C_business_relation_allow_friend_rq_FieldNumber_Opcode,
-        .hasIndex = 4,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(C_business_relation_allow_friend_rq__storage_, opcode),
         .flags = GPBFieldRequired,
         .dataType = GPBDataTypeUInt32,

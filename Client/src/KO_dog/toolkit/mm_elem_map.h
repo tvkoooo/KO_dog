@@ -21,7 +21,7 @@ namespace mm
 		{
 		public:
 			void* m;
-			T id;
+			K id;
 			void* e;
 		};
 

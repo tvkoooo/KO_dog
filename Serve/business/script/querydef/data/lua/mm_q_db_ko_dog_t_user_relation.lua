@@ -32,6 +32,7 @@ event =
 
 			{type="uint64", name="myself_id",default="0",desc="myself_id",},
 			{type="uint64", name="friend_id",default="0",desc="friend_id",},
+			{type="uint64", name="friend_group_id",default="0",desc="friend_group_id",},
 			{type="string", name="friend_remark",default="\"\"",desc="friend_remark",},
 
 			{type="user_relation_vec", name="user_relation_s",},
@@ -47,6 +48,7 @@ event =
 						{kind="o",var="code",},
 						{kind="i",var="myself_id",},
 						{kind="i",var="friend_id",},
+						{kind="i",var="friend_group_id",},
 						{kind="i",var="friend_remark",},
 					},
 				},

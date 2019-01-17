@@ -627,7 +627,8 @@ typedef GPB_ENUM(C_business_relation_allow_friend_rq_FieldNumber) {
   C_business_relation_allow_friend_rq_FieldNumber_UserAllowId = 2,
   C_business_relation_allow_friend_rq_FieldNumber_UserMyselfNick = 3,
   C_business_relation_allow_friend_rq_FieldNumber_UserAllowNick = 4,
-  C_business_relation_allow_friend_rq_FieldNumber_Opcode = 5,
+  C_business_relation_allow_friend_rq_FieldNumber_FriendGroupId = 5,
+  C_business_relation_allow_friend_rq_FieldNumber_Opcode = 6,
 };
 
 /**
@@ -653,6 +654,10 @@ typedef GPB_ENUM(C_business_relation_allow_friend_rq_FieldNumber) {
 /** Test to see if @c userAllowNick has been set. */
 @property(nonatomic, readwrite) BOOL hasUserAllowNick;
 
+/** 好友组id */
+@property(nonatomic, readwrite) uint64_t friendGroupId;
+
+@property(nonatomic, readwrite) BOOL hasFriendGroupId;
 /** 用户操作码 */
 @property(nonatomic, readwrite) uint32_t opcode;
 

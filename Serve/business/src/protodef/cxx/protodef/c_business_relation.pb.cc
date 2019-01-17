@@ -202,12 +202,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rq, user_allow_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rq, user_myself_nick_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rq, user_allow_nick_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rq, friend_group_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rq, opcode_),
   2,
   3,
   0,
   1,
   4,
+  5,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rs, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(allow_friend_rs, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -417,26 +419,26 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 44, 51, sizeof(delete_friend_rq)},
   { 53, 60, sizeof(delete_friend_rs)},
   { 62, 68, sizeof(delete_friend_nt)},
-  { 69, 79, sizeof(allow_friend_rq)},
-  { 84, 93, sizeof(allow_friend_rs)},
-  { 97, 105, sizeof(allow_friend_nt)},
-  { 108, 114, sizeof(query_friends_rq)},
-  { 115, 123, sizeof(query_friends_rs)},
-  { 126, 134, sizeof(rename_friend_remark_rq)},
-  { 137, 145, sizeof(rename_friend_remark_rs)},
-  { 148, 155, sizeof(add_friend_group_rq)},
-  { 157, 165, sizeof(add_friend_group_rs)},
-  { 168, 176, sizeof(delete_friend_group_rq)},
-  { 179, 187, sizeof(delete_friend_group_rs)},
-  { 190, 198, sizeof(rename_friend_group_rq)},
-  { 201, 209, sizeof(rename_friend_group_rs)},
-  { 212, 221, sizeof(change_friend_group_rq)},
-  { 225, 234, sizeof(change_friend_group_rs)},
-  { 238, 244, sizeof(query_friends_apply_rq)},
-  { 245, 252, sizeof(query_friends_apply_rs)},
-  { 254, 262, sizeof(talk_friend_rq)},
-  { 265, 272, sizeof(talk_friend_rs)},
-  { 274, 281, sizeof(talk_friend_nt)},
+  { 69, 80, sizeof(allow_friend_rq)},
+  { 86, 95, sizeof(allow_friend_rs)},
+  { 99, 107, sizeof(allow_friend_nt)},
+  { 110, 116, sizeof(query_friends_rq)},
+  { 117, 125, sizeof(query_friends_rs)},
+  { 128, 136, sizeof(rename_friend_remark_rq)},
+  { 139, 147, sizeof(rename_friend_remark_rs)},
+  { 150, 157, sizeof(add_friend_group_rq)},
+  { 159, 167, sizeof(add_friend_group_rs)},
+  { 170, 178, sizeof(delete_friend_group_rq)},
+  { 181, 189, sizeof(delete_friend_group_rs)},
+  { 192, 200, sizeof(rename_friend_group_rq)},
+  { 203, 211, sizeof(rename_friend_group_rs)},
+  { 214, 223, sizeof(change_friend_group_rq)},
+  { 227, 236, sizeof(change_friend_group_rs)},
+  { 240, 246, sizeof(query_friends_apply_rq)},
+  { 247, 254, sizeof(query_friends_apply_rs)},
+  { 256, 264, sizeof(talk_friend_rq)},
+  { 267, 274, sizeof(talk_friend_rs)},
+  { 276, 283, sizeof(talk_friend_nt)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -640,76 +642,77 @@ void AddDescriptorsImpl() {
       " \002(\0132\r.b_error.info\022\026\n\016user_delete_id\030\002 "
       "\002(\004\"\020\n\003msg\022\t\n\002id\020\224\302\200\020\";\n\020delete_friend_n"
       "t\022\025\n\rapply_user_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\202\303"
-      "\200\020\"\270\001\n\017allow_friend_rq\022\026\n\016user_myself_id"
+      "\200\020\"\321\001\n\017allow_friend_rq\022\026\n\016user_myself_id"
       "\030\001 \002(\004\022\025\n\ruser_allow_id\030\002 \002(\004\022\030\n\020user_my"
       "self_nick\030\003 \002(\t\022\027\n\017user_allow_nick\030\004 \002(\t"
-      "\022\016\n\006opcode\030\005 \002(\r\"\020\n\003msg\022\t\n\002id\020\225\302\200\020\"!\n\010op"
-      "code_t\022\t\n\005allow\020\001\022\n\n\006refuse\020\002\"\240\001\n\017allow_"
-      "friend_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022"
-      "\025\n\ruser_allow_id\030\002 \002(\004\022\016\n\006opcode\030\003 \002(\r\0226"
-      "\n\nrelation_s\030\004 \003(\0132\".b_business_relation"
-      ".user_relation\"\020\n\003msg\022\t\n\002id\020\226\302\200\020\"\243\001\n\017all"
-      "ow_friend_nt\0226\n\017apply_user_info\030\001 \002(\0132\035."
-      "b_business_account.user_info\022\016\n\006opcode\030\002"
-      " \002(\r\0226\n\nrelation_s\030\003 \003(\0132\".b_business_re"
-      "lation.user_relation\"\020\n\003msg\022\t\n\002id\020\203\303\200\020\"<"
-      "\n\020query_friends_rq\022\026\n\016user_myself_id\030\001 \002"
-      "(\004\"\020\n\003msg\022\t\n\002id\020\227\302\200\020\"\265\001\n\020query_friends_r"
-      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\0229\n\007group"
-      "_s\030\002 \003(\0132(.b_business_relation.user_rela"
-      "tion_group\0226\n\nrelation_s\030\003 \003(\0132\".b_busin"
-      "ess_relation.user_relation\"\020\n\003msg\022\t\n\002id\020"
-      "\230\302\200\020\"w\n\027rename_friend_remark_rq\022\026\n\016user_"
+      "\022\027\n\017friend_group_id\030\005 \002(\004\022\016\n\006opcode\030\006 \002("
+      "\r\"\020\n\003msg\022\t\n\002id\020\225\302\200\020\"!\n\010opcode_t\022\t\n\005allow"
+      "\020\001\022\n\n\006refuse\020\002\"\240\001\n\017allow_friend_rs\022\034\n\005er"
+      "ror\030\001 \002(\0132\r.b_error.info\022\025\n\ruser_allow_i"
+      "d\030\002 \002(\004\022\016\n\006opcode\030\003 \002(\r\0226\n\nrelation_s\030\004 "
+      "\003(\0132\".b_business_relation.user_relation\""
+      "\020\n\003msg\022\t\n\002id\020\226\302\200\020\"\243\001\n\017allow_friend_nt\0226\n"
+      "\017apply_user_info\030\001 \002(\0132\035.b_business_acco"
+      "unt.user_info\022\016\n\006opcode\030\002 \002(\r\0226\n\nrelatio"
+      "n_s\030\003 \003(\0132\".b_business_relation.user_rel"
+      "ation\"\020\n\003msg\022\t\n\002id\020\203\303\200\020\"<\n\020query_friends"
+      "_rq\022\026\n\016user_myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id"
+      "\020\227\302\200\020\"\265\001\n\020query_friends_rs\022\034\n\005error\030\001 \002("
+      "\0132\r.b_error.info\0229\n\007group_s\030\002 \003(\0132(.b_bu"
+      "siness_relation.user_relation_group\0226\n\nr"
+      "elation_s\030\003 \003(\0132\".b_business_relation.us"
+      "er_relation\"\020\n\003msg\022\t\n\002id\020\230\302\200\020\"w\n\027rename_"
+      "friend_remark_rq\022\026\n\016user_myself_id\030\001 \002(\004"
+      "\022\026\n\016user_friend_id\030\002 \002(\004\022\032\n\022user_friend_"
+      "remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\231\302\200\020\"}\n\027rename"
+      "_friend_remark_rs\022\034\n\005error\030\001 \002(\0132\r.b_err"
+      "or.info\022\026\n\016user_friend_id\030\002 \002(\004\022\032\n\022user_"
+      "friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\240\302\200\020\"Z\n"
+      "\023add_friend_group_rq\022\026\n\016user_myself_id\030\001"
+      " \002(\004\022\031\n\021user_friend_group\030\002 \002(\t\"\020\n\003msg\022\t"
+      "\n\002id\020\241\302\200\020\"~\n\023add_friend_group_rs\022\034\n\005erro"
+      "r\030\001 \002(\0132\r.b_error.info\022\031\n\021user_friend_gr"
+      "oup\030\002 \002(\t\022\034\n\024user_friend_group_id\030\003 \002(\004\""
+      "\020\n\003msg\022\t\n\002id\020\242\302\200\020\"x\n\026delete_friend_group"
+      "_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\026\n\016user_frie"
+      "nd_id\030\002 \002(\004\022\034\n\024user_friend_group_id\030\003 \002("
+      "\004\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\026delete_friend_gro"
+      "up_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n\016u"
+      "ser_friend_id\030\002 \002(\004\022\034\n\024user_friend_group"
+      "_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"{\n\026rename_fr"
+      "iend_group_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\034\n"
+      "\024user_friend_group_id\030\003 \002(\004\022\031\n\021user_frie"
+      "nd_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"\201\001\n\026ren"
+      "ame_friend_group_rs\022\034\n\005error\030\001 \002(\0132\r.b_e"
+      "rror.info\022\034\n\024user_friend_group_id\030\003 \002(\004\022"
+      "\031\n\021user_friend_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020"
+      "\242\302\200\020\"\236\001\n\026change_friend_group_rq\022\026\n\016user_"
       "myself_id\030\001 \002(\004\022\026\n\016user_friend_id\030\002 \002(\004\022"
-      "\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003msg\022\t\n\002id"
-      "\020\231\302\200\020\"}\n\027rename_friend_remark_rs\022\034\n\005erro"
+      " \n\030user_friend_group_id_old\030\003 \002(\004\022 \n\030use"
+      "r_friend_group_id_new\030\004 \002(\004\"\020\n\003msg\022\t\n\002id"
+      "\020\243\302\200\020\"\244\001\n\026change_friend_group_rs\022\034\n\005erro"
       "r\030\001 \002(\0132\r.b_error.info\022\026\n\016user_friend_id"
-      "\030\002 \002(\004\022\032\n\022user_friend_remark\030\003 \002(\t\"\020\n\003ms"
-      "g\022\t\n\002id\020\240\302\200\020\"Z\n\023add_friend_group_rq\022\026\n\016u"
-      "ser_myself_id\030\001 \002(\004\022\031\n\021user_friend_group"
-      "\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\023add_friend_g"
-      "roup_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\031\n"
-      "\021user_friend_group\030\002 \002(\t\022\034\n\024user_friend_"
-      "group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"x\n\026dele"
-      "te_friend_group_rq\022\026\n\016user_myself_id\030\001 \002"
-      "(\004\022\026\n\016user_friend_id\030\002 \002(\004\022\034\n\024user_frien"
-      "d_group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\026de"
-      "lete_friend_group_rs\022\034\n\005error\030\001 \002(\0132\r.b_"
-      "error.info\022\026\n\016user_friend_id\030\002 \002(\004\022\034\n\024us"
-      "er_friend_group_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302"
-      "\200\020\"{\n\026rename_friend_group_rq\022\026\n\016user_mys"
-      "elf_id\030\001 \002(\004\022\034\n\024user_friend_group_id\030\003 \002"
-      "(\004\022\031\n\021user_friend_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002"
-      "id\020\241\302\200\020\"\201\001\n\026rename_friend_group_rs\022\034\n\005er"
-      "ror\030\001 \002(\0132\r.b_error.info\022\034\n\024user_friend_"
-      "group_id\030\003 \002(\004\022\031\n\021user_friend_group\030\004 \002("
-      "\t\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"\236\001\n\026change_friend_gr"
-      "oup_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\026\n\016user_f"
-      "riend_id\030\002 \002(\004\022 \n\030user_friend_group_id_o"
-      "ld\030\003 \002(\004\022 \n\030user_friend_group_id_new\030\004 \002"
-      "(\004\"\020\n\003msg\022\t\n\002id\020\243\302\200\020\"\244\001\n\026change_friend_g"
-      "roup_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n"
-      "\016user_friend_id\030\002 \002(\004\022 \n\030user_friend_gro"
-      "up_id_old\030\003 \002(\004\022 \n\030user_friend_group_id_"
-      "new\030\004 \002(\004\"\020\n\003msg\022\t\n\002id\020\244\302\200\020\"B\n\026query_fri"
-      "ends_apply_rq\022\026\n\016user_myself_id\030\001 \002(\004\"\020\n"
-      "\003msg\022\t\n\002id\020\245\302\200\020\"|\n\026query_friends_apply_r"
-      "s\022\034\n\005error\030\001 \002(\0132\r.b_error.info\0222\n\007apply"
-      "_s\030\002 \003(\0132!.b_business_relation.friend_ap"
-      "ply\"\020\n\003msg\022\t\n\002id\020\246\302\200\020\"a\n\016talk_friend_rq\022"
-      "\026\n\016user_myself_id\030\001 \002(\004\022\024\n\014user_talk_id\030"
-      "\002 \002(\004\022\017\n\007talking\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\321\302\200\020"
-      "\"V\n\016talk_friend_rs\022\034\n\005error\030\001 \002(\0132\r.b_er"
-      "ror.info\022\024\n\014user_talk_id\030\002 \002(\004\"\020\n\003msg\022\t\n"
-      "\002id\020\322\302\200\020\"J\n\016talk_friend_nt\022\025\n\rapply_talk"
-      "_id\030\001 \002(\004\022\017\n\007talking\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020"
-      "\221\303\200\020*#\n\003msg\022\r\n\006min_id\020\200\302\200\020\022\r\n\006max_id\020\377\303\200"
-      "\020Bj\n\010protodefB\023c_business_relationZ\034prot"
-      "odef/c_business_relation\242\002\024C_business_re"
-      "lation_\252\002\023c_business_relation"
+      "\030\002 \002(\004\022 \n\030user_friend_group_id_old\030\003 \002(\004"
+      "\022 \n\030user_friend_group_id_new\030\004 \002(\004\"\020\n\003ms"
+      "g\022\t\n\002id\020\244\302\200\020\"B\n\026query_friends_apply_rq\022\026"
+      "\n\016user_myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\245\302\200\020"
+      "\"|\n\026query_friends_apply_rs\022\034\n\005error\030\001 \002("
+      "\0132\r.b_error.info\0222\n\007apply_s\030\002 \003(\0132!.b_bu"
+      "siness_relation.friend_apply\"\020\n\003msg\022\t\n\002i"
+      "d\020\246\302\200\020\"a\n\016talk_friend_rq\022\026\n\016user_myself_"
+      "id\030\001 \002(\004\022\024\n\014user_talk_id\030\002 \002(\004\022\017\n\007talkin"
+      "g\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\321\302\200\020\"V\n\016talk_friend"
+      "_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\024\n\014use"
+      "r_talk_id\030\002 \002(\004\"\020\n\003msg\022\t\n\002id\020\322\302\200\020\"J\n\016tal"
+      "k_friend_nt\022\025\n\rapply_talk_id\030\001 \002(\004\022\017\n\007ta"
+      "lking\030\002 \002(\t\"\020\n\003msg\022\t\n\002id\020\221\303\200\020*#\n\003msg\022\r\n\006"
+      "min_id\020\200\302\200\020\022\r\n\006max_id\020\377\303\200\020Bj\n\010protodefB\023"
+      "c_business_relationZ\034protodef/c_business"
+      "_relation\242\002\024C_business_relation_\252\002\023c_bus"
+      "iness_relation"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3469);
+      descriptor, 3494);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "c_business_relation.proto", &protobuf_RegisterTypes);
   ::b_error::protobuf_b_5ferror_2eproto::AddDescriptors();
@@ -4411,6 +4414,7 @@ const int allow_friend_rq::kUserMyselfIdFieldNumber;
 const int allow_friend_rq::kUserAllowIdFieldNumber;
 const int allow_friend_rq::kUserMyselfNickFieldNumber;
 const int allow_friend_rq::kUserAllowNickFieldNumber;
+const int allow_friend_rq::kFriendGroupIdFieldNumber;
 const int allow_friend_rq::kOpcodeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -4495,7 +4499,7 @@ void allow_friend_rq::Clear() {
       (*user_allow_nick_.UnsafeRawStringPointer())->clear();
     }
   }
-  if (_has_bits_[0 / 32] & 28u) {
+  if (_has_bits_[0 / 32] & 60u) {
     ::memset(&user_myself_id_, 0, reinterpret_cast<char*>(&opcode_) -
       reinterpret_cast<char*>(&user_myself_id_) + sizeof(opcode_));
   }
@@ -4573,10 +4577,24 @@ bool allow_friend_rq::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 opcode = 5;
+      // required uint64 friend_group_id = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u)) {
+          set_has_friend_group_id();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &friend_group_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 opcode = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
           set_has_opcode();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -4646,9 +4664,14 @@ void allow_friend_rq::SerializeWithCachedSizes(
       4, this->user_allow_nick(), output);
   }
 
-  // required uint32 opcode = 5;
+  // required uint64 friend_group_id = 5;
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->opcode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(5, this->friend_group_id(), output);
+  }
+
+  // required uint32 opcode = 6;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->opcode(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4697,9 +4720,14 @@ void allow_friend_rq::SerializeWithCachedSizes(
         4, this->user_allow_nick(), target);
   }
 
-  // required uint32 opcode = 5;
+  // required uint64 friend_group_id = 5;
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->opcode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(5, this->friend_group_id(), target);
+  }
+
+  // required uint32 opcode = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->opcode(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4742,8 +4770,15 @@ size_t allow_friend_rq::RequiredFieldsByteSizeFallback() const {
         this->user_allow_id());
   }
 
+  if (has_friend_group_id()) {
+    // required uint64 friend_group_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->friend_group_id());
+  }
+
   if (has_opcode()) {
-    // required uint32 opcode = 5;
+    // required uint32 opcode = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->opcode());
@@ -4760,7 +4795,7 @@ size_t allow_friend_rq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
     // required string user_myself_nick = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -4781,7 +4816,12 @@ size_t allow_friend_rq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->user_allow_id());
 
-    // required uint32 opcode = 5;
+    // required uint64 friend_group_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->friend_group_id());
+
+    // required uint32 opcode = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->opcode());
@@ -4819,7 +4859,7 @@ void allow_friend_rq::MergeFrom(const allow_friend_rq& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 63u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_user_myself_nick();
       user_myself_nick_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_myself_nick_);
@@ -4835,6 +4875,9 @@ void allow_friend_rq::MergeFrom(const allow_friend_rq& from) {
       user_allow_id_ = from.user_allow_id_;
     }
     if (cached_has_bits & 0x00000010u) {
+      friend_group_id_ = from.friend_group_id_;
+    }
+    if (cached_has_bits & 0x00000020u) {
       opcode_ = from.opcode_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -4856,7 +4899,7 @@ void allow_friend_rq::CopyFrom(const allow_friend_rq& from) {
 }
 
 bool allow_friend_rq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
   return true;
 }
 
@@ -4869,6 +4912,7 @@ void allow_friend_rq::InternalSwap(allow_friend_rq* other) {
   user_allow_nick_.Swap(&other->user_allow_nick_);
   std::swap(user_myself_id_, other->user_myself_id_);
   std::swap(user_allow_id_, other->user_allow_id_);
+  std::swap(friend_group_id_, other->friend_group_id_);
   std::swap(opcode_, other->opcode_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -5057,15 +5101,39 @@ void allow_friend_rq::set_allocated_user_allow_nick(::std::string* user_allow_ni
   // @@protoc_insertion_point(field_set_allocated:c_business_relation.allow_friend_rq.user_allow_nick)
 }
 
-// required uint32 opcode = 5;
-bool allow_friend_rq::has_opcode() const {
+// required uint64 friend_group_id = 5;
+bool allow_friend_rq::has_friend_group_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void allow_friend_rq::set_has_opcode() {
+void allow_friend_rq::set_has_friend_group_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-void allow_friend_rq::clear_has_opcode() {
+void allow_friend_rq::clear_has_friend_group_id() {
   _has_bits_[0] &= ~0x00000010u;
+}
+void allow_friend_rq::clear_friend_group_id() {
+  friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_friend_group_id();
+}
+::google::protobuf::uint64 allow_friend_rq::friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_rq.friend_group_id)
+  return friend_group_id_;
+}
+void allow_friend_rq::set_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_friend_group_id();
+  friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_rq.friend_group_id)
+}
+
+// required uint32 opcode = 6;
+bool allow_friend_rq::has_opcode() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void allow_friend_rq::set_has_opcode() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void allow_friend_rq::clear_has_opcode() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 void allow_friend_rq::clear_opcode() {
   opcode_ = 0u;

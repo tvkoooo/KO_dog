@@ -210,6 +210,9 @@
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.cpp">
       <Filter>src\KO_dog\application</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_mfa.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -364,6 +367,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_elem_map.h">
       <Filter>src\KO_dog\toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_mfa.h">
+      <Filter>src\KO_dog\application</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

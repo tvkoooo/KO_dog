@@ -25,6 +25,7 @@
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_search.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_mfa.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_setup.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_window_ip.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.cpp" />
@@ -78,6 +79,7 @@
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_search.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_mfa.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_setup.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_window_ip.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_zhujiemian.h" />

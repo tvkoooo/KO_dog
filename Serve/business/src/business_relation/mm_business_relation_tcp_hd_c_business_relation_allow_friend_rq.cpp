@@ -57,6 +57,7 @@ void mm_business_relation_tcp_hd_c_business_relation_allow_friend_rq(void* obj, 
 		//rq包携带数据
 		mm_uint64_t user_myself_id = rq_msg.user_myself_id();
 		mm_uint64_t user_allow_id = rq_msg.user_allow_id();
+		mm_uint64_t friend_group_id = rq_msg.friend_group_id();
 		const std::string& user_myself_nick = rq_msg.user_myself_nick();
 		const std::string& user_allow_nick = rq_msg.user_allow_nick();
 		mm_uint32_t opcode = rq_msg.opcode();
@@ -105,6 +106,7 @@ void mm_business_relation_tcp_hd_c_business_relation_allow_friend_rq(void* obj, 
 		//如果同意加好友，rs 和 nt 包都需要多加一个 optional 好友更新数据（需要插入sql返回的更新好友数据）
 		//	其中rs包的好友关系是以user_myself_id为自己
 		//  其中nt包的好友关系是以user_allow_id 为自己
+		mm_logger_log_I(g_logger, "%s %d opcode(%d)", __FUNCTION__, __LINE__, opcode);
 		if (1 == opcode)
 		{
 			struct mm_db_mysql* db_mysql = mm_db_mysql_section_thread_instance(&impl->db_sql_section);
@@ -118,6 +120,7 @@ void mm_business_relation_tcp_hd_c_business_relation_allow_friend_rq(void* obj, 
 					mm::p_user_relation_add_friend query;
 					query.myself_id = user_myself_id;
 					query.friend_id = user_allow_id;
+					query.friend_group_id = friend_group_id;
 					query.friend_remark = user_allow_nick;
 					if (db_mysql_state_success != query.query(db_mysql, MM_LOG_INFO))
 					{

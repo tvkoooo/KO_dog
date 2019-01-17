@@ -107,8 +107,8 @@ namespace mm
 	const std::string KO_dog_data_user_basic::event_userdata_user_token_update("event_userdata_user_token_update");
 	const std::string KO_dog_data_user_basic::event_data_search_friend_basic_update("event_data_search_friend_basic_update");
 	const std::string KO_dog_data_user_basic::event_data_friend_apply_update("event_data_friend_apply_update");
-	const std::string KO_dog_data_user_basic::event_data_add_friend_nt("event_data_add_friend_nt");
-	const std::string KO_dog_data_user_basic::event_data_respond_friend_nt("event_data_respond_friend_nt");
+	//const std::string KO_dog_data_user_basic::event_data_add_friend_nt("event_data_add_friend_nt");
+	//const std::string KO_dog_data_user_basic::event_data_rmv_friend_nt("event_data_rmv_friend_nt");
 
 	KO_dog_data_user_basic::KO_dog_data_user_basic()
 		: d_event_set()

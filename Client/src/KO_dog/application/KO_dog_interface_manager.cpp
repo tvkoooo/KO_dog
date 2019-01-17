@@ -238,6 +238,8 @@ namespace mm
 
 	bool KO_dog_interface_manager::on_handle_closed(const mm_event_args& args)
 	{
+		//清空 l_home_lj_mailbox 逻辑资源
+		this->mailbox.clear_data_before_terminate();
 		this->l_home_lj_mailbox->setVisible(false);
 		this->l_home_lj_login->setVisible(true);
 		return false;
@@ -266,6 +268,10 @@ namespace mm
 		c_business_relation::query_friends_rq rq;
 		rq.set_user_myself_id(u_basic->id);
 		mm_client_tcps_flush_send_message(&p->network.tcp, u_basic->id, c_business_relation::query_friends_rq_msg_id, &rq);
+		//登录后需要更新服务器好友申请列表
+		c_business_relation::query_friends_apply_rq rq1;
+		rq1.set_user_myself_id(u_basic->id);
+		mm_client_tcps_flush_send_message(&p->network.tcp, u_basic->id, c_business_relation::query_friends_apply_rq_msg_id, &rq1);
 
 		return false;
 	}

@@ -81,7 +81,7 @@
             <Property name="VertScrollPageSize" value="112" />
             <Window type="TaharezLook/Button" name="Button_agree" >
                 <Property name="Area" value="{{0.522813,0},{0.101282,0},{0.957758,0},{0.870513,0}}" />
-                <Property name="Text" value="Agree" />
+                <Property name="Text" value="agree plan" />
             </Window>
             <Window type="TaharezLook/Button" name="Button_refuse" >
                 <Property name="Area" value="{{0.0338398,0},{0.101282,0},{0.478078,0},{0.855128,0}}" />

@@ -1788,10 +1788,17 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::uint64 user_allow_id() const;
   void set_user_allow_id(::google::protobuf::uint64 value);
 
-  // required uint32 opcode = 5;
+  // required uint64 friend_group_id = 5;
+  bool has_friend_group_id() const;
+  void clear_friend_group_id();
+  static const int kFriendGroupIdFieldNumber = 5;
+  ::google::protobuf::uint64 friend_group_id() const;
+  void set_friend_group_id(::google::protobuf::uint64 value);
+
+  // required uint32 opcode = 6;
   bool has_opcode() const;
   void clear_opcode();
-  static const int kOpcodeFieldNumber = 5;
+  static const int kOpcodeFieldNumber = 6;
   ::google::protobuf::uint32 opcode() const;
   void set_opcode(::google::protobuf::uint32 value);
 
@@ -1805,6 +1812,8 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_user_myself_nick();
   void set_has_user_allow_nick();
   void clear_has_user_allow_nick();
+  void set_has_friend_group_id();
+  void clear_has_friend_group_id();
   void set_has_opcode();
   void clear_has_opcode();
 
@@ -1818,6 +1827,7 @@ class allow_friend_rq : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::ArenaStringPtr user_allow_nick_;
   ::google::protobuf::uint64 user_myself_id_;
   ::google::protobuf::uint64 user_allow_id_;
+  ::google::protobuf::uint64 friend_group_id_;
   ::google::protobuf::uint32 opcode_;
   friend struct protobuf_c_5fbusiness_5frelation_2eproto::TableStruct;
 };
@@ -5435,15 +5445,39 @@ inline void allow_friend_rq::set_allocated_user_allow_nick(::std::string* user_a
   // @@protoc_insertion_point(field_set_allocated:c_business_relation.allow_friend_rq.user_allow_nick)
 }
 
-// required uint32 opcode = 5;
-inline bool allow_friend_rq::has_opcode() const {
+// required uint64 friend_group_id = 5;
+inline bool allow_friend_rq::has_friend_group_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void allow_friend_rq::set_has_opcode() {
+inline void allow_friend_rq::set_has_friend_group_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void allow_friend_rq::clear_has_opcode() {
+inline void allow_friend_rq::clear_has_friend_group_id() {
   _has_bits_[0] &= ~0x00000010u;
+}
+inline void allow_friend_rq::clear_friend_group_id() {
+  friend_group_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_friend_group_id();
+}
+inline ::google::protobuf::uint64 allow_friend_rq::friend_group_id() const {
+  // @@protoc_insertion_point(field_get:c_business_relation.allow_friend_rq.friend_group_id)
+  return friend_group_id_;
+}
+inline void allow_friend_rq::set_friend_group_id(::google::protobuf::uint64 value) {
+  set_has_friend_group_id();
+  friend_group_id_ = value;
+  // @@protoc_insertion_point(field_set:c_business_relation.allow_friend_rq.friend_group_id)
+}
+
+// required uint32 opcode = 6;
+inline bool allow_friend_rq::has_opcode() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void allow_friend_rq::set_has_opcode() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void allow_friend_rq::clear_has_opcode() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void allow_friend_rq::clear_opcode() {
   opcode_ = 0u;

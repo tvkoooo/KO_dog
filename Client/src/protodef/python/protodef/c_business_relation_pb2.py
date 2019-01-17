@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='c_business_relation.proto',
   package='c_business_relation',
   syntax='proto2',
-  serialized_pb=_b('\n\x19\x63_business_relation.proto\x12\x13\x63_business_relation\x1a\rb_error.proto\x1a\x18\x62_business_account.proto\x1a\x19\x62_business_relation.proto\"h\n\x0b\x66riend_info\x12\x30\n\tuser_info\x18\x01 \x02(\x0b\x32\x1d.b_business_account.user_info\x12\x12\n\nuser_group\x18\x02 \x01(\t\x12\x13\n\x0buser_remark\x18\x03 \x01(\t\"x\n\radd_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x13\n\x0buser_add_id\x18\x02 \x02(\x04\x12\x13\n\x0buser_remark\x18\x03 \x02(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xc2\x80\x10\"i\n\radd_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x13\n\x0buser_add_id\x18\x02 \x02(\x04\x12\x13\n\x0buser_remark\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x92\xc2\x80\x10\"n\n\radd_friend_nt\x12\x36\n\x0f\x61pply_user_info\x18\x01 \x02(\x0b\x32\x1d.b_business_account.user_info\x12\x13\n\x0b\x64\x65scription\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xc3\x80\x10\"T\n\x10\x64\x65lete_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_delete_id\x18\x02 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x93\xc2\x80\x10\"Z\n\x10\x64\x65lete_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_delete_id\x18\x02 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x94\xc2\x80\x10\";\n\x10\x64\x65lete_friend_nt\x12\x15\n\rapply_user_id\x18\x01 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x82\xc3\x80\x10\"\xb8\x01\n\x0f\x61llow_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x15\n\ruser_allow_id\x18\x02 \x02(\x04\x12\x18\n\x10user_myself_nick\x18\x03 \x02(\t\x12\x17\n\x0fuser_allow_nick\x18\x04 \x02(\t\x12\x0e\n\x06opcode\x18\x05 \x02(\r\"\x10\n\x03msg\x12\t\n\x02id\x10\x95\xc2\x80\x10\"!\n\x08opcode_t\x12\t\n\x05\x61llow\x10\x01\x12\n\n\x06refuse\x10\x02\"\xa0\x01\n\x0f\x61llow_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x15\n\ruser_allow_id\x18\x02 \x02(\x04\x12\x0e\n\x06opcode\x18\x03 \x02(\r\x12\x36\n\nrelation_s\x18\x04 \x03(\x0b\x32\".b_business_relation.user_relation\"\x10\n\x03msg\x12\t\n\x02id\x10\x96\xc2\x80\x10\"\xa3\x01\n\x0f\x61llow_friend_nt\x12\x36\n\x0f\x61pply_user_info\x18\x01 \x02(\x0b\x32\x1d.b_business_account.user_info\x12\x0e\n\x06opcode\x18\x02 \x02(\r\x12\x36\n\nrelation_s\x18\x03 \x03(\x0b\x32\".b_business_relation.user_relation\"\x10\n\x03msg\x12\t\n\x02id\x10\x83\xc3\x80\x10\"<\n\x10query_friends_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x97\xc2\x80\x10\"\xb5\x01\n\x10query_friends_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x39\n\x07group_s\x18\x02 \x03(\x0b\x32(.b_business_relation.user_relation_group\x12\x36\n\nrelation_s\x18\x03 \x03(\x0b\x32\".b_business_relation.user_relation\"\x10\n\x03msg\x12\t\n\x02id\x10\x98\xc2\x80\x10\"w\n\x17rename_friend_remark_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1a\n\x12user_friend_remark\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x99\xc2\x80\x10\"}\n\x17rename_friend_remark_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1a\n\x12user_friend_remark\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa0\xc2\x80\x10\"Z\n\x13\x61\x64\x64_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x19\n\x11user_friend_group\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc2\x80\x10\"~\n\x13\x61\x64\x64_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x19\n\x11user_friend_group\x18\x02 \x02(\t\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa2\xc2\x80\x10\"x\n\x16\x64\x65lete_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc2\x80\x10\"~\n\x16\x64\x65lete_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa2\xc2\x80\x10\"{\n\x16rename_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\x12\x19\n\x11user_friend_group\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc2\x80\x10\"\x81\x01\n\x16rename_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\x12\x19\n\x11user_friend_group\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa2\xc2\x80\x10\"\x9e\x01\n\x16\x63hange_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12 \n\x18user_friend_group_id_old\x18\x03 \x02(\x04\x12 \n\x18user_friend_group_id_new\x18\x04 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa3\xc2\x80\x10\"\xa4\x01\n\x16\x63hange_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12 \n\x18user_friend_group_id_old\x18\x03 \x02(\x04\x12 \n\x18user_friend_group_id_new\x18\x04 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa4\xc2\x80\x10\"B\n\x16query_friends_apply_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa5\xc2\x80\x10\"|\n\x16query_friends_apply_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x32\n\x07\x61pply_s\x18\x02 \x03(\x0b\x32!.b_business_relation.friend_apply\"\x10\n\x03msg\x12\t\n\x02id\x10\xa6\xc2\x80\x10\"a\n\x0etalk_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x14\n\x0cuser_talk_id\x18\x02 \x02(\x04\x12\x0f\n\x07talking\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xd1\xc2\x80\x10\"V\n\x0etalk_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x14\n\x0cuser_talk_id\x18\x02 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xd2\xc2\x80\x10\"J\n\x0etalk_friend_nt\x12\x15\n\rapply_talk_id\x18\x01 \x02(\x04\x12\x0f\n\x07talking\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xc3\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xc2\x80\x10\x12\r\n\x06max_id\x10\xff\xc3\x80\x10\x42j\n\x08protodefB\x13\x63_business_relationZ\x1cprotodef/c_business_relation\xa2\x02\x14\x43_business_relation_\xaa\x02\x13\x63_business_relation')
+  serialized_pb=_b('\n\x19\x63_business_relation.proto\x12\x13\x63_business_relation\x1a\rb_error.proto\x1a\x18\x62_business_account.proto\x1a\x19\x62_business_relation.proto\"h\n\x0b\x66riend_info\x12\x30\n\tuser_info\x18\x01 \x02(\x0b\x32\x1d.b_business_account.user_info\x12\x12\n\nuser_group\x18\x02 \x01(\t\x12\x13\n\x0buser_remark\x18\x03 \x01(\t\"x\n\radd_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x13\n\x0buser_add_id\x18\x02 \x02(\x04\x12\x13\n\x0buser_remark\x18\x03 \x02(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xc2\x80\x10\"i\n\radd_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x13\n\x0buser_add_id\x18\x02 \x02(\x04\x12\x13\n\x0buser_remark\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x92\xc2\x80\x10\"n\n\radd_friend_nt\x12\x36\n\x0f\x61pply_user_info\x18\x01 \x02(\x0b\x32\x1d.b_business_account.user_info\x12\x13\n\x0b\x64\x65scription\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x81\xc3\x80\x10\"T\n\x10\x64\x65lete_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_delete_id\x18\x02 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x93\xc2\x80\x10\"Z\n\x10\x64\x65lete_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_delete_id\x18\x02 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x94\xc2\x80\x10\";\n\x10\x64\x65lete_friend_nt\x12\x15\n\rapply_user_id\x18\x01 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x82\xc3\x80\x10\"\xd1\x01\n\x0f\x61llow_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x15\n\ruser_allow_id\x18\x02 \x02(\x04\x12\x18\n\x10user_myself_nick\x18\x03 \x02(\t\x12\x17\n\x0fuser_allow_nick\x18\x04 \x02(\t\x12\x17\n\x0f\x66riend_group_id\x18\x05 \x02(\x04\x12\x0e\n\x06opcode\x18\x06 \x02(\r\"\x10\n\x03msg\x12\t\n\x02id\x10\x95\xc2\x80\x10\"!\n\x08opcode_t\x12\t\n\x05\x61llow\x10\x01\x12\n\n\x06refuse\x10\x02\"\xa0\x01\n\x0f\x61llow_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x15\n\ruser_allow_id\x18\x02 \x02(\x04\x12\x0e\n\x06opcode\x18\x03 \x02(\r\x12\x36\n\nrelation_s\x18\x04 \x03(\x0b\x32\".b_business_relation.user_relation\"\x10\n\x03msg\x12\t\n\x02id\x10\x96\xc2\x80\x10\"\xa3\x01\n\x0f\x61llow_friend_nt\x12\x36\n\x0f\x61pply_user_info\x18\x01 \x02(\x0b\x32\x1d.b_business_account.user_info\x12\x0e\n\x06opcode\x18\x02 \x02(\r\x12\x36\n\nrelation_s\x18\x03 \x03(\x0b\x32\".b_business_relation.user_relation\"\x10\n\x03msg\x12\t\n\x02id\x10\x83\xc3\x80\x10\"<\n\x10query_friends_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\x97\xc2\x80\x10\"\xb5\x01\n\x10query_friends_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x39\n\x07group_s\x18\x02 \x03(\x0b\x32(.b_business_relation.user_relation_group\x12\x36\n\nrelation_s\x18\x03 \x03(\x0b\x32\".b_business_relation.user_relation\"\x10\n\x03msg\x12\t\n\x02id\x10\x98\xc2\x80\x10\"w\n\x17rename_friend_remark_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1a\n\x12user_friend_remark\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x99\xc2\x80\x10\"}\n\x17rename_friend_remark_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1a\n\x12user_friend_remark\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa0\xc2\x80\x10\"Z\n\x13\x61\x64\x64_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x19\n\x11user_friend_group\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc2\x80\x10\"~\n\x13\x61\x64\x64_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x19\n\x11user_friend_group\x18\x02 \x02(\t\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa2\xc2\x80\x10\"x\n\x16\x64\x65lete_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc2\x80\x10\"~\n\x16\x64\x65lete_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa2\xc2\x80\x10\"{\n\x16rename_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\x12\x19\n\x11user_friend_group\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa1\xc2\x80\x10\"\x81\x01\n\x16rename_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x1c\n\x14user_friend_group_id\x18\x03 \x02(\x04\x12\x19\n\x11user_friend_group\x18\x04 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xa2\xc2\x80\x10\"\x9e\x01\n\x16\x63hange_friend_group_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12 \n\x18user_friend_group_id_old\x18\x03 \x02(\x04\x12 \n\x18user_friend_group_id_new\x18\x04 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa3\xc2\x80\x10\"\xa4\x01\n\x16\x63hange_friend_group_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x16\n\x0euser_friend_id\x18\x02 \x02(\x04\x12 \n\x18user_friend_group_id_old\x18\x03 \x02(\x04\x12 \n\x18user_friend_group_id_new\x18\x04 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa4\xc2\x80\x10\"B\n\x16query_friends_apply_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xa5\xc2\x80\x10\"|\n\x16query_friends_apply_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x32\n\x07\x61pply_s\x18\x02 \x03(\x0b\x32!.b_business_relation.friend_apply\"\x10\n\x03msg\x12\t\n\x02id\x10\xa6\xc2\x80\x10\"a\n\x0etalk_friend_rq\x12\x16\n\x0euser_myself_id\x18\x01 \x02(\x04\x12\x14\n\x0cuser_talk_id\x18\x02 \x02(\x04\x12\x0f\n\x07talking\x18\x03 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\xd1\xc2\x80\x10\"V\n\x0etalk_friend_rs\x12\x1c\n\x05\x65rror\x18\x01 \x02(\x0b\x32\r.b_error.info\x12\x14\n\x0cuser_talk_id\x18\x02 \x02(\x04\"\x10\n\x03msg\x12\t\n\x02id\x10\xd2\xc2\x80\x10\"J\n\x0etalk_friend_nt\x12\x15\n\rapply_talk_id\x18\x01 \x02(\x04\x12\x0f\n\x07talking\x18\x02 \x02(\t\"\x10\n\x03msg\x12\t\n\x02id\x10\x91\xc3\x80\x10*#\n\x03msg\x12\r\n\x06min_id\x10\x80\xc2\x80\x10\x12\r\n\x06max_id\x10\xff\xc3\x80\x10\x42j\n\x08protodefB\x13\x63_business_relationZ\x1cprotodef/c_business_relation\xa2\x02\x14\x43_business_relation_\xaa\x02\x13\x63_business_relation')
   ,
   dependencies=[b__error__pb2.DESCRIPTOR,b__business__account__pb2.DESCRIPTOR,b__business__relation__pb2.DESCRIPTOR,])
 
@@ -44,8 +44,8 @@ _MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3326,
-  serialized_end=3361,
+  serialized_start=3351,
+  serialized_end=3386,
 )
 _sym_db.RegisterEnumDescriptor(_MSG)
 
@@ -175,8 +175,8 @@ _ALLOW_FRIEND_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=938,
-  serialized_end=954,
+  serialized_start=963,
+  serialized_end=979,
 )
 _sym_db.RegisterEnumDescriptor(_ALLOW_FRIEND_RQ_MSG)
 
@@ -197,8 +197,8 @@ _ALLOW_FRIEND_RQ_OPCODE_T = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=956,
-  serialized_end=989,
+  serialized_start=981,
+  serialized_end=1014,
 )
 _sym_db.RegisterEnumDescriptor(_ALLOW_FRIEND_RQ_OPCODE_T)
 
@@ -215,8 +215,8 @@ _ALLOW_FRIEND_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1136,
-  serialized_end=1152,
+  serialized_start=1161,
+  serialized_end=1177,
 )
 _sym_db.RegisterEnumDescriptor(_ALLOW_FRIEND_RS_MSG)
 
@@ -233,8 +233,8 @@ _ALLOW_FRIEND_NT_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1302,
-  serialized_end=1318,
+  serialized_start=1327,
+  serialized_end=1343,
 )
 _sym_db.RegisterEnumDescriptor(_ALLOW_FRIEND_NT_MSG)
 
@@ -251,8 +251,8 @@ _QUERY_FRIENDS_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1364,
-  serialized_end=1380,
+  serialized_start=1389,
+  serialized_end=1405,
 )
 _sym_db.RegisterEnumDescriptor(_QUERY_FRIENDS_RQ_MSG)
 
@@ -269,8 +269,8 @@ _QUERY_FRIENDS_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1548,
-  serialized_end=1564,
+  serialized_start=1573,
+  serialized_end=1589,
 )
 _sym_db.RegisterEnumDescriptor(_QUERY_FRIENDS_RS_MSG)
 
@@ -287,8 +287,8 @@ _RENAME_FRIEND_REMARK_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1669,
-  serialized_end=1685,
+  serialized_start=1694,
+  serialized_end=1710,
 )
 _sym_db.RegisterEnumDescriptor(_RENAME_FRIEND_REMARK_RQ_MSG)
 
@@ -305,8 +305,8 @@ _RENAME_FRIEND_REMARK_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1796,
-  serialized_end=1812,
+  serialized_start=1821,
+  serialized_end=1837,
 )
 _sym_db.RegisterEnumDescriptor(_RENAME_FRIEND_REMARK_RS_MSG)
 
@@ -323,8 +323,8 @@ _ADD_FRIEND_GROUP_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1888,
-  serialized_end=1904,
+  serialized_start=1913,
+  serialized_end=1929,
 )
 _sym_db.RegisterEnumDescriptor(_ADD_FRIEND_GROUP_RQ_MSG)
 
@@ -341,8 +341,8 @@ _ADD_FRIEND_GROUP_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2016,
-  serialized_end=2032,
+  serialized_start=2041,
+  serialized_end=2057,
 )
 _sym_db.RegisterEnumDescriptor(_ADD_FRIEND_GROUP_RS_MSG)
 
@@ -359,8 +359,8 @@ _DELETE_FRIEND_GROUP_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1888,
-  serialized_end=1904,
+  serialized_start=1913,
+  serialized_end=1929,
 )
 _sym_db.RegisterEnumDescriptor(_DELETE_FRIEND_GROUP_RQ_MSG)
 
@@ -377,8 +377,8 @@ _DELETE_FRIEND_GROUP_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2016,
-  serialized_end=2032,
+  serialized_start=2041,
+  serialized_end=2057,
 )
 _sym_db.RegisterEnumDescriptor(_DELETE_FRIEND_GROUP_RS_MSG)
 
@@ -395,8 +395,8 @@ _RENAME_FRIEND_GROUP_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1888,
-  serialized_end=1904,
+  serialized_start=1913,
+  serialized_end=1929,
 )
 _sym_db.RegisterEnumDescriptor(_RENAME_FRIEND_GROUP_RQ_MSG)
 
@@ -413,8 +413,8 @@ _RENAME_FRIEND_GROUP_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2016,
-  serialized_end=2032,
+  serialized_start=2041,
+  serialized_end=2057,
 )
 _sym_db.RegisterEnumDescriptor(_RENAME_FRIEND_GROUP_RS_MSG)
 
@@ -431,8 +431,8 @@ _CHANGE_FRIEND_GROUP_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2684,
-  serialized_end=2700,
+  serialized_start=2709,
+  serialized_end=2725,
 )
 _sym_db.RegisterEnumDescriptor(_CHANGE_FRIEND_GROUP_RQ_MSG)
 
@@ -449,8 +449,8 @@ _CHANGE_FRIEND_GROUP_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2851,
-  serialized_end=2867,
+  serialized_start=2876,
+  serialized_end=2892,
 )
 _sym_db.RegisterEnumDescriptor(_CHANGE_FRIEND_GROUP_RS_MSG)
 
@@ -467,8 +467,8 @@ _QUERY_FRIENDS_APPLY_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2919,
-  serialized_end=2935,
+  serialized_start=2944,
+  serialized_end=2960,
 )
 _sym_db.RegisterEnumDescriptor(_QUERY_FRIENDS_APPLY_RQ_MSG)
 
@@ -485,8 +485,8 @@ _QUERY_FRIENDS_APPLY_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3045,
-  serialized_end=3061,
+  serialized_start=3070,
+  serialized_end=3086,
 )
 _sym_db.RegisterEnumDescriptor(_QUERY_FRIENDS_APPLY_RS_MSG)
 
@@ -503,8 +503,8 @@ _TALK_FRIEND_RQ_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3144,
-  serialized_end=3160,
+  serialized_start=3169,
+  serialized_end=3185,
 )
 _sym_db.RegisterEnumDescriptor(_TALK_FRIEND_RQ_MSG)
 
@@ -521,8 +521,8 @@ _TALK_FRIEND_RS_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3232,
-  serialized_end=3248,
+  serialized_start=3257,
+  serialized_end=3273,
 )
 _sym_db.RegisterEnumDescriptor(_TALK_FRIEND_RS_MSG)
 
@@ -539,8 +539,8 @@ _TALK_FRIEND_NT_MSG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3308,
-  serialized_end=3324,
+  serialized_start=3333,
+  serialized_end=3349,
 )
 _sym_db.RegisterEnumDescriptor(_TALK_FRIEND_NT_MSG)
 
@@ -874,8 +874,15 @@ _ALLOW_FRIEND_RQ = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='opcode', full_name='c_business_relation.allow_friend_rq.opcode', index=4,
-      number=5, type=13, cpp_type=3, label=2,
+      name='friend_group_id', full_name='c_business_relation.allow_friend_rq.friend_group_id', index=4,
+      number=5, type=4, cpp_type=4, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='opcode', full_name='c_business_relation.allow_friend_rq.opcode', index=5,
+      number=6, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -895,7 +902,7 @@ _ALLOW_FRIEND_RQ = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=805,
-  serialized_end=989,
+  serialized_end=1014,
 )
 
 
@@ -947,8 +954,8 @@ _ALLOW_FRIEND_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=992,
-  serialized_end=1152,
+  serialized_start=1017,
+  serialized_end=1177,
 )
 
 
@@ -993,8 +1000,8 @@ _ALLOW_FRIEND_NT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1155,
-  serialized_end=1318,
+  serialized_start=1180,
+  serialized_end=1343,
 )
 
 
@@ -1025,8 +1032,8 @@ _QUERY_FRIENDS_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1320,
-  serialized_end=1380,
+  serialized_start=1345,
+  serialized_end=1405,
 )
 
 
@@ -1071,8 +1078,8 @@ _QUERY_FRIENDS_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1383,
-  serialized_end=1564,
+  serialized_start=1408,
+  serialized_end=1589,
 )
 
 
@@ -1117,8 +1124,8 @@ _RENAME_FRIEND_REMARK_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1566,
-  serialized_end=1685,
+  serialized_start=1591,
+  serialized_end=1710,
 )
 
 
@@ -1163,8 +1170,8 @@ _RENAME_FRIEND_REMARK_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1687,
-  serialized_end=1812,
+  serialized_start=1712,
+  serialized_end=1837,
 )
 
 
@@ -1202,8 +1209,8 @@ _ADD_FRIEND_GROUP_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1814,
-  serialized_end=1904,
+  serialized_start=1839,
+  serialized_end=1929,
 )
 
 
@@ -1248,8 +1255,8 @@ _ADD_FRIEND_GROUP_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1906,
-  serialized_end=2032,
+  serialized_start=1931,
+  serialized_end=2057,
 )
 
 
@@ -1294,8 +1301,8 @@ _DELETE_FRIEND_GROUP_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2034,
-  serialized_end=2154,
+  serialized_start=2059,
+  serialized_end=2179,
 )
 
 
@@ -1340,8 +1347,8 @@ _DELETE_FRIEND_GROUP_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2156,
-  serialized_end=2282,
+  serialized_start=2181,
+  serialized_end=2307,
 )
 
 
@@ -1386,8 +1393,8 @@ _RENAME_FRIEND_GROUP_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2284,
-  serialized_end=2407,
+  serialized_start=2309,
+  serialized_end=2432,
 )
 
 
@@ -1432,8 +1439,8 @@ _RENAME_FRIEND_GROUP_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2410,
-  serialized_end=2539,
+  serialized_start=2435,
+  serialized_end=2564,
 )
 
 
@@ -1485,8 +1492,8 @@ _CHANGE_FRIEND_GROUP_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2542,
-  serialized_end=2700,
+  serialized_start=2567,
+  serialized_end=2725,
 )
 
 
@@ -1538,8 +1545,8 @@ _CHANGE_FRIEND_GROUP_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2703,
-  serialized_end=2867,
+  serialized_start=2728,
+  serialized_end=2892,
 )
 
 
@@ -1570,8 +1577,8 @@ _QUERY_FRIENDS_APPLY_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2869,
-  serialized_end=2935,
+  serialized_start=2894,
+  serialized_end=2960,
 )
 
 
@@ -1609,8 +1616,8 @@ _QUERY_FRIENDS_APPLY_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2937,
-  serialized_end=3061,
+  serialized_start=2962,
+  serialized_end=3086,
 )
 
 
@@ -1655,8 +1662,8 @@ _TALK_FRIEND_RQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3063,
-  serialized_end=3160,
+  serialized_start=3088,
+  serialized_end=3185,
 )
 
 
@@ -1694,8 +1701,8 @@ _TALK_FRIEND_RS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3162,
-  serialized_end=3248,
+  serialized_start=3187,
+  serialized_end=3273,
 )
 
 
@@ -1733,8 +1740,8 @@ _TALK_FRIEND_NT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3250,
-  serialized_end=3324,
+  serialized_start=3275,
+  serialized_end=3349,
 )
 
 _FRIEND_INFO.fields_by_name['user_info'].message_type = b__business__account__pb2._USER_INFO
