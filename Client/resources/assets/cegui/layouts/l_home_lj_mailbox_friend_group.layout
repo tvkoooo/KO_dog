@@ -33,9 +33,18 @@
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                 </Window>
             </Window>
-            <Window type="TaharezLook/StaticText" name="StaticText_describe" >
+            <Window type="TaharezLook/StaticText" name="StaticText_create" >
                 <Property name="Area" value="{{0.0188236,0},{0.0652848,0},{0.981425,0},{0.254474,0}}" />
+                <Property name="Text" value="There is no group you love, so create a new one,please." />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Window type="TaharezLook/Button" name="Button_create" >
+                    <Property name="Area" value="{{0.835479,0},{0.611603,0},{0.992574,0},{0.957757,0}}" />
+                    <Property name="Text" value="Create" />
+                </Window>
+                <Window type="TaharezLook/Editbox" name="Editbox_create" >
+                    <Property name="Area" value="{{0.614478,0},{0.615334,0},{0.828161,0},{0.972477,0}}" />
+                </Window>
             </Window>
         </Window>
         <Window type="TaharezLook/StaticText" name="StaticText_opcode" >
@@ -43,9 +52,9 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzScrollPageSize" value="247" />
             <Property name="VertScrollPageSize" value="941" />
-            <Window type="TaharezLook/StaticText" name="StaticText_change_group" >
+            <Window type="TaharezLook/StaticText" name="StaticText_group_info" >
                 <Property name="Area" value="{{0.0258303,0},{0.0220049,0},{0.965453,0},{0.47456,0}}" />
-                <Property name="Text" value="change group" />
+                <Property name="Text" value="group info" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
                 <Property name="HorzFormatting" value="CentreAligned" />
                 <Property name="VertFormatting" value="TopAligned" />
@@ -105,15 +114,15 @@
                     <Property name="Area" value="{{0.0695613,0},{0.221854,0},{0.953095,0},{0.533781,0}}" />
                 </Window>
             </Window>
-            <Window type="TaharezLook/StaticText" name="StaticText_add_group" >
+            <Window type="TaharezLook/StaticText" name="StaticText_change_group" >
                 <Property name="Area" value="{{0.0333775,0},{0.482902,0},{0.973,0},{0.610118,0}}" />
-                <Property name="Text" value="add group" />
+                <Property name="Text" value="change group" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
                 <Property name="HorzFormatting" value="CentreAligned" />
                 <Property name="VertFormatting" value="TopAligned" />
-                <Window type="TaharezLook/Button" name="Button_add" >
+                <Window type="TaharezLook/Button" name="Button_change" >
                     <Property name="Area" value="{{0.0651198,0},{0.333226,0},{0.944638,0},{0.866013,0}}" />
-                    <Property name="Text" value="add" />
+                    <Property name="Text" value="Change" />
                 </Window>
             </Window>
         </Window>

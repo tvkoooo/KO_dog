@@ -400,7 +400,7 @@ event =
 
 			{type="uint64", name="myself_id",default="0",desc="myself_id",},
 			{type="uint64", name="friend_id",default="0",desc="friend_id",},
-			{type="string", name="friend_remark",default="0",desc="friend_remark",},
+			{type="string", name="friend_remark",default="\"\"",desc="friend_remark",},
 
 		},
 		handler =

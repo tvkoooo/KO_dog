@@ -281,6 +281,8 @@ namespace mm
 		mm::KO_dog_data_user_basic* p_user_basic = &p_dog->data.data_user_basic;
 		if (data_user_token::user_token_closed == p_user_basic->token.state  )
 		{
+			//Çå¿Õ l_home_lj_mailbox Âß¼­×ÊÔ´
+			this->mailbox.clear_data_before_terminate();
 			this->l_home_lj_mailbox->setVisible(false);
 			this->l_home_lj_login->setVisible(true);
 		}

@@ -82,9 +82,14 @@ void mm_client_tcp_flush_send_exchange_key_rq(struct mm_client_tcp* p)
 		//取出 msg_rq 的 成员 public_key 地址。以供修改使用
 		std::string* openssl_rsa_pub_mem = msg_rq.mutable_public_key();
 		//给字符串预分配一个 openssl_rsa_pub_mem_size 长度的缓冲区
-		openssl_rsa_pub_mem->resize(openssl_rsa_pub_mem_size);
+		openssl_rsa_pub_mem->resize(openssl_rsa_pub_mem_size + 1);
 		//把 client rsa 的公钥 对拷贝 预分配的缓冲区
 		mm_openssl_rsa_pub_mem_get(p_openssl_rsa_client, (mm_uint8_t*)openssl_rsa_pub_mem->data(), 0, openssl_rsa_pub_mem_size);
+		// 在缓冲区数据结束末尾需要添加 0 ，防止缓冲区输出日志造成内存块扩大
+		// 指针前加* 转为对象 ，对象可以使用运算符重载符号 []   (是这个函数调用像 数组用法)   
+		// 本质(对象使用运算符重载符号 []) 指针执行 "operator[]" 函数
+		// openssl_rsa_pub_mem->operator[](openssl_rsa_pub_mem_size) = 0;
+		(*openssl_rsa_pub_mem)[openssl_rsa_pub_mem_size] = 0;
 		mm_openssl_rsa_unlock(p_openssl_rsa_client);
 
 		// 预分配承接对象

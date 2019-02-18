@@ -23,6 +23,8 @@
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_interface_manager.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_talk.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_search.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_mfa.cpp" />
@@ -55,10 +57,12 @@
     <ClCompile Include="..\..\src\KO_dog\network\network_state.cpp" />
     <ClCompile Include="..\..\src\KO_dog\script\KO_dog_script_error_code.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_error_desc.c" />
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_single_view_map.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_util_mesh.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_windows_target.cpp" />
     <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_animation.cpp" />
     <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_audio.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\widgets\KO_dog_combobox.cpp" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.cc" />
     <ClCompile Include="..\..\src\protodef\cxx\protodef\b_enum.pb.cc" />
@@ -77,6 +81,8 @@
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_interface_manager.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_talk.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_search.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_mfa.h" />
@@ -110,10 +116,12 @@
     <ClInclude Include="..\..\src\KO_dog\script\KO_dog_script_error_code.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_elem_map.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_error_desc.h" />
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_single_view_map.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_util_mesh.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_windows_target.h" />
     <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_animation.h" />
     <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_audio.h" />
+    <ClInclude Include="..\..\src\KO_dog\widgets\KO_dog_combobox.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_account.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_business_relation.pb.h" />
     <ClInclude Include="..\..\src\protodef\cxx\protodef\b_enum.pb.h" />

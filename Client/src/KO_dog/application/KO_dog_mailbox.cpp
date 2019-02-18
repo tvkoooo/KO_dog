@@ -30,6 +30,8 @@ namespace mm
 
 		//, l_layer_dog_a1(NULL)
 		, l_home_lj_mailbox_search(NULL)
+		, l_home_lj_mailbox_friend_apply(NULL)
+		, l_home_lj_mailbox_friend(NULL)
 
 		, StaticImage_basic(NULL)
 		, DefaultWindow_left(NULL)
@@ -41,6 +43,9 @@ namespace mm
 		, Listbox_nt(NULL)
 		, Button_quit(NULL)
 		, DefaultWindow_right(NULL)
+
+		, p_friend_friend(NULL)
+		, p_friend_group(NULL)
 
 		, p_apply_friend_info(NULL)
 	{
@@ -95,6 +100,7 @@ namespace mm
 		//this->l_layer_dog_a1 = _window_manager->loadLayoutFromFile("l_layer_dog_a1.layout");
 		this->l_home_lj_mailbox_search = _window_manager->loadLayoutFromFile("l_home_lj_mailbox_search.layout");
 		this->l_home_lj_mailbox_friend_apply = _window_manager->loadLayoutFromFile("l_home_lj_mailbox_friend_apply.layout");
+		this->l_home_lj_mailbox_friend = _window_manager->loadLayoutFromFile("l_home_lj_mailbox_friend.layout");
 		//////////////////////////////////////////////////////////////////////////
 		this->StaticImage_basic = this->l_home_lj_mailbox->getChild("StaticImage_basic");
 		this->DefaultWindow_left = this->l_home_lj_mailbox->getChild("DefaultWindow_left");
@@ -115,6 +121,11 @@ namespace mm
 		this->mailbox_friend_apply.set_data(this->d_flake_context, this->d_surface);
 		this->mailbox_friend_apply.set_l_layer(this->l_home_lj_mailbox_friend_apply);
 		this->mailbox_friend_apply.on_finish_launching();
+		//Set up layers l_home_lj_mailbox_friend
+		this->mailbox_friend_talk.set_context(this->d_flake_context, this->d_surface);
+		this->mailbox_friend_talk.set_layer(this->l_home_lj_mailbox_friend);
+		this->mailbox_friend_talk.on_finish_launching();
+
 
 		//{
 		//	mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
@@ -134,9 +145,11 @@ namespace mm
 		this->l_home_lj_mailbox_search->setArea(ur);
 		this->DefaultWindow_right->addChild(this->l_home_lj_mailbox_friend_apply);
 		this->l_home_lj_mailbox_friend_apply->setArea(ur);
+		this->DefaultWindow_right->addChild(this->l_home_lj_mailbox_friend);
+		this->l_home_lj_mailbox_friend->setArea(ur);
 		////////////////////////////////////////////////////////////////////////////////
-		this->l_home_lj_mailbox_search->setVisible(false);
-		this->l_home_lj_mailbox_friend_apply->setVisible(false);
+		//this->l_home_lj_mailbox_search->setVisible(false);
+		//this->l_home_lj_mailbox_friend_apply->setVisible(false);
 		////////////////////////////////////////////////////////////////////////////////
 
 		this->Button_search->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_mailbox::on_handle_Button_search, this));
@@ -172,6 +185,8 @@ namespace mm
 		this->Button_game->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_mailbox::on_handle_Button_game, this));
 		this->Button_quit->subscribeEvent(CEGUI::Window::EventMouseClick, CEGUI::Event::Subscriber(&KO_dog_mailbox::on_handle_Button_quit, this));
 		this->Listbox_nt->subscribeEvent(CEGUI::Listbox::EventSelectionChanged, CEGUI::Event::Subscriber(&KO_dog_mailbox::on_handle_Listbox_nt_select, this));
+		//
+		this->Tree_friend->subscribeEvent(CEGUI::Tree::EventSelectionChanged, CEGUI::Event::Subscriber(&KO_dog_mailbox::on_handle_Tree_friend_Select, this));
 
 
 
@@ -194,6 +209,12 @@ namespace mm
 
 		//初始化部分逻辑数据
 		this->map_apply_friend_wp.clear();
+
+		//添加区域单显map
+		this->m_single_view.add("l_home_lj_mailbox_search", this->l_home_lj_mailbox_search);
+		this->m_single_view.add("l_home_lj_mailbox_friend_apply", this->l_home_lj_mailbox_friend_apply);
+		this->m_single_view.add("l_home_lj_mailbox_friend", this->l_home_lj_mailbox_friend);
+		this->m_single_view.blank();
 	}
 
 	void KO_dog_mailbox::clear_data_before_terminate()
@@ -205,12 +226,18 @@ namespace mm
 		this->map_friendId_data.clear();
 		this->map_apply_friend_wp.clear();
 		this->map_apply_friend_event_handle.clear();
-		this->map_groupId_data.clear();
+		this->map_groupId_data.clear();		
+		//
+		CEGUI::Tree* theTree = (CEGUI::Tree*)this->Tree_friend;
+		theTree->resetList();
+
 	}
 
 	void KO_dog_mailbox::on_before_terminate()
 	{
 		this->clear_data_before_terminate();
+
+		this->m_single_view.clear();
 
 		//KO_dog_data_relation 的 event 事件 解绑
 		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
@@ -219,7 +246,9 @@ namespace mm
 		////////////////////////////////////////////////////////////////////////////////
 		this->DefaultWindow_right->removeChild(this->l_home_lj_mailbox_search);
 		this->DefaultWindow_right->removeChild(this->l_home_lj_mailbox_friend_apply);
+		this->DefaultWindow_right->removeChild(this->l_home_lj_mailbox_friend);
 		////////////////////////////////////////////////////////////////////////////////
+		this->mailbox_friend_talk.on_before_terminate();
 		this->mailbox_friend_apply.on_before_terminate();
 		//this->d_mfa.on_before_terminate();
 		this->mailbox_search.on_before_terminate();
@@ -227,6 +256,7 @@ namespace mm
 		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
 		_window_manager->destroyWindow(this->l_home_lj_mailbox_search);
 		_window_manager->destroyWindow(this->l_home_lj_mailbox_friend_apply);
+		_window_manager->destroyWindow(this->l_home_lj_mailbox_friend);
 		////////////////////////////////////////////////////////////////////////////////
 
 		struct mm_logger* g_logger = mm_logger_instance();
@@ -235,35 +265,58 @@ namespace mm
 
 	bool KO_dog_mailbox::on_handle_Button_search(const CEGUI::EventArgs& args)
 	{
-		this->l_home_lj_mailbox_search->setVisible(true);
+		this->m_single_view.view("l_home_lj_mailbox_search");
 		return false;
 	}
 
 	bool KO_dog_mailbox::on_handle_Tree_friend_Select(const CEGUI::EventArgs& args)
 	{
-		this->l_home_lj_mailbox_search->setVisible(false);
+		CEGUI::Tree* theTree = (CEGUI::Tree*)this->Tree_friend;
+		CEGUI::TreeItem* item = theTree->getFirstSelectedItem();
+		if ( NULL != item)
+		{
+			this->m_single_view.view("l_home_lj_mailbox_friend");
+			int itemId = item->getID();
+			if (2 == itemId)
+			{
+				this->p_friend_friend = (mm::data_relation_friendInfo*)item->getUserData();
+				this->mailbox_friend_talk.set_data_model(this->p_friend_friend);
+			}
+			if (1 == itemId)
+			{
+				this->p_friend_group = (mm::data_relation_groupInfo*)item->getUserData();
+			}
+		}
+		else
+		{
+			this->m_single_view.blank();
+		}
+
 		return false;
 	}
 	bool KO_dog_mailbox::on_handle_Tree_friend_Open(const CEGUI::EventArgs& args)
 	{
-		this->l_home_lj_mailbox_search->setVisible(false);
+		this->m_single_view.blank();
 		return false;
 	}
 	bool KO_dog_mailbox::on_handle_Tree_friend_Close(const CEGUI::EventArgs& args)
 	{
-		this->l_home_lj_mailbox_search->setVisible(false);
+		this->m_single_view.blank();
 		return false;
 	}
 	bool KO_dog_mailbox::on_handle_Button_game(const CEGUI::EventArgs& args)
 	{
-		this->l_home_lj_mailbox_search->setVisible(false);
+		//this->l_home_lj_mailbox_search->setVisible(false);
+		this->m_single_view.blank();
 		mm_event_args evt_ags;
 		this->d_event_set.fire_event(KO_dog_mailbox::event_game, evt_ags);
 		return false;
 	}
 	bool KO_dog_mailbox::on_handle_Button_quit(const CEGUI::EventArgs& args)
 	{
-		this->l_home_lj_mailbox_search->setVisible(false);
+		this->clear_data_before_terminate();
+		//this->l_home_lj_mailbox_search->setVisible(false);
+		this->m_single_view.blank();
 		mm_event_args evt_ags;
 		this->d_event_set.fire_event(KO_dog_mailbox::event_quit, evt_ags);
 		return false;
@@ -425,7 +478,7 @@ namespace mm
 			//theTree 插入一条数据
 			CEGUI::Tree* theTree = (CEGUI::Tree*)this->Tree_friend;
 			//CEGUI::Combobox* cbbo = (CEGUI::Combobox*)this->Combobox;
-			p_data->p_TextItem = new CEGUI::TreeItem(p_groupInfo->group_name, 1, p_groupInfo);
+			p_data->p_TextItem = new CEGUI::TreeItem(p_groupInfo->group_name, 1, p_groupInfo , false, true);
 			p_data->p_TextItem->setSelectionBrushImage("TaharezLook" "/TextSelectionBrush");
 			theTree->addItem(p_data->p_TextItem);
 			//
@@ -506,7 +559,7 @@ namespace mm
 			mm_uint64_t group_id = p_friendInfo->friend_group_id;
 			mm::KO_dog_mailbox::data_group* p_data_group = this->map_groupId_data.get(group_id);
 			//好友记录挂载到相应的组记录下面
-			p_data_friend->p_TextItem = new CEGUI::TreeItem(p_friendInfo->friend_remark, 2, p_friendInfo);
+			p_data_friend->p_TextItem = new CEGUI::TreeItem(p_friendInfo->friend_remark, 2, p_friendInfo , false , true);
 			p_data_friend->p_TextItem->setSelectionBrushImage("TaharezLook" "/TextSelectionBrush");
 			p_data_group->p_TextItem->addItem(p_data_friend->p_TextItem);
 			//好友记录绑定自己的事件
@@ -597,6 +650,7 @@ namespace mm
 		if (NULL != p_data)
 		{
 			p_data->p_TextItem->setText(p_friendInfo->friend_remark);
+			this->Tree_friend->invalidate();
 		}
 		return false;
 	}
@@ -605,24 +659,28 @@ namespace mm
 	{
 		mm::mm_event_obj_ags& evt_ags = (mm::mm_event_obj_ags&)args;
 		mm::data_relation_friendInfo* p_friendInfo = (mm::data_relation_friendInfo*)evt_ags.e;
-		mm::KO_dog_mailbox::data_friend* p_data = this->map_friendId_data.get(p_friendInfo->friend_id);
+		mm::KO_dog_mailbox::data_friend* p_data_friend_old = this->map_friendId_data.get(p_friendInfo->friend_id);
+		mm_uint64_t group_id_old = p_data_friend_old->group_id;
 		//当前传过来的组id 和好友id
 		mm_uint64_t group_id_now = p_friendInfo->friend_group_id;
 		mm_uint64_t friend_id_now = p_friendInfo->friend_id;
-		//利用传过来的好友 friend_id_now 查询之前记录当中的 旧 data_friend_old 信息 和 旧组 group_id_old
-		mm::KO_dog_mailbox::data_friend* p_data_friend_old = this->map_friendId_data.get(friend_id_now);
-		mm_uint64_t group_id_old = p_data->group_id;
-		//如果不相等，需要进行记录换组，原来组下面的记录拿到新的组下面
-		assert(NULL != p_data && NULL != p_data_friend_old && "KO_dog_mailbox::on_handle_event_data_friend_update_group,,, Null pointer");
+		//如果不相等，需要进行记录换组，旧组下面的记录拿到新的组下面
+		if (group_id_old != group_id_now)
+		{
+			assert(NULL != p_data_friend_old && "KO_dog_mailbox::on_handle_event_data_friend_update_group,,, Null pointer");
 
-		mm::KO_dog_mailbox::data_group* p_data_group_old = this->map_groupId_data.get(group_id_old);
-		mm::KO_dog_mailbox::data_group* p_data_group_now = this->map_groupId_data.get(group_id_old);
+			mm::KO_dog_mailbox::data_group* p_data_group_old = this->map_groupId_data.get(group_id_old);
+			mm::KO_dog_mailbox::data_group* p_data_group_now = this->map_groupId_data.get(group_id_now);
 
-		assert(NULL != p_data_group_old && NULL != p_data_group_now && "KO_dog_mailbox::on_handle_event_data_friend_update_group,,, Null pointer");
-		//旧组移除，新租添加
-		p_data_group_old->p_TextItem->removeItem(p_data_friend_old->p_TextItem);
-		p_data_group_now->p_TextItem->addItem(p_data_friend_old->p_TextItem);
-
+			assert(NULL != p_data_group_old && NULL != p_data_group_now && "KO_dog_mailbox::on_handle_event_data_friend_update_group,,, Null pointer");
+			//旧组移除，新租添加
+			p_data_group_old->p_TextItem->removeItem(p_data_friend_old->p_TextItem);
+			p_data_group_now->p_TextItem->addItem(p_data_friend_old->p_TextItem);
+			this->Tree_friend->invalidate();
+			//修正界面好友的数据（改变组： group_id_old -> group_id_now ）
+			p_data_friend_old->group_id = group_id_now;
+			this->mailbox_friend_talk.set_data_model(p_friendInfo);
+		}
 		return false;
 	}
 

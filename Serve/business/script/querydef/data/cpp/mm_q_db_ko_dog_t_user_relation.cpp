@@ -588,7 +588,7 @@ namespace mm
 		:code(0)
 		,myself_id(0)
 		,friend_id(0)
-		,friend_remark(0)
+		,friend_remark("")
 	{
 
 	}

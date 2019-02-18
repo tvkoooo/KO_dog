@@ -55,6 +55,9 @@
     <Filter Include="src\KO_dog\script">
       <UniqueIdentifier>{14e9bb1a-398e-44e8-bd3d-83dedbab316e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\KO_dog\widgets">
+      <UniqueIdentifier>{da5acac9-e5da-44a1-974b-b7dcf7fa195d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp">
@@ -213,6 +216,18 @@
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_test_mfa.cpp">
       <Filter>src\KO_dog\application</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_talk.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_single_view_map.cpp">
+      <Filter>src\KO_dog\toolkit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\widgets\KO_dog_combobox.cpp">
+      <Filter>src\KO_dog\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -370,6 +385,18 @@
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_test_mfa.h">
       <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_talk.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_single_view_map.h">
+      <Filter>src\KO_dog\toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\widgets\KO_dog_combobox.h">
+      <Filter>src\KO_dog\widgets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

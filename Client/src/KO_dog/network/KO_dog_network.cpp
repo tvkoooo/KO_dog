@@ -138,6 +138,11 @@ void KO_dog_network_client_udp_assign_remote_target(struct KO_dog_network* p, co
 }
 void KO_dog_network_client_tcp_assign_remote_target(struct KO_dog_network* p, const char* node, mm_ushort_t port)
 {
+	// 关闭 tcp 自动重连
+	mm_client_tcp_assign_state_check_flag(&p->tcp, client_tcp_check_inactive);
+	// 把当前的tcp socket断开
+	mm_client_tcp_shutdown_socket(&p->tcp);
+	// 给tcp 附上新的远端地址
 	mm_client_tcp_assign_remote(&p->tcp, node, port);
 	//状态监测线程 设置tcp 标签处于就绪状态
 	mm_client_tcp_assign_state_check_flag(&p->tcp, client_tcp_check_activate);

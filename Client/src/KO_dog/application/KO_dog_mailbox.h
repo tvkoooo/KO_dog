@@ -18,12 +18,15 @@
 
 #include "CEGUI/widgets/Tree.h"
 #include "toolkit/mm_elem_map.h"
+#include "toolkit/mm_single_view_map.h"
 
 #include "math/mm_fix32_linear.h"
 #include "container/mm_bitset.h"
 
 #include "KO_dog_mailbox_search.h"
 #include "KO_dog_mailbox_friend_apply.h"
+#include "KO_dog_mailbox_friend_talk.h"
+
 //#include "KO_dog_test_mfa.h"
 //////////////////////////////////////////////////////////////////////////
 namespace mm
@@ -70,7 +73,8 @@ namespace mm
 		CEGUI::Window* l_home_lj_mailbox;					 //afferent reference
 		//
 		CEGUI::Window* l_home_lj_mailbox_search;             //strongly reference
-		CEGUI::Window* l_home_lj_mailbox_friend_apply;             //strongly reference
+		CEGUI::Window* l_home_lj_mailbox_friend_apply;       //strongly reference
+		CEGUI::Window* l_home_lj_mailbox_friend;             //strongly reference
 		//
 		CEGUI::Window* StaticImage_basic;
 		CEGUI::Window* DefaultWindow_left;
@@ -98,9 +102,15 @@ namespace mm
 	private:
 		KO_dog_mailbox_search mailbox_search;
 		KO_dog_mailbox_friend_apply mailbox_friend_apply;
+		KO_dog_mailbox_friend_talk mailbox_friend_talk;
 		//
 //		mm_mfa d_mfa;// 好友操作, 测试元素行和元素表的, 数据模组与视图绑定
 //		mm_bfi d_bfi;// 谁来申请好友,测试元素行和元素表的, 数据模组与视图绑定
+	public:
+		//选择操作的好友列表（好友）
+		mm::data_relation_friendInfo* p_friend_friend;
+		//选择操作的好友列表（好友分组）
+		mm::data_relation_groupInfo* p_friend_group;
 	public:
 		//好友申请0 通知 apply_friend
 		elem_p_map<mm_uint64_t, CEGUI::ListboxTextItem*> map_apply_friend_wp;
@@ -118,6 +128,8 @@ namespace mm
 		// this member is event drive.
 		mm_event_set d_event_set;
 
+	public:
+		mm_single_view_map m_single_view;
 
 	public:
 		KO_dog_mailbox();

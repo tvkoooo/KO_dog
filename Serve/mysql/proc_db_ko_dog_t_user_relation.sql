@@ -557,14 +557,15 @@ BEGIN
 				/*(400101014)操作好友账号不在好友列表 */
 				set _code = 400101014;
 				leave cond_process_1;
-			end if;	            
-			SELECT COUNT(*) into _flag FROM db_ko_dog.t_user_relation_assist WHERE (`id` = `_friend_group_id_new`);
-			if 0 = _flag THEN
-				/*(400101016)用户操作组名不存在 */
-				set _code = 400101016;
-				leave cond_process_1;
-			end if;            
-            
+			end if;	 
+            if 0 != `_friend_group_id_new` THEN            
+				SELECT COUNT(*) into _flag FROM db_ko_dog.t_user_relation_assist WHERE (`id` = `_friend_group_id_new`);
+				IF 0 = _flag THEN
+					/*(400101016)用户操作组名不存在 */
+					set _code = 400101016;
+					leave cond_process_1;
+				end IF;            
+            end if;
 			UPDATE db_ko_dog.t_user_relation
 			SET `friend_group_id`=`_friend_group_id_new`
 			where `user_id` = `_myself_id` and `friend_id` = `_friend_id` and `friend_group_id` = `_friend_group_id_old`;

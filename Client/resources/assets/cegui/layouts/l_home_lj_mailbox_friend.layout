@@ -58,18 +58,18 @@
                 </Window>
             </Window>
             <Window type="TaharezLook/StaticText" name="StaticText_change_remark" >
-                <Property name="Area" value="{{0.0333775,0},{0.714393,0},{0.973,0},{0.98968,0}}" />
+                <Property name="Area" value="{{0.0333775,0},{0.714393,0},{0.973,0},{0.864549,0}}" />
                 <Property name="Text" value="change remark" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
                 <Property name="HorzFormatting" value="CentreAligned" />
                 <Property name="VertFormatting" value="TopAligned" />
-                <Window type="TaharezLook/Button" name="Button_change" >
-                    <Property name="Area" value="{{0.0809921,0},{0.595022,0},{0.936414,0},{0.97381,0}}" />
-                    <Property name="Text" value="change" />
-                </Window>
                 <Window type="TaharezLook/Editbox" name="Editbox_remark" >
-                    <Property name="Area" value="{{0.0695613,0},{0.175982,0},{0.953095,0},{0.532043,0}}" />
+                    <Property name="Area" value="{{0.0615292,0},{0.370426,0},{0.945063,0},{0.932926,0}}" />
                 </Window>
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_set" >
+                <Property name="Area" value="{{0.0658978,0},{0.882822,0},{0.945143,0},{0.981883,0}}" />
+                <Property name="Text" value="Set" />
             </Window>
         </Window>
         <Window type="TaharezLook/StaticText" name="StaticText_window" >
@@ -83,8 +83,20 @@
             <Property name="HorzScrollDocumentSize" value="87" />
             <Property name="VertScrollDocumentSize" value="27.9375" />
             <Window type="TaharezLook/StaticText" name="StaticText_talk" >
-                <Property name="Area" value="{{0.0188236,0},{0.0548899,0},{0.981425,0},{0.980046,0}}" />
+                <Property name="Area" value="{{0.0188236,0},{0.0548899,0},{0.981425,0},{0.903123,-30}}" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_write" >
+                <Property name="Area" value="{{0.0162602,0},{0.883576,0},{0.980488,0},{0.991684,0}}" />
+                <Property name="Text" value="Write" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/Editbox" name="Editbox_write" >
+                    <Property name="Area" value="{{0.072934,0},{0.13752,0},{0.85371,0},{0.916367,0}}" />
+                </Window>
+                <Window type="TaharezLook/Button" name="Button_send" >
+                    <Property name="Area" value="{{0.861768,0},{0.133484,0},{0.992459,0},{0.91233,0}}" />
+                    <Property name="Text" value="Send" />
+                </Window>
             </Window>
         </Window>
     </Window>
