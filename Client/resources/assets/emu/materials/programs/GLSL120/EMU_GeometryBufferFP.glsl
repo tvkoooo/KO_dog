@@ -1,0 +1,29 @@
+#version 120
+
+// 16x16 palette
+uniform sampler2D texture0;
+uniform sampler2D texture1;
+
+varying vec2 outUV0;
+varying vec4 outColor;
+
+void main(void)
+{
+	vec2 s_uv;
+
+	// x_scale = 512 / 256
+	// y_scale = 256 / 240
+	s_uv.x = outUV0.x / 2.0;
+	s_uv.y = outUV0.y / 1.0666667;
+
+	float s_idx = texture2D(texture1, s_uv.xy).x;
+	// index [0.0, 255.0]
+	float index = floor(s_idx * 256.0);
+
+	vec2 v_idx;
+	v_idx.x = mod(index, 16.0) / 16.0;
+	v_idx.y = index / 16.0 / 16.0;
+	vec4 tc = texture2D(texture0, v_idx.xy);
+
+	gl_FragColor = tc * outColor;
+}

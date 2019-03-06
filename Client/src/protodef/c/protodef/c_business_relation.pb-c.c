@@ -2572,10 +2572,10 @@ const ProtobufCMessageDescriptor c_business_relation_add_friend_group_rs_descrip
 };
 const ProtobufCEnumValue c_business_relation_delete_friend_group_rq_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_delete_friend_group_rq_msg_ID", 33562913 },
+  { "id", "c_business_relation_delete_friend_group_rq_msg_ID", 33562915 },
 };
 static const ProtobufCIntRange c_business_relation_delete_friend_group_rq_msg_value_ranges[] = {
-{33562913, 0},{0, 1}
+{33562915, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_delete_friend_group_rq_msg_enum_values_by_name[1] =
 {
@@ -2662,10 +2662,10 @@ const ProtobufCMessageDescriptor c_business_relation_delete_friend_group_rq_desc
 };
 const ProtobufCEnumValue c_business_relation_delete_friend_group_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_delete_friend_group_rs_msg_ID", 33562914 },
+  { "id", "c_business_relation_delete_friend_group_rs_msg_ID", 33562916 },
 };
 static const ProtobufCIntRange c_business_relation_delete_friend_group_rs_msg_value_ranges[] = {
-{33562914, 0},{0, 1}
+{33562916, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_delete_friend_group_rs_msg_enum_values_by_name[1] =
 {
@@ -2752,10 +2752,10 @@ const ProtobufCMessageDescriptor c_business_relation_delete_friend_group_rs_desc
 };
 const ProtobufCEnumValue c_business_relation_rename_friend_group_rq_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_rename_friend_group_rq_msg_ID", 33562913 },
+  { "id", "c_business_relation_rename_friend_group_rq_msg_ID", 33562917 },
 };
 static const ProtobufCIntRange c_business_relation_rename_friend_group_rq_msg_value_ranges[] = {
-{33562913, 0},{0, 1}
+{33562917, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_rename_friend_group_rq_msg_enum_values_by_name[1] =
 {
@@ -2843,10 +2843,10 @@ const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rq_desc
 };
 const ProtobufCEnumValue c_business_relation_rename_friend_group_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_rename_friend_group_rs_msg_ID", 33562914 },
+  { "id", "c_business_relation_rename_friend_group_rs_msg_ID", 33562918 },
 };
 static const ProtobufCIntRange c_business_relation_rename_friend_group_rs_msg_value_ranges[] = {
-{33562914, 0},{0, 1}
+{33562918, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_rename_friend_group_rs_msg_enum_values_by_name[1] =
 {
@@ -2934,10 +2934,10 @@ const ProtobufCMessageDescriptor c_business_relation_rename_friend_group_rs_desc
 };
 const ProtobufCEnumValue c_business_relation_change_friend_group_rq_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_change_friend_group_rq_msg_ID", 33562915 },
+  { "id", "c_business_relation_change_friend_group_rq_msg_ID", 33562919 },
 };
 static const ProtobufCIntRange c_business_relation_change_friend_group_rq_msg_value_ranges[] = {
-{33562915, 0},{0, 1}
+{33562919, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_change_friend_group_rq_msg_enum_values_by_name[1] =
 {
@@ -3037,10 +3037,10 @@ const ProtobufCMessageDescriptor c_business_relation_change_friend_group_rq_desc
 };
 const ProtobufCEnumValue c_business_relation_change_friend_group_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_change_friend_group_rs_msg_ID", 33562916 },
+  { "id", "c_business_relation_change_friend_group_rs_msg_ID", 33562920 },
 };
 static const ProtobufCIntRange c_business_relation_change_friend_group_rs_msg_value_ranges[] = {
-{33562916, 0},{0, 1}
+{33562920, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_change_friend_group_rs_msg_enum_values_by_name[1] =
 {
@@ -3140,10 +3140,10 @@ const ProtobufCMessageDescriptor c_business_relation_change_friend_group_rs_desc
 };
 const ProtobufCEnumValue c_business_relation_query_friends_apply_rq_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_query_friends_apply_rq_msg_ID", 33562917 },
+  { "id", "c_business_relation_query_friends_apply_rq_msg_ID", 33562921 },
 };
 static const ProtobufCIntRange c_business_relation_query_friends_apply_rq_msg_value_ranges[] = {
-{33562917, 0},{0, 1}
+{33562921, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_query_friends_apply_rq_msg_enum_values_by_name[1] =
 {
@@ -3204,10 +3204,10 @@ const ProtobufCMessageDescriptor c_business_relation_query_friends_apply_rq_desc
 };
 const ProtobufCEnumValue c_business_relation_query_friends_apply_rs_msg_enum_values_by_number[1] =
 {
-  { "id", "c_business_relation_query_friends_apply_rs_msg_ID", 33562918 },
+  { "id", "c_business_relation_query_friends_apply_rs_msg_ID", 33562928 },
 };
 static const ProtobufCIntRange c_business_relation_query_friends_apply_rs_msg_value_ranges[] = {
-{33562918, 0},{0, 1}
+{33562928, 0},{0, 1}
 };
 const ProtobufCEnumValueIndex c_business_relation_query_friends_apply_rs_msg_enum_values_by_name[1] =
 {

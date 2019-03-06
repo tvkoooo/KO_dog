@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_mailbox_game_start" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage_basic" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="Text" value="=" />
+            <Property name="Image" value="gif_gold/beijing" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="FrameEnabled" value="false" />
+            <Property name="BackgroundEnabled" value="false" />
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow_left" >
+            <Property name="Area" value="{{0,0},{0,0},{0.296354,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/Button" name="Button_start" >
+                <Property name="Area" value="{{0.220779,0},{0.870741,0},{0.804258,0},{0.918889,0}}" />
+                <Property name="Text" value="Start" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_quit" >
+                <Property name="Area" value="{{0.217264,0},{0.93,0},{0.804258,0},{0.978148,0}}" />
+                <Property name="Text" value="quit" />
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_game_list" >
+                <Property name="Area" value="{{0.0302963,0},{0.0166669,0},{0.968785,0},{0.853704,0}}" />
+                <Property name="Text" value="Game list" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="VertFormatting" value="TopAligned" />
+                <Property name="HorzScrollPageSize" value="516" />
+                <Property name="VertScrollPageSize" value="886" />
+                <Property name="HorzScrollDocumentSize" value="115" />
+                <Property name="VertScrollDocumentSize" value="27.9375" />
+                <Window type="TaharezLook/Listbox" name="Listbox_game_list" >
+                    <Property name="Area" value="{{-0.000584667,0},{0.0651047,0},{0.999415,0},{1.00537,0}}" />
+                </Window>
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow_right" >
+            <Property name="Area" value="{{0.302083,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/StaticImage" name="StaticImage" >
+                <Property name="Area" value="{{0.00746269,0},{0.0166667,0},{0.986567,0},{0.988889,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

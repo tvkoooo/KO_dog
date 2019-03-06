@@ -676,30 +676,30 @@ void AddDescriptorsImpl() {
       "\020\n\003msg\022\t\n\002id\020\242\302\200\020\"x\n\026delete_friend_group"
       "_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\026\n\016user_frie"
       "nd_id\030\002 \002(\004\022\034\n\024user_friend_group_id\030\003 \002("
-      "\004\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"~\n\026delete_friend_gro"
+      "\004\"\020\n\003msg\022\t\n\002id\020\243\302\200\020\"~\n\026delete_friend_gro"
       "up_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\026\n\016u"
       "ser_friend_id\030\002 \002(\004\022\034\n\024user_friend_group"
-      "_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\242\302\200\020\"{\n\026rename_fr"
+      "_id\030\003 \002(\004\"\020\n\003msg\022\t\n\002id\020\244\302\200\020\"{\n\026rename_fr"
       "iend_group_rq\022\026\n\016user_myself_id\030\001 \002(\004\022\034\n"
       "\024user_friend_group_id\030\003 \002(\004\022\031\n\021user_frie"
-      "nd_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\241\302\200\020\"\201\001\n\026ren"
+      "nd_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020\245\302\200\020\"\201\001\n\026ren"
       "ame_friend_group_rs\022\034\n\005error\030\001 \002(\0132\r.b_e"
       "rror.info\022\034\n\024user_friend_group_id\030\003 \002(\004\022"
       "\031\n\021user_friend_group\030\004 \002(\t\"\020\n\003msg\022\t\n\002id\020"
-      "\242\302\200\020\"\236\001\n\026change_friend_group_rq\022\026\n\016user_"
+      "\246\302\200\020\"\236\001\n\026change_friend_group_rq\022\026\n\016user_"
       "myself_id\030\001 \002(\004\022\026\n\016user_friend_id\030\002 \002(\004\022"
       " \n\030user_friend_group_id_old\030\003 \002(\004\022 \n\030use"
       "r_friend_group_id_new\030\004 \002(\004\"\020\n\003msg\022\t\n\002id"
-      "\020\243\302\200\020\"\244\001\n\026change_friend_group_rs\022\034\n\005erro"
+      "\020\247\302\200\020\"\244\001\n\026change_friend_group_rs\022\034\n\005erro"
       "r\030\001 \002(\0132\r.b_error.info\022\026\n\016user_friend_id"
       "\030\002 \002(\004\022 \n\030user_friend_group_id_old\030\003 \002(\004"
       "\022 \n\030user_friend_group_id_new\030\004 \002(\004\"\020\n\003ms"
-      "g\022\t\n\002id\020\244\302\200\020\"B\n\026query_friends_apply_rq\022\026"
-      "\n\016user_myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\245\302\200\020"
+      "g\022\t\n\002id\020\250\302\200\020\"B\n\026query_friends_apply_rq\022\026"
+      "\n\016user_myself_id\030\001 \002(\004\"\020\n\003msg\022\t\n\002id\020\251\302\200\020"
       "\"|\n\026query_friends_apply_rs\022\034\n\005error\030\001 \002("
       "\0132\r.b_error.info\0222\n\007apply_s\030\002 \003(\0132!.b_bu"
       "siness_relation.friend_apply\"\020\n\003msg\022\t\n\002i"
-      "d\020\246\302\200\020\"a\n\016talk_friend_rq\022\026\n\016user_myself_"
+      "d\020\260\302\200\020\"a\n\016talk_friend_rq\022\026\n\016user_myself_"
       "id\030\001 \002(\004\022\024\n\014user_talk_id\030\002 \002(\004\022\017\n\007talkin"
       "g\030\003 \002(\t\"\020\n\003msg\022\t\n\002id\020\321\302\200\020\"V\n\016talk_friend"
       "_rs\022\034\n\005error\030\001 \002(\0132\r.b_error.info\022\024\n\014use"
@@ -1046,7 +1046,7 @@ const ::google::protobuf::EnumDescriptor* delete_friend_group_rq_msg_descriptor(
 }
 bool delete_friend_group_rq_msg_IsValid(int value) {
   switch (value) {
-    case 33562913:
+    case 33562915:
       return true;
     default:
       return false;
@@ -1065,7 +1065,7 @@ const ::google::protobuf::EnumDescriptor* delete_friend_group_rs_msg_descriptor(
 }
 bool delete_friend_group_rs_msg_IsValid(int value) {
   switch (value) {
-    case 33562914:
+    case 33562916:
       return true;
     default:
       return false;
@@ -1084,7 +1084,7 @@ const ::google::protobuf::EnumDescriptor* rename_friend_group_rq_msg_descriptor(
 }
 bool rename_friend_group_rq_msg_IsValid(int value) {
   switch (value) {
-    case 33562913:
+    case 33562917:
       return true;
     default:
       return false;
@@ -1103,7 +1103,7 @@ const ::google::protobuf::EnumDescriptor* rename_friend_group_rs_msg_descriptor(
 }
 bool rename_friend_group_rs_msg_IsValid(int value) {
   switch (value) {
-    case 33562914:
+    case 33562918:
       return true;
     default:
       return false;
@@ -1122,7 +1122,7 @@ const ::google::protobuf::EnumDescriptor* change_friend_group_rq_msg_descriptor(
 }
 bool change_friend_group_rq_msg_IsValid(int value) {
   switch (value) {
-    case 33562915:
+    case 33562919:
       return true;
     default:
       return false;
@@ -1141,7 +1141,7 @@ const ::google::protobuf::EnumDescriptor* change_friend_group_rs_msg_descriptor(
 }
 bool change_friend_group_rs_msg_IsValid(int value) {
   switch (value) {
-    case 33562916:
+    case 33562920:
       return true;
     default:
       return false;
@@ -1160,7 +1160,7 @@ const ::google::protobuf::EnumDescriptor* query_friends_apply_rq_msg_descriptor(
 }
 bool query_friends_apply_rq_msg_IsValid(int value) {
   switch (value) {
-    case 33562917:
+    case 33562921:
       return true;
     default:
       return false;
@@ -1179,7 +1179,7 @@ const ::google::protobuf::EnumDescriptor* query_friends_apply_rs_msg_descriptor(
 }
 bool query_friends_apply_rs_msg_IsValid(int value) {
   switch (value) {
-    case 33562918:
+    case 33562928:
       return true;
     default:
       return false;

@@ -38,6 +38,8 @@
             <Item path="layouts/l_home_lj_mailbox_friend.layout" type="file" />
             <Item path="layouts/l_home_lj_mailbox_friend_apply.layout" type="file" />
             <Item path="layouts/l_home_lj_mailbox_friend_group.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox_game_playing.layout" type="file" />
+            <Item path="layouts/l_home_lj_mailbox_game_start.layout" type="file" />
             <Item path="layouts/l_home_lj_mailbox_search.layout" type="file" />
             <Item path="layouts/l_home_main.layout" type="file" />
             <Item path="layouts/l_home_page_about.layout" type="file" />

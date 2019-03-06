@@ -78,7 +78,6 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		mm_sint8_t	logger_is_console = 1;
 		mm_sint8_t	logger_is_immediately = 1;
 		mm_uint32_t root_resources_type = 0;
-		std::string root_resources_name = "";
 		std::string root_resources_path = "";
 		std::string root_resources_base = "";
 		std::string shader_cache_folder = "";
@@ -103,7 +102,6 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		config_value.get_value("logger_is_console",logger_is_console);
 		config_value.get_value("logger_is_immediately",logger_is_immediately);
 		config_value.get_value("root_resources_type",root_resources_type);
-		config_value.get_value("root_resources_name",root_resources_name);
 		config_value.get_value("root_resources_path",root_resources_path);
 		config_value.get_value("root_resources_base",root_resources_base);
 		config_value.get_value("shader_cache_folder",shader_cache_folder);
@@ -133,7 +131,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		flake_context->init();
 		flake_context->set_root_resources_path(root_resources_path);
 		flake_context->set_shader_cache_folder(shader_cache_folder);
-		flake_context->acquire_assets(root_resources_type, root_resources_name.c_str(), root_resources_path.c_str(), root_resources_base.c_str());
+		flake_context->assign_assets_root(root_resources_type, root_resources_path, root_resources_base);
 		//
 		flake_context->set_flake_activity(impl);
 		flake_context->set_context_handler(hInstance);

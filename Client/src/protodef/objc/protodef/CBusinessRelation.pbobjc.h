@@ -278,7 +278,7 @@ BOOL C_business_relation_add_friend_group_rs_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_delete_friend_group_rq_msg
 
 typedef GPB_ENUM(C_business_relation_delete_friend_group_rq_msg) {
-  C_business_relation_delete_friend_group_rq_msg_Id = 33562913,
+  C_business_relation_delete_friend_group_rq_msg_Id = 33562915,
 };
 
 GPBEnumDescriptor *C_business_relation_delete_friend_group_rq_msg_EnumDescriptor(void);
@@ -292,7 +292,7 @@ BOOL C_business_relation_delete_friend_group_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_delete_friend_group_rs_msg
 
 typedef GPB_ENUM(C_business_relation_delete_friend_group_rs_msg) {
-  C_business_relation_delete_friend_group_rs_msg_Id = 33562914,
+  C_business_relation_delete_friend_group_rs_msg_Id = 33562916,
 };
 
 GPBEnumDescriptor *C_business_relation_delete_friend_group_rs_msg_EnumDescriptor(void);
@@ -306,7 +306,7 @@ BOOL C_business_relation_delete_friend_group_rs_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_rename_friend_group_rq_msg
 
 typedef GPB_ENUM(C_business_relation_rename_friend_group_rq_msg) {
-  C_business_relation_rename_friend_group_rq_msg_Id = 33562913,
+  C_business_relation_rename_friend_group_rq_msg_Id = 33562917,
 };
 
 GPBEnumDescriptor *C_business_relation_rename_friend_group_rq_msg_EnumDescriptor(void);
@@ -320,7 +320,7 @@ BOOL C_business_relation_rename_friend_group_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_rename_friend_group_rs_msg
 
 typedef GPB_ENUM(C_business_relation_rename_friend_group_rs_msg) {
-  C_business_relation_rename_friend_group_rs_msg_Id = 33562914,
+  C_business_relation_rename_friend_group_rs_msg_Id = 33562918,
 };
 
 GPBEnumDescriptor *C_business_relation_rename_friend_group_rs_msg_EnumDescriptor(void);
@@ -334,7 +334,7 @@ BOOL C_business_relation_rename_friend_group_rs_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_change_friend_group_rq_msg
 
 typedef GPB_ENUM(C_business_relation_change_friend_group_rq_msg) {
-  C_business_relation_change_friend_group_rq_msg_Id = 33562915,
+  C_business_relation_change_friend_group_rq_msg_Id = 33562919,
 };
 
 GPBEnumDescriptor *C_business_relation_change_friend_group_rq_msg_EnumDescriptor(void);
@@ -348,7 +348,7 @@ BOOL C_business_relation_change_friend_group_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_change_friend_group_rs_msg
 
 typedef GPB_ENUM(C_business_relation_change_friend_group_rs_msg) {
-  C_business_relation_change_friend_group_rs_msg_Id = 33562916,
+  C_business_relation_change_friend_group_rs_msg_Id = 33562920,
 };
 
 GPBEnumDescriptor *C_business_relation_change_friend_group_rs_msg_EnumDescriptor(void);
@@ -362,7 +362,7 @@ BOOL C_business_relation_change_friend_group_rs_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_query_friends_apply_rq_msg
 
 typedef GPB_ENUM(C_business_relation_query_friends_apply_rq_msg) {
-  C_business_relation_query_friends_apply_rq_msg_Id = 33562917,
+  C_business_relation_query_friends_apply_rq_msg_Id = 33562921,
 };
 
 GPBEnumDescriptor *C_business_relation_query_friends_apply_rq_msg_EnumDescriptor(void);
@@ -376,7 +376,7 @@ BOOL C_business_relation_query_friends_apply_rq_msg_IsValidValue(int32_t value);
 #pragma mark - Enum C_business_relation_query_friends_apply_rs_msg
 
 typedef GPB_ENUM(C_business_relation_query_friends_apply_rs_msg) {
-  C_business_relation_query_friends_apply_rs_msg_Id = 33562918,
+  C_business_relation_query_friends_apply_rs_msg_Id = 33562928,
 };
 
 GPBEnumDescriptor *C_business_relation_query_friends_apply_rs_msg_EnumDescriptor(void);

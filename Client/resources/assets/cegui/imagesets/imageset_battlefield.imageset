@@ -1,3 +1,5 @@
-<Imageset autoScaled="false" imagefile="imageset_battlefield.png" name="imageset_battlefield" nativeHorzRes="512" nativeVertRes="512" version="2">
-    <Image height="256" name="anchor" width="256" xPos="1" yPos="1" />
+<Imageset autoScaled="false" imagefile="imageset_battlefield.png" name="imageset_battlefield" nativeHorzRes="512" nativeVertRes="1024" version="2">
+    <Image height="256" name="anchor" width="256" xPos="1" yPos="645" />
+    <Image height="320" name="yaogan" width="320" xPos="1" yPos="1" />
+    <Image height="320" name="yaogan0" width="320" xPos="1" yPos="323" />
 </Imageset>

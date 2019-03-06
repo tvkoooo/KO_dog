@@ -44,6 +44,9 @@ namespace mm
 		, Button_quit(NULL)
 		, DefaultWindow_right(NULL)
 
+		, p_friendId_friendInfo_map(NULL)
+		, p_groupId_groupName_map(NULL)
+
 		, p_friend_friend(NULL)
 		, p_friend_group(NULL)
 
@@ -95,6 +98,14 @@ namespace mm
 	void KO_dog_mailbox::on_finish_launching()
 	{
 		struct mm_logger* g_logger = mm_logger_instance();
+		//
+		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+		mm::data_relation_friendId_friendInfo_map* p_friendId_friendInfo_map = &p_dog->data.data_relation.friendId_friendInfo_map;
+		mm::KO_dog_data_relation::data_relation_groupId_groupName_map* p_groupId_groupName_map = &p_dog->data.data_relation.groupId_groupName_map;
+		this->p_friendId_friendInfo_map = p_friendId_friendInfo_map;
+		this->p_groupId_groupName_map = p_groupId_groupName_map;
+		//////////////////////////////////////////////////////////////////////////
+
 		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
 		//////////////////////////////////////////////////////////////////////////
 		//this->l_layer_dog_a1 = _window_manager->loadLayoutFromFile("l_layer_dog_a1.layout");
@@ -125,6 +136,7 @@ namespace mm
 		this->mailbox_friend_talk.set_context(this->d_flake_context, this->d_surface);
 		this->mailbox_friend_talk.set_layer(this->l_home_lj_mailbox_friend);
 		this->mailbox_friend_talk.on_finish_launching();
+		this->mailbox_friend_talk.binding_model_data(this->p_groupId_groupName_map);
 
 
 		//{
@@ -192,7 +204,7 @@ namespace mm
 
 
 		//
-		mm::KO_dog* p_dog = (mm::KO_dog*)(this->d_flake_context->get_flake_activity());
+		
 		//订阅KO_dog_data_relation 的 event 事件
 		this->d_event_data_add_friend_nt_conn = p_dog->data.data_user_basic.m_friend_apply.d_event_set.subscribe_event(mm::elem_event_map<mm_uint64_t, data_basic_friend_info>::event_add, &KO_dog_mailbox::on_handle_event_data_add_friend_nt, this);
 		this->d_event_data_rmv_friend_nt_conn = p_dog->data.data_user_basic.m_friend_apply.d_event_set.subscribe_event(mm::elem_event_map<mm_uint64_t, data_basic_friend_info>::event_rmv, &KO_dog_mailbox::on_handle_event_data_rmv_friend_nt, this);
@@ -215,6 +227,7 @@ namespace mm
 		this->m_single_view.add("l_home_lj_mailbox_friend_apply", this->l_home_lj_mailbox_friend_apply);
 		this->m_single_view.add("l_home_lj_mailbox_friend", this->l_home_lj_mailbox_friend);
 		this->m_single_view.blank();
+		//
 	}
 
 	void KO_dog_mailbox::clear_data_before_terminate()
@@ -280,11 +293,13 @@ namespace mm
 			if (2 == itemId)
 			{
 				this->p_friend_friend = (mm::data_relation_friendInfo*)item->getUserData();
-				this->mailbox_friend_talk.set_data_model(this->p_friend_friend);
+				this->mailbox_friend_talk.set_data_friend_talk(this->p_friend_friend);
 			}
 			if (1 == itemId)
 			{
 				this->p_friend_group = (mm::data_relation_groupInfo*)item->getUserData();
+				item->toggleIsOpen();
+				theTree->invalidate();
 			}
 		}
 		else
@@ -478,7 +493,7 @@ namespace mm
 			//theTree 插入一条数据
 			CEGUI::Tree* theTree = (CEGUI::Tree*)this->Tree_friend;
 			//CEGUI::Combobox* cbbo = (CEGUI::Combobox*)this->Combobox;
-			p_data->p_TextItem = new CEGUI::TreeItem(p_groupInfo->group_name, 1, p_groupInfo , false, true);
+			p_data->p_TextItem = new CEGUI::TreeItem(p_groupInfo->group_name, 1, p_groupInfo , false, false);
 			p_data->p_TextItem->setSelectionBrushImage("TaharezLook" "/TextSelectionBrush");
 			theTree->addItem(p_data->p_TextItem);
 			//
@@ -559,7 +574,7 @@ namespace mm
 			mm_uint64_t group_id = p_friendInfo->friend_group_id;
 			mm::KO_dog_mailbox::data_group* p_data_group = this->map_groupId_data.get(group_id);
 			//好友记录挂载到相应的组记录下面
-			p_data_friend->p_TextItem = new CEGUI::TreeItem(p_friendInfo->friend_remark, 2, p_friendInfo , false , true);
+			p_data_friend->p_TextItem = new CEGUI::TreeItem(p_friendInfo->friend_remark, 2, p_friendInfo , false , false);
 			p_data_friend->p_TextItem->setSelectionBrushImage("TaharezLook" "/TextSelectionBrush");
 			p_data_group->p_TextItem->addItem(p_data_friend->p_TextItem);
 			//好友记录绑定自己的事件
@@ -679,7 +694,7 @@ namespace mm
 			this->Tree_friend->invalidate();
 			//修正界面好友的数据（改变组： group_id_old -> group_id_now ）
 			p_data_friend_old->group_id = group_id_now;
-			this->mailbox_friend_talk.set_data_model(p_friendInfo);
+			this->mailbox_friend_talk.set_data_friend_talk(p_friendInfo);
 		}
 		return false;
 	}

@@ -19,6 +19,8 @@
 #include "unit/mm_unit_animation.h"
 #include "unit/mm_unit_audio.h"
 
+#include "toolkit/mm_single_view_map.h"
+
 #include "math/mm_fix32_linear.h"
 #include "container/mm_bitset.h"
 
@@ -26,6 +28,7 @@
 #include "KO_dog_zhujiemian.h"
 #include "KO_dog_test_animation.h"
 #include "KO_dog_mailbox.h"
+#include "KO_dog_mailbox_game_playing.h"
 //#include "KO_dog_mailbox_search.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -42,8 +45,10 @@ namespace mm
 		CEGUI::Window* l_home_lj_login;                      //strongly reference
 		CEGUI::Window* l_layer_dog_window_ip_entry;          //strongly reference
 		CEGUI::Window* l_layer_dog_window_ip_lobby;          //strongly reference
-		CEGUI::Window* l_layer_dog_a1;                       //strongly reference
+		//CEGUI::Window* l_layer_dog_a1;                       //strongly reference
 		CEGUI::Window* l_home_lj_mailbox;                    //strongly reference
+		CEGUI::Window* l_home_lj_mailbox_game_playing;       //strongly reference
+
 		//CEGUI::Window* l_home_lj_mailbox_search;             //strongly reference
 
 	private:
@@ -57,6 +62,7 @@ namespace mm
 		KO_dog_zhujiemian zhujiemian;
 		KO_dog_test_animation test_animation;
 		KO_dog_mailbox mailbox;
+		KO_dog_mailbox_game_playing mailbox_game_playing;
 		//KO_dog_mailbox_search mailbox_search;
 
 	private:
@@ -66,6 +72,8 @@ namespace mm
 		mm_event_handler d_event_l_zhujiemian_login_conn;
 		mm_event_handler d_event_userdata_user_token_update_conn;
 
+	public:
+		mm_single_view_map m_single_view;
 
 	public:
 		KO_dog_interface_manager();

@@ -56,6 +56,17 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 ################################################################################
 include $(CLEAR_VARS)  
+LOCAL_MODULE := libmm_emu_shared
+LOCAL_SRC_FILES := $(MM_NES)/emu/proj/android/libs/$(APP_ABI)/libmm_emu.so
+include $(PREBUILT_SHARED_LIBRARY)
+include $(CLEAR_VARS)  
+LOCAL_MODULE := libmm_emu_static
+LOCAL_SRC_FILES := $(MM_NES)/emu/proj/android/obj/local/$(APP_ABI)/libmm_emu.a
+include $(PREBUILT_STATIC_LIBRARY)
+################################################################################
+
+################################################################################
+include $(CLEAR_VARS)  
 LOCAL_MODULE := libcrypto_shared
 LOCAL_SRC_FILES := $(MM_LIB)/build/openssl/proj_android/libs/$(APP_ABI)/libcrypto.so
 include $(PREBUILT_SHARED_LIBRARY)

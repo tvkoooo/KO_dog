@@ -106,6 +106,12 @@ namespace mm
 		//
 //		mm_mfa d_mfa;// 好友操作, 测试元素行和元素表的, 数据模组与视图绑定
 //		mm_bfi d_bfi;// 谁来申请好友,测试元素行和元素表的, 数据模组与视图绑定
+
+	public:
+		// model_data 数据 KO_dog_data_relation 类(class)的弱引用
+		mm::data_relation_friendId_friendInfo_map* p_friendId_friendInfo_map;
+		mm::KO_dog_data_relation::data_relation_groupId_groupName_map* p_groupId_groupName_map;
+
 	public:
 		//选择操作的好友列表（好友）
 		mm::data_relation_friendInfo* p_friend_friend;
@@ -139,6 +145,7 @@ namespace mm
 		void set_data(mm_flake_context* d_flake_context, mm_flake_surface* d_surface);
 		void set_l_layer(CEGUI::Window* l_layer);
 		void set_friend_apply_model(mm::elem_event_map<mm_uint64_t, data_basic_friend_info>* md);
+		//
 		void clear_data_before_terminate();
 		virtual void on_finish_launching();
 		virtual void on_before_terminate();

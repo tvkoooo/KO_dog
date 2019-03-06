@@ -1,0 +1,218 @@
+// -------------------------------
+// hlsl shader section
+// -------------------------------
+// vs_2_0
+vertex_program EMU/GeometryBufferVPhlsl_vs_2_0 hlsl
+{
+	source EMU_GeometryBufferVP_vs_2_0.hlsl
+	entry_point main
+	target vs_2_0
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program EMU/GeometryBufferFPhlsl_ps_2_0 hlsl
+{
+	source EMU_GeometryBufferFP_ps_2_0.hlsl
+	entry_point main
+	target ps_2_0
+}
+// vs_4_0
+vertex_program EMU/GeometryBufferVPhlsl_vs_4_0 hlsl
+{
+	source EMU_GeometryBufferVP_vs_4_0.hlsl
+	entry_point main
+	target vs_4_0 vs_4_0_level_9_1 vs_4_0_level_9_3
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program EMU/GeometryBufferFPhlsl_ps_4_0 hlsl
+{
+	source EMU_GeometryBufferFP_ps_4_0.hlsl
+	entry_point main
+	target ps_4_0 ps_4_0_level_9_1 ps_4_0_level_9_3
+}
+// -------------------------------
+// glsles shader section
+// -------------------------------
+vertex_program EMU/GeometryBufferVPGLSLES glsles
+{
+	source EMU_GeometryBufferVP.glsles
+	profiles glsles
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program EMU/GeometryBufferFPGLSLES glsles
+{
+	source EMU_GeometryBufferFP.glsles
+	profiles glsles
+
+	default_params
+	{
+   		param_named texture0 int 0
+   		param_named texture1 int 1
+	}
+}
+// -------------------------------
+// glsl120 shader section
+// -------------------------------
+vertex_program EMU/GeometryBufferVPGLSL_glsl120 glsl
+{
+	source EMU_GeometryBufferVP.glsl
+	syntax glsl120
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program EMU/GeometryBufferFPGLSL_glsl120 glsl
+{
+	source EMU_GeometryBufferFP.glsl
+	syntax glsl120
+
+	default_params
+	{
+   		param_named texture0 int 0
+   		param_named texture1 int 1
+	}
+}
+// -------------------------------
+// glsl150 shader section
+// -------------------------------
+vertex_program EMU/GeometryBufferVPGLSL_glsl150 glsl
+{
+	source EMU_GeometryBufferVP.glsl
+	syntax glsl150
+
+	default_params
+	{
+		param_named_auto worldViewProj worldviewproj_matrix
+	}
+}
+fragment_program EMU/GeometryBufferFPGLSL_glsl150 glsl
+{
+	source EMU_GeometryBufferFP.glsl
+	syntax glsl150
+
+	default_params
+	{
+   		param_named texture0 int 0
+   		param_named texture1 int 1
+	}
+}
+// -------------------------------
+// delegate shader section
+// -------------------------------
+vertex_program EMU/GeometryBufferVP unified
+{
+	delegate EMU/GeometryBufferVPhlsl_vs_2_0
+	delegate EMU/GeometryBufferVPhlsl_vs_4_0
+	delegate EMU/GeometryBufferVPGLSL_glsl120
+	delegate EMU/GeometryBufferVPGLSL_glsl150
+	delegate EMU/GeometryBufferVPGLSLES
+}
+fragment_program EMU/GeometryBufferFP unified
+{
+	delegate EMU/GeometryBufferFPhlsl_ps_2_0
+	delegate EMU/GeometryBufferFPhlsl_ps_4_0
+	delegate EMU/GeometryBufferFPGLSL_glsl120
+	delegate EMU/GeometryBufferFPGLSL_glsl150
+	delegate EMU/GeometryBufferFPGLSLES
+}
+// -------------------------------
+// material section
+// -------------------------------
+material EMU/GeometryBuffer
+{
+	technique
+	{
+		pass
+		{
+			separate_scene_blend src_alpha one_minus_src_alpha one_minus_dest_colour one
+			
+			lighting off
+			polygon_mode solid
+			cull_hardware none
+			cull_software none
+			shading gouraud
+			
+			depth_check off
+			depth_write off
+			depth_func less_equal
+			depth_bias 0 0
+
+			// Vertex program reference
+			vertex_program_ref EMU/GeometryBufferVP
+			{
+				param_named_auto worldViewProj worldviewproj_matrix
+			}
+
+			// Fragment program reference
+			fragment_program_ref EMU/GeometryBufferFP
+			{
+
+			}
+			
+			texture_unit
+			{				
+				tex_coord_set 0
+				texture_alias EMU/GeometryBuffer0
+				filtering none
+			}
+			texture_unit
+			{
+				tex_coord_set 1
+				texture_alias EMU/GeometryBuffer1
+				filtering none
+			}
+		}
+	}
+}
+
+material EMU/TextureTarget
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 1.0 1.0
+			diffuse 1.0 1.0 1.0
+			specular 0.0 0.0 0.0 0.0
+			emissive 0.0 0.0 0.0
+
+			// Vertex program reference
+			vertex_program_ref EMU/GeometryBufferVP
+			{
+				param_named_auto worldViewProj worldviewproj_matrix
+			}
+
+			// Fragment program reference
+			fragment_program_ref EMU/GeometryBufferFP
+			{
+
+			}
+			
+			texture_unit
+			{				
+				tex_coord_set 0
+				texture_alias EMU/GeometryBuffer0
+				filtering none
+			}
+			texture_unit
+			{
+				tex_coord_set 1
+				texture_alias EMU/GeometryBuffer1
+				filtering none
+			}
+		}
+	}
+}

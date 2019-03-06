@@ -1852,7 +1852,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562913;
+    public static final int id = 33562915;
 
     private static volatile delete_friend_group_rq[] _emptyArray;
     public static delete_friend_group_rq[] emptyArray() {
@@ -1957,7 +1957,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562914;
+    public static final int id = 33562916;
 
     private static volatile delete_friend_group_rs[] _emptyArray;
     public static delete_friend_group_rs[] emptyArray() {
@@ -2069,7 +2069,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562913;
+    public static final int id = 33562917;
 
     private static volatile rename_friend_group_rq[] _emptyArray;
     public static rename_friend_group_rq[] emptyArray() {
@@ -2174,7 +2174,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562914;
+    public static final int id = 33562918;
 
     private static volatile rename_friend_group_rs[] _emptyArray;
     public static rename_friend_group_rs[] emptyArray() {
@@ -2286,7 +2286,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562915;
+    public static final int id = 33562919;
 
     private static volatile change_friend_group_rq[] _emptyArray;
     public static change_friend_group_rq[] emptyArray() {
@@ -2402,7 +2402,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562916;
+    public static final int id = 33562920;
 
     private static volatile change_friend_group_rs[] _emptyArray;
     public static change_friend_group_rs[] emptyArray() {
@@ -2525,7 +2525,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562917;
+    public static final int id = 33562921;
 
     private static volatile query_friends_apply_rq[] _emptyArray;
     public static query_friends_apply_rq[] emptyArray() {
@@ -2608,7 +2608,7 @@ public interface c_business_relation {
       com.google.protobuf.nano.MessageNano {
 
     // enum msg
-    public static final int id = 33562918;
+    public static final int id = 33562928;
 
     private static volatile query_friends_apply_rs[] _emptyArray;
     public static query_friends_apply_rs[] emptyArray() {

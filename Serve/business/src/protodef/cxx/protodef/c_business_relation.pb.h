@@ -445,7 +445,7 @@ inline bool add_friend_group_rs_msg_Parse(
     add_friend_group_rs_msg_descriptor(), name, value);
 }
 enum delete_friend_group_rq_msg {
-  delete_friend_group_rq_msg_id = 33562913
+  delete_friend_group_rq_msg_id = 33562915
 };
 bool delete_friend_group_rq_msg_IsValid(int value);
 const delete_friend_group_rq_msg delete_friend_group_rq_msg_msg_MIN = delete_friend_group_rq_msg_id;
@@ -463,7 +463,7 @@ inline bool delete_friend_group_rq_msg_Parse(
     delete_friend_group_rq_msg_descriptor(), name, value);
 }
 enum delete_friend_group_rs_msg {
-  delete_friend_group_rs_msg_id = 33562914
+  delete_friend_group_rs_msg_id = 33562916
 };
 bool delete_friend_group_rs_msg_IsValid(int value);
 const delete_friend_group_rs_msg delete_friend_group_rs_msg_msg_MIN = delete_friend_group_rs_msg_id;
@@ -481,7 +481,7 @@ inline bool delete_friend_group_rs_msg_Parse(
     delete_friend_group_rs_msg_descriptor(), name, value);
 }
 enum rename_friend_group_rq_msg {
-  rename_friend_group_rq_msg_id = 33562913
+  rename_friend_group_rq_msg_id = 33562917
 };
 bool rename_friend_group_rq_msg_IsValid(int value);
 const rename_friend_group_rq_msg rename_friend_group_rq_msg_msg_MIN = rename_friend_group_rq_msg_id;
@@ -499,7 +499,7 @@ inline bool rename_friend_group_rq_msg_Parse(
     rename_friend_group_rq_msg_descriptor(), name, value);
 }
 enum rename_friend_group_rs_msg {
-  rename_friend_group_rs_msg_id = 33562914
+  rename_friend_group_rs_msg_id = 33562918
 };
 bool rename_friend_group_rs_msg_IsValid(int value);
 const rename_friend_group_rs_msg rename_friend_group_rs_msg_msg_MIN = rename_friend_group_rs_msg_id;
@@ -517,7 +517,7 @@ inline bool rename_friend_group_rs_msg_Parse(
     rename_friend_group_rs_msg_descriptor(), name, value);
 }
 enum change_friend_group_rq_msg {
-  change_friend_group_rq_msg_id = 33562915
+  change_friend_group_rq_msg_id = 33562919
 };
 bool change_friend_group_rq_msg_IsValid(int value);
 const change_friend_group_rq_msg change_friend_group_rq_msg_msg_MIN = change_friend_group_rq_msg_id;
@@ -535,7 +535,7 @@ inline bool change_friend_group_rq_msg_Parse(
     change_friend_group_rq_msg_descriptor(), name, value);
 }
 enum change_friend_group_rs_msg {
-  change_friend_group_rs_msg_id = 33562916
+  change_friend_group_rs_msg_id = 33562920
 };
 bool change_friend_group_rs_msg_IsValid(int value);
 const change_friend_group_rs_msg change_friend_group_rs_msg_msg_MIN = change_friend_group_rs_msg_id;
@@ -553,7 +553,7 @@ inline bool change_friend_group_rs_msg_Parse(
     change_friend_group_rs_msg_descriptor(), name, value);
 }
 enum query_friends_apply_rq_msg {
-  query_friends_apply_rq_msg_id = 33562917
+  query_friends_apply_rq_msg_id = 33562921
 };
 bool query_friends_apply_rq_msg_IsValid(int value);
 const query_friends_apply_rq_msg query_friends_apply_rq_msg_msg_MIN = query_friends_apply_rq_msg_id;
@@ -571,7 +571,7 @@ inline bool query_friends_apply_rq_msg_Parse(
     query_friends_apply_rq_msg_descriptor(), name, value);
 }
 enum query_friends_apply_rs_msg {
-  query_friends_apply_rs_msg_id = 33562918
+  query_friends_apply_rs_msg_id = 33562928
 };
 bool query_friends_apply_rs_msg_IsValid(int value);
 const query_friends_apply_rs_msg query_friends_apply_rs_msg_msg_MIN = query_friends_apply_rs_msg_id;

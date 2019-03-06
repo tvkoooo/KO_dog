@@ -150,7 +150,7 @@ message add_friend_group_rs
 // (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
 message delete_friend_group_rq
 {
-	enum msg{ id=0x02002121;}
+	enum msg{ id=0x02002123;}
 	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
 	required uint64	user_friend_id 							 = 2			     ; // 好友用户id
 	required uint64 user_friend_group_id 		             = 3				 ; // 好友组名id
@@ -158,7 +158,7 @@ message delete_friend_group_rq
 // (tcp)删除好友组名(删除一个好友的组名/删除整个组并且所属成员变为默认好友:user_friend_id=0)
 message delete_friend_group_rs
 {
-	enum msg{ id=0x02002122;}
+	enum msg{ id=0x02002124;}
 	required b_error.info error                      		 = 1                 ; // error info
 	required uint64	user_friend_id 							 = 2			     ; // 好友用户id
 	required uint64 user_friend_group_id 		             = 3				 ; // 好友组名id
@@ -166,7 +166,7 @@ message delete_friend_group_rs
 // (tcp)修改好友组名(重命名组)
 message rename_friend_group_rq
 {
-	enum msg{ id=0x02002121;}
+	enum msg{ id=0x02002125;}
 	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
 	required uint64 user_friend_group_id 		             = 3				 ; // 好友组名id
 	required string user_friend_group    		             = 4				 ; // 好友组名
@@ -174,7 +174,7 @@ message rename_friend_group_rq
 // (tcp)修改好友组名(重命名组)
 message rename_friend_group_rs
 {
-	enum msg{ id=0x02002122;}
+	enum msg{ id=0x02002126;}
 	required b_error.info error                      		 = 1                 ; // error info
 	required uint64 user_friend_group_id 		             = 3				 ; // 好友组名id
 	required string user_friend_group    		             = 4				 ; // 好友组名
@@ -182,7 +182,7 @@ message rename_friend_group_rs
 // (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
 message change_friend_group_rq
 {
-	enum msg{ id=0x02002123;}
+	enum msg{ id=0x02002127;}
 	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
 	required uint64	user_friend_id 							 = 2			     ; // 好友用户id
 	required uint64 user_friend_group_id_old 		         = 3				 ; // 好友旧组名id
@@ -191,7 +191,7 @@ message change_friend_group_rq
 // (tcp)改变好友组名(改变一个好友到已经存在组名/修改整个组和所属成员到新组名:user_friend_id=0)
 message change_friend_group_rs
 {
-	enum msg{ id=0x02002124;}
+	enum msg{ id=0x02002128;}
 	required b_error.info error                      		 = 1                 ; // error info
 	required uint64	user_friend_id 					 		 = 2			  	 ; // 聊天用户id
 	required uint64 user_friend_group_id_old 		         = 3				 ; // 好友旧组名id
@@ -200,13 +200,13 @@ message change_friend_group_rs
 // (tcp)查询好友申请
 message query_friends_apply_rq
 {
-	enum msg{ id=0x02002125;}
+	enum msg{ id=0x02002129;}
 	required uint64	user_myself_id 						     = 1				 ; // 自己用户id
 }
 // (tcp)查询好友申请
 message query_friends_apply_rs
 {
-	enum msg{ id=0x02002126;}
+	enum msg{ id=0x02002130;}
 	required b_error.info error                      		 = 1                 ; // error info
 	repeated b_business_relation.friend_apply apply_s        = 2				 ; // 申请好友未处理列表
 }

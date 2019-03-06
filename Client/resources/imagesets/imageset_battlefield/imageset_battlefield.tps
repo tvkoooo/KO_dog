@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.6.1</string>
         <key>fileName</key>
-        <string>E:/mm/mm_bomber/client/resources/imagesets/imageset_battlefield/imageset_battlefield.tps</string>
+        <string>G:/ziliao_longjia/github/tvkoooo/KO_dog/Client/resources/imagesets/imageset_battlefield/imageset_battlefield.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -209,6 +209,32 @@
                 <rect>64,64,128,128</rect>
                 <key>scale9Paddings</key>
                 <rect>64,64,128,128</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">texture/yaogan.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>67,67,133,133</rect>
+                <key>scale9Paddings</key>
+                <rect>67,67,133,133</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">texture/yaogan0.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>80,80,160,160</rect>
+                <key>scale9Paddings</key>
+                <rect>80,80,160,160</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

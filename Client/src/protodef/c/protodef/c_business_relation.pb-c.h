@@ -92,28 +92,28 @@ typedef enum _c_business_relation_add_friend_group_rs_msg {
   c_business_relation_add_friend_group_rs_msg_id = 33562914
 } c_business_relation_add_friend_group_rs_msg;
 typedef enum _c_business_relation_delete_friend_group_rq_msg {
-  c_business_relation_delete_friend_group_rq_msg_id = 33562913
+  c_business_relation_delete_friend_group_rq_msg_id = 33562915
 } c_business_relation_delete_friend_group_rq_msg;
 typedef enum _c_business_relation_delete_friend_group_rs_msg {
-  c_business_relation_delete_friend_group_rs_msg_id = 33562914
+  c_business_relation_delete_friend_group_rs_msg_id = 33562916
 } c_business_relation_delete_friend_group_rs_msg;
 typedef enum _c_business_relation_rename_friend_group_rq_msg {
-  c_business_relation_rename_friend_group_rq_msg_id = 33562913
+  c_business_relation_rename_friend_group_rq_msg_id = 33562917
 } c_business_relation_rename_friend_group_rq_msg;
 typedef enum _c_business_relation_rename_friend_group_rs_msg {
-  c_business_relation_rename_friend_group_rs_msg_id = 33562914
+  c_business_relation_rename_friend_group_rs_msg_id = 33562918
 } c_business_relation_rename_friend_group_rs_msg;
 typedef enum _c_business_relation_change_friend_group_rq_msg {
-  c_business_relation_change_friend_group_rq_msg_id = 33562915
+  c_business_relation_change_friend_group_rq_msg_id = 33562919
 } c_business_relation_change_friend_group_rq_msg;
 typedef enum _c_business_relation_change_friend_group_rs_msg {
-  c_business_relation_change_friend_group_rs_msg_id = 33562916
+  c_business_relation_change_friend_group_rs_msg_id = 33562920
 } c_business_relation_change_friend_group_rs_msg;
 typedef enum _c_business_relation_query_friends_apply_rq_msg {
-  c_business_relation_query_friends_apply_rq_msg_id = 33562917
+  c_business_relation_query_friends_apply_rq_msg_id = 33562921
 } c_business_relation_query_friends_apply_rq_msg;
 typedef enum _c_business_relation_query_friends_apply_rs_msg {
-  c_business_relation_query_friends_apply_rs_msg_id = 33562918
+  c_business_relation_query_friends_apply_rs_msg_id = 33562928
 } c_business_relation_query_friends_apply_rs_msg;
 typedef enum _c_business_relation_talk_friend_rq_msg {
   c_business_relation_talk_friend_rq_msg_id = 33562961

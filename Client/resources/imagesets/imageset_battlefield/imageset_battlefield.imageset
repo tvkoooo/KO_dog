@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:fcff8c13bbcbe97bb1f25d66192c06de:7c74d42cc464a3f025369632fb4d5b0e:a59c975118ee373160fe569481731ab6$ -->
-<Imageset Name="imageset_battlefield" Imagefile="imageset_battlefield.png" NativeHorzRes="512" NativeVertRes="512" AutoScaled="false">
-    <Image Name="anchor" XPos="1" YPos="1" Width="256" Height="256"/>
+<!-- $TexturePacker:SmartUpdate:1e50fa2483c2bd2e748c2cf28f53dee3:220c5ac2a389ce906def17cba678a5b3:a59c975118ee373160fe569481731ab6$ -->
+<Imageset Name="imageset_battlefield" Imagefile="imageset_battlefield.png" NativeHorzRes="512" NativeVertRes="1024" AutoScaled="false">
+    <Image Name="anchor" XPos="1" YPos="645" Width="256" Height="256"/>
+    <Image Name="yaogan" XPos="1" YPos="1" Width="320" Height="320"/>
+    <Image Name="yaogan0" XPos="1" YPos="323" Width="320" Height="320"/>
 </Imageset>

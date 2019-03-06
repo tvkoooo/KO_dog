@@ -160,9 +160,9 @@ static void __static_net_tcp_handle_tcp_mid_broken_n(void* obj, void* u, struct 
 	//清除 network tcps state , 更新变为关闭
 	p_tcps_connect->state = tcps_connect::tcps_state_closed;
 	//对称加密 状态取消
-	mm_tcp_lock(p_tcp);
+	mm_openssl_tcp_context_lock(p_openssl_tcp_context);
 	mm_openssl_tcp_context_assign_state(p_openssl_tcp_context, CRYPTO_CONTEXT_INACTIVE);
-	mm_tcp_unlock(p_tcp);
+	mm_openssl_tcp_context_unlock(p_openssl_tcp_context);
 
 	//关闭tcp 自动重连
 	mm_client_tcp_assign_state_check_flag(&p_network->tcp, client_tcp_check_inactive);

@@ -28,7 +28,7 @@ LOCAL_LDLIBS += -fPIC
 LOCAL_SHARED_LIBRARIES += libCEGUIOgreRenderer_shared
 LOCAL_SHARED_LIBRARIES += libmm_net_shared
 LOCAL_SHARED_LIBRARIES += libmm_flake_shared
-
+LOCAL_STATIC_LIBRARIES += libmm_emu_shared
 ########################################################################
 LOCAL_STATIC_LIBRARIES += libmm_data_openssl_static
 LOCAL_STATIC_LIBRARIES += libmm_data_lua_static
@@ -38,7 +38,6 @@ LOCAL_STATIC_LIBRARIES += libcrypto_static
 LOCAL_STATIC_LIBRARIES += libprotobuf_static
 LOCAL_STATIC_LIBRARIES += liblua_static
 
-LOCAL_STATIC_LIBRARIES += libOpenAL_static
 LOCAL_STATIC_LIBRARIES += libOgreAL_static
 
 LOCAL_STATIC_LIBRARIES += libBulletWorldImporter_static
@@ -70,6 +69,7 @@ LOCAL_C_INCLUDES += $(MM_LIB)/src/protobuf/src
 LOCAL_C_INCLUDES += $(MM_LIB)/src/openssl/include
 LOCAL_C_INCLUDES += $(MM_LIB)/build/openssl/include/android
 LOCAL_C_INCLUDES += $(MM_CORE)/data/src
+LOCAL_C_INCLUDES += $(MM_NES)/emu/src
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../src/KO_dog
 ########################################################################
 LOCAL_SRC_FILES  += 

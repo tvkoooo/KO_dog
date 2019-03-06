@@ -205,7 +205,7 @@ void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* 
 				break;
 			}
 			//锁tcp 因为p_openssl_tcp_context 属于tcp 的上下文
-			mm_tcp_lock(p_tcp);
+			mm_tcp_s_lock(p_tcp);
 
 			// 锁住 p_openssl_tcp_context
 			mm_openssl_tcp_context_lock(p_openssl_tcp_context);
@@ -221,7 +221,7 @@ void hd_n_c_shuttle_lobby_exchange_key_rs(void* obj, void* u, struct mm_packet* 
 
 			mm_openssl_tcp_context_unlock(p_openssl_tcp_context);
 
-			mm_tcp_unlock(p_tcp);
+			mm_tcp_s_unlock(p_tcp);
 
 			//更新网络层的tcps 加密状态
 			tcps->state = tcps_connect::tcps_state_finish;

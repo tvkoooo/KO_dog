@@ -58,6 +58,9 @@
     <Filter Include="src\KO_dog\widgets">
       <UniqueIdentifier>{da5acac9-e5da-44a1-974b-b7dcf7fa195d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\KO_dog\emu">
+      <UniqueIdentifier>{2e3a1302-9efb-4efa-a925-8f42c89e0401}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog.cpp">
@@ -225,8 +228,26 @@
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.cpp">
       <Filter>src\KO_dog\application</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\KO_dog\widgets\KO_dog_combobox.cpp">
+    <ClCompile Include="..\..\src\KO_dog\widgets\KO_dog_combobox_group.cpp">
       <Filter>src\KO_dog\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\widgets\KO_dog_Tree_relation.cpp">
+      <Filter>src\KO_dog\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_game_playing.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\emu\mm_emu_machine.cpp">
+      <Filter>src\KO_dog\emu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\emu\mm_emu_audio.c">
+      <Filter>src\KO_dog\emu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\emu\mm_emu_frame.cpp">
+      <Filter>src\KO_dog\emu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_rocker_key.cpp">
+      <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -395,8 +416,26 @@
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.h">
       <Filter>src\KO_dog\application</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\KO_dog\widgets\KO_dog_combobox.h">
+    <ClInclude Include="..\..\src\KO_dog\widgets\KO_dog_combobox_group.h">
       <Filter>src\KO_dog\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\widgets\KO_dog_Tree_relation.h">
+      <Filter>src\KO_dog\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_game_playing.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\emu\mm_emu_machine.h">
+      <Filter>src\KO_dog\emu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\emu\mm_emu_audio.h">
+      <Filter>src\KO_dog\emu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\emu\mm_emu_frame.h">
+      <Filter>src\KO_dog\emu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_rocker_key.h">
+      <Filter>src\KO_dog\toolkit</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

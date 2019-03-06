@@ -25,7 +25,7 @@ namespace mm
 		, l_home_lj_login(NULL)
 		, l_layer_dog_window_ip_entry(NULL)
 		, l_layer_dog_window_ip_lobby(NULL)
-		, l_layer_dog_a1(NULL)
+		//, l_layer_dog_a1(NULL)
 		, l_home_lj_mailbox(NULL)
 		//, l_home_lj_mailbox_search(NULL)
 
@@ -105,8 +105,10 @@ namespace mm
 			this->l_home_lj_login = _window_manager->loadLayoutFromFile("l_home_lj_login.layout");
 			this->l_layer_dog_window_ip_entry = _window_manager->loadLayoutFromFile("l_layer_dog_window_ip.layout");
 			this->l_layer_dog_window_ip_lobby = _window_manager->loadLayoutFromFile("l_layer_dog_window_ip.layout");
-			this->l_layer_dog_a1 = _window_manager->loadLayoutFromFile("l_layer_dog_a1.layout");
+			//this->l_layer_dog_a1 = _window_manager->loadLayoutFromFile("l_layer_dog_a1.layout");
 			this->l_home_lj_mailbox = _window_manager->loadLayoutFromFile("l_home_lj_mailbox.layout");
+			this->l_home_lj_mailbox_game_playing = _window_manager->loadLayoutFromFile("l_home_lj_mailbox_game_playing.layout");
+
 			//this->l_home_lj_mailbox_search = _window_manager->loadLayoutFromFile("l_home_lj_mailbox_search.layout");
 			//2 Manager mounts resources
 			this->DefaultWindow = this->l_home_lj_interface_manager->getChild("DefaultWindow");
@@ -146,26 +148,35 @@ namespace mm
 				this->zhujiemian.set_data(this->d_flake_context, this->d_surface);
 				this->zhujiemian.set_l_layer(this->l_home_lj_login);
 				this->zhujiemian.on_finish_launching();
-				//Set up layers test_animation
-				this->test_animation.set_data(this->d_flake_context, this->d_surface);
-				this->test_animation.set_l_layer(this->l_layer_dog_a1);
-				this->test_animation.on_finish_launching();
+				////Set up layers test_animation
+				//this->test_animation.set_data(this->d_flake_context, this->d_surface);
+				//this->test_animation.set_l_layer(this->l_layer_dog_a1);
+				//this->test_animation.on_finish_launching();
 				//Set up layers l_home_lj_mailbox
 				this->mailbox.set_data(this->d_flake_context, this->d_surface);
 				this->mailbox.set_l_layer(this->l_home_lj_mailbox);
+				//this->mailbox.binding_model_data(p_friendId_friendInfo_map, p_groupId_groupName_map);
 				this->mailbox.on_finish_launching();
 				////Set up layers l_home_lj_mailbox_search
 				//this->mailbox_search.set_data(this->d_flake_context, this->d_surface);
 				//this->mailbox_search.set_l_layer(this->l_home_lj_mailbox_search);
 				//this->mailbox_search.on_finish_launching();
+				//Set up layers lj_mailbox_game_playing
+				this->mailbox_game_playing.set_data(this->d_flake_context, this->d_surface);
+				this->mailbox_game_playing.set_l_layer(this->l_home_lj_mailbox_game_playing);
+				this->mailbox_game_playing.on_finish_launching();
 			}
 			this->DefaultWindow->addChild(this->l_home_lj_login);
 			this->DefaultWindow->addChild(this->l_home_lj_mailbox);
-			this->DefaultWindow->addChild(this->l_layer_dog_a1);
+			//this->DefaultWindow->addChild(this->l_layer_dog_a1);
+			this->DefaultWindow->addChild(this->l_home_lj_mailbox_game_playing);
+
 			//this->mailbox.DefaultWindow_right->addChild(this->l_home_lj_mailbox_search);
 
 			this->l_home_lj_mailbox->setVisible(false);
-			this->l_layer_dog_a1->setVisible(false);
+			//this->l_layer_dog_a1->setVisible(false);
+			this->l_home_lj_mailbox_game_playing->setVisible(false);
+
 			//this->mailbox.DefaultWindow_right->setVisible(false);
 
 			//this->test_animation.setVisible(false);
@@ -173,7 +184,8 @@ namespace mm
 			//6 Binding Home Screen Push Event
 			this->d_event_closed_conn = this->mailbox.d_event_set.subscribe_event(KO_dog_mailbox::event_quit, &KO_dog_interface_manager::on_handle_closed, this);
 			this->d_event_game_conn = this->mailbox.d_event_set.subscribe_event(KO_dog_mailbox::event_game, &KO_dog_interface_manager::on_handle_game, this);
-			this->d_event_game_quit_conn = this->test_animation.d_event_set.subscribe_event(KO_dog_test_animation::event_close, &KO_dog_interface_manager::on_handle_game_quit, this);
+			//this->d_event_game_quit_conn = this->test_animation.d_event_set.subscribe_event(KO_dog_test_animation::event_close, &KO_dog_interface_manager::on_handle_game_quit, this);
+			this->d_event_game_quit_conn = this->mailbox_game_playing.d_event_set.subscribe_event(KO_dog_test_animation::event_close, &KO_dog_interface_manager::on_handle_game_quit, this);
 			this->d_event_l_zhujiemian_login_conn = this->zhujiemian.d_event_set.subscribe_event(KO_dog_zhujiemian::event_login, &KO_dog_interface_manager::on_handle_l_zhujiemian_login, this);
 			
 			this->d_event_userdata_user_token_update_conn = p_user_basic->d_event_set.subscribe_event(KO_dog_data_user_basic::event_userdata_user_token_update, &KO_dog_interface_manager::on_handle_userdata_user_token_update, this);
@@ -183,6 +195,14 @@ namespace mm
 		// zhujiemian on_finish_launching
 		//this->zhujiemian.set_data(this->d_flake_context,this->d_surface);
 		//this->zhujiemian.on_finish_launching();
+
+		//添加区域单显map
+		this->m_single_view.add("l_home_lj_login", this->l_home_lj_login);
+		this->m_single_view.add("l_home_lj_mailbox", this->l_home_lj_mailbox);
+		//this->m_single_view.add("l_layer_dog_a1", this->l_layer_dog_a1);
+		this->m_single_view.add("l_home_lj_mailbox_game_playing", this->l_home_lj_mailbox_game_playing);
+		this->m_single_view.blank();
+		this->m_single_view.view("l_home_lj_login");
 	}
 	void KO_dog_interface_manager::on_before_terminate(mm_flake_surface* surface)
 	{
@@ -195,7 +215,8 @@ namespace mm
 		this->mailbox.d_event_set.unsubscribe_event(KO_dog_mailbox::event_quit, this->d_event_closed_conn);
 
 		//this->mailbox.DefaultWindow_right->removeChild(this->l_home_lj_mailbox_search);
-		this->DefaultWindow->removeChild(this->l_layer_dog_a1);
+		this->DefaultWindow->removeChild(this->l_home_lj_mailbox_game_playing);
+		//this->DefaultWindow->removeChild(this->l_layer_dog_a1);
 		this->DefaultWindow->removeChild(this->l_home_lj_mailbox);
 		this->DefaultWindow->removeChild(this->l_home_lj_login);
 
@@ -204,17 +225,25 @@ namespace mm
 
 		//destroy layers
 		{
-			//destroy layers mailbox_search
+			////destroy layers mailbox_search
 			//this->mailbox_search.on_before_terminate();
+
+			//destroy layers mailbox_game_playing
+			this->mailbox_game_playing.on_before_terminate();
+
 			//destroy layers mailbox
 			this->mailbox.on_before_terminate();
-			//destroy layers test_animation
-			this->test_animation.on_before_terminate();
+
+			////destroy layers test_animation
+			//this->test_animation.on_before_terminate();
+
 			//destroy layers zhujiemian
 			this->zhujiemian.on_before_terminate();
+
 			//destroy layers lobby
 			this->window_ip_lobby.scene_layer_terminate();
 			this->window_ip_lobby.set_data_model(NULL);
+
 			//destroy layers entry
 			this->window_ip_entry.scene_layer_terminate();
 			this->window_ip_entry.set_data_model(NULL);
@@ -223,8 +252,9 @@ namespace mm
 		//
 		CEGUI::WindowManager* _window_manager = CEGUI::WindowManager::getSingletonPtr();
 		//_window_manager->destroyWindow(this->l_home_lj_mailbox_search);
+		_window_manager->destroyWindow(this->l_home_lj_mailbox_game_playing);
 		_window_manager->destroyWindow(this->l_home_lj_mailbox);
-		_window_manager->destroyWindow(this->l_layer_dog_a1);
+		//_window_manager->destroyWindow(this->l_layer_dog_a1);
 		_window_manager->destroyWindow(this->l_layer_dog_window_ip_lobby);
 		_window_manager->destroyWindow(this->l_layer_dog_window_ip_entry);
 		_window_manager->destroyWindow(this->l_home_lj_login);
@@ -240,20 +270,31 @@ namespace mm
 	{
 		//清空 l_home_lj_mailbox 逻辑资源
 		this->mailbox.clear_data_before_terminate();
-		this->l_home_lj_mailbox->setVisible(false);
-		this->l_home_lj_login->setVisible(true);
+		//
+		//this->l_home_lj_mailbox->setVisible(false);
+		//this->l_home_lj_login->setVisible(true);
+		this->m_single_view.view("l_home_lj_login");
 		return false;
 	}
 	bool KO_dog_interface_manager::on_handle_game(const mm_event_args& args)
 	{
-		this->l_home_lj_mailbox->setVisible(false);
-		this->l_layer_dog_a1->setVisible(true);
+		//this->l_home_lj_mailbox->setVisible(false);
+		//this->l_layer_dog_a1->setVisible(true);
+		this->l_layer_dog_window_ip_entry->setVisible(false);
+		this->l_layer_dog_window_ip_lobby->setVisible(false);
+
+		this->m_single_view.view("l_home_lj_mailbox_game_playing");
+		this->mailbox_game_playing.start_games();
 		return false;
 	}
 	bool KO_dog_interface_manager::on_handle_game_quit(const mm_event_args& args)
 	{
-		this->l_layer_dog_a1->setVisible(false);
-		this->l_home_lj_mailbox->setVisible(true);
+		//this->l_layer_dog_a1->setVisible(false);
+		//this->l_home_lj_mailbox->setVisible(true);
+		this->l_layer_dog_window_ip_entry->setVisible(true);
+		this->l_layer_dog_window_ip_lobby->setVisible(true);
+		this->mailbox_game_playing.stop_games();
+		this->m_single_view.view("l_home_lj_mailbox");
 		return false;
 	}
 	bool KO_dog_interface_manager::on_handle_l_zhujiemian_login(const mm_event_args& args)
@@ -262,8 +303,9 @@ namespace mm
 		mm::KO_dog_data_user_basic* p_data_user_basic = &p->data.data_user_basic;
 		struct data_user_basic* u_basic = &p_data_user_basic->basic;
 
-		this->l_home_lj_mailbox->setVisible(true);
-		this->l_home_lj_login->setVisible(false);
+		//this->l_home_lj_mailbox->setVisible(true);
+		//this->l_home_lj_login->setVisible(false);
+		this->m_single_view.view("l_home_lj_mailbox");
 		//登录后需要更新服务器好友关系列表
 		c_business_relation::query_friends_rq rq;
 		rq.set_user_myself_id(u_basic->id);
@@ -283,8 +325,10 @@ namespace mm
 		{
 			//清空 l_home_lj_mailbox 逻辑资源
 			this->mailbox.clear_data_before_terminate();
-			this->l_home_lj_mailbox->setVisible(false);
-			this->l_home_lj_login->setVisible(true);
+
+			//this->l_home_lj_mailbox->setVisible(false);
+			//this->l_home_lj_login->setVisible(true);
+			this->m_single_view.view("l_home_lj_login");
 		}
 		return false;
 	}
