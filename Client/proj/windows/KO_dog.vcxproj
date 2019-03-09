@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_error_code.c" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_interface_manager.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_login.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.cpp" />
     <ClCompile Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.cpp" />
@@ -64,6 +65,7 @@
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_rocker_key.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_single_view_map.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_util_mesh.cpp" />
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_widgets_position.cpp" />
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_windows_target.cpp" />
     <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_animation.cpp" />
     <ClCompile Include="..\..\src\KO_dog\unit\mm_unit_audio.cpp" />
@@ -85,6 +87,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_error_code.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_interface_manager.h" />
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_login.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_apply.h" />
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog_mailbox_friend_group.h" />
@@ -129,6 +132,7 @@
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_rocker_key.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_single_view_map.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_util_mesh.h" />
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_widgets_position.h" />
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_windows_target.h" />
     <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_animation.h" />
     <ClInclude Include="..\..\src\KO_dog\unit\mm_unit_audio.h" />

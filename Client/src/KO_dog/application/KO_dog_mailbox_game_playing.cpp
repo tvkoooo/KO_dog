@@ -17,6 +17,7 @@
 #include "toolkit/mm_util_mesh.h"
 
 #include "flake/mm_system_event_surface.h"
+#include "flake/mm_system_event_touch.h"
 #include "math/mm_math_const.h"
 #include "core/mm_value_transform.h"
 
@@ -43,6 +44,10 @@ namespace mm
 		, DefaultWindow_mid(NULL)
 		, StaticImage_table(NULL)
 		, StaticText_test(NULL)
+		, StaticImage_AB(NULL)
+		, StaticImage_CD(NULL)
+		, Button_AB(NULL)
+		, Button_CD(NULL)
 
 		, d_is_anchor_touch_began(false)
 		, d_rotation(0)
@@ -78,7 +83,7 @@ namespace mm
 	}
 	void KO_dog_mailbox_game_playing::stop_games()
 	{
-		mm_emu_machine_Stop(&this->d_emu_machine);
+		mm_emu_machine_Pause(&this->d_emu_machine);
 	}
 	void KO_dog_mailbox_game_playing::on_finish_launching()
 	{
@@ -86,10 +91,6 @@ namespace mm
 		//////////////////////////////////////////////////////////////////////////
 
 		this->StaticImage_basic = this->l_layer->getChild("StaticImage_basic");
-		this->Button_A = this->StaticImage_basic->getChild("Button_A");
-		this->Button_B = this->StaticImage_basic->getChild("Button_B");
-		this->Button_C = this->StaticImage_basic->getChild("Button_C");
-		this->Button_D = this->StaticImage_basic->getChild("Button_D");
 		this->Button_select = this->StaticImage_basic->getChild("Button_select");
 		this->Button_start = this->StaticImage_basic->getChild("Button_start");
 		this->Button_quit = this->StaticImage_basic->getChild("Button_quit");
@@ -97,8 +98,21 @@ namespace mm
 		this->DefaultWindow_mid = this->StaticImage_basic->getChild("DefaultWindow_mid");
 		this->StaticImage_table = this->DefaultWindow_mid->getChild("StaticImage_table");
 		this->StaticText_test = this->StaticImage_basic->getChild("StaticText_test");
+		this->StaticImage_AB = this->StaticImage_basic->getChild("StaticImage_AB");
+		this->StaticImage_CD = this->StaticImage_basic->getChild("StaticImage_CD");
+		this->Button_AB = this->StaticImage_AB->getChild("Button_AB");
+		this->Button_CD = this->StaticImage_CD->getChild("Button_CD");
+		this->Button_A = this->StaticImage_AB->getChild("Button_A");
+		this->Button_B = this->StaticImage_AB->getChild("Button_B");
+		this->Button_C = this->StaticImage_CD->getChild("Button_C");
+		this->Button_D = this->StaticImage_CD->getChild("Button_D");
 
 		//
+		CEGUI::Window* StaticImage_AB;
+		CEGUI::Window* StaticImage_CD;
+		CEGUI::Window* Button_AB;
+		CEGUI::Window* Button_CD;
+
 		this->StaticImage_yaogan->setProperty("Image", "imageset_battlefield/yaogan0");
 
 		this->l_layer->setVisible(true);
@@ -140,9 +154,9 @@ namespace mm
 		/////////////////////////////////////////////////////////////////////
 		this->d_event_updated_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_updated, &KO_dog_mailbox_game_playing::on_event_updated, this);
 
-		this->d_event_mouse_moved_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_moved, &KO_dog_mailbox_game_playing::on_event_mouse_moved, this);
-		this->d_event_mouse_began_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_began, &KO_dog_mailbox_game_playing::on_event_mouse_began, this);
-		this->d_event_mouse_ended_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_mouse_ended, &KO_dog_mailbox_game_playing::on_event_mouse_ended, this);
+		this->d_event_mouse_moved_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_touchs_moved, &KO_dog_mailbox_game_playing::on_event_mouse_moved, this);
+		this->d_event_mouse_began_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_touchs_began, &KO_dog_mailbox_game_playing::on_event_mouse_began, this);
+		this->d_event_mouse_ended_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_touchs_ended, &KO_dog_mailbox_game_playing::on_event_mouse_ended, this);
 		this->d_event_key_pressed_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_key_pressed, &KO_dog_mailbox_game_playing::on_event_key_pressed, this);
 		this->d_event_key_release_conn = this->d_surface->d_event_set.subscribe_event(mm_flake_surface::event_key_release, &KO_dog_mailbox_game_playing::on_event_key_release, this);
 		/////////////////////////////////////////////////////////////////////
@@ -150,7 +164,7 @@ namespace mm
 		mm_emu_machine_SetDataPath(&this->d_emu_machine, "emu");
 		mm_emu_machine_UpdateAssetsPath(&this->d_emu_machine);
 		mm_emu_machine_SetName(&this->d_emu_machine, "emu_0");
-		mm_emu_machine_SetRomPath(&this->d_emu_machine, "rom/Bomberman.nes");
+		mm_emu_machine_SetRomPath(&this->d_emu_machine, "rom/Red Fortress.nes");
 		mm_emu_machine_LoadRom(&this->d_emu_machine);
 		mm_emu_machine_Start(&this->d_emu_machine);
 		//////////////////////////////////////////////////////////////////////////
@@ -190,9 +204,9 @@ namespace mm
 		//////////////////////////////////////////////////////////////////////////
 		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_updated, this->d_event_updated_conn);
 
-		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_moved, this->d_event_mouse_moved_conn);
-		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_began, this->d_event_mouse_began_conn);
-		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_mouse_ended, this->d_event_mouse_ended_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_touchs_moved, this->d_event_mouse_moved_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_touchs_began, this->d_event_mouse_began_conn);
+		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_touchs_ended, this->d_event_mouse_ended_conn);
 
 		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_pressed, this->d_event_key_pressed_conn);
 		this->d_surface->d_event_set.unsubscribe_event(mm_flake_surface::event_key_release, this->d_event_key_release_conn);		
@@ -206,13 +220,24 @@ namespace mm
 
 	bool KO_dog_mailbox_game_playing::on_event_mouse_moved(const mm_event_args& args)
 	{
-		const mm_event_mouse& evt = (const mm_event_mouse&)(args);
-		this->update_anchor_quaternion(evt.content.abs_x, evt.content.abs_y);
+		const mm_event_touch_set& evt = (const mm_event_touch_set&)(args);
+		this->update_anchor_quaternion(evt.content.touchs[0].abs_x, evt.content.touchs[0].abs_y);
+
 		return false;
 	}
 	bool KO_dog_mailbox_game_playing::on_event_mouse_began(const mm_event_args& args)
 	{
-		const mm_event_mouse& evt = (const mm_event_mouse&)(args);
+		const mm_event_touch_set& evt = (const mm_event_touch_set&)(args);
+
+		struct mm_logger* g_logger = mm_logger_instance();
+		for (size_t i = 0; i < evt.content.size; i++)
+		{
+			mm_logger_log_I(g_logger, "KO_dog_mailbox_game_playing::%s %d size=%d force_value=%lf major_radius=%lf button_mask=%d motion_id=%d abs_x=%lf  tap_count=%d phase= %d", 
+				__FUNCTION__, __LINE__, evt.content.size, evt.content.touchs[i].force_value, evt.content.touchs[i].major_radius , evt.content.touchs[i].button_mask ,evt.content.touchs[i].motion_id,
+				evt.content.touchs[i].abs_x, evt.content.touchs[i].tap_count, evt.content.touchs[i].phase);
+		}
+		
+
 		/////////////////////////////////////////////////////////////////////////
 		double _window_size_x = this->d_surface->d_window_size.x;
 		double _window_size_y = this->d_surface->d_window_size.y;
@@ -231,16 +256,17 @@ namespace mm
 		_r_max_f.x = (_r_max.d_x.d_scale * _window_size_x) + _r_max.d_x.d_offset;
 		_r_max_f.y = (_r_max.d_y.d_scale * _window_size_y) + _r_max.d_y.d_offset;
 
-		if ((_r_min_f.x <= evt.content.abs_x) &&
-			(_r_max_f.x > evt.content.abs_x) &&
-			(_r_min_f.y <= evt.content.abs_y) &&
-			(_r_max_f.y > evt.content.abs_y))
+		if ((_r_min_f.x <= evt.content.touchs->abs_x) &&
+			(_r_max_f.x > evt.content.touchs->abs_x) &&
+			(_r_min_f.y <= evt.content.touchs->abs_y) &&
+			(_r_max_f.y > evt.content.touchs->abs_y))
 		{
 			// touch position at area.
 			this->d_is_anchor_touch_began = true;
-			//this->StaticImage_yaogan->setProperty("Image", "imageset_battlefield/yaogan");
-			//
-			this->update_anchor_quaternion(evt.content.abs_x, evt.content.abs_y);
+			this->StaticImage_yaogan->setProperty("Image", "imageset_battlefield/yaogan");
+
+
+			this->update_anchor_quaternion(evt.content.touchs->abs_x, evt.content.touchs->abs_y);
 		}
 
 		///////////////////////////////////////////////////////////////////////////
@@ -249,12 +275,22 @@ namespace mm
 	}
 	bool KO_dog_mailbox_game_playing::on_event_mouse_ended(const mm_event_args& args)
 	{
-		const mm_event_mouse& evt = (const mm_event_mouse&)(args);
+		const mm_event_touch_set& evt = (const mm_event_touch_set&)(args);
+		struct mm_logger* g_logger = mm_logger_instance();
+		for (size_t i = 0; i < evt.content.size; i++)
+		{
+			mm_logger_log_I(g_logger, "on_event_mouse_ended::%s %d size=%d force_value=%lf major_radius=%lf button_mask=%d motion_id=%d abs_x=%lf  tap_count=%d phase= %d",
+				__FUNCTION__, __LINE__, evt.content.size, evt.content.touchs[i].force_value, evt.content.touchs[i].major_radius, evt.content.touchs[i].button_mask, evt.content.touchs[i].motion_id,
+				evt.content.touchs[i].abs_x, evt.content.touchs[i].tap_count, evt.content.touchs[i].phase);
+		}
+
+
 		if (true == this->d_is_anchor_touch_began)
 		{
 			this->d_is_anchor_touch_began = false;
-			//this->StaticImage_yaogan->setProperty("Image", "imageset_battlefield/yaogan0");
+			this->StaticImage_yaogan->setProperty("Image", "imageset_battlefield/yaogan0");
 			this->rocker_key.rocker_noting();
+			this->StaticText_test->setText("0   du");
 		}
 
 		return false;

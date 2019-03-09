@@ -63,6 +63,10 @@ namespace mm
 		CEGUI::Window* DefaultWindow_mid;
 		CEGUI::Window* StaticImage_table;
 		CEGUI::Window* StaticText_test;
+		CEGUI::Window* StaticImage_AB;
+		CEGUI::Window* StaticImage_CD;
+		CEGUI::Window* Button_AB;
+		CEGUI::Window* Button_CD;
 
 	public:
 		struct mm_bitset keyb_s;
@@ -97,6 +101,7 @@ namespace mm
 		virtual void on_before_terminate();
 
 	public:
+		
 		bool on_event_updated(const mm_event_args& args);
 
 		bool on_event_mouse_moved(const mm_event_args& args);

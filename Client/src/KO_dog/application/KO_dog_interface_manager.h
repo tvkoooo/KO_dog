@@ -25,6 +25,7 @@
 #include "container/mm_bitset.h"
 
 #include "KO_dog_window_ip.h"
+#include "KO_dog_login.h"
 #include "KO_dog_zhujiemian.h"
 #include "KO_dog_test_animation.h"
 #include "KO_dog_mailbox.h"
@@ -41,15 +42,12 @@ namespace mm
 		mm_flake_surface* d_surface;
 
 	public:
-		CEGUI::Window* l_home_lj_interface_manager;  //strongly reference
-		CEGUI::Window* l_home_lj_login;                      //strongly reference
+		CEGUI::Window* l_home_lj_interface_manager;          //strongly reference
 		CEGUI::Window* l_layer_dog_window_ip_entry;          //strongly reference
 		CEGUI::Window* l_layer_dog_window_ip_lobby;          //strongly reference
-		//CEGUI::Window* l_layer_dog_a1;                       //strongly reference
+		CEGUI::Window* l_home_lj_login_new;                  //strongly reference
 		CEGUI::Window* l_home_lj_mailbox;                    //strongly reference
 		CEGUI::Window* l_home_lj_mailbox_game_playing;       //strongly reference
-
-		//CEGUI::Window* l_home_lj_mailbox_search;             //strongly reference
 
 	private:
 		CEGUI::Window* DefaultWindow;                        //Get Weak reference
@@ -59,17 +57,15 @@ namespace mm
 	private:
 		KO_dog_window_ip window_ip_entry;
 		KO_dog_window_ip window_ip_lobby;
-		KO_dog_zhujiemian zhujiemian;
-		KO_dog_test_animation test_animation;
+		KO_dog_login login;
 		KO_dog_mailbox mailbox;
 		KO_dog_mailbox_game_playing mailbox_game_playing;
-		//KO_dog_mailbox_search mailbox_search;
 
 	private:
 		mm_event_handler d_event_closed_conn;
 		mm_event_handler d_event_game_conn;
 		mm_event_handler d_event_game_quit_conn;
-		mm_event_handler d_event_l_zhujiemian_login_conn;
+		mm_event_handler d_event_login_conn;
 		mm_event_handler d_event_userdata_user_token_update_conn;
 
 	public:
@@ -88,7 +84,7 @@ namespace mm
 		bool on_handle_closed(const mm_event_args& args);
 		bool on_handle_game(const mm_event_args& args);
 		bool on_handle_game_quit(const mm_event_args& args);
-		bool on_handle_l_zhujiemian_login(const mm_event_args& args);
+		bool on_handle_login(const mm_event_args& args);
 		bool on_handle_userdata_user_token_update(const mm_event_args& args);
 
 	};

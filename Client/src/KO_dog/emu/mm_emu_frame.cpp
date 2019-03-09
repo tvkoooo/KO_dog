@@ -39,6 +39,8 @@ void mm_emu_frame_init(struct mm_emu_frame* p)
 	p->d_HardwarePixelBuffer0.reset();
 	p->d_HardwarePixelBuffer1.reset();
 
+	p->d_PaletteRGB = NULL;
+
 	p->d_texture_w = MM_EMU_SCREEN_WIDTH;
 	p->d_texture_h = MM_EMU_SCREEN_HEIGHT;
 
@@ -73,6 +75,8 @@ void mm_emu_frame_destroy(struct mm_emu_frame* p)
 	p->d_HardwarePixelBuffer0.reset();
 	p->d_HardwarePixelBuffer1.reset();
 
+	p->d_PaletteRGB = NULL;
+
 	p->d_texture_w = MM_EMU_SCREEN_WIDTH;
 	p->d_texture_h = MM_EMU_SCREEN_HEIGHT;
 
@@ -99,6 +103,10 @@ void mm_emu_frame_SetName(struct mm_emu_frame* p, const std::string& name)
 	p->d_name_ogre_texture_emu_1 = MM_EMU_FRAME_OGRE_TEXTURE + p->d_Name + "_1";
 	p->d_name_cegui_texture_emu = MM_EMU_FRAME_CEGUI_TEXTURE + p->d_Name;
 	p->d_name_cegui_image_emu = MM_EMU_FRAME_CEGUI_IMAGE + p->d_Name;
+}
+void mm_emu_frame_SetPaletteRGB(struct mm_emu_frame* p, void* data)
+{
+	p->d_PaletteRGB = data;
 }
 //////////////////////////////////////////////////////////////////////////
 void mm_emu_frame_CreateSource(struct mm_emu_frame* p)
@@ -145,6 +153,9 @@ void mm_emu_frame_CreateSource(struct mm_emu_frame* p)
 
 	p->d_image->setArea(_imageArea);
 	p->d_image->setAutoScaled(CEGUI::ASM_Disabled);
+
+	// update palette.
+	mm_emu_frame_UpdatePalette(p);
 }
 void mm_emu_frame_DeleteSource(struct mm_emu_frame* p)
 {
@@ -164,9 +175,31 @@ void mm_emu_frame_DeleteSource(struct mm_emu_frame* p)
 	p->d_HardwarePixelBuffer1.reset();
 }
 //////////////////////////////////////////////////////////////////////////
-void mm_emu_frame_UpdatePalette(struct mm_emu_frame* p, struct mm_emu_rgbquad* palette_rgb)
+void mm_emu_frame_EnterBackground(struct mm_emu_frame* p)
 {
-	Ogre::PixelBox srcPixelBox(16, 16, 1, Ogre::PF_A8R8G8B8, (void*)palette_rgb);
+
+}
+void mm_emu_frame_EnterForeground(struct mm_emu_frame* p)
+{
+	if (NULL != p->d_ogre_texture0.get())
+	{
+		// some time the HardwarePixelBuffer will change when EnterBackground and EnterForeground.
+		p->d_HardwarePixelBuffer0 = p->d_ogre_texture0->getBuffer(0, 0);
+		//
+		mm_emu_frame_UpdatePalette(p);
+	}
+	if (NULL != p->d_ogre_texture1.get())
+	{
+		// some time the HardwarePixelBuffer will change when EnterBackground and EnterForeground.
+		p->d_HardwarePixelBuffer1 = p->d_ogre_texture1->getBuffer(0, 0);
+		//
+		mm_emu_frame_UpdateFrameBitmap(p);
+	}
+}
+//////////////////////////////////////////////////////////////////////////
+void mm_emu_frame_UpdatePalette(struct mm_emu_frame* p)
+{
+	Ogre::PixelBox srcPixelBox(16, 16, 1, Ogre::PF_A8R8G8B8, (void*)p->d_PaletteRGB);
 	Ogre::Box dstBox(0, 0, 16, 16);
 
 	p->d_HardwarePixelBuffer0->blitFromMemory(srcPixelBox, dstBox);

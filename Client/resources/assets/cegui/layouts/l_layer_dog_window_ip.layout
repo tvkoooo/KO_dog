@@ -28,7 +28,7 @@
                 <Property name="Area" value="{{0.152055,0},{0.105172,0},{0.986713,0},{0.944678,0}}" />
                 <Property name="Text" value="127.152.142.369:20000" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
-                <Property name="NormalTextColour" value="FF210CFF" />
+                <Property name="DisabledTextColour" value="FF00FF00" />
             </Window>
         </Window>
     </Window>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_home_lj_login_new" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="Text" value="=" />
+            <Property name="Image" value="gif_gold/beijing" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="FrameEnabled" value="false" />
+            <Property name="BackgroundEnabled" value="false" />
+            <Window type="TaharezLook/Button" name="Button_login" >
+                <Property name="Area" value="{{0.342708,0},{0.540741,0},{0.4875,0},{0.661111,0}}" />
+                <Property name="Text" value="Login" />
+                <Property name="WantsMultiClickEvents" value="false" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_quit" >
+                <Property name="Area" value="{{0.496875,0},{0.538889,0},{0.628125,0},{0.661111,0}}" />
+                <Property name="Text" value="Quit" />
+                <Property name="WantsMultiClickEvents" value="false" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_register" >
+                <Property name="Area" value="{{0.34375,0},{0.735185,0},{0.477083,0},{0.803704,0}}" />
+                <Property name="Text" value="Register" />
+                <Property name="WantsMultiClickEvents" value="false" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="Editbox_id" >
+                <Property name="Area" value="{{0.342708,0},{0.32037,0},{0.627083,0},{0.388889,0}}" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="Editbox_password" >
+                <Property name="Area" value="{{0.342708,0},{0.442593,0},{0.627083,0},{0.511111,0}}" />
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_id" >
+                <Property name="Area" value="{{0.34375,0},{0.27963,0},{0.44375,0},{0.312963,0}}" />
+                <Property name="Text" value="Your ID" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="TextColours" value="tl:FF00FF00 tr:FF00FF00 bl:FF00FF00 br:FF00FF00" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="HorzScrollPageSize" value="192" />
+                <Property name="VertScrollPageSize" value="36" />
+                <Property name="HorzScrollDocumentSize" value="86" />
+                <Property name="VertScrollDocumentSize" value="27.9375" />
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_password" >
+                <Property name="Area" value="{{0.34375,0},{0.403704,0},{0.44375,0},{0.437037,0}}" />
+                <Property name="Text" value="Password" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="TextColours" value="tl:FF00FF00 tr:FF00FF00 bl:FF00FF00 br:FF00FF00" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="HorzScrollPageSize" value="192" />
+                <Property name="VertScrollPageSize" value="36" />
+                <Property name="HorzScrollDocumentSize" value="111" />
+                <Property name="VertScrollDocumentSize" value="27.9375" />
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_notice" >
+                <Property name="Area" value="{{0.344792,0},{0.824074,0},{0.629167,0},{0.901852,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="TextColours" value="tl:FF00FF00 tr:FF00FF00 bl:FF00FF00 br:FF00FF00" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="HorzScrollPageSize" value="546" />
+                <Property name="VertScrollPageSize" value="84" />
+            </Window>
+            <Window type="TaharezLook/StaticText" name="StaticText_git" >
+                <Property name="Area" value="{{0.34375,0},{0.918518,0},{0.63125,0},{0.975926,0}}" />
+                <Property name="Text" value="https://github.com/tvkoooo/KO_dog" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="TextColours" value="tl:FF00FF00 tr:FF00FF00 bl:FF00FF00 br:FF00FF00" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+                <Property name="HorzScrollPageSize" value="552" />
+                <Property name="VertScrollPageSize" value="62" />
+                <Property name="HorzScrollDocumentSize" value="421" />
+                <Property name="VertScrollDocumentSize" value="27.9375" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,8 +1,16 @@
 <Imageset autoScaled="false" imagefile="gif_gold.png" name="gif_gold" nativeHorzRes="1024" nativeVertRes="2048" version="2">
+    <Image height="100" name="a1" width="100" xPos="619" yPos="844" />
+    <Image height="100" name="a2" width="100" xPos="721" yPos="844" />
+    <Image height="100" name="b1" width="100" xPos="823" yPos="844" />
+    <Image height="100" name="b2" width="100" xPos="619" yPos="946" />
     <Image height="540" name="beijing" width="960" xPos="1" yPos="1" />
     <Image height="299" name="j1" width="307" xPos="1" yPos="543" />
     <Image height="299" name="j2" width="307" xPos="310" yPos="543" />
     <Image height="299" name="j3" width="307" xPos="619" yPos="543" />
     <Image height="299" name="j4" width="307" xPos="1" yPos="844" />
     <Image height="299" name="j5" width="307" xPos="310" yPos="844" />
+    <Image height="100" name="x1" width="100" xPos="721" yPos="946" />
+    <Image height="100" name="x2" width="100" xPos="823" yPos="946" />
+    <Image height="100" name="y1" width="100" xPos="619" yPos="1048" />
+    <Image height="100" name="y2" width="100" xPos="721" yPos="1048" />
 </Imageset>

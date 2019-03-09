@@ -72,6 +72,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		//////////////////////////////////////////////////////////////////////////
 		//SetConsoleCtrlHandler(__static_signal_destroy, TRUE);
 		//////////////////////////////////////////////////////////////////////////
+		std::string application_name = "mm";
 		std::string logger_file_name = "mm";
 		std::string logger_path = "log";
 		mm_uint32_t logger_level = 7;
@@ -96,6 +97,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		mm::mm_config_value config_value;
 		mm::mm_config_parse config_parse(config_value);
 		config_parse.load_file("launch.config");
+		config_value.get_value("application_name", application_name);
 		config_value.get_value("logger_file_name", logger_file_name);
 		config_value.get_value("logger_path", logger_path);
 		config_value.get_value("logger_level",logger_level);
@@ -129,6 +131,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		impl->init();
 		// assign
 		flake_context->init();
+		flake_context->set_application_name(application_name);
 		flake_context->set_root_resources_path(root_resources_path);
 		flake_context->set_shader_cache_folder(shader_cache_folder);
 		flake_context->assign_assets_root(root_resources_type, root_resources_path, root_resources_base);

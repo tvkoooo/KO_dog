@@ -21,6 +21,8 @@ void mm_emu_machine_init(struct mm_emu_machine* p)
 	//
 	mm_emu_emulator_SetProcessor(&p->d_Emulator, &p->super);
 
+	mm_emu_frame_SetPaletteRGB(&p->d_Frame, p->d_Emulator.palette_rgb);
+
 	mm_emu_audio_SetRate(&p->d_Audio, p->d_Emulator.emu->config.audio.nRate);
 	mm_emu_audio_SetFormat(&p->d_Audio, AL_FORMAT_MONO8);
 
@@ -83,7 +85,8 @@ void mm_emu_machine_UpdateAssetsPath(struct mm_emu_machine* p)
 {
 	struct mm_file_context* _file_context = &p->d_Context->d_file_context;
 
-	std::string writable_path;
+	std::string external_files_directory;
+	std::string external_files_directory_writable_path;
 
 	struct mm_string emu_writable_path;
 	struct mm_string emu_root_folder_base;
@@ -93,24 +96,19 @@ void mm_emu_machine_UpdateAssetsPath(struct mm_emu_machine* p)
 	mm_string_init(&emu_root_folder_base);
 	mm_string_init(&emu_root_source_base);
 
-	writable_path = p->d_Context->get_writable_path();
+	external_files_directory = p->d_Context->get_external_files_directory();
 	//
-	if (writable_path.empty())
-	{
-		mm_string_assigns(&emu_writable_path, p->d_WritablePath.c_str());
-	}
-	else
-	{
-		std::string wp = writable_path + p->d_WritablePath;
-		mm_string_assigns(&emu_writable_path, wp.c_str());
-	}
+	external_files_directory_writable_path += external_files_directory;
+	external_files_directory_writable_path += external_files_directory.empty() ? "" : "/";
+	external_files_directory_writable_path += p->d_WritablePath;
+	mm_string_assigns(&emu_writable_path, external_files_directory_writable_path.c_str());
 	// use little base.
 	mm_string_assigns(&emu_root_folder_base, _file_context->assets_root_folder_base.s);
-	mm_string_append(&emu_root_folder_base, "/");
+	mm_string_append(&emu_root_folder_base, 0 == _file_context->assets_root_folder_base.l ? "" : "/");
 	mm_string_append(&emu_root_folder_base, p->d_DataPath.c_str());
 
 	mm_string_assigns(&emu_root_source_base, _file_context->assets_root_source_base.s);
-	mm_string_append(&emu_root_source_base, "/");
+	mm_string_append(&emu_root_source_base, 0 == _file_context->assets_root_source_base.l ? "" : "/");
 	mm_string_append(&emu_root_source_base, p->d_DataPath.c_str());
 	//
 	mm_mkdir_if_not_exist(emu_writable_path.s);
@@ -198,10 +196,12 @@ void mm_emu_machine_MouseEnded(struct mm_emu_machine* p, mm_long_t x, mm_long_t 
 void mm_emu_machine_EnterBackground(struct mm_emu_machine* p)
 {
 	mm_emu_emulator_EnterBackground(&p->d_Emulator);
+	mm_emu_frame_EnterBackground(&p->d_Frame);
 }
 void mm_emu_machine_EnterForeground(struct mm_emu_machine* p)
 {
 	mm_emu_emulator_EnterForeground(&p->d_Emulator);
+	mm_emu_frame_EnterForeground(&p->d_Frame);
 }
 //////////////////////////////////////////////////////////////////////////
 // For Manual bit controller Joypad.
@@ -326,8 +326,6 @@ void mm_emu_machine_UpdateFrameBitmap(struct mm_emu_machine* p)
 void mm_emu_machine_Start(struct mm_emu_machine* p)
 {
 	mm_emu_frame_CreateSource(&p->d_Frame);
-	//
-	mm_emu_frame_UpdatePalette(&p->d_Frame, p->d_Emulator.palette_rgb);
 	//
 	mm_emu_emulator_Start(&p->d_Emulator);
 }

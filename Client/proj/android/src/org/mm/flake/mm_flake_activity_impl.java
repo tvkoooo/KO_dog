@@ -27,6 +27,7 @@ public class mm_flake_activity_impl extends Activity
 
         this.d_flake_frame_layout = new mm_flake_frame_layout(this);
         this.d_flake_frame_layout.setLayoutParams(framelayout_params);
+        this.d_flake_frame_layout.set_application_name("KO_dog");
         this.d_flake_frame_layout.load_library("Plugin_ParticleUniverse");
         this.d_flake_frame_layout.load_library("mm_net");
         this.d_flake_frame_layout.load_library("mm_emu");

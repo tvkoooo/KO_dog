@@ -30,10 +30,13 @@
         <Item name="layouts" type="folder">
             <Item path="layouts/l_commond.layout" type="file" />
             <Item path="layouts/l_ctrl.layout" type="file" />
+            <Item path="layouts/l_emu_emulator.layout" type="file" />
+            <Item path="layouts/l_emu_roms.layout" type="file" />
             <Item path="layouts/l_ensure.layout" type="file" />
             <Item path="layouts/l_frame_stats.layout" type="file" />
             <Item path="layouts/l_home_lj_interface_manager.layout" type="file" />
             <Item path="layouts/l_home_lj_login.layout" type="file" />
+            <Item path="layouts/l_home_lj_login_new.layout" type="file" />
             <Item path="layouts/l_home_lj_mailbox.layout" type="file" />
             <Item path="layouts/l_home_lj_mailbox_friend.layout" type="file" />
             <Item path="layouts/l_home_lj_mailbox_friend_apply.layout" type="file" />

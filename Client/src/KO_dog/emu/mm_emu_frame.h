@@ -37,6 +37,8 @@ struct mm_emu_frame
 	Ogre::HardwarePixelBufferSharedPtr d_HardwarePixelBuffer0;// weak ref.
 	Ogre::HardwarePixelBufferSharedPtr d_HardwarePixelBuffer1;// weak ref.
 
+	void* d_PaletteRGB;// weak ref.
+
 	// cache texture w h.
 	mm_uint32_t d_texture_w;
 	mm_uint32_t d_texture_h;
@@ -53,13 +55,17 @@ void mm_emu_frame_destroy(struct mm_emu_frame* p);
 //////////////////////////////////////////////////////////////////////////
 void mm_emu_frame_SetContext(struct mm_emu_frame* p, mm::mm_flake_context* context);
 void mm_emu_frame_SetName(struct mm_emu_frame* p, const std::string& name);
+void mm_emu_frame_SetPaletteRGB(struct mm_emu_frame* p, void* data);
 //////////////////////////////////////////////////////////////////////////
 void mm_emu_frame_CreateSource(struct mm_emu_frame* p);
 void mm_emu_frame_DeleteSource(struct mm_emu_frame* p);
 //////////////////////////////////////////////////////////////////////////
+void mm_emu_frame_EnterBackground(struct mm_emu_frame* p);
+void mm_emu_frame_EnterForeground(struct mm_emu_frame* p);
+//////////////////////////////////////////////////////////////////////////
 // render thread.
 // palette_rgb x 256
-void mm_emu_frame_UpdatePalette(struct mm_emu_frame* p, struct mm_emu_rgbquad* palette_rgb);
+void mm_emu_frame_UpdatePalette(struct mm_emu_frame* p);
 void mm_emu_frame_UpdateFrameBitmap(struct mm_emu_frame* p);
 //////////////////////////////////////////////////////////////////////////
 // emulator thread.

@@ -199,6 +199,26 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">texture/a1.png</key>
+            <key type="filename">texture/a2.png</key>
+            <key type="filename">texture/b1.png</key>
+            <key type="filename">texture/b2.png</key>
+            <key type="filename">texture/x1.png</key>
+            <key type="filename">texture/x2.png</key>
+            <key type="filename">texture/y1.png</key>
+            <key type="filename">texture/y2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9Paddings</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">texture/beijing.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -238,6 +258,14 @@
             <filename>texture/j4.png</filename>
             <filename>texture/j5.png</filename>
             <filename>texture/beijing.png</filename>
+            <filename>texture/y2.png</filename>
+            <filename>texture/a1.png</filename>
+            <filename>texture/a2.png</filename>
+            <filename>texture/b1.png</filename>
+            <filename>texture/b2.png</filename>
+            <filename>texture/x1.png</filename>
+            <filename>texture/x2.png</filename>
+            <filename>texture/y1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

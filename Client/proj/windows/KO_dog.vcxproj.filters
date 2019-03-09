@@ -249,6 +249,12 @@
     <ClCompile Include="..\..\src\KO_dog\toolkit\mm_rocker_key.cpp">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\application\KO_dog_login.cpp">
+      <Filter>src\KO_dog\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\KO_dog\toolkit\mm_widgets_position.cpp">
+      <Filter>src\KO_dog\toolkit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\KO_dog\application\KO_dog.h">
@@ -435,6 +441,12 @@
       <Filter>src\KO_dog\emu</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\KO_dog\toolkit\mm_rocker_key.h">
+      <Filter>src\KO_dog\toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\application\KO_dog_login.h">
+      <Filter>src\KO_dog\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\KO_dog\toolkit\mm_widgets_position.h">
       <Filter>src\KO_dog\toolkit</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="l_emu_emulator" >
+        <Property name="Area" value="{{0,2},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/StaticImage" name="StaticImage_Background" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="TaharezLook/Button" name="Button_SoftwareRest" >
+                <Property name="Area" value="{{0.0542232,0},{0.375926,0},{0.205422,0},{0.477778,0}}" />
+                <Property name="Text" value="SoftwareRest" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_Start" >
+                <Property name="Area" value="{{0.555787,0},{0.846296,0},{0.706986,0},{0.948148,0}}" />
+                <Property name="Text" value="start" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_StateSave" >
+                <Property name="Area" value="{{0.794578,0},{0.253704,0},{0.945777,0},{0.355556,0}}" />
+                <Property name="Text" value="StateSave" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="StaticImage_PadL" >
+                <Property name="Area" value="{{0.00625652,0},{0.537037,0},{0.256517,0},{0.981481,0}}" />
+                <Property name="Image" value="imageset_battlefield/yaogan" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_HardwareRest" >
+                <Property name="Area" value="{{0.0542232,0},{0.253704,0},{0.205422,0},{0.355556,0}}" />
+                <Property name="Text" value="HardwareRest" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_Snapshot" >
+                <Property name="Area" value="{{0.0542232,0},{0.131481,0},{0.205422,0},{0.233333,0}}" />
+                <Property name="Text" value="Snapshot" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_MoviePlay" >
+                <Property name="Area" value="{{0.794578,0},{0.131481,0},{0.945777,0},{0.233333,0}}" />
+                <Property name="Text" value="MoviePlay" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_Back" >
+                <Property name="Area" value="{{0.0542232,0},{0.0148148,0},{0.205422,0},{0.116667,0}}" />
+                <Property name="Text" value="Back" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_Select" >
+                <Property name="Area" value="{{0.291971,0},{0.846296,0},{0.44317,0},{0.948148,0}}" />
+                <Property name="Text" value="select" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="StaticImage_PadR" >
+                <Property name="Area" value="{{0.74244,0},{0.540741,0},{0.992701,0},{0.985185,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Window type="TaharezLook/StaticImage" name="StaticImage_RB" >
+                    <Property name="Area" value="{{0.0791667,0},{0.0208333,0},{0.475,0},{0.416667,0}}" />
+                    <Property name="Image" value="gif_gold/a1" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+                <Window type="TaharezLook/StaticImage" name="StaticImage_RA" >
+                    <Property name="Area" value="{{0.533333,0},{0.15,0},{0.929167,0},{0.545833,0}}" />
+                    <Property name="Image" value="gif_gold/b1" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+                <Window type="TaharezLook/StaticImage" name="StaticImage_B" >
+                    <Property name="Area" value="{{0.0791667,0},{0.45,0},{0.475,0},{0.845833,0}}" />
+                    <Property name="Image" value="gif_gold/x1" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+                <Window type="TaharezLook/StaticImage" name="StaticImage_A" >
+                    <Property name="Area" value="{{0.533333,0},{0.5875,0},{0.929167,0},{0.983333,0}}" />
+                    <Property name="Image" value="gif_gold/y1" />
+                    <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                </Window>
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_StateLoad" >
+                <Property name="Area" value="{{0.794577,0},{0.375926,0},{0.945777,0},{0.477777,0}}" />
+                <Property name="Text" value="StateLoad" />
+            </Window>
+            <Window type="TaharezLook/StaticImage" name="StaticImage_Screen" >
+                <Property name="Area" value="{{0.260271,0},{0,0},{0.74098,0},{0.8,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="FrameEnabled" value="false" />
+                <Property name="BackgroundEnabled" value="false" />
+            </Window>
+            <Window type="TaharezLook/Button" name="Button_MovieRec" >
+                <Property name="Area" value="{{0.794578,0},{0.0148148,0},{0.945777,0},{0.116667,0}}" />
+                <Property name="Text" value="MovieRec" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>
